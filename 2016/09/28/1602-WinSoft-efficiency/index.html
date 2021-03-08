@@ -22,15 +22,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="AutoHotKeyAHK 简介 AutoHotkey是一个windows下的开源, 免费, 自动化软件工具.  我主要用于绑定快捷键, 便于快速打开应用和文件夹. 以此提高工作效率 常用符号含义 # 代表 Win 键! 代表 Alt 键^ 代表 Ctrl 键+ 代表 shift 键:: 起分隔作用run 非常常用 的 AHK 命令之一;  注释后面一行内容   举个例子用 Ctrl - Alt">
+<meta name="description" content="如题.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows 软件系列-提高效率">
 <meta property="og:url" content="https://draapho.github.io/2016/09/28/1602-WinSoft-efficiency/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="AutoHotKeyAHK 简介 AutoHotkey是一个windows下的开源, 免费, 自动化软件工具.  我主要用于绑定快捷键, 便于快速打开应用和文件夹. 以此提高工作效率 常用符号含义 # 代表 Win 键! 代表 Alt 键^ 代表 Ctrl 键+ 代表 shift 键:: 起分隔作用run 非常常用 的 AHK 命令之一;  注释后面一行内容   举个例子用 Ctrl - Alt">
+<meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2016-09-27T14:00:00.000Z">
-<meta property="article:modified_time" content="2019-05-19T07:42:44.000Z">
+<meta property="article:modified_time" content="2021-03-08T11:40:12.853Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="windows">
 <meta property="article:tag" content="AutoHotKey">
@@ -186,7 +186,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AutoHotKey"><span class="nav-number">1.</span> <span class="nav-text">AutoHotKey</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AHK-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">AHK 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AHK%E6%87%92%E4%BA%BA%E7%94%A8%E6%B3%95-ezAHK"><span class="nav-number">1.2.</span> <span class="nav-text">AHK懒人用法: ezAHK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E5%92%8C%E5%8F%82%E8%80%83"><span class="nav-number">1.3.</span> <span class="nav-text">资源和参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%90%9C%E7%B4%A2%E5%92%8C%E5%AE%9A%E4%BD%8D"><span class="nav-number">2.</span> <span class="nav-text">快速搜索和定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Everything"><span class="nav-number">2.1.</span> <span class="nav-text">Everything</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Listary"><span class="nav-number">2.2.</span> <span class="nav-text">Listary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-win-r-%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8"><span class="nav-number">2.3.</span> <span class="nav-text">使用 win-r 快速启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ditto"><span class="nav-number">3.</span> <span class="nav-text">Ditto</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chocolatey"><span class="nav-number">4.</span> <span class="nav-text">Chocolatey</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chocolatey-%E7%AE%80%E4%BB%8B"><span class="nav-number">4.1.</span> <span class="nav-text">Chocolatey 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">4.2.</span> <span class="nav-text">常用指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%96%99%E5%92%8C%E5%8F%82%E8%80%83"><span class="nav-number">4.3.</span> <span class="nav-text">资料和参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zeal"><span class="nav-number">5.</span> <span class="nav-text">Zeal</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AutoHotKey"><span class="nav-number">1.</span> <span class="nav-text">AutoHotKey</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AHK-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">AHK 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AHK%E6%87%92%E4%BA%BA%E7%94%A8%E6%B3%95-ezAHK"><span class="nav-number">1.2.</span> <span class="nav-text">AHK懒人用法: ezAHK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E5%92%8C%E5%8F%82%E8%80%83"><span class="nav-number">1.3.</span> <span class="nav-text">资源和参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%90%9C%E7%B4%A2%E5%92%8C%E5%AE%9A%E4%BD%8D"><span class="nav-number">2.</span> <span class="nav-text">快速搜索和定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Everything"><span class="nav-number">2.1.</span> <span class="nav-text">Everything</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Listary"><span class="nav-number">2.2.</span> <span class="nav-text">Listary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-win-r-%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8"><span class="nav-number">2.3.</span> <span class="nav-text">使用 win-r 快速启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ditto"><span class="nav-number">3.</span> <span class="nav-text">Ditto</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chocolatey"><span class="nav-number">4.</span> <span class="nav-text">Chocolatey</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chocolatey-%E7%AE%80%E4%BB%8B"><span class="nav-number">4.1.</span> <span class="nav-text">Chocolatey 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">4.2.</span> <span class="nav-text">常用指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%96%99%E5%92%8C%E5%8F%82%E8%80%83"><span class="nav-number">4.3.</span> <span class="nav-text">资料和参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zeal"><span class="nav-number">5.</span> <span class="nav-text">Zeal</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E6%9B%B4%E6%96%B0-2021%E5%B9%B43%E6%9C%88"><span class="nav-number">6.</span> <span class="nav-text">方案更新(2021年3月)</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -212,7 +212,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -282,7 +282,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-05-19 17:42:44" itemprop="dateModified" datetime="2019-05-19T17:42:44+10:00">2019-05-19</time>
+        <time title="Modified: 2021-03-08 22:40:12" itemprop="dateModified" datetime="2021-03-08T22:40:12+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -297,6 +297,7 @@
   
 </div>
 
+            <div class="post-description">如题.</div>
         </div>
       </header>
 
@@ -304,8 +305,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="AutoHotKey"><a href="#AutoHotKey" class="headerlink" title="AutoHotKey"></a><a target="_blank" rel="noopener" href="https://autohotkey.com/">AutoHotKey</a></h1><h2 id="AHK-简介"><a href="#AHK-简介" class="headerlink" title="AHK 简介"></a>AHK 简介</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://autohotkey.com/">AutoHotkey</a>是一个windows下的开源, 免费, 自动化软件工具. </li>
+        <h1 id="AutoHotKey"><a href="#AutoHotKey" class="headerlink" title="AutoHotKey"></a><del><a target="_blank" rel="noopener" href="https://autohotkey.com/">AutoHotKey</a></del></h1><h2 id="AHK-简介"><a href="#AHK-简介" class="headerlink" title="AHK 简介"></a>AHK 简介</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://autohotkey.com/">AutoHotkey</a>是一个windows下的开源, 免费, 自动化软件工具.</li>
 <li>我主要用于绑定快捷键, 便于快速打开应用和文件夹. 以此提高<strong>工作效率</strong></li>
 <li>常用符号含义<blockquote>
 <p><code>#</code> 代表 Win 键<br><code>!</code> 代表 Alt 键<br><code>^</code> 代表 Ctrl 键<br><code>+</code> 代表 shift 键<br><code>::</code> 起分隔作用<br><code>run</code> 非常常用 的 AHK 命令之一<br><code>;</code>  注释后面一行内容</p>
@@ -348,10 +349,10 @@
 <li><a target="_blank" rel="noopener" href="https://www.voidtools.com/">Everything</a>是免费软件, 有<strong>便携版</strong>.</li>
 <li><a target="_blank" rel="noopener" href="https://www.voidtools.com/">Everything</a>是<strong>普通搜索工具</strong>, 便于在搜索结果中慢慢查阅.</li>
 </ul>
-<h2 id="Listary"><a href="#Listary" class="headerlink" title="Listary"></a><a target="_blank" rel="noopener" href="http://www.listary.com/">Listary</a></h2><ul>
+<h2 id="Listary"><a href="#Listary" class="headerlink" title="Listary"></a><del><a target="_blank" rel="noopener" href="http://www.listary.com/">Listary</a></del></h2><ul>
 <li><a target="_blank" rel="noopener" href="http://www.listary.com/">Listary</a>分为免费版和专业版.</li>
 <li>相比于 <a target="_blank" rel="noopener" href="https://www.voidtools.com/">Everything</a>, 索引方式相似,但操作体验完全不同.</li>
-<li><a target="_blank" rel="noopener" href="http://www.listary.com/">Listary</a>是<strong>随时随地的查找定位</strong>, 目标明确时很方便. </li>
+<li><a target="_blank" rel="noopener" href="http://www.listary.com/">Listary</a>是<strong>随时随地的查找定位</strong>, 目标明确时很方便.</li>
 <li>强烈推荐都尝试一下后决定用哪个, 或和我一样同时使用.</li>
 <li>Listary 实用快捷键</li>
 </ul>
@@ -394,21 +395,21 @@
 <td>下一个 / 上一个(需设置)</td>
 </tr>
 </tbody></table>
-<h2 id="使用-win-r-快速启动"><a href="#使用-win-r-快速启动" class="headerlink" title="使用 win-r 快速启动"></a>使用 <code>win-r</code> 快速启动</h2><ul>
-<li>基本原理是使用 <code>Run</code> 来直接运行配置在环境变量中的快捷方式 <code>.lnk</code>, </li>
+<h2 id="使用-win-r-快速启动"><a href="#使用-win-r-快速启动" class="headerlink" title="使用 win-r 快速启动"></a><del>使用 <code>win-r</code> 快速启动</del></h2><ul>
+<li>基本原理是使用 <code>Run</code> 来直接运行配置在环境变量中的快捷方式 <code>.lnk</code>,</li>
 <li>由于是执行命令行, 比快捷键方式有更好的扩展性和灵活性更好. 也可以在任何终端中直接调用!</li>
 <li>运行环境的搭建可以参考 <a href="https://draapho.github.io/2016/10/09/1608-WinSoft-path/">Windows 软件系列-自定义环境变量</a></li>
 <li>详细介绍可参考 <a target="_blank" rel="noopener" href="https://xbeta.info/win-run.htm#h-6">最绿色最高效，用win+r启动常用程序和文档</a></li>
 <li>为了更省事, 可以使用AHK设置为<code>win</code>键替代<code>win-r</code>键</li>
 <li>要把win键也省了的话, 专业版 <a target="_blank" rel="noopener" href="http://www.listary.com/">Listary</a> 可以满足这个需求</li>
 </ul>
-<h1 id="Ditto"><a href="#Ditto" class="headerlink" title="Ditto"></a><a target="_blank" rel="noopener" href="http://ditto-cp.sourceforge.net/">Ditto</a></h1><ul>
+<h1 id="Ditto"><a href="#Ditto" class="headerlink" title="Ditto"></a><del><a target="_blank" rel="noopener" href="http://ditto-cp.sourceforge.net/">Ditto</a></del></h1><ul>
 <li><a target="_blank" rel="noopener" href="http://ditto-cp.sourceforge.net/">Ditto</a> 一款剪切板增强软件, 免费开源. 有绿色便携版(无法支持部分功能)</li>
 <li>对复制黏贴功能多多支持总是好的, 使用频率太高了! 这个软件的功能非常实用.<br> - 软件的核心在于 <code>ctrl-~</code> 调用出 Ditto 信息板<br> - <code>shift-enter</code> 忽略格式黏贴纯文本<br> - <code>新建剪辑</code>-&gt;<code>项目标题</code> <code>email</code>-&gt;<code>快速黏贴文本</code> <code>myemail@gmail.com</code>-&gt;设置为<code>禁止自动删除</code>, 也可以归类到组. 以后只需输入email, 就可以直接黏贴具体email地址了<br> - 轻松管理复制历史, 可用作搜索资料, 然后批量黏贴</li>
 <li>重新设置 <code>激活Ditto</code> 快捷键为 <code>ctrl-q</code>, 因为 <code>ctrl-~</code>默认用于打开终端</li>
 <li>参考 <a target="_blank" rel="noopener" href="https://xbeta.info/ditto.htm">Ditto:首选的剪贴板增强软件</a></li>
 </ul>
-<h1 id="Chocolatey"><a href="#Chocolatey" class="headerlink" title="Chocolatey"></a><del><a target="_blank" rel="noopener" href="https://chocolatey.org/">Chocolatey</a></del></h1><p><strong><a target="_blank" rel="noopener" href="https://chocolatey.org/">Chocolatey</a>可以作为软件安装的补充, 但不做推荐</strong> </p>
+<h1 id="Chocolatey"><a href="#Chocolatey" class="headerlink" title="Chocolatey"></a><del><a target="_blank" rel="noopener" href="https://chocolatey.org/">Chocolatey</a></del></h1><p><strong><a target="_blank" rel="noopener" href="https://chocolatey.org/">Chocolatey</a>可以作为软件安装的补充, 但不做推荐</strong></p>
 <h2 id="Chocolatey-简介"><a href="#Chocolatey-简介" class="headerlink" title="Chocolatey 简介"></a>Chocolatey 简介</h2><ul>
 <li>  <a target="_blank" rel="noopener" href="https://chocolatey.org/">Chocolatey</a>是windows下的软件管理工具. 软件源由社区成员提交和维护. 基础版免费.</li>
 <li>  基于命令行来查找和安装软件,方便快捷,<del>耍酷</del>.</li>
@@ -439,7 +440,7 @@
 </ul>
 </li>
 <li>以nodejs为例<ul>
-<li><code>choco search nodejs</code> 加 <code>-all</code> 会显示所有版本!!! </li>
+<li><code>choco search nodejs</code> 加 <code>-all</code> 会显示所有版本!!!</li>
 <li>建议网页端搜索 <a target="_blank" rel="noopener" href="https://chocolatey.org/packages/"><strong>软件源列表</strong></a></li>
 <li><code>choco install nodejs -version 5.0.0</code>  安装nodejs 5.0.0这个版本, 默认使用安装 <strong>.install</strong></li>
 <li><code>choco upgrade nodejs</code>  升级nodejs到最新版本</li>
@@ -455,11 +456,19 @@
 <li><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/831aa4a280e7">Windows下的包管理器Chocolatey</a></li>
 <li><a target="_blank" rel="noopener" href="https://medium.com/@keivan/why-chocolatey-is-broken-beyond-any-hope-d1a4e33b3d23#.jzmj9o5cd">Why Chocolatey is broken beyond any hope</a></li>
 </ul>
-<h1 id="Zeal"><a href="#Zeal" class="headerlink" title="Zeal"></a><a target="_blank" rel="noopener" href="https://zealdocs.org/">Zeal</a></h1><ul>
+<h1 id="Zeal"><a href="#Zeal" class="headerlink" title="Zeal"></a><del><a target="_blank" rel="noopener" href="https://zealdocs.org/">Zeal</a></del></h1><ul>
 <li><a target="_blank" rel="noopener" href="https://zealdocs.org/">Zeal</a>是一款在windows和Linux上, 功能类似于Mac上Dash的一款离线文档查看软件.</li>
 <li>免费软件, 有绿色便携版, 支持的手册种类和Dash是一样的. 应该是为了跨平台, 基于Qt5开发, 反应有点慢.</li>
 <li>下载安装完成后, <code>Tool</code>-&gt;<code>Docksets...</code>-&gt;窗口<code>Docsets</code>下-&gt;<code>Available</code>-&gt;选择语言-&gt;<code>Download</code>即可.</li>
 <li><strong>软件开发人员必备</strong>. 还可以在atom直接调用查看API, 省去大量的文档搜索时间.</li>
+</ul>
+<h1 id="方案更新-2021年3月"><a href="#方案更新-2021年3月" class="headerlink" title="方案更新(2021年3月)"></a>方案更新(2021年3月)</h1><ul>
+<li>配置好以下两个软件就足够了.<ul>
+<li><a target="_blank" rel="noopener" href="https://getquicker.net/">Quicker</a> 免费版, 完全使用鼠标的效率提升软件.</li>
+<li><a target="_blank" rel="noopener" href="https://u.tools/">utools</a> 免费版, 完全使用键盘的效率提升软件.</li>
+</ul>
+</li>
+<li>需要部分的第三方软件支持, 如 <a target="_blank" rel="noopener" href="https://www.voidtools.com/">Everything</a></li>
 </ul>
 <hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>

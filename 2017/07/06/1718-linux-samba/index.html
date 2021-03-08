@@ -22,15 +22,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="背景家用电脑, 环境的搭建思路可参考嵌入式linux环境搭建-主机端 单位电脑, 没有使用nfs共享文件.用的环境是: VMware Ubuntu 16.04 + Windows 7 + VMware 文件共享尝试编译uboot时, 弹出一个错误提示  ln: creating symbolic link XXXXXX : Operation not supported  问题根源和解决方法:出现">
+<meta name="description" content="嵌入式linux环境搭建步骤之一.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu下配置支持Windows访问的samba共享">
 <meta property="og:url" content="https://draapho.github.io/2017/07/06/1718-linux-samba/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="背景家用电脑, 环境的搭建思路可参考嵌入式linux环境搭建-主机端 单位电脑, 没有使用nfs共享文件.用的环境是: VMware Ubuntu 16.04 + Windows 7 + VMware 文件共享尝试编译uboot时, 弹出一个错误提示  ln: creating symbolic link XXXXXX : Operation not supported  问题根源和解决方法:出现">
+<meta property="og:description" content="嵌入式linux环境搭建步骤之一.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-07-05T14:00:00.000Z">
-<meta property="article:modified_time" content="2018-01-05T13:09:00.000Z">
+<meta property="article:modified_time" content="2021-03-08T12:43:50.185Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="embedded linux">
 <meta property="article:tag" content="uboot">
@@ -213,7 +213,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -283,7 +283,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2018-01-06 00:09:00" itemprop="dateModified" datetime="2018-01-06T00:09:00+11:00">2018-01-06</time>
+        <time title="Modified: 2021-03-08 23:43:50" itemprop="dateModified" datetime="2021-03-08T23:43:50+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -298,6 +298,7 @@
   
 </div>
 
+            <div class="post-description">嵌入式linux环境搭建步骤之一.</div>
         </div>
       </header>
 
@@ -339,7 +340,7 @@
 <li><p>Windows客户端访问测试<br> 可以访问如下地址 <code>\\Linux的IP或者主机名\share</code></p>
 </li>
 <li><p>我一般会把虚拟机端Linux的IP搞成静态地址, 这样远程登录也更方便</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ifconfig                          <span class="comment"># 查看IP信息</span></span><br><span class="line">$ sudo vim /etc/network/interfaces</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ===== 文件内容, 大致修改如下: =====</span></span><br><span class="line">    auto lo</span><br><span class="line">    iface lo inet loopback</span><br><span class="line">    auto eth0</span><br><span class="line"></span><br><span class="line">    iface eth0 inet static          <span class="comment"># 使用静态地址</span></span><br><span class="line">    address  192.168.0.100          <span class="comment"># 设置静态地址</span></span><br><span class="line">    netmask  255.255.255.0</span><br><span class="line">    gateway  192.168.0.1            <span class="comment"># 网关</span></span><br><span class="line">    dns-nameservers   8.8.8.8  192.168.0.1 </span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ifconfig                          <span class="comment"># 查看IP信息</span></span><br><span class="line">$ sudo vim /etc/network/interfaces</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ===== 文件内容, 大致修改如下: =====</span></span><br><span class="line">    auto lo</span><br><span class="line">    iface lo inet loopback</span><br><span class="line">    auto eth0</span><br><span class="line"></span><br><span class="line">    iface eth0 inet static          <span class="comment"># 使用静态地址</span></span><br><span class="line">    address  192.168.0.100          <span class="comment"># 设置静态地址</span></span><br><span class="line">    netmask  255.255.255.0</span><br><span class="line">    gateway  192.168.0.1            <span class="comment"># 网关</span></span><br><span class="line">    dns-nameservers   8.8.8.8  192.168.0.1</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>如果public = no，此时需要输入samba用户密码；<br>如果public = yes，则作为nobody用户直接访问。<br>另外，在Windows客户端使用 <code>net use * /del /y</code> 这条命令可以清理访问缓存。</p>
 <hr>

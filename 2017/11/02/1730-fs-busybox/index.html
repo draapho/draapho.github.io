@@ -22,15 +22,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="总览 嵌入式linux学习目录 fs之Busybox的编译与使用 fs之创建文件系统  本文使用 linux-2.6.22.6 内核, 使用jz2440开发板. 什么是BusyBoxBusyBox 是linux下的一个应用程序, 集成了最常用的Linux命令和工具.在jz2440开发板里, BusyBox是内核成功启动后, 调用的第一个应用程序.启动jz2440开发板, 在终端内输入如下指令, 可">
+<meta name="description" content="如题.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fs之BusyBox的使用与编译">
 <meta property="og:url" content="https://draapho.github.io/2017/11/02/1730-fs-busybox/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="总览 嵌入式linux学习目录 fs之Busybox的编译与使用 fs之创建文件系统  本文使用 linux-2.6.22.6 内核, 使用jz2440开发板. 什么是BusyBoxBusyBox 是linux下的一个应用程序, 集成了最常用的Linux命令和工具.在jz2440开发板里, BusyBox是内核成功启动后, 调用的第一个应用程序.启动jz2440开发板, 在终端内输入如下指令, 可">
+<meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-11-01T13:00:00.000Z">
-<meta property="article:modified_time" content="2017-11-27T03:06:38.000Z">
+<meta property="article:modified_time" content="2021-03-08T12:36:14.602Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="embedded linux">
 <meta property="article:tag" content="fs">
@@ -212,7 +212,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -282,7 +282,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2017-11-27 14:06:38" itemprop="dateModified" datetime="2017-11-27T14:06:38+11:00">2017-11-27</time>
+        <time title="Modified: 2021-03-08 23:36:14" itemprop="dateModified" datetime="2021-03-08T23:36:14+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -297,6 +297,7 @@
   
 </div>
 
+            <div class="post-description">如题.</div>
         </div>
       </header>
 
@@ -316,7 +317,7 @@
 <h1 id="BusyBox的使用"><a href="#BusyBox的使用" class="headerlink" title="BusyBox的使用"></a>BusyBox的使用</h1><p>内核启动后, 调用的第一个应用程序就是BusyBox. 而BusyBox的职责如下:</p>
 <ul>
 <li>读取配置文件, <code>/etc/inittab</code></li>
-<li>解析配置文件, <code>&lt;id&gt;:&lt;runlevels&gt;:&lt;action&gt;:&lt;process&gt;</code>  <ul>
+<li>解析配置文件, <code>&lt;id&gt;:&lt;runlevels&gt;:&lt;action&gt;:&lt;process&gt;</code><ul>
 <li>指定程序, <code>&lt;process&gt;</code></li>
 <li>何时执行, <code>&lt;action&gt;</code></li>
 </ul>
@@ -403,7 +404,7 @@
 <p>这样, BusyBox编译就完成了.<br>然后, 就可以考虑构建linux的文件系统了</p>
 <p>要构建一个最小的linux根文件系统, 至少需要如下文件:</p>
 <ul>
-<li><code>dev/console</code>, linux内核的标准IO接口 </li>
+<li><code>dev/console</code>, linux内核的标准IO接口</li>
 <li><code>dev/null</code>, 相当于一个NULL文件</li>
 <li>init进程, 即 <code>bin/busybox</code></li>
 <li><code>etc/inittab</code> 配置文件, (可以省略, busybox会调用其默认值)</li>

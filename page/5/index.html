@@ -207,7 +207,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -276,7 +276,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2017-12-16 13:18:38" itemprop="dateModified" datetime="2017-12-16T13:18:38+11:00">2017-12-16</time>
+        <time title="Modified: 2021-03-08 23:32:38" itemprop="dateModified" datetime="2021-03-08T23:32:38+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -298,52 +298,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Yocto的简介就不抄写了, 反正我光看介绍并不明白Yocto到底是干吗的.<br>但应该确确实实让定制和开发嵌入式Linux系统变得更方便, 招聘要求里会Yocto都是加分项.<br>所以决定动手实践一下, 先有个感性认识再说.</p>
-<p>下文基本按照官网的 <a target="_blank" rel="noopener" href="https://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html">Yocto Project Quick Start</a> 步骤而来.</p>
-<h1 id="第一步-安装-Yocto-Project"><a href="#第一步-安装-Yocto-Project" class="headerlink" title="第一步, 安装 Yocto Project"></a>第一步, 安装 Yocto Project</h1><p>安装 Yocto Project 有两个方法:</p>
-<ul>
-<li>使用 CROPS (CROss PlatformS), 直观的说, 就是基于Docker平台进行安装<ul>
-<li>我并没有采用这种方法, 因为手头已经有现成的Ubuntu系统了</li>
-<li>Docker相关内容, 可以参考我的笔记 <a href="https://draapho.github.io/2017/02/23/1708-docker/">Docker 初学笔记</a></li>
-</ul>
-</li>
-<li>第二个方法就是基于Linux系统安装<ul>
-<li>此文基于 Ubuntu 16.04 32bit 桌面版</li>
-<li>基本要求: 50G的硬盘空间, 建议预留100G</li>
-<li>支持主流Linux系统, 如 Fedora, CentOS, Debian, Ubuntu</li>
-<li>Git 1.8.3.1或以上版本</li>
-<li>tar 1.27或以上版本</li>
-<li>python 3.4.0或以上版本</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu, 安装软件</span></span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib \</span><br><span class="line">    build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \</span><br><span class="line">    xz-utils debianutils iputils-ping libsdl1.2-dev xterm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 确认一下软件版本</span></span><br><span class="line">$ git --version</span><br><span class="line">git version 2.7.4</span><br><span class="line">$ tar --version</span><br><span class="line">tar (GNU tar) 1.28</span><br><span class="line">$ python3</span><br><span class="line">Python 3.5.2</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">exit</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果没有装好, 可单独安装</span></span><br><span class="line">$ sudo apt install git</span><br><span class="line">$ sudo apt install tar</span><br><span class="line">$ sudo apt install python3</span><br></pre></td></tr></table></figure>
-
-<p>这样就准备好了安装环境. 然后安装 Yocto Project</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建一下yocto目录, 整个项目就放在此目录下面</span></span><br><span class="line">$ mkdir ~/yocto</span><br><span class="line">$ <span class="built_in">cd</span> ~/yocto</span><br><span class="line"></span><br><span class="line"><span class="comment"># git获取工程</span></span><br><span class="line">$ git <span class="built_in">clone</span> git://git.yoctoproject.org/poky</span><br><span class="line">...</span><br><span class="line">Checking connectivity... <span class="keyword">done</span>.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载完成后, 有个poky文件夹. </span></span><br><span class="line"><span class="comment"># 如果是从别处下载再拷贝进Ubuntu的, 可能需要改个权限</span></span><br><span class="line"><span class="comment"># 因为后面的bitbake命令不允许已root用户操作.</span></span><br><span class="line">$ sudo chmod -R +777 poky/</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="第二步-定制Linux镜像文件"><a href="#第二步-定制Linux镜像文件" class="headerlink" title="第二步, 定制Linux镜像文件"></a>第二步, 定制Linux镜像文件</h1><p>安装好 Yocto Project 后, 就需要体验一把定制Linux镜像</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># pwd &#x3D; ~&#x2F;yocto&#x2F;poky&#x2F;</span><br><span class="line"></span><br><span class="line"># 创建一个git分支, 基于此分支制作自己的Linux镜像</span><br><span class="line">$ sudo git checkout -b rocko origin&#x2F;rocko</span><br><span class="line">$ git branch</span><br><span class="line">  master</span><br><span class="line">* rocko</span><br><span class="line"></span><br><span class="line"># 执行脚本, 创建了一些默认配置</span><br><span class="line">$ source oe-init-build-env</span><br><span class="line">You can now run &#39;bitbake &lt;target&gt;&#39;</span><br><span class="line">Common targets are:</span><br><span class="line">    core-image-minimal</span><br><span class="line">    core-image-sato</span><br><span class="line">    meta-toolchain</span><br><span class="line">    meta-ide-support</span><br><span class="line"># 显示后续操作的说明, 并自动进入 build 目录</span><br><span class="line"></span><br><span class="line"># pwd &#x3D; ~&#x2F;yocto&#x2F;poky&#x2F;build</span><br><span class="line">$ ls conf&#x2F;</span><br><span class="line"># 三个.conf文件, 教程简单介绍了一下 local.conf 里的 MACHINE 和 PACKAGE_CLASSES</span><br><span class="line">$ vim conf&#x2F;local.conf</span><br><span class="line"># 看一下配置文件, 有个直观感受. 先用默认值, 不去修改</span><br><span class="line"></span><br><span class="line">$ bitbake core-image-sato</span><br><span class="line"># 第一次的话, 会非常非常慢, 下载源码加编译, 可能花费几个小时...</span><br><span class="line"></span><br><span class="line"># 烘焙(bitbake)好image后, 在虚拟环境QEMU下看看效果</span><br><span class="line">$ runqemu qemux86</span><br></pre></td></tr></table></figure>
-
-<p>至此, 体验完成. 实际硬件环境的流程基本一致, 就是还要考虑烧录和启动的问题.<br>这是嵌入式Linux开发的基本能力, 略过不表.</p>
-<h1 id="一些弯路"><a href="#一些弯路" class="headerlink" title="一些弯路"></a><del>一些弯路</del></h1><p>第一个弯路是python版本问题, 造成安装软件失败<br>直接运行python, 默认是2.7. 然后想着需要改成3.5版本的.<br>按照网上教程, 修改python软链接, 但会导致apt安装软件失败.<br>原因是有些软件依赖于python2.7, 改为3.5后, 安装过程会发生语法错误.<br>具体可参考 <a href="https://draapho.github.io/2017/11/26/1736-linux-apt/">linux软件的安装和管理</a> 的 <code>X not fully installed or removed</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ll /usr/bin/python*</span><br><span class="line">lrwxrwxrwx 1 root root       9 Nov 24 07:18 /usr/bin/python -&gt; python2.7*</span><br><span class="line">$ sudo rm /usr/bin/python</span><br><span class="line">$ sudo ln -s /usr/bin/python3.5 /usr/bin/python</span><br><span class="line">$ ll /usr/bin/python*</span><br><span class="line">lrwxrwxrwx 1 root root       9 Nov 24 07:18 /usr/bin/python -&gt; python3.5*</span><br><span class="line">$ python</span><br><span class="line">Python 3.5.2 (default, Nov 23 2017, 16:37:01) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 这样改完以后, 再去安装 libsdl1.2-dev 会报错! 解决方法是改回来...</span></span><br></pre></td></tr></table></figure>
-
-<p>第二个弯路是安装虚拟机的时候, 只给了20G的空间. 扩盘的方法如下:<br><a target="_blank" rel="noopener" href="https://lzw.me/a/vmware-ubuntu-disk-space.html">扩大Vmware虚拟机中Ubuntu系统磁盘空间的方法</a>, 建议直接用可视化的软件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt install gparted</span><br><span class="line">$ sudo gparted</span><br><span class="line"></span><br><span class="line"># 重启后自动挂载, 可以格式化并重命名为 extend</span><br><span class="line"># 自动挂载路径为 &#x2F;media&#x2F;user-name&#x2F;extend, 没有重命名的话, 是一长串ID</span><br><span class="line">$ sudo chmod +777 &#x2F;media&#x2F;draapho&#x2F;extend</span><br><span class="line">$ sudo ln -s &#x2F;media&#x2F;draapho&#x2F;extend ~&#x2F;share&#x2F;extend</span><br><span class="line"># 改下权限, 建立软连接方便操作.</span><br><span class="line"># 由于空间要求, yocto项目就放在这个盘里面.</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html">Yocto Project Quick Start</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/linux/l-yocto-linux/index.html">使用 Yocto Project 构建自定义嵌入式 Linux 发行版</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.sohu.com/a/134506616_468740">在MIPS平台上如何使用Yocto框架来定制嵌入式Linux发行版</a>, 里面有个视频, 介绍了yocto的好处</li>
-<li><a target="_blank" rel="noopener" href="http://www.eeskill.com/article/id/2761">基于Yocto Project的嵌入式应用设计</a></li>
-</ul>
-
+          <p>如题.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/15/1745-yocto-install/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -400,7 +363,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2018-01-04 18:43:48" itemprop="dateModified" datetime="2018-01-04T18:43:48+11:00">2018-01-04</time>
+        <time title="Modified: 2021-03-08 23:32:42" itemprop="dateModified" datetime="2021-03-08T23:32:42+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -422,62 +385,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
-<li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
-<li><a href="https://draapho.github.io/2017/11/30/1740-drv-chr2/">驱动之基于LinK+设计按键驱动</a></li>
-<li><a href="https://draapho.github.io/2017/12/07/1741-drv-chr3/">驱动之基于中断设计按键驱动</a></li>
-<li><a href="https://draapho.github.io/2017/12/11/1742-drv-chr4/">驱动之poll机制</a></li>
-<li><a href="https://draapho.github.io/2017/12/12/1743-drv-chr5/">驱动之异步通知</a></li>
-<li><a href="https://draapho.github.io/2017/12/13/1744-drv-chr6/">驱动之同步互斥阻塞</a></li>
-<li><a href="https://draapho.github.io/2018/01/04/1801-drv-chr7/">驱动之定时器按键防抖</a></li>
-</ul>
-<p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.<br>硬件具备唯一性, 因此某一时刻应该只有一个应用程序能对驱动进行操作.</p>
-<h1 id="原子操作"><a href="#原子操作" class="headerlink" title="原子操作"></a>原子操作</h1><p><strong>原子操作指的是在执行过程中不会被别的进程或中断所打断的操作</strong><br>底层实现就是 <code>raw_local_irq_save</code> <code>raw_local_irq_restore</code>, 保存中断并禁止, 操作完成后, 恢复.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 常用的原子操作函数</span></span><br><span class="line"><span class="keyword">atomic_t</span> v = ATOMIC_INIT(<span class="number">0</span>);            <span class="comment">// 定义原子变量v并初始化为0</span></span><br><span class="line">atomic_read(<span class="keyword">atomic_t</span> *v);               <span class="comment">// 返回原子变量的值</span></span><br><span class="line">atomic_inc(<span class="keyword">atomic_t</span> *v);                <span class="comment">// 原子变量增加1</span></span><br><span class="line">atomic_dec(<span class="keyword">atomic_t</span> *v);                <span class="comment">// 原子变量减少1</span></span><br><span class="line">atomic_dec_and_test(<span class="keyword">atomic_t</span> *v);       <span class="comment">// 自减操作后测试其是否为0，为0则返回true，否则返回false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 更多宏定义可参考 /linux/include/asm/atomic.h</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="drv-sem-c"><a href="#drv-sem-c" class="headerlink" title="drv_sem.c"></a>drv_sem.c</h2><p>源码基于 <a href="https://draapho.github.io/2017/12/07/1741-drv-chr3/">驱动之基于中断设计按键驱动</a>, 部分修改而来<br>只显示新增和修改的部分. 这样更直观易懂.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;drv_sem.h&quot;</span>                                 <span class="comment">// 头文件改一下</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_INT_NODE_NAME <span class="meta-string">&quot;drv_sem&quot;</span>             <span class="comment">// 名称改一下</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">atomic_t</span> canopen = ATOMIC_INIT(<span class="number">1</span>);                  <span class="comment">// 定义原子变量canopen并初始化为1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">drv_key_int_open</span><span class="params">(struct inode *inode,struct file *filp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ret;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!atomic_dec_and_test(&amp;canopen)) &#123;           <span class="comment">// 新增的原子操作判断 </span></span><br><span class="line">        atomic_inc(&amp;canopen);                       <span class="comment">// 打开失败, 恢复到0</span></span><br><span class="line">        <span class="keyword">return</span> -EBUSY;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 因为这一句的存在, 就算没有原子操作 应用程序无法调用此驱动多次. 先注释掉.</span></span><br><span class="line">	<span class="comment">// if (ret) return -EINVAL;                        </span></span><br><span class="line">	<span class="comment">// else return 0;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;                                       <span class="comment">// 为了测试, 直接返回0.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">drv_key_int_release</span><span class="params">(struct inode *inode,struct file *filp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	......</span><br><span class="line">    </span><br><span class="line">    atomic_inc(&amp;canopen);                           <span class="comment">// 恢复原子操作为1</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="drv-sem-h"><a href="#drv-sem-h" class="headerlink" title="drv_sem.h"></a>drv_sem.h</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRIVER_NAME <span class="meta-string">&quot;drv_sem&quot;</span>       <span class="comment">// 名称改一下</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">obj-m		:= drv_sem.o            <span class="comment"># 目标名称改一下</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="测试文件-test-drv-sem-c"><a href="#测试文件-test-drv-sem-c" class="headerlink" title="测试文件 test_drv_sem.c"></a>测试文件 test_drv_sem.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fd;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> keys_val;</span><br><span class="line"></span><br><span class="line">	fd = open(<span class="string">&quot;/dev/drv_sem0&quot;</span>, O_RDWR);</span><br><span class="line">	<span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;can&#x27;t open!\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">		read(fd, &amp;keys_val, <span class="number">1</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;keys_val=0x%x, pid=%d\n&quot;</span>, keys_val, getpid());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="编译并测试"><a href="#编译并测试" class="headerlink" title="编译并测试"></a>编译并测试</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu主机端, 编译驱动和测试文件</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_sem/KERN_SRC    # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line">$ make clean</span><br><span class="line">$ make modules</span><br><span class="line">$ arm-linux-gcc test_drv_sem.c -o test_drv_sem</span><br><span class="line"></span><br><span class="line"><span class="comment"># jz2440端</span></span><br><span class="line">$ insmod drv_sem.ko</span><br><span class="line">drv_sem:INIT</span><br><span class="line"></span><br><span class="line">$ ./test_drv_sem &amp;      <span class="comment"># 第一次运行</span></span><br><span class="line">$ top</span><br><span class="line">789   779 0        S     1312   2%   0% ./test_drv_sem</span><br><span class="line"><span class="comment"># 显示当前进程信息.</span></span><br><span class="line">$ ./test_drv_sem &amp;      <span class="comment"># 第二次运行</span></span><br><span class="line">can<span class="string">&#x27;t open!             # 打开文件失败</span></span><br><span class="line"><span class="string">$ top</span></span><br><span class="line"><span class="string">789   779 0        S     1312   2%   0% ./test_drv_sem</span></span><br><span class="line"><span class="string"># 依旧只有一个处于睡眠状态的测试程序.</span></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h1><p>信号量是用于保护临界区的一种常用方法, 只有得到信号量进程才能执行临界区代码.<br>与原子操作不同的是, 当获取不到信号量是, <strong>进程进入休眠等待状态!</strong><br>一但其他进程释放信号量, 该进程获得信号量后, 会恢复运行.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//定义信号量</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">semaphore</span> <span class="title">sem</span>;</span>                       <span class="comment">// 信号量</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">DECLARE_MUTEX</span><span class="params">(lock)</span></span>;                 <span class="comment">// 定义互斥锁</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化信号量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sema_init</span> <span class="params">(struct semaphore *sem, <span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_MUTEX</span><span class="params">(struct semaphore *sem)</span></span>;     <span class="comment">// 初始化为0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获得信号量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(struct semaphore * sem)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">down_interruptible</span><span class="params">(struct semaphore * sem)</span></span>; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">down_trylock</span><span class="params">(struct semaphore * sem)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//释放信号量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up</span><span class="params">(struct semaphore * sem)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="drv-sem-c-1"><a href="#drv-sem-c-1" class="headerlink" title="drv_sem.c"></a>drv_sem.c</h2><p>源码基于 <a href="https://draapho.github.io/2017/12/07/1741-drv-chr3/">驱动之基于中断设计按键驱动</a>, 部分修改而来<br>只显示新增和修改的部分. 这样更直观易懂.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;drv_sem.h&quot;</span>                                 <span class="comment">// 头文件改一下</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_INT_NODE_NAME <span class="meta-string">&quot;drv_sem&quot;</span>             <span class="comment">// 名称改一下</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">atomic_t</span> canopen = ATOMIC_INIT(<span class="number">1</span>);                  <span class="comment">// 定义原子变量canopen并初始化为1</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">DECLARE_MUTEX</span><span class="params">(key_lock)</span></span>;                     <span class="comment">// 定义互斥锁 </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">drv_key_int_open</span><span class="params">(struct inode *inode,struct file *filp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ret;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line">    <span class="keyword">if</span> (!atomic_dec_and_test(&amp;canopen)) &#123;           <span class="comment">// 新增的原子操作判断 </span></span><br><span class="line">        atomic_inc(&amp;canopen);                       <span class="comment">// 打开失败, 恢复到0</span></span><br><span class="line">        <span class="keyword">return</span> -EBUSY;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    down(&amp;key_lock);                                <span class="comment">// 获取信号量</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    </span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 因为这一句的存在, 就算没有原子操作 应用程序无法调用此驱动多次. 先注释掉.</span></span><br><span class="line">	<span class="comment">// if (ret) return -EINVAL;                        </span></span><br><span class="line">	<span class="comment">// else return 0;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;                                       <span class="comment">// 为了测试, 直接返回0.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">drv_key_int_release</span><span class="params">(struct inode *inode,struct file *filp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	......</span><br><span class="line">    </span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line">    atomic_inc(&amp;canopen);                           <span class="comment">// 恢复原子操作为1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    up(&amp;key_lock);                                  <span class="comment">// 释放信号量</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其它文件 <code>drv_sem.h</code> <code>Makefile</code> <code>test_drv_sem.c</code> 和原子操作的部分一样. 不用修改</p>
-<h2 id="编译并测试-1"><a href="#编译并测试-1" class="headerlink" title="编译并测试"></a>编译并测试</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu主机端, 编译驱动和测试文件</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_sem/KERN_SRC    # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line">$ make clean</span><br><span class="line">$ make modules</span><br><span class="line">$ arm-linux-gcc test_drv_sem.c -o test_drv_sem</span><br><span class="line"></span><br><span class="line"><span class="comment"># jz2440端</span></span><br><span class="line">$ insmod drv_sem.ko</span><br><span class="line">drv_sem:INIT</span><br><span class="line"></span><br><span class="line">$ ./test_drv_sem &amp;      <span class="comment"># 第一次运行</span></span><br><span class="line">$ top</span><br><span class="line">789   779 0        S     1312   2%   0% ./test_drv_sem</span><br><span class="line"><span class="comment"># 显示当前进程信息.</span></span><br><span class="line">$ ./test_drv_sem &amp;      <span class="comment"># 第二次运行</span></span><br><span class="line"><span class="comment"># 并不会显示 can&#x27;t open!, 此进程实际上在等待获取信号量</span></span><br><span class="line">$ top</span><br><span class="line">789   779 0        S     1312   2%   0% ./test_drv_sem</span><br><span class="line">791   779 0        D     1308   2%   0% ./test_drv_sem</span><br><span class="line"><span class="comment"># 789 是第一个进程, 处于S, 可中断的睡眠状态, 在等待按键中断</span></span><br><span class="line"><span class="comment"># 791 是第二个进程, 处于D, 不可中断的睡眠状态, 在等待获取信号量</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">kill</span> 789</span><br><span class="line">$ top                   <span class="comment"># 结束第一个进程, 再看进程表</span></span><br><span class="line">791   779 0        S     1308   2%   0% ./test_drv_sem</span><br><span class="line"><span class="comment"># 791 是第二进程, 获取信号量成功后开始运行, 处于S状态.</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="阻塞和非阻塞"><a href="#阻塞和非阻塞" class="headerlink" title="阻塞和非阻塞"></a>阻塞和非阻塞</h1><ul>
-<li>阻塞操作<ul>
-<li>系统默认就是阻塞操作</li>
-<li>是指在执行设备操作时若不能获得资源则挂起进程，直到满足可操作的条件后再进行操作。</li>
-<li>被挂起的进程进入休眠状态，被从调度器的运行队列移走，直到等待的条件被满足。</li>
-</ul>
-</li>
-<li>非阻塞操作<ul>
-<li>使用宏定义 <code>O_NONBLOCK</code></li>
-<li>进程在不能进行设备操作时并不挂起，它或者放弃，或者不停地查询，直至可以进行操作为止。</li>
-</ul>
-</li>
-</ul>
-<h2 id="drv-sem-c-2"><a href="#drv-sem-c-2" class="headerlink" title="drv_sem.c"></a>drv_sem.c</h2><p>源码基于 <a href="https://draapho.github.io/2017/12/07/1741-drv-chr3/">驱动之基于中断设计按键驱动</a>, 部分修改而来<br>只显示新增和修改的部分. 这样更直观易懂.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;drv_sem.h&quot;</span>                                 <span class="comment">// 头文件改一下</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_INT_NODE_NAME <span class="meta-string">&quot;drv_sem&quot;</span>             <span class="comment">// 名称改一下</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">atomic_t</span> canopen = ATOMIC_INIT(<span class="number">1</span>);                  <span class="comment">// 定义原子变量canopen并初始化为1</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">DECLARE_MUTEX</span><span class="params">(key_lock)</span></span>;                     <span class="comment">// 定义互斥锁 </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">drv_key_int_open</span><span class="params">(struct inode *inode,struct file *filp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ret;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line">    <span class="keyword">if</span> (!atomic_dec_and_test(&amp;canopen)) &#123;</span><br><span class="line">        atomic_inc(&amp;canopen); </span><br><span class="line">        <span class="keyword">return</span> -EBUSY;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    <span class="keyword">if</span> (filp-&gt;f_flags &amp; O_NONBLOCK) &#123;               <span class="comment">// 非阻塞</span></span><br><span class="line">        <span class="keyword">if</span> (down_trylock(&amp;key_lock))                <span class="comment">// 尝试获取信号量</span></span><br><span class="line">            <span class="keyword">return</span> -EBUSY;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        down(&amp;key_lock);                            <span class="comment">// 获取信号量, 阻塞</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    </span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 因为这一句的存在, 就算没有原子操作 应用程序无法调用此驱动多次. 先注释掉.</span></span><br><span class="line">	<span class="comment">// if (ret) return -EINVAL;                        </span></span><br><span class="line">	<span class="comment">// else return 0;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;                                       <span class="comment">// 为了测试, 直接返回0.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">ssize_t</span> <span class="title">drv_key_int_read</span><span class="params">(struct file *filp,  <span class="comment">// 读取函数也需要修改一下!</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">char</span> __user *ubuff,<span class="keyword">size_t</span> count,<span class="keyword">loff_t</span> *offp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">if</span> (count != <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> -EINVAL;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (filp-&gt;f_flags &amp; O_NONBLOCK) &#123;               <span class="comment">// 非阻塞</span></span><br><span class="line">        <span class="keyword">if</span> (!ev_press)                              <span class="comment">// 无按键, 立刻返回</span></span><br><span class="line">            <span class="keyword">return</span> -EAGAIN;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// ev_press, 用于判断是否可以让当前进程睡眠(让出CPU, 进程切换)</span></span><br><span class="line">        wait_event_interruptible(key_waitq, ev_press);      <span class="comment">// 阻塞</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ev_press = <span class="number">0</span>;                                           <span class="comment">// 运行后, 立刻清零</span></span><br><span class="line">    <span class="keyword">if</span> (copy_to_user(ubuff, &amp;keys_val, <span class="number">1</span>)) &#123;                <span class="comment">// 传回按键值</span></span><br><span class="line">        <span class="keyword">return</span> -EFAULT;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">drv_key_int_release</span><span class="params">(struct inode *inode,struct file *filp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	......</span><br><span class="line">    </span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line">    atomic_inc(&amp;canopen);                           <span class="comment">// 恢复原子操作为1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    up(&amp;key_lock);                                  <span class="comment">// 释放信号量</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>文件 <code>drv_sem.h</code> <code>Makefile</code> 和信号量的部分一样. 不用修改<br>阻塞是open函数的默认值, 其测试就不写了, 因为之前写的按键驱动测试都是阻塞的.</p>
-<h2 id="测试文件-unblock-drv-sem-c"><a href="#测试文件-unblock-drv-sem-c" class="headerlink" title="测试文件 unblock_drv_sem.c"></a>测试文件 unblock_drv_sem.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ret, fd;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> keys_val;</span><br><span class="line"></span><br><span class="line">	fd = open(<span class="string">&quot;/dev/drv_sem0&quot;</span>, O_RDWR | O_NONBLOCK);    <span class="comment">// O_NONBLOCK 非阻塞</span></span><br><span class="line">	<span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;can&#x27;t open!\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">		ret = read(fd, &amp;keys_val, <span class="number">1</span>);                   <span class="comment">// 读取函数是否阻塞取决于open函数</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;keys_val=0x%x, ret=%d\n&quot;</span>,keys_val,ret);</span><br><span class="line">        sleep(<span class="number">3</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="编译并测试-2"><a href="#编译并测试-2" class="headerlink" title="编译并测试"></a>编译并测试</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu主机端, 编译驱动和测试文件</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_sem/KERN_SRC    # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line">$ make clean</span><br><span class="line">$ make modules</span><br><span class="line">$ arm-linux-gcc unblock_drv_sem.c -o unblock_drv_sem</span><br><span class="line"></span><br><span class="line"><span class="comment"># jz2440端</span></span><br><span class="line">$ insmod drv_sem.ko</span><br><span class="line">drv_sem:INIT</span><br><span class="line"></span><br><span class="line">$ ./unblock_drv_sem &amp;       <span class="comment"># 第一次运行</span></span><br><span class="line">key_val=0x0, ret=-1         <span class="comment"># 无按键, 返回值 -EAGAIN</span></span><br><span class="line">key_val=0x0, ret=-1         <span class="comment"># 无按键, 返回值 -EAGAIN</span></span><br><span class="line">key_val=0x1, ret=1          <span class="comment"># 有按键, 返回值为1</span></span><br><span class="line">$ top</span><br><span class="line">789   779 0        S     1312   2%   0% ./unblock_drv_sem</span><br><span class="line"><span class="comment"># 显示当前进程信息.</span></span><br><span class="line">$ ./unblock_drv_sem &amp;      <span class="comment"># 第二次运行</span></span><br><span class="line"><span class="comment"># 显示 can&#x27;t open!, 非阻塞进程, 尝试获取信号量失败后, 返回给应用程序 -EBUSY</span></span><br><span class="line">$ top</span><br><span class="line">789   779 0        S     1312   2%   0% ./unblock_drv_sem</span><br><span class="line"><span class="comment"># 依旧只有一个789进程</span></span><br></pre></td></tr></table></figure>
-
+          <p>如题.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/13/1744-drv-chr6/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -534,7 +450,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2018-01-04 18:43:48" itemprop="dateModified" datetime="2018-01-04T18:43:48+11:00">2018-01-04</time>
+        <time title="Modified: 2021-03-08 23:32:48" itemprop="dateModified" datetime="2021-03-08T23:32:48+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -556,63 +472,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
-<li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
-<li><a href="https://draapho.github.io/2017/11/30/1740-drv-chr2/">驱动之基于LinK+设计按键驱动</a></li>
-<li><a href="https://draapho.github.io/2017/12/07/1741-drv-chr3/">驱动之基于中断设计按键驱动</a></li>
-<li><a href="https://draapho.github.io/2017/12/11/1742-drv-chr4/">驱动之poll机制</a></li>
-<li><a href="https://draapho.github.io/2017/12/12/1743-drv-chr5/">驱动之异步通知</a></li>
-<li><a href="https://draapho.github.io/2017/12/13/1744-drv-chr6/">驱动之同步互斥阻塞</a></li>
-<li><a href="https://draapho.github.io/2018/01/04/1801-drv-chr7/">驱动之定时器按键防抖</a></li>
-</ul>
-<p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.</p>
-<h1 id="异步通知范例"><a href="#异步通知范例" class="headerlink" title="异步通知范例"></a>异步通知范例</h1><h2 id="范例源码"><a href="#范例源码" class="headerlink" title="范例源码"></a>范例源码</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_signal</span><span class="params">(<span class="keyword">int</span> signum)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;signal=%d, %d times\n&quot;</span>, signum, ++cnt);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;main start\n&quot;</span>);</span><br><span class="line">	signal(SIGUSR1, get_signal);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;wait signal\n&quot;</span>);</span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">		sleep(<span class="number">1000</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="范例测试"><a href="#范例测试" class="headerlink" title="范例测试"></a>范例测试</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu主机端</span></span><br><span class="line">$ arm-linux-gcc signal.c -o signal</span><br><span class="line"></span><br><span class="line"><span class="comment"># jz2440端</span></span><br><span class="line">$ ./signal &amp;        <span class="comment"># 背景运行</span></span><br><span class="line">main start</span><br><span class="line"><span class="built_in">wait</span> signal         <span class="comment"># 程序顺序执行</span></span><br><span class="line">$ ps                <span class="comment"># 查看进程</span></span><br><span class="line">790 0          1312 S   ./signal</span><br><span class="line">$ <span class="built_in">kill</span> -SIGUSR1 790 <span class="comment"># 发送SIGUSR1信号</span></span><br><span class="line">signal=10, 1 <span class="built_in">times</span>  <span class="comment"># 直接调用的 get_signal, 打印信息</span></span><br><span class="line">$ <span class="built_in">kill</span> -10 790      <span class="comment"># 发送SIGUSR1信号</span></span><br><span class="line">signal=10, 1 <span class="built_in">times</span>  <span class="comment"># 直接调用的 get_signal, 打印信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里说明一下kill指令, 其本意是发送signal给进程, 而不是杀死进程.</span></span><br><span class="line"><span class="comment"># 但如果进程没有对应的signal处理, 其默认方式就是结束进程.</span></span><br><span class="line"><span class="comment"># 可以在ubuntu主机端查看详情:</span></span><br><span class="line">$ man <span class="built_in">kill</span>          <span class="comment"># kill的帮助信息</span></span><br><span class="line">$ <span class="built_in">kill</span> -l           <span class="comment"># 列出所有signal值, 其中:</span></span><br><span class="line">10) SIGUSR1</span><br></pre></td></tr></table></figure>
-
-<h2 id="异步机制核心点"><a href="#异步机制核心点" class="headerlink" title="异步机制核心点"></a>异步机制核心点</h2><ul>
-<li>异步机制使得应用层代码可以获得有如”中断”处理一般的能力!<ul>
-<li>注册好signal和函数</li>
-<li>主代码始终自己管自己运行</li>
-<li>signal触发后, 系统会自动调用注册好的函数.</li>
-</ul>
-</li>
-<li>异步通知的四个要点:<ul>
-<li>注册处理函数: 应用程序中注册</li>
-<li>谁来发? 驱动来发</li>
-<li>发给谁? 驱动发给应用程序</li>
-<li>怎么发? 驱动调用 <code>kill_fasyn()</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="驱动源码"><a href="#驱动源码" class="headerlink" title="驱动源码"></a>驱动源码</h1><p>驱动源码基于 <a href="https://draapho.github.io/2017/12/07/1741-drv-chr3/">驱动之基于中断设计按键驱动</a><br>增加fasync函数, 发送SIGIO信号.<br>然后应用层的测试文件改动较大.</p>
-<h2 id="drv-key-async-c"><a href="#drv-key-async-c" class="headerlink" title="drv_key_async.c"></a>drv_key_async.c</h2><p>为了使设备支持异步通知机制, 驱动程序涉及以下3项工作:</p>
-<ul>
-<li>应用程序调用 <code>fcntl(fd, F_SETOWN, pid)</code> 时. 能在这个控制命令处理中设置 filp-&gt;f_owner为对应进程ID. 此工作已由内核完成</li>
-<li>应用程序调用 <code>fcntl(fd, F_SETFL, oflags | FASYNC)</code> 后, FASYNC标志改变, 会调用驱动的fasync函数. 驱动需要实现fasync. </li>
-<li>在设备资源可获得时, 调用 <code>kill_fasync()</code> 函数触发信号.</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 基于 驱动之基于中断设计按键驱动 源码增加而来. 只显示新增和修改的部分. 这样更直观易懂.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;drv_key_async.h&quot;</span>                           <span class="comment">// 头文件改一下</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_INT_NODE_NAME <span class="meta-string">&quot;key_async&quot;</span>           <span class="comment">// 名称改一下</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">fasync_struct</span> *<span class="title">keys_async</span>;</span>            <span class="comment">// 新增, kill_fasync使用</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">irqreturn_t</span> <span class="title">keys_irq</span><span class="params">(<span class="keyword">int</span> irq, <span class="keyword">void</span> *dev_id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    ev_press = <span class="number">1</span>;                              </span><br><span class="line">    wake_up_interruptible(&amp;key_waitq);     </span><br><span class="line">    kill_fasync(&amp;keys_async, SIGIO, POLL_IN);           <span class="comment">// 新增, 发送SIGIO信号</span></span><br><span class="line">    <span class="keyword">return</span> IRQ_RETVAL(IRQ_HANDLED);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">drv_key_fasync</span> <span class="params">(<span class="keyword">int</span> fd, struct file *filp, <span class="keyword">int</span> on)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    PINFO(<span class="string">&quot;drv_key_fasync\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> fasync_helper (fd, filp, on, &amp;keys_async);   <span class="comment">// 初始化keys_async</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">file_operations</span> <span class="title">drv_key_int_fops</span>=</span> &#123;</span><br><span class="line">	.owner				= THIS_MODULE,</span><br><span class="line">	.open				= drv_key_int_open,</span><br><span class="line">	.release			= drv_key_int_release,</span><br><span class="line">	.read				= drv_key_int_read,</span><br><span class="line">	.fasync             = drv_key_fasync,               <span class="comment">// 新增fasync</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="drv-key-async-h"><a href="#drv-key-async-h" class="headerlink" title="drv_key_async.h"></a>drv_key_async.h</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRIVER_NAME <span class="meta-string">&quot;drv_key_async&quot;</span>     <span class="comment">// 名称改一下</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">obj-m		:= drv_key_async.o          <span class="comment"># 目标名称改一下</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="测试文件-test-drv-key-async-c"><a href="#测试文件-test-drv-key-async-c" class="headerlink" title="测试文件 test_drv_key_async.c"></a>测试文件 test_drv_key_async.c</h2><p>为了使设备支持异步通知机制, 应用层程序涉及以下工作:</p>
-<ul>
-<li>调用 <code>fcntl(fd, F_SETOWN, getpid())</code>, 告诉内核, 发给谁 </li>
-<li>调用 <code>fcntl(fd, F_SETFL, oflags | FASYNC)</code>, 改变fasync标记.</li>
-<li>此时, 内核会调用驱动的fasync函数, 通过 <code>fasync_helper</code> 完成初始化.</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> fd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">keys_signal_handler</span><span class="params">(<span class="keyword">int</span> signum)</span>        <span class="comment">// 信号中断处理函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> key_val = <span class="number">0</span>;</span><br><span class="line">    read(fd,&amp;key_val,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;key_val: 0x%x\n&quot;</span>,key_val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret;</span><br><span class="line">    <span class="keyword">int</span> oflags;</span><br><span class="line">    </span><br><span class="line">    fd = open(<span class="string">&quot;/dev/key_async0&quot;</span>, O_RDWR);</span><br><span class="line">    <span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;can&#x27;t open!\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    signal(SIGIO, keys_signal_handler);     <span class="comment">// 注册信号中断处理函数</span></span><br><span class="line">    fcntl(fd,F_SETOWN,getpid());            <span class="comment">// 告诉内核，发给本进程</span></span><br><span class="line">    oflags = fcntl(fd,F_GETFL);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;before fcntl\n&quot;</span>);</span><br><span class="line">    fcntl(fd, F_SETFL, oflags | FASYNC);    <span class="comment">// 改变fasync标记, 内核会调用驱动fasync, 完成初始化</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;after fcntl\n&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;                              <span class="comment">// 开始主任务</span></span><br><span class="line">        sleep(<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="编译并测试"><a href="#编译并测试" class="headerlink" title="编译并测试"></a>编译并测试</h1><h2 id="Ubuntu主机端"><a href="#Ubuntu主机端" class="headerlink" title="Ubuntu主机端"></a>Ubuntu主机端</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主机端, 编译源码</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_key_async/KERN_SRC   # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译驱动</span></span><br><span class="line">$ make clean</span><br><span class="line">$ make modules                      <span class="comment"># 也可以在LinK+里面直接编译, 更方便</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译测试代码</span></span><br><span class="line">$ arm-linux-gcc test_drv_key_async.c -o test_drv_key_async</span><br></pre></td></tr></table></figure>
-
-<h2 id="开发板端"><a href="#开发板端" class="headerlink" title="开发板端"></a>开发板端</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板端, 测试驱动功能</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_key_async/KERN_SRC  # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line">$ insmod drv_key_async.ko           <span class="comment"># 加载模块</span></span><br><span class="line">drv_key_async:INIT</span><br><span class="line"></span><br><span class="line">$ ./test_drv_key_async              <span class="comment"># 运行测试代码</span></span><br><span class="line">drv_key_async:In char driver open() <span class="keyword">function</span></span><br><span class="line">before fcntl</span><br><span class="line">drv_key_async:drv_key_fasync        <span class="comment"># 运行fcntl后, 驱动调用async函数</span></span><br><span class="line">after fcntl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按下按键, 应用程序就会调用 keys_signal_handler 函数.</span></span><br><span class="line"><span class="comment"># 打印出按键信息, 譬如 key_val: 0x1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按ctrl+c 终止进程</span></span><br></pre></td></tr></table></figure>
-
+          <p>如题.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/12/1743-drv-chr5/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -669,7 +537,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2018-01-04 18:43:48" itemprop="dateModified" datetime="2018-01-04T18:43:48+11:00">2018-01-04</time>
+        <time title="Modified: 2021-03-08 23:32:52" itemprop="dateModified" datetime="2021-03-08T23:32:52+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -691,67 +559,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
-<li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
-<li><a href="https://draapho.github.io/2017/11/30/1740-drv-chr2/">驱动之基于LinK+设计按键驱动</a></li>
-<li><a href="https://draapho.github.io/2017/12/07/1741-drv-chr3/">驱动之基于中断设计按键驱动</a></li>
-<li><a href="https://draapho.github.io/2017/12/11/1742-drv-chr4/">驱动之poll机制</a></li>
-<li><a href="https://draapho.github.io/2017/12/12/1743-drv-chr5/">驱动之异步通知</a></li>
-<li><a href="https://draapho.github.io/2017/12/13/1744-drv-chr6/">驱动之同步互斥阻塞</a></li>
-<li><a href="https://draapho.github.io/2018/01/04/1801-drv-chr7/">驱动之定时器按键防抖</a></li>
-</ul>
-<p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.</p>
-<h1 id="POLL机制分析"><a href="#POLL机制分析" class="headerlink" title="POLL机制分析"></a>POLL机制分析</h1><h2 id="三种按键驱动的比较"><a href="#三种按键驱动的比较" class="headerlink" title="三种按键驱动的比较"></a>三种按键驱动的比较</h2><ul>
-<li>查询方式: 依赖于应用程序的编写方式, 写的不好会非常耗费CPU资源</li>
-<li>中断方式: 解决了CPU资源问题, 但是应用程序会阻塞在读取函数上</li>
-<li>poll方式: 应用程序上, 实现了非阻塞读取. 先poll判断是否发生事件, 有事件处理, 无事件可以做其它事情.</li>
-</ul>
-<h2 id="核心流程"><a href="#核心流程" class="headerlink" title="核心流程"></a>核心流程</h2><p>基本流程如下:</p>
-<ul>
-<li>应用程序调用poll &gt; sys_poll &gt; <code>do_sys_poll</code> &gt; do_poll &gt; do_pollfd &gt; 驱动程序poll</li>
-<li>从 <code>do_sys_poll</code> 函数深入分析:<ul>
-<li>先调用 <code>poll_initwait</code>, 注册一下 <code>__pollwait</code> 函数.</li>
-<li>再调用 <code>do_poll</code> 判断条件. 这里会调用驱动函数的poll<ul>
-<li>调用 <code>do_pollfd</code> 函数, 实际上就是调用驱动的poll函数</li>
-<li>返回值为1或等待超时或触发信号, 执行 <code>__set_current_state</code> 继续运行当前进程.</li>
-<li>返回值为0, 则执行 <code>schedule_timeout</code> 当前进程睡眠, 切换到其它进程.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>驱动函数里的poll会调用 <code>poll_wait</code>, 只是把当前的进程加入到 button_waitq 队列里去, 并没有立刻切换进程<ul>
-<li><code>poll_wait</code> 调用 <code>p-&gt;qproc(filp, wait_address, p);</code>, 实际就是调用了 <code>__pollwait</code> 函数</li>
-<li>进程并不会阻塞在 <code>poll_wait</code> 函数. (这个函数的命名容易让人误解, 因此特此强调!)</li>
-<li>整个进程会根据驱动的poll返回值确定是休眠还是继续运行.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">app: poll, 会去调用 sys_poll. 共三个参数</span><br><span class="line">    <span class="comment">// 1. *ufds, 文件指针. 需要查询的驱动文件列表</span></span><br><span class="line">    <span class="comment">// 2. nfds, 文件个数.</span></span><br><span class="line">    <span class="comment">// 3. timeout_msecs, 超时时间.</span></span><br><span class="line">kernel: sys_poll    <span class="comment">// 位于 /fs/select.c</span></span><br><span class="line">            do_sys_poll(..., timeout_jiffies)</span><br><span class="line">                poll_initwait(&amp;table);</span><br><span class="line">                    init_poll_funcptr(&amp;pwq-&gt;pt, __pollwait);</span><br><span class="line">                    <span class="comment">// table-&gt;pt-&gt;qproc = __pollwait. 相当于注册一下 __pollwait.</span></span><br><span class="line">                    <span class="comment">// __pollwait 是系统函数, 用于初始化一个 poll_wqueues 的 table</span></span><br><span class="line">                    <span class="comment">// 驱动程序的poll函数会调用__pollwait函数.</span></span><br><span class="line">                do_poll(nfds, head, &amp;table, timeout)</span><br><span class="line">                    <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (do_pollfd(ftd, pt)) &#123;</span><br><span class="line">                            <span class="comment">// 进入函数 do_pollfd, 有如下两句:</span></span><br><span class="line">                            mask = file-&gt;f_op-&gt;poll(file, pwait);</span><br><span class="line">                                <span class="comment">// 实际上, 就是调用驱动代码里的poll, 驱动代码里会调用</span></span><br><span class="line">                                pollwait(filp, &amp;button_waitq, p) &#123;</span><br><span class="line">                                    <span class="comment">// 把当前的进程挂到button_waitq队列里去</span></span><br><span class="line">                                    <span class="comment">// 整个进程并不会阻塞在 pollwait 这里!</span></span><br><span class="line">                                    p-&gt;qproc(filp, wait_address, p);    <span class="comment">// 相当于调用 __pollwait</span></span><br><span class="line">                                    <span class="comment">// 这里我有过疑惑, 为何不直接指定 __pollwait 这么一个系统函数, 而是用初始化函数指针再调用的晦涩方法.</span></span><br><span class="line">                                    <span class="comment">// 搜索 init_poll_funcptr 后, 就可以知道, 这也是一个系统架构, 不同的地方会有不同的函数.</span></span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="comment">// 驱动poll函数给出返回值. 赋值给mask</span></span><br><span class="line">                                <span class="comment">// 因此整个进程会在调用完驱动poll函数后, 根据返回值进行休眠或继续运行.</span></span><br><span class="line">                            <span class="keyword">return</span> mask;</span><br><span class="line">                            count++; <span class="comment">// 如果驱动的poll返回非0值, 那么count++</span></span><br><span class="line">                            pt = <span class="literal">NULL</span>;</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// break的条件: count非0, 超时, 有信号在等待处理</span></span><br><span class="line">                        <span class="keyword">if</span> (count || !*timeout || signal_pending(current))</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// 休眠 __timeout</span></span><br><span class="line">                        __timeout = schedule_timeout(__timeout);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 设置当前进程为运行态</span></span><br><span class="line">                    __set_current_state(TASK_RUNNING);</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="更多资料"><a href="#更多资料" class="headerlink" title="更多资料"></a>更多资料</h1><ul>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/rockrockwu/article/details/7310518">linux poll 和 等待队列休眠的关系</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/lizhiguo0532/article/details/6568964">select(poll)系统调用实现解析(一)</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/lizhiguo0532/article/details/6568968">select(poll)系统调用实现解析(二)</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/lizhiguo0532/article/details/6568969">select(poll)系统调用实现解析(三)</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/jack204/archive/2011/10/30/2229331.html">linux的poll的工作机制</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/czg13548930186/article/details/77825262">字符设备驱动-poll机制</a></li>
-</ul>
-<h1 id="驱动源码"><a href="#驱动源码" class="headerlink" title="驱动源码"></a>驱动源码</h1><p>驱动源码基于 <a href="https://draapho.github.io/2017/12/07/1741-drv-chr3/">驱动之基于中断设计按键驱动</a> 增加poll函数即可.<br>然后应用层的测试文件改动较大.<br><strong>注意驱动层和应用层的poll函数写法就可以了, 都是固定的结构</strong></p>
-<h2 id="drv-key-poll-c"><a href="#drv-key-poll-c" class="headerlink" title="drv_key_poll.c"></a>drv_key_poll.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 基于 驱动之基于中断设计按键驱动 源码增加而来. 只显示新增和修改的部分. 这样更直观易懂.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;drv_key_poll.h&quot;</span>                    <span class="comment">// 头文件改一下</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_INT_NODE_NAME <span class="meta-string">&quot;key_poll&quot;</span>    <span class="comment">// 名称改一下</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="title">drv_key_poll</span><span class="params">(struct file *file, poll_table *wait)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> mask = <span class="number">0</span>;</span><br><span class="line">    poll_wait(file, &amp;key_waitq, wait);      <span class="comment">// 这里不会休眠. 进程不阻塞</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ev_press)</span><br><span class="line">        mask |= POLLIN | POLLRDNORM;        <span class="comment">// 关键是返回值, 返回值为0, 进程可能休眠.</span></span><br><span class="line">        <span class="comment">// POLLIN, 是标准的事件值, 测试程序就基于此判断.</span></span><br><span class="line">        <span class="comment">// POLLRDNORM, Normal data may be read without blocking. 作用应该是告知应用程序类型和后续动作.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">file_operations</span> <span class="title">drv_key_int_fops</span>=</span> &#123;</span><br><span class="line">    .owner              = THIS_MODULE,</span><br><span class="line">    .open               = drv_key_int_open,</span><br><span class="line">    .release            = drv_key_int_release,</span><br><span class="line">    .read               = drv_key_int_read,</span><br><span class="line">    .poll               = drv_key_poll,     <span class="comment">// 新增这一行</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="drv-key-poll-h"><a href="#drv-key-poll-h" class="headerlink" title="drv_key_poll.h"></a>drv_key_poll.h</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRIVER_NAME <span class="meta-string">&quot;drv_key_poll&quot;</span>          <span class="comment">// 名称改一下</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PDEBUG(fmt,args...) printk(KERN_DEBUG<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME, ##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PERR(fmt,args...) printk(KERN_ERR<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME,##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PINFO(fmt,args...) printk(KERN_INFO<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME, ##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/cdev.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/device.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/fs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/init.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/kdev_t.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/uaccess.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/interrupt.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/irq.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/poll.h&gt;                     // 新增poll头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/irq.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/arch-s3c2410/irqs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/uaccess.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/io.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/arch/regs-gpio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/hardware.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">obj-m		:= drv_key_poll.o </span><br><span class="line">KERN_SRC	:= /home/draapho/share/kernel/linux-2.6.22.6/</span><br><span class="line">PWD			:= <span class="variable">$(<span class="built_in">shell</span> pwd)</span></span><br><span class="line"></span><br><span class="line"><span class="section">modules:</span></span><br><span class="line">	make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> modules</span><br><span class="line"></span><br><span class="line"><span class="section">install:</span></span><br><span class="line">	make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> modules_install</span><br><span class="line">	depmod -a</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> clean</span><br></pre></td></tr></table></figure>
-
-<h2 id="测试文件-test-drv-key-int-c"><a href="#测试文件-test-drv-key-int-c" class="headerlink" title="测试文件 test_drv_key_int.c"></a>测试文件 test_drv_key_int.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;poll.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd, ret;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> keys_val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">pollfd</span> <span class="title">fds</span>[1];</span>                   <span class="comment">// poll 关联的文件, 可多个文件</span></span><br><span class="line"></span><br><span class="line">    fd = open(<span class="string">&quot;/dev/key_poll0&quot;</span>, O_RDWR);</span><br><span class="line">    <span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;can&#x27;t open!\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fds[<span class="number">0</span>].fd     = fd;                     <span class="comment">// 关联的驱动文件</span></span><br><span class="line">    fds[<span class="number">0</span>].events = POLLIN;                 <span class="comment">// 事件类型</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        ret = poll(fds, <span class="number">1</span>, <span class="number">5000</span>);           <span class="comment">// 执行poll. 最多阻塞5s (有按键事件会立刻返回)</span></span><br><span class="line">        <span class="keyword">if</span> (ret == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;time out\n&quot;</span>);           <span class="comment">// 5s后超时</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            read(fd, &amp;keys_val, <span class="number">1</span>);         <span class="comment">// 有按键, 读取按键值</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;keys_val = 0x%x\n&quot;</span>, keys_val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="编译并测试"><a href="#编译并测试" class="headerlink" title="编译并测试"></a>编译并测试</h1><h2 id="Ubuntu主机端"><a href="#Ubuntu主机端" class="headerlink" title="Ubuntu主机端"></a>Ubuntu主机端</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主机端, 编译源码</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_key_poll/KERN_SRC   # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译驱动</span></span><br><span class="line">$ make clean</span><br><span class="line">$ make modules                      <span class="comment"># 也可以在LinK+里面直接编译, 更方便</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译测试代码</span></span><br><span class="line">$ arm-linux-gcc test_drv_key_poll.c -o test_drv_key_poll</span><br></pre></td></tr></table></figure>
-
-<h2 id="开发板端"><a href="#开发板端" class="headerlink" title="开发板端"></a>开发板端</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板端, 测试驱动功能</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_key_poll/KERN_SRC   # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line">$ insmod drv_key_poll.ko            <span class="comment"># 加载模块</span></span><br><span class="line">drv_key_int:INIT</span><br><span class="line"></span><br><span class="line">$ ./test_drv_key_poll               <span class="comment"># 检测按键中断</span></span><br><span class="line">drv_key_poll:In char driver open() <span class="keyword">function</span></span><br><span class="line"><span class="comment"># 无按键时, 每5s打印 time out</span></span><br><span class="line"><span class="comment"># 有按键时, 立刻打印按键值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按ctrl+c 终止进程</span></span><br><span class="line"></span><br><span class="line">$ ./test_drv_key_poll &amp;             <span class="comment"># 后台运行</span></span><br><span class="line">$ top                               <span class="comment"># 查看系统资源情况</span></span><br><span class="line"><span class="comment"># 可以看到 ./test_drv_key_poll 进程占用很少的资源.</span></span><br></pre></td></tr></table></figure>
-
+          <p>如题.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/11/1742-drv-chr4/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -808,7 +624,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2018-01-04 18:43:48" itemprop="dateModified" datetime="2018-01-04T18:43:48+11:00">2018-01-04</time>
+        <time title="Modified: 2021-03-08 23:32:57" itemprop="dateModified" datetime="2021-03-08T23:32:57+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -830,110 +646,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
-<li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
-<li><a href="https://draapho.github.io/2017/11/30/1740-drv-chr2/">驱动之基于LinK+设计按键驱动</a></li>
-<li><a href="https://draapho.github.io/2017/12/07/1741-drv-chr3/">驱动之基于中断设计按键驱动</a></li>
-<li><a href="https://draapho.github.io/2017/12/11/1742-drv-chr4/">驱动之poll机制</a></li>
-<li><a href="https://draapho.github.io/2017/12/12/1743-drv-chr5/">驱动之异步通知</a></li>
-<li><a href="https://draapho.github.io/2017/12/13/1744-drv-chr6/">驱动之同步互斥阻塞</a></li>
-<li><a href="https://draapho.github.io/2018/01/04/1801-drv-chr7/">驱动之定时器按键防抖</a></li>
-</ul>
-<p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.</p>
-<h1 id="Linux的中断实现"><a href="#Linux的中断实现" class="headerlink" title="Linux的中断实现"></a>Linux的中断实现</h1><h2 id="核心流程"><a href="#核心流程" class="headerlink" title="核心流程"></a>核心流程</h2><ul>
-<li><code>trap_init</code>, 构造异常向量表<ul>
-<li>位于 <code>arch/arm/kernel/traps.c</code>, 三个memcpy函数</li>
-</ul>
-</li>
-<li><code>s3c24xx_init_irq</code> 芯片初始化 <code>struct irq_desc</code> 结构体.<ul>
-<li>由 <code>MACHINE_START(S3C2440, &quot;SMDK2440&quot;)</code> 宏定义加入系统的初始化数据段 <code>&quot;.arch.info.init&quot;</code>.</li>
-<li>位于 <code>arch/arm/plat-s3c24xx/irq.c</code></li>
-<li><code>s3c24xx_init_irq</code> 会调用函数 <code>set_irq_chip</code>, <code>set_irq_handler</code> 完成irq的初始化</li>
-</ul>
-</li>
-<li>cpu发生中断，跳到异常向量入口执行(<code>b vector_irq + stubs_offset</code>)<ul>
-<li>位于 <code>arch/arm/kernel/entry-armv.S</code></li>
-</ul>
-</li>
-<li><code>vector_irq</code> 用宏实现保存,执行(<code>asm_do_IRQ</code>),恢复.<ul>
-<li><code>vector_irq</code> 由宏定义 <code>vector_stub</code> 而来</li>
-<li>函数调用 <code>__irq_usr</code>-&gt;<code>irq_handler</code>-&gt;<code>asm_do_IRQ</code></li>
-</ul>
-</li>
-<li><code>asm_do_IRQ</code> 根据中断号irq=(EINT4~EINT23)调用irq_desc[irq].handle_irq=(handle_edge_irq)<ul>
-<li>位于 <code>arch/arm/kernel/irq.c</code>, 调用 <code>desc_handle_irq</code> 函数</li>
-<li>handle_irq 的初始化由 <code>s3c24xx_init_irq</code> 完成, 位于 <code>arch/arm/plat-s3c24xx/irq.c</code></li>
-</ul>
-</li>
-<li><code>handle_edge_irq</code> 使用chip成员中的函数=&amp;s3c_irqext_chip来设置硬件<ul>
-<li>函数 <code>set_irq_chip</code>, 指定 <code>struct irq_chip</code> 结构,</li>
-<li>此结构定义了中断的基本操作, 譬如启动, 关闭, 使能, 禁止, 触发条件, 响应(ack), mask 等等.</li>
-</ul>
-</li>
-<li><code>handle_edge_irq</code> 逐个调用用户在irq_desc[irq].action连表中注册的处理函数<ul>
-<li>函数 <code>set_irq_handler</code>, 实际调用 <code>__set_irq_handler</code></li>
-<li>此函数指定了 <code>struct irq_desc</code> 结构, 其中 <code>action</code> 维护用户回调函数链表.</li>
-</ul>
-</li>
-<li>用户注册中断服务程序 <code>request_irq</code>include/linux/irq.h<ul>
-<li>供内核驱动代码调用</li>
-<li>分配一个 <code>irqaction</code> 结构</li>
-<li>将其加入<code>irq_desc[irq].action</code>中</li>
-<li>设置中断触发方式和引脚状态 <code>desc-&gt;chip-&gt;set_type()</code></li>
-<li>使能中断</li>
-</ul>
-</li>
-<li>卸载中断服务程序 <code>free_irq</code><ul>
-<li>供内核驱动代码调用</li>
-<li>由irq号定位action链表, 然后将其删掉</li>
-<li>关闭中断</li>
-</ul>
-</li>
-</ul>
-<h2 id="更多资料"><a href="#更多资料" class="headerlink" title="更多资料"></a>更多资料</h2><ul>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/czg13548930186/article/details/77715829">字符设备驱动-Linux内核异常处理体系结构</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/czg13548930186/article/details/77751916">字符设备驱动-中断方式操控按键</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/irq_subsystem/irq_handler.html">Linux kernel的中断子系统之（六）：ARM中断处理过程</a></li>
-</ul>
-<h1 id="驱动源码"><a href="#驱动源码" class="headerlink" title="驱动源码"></a>驱动源码</h1><h2 id="核心点"><a href="#核心点" class="headerlink" title="核心点"></a>核心点</h2><p>此次为中断的驱动源码, 核心点有2个地方</p>
-<ul>
-<li><code>request_irq</code> <code>free_irq</code><ul>
-<li>这两个函数用于注册和释放中断号, 重点说注册</li>
-<li>调用<code>request_irq</code>后, 对应的中断会自动初始化并使能.</li>
-<li>相应的调用<code>free_irq</code>后, 对应的中断会自动被屏蔽掉.</li>
-<li><code>irq</code>, 中断号. 见<code>#include &lt;asm/arch-s3c2410/irqs.h&gt;</code></li>
-<li><code>handler</code>, 由驱动编程人员实现的回调函数</li>
-<li><code>irqflags</code>, 中断触发类型, 见<code>#include &lt;asm/arch-s3c2410/irqs.h&gt;</code></li>
-<li><code>*devname</code>, 自己给中断取个名字, 和驱动的设备名称无关. 会在 <code>cat /proc/interrupts</code> 下面显示出来.</li>
-<li><code>*dev_id</code>, 可以认为是中断设备的ID号, 但此处习惯于导入驱动自用的数据结构指针.</li>
-</ul>
-</li>
-<li><code>wake_up_interruptible</code> <code>wait_event_interruptible</code><ul>
-<li>用了这两个函数, 才会真正提高系统的运行效率.</li>
-<li>其概念是, 中断触发时, 调用 <code>wake_up_interruptible</code>, 告知中断发生, 需要处理</li>
-<li>此时, <code>wait_event_interruptible</code> 就会被唤醒, 判断条件后, 决定是继续执行还是进程睡眠.</li>
-</ul>
-</li>
-</ul>
-<h2 id="drv-key-int-c"><a href="#drv-key-int-c" class="headerlink" title="drv_key_int.c"></a>drv_key_int.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">===============================================================================</span></span><br><span class="line"><span class="comment">Driver Name     :       drv_key_int</span></span><br><span class="line"><span class="comment">Author          :       DRAAPHO</span></span><br><span class="line"><span class="comment">License         :       GPL</span></span><br><span class="line"><span class="comment">Description     :       LINUX DEVICE DRIVER PROJECT, 由LinK+生成模板, 部分修改而来.</span></span><br><span class="line"><span class="comment">===============================================================================</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;drv_key_int.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_INT_N_MINORS 1              <span class="comment">// 三个按键, 但作为一个字符设备就可以了.</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_INT_FIRST_MINOR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_INT_NODE_NAME <span class="meta-string">&quot;key_int&quot;</span></span></span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">&quot;GPL&quot;</span>);</span><br><span class="line">MODULE_AUTHOR(<span class="string">&quot;DRAAPHO&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> drv_key_int_major=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dev_t</span> drv_key_int_device_num;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="keyword">class</span> *<span class="title">drv_key_int_class</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">privatedata</span> &#123;</span>                <span class="comment">// 驱动私有结构, 模板生成, 此驱动没用.</span></span><br><span class="line">    <span class="keyword">int</span> nMinor;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">cdev</span> <span class="title">cdev</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">device</span> *<span class="title">drv_key_int_device</span>;</span></span><br><span class="line">&#125; drv_key_int_private;</span><br><span class="line"></span><br><span class="line">drv_key_int_private devices[DRV_KEY_INT_N_MINORS];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ===== 中断驱动增加的代码 =====</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">DECLARE_WAIT_QUEUE_HEAD</span><span class="params">(key_waitq)</span></span>;  <span class="comment">// 作用类似于信号量, 这里是向系统加入一个等待列表.</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keyword">int</span> ev_press = <span class="number">0</span>;           <span class="comment">// 中断事件标记, 手动值1或者清0</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> keys_val;              <span class="comment">// 记录按键值</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pin_desc</span> &#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> pin;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> key_val;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pin_desc</span> <span class="title">pins_desc</span>[3] =</span> &#123;            <span class="comment">// 设置好按键的引脚和对应的值</span></span><br><span class="line">    &#123;S3C2410_GPF0, <span class="number">0x01</span>&#125;,</span><br><span class="line">    &#123;S3C2410_GPF2, <span class="number">0x02</span>&#125;,</span><br><span class="line">    &#123;S3C2410_GPG3, <span class="number">0x04</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">irqreturn_t</span> <span class="title">keys_irq</span><span class="params">(<span class="keyword">int</span> irq, <span class="keyword">void</span> *dev_id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">pin_desc</span> * <span class="title">pindesc</span> =</span> (struct pin_desc *)dev_id;  <span class="comment">// 获取自用的数据指针</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> pinval;</span><br><span class="line"></span><br><span class="line">    PINFO(<span class="string">&quot;keys_irq, irq=%d\n&quot;</span>, irq);</span><br><span class="line">    pinval = s3c2410_gpio_getpin(pindesc-&gt;pin);             <span class="comment">// 读取按键电平</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (pinval) &#123;                                           <span class="comment">// 松开</span></span><br><span class="line">        keys_val &amp;= ~pindesc-&gt;key_val;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;                                                <span class="comment">// 按下</span></span><br><span class="line">        keys_val |= pindesc-&gt;key_val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ev_press = <span class="number">1</span>;                                           <span class="comment">// 表示中断发生</span></span><br><span class="line">    wake_up_interruptible(&amp;key_waitq);                      <span class="comment">// 唤醒休眠的进程</span></span><br><span class="line">    <span class="keyword">return</span> IRQ_RETVAL(IRQ_HANDLED);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ===== 部分修改模板代码 =====</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">drv_key_int_open</span><span class="params">(struct inode *inode,struct file *filp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret;</span><br><span class="line">    <span class="comment">/* TODO Auto-generated Function */</span></span><br><span class="line">    drv_key_int_private *priv = container_of(inode-&gt;i_cdev ,</span><br><span class="line">                                    drv_key_int_private ,cdev);</span><br><span class="line">    filp-&gt;private_data = priv;</span><br><span class="line">    PINFO(<span class="string">&quot;In char driver open() function\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注册中断号, 设置中断类型, 设置中断名称(和设备名称无关), 传入自用的数据指针</span></span><br><span class="line">    ret  = request_irq(IRQ_EINT0, keys_irq, IRQT_BOTHEDGE, <span class="string">&quot;S2&quot;</span>, &amp;pins_desc[<span class="number">0</span>]);</span><br><span class="line">    ret |= request_irq(IRQ_EINT2, keys_irq, IRQT_BOTHEDGE, <span class="string">&quot;S3&quot;</span>, &amp;pins_desc[<span class="number">1</span>]);</span><br><span class="line">    ret |= request_irq(IRQ_EINT11, keys_irq, IRQT_BOTHEDGE, <span class="string">&quot;S4&quot;</span>, &amp;pins_desc[<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ret) <span class="keyword">return</span> -EINVAL;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">drv_key_int_release</span><span class="params">(struct inode *inode,struct file *filp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* TODO Auto-generated Function */</span></span><br><span class="line">    drv_key_int_private *priv;</span><br><span class="line">    priv=filp-&gt;private_data;</span><br><span class="line">    PINFO(<span class="string">&quot;In char driver release() function\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    free_irq(IRQ_EINT11, &amp;pins_desc[<span class="number">2</span>]);                    <span class="comment">// 注销中断</span></span><br><span class="line">    free_irq(IRQ_EINT2, &amp;pins_desc[<span class="number">1</span>]);</span><br><span class="line">    free_irq(IRQ_EINT0, &amp;pins_desc[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">ssize_t</span> <span class="title">drv_key_int_read</span><span class="params">(struct file *filp,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">char</span> __user *ubuff,<span class="keyword">size_t</span> count,<span class="keyword">loff_t</span> *offp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* TODO Auto-generated Function */</span></span><br><span class="line">    drv_key_int_private *priv;</span><br><span class="line">    priv = filp-&gt;private_data;</span><br><span class="line">    PINFO(<span class="string">&quot;In char driver read() function\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (count != <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> -EINVAL;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ev_press, 用于判断是否可以让当前进程睡眠(让出CPU, 进程切换)</span></span><br><span class="line">    wait_event_interruptible(key_waitq, ev_press);</span><br><span class="line">    ev_press = <span class="number">0</span>;                                           <span class="comment">// 运行后, 立刻清零</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (copy_to_user(ubuff, &amp;keys_val, <span class="number">1</span>)) &#123;                <span class="comment">// 传回按键值</span></span><br><span class="line">        <span class="keyword">return</span> -EFAULT;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ===== 模板代码, 没有修改 =====</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">file_operations</span> <span class="title">drv_key_int_fops</span>=</span> &#123;</span><br><span class="line">    .owner              = THIS_MODULE,</span><br><span class="line">    .open               = drv_key_int_open,</span><br><span class="line">    .release            = drv_key_int_release,</span><br><span class="line">    .read               = drv_key_int_read,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> __init <span class="title">drv_key_int_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* TODO Auto-generated Function Stub */</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line"></span><br><span class="line">    res = alloc_chrdev_region(&amp;drv_key_int_device_num,DRV_KEY_INT_FIRST_MINOR,DRV_KEY_INT_N_MINORS ,DRIVER_NAME);</span><br><span class="line">    <span class="keyword">if</span>(res) &#123;</span><br><span class="line">        PERR(<span class="string">&quot;register device no failed\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    drv_key_int_major = MAJOR(drv_key_int_device_num);</span><br><span class="line"></span><br><span class="line">    drv_key_int_class = class_create(THIS_MODULE , DRIVER_NAME);</span><br><span class="line">    <span class="keyword">if</span>(!drv_key_int_class) &#123;</span><br><span class="line">        PERR(<span class="string">&quot;class creation failed\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;DRV_KEY_INT_N_MINORS;i++) &#123;</span><br><span class="line">        drv_key_int_device_num= MKDEV(drv_key_int_major ,DRV_KEY_INT_FIRST_MINOR+i);</span><br><span class="line">        cdev_init(&amp;devices[i].cdev , &amp;drv_key_int_fops);</span><br><span class="line">        cdev_add(&amp;devices[i].cdev,drv_key_int_device_num,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        devices[i].drv_key_int_device  =</span><br><span class="line">                device_create(drv_key_int_class , <span class="literal">NULL</span> ,drv_key_int_device_num ,</span><br><span class="line">                            DRV_KEY_INT_NODE_NAME<span class="string">&quot;%d&quot;</span>,DRV_KEY_INT_FIRST_MINOR+i);</span><br><span class="line">        <span class="keyword">if</span>(!devices[i].drv_key_int_device) &#123;</span><br><span class="line">            class_destroy(drv_key_int_class);</span><br><span class="line">            PERR(<span class="string">&quot;device creation failed\n&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        devices[i].nMinor = DRV_KEY_INT_FIRST_MINOR+i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    PINFO(<span class="string">&quot;INIT\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> __exit <span class="title">drv_key_int_exit</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* TODO Auto-generated Function Stub */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    PINFO(<span class="string">&quot;EXIT\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;DRV_KEY_INT_N_MINORS;i++) &#123;</span><br><span class="line">        drv_key_int_device_num= MKDEV(drv_key_int_major ,DRV_KEY_INT_FIRST_MINOR+i);</span><br><span class="line"></span><br><span class="line">        cdev_del(&amp;devices[i].cdev);</span><br><span class="line"></span><br><span class="line">        device_destroy(drv_key_int_class ,drv_key_int_device_num);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class_destroy(drv_key_int_class);</span><br><span class="line"></span><br><span class="line">    unregister_chrdev_region(drv_key_int_device_num ,DRV_KEY_INT_N_MINORS);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module_init(drv_key_int_init);</span><br><span class="line">module_exit(drv_key_int_exit);</span><br></pre></td></tr></table></figure>
-
-<h2 id="drv-key-int-h"><a href="#drv-key-int-h" class="headerlink" title="drv_key_int.h"></a>drv_key_int.h</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRIVER_NAME <span class="meta-string">&quot;drv_key_int&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PDEBUG(fmt,args...) printk(KERN_DEBUG<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME, ##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PERR(fmt,args...) printk(KERN_ERR<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME,##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PINFO(fmt,args...) printk(KERN_INFO<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME, ##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/cdev.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/device.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/fs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/init.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/kdev_t.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/uaccess.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/interrupt.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/irq.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/irq.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/arch-s3c2410/irqs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/uaccess.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/io.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/arch/regs-gpio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/hardware.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">obj-m		:= drv_key_int.o </span><br><span class="line">KERN_SRC	:= /home/draapho/share/kernel/linux-2.6.22.6/</span><br><span class="line">PWD			:= <span class="variable">$(<span class="built_in">shell</span> pwd)</span></span><br><span class="line"></span><br><span class="line"><span class="section">modules:</span></span><br><span class="line">	make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> modules</span><br><span class="line"></span><br><span class="line"><span class="section">install:</span></span><br><span class="line">	make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> modules_install</span><br><span class="line">	depmod -a</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> clean</span><br></pre></td></tr></table></figure>
-
-<h2 id="测试文件-test-drv-key-int-c"><a href="#测试文件-test-drv-key-int-c" class="headerlink" title="测试文件 test_drv_key_int.c"></a>测试文件 test_drv_key_int.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> keys_val;</span><br><span class="line"></span><br><span class="line">    fd = open(<span class="string">&quot;/dev/key_int0&quot;</span>, O_RDWR);</span><br><span class="line">    <span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;can&#x27;t open!\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        read(fd, &amp;keys_val, <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;keys_val = 0x%x\n&quot;</span>, keys_val);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="编译并测试"><a href="#编译并测试" class="headerlink" title="编译并测试"></a>编译并测试</h1><h2 id="Ubuntu主机端"><a href="#Ubuntu主机端" class="headerlink" title="Ubuntu主机端"></a>Ubuntu主机端</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主机端, 编译源码</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_key_int/KERN_SRC    # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译驱动</span></span><br><span class="line">$ make clean</span><br><span class="line">$ make modules                      <span class="comment"># 也可以在LinK+里面直接编译, 更方便</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译测试代码</span></span><br><span class="line">$ arm-linux-gcc test_drv_key_int.c -o test_drv_key_int</span><br></pre></td></tr></table></figure>
-
-<h2 id="开发板端"><a href="#开发板端" class="headerlink" title="开发板端"></a>开发板端</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板端, 测试模块和中断加载情况</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_key_int/KERN_SRC    # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line">$ insmod drv_key_int.ko             <span class="comment"># 加载模块</span></span><br><span class="line">drv_key_int:INIT</span><br><span class="line"></span><br><span class="line">$ cat /proc/devices                 <span class="comment"># 查看设备, 可以看到 drv_key_int</span></span><br><span class="line">$ cat /proc/interrupts              <span class="comment"># 查看中断设备, 没有 s2,s3,s4</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">exec</span> 5&lt;/dev/key_int0              <span class="comment"># 打开设备, 相当于open.</span></span><br><span class="line">drv_key_int:In char driver open() <span class="keyword">function</span></span><br><span class="line"><span class="comment"># 5是文件描述符, 其它数字也可以. ls -l /proc/self/fd/ 下可以查看文件描述符</span></span><br><span class="line"></span><br><span class="line">$ cat /proc/interrupts              <span class="comment"># 再查看中断设备, 可以看到 s2,s3,s4 了!</span></span><br><span class="line"><span class="comment"># 此时按下按键的话, 会触发中断, 打印 drv_key_int:keys_irq, irq=16/18/55</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">exec</span> 5&lt;&amp;-                         <span class="comment"># 关闭设备, 相当于close</span></span><br><span class="line">drv_key_int:In char driver release() <span class="keyword">function</span></span><br><span class="line"></span><br><span class="line">$ rmmod drv_key_int.ko              <span class="comment"># 移除模块</span></span><br><span class="line">drv_key_int:EXIT</span><br></pre></td></tr></table></figure>
-
-<p>下面, 使用测试文件进行测试</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板端, 测试驱动功能</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_key_int/KERN_SRC    # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line">$ insmod drv_key_int.ko             <span class="comment"># 加载模块</span></span><br><span class="line">drv_key_int:INIT</span><br><span class="line"></span><br><span class="line">$ ./test_drv_key_int                <span class="comment"># 检测按键中断</span></span><br><span class="line"><span class="comment"># 可以发现, 打印有时候有点乱, 那是因为中断的关系</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按ctrl+c 终止进程</span></span><br><span class="line"></span><br><span class="line">$ ./test_drv_key_int &amp;              <span class="comment"># 后台运行</span></span><br><span class="line">$ top                               <span class="comment"># 查看系统资源情况</span></span><br><span class="line"><span class="comment"># 可以看到 ./test_drv_key_int 进程占用很少的资源.</span></span><br></pre></td></tr></table></figure>
-
-<p>分析测试代码, 在死循环里面, 会调用到 <code>wait_event_interruptible</code>, 当没有中断发生时, 就会切换用户进程.<br>当中断发生后, 驱动通过 <code>wake_up_interruptible</code> 唤醒用户进程, 继续执行.<br>然后由于, 用户的printf和内核的printk相互独立, 所以最终打印可能会有点乱.</p>
-
+          <p>如题.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/07/1741-drv-chr3/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -990,7 +711,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-05-19 17:48:10" itemprop="dateModified" datetime="2019-05-19T17:48:10+10:00">2019-05-19</time>
+        <time title="Modified: 2021-03-08 23:33:02" itemprop="dateModified" datetime="2021-03-08T23:33:02+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1012,84 +733,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
-<li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
-<li><a href="https://draapho.github.io/2017/11/30/1740-drv-chr2/">驱动之基于LinK+设计按键驱动</a></li>
-<li><a href="https://draapho.github.io/2017/12/07/1741-drv-chr3/">驱动之基于中断设计按键驱动</a></li>
-<li><a href="https://draapho.github.io/2017/12/11/1742-drv-chr4/">驱动之poll机制</a></li>
-<li><a href="https://draapho.github.io/2017/12/12/1743-drv-chr5/">驱动之异步通知</a></li>
-<li><a href="https://draapho.github.io/2017/12/13/1744-drv-chr6/">驱动之同步互斥阻塞</a></li>
-<li><a href="https://draapho.github.io/2018/01/04/1801-drv-chr7/">驱动之定时器按键防抖</a></li>
-</ul>
-<p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.</p>
-<p>上文<a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a>是根据jz2440教程书写的. 整个过程比较繁杂.<br>在此期间, 搜索了一下Linux内核开发工具, 寻得一款非常好用的 Link+IDE, 安装配置见 <a href="https://draapho.github.io/2017/11/27/1737-linux-ide/">LinK+, 一款Linux内核开发IDE</a>.<br>这款软件可以自动生成Linux驱动开发的软件模板, 可以大大减少工作量, 提高效率!<br>因此, 此文基于LinK+的生成的驱动框架, 对按键驱动进行开发.</p>
-<h1 id="使用LinK-生成驱动模板"><a href="#使用LinK-生成驱动模板" class="headerlink" title="使用LinK+生成驱动模板"></a>使用LinK+生成驱动模板</h1><p>打开 LinK+IDE, 新建工程, 选择 <code>Linux Kernel Development(LinK+)</code> 下面的 <code>Device Driver Project</code><br>然后如图配置即可.</p>
-<p><img src="https://draapho.github.io/images/1740/LinKDriverWizard1.JPG" alt="LinKDriverWizard1.JPG"></p>
-<p><img src="https://draapho.github.io/images/1740/LinKDriverWizard2.JPG" alt="LinKDriverWizard2.JPG"></p>
-<p>确定后, LinK+IDE会自动生成代码, 基于这个代码模板, 去实现按键功能函数即可.</p>
-<p><strong>注意</strong> 自动生成的模板中, 函数<code>device_create</code>和linux-2.6.22.6不兼容, 需要去掉最后一个NULL!<br>不修改的话, 编译时有个警告, 尝试加载模块时会报错:<br><code>Unable to handle kernel NULL pointer dereference at virtual address 00000000</code></p>
-<h2 id="加载已有工程"><a href="#加载已有工程" class="headerlink" title="加载已有工程"></a>加载已有工程</h2><p>如果已有驱动工程, 需要加入 LinK+. 核心思路就是基于Makefile编译, 而不是用Eclipse自带的工具链编译.<br>基本过程可以参考<a href="https://draapho.github.io/2017/11/27/1737-linux-ide/">LinK+, 一款Linux内核开发IDE</a>, 但比内核的设置要简单的多.</p>
-<ul>
-<li><code>New Project...</code> -&gt; <code>C/C++</code>下<code>Makefile Project with Existing Code</code> -&gt; 选好项目路径, <code>Finish</code> 打开</li>
-<li>右键工程 <code>Properties</code><ul>
-<li>选中<code>C/C++ Build</code>-&gt;右边<code>Builder Settings</code>标签:<ul>
-<li>取消 <del><code>Use default build command</code></del>, 编译命令就是 <code>make</code></li>
-<li>确定 <code>Build directory</code> 路径是makefile所在的路径, 如 <code>$&#123;workspace_loc:/drv_key/KERN_SRC&#125;</code></li>
-</ul>
-</li>
-<li>选中<code>C/C++ Build</code>-&gt;右边<code>Behaviour</code>标签:<ul>
-<li><code>Build(incremental build)</code>, 改为 <code>modules</code>. 组成编译指令 <code>make modules</code></li>
-</ul>
-</li>
-<li>展开<code>C/C++ General</code>-&gt;选中<code>Paths and Symbols</code>-&gt;右边<code>Includes</code>标签<ul>
-<li><code>Add...</code>, 新增 <code>/linux-2.6.22.6/include</code> 路径到所有配置, 所有语言.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>右键工程 <code>Clean Project</code>, 相当于执行 <code>make clean</code></li>
-<li>右键工程 <code>Build Project</code>, 相当于执行 <code>make modules</code>, 编译完成.</li>
-</ul>
-<h1 id="驱动源码"><a href="#驱动源码" class="headerlink" title="驱动源码"></a>驱动源码</h1><h2 id="drv-key-c"><a href="#drv-key-c" class="headerlink" title="drv_key.c"></a>drv_key.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">===============================================================================</span></span><br><span class="line"><span class="comment">Driver Name		:		drv_key</span></span><br><span class="line"><span class="comment">Author			:		DRAAPHO</span></span><br><span class="line"><span class="comment">License			:		GPL</span></span><br><span class="line"><span class="comment">Description		:		LINUX DEVICE DRIVER PROJECT</span></span><br><span class="line"><span class="comment">===============================================================================</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;drv_key.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_N_MINORS 4</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_FIRST_MINOR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_NODE_NAME <span class="meta-string">&quot;key&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRV_KEY_BUFF_SIZE 1</span></span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">&quot;GPL&quot;</span>);</span><br><span class="line">MODULE_AUTHOR(<span class="string">&quot;DRAAPHO&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> drv_key_major=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">dev_t</span> drv_key_device_num;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="keyword">class</span> *<span class="title">drv_key_class</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">privatedata</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> nMinor;</span><br><span class="line">	<span class="keyword">char</span> buff[DRV_KEY_BUFF_SIZE];</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">cdev</span> <span class="title">cdev</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">device</span> *<span class="title">drv_key_device</span>;</span></span><br><span class="line">&#125; drv_key_private;</span><br><span class="line"></span><br><span class="line">drv_key_private devices[DRV_KEY_N_MINORS];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">drv_key_open</span><span class="params">(struct inode *inode,struct file *filp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">/* TODO Auto-generated Function */</span></span><br><span class="line">	drv_key_private *priv = container_of(inode-&gt;i_cdev ,</span><br><span class="line">									drv_key_private ,cdev);</span><br><span class="line">	filp-&gt;private_data = priv;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> ((priv-&gt;nMinor == <span class="number">0</span>) || (priv-&gt;nMinor == <span class="number">1</span>))</span><br><span class="line">		s3c2410_gpio_cfgpin(S3C2410_GPF0, S3C2410_GPF0_INP);</span><br><span class="line">	<span class="keyword">if</span> ((priv-&gt;nMinor == <span class="number">0</span>) || (priv-&gt;nMinor == <span class="number">2</span>))</span><br><span class="line">		s3c2410_gpio_cfgpin(S3C2410_GPF2, S3C2410_GPF2_INP);</span><br><span class="line">	<span class="keyword">if</span> ((priv-&gt;nMinor == <span class="number">0</span>) || (priv-&gt;nMinor == <span class="number">3</span>))</span><br><span class="line">		s3c2410_gpio_cfgpin(S3C2410_GPG3, S3C2410_GPG3_INP);</span><br><span class="line"></span><br><span class="line">	PINFO(<span class="string">&quot;minor=%d\n&quot;</span>, priv-&gt;nMinor);</span><br><span class="line">	PINFO(<span class="string">&quot;In char driver open() function\n&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;					</span><br><span class="line"></span><br><span class="line"><span class="comment">//static int drv_key_release(struct inode *inode,struct file *filp)</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//	/* TODO Auto-generated Function */</span></span><br><span class="line"><span class="comment">//	drv_key_private *priv;</span></span><br><span class="line"><span class="comment">//	priv=filp-&gt;private_data;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//	PINFO(&quot;In char driver release() function\n&quot;);</span></span><br><span class="line"><span class="comment">//	return 0;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">ssize_t</span> <span class="title">drv_key_read</span><span class="params">(struct file *filp, </span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">char</span> __user *ubuff,<span class="keyword">size_t</span> count,<span class="keyword">loff_t</span> *offp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">/* TODO Auto-generated Function */</span></span><br><span class="line">	<span class="keyword">int</span> n=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> key_vals[<span class="number">3</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	drv_key_private *priv;</span><br><span class="line">	priv = filp-&gt;private_data;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> ((priv-&gt;nMinor == <span class="number">0</span>) || (priv-&gt;nMinor == <span class="number">1</span>))</span><br><span class="line">		key_vals[<span class="number">0</span>] = !s3c2410_gpio_getpin(S3C2410_GPF0);</span><br><span class="line">	<span class="keyword">if</span> ((priv-&gt;nMinor == <span class="number">0</span>) || (priv-&gt;nMinor == <span class="number">2</span>))</span><br><span class="line">		key_vals[<span class="number">1</span>] = !s3c2410_gpio_getpin(S3C2410_GPF2);</span><br><span class="line">	<span class="keyword">if</span> ((priv-&gt;nMinor == <span class="number">0</span>) || (priv-&gt;nMinor == <span class="number">3</span>))</span><br><span class="line">		key_vals[<span class="number">2</span>] = !s3c2410_gpio_getpin(S3C2410_GPG3);</span><br><span class="line">	copy_to_user(ubuff, key_vals, <span class="keyword">sizeof</span>(key_vals));</span><br><span class="line"></span><br><span class="line"><span class="comment">//	PINFO(&quot;In char driver read() function\n&quot;);</span></span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">file_operations</span> <span class="title">drv_key_fops</span>=</span> &#123;</span><br><span class="line">	.owner				= THIS_MODULE,</span><br><span class="line">	.open				= drv_key_open,</span><br><span class="line"><span class="comment">//	.release			= drv_key_release,</span></span><br><span class="line">	.read				= drv_key_read,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> __init <span class="title">drv_key_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">/* TODO Auto-generated Function Stub */</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> res;</span><br><span class="line"></span><br><span class="line">	res = alloc_chrdev_region(&amp;drv_key_device_num,DRV_KEY_FIRST_MINOR,DRV_KEY_N_MINORS ,DRIVER_NAME);</span><br><span class="line">	<span class="keyword">if</span>(res) &#123;</span><br><span class="line">		PERR(<span class="string">&quot;register device no failed\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	drv_key_major = MAJOR(drv_key_device_num);</span><br><span class="line">	drv_key_class = class_create(THIS_MODULE , DRIVER_NAME);</span><br><span class="line">	<span class="keyword">if</span>(!drv_key_class) &#123;</span><br><span class="line">		PERR(<span class="string">&quot;class creation failed\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;DRV_KEY_N_MINORS;i++) &#123;</span><br><span class="line">		drv_key_device_num= MKDEV(drv_key_major ,DRV_KEY_FIRST_MINOR+i);</span><br><span class="line">		cdev_init(&amp;devices[i].cdev , &amp;drv_key_fops);</span><br><span class="line">		cdev_add(&amp;devices[i].cdev,drv_key_device_num,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">		devices[i].drv_key_device  = </span><br><span class="line">				<span class="comment">// BE CARE, device_create has different parameters...</span></span><br><span class="line"><span class="comment">//				device_create(drv_key_class , NULL ,drv_key_device_num ,</span></span><br><span class="line"><span class="comment">//							NULL ,DRV_KEY_NODE_NAME&quot;%d&quot;,DRV_KEY_FIRST_MINOR+i);</span></span><br><span class="line">				device_create(drv_key_class , <span class="literal">NULL</span> ,drv_key_device_num ,</span><br><span class="line">							DRV_KEY_NODE_NAME<span class="string">&quot;%d&quot;</span>,DRV_KEY_FIRST_MINOR+i);</span><br><span class="line">		<span class="keyword">if</span>(!devices[i].drv_key_device) &#123;</span><br><span class="line">			class_destroy(drv_key_class);</span><br><span class="line">			PERR(<span class="string">&quot;device creation failed\n&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		devices[i].nMinor = DRV_KEY_FIRST_MINOR+i;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	PINFO(<span class="string">&quot;INIT\n&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> __exit <span class="title">drv_key_exit</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="comment">/* TODO Auto-generated Function Stub */</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	PINFO(<span class="string">&quot;EXIT\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;DRV_KEY_N_MINORS;i++) &#123;</span><br><span class="line">		drv_key_device_num= MKDEV(drv_key_major ,DRV_KEY_FIRST_MINOR+i);</span><br><span class="line"></span><br><span class="line">		cdev_del(&amp;devices[i].cdev);</span><br><span class="line"></span><br><span class="line">		device_destroy(drv_key_class ,drv_key_device_num);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	class_destroy(drv_key_class);</span><br><span class="line">	unregister_chrdev_region(drv_key_device_num ,DRV_KEY_N_MINORS);	</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module_init(drv_key_init);</span><br><span class="line">module_exit(drv_key_exit);</span><br></pre></td></tr></table></figure>
-
-<h2 id="drv-key-h"><a href="#drv-key-h" class="headerlink" title="drv_key.h"></a>drv_key.h</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRIVER_NAME <span class="meta-string">&quot;drv_key&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PDEBUG(fmt,args...) printk(KERN_DEBUG<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME, ##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PERR(fmt,args...) printk(KERN_ERR<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME,##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PINFO(fmt,args...) printk(KERN_INFO<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME, ##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/cdev.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/device.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/fs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/init.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/kdev_t.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/uaccess.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/arch/regs-gpio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/hardware.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">obj-m		:= drv_key.o </span><br><span class="line">KERN_SRC	:= /home/draapho/share/kernel/linux-2.6.22.6/</span><br><span class="line">PWD			:= <span class="variable">$(<span class="built_in">shell</span> pwd)</span></span><br><span class="line"></span><br><span class="line"><span class="section">modules:</span></span><br><span class="line">	make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> modules</span><br><span class="line"></span><br><span class="line"><span class="section">install:</span></span><br><span class="line">	make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> modules_install</span><br><span class="line">	depmod -a</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> clean</span><br></pre></td></tr></table></figure>
-
-<h2 id="测试文件-drv-key-test-c"><a href="#测试文件-drv-key-test-c" class="headerlink" title="测试文件 drv_key_test.c"></a>测试文件 drv_key_test.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_usage</span><span class="params">(<span class="keyword">char</span> *file)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Usage:\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s &lt;dev&gt;\n&quot;</span>,file);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;eg. \n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s /dev/key0\n&quot;</span>, file);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s /dev/key1\n&quot;</span>, file);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd;</span><br><span class="line">    <span class="keyword">char</span>* filename;</span><br><span class="line">    <span class="keyword">char</span> val;</span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">2</span>) &#123;                        <span class="comment">// 输入错误, 打印帮助信息</span></span><br><span class="line">        print_usage(argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    filename = argv[<span class="number">1</span>];</span><br><span class="line">    fd = open(filename, O_RDWR);            <span class="comment">// 打开设备</span></span><br><span class="line">    <span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;error, can&#x27;t open %s\n&quot;</span>, filename);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    	<span class="keyword">char</span> key_vals[<span class="number">3</span>];</span><br><span class="line">    	<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    	<span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        	read(fd, key_vals, <span class="keyword">sizeof</span>(key_vals));</span><br><span class="line">    		<span class="keyword">if</span> (key_vals[<span class="number">0</span>] || key_vals[<span class="number">1</span>] || key_vals[<span class="number">2</span>]) &#123;</span><br><span class="line">    			<span class="built_in">printf</span>(<span class="string">&quot;%04d key pressed: %d %d %d\n&quot;</span>, cnt++, key_vals[<span class="number">0</span>], key_vals[<span class="number">1</span>], key_vals[<span class="number">2</span>]);</span><br><span class="line">    		&#125;</span><br><span class="line">    		usleep(<span class="number">100</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="编译并测试"><a href="#编译并测试" class="headerlink" title="编译并测试"></a>编译并测试</h1><h2 id="Ubuntu主机端"><a href="#Ubuntu主机端" class="headerlink" title="Ubuntu主机端"></a>Ubuntu主机端</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主机端, 编译源码</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_key/KERN_SRC    # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译驱动</span></span><br><span class="line">$ make clean</span><br><span class="line">$ make modules                  <span class="comment"># LinK+的Makefile使用的是 make modules 而不是 make all</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译测试代码</span></span><br><span class="line">$ arm-linux-gcc drv_key_test.c -o drv_key_test</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="开发板端"><a href="#开发板端" class="headerlink" title="开发板端"></a>开发板端</h2><p>开发环境上, 开发板烧录好内核, 使用nfs挂载共享文件. 所以无需任何文件传输的步骤.<br>开发环境的具体配置可参考: <a href="https://draapho.github.io/2017/11/28/1738-dhcp-env/">基于DHCP建立嵌入式Linux开发环境</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板端, 测试模块加载情况</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_key/KERN_SRC    # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line">$ insmod drv_key.ko     <span class="comment"># 加载模块</span></span><br><span class="line">drv_key:INIT</span><br><span class="line"></span><br><span class="line">$ cat /proc/devices     <span class="comment"># 查看设备</span></span><br><span class="line">249 drv_key</span><br><span class="line">250 drv_key</span><br><span class="line">251 drv_key</span><br><span class="line">252 drv_key</span><br><span class="line"></span><br><span class="line">$ ls /dev/key*          <span class="comment"># 查看设备节点               </span></span><br><span class="line">/dev/key0  /dev/key1  /dev/key2  /dev/key3</span><br><span class="line"></span><br><span class="line">$ ls /sys/class/drv_key/            <span class="comment"># 查看设备的类</span></span><br><span class="line">key0  key1  key2  key3</span><br><span class="line">$ cat /sys/class/drv_key/key3/dev   <span class="comment"># 查看设备号</span></span><br><span class="line">249:3</span><br><span class="line"></span><br><span class="line">$ rmmod drv_key.ko      <span class="comment"># 移除模块</span></span><br><span class="line">drv_key:EXIT</span><br></pre></td></tr></table></figure>
-
-<p>下面进行按键测试</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板端, 测试驱动功能</span></span><br><span class="line"><span class="comment"># pwd = /home/draapho/share/drv/drv_key/KERN_SRC    # 驱动源码路径, share是nfs共享文件夹</span></span><br><span class="line"></span><br><span class="line">$ insmod drv_key.ko     <span class="comment"># 加载模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># key0-&gt;all, key1-&gt;s2, key2-&gt;s3, key3-&gt;s4</span></span><br><span class="line">$ ./drv_key_test /dev/key0          <span class="comment"># 检测所有按键 </span></span><br><span class="line">drv_key:minor=0                     <span class="comment"># 打印信息</span></span><br><span class="line">drv_key:In char driver open() <span class="keyword">function</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># jz2440开发板按下按键, 就会打印按键信息. 1表示按下. 0表示松开.</span></span><br><span class="line"><span class="comment"># 按ctrl+c 终止进程</span></span><br><span class="line"></span><br><span class="line">$ ./drv_key_test /dev/key0 &amp;        <span class="comment"># 后台运行</span></span><br><span class="line">$ top                               <span class="comment"># 查看系统资源情况</span></span><br><span class="line"><span class="comment"># 可以看到 ./drv_key_test /dev/key0 进程表现还不错. %MEM=2% %CPU=0%</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">kill</span> &lt;PID&gt;                        <span class="comment"># 杀掉指定进程</span></span><br><span class="line"><span class="comment"># 这是因为我在测试代码的死循环里加了100ms的延时, 去掉usleep这行, 再测的话会变成:</span></span><br><span class="line"><span class="comment"># %CPU=99%</span></span><br></pre></td></tr></table></figure>
-
-<p>结论: 这种方式的按键驱动是有巨大风险的, 因为其性能取决于应用层怎么写, 这是不可接受的!<br>实际开发中, 按键多半采用中断或poll方式.</p>
-<h1 id="驱动框架的比较"><a href="#驱动框架的比较" class="headerlink" title="驱动框架的比较"></a>驱动框架的比较</h1><p>LinK+自动生成的框架和jz2440教程的框架主要有如下区别:</p>
-<ul>
-<li><code>alloc_chrdev_region</code> or <code>register_chrdev_region</code> vs <code>register_chrdev</code><ul>
-<li>本质上没啥区别, 都会调用 <code>__register_chrdev_region()</code></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/freenaut/article/details/4298174">字符设备 register_chrdev_region()、alloc_chrdev_region() 和 register_chrdev()</a></li>
-</ul>
-</li>
-<li><code>device_create</code> vs <code>class_device_create</code><ul>
-<li>似乎是历史遗留问题, <code>device_create</code> 函数用于替换 <code>class_device_create</code>.</li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/yuzaipiaofei/article/details/6790689">class_create(),class_device_create()或device_create()自动创建设备文件结点</a></li>
-</ul>
-</li>
-<li>子设备号Minor获取上的区别.<ul>
-<li>使用 private_data 更符合linux的规范</li>
-</ul>
-</li>
-</ul>
-<p>总体而言, jz2440的教程使用的框架比较老, LinK+使用的框架更合适高版本的linux内核.</p>
-<hr>
-<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
-
+          <p>如题.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/30/1740-drv-chr2/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1146,7 +798,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2017-11-28 21:02:32" itemprop="dateModified" datetime="2017-11-28T21:02:32+11:00">2017-11-28</time>
+        <time title="Modified: 2021-03-08 23:33:05" itemprop="dateModified" datetime="2021-03-08T23:33:05+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1168,115 +820,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>转载自 <a target="_blank" rel="noopener" href="http://blog.topspeedsnail.com/archives/908">Ubuntu 16.04安装配置NFS</a><br><strong>略有改动和增加</strong></p>
-<hr>
-<p>NFS允许用户通过网络分享目录和文件，客户端用户可以像操作本地文件一样操作服务端文件。</p>
-<h1 id="NFS服务端"><a href="#NFS服务端" class="headerlink" title="NFS服务端"></a>NFS服务端</h1><p>安装nfs-kernel-server：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install nfs-kernel-server</span><br></pre></td></tr></table></figure>
-
-<h1 id="NFS客户端"><a href="#NFS客户端" class="headerlink" title="NFS客户端"></a>NFS客户端</h1><p>安装 nfs-common：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install nfs-common</span><br></pre></td></tr></table></figure>
-
-<h1 id="服务端创建共享目录"><a href="#服务端创建共享目录" class="headerlink" title="服务端创建共享目录"></a>服务端创建共享目录</h1><p>客户端通过远程挂载的方式访问服务端共享目录，为了说明两种不同的文件权限，我会使用不同的选项创建两个共享目录。</p>
-<ul>
-<li>默认情况下客户端不允许在NFS共享目录上执行root操作，如：更改文件所有权等。</li>
-<li>但是有时用户需要用root权限操作NFS共享目录，这可以通过配置实现。</li>
-</ul>
-<h2 id="创建默认配置的共享目录"><a href="#创建默认配置的共享目录" class="headerlink" title="创建默认配置的共享目录"></a>创建默认配置的共享目录</h2><p>创建一个目录：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo mkdir -p /var/nfs/sharedir</span><br></pre></td></tr></table></figure>
-
-<p>更改目录权限：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo chown nobody:nogroup /var/nfs/sharedir</span><br></pre></td></tr></table></figure>
-
-<h2 id="以root权限共享home目录"><a href="#以root权限共享home目录" class="headerlink" title="以root权限共享home目录"></a>以root权限共享home目录</h2><p>配置NFS：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo vim &#x2F;etc&#x2F;exports</span><br></pre></td></tr></table></figure>
-
-<p>如下格式</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;var&#x2F;nfs&#x2F;sharedir   *(rw,sync,no_subtree_check)</span><br><span class="line">&#x2F;home               *(rw,sync,no_root_squash,no_subtree_check)</span><br><span class="line"></span><br><span class="line"># 要限制客户端IP</span><br><span class="line"># &#x2F;var&#x2F;nfs&#x2F;sharedir 122.111.222.111(rw,sync,no_subtree_check)</span><br><span class="line"># &#x2F;home             122.111.222.111(rw,sync,no_root_squash,no_subtree_check)</span><br></pre></td></tr></table></figure>
-
-<p>下面是一些NFS共享的常用参数说明： </p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>rw</td>
-<td>可读写的权限</td>
-</tr>
-<tr>
-<td>ro</td>
-<td>只读的权限</td>
-</tr>
-<tr>
-<td>no_root_squash</td>
-<td>权限不压缩, 远程客户端拥有root权限. (不安全, 但嵌入式要用!)</td>
-</tr>
-<tr>
-<td>root_squash</td>
-<td>权限压缩, 远程客户端root权限压缩成为匿名使用者(默认)</td>
-</tr>
-<tr>
-<td>sync</td>
-<td>资料同步写入到内存与硬盘当中</td>
-</tr>
-<tr>
-<td>async</td>
-<td>资料会先暂存于内存当中，而非直接写入硬盘</td>
-</tr>
-<tr>
-<td>hide</td>
-<td>不共享子目录</td>
-</tr>
-<tr>
-<td>no_hide</td>
-<td>共享子目录</td>
-</tr>
-<tr>
-<td>subtree_check</td>
-<td>共享子目录时, 检查父目录的权限(默认)</td>
-</tr>
-<tr>
-<td>no_subtree_check</td>
-<td>共享子目录时, 不检查父目录的权限</td>
-</tr>
-</tbody></table>
-<p>重启nfs-kernel-server：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo systemctl restart nfs-kernel-server</span><br></pre></td></tr></table></figure>
-<p>如果开启了防火墙，打开NFS的2049端口。</p>
-<p>查看共享文件情况</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ showmount -e</span><br><span class="line">/home *</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="客户端挂载共享目录"><a href="#客户端挂载共享目录" class="headerlink" title="客户端挂载共享目录"></a>客户端挂载共享目录</h1><p><strong>此方法不适用于嵌入式Linux!</strong></p>
-<p>创建两个挂载点：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo mkdir -p /nfs/sharedir</span><br><span class="line">$ sudo mkdir -p /nfs/home</span><br></pre></td></tr></table></figure>
-
-<p>挂载远程共享目录：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo mount nfs_server_ip:/var/nfs/sharedir /nfs/sharedir</span><br><span class="line">$ sudo mount nfs_server_ip:/home /nfs/home</span><br></pre></td></tr></table></figure>
-
-<p>查看挂载点：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ df -h</span><br><span class="line">Filesystem                       Size  Used Avail Use% Mounted on</span><br><span class="line">udev                             861M     0  861M   0% /dev</span><br><span class="line">...</span><br><span class="line">192.168.0.100:/var/nfs/sharedir   29G  4.5G   23G  17% /nfs/sharedir</span><br><span class="line">192.168.0.100:/home               29G  4.5G   23G  17% /nfs/home</span><br></pre></td></tr></table></figure>
-<p>现在你可以使用共享目录了。</p>
-<p>使用完之后不要忘了卸载：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo umount /nfs/home</span><br><span class="line">$ sudo umount /nfs/sharedir</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="开机自动挂载NFS共享目录"><a href="#开机自动挂载NFS共享目录" class="headerlink" title="开机自动挂载NFS共享目录"></a>开机自动挂载NFS共享目录</h1><p>编辑fstab文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/fstab</span><br></pre></td></tr></table></figure>
-
-<p>添加如下两行：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">your_nfs_server_Ip:&#x2F;var&#x2F;nfs&#x2F;sharedir    &#x2F;nfs&#x2F;sharedir   nfs auto,nofail,noatime,nolock,intr,tcp,actimeo&#x3D;1800 0 0</span><br><span class="line">your_nfs_server_Ip:&#x2F;home                &#x2F;nfs&#x2F;home       nfs auto,nofail,noatime,nolock,intr,tcp,actimeo&#x3D;1800 0 0</span><br></pre></td></tr></table></figure>
-
-<p>或者使用hostname</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nfs_server_hostname:&#x2F;var&#x2F;nfs&#x2F;sharedir   &#x2F;nfs&#x2F;sharedir   nfs auto,nofail,noatime,nolock,intr,tcp,actimeo&#x3D;1800 0 0</span><br><span class="line">nfs_server_hostname:&#x2F;home               &#x2F;nfs&#x2F;home       nfs auto,nofail,noatime,nolock,intr,tcp,actimeo&#x3D;1800 0 0</span><br></pre></td></tr></table></figure>
-
-
-<hr>
-<p>转载自 <a target="_blank" rel="noopener" href="http://blog.topspeedsnail.com/archives/908">Ubuntu 16.04安装配置NFS</a></p>
-
+          <p>如题.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/29/1739-ubuntu-nfs/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1333,7 +885,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-05-19 17:48:10" itemprop="dateModified" datetime="2019-05-19T17:48:10+10:00">2019-05-19</time>
+        <time title="Modified: 2021-03-08 23:33:14" itemprop="dateModified" datetime="2021-03-08T23:33:14+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1355,86 +907,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
-<li><a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a></li>
-<li><a href="https://draapho.github.io/2017/02/21/1707-jz2440-env/">嵌入式linux环境搭建-jz2440开发板</a></li>
-<li><a href="https://draapho.github.io/2017/11/28/1738-dhcp-env/">基于DHCP建立嵌入式Linux开发环境</a></li>
-</ul>
-<p>之前的环境搭建都是基于静态IP的. 但有些网络不方便设置静态IP, 而必须使用动态IP.<br>针对这种情况, 介绍一下Windows主机, Ubuntu主机, 以及开发板全部使用DHCP动态IP的方法.</p>
-<h1 id="主机端"><a href="#主机端" class="headerlink" title="主机端"></a>主机端</h1><p>Ubuntu安装好后, 默认就是dhcp分配动态IP地址.<br>那么在windows端的Putty, 我们需要使用Ubuntu的hostname, 而不是其IP地址即可.</p>
-<p>方法很简单. Ubuntu的bash终端下面</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hostname</span><br><span class="line">ubuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">$ uname -n</span><br><span class="line">ubuntu</span><br></pre></td></tr></table></figure>
-
-<p>Windows下查看主机名<br>我的电脑-&gt;属性, <code>电脑名称</code>就是主机名<br>或者cmd终端下面, 输入 <code>ipconfig -all</code><br>第一行就是 <code>Host Name</code>.</p>
-<p>这样putty端直接使用 <code>hostname</code> 或者 <code>user@hostname</code> 就可以使用ssh远程登录了.</p>
-<h1 id="开发板DHCP"><a href="#开发板DHCP" class="headerlink" title="开发板DHCP"></a>开发板DHCP</h1><p>开发板要支持dhcp比较复杂一点.<br>基本思路如下:</p>
-<ul>
-<li>嵌入式linux启动后, 自动启动dhcp联网.</li>
-<li>嵌入式linux安装nfs client, 挂载Ubuntu上的nfs文件.</li>
-<li>内核和文件系统需要烧录到开发板.</li>
-<li>此方法适用于开发驱动和应用层软件. </li>
-<li>新版本的uboot肯定支持dhcp, 但老版本的不确定, 不去吃螃蟹了.</li>
-<li>有兴趣的参考 <a target="_blank" rel="noopener" href="https://www.emcraft.com/som/using-dhcp"><br>Using DHCP Client in U-Boot for Loading Linux Images via Network</a></li>
-</ul>
-<h2 id="编译内核"><a href="#编译内核" class="headerlink" title="编译内核"></a>编译内核</h2><p>首先需要内核支持更多的网络特性.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pwd = linux-2.6.22.6</span></span><br><span class="line">cp config_ok .config</span><br><span class="line">make menuconfig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行如下配置</span></span><br><span class="line">Networking  ---&gt;    </span><br><span class="line">    [*] Networking support         </span><br><span class="line">        Networking options  ---&gt;             </span><br><span class="line">        &lt;* &gt; Packet socket                 <span class="comment"># 使能CONFIG_PACKET, socket包           </span></span><br><span class="line">        [ * ]     IP: DHCP support         <span class="comment"># 使能DHCP           </span></span><br><span class="line">        [ * ] Network packet filtering framework (Netfilter)  ---&gt;  <span class="comment"># 使能 </span></span><br><span class="line">        <span class="comment"># 后面子选项可不选</span></span><br><span class="line"><span class="comment"># 保存并退回到终端</span></span><br><span class="line"></span><br><span class="line">make clean</span><br><span class="line">make uImage</span><br></pre></td></tr></table></figure>
-
-<p>然后烧录新的内核到开发板. </p>
-<ul>
-<li>内核的编译和烧录可参考 <a href="https://draapho.github.io/2017/09/01/1722-kernel-compile/">kernel之编译体验</a></li>
-<li>如果内核没有支持上述特性, 后面执行udhcpc时会报错: <code>Address family not supported by protocol</code></li>
-</ul>
-<h2 id="编译Busybox"><a href="#编译Busybox" class="headerlink" title="编译Busybox"></a><del>编译Busybox</del></h2><p>jz2440提供的文件系统包含udhcpc命令, 所以不用重新配置编译了.<br><strong>可跳过此步骤</strong>.</p>
-<p>如果要自己做, 注意勾选下面的选项(有的版本默认支持dhcp指令)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Busybox Settings  ---&gt;  </span><br><span class="line">    Busybox Library Tuning  ---&gt; </span><br><span class="line">    [*]   Tab completion                <span class="comment"># 指令自动填充, 非常必要的属性, 默认关闭...</span></span><br><span class="line">        </span><br><span class="line">Networking Utilities  ---&gt;           </span><br><span class="line">    [] udhcp Server (udhcpd)            <span class="comment"># 在此不作服务端，故不选。生成udhcpd命令    </span></span><br><span class="line">    [*] udhcp Client (udhcpc)           <span class="comment"># 生成udhcpc命令   </span></span><br></pre></td></tr></table></figure>
-
-<p>针对嵌入式系统, 由于是交叉编译, Busybox编译和安装有特别的要求, 可参考:</p>
-<ul>
-<li><a href="https://draapho.github.io/2017/11/02/1730-fs-busybox/">fs之BusyBox的使用与编译</a></li>
-</ul>
-<h2 id="完善文件系统"><a href="#完善文件系统" class="headerlink" title="完善文件系统"></a>完善文件系统</h2><p>自己构建文件系统也很麻烦. 可以参考 <a href="https://draapho.github.io/2017/11/03/1731-fs-build/">fs之创建文件系统</a></p>
-<p>我是基于jz2440提供的 <code>fs_mini_mdev</code> 修改后, 使其支持dhcp的<br>busybox包含的udhcpc没有提供运行脚本, 直接运行会报错:<br><code>udhcpc: exec /usr/share/udhcpc/default.script: No such file or directory</code></p>
-<p>因此对整个文件系统的改造有如下步骤</p>
-<ul>
-<li>建立udhcpc要用的default.script</li>
-<li>加入可执行属性</li>
-<li>启动自动执行udhcpc指令</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pwd = fs_mini_mdev_dhcp/</span></span><br><span class="line"></span><br><span class="line">mkdir -p ./usr/share/udhcpc/     <span class="comment"># 自动建立多层目录</span></span><br><span class="line">vim ./usr/share/udhcpc/default.script</span><br><span class="line"></span><br><span class="line"><span class="comment"># ===== 打开vim, 写入如下内容 =====</span></span><br><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">[ -z <span class="string">&quot;<span class="variable">$1</span>&quot;</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;Error: should be called from udhcpc&quot;</span> &amp;&amp; <span class="built_in">exit</span> 1</span><br><span class="line"></span><br><span class="line">RESOLV_CONF=<span class="string">&quot;/etc/resolv.conf&quot;</span></span><br><span class="line">[ -n <span class="string">&quot;<span class="variable">$broadcast</span>&quot;</span> ] &amp;&amp; BROADCAST=<span class="string">&quot;broadcast <span class="variable">$broadcast</span>&quot;</span></span><br><span class="line">[ -n <span class="string">&quot;<span class="variable">$subnet</span>&quot;</span> ] &amp;&amp; NETMASK=<span class="string">&quot;netmask <span class="variable">$subnet</span>&quot;</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">  deconfig)</span><br><span class="line">    /sbin/ifconfig <span class="variable">$interface</span> 0.0.0.0</span><br><span class="line">    ;;</span><br><span class="line"> </span><br><span class="line">  renew|bound)</span><br><span class="line">    /sbin/ifconfig <span class="variable">$interface</span> <span class="variable">$ip</span> <span class="variable">$BROADCAST</span> <span class="variable">$NETMASK</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$router</span>&quot;</span> ] ; <span class="keyword">then</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;deleting routers&quot;</span></span><br><span class="line">      <span class="keyword">while</span> route del default gw 0.0.0.0 dev <span class="variable">$interface</span> ; <span class="keyword">do</span></span><br><span class="line">        :</span><br><span class="line">      <span class="keyword">done</span></span><br><span class="line"> </span><br><span class="line">      <span class="keyword">for</span> i <span class="keyword">in</span> <span class="variable">$router</span> ; <span class="keyword">do</span></span><br><span class="line">        route add default gw <span class="variable">$i</span> dev <span class="variable">$interface</span></span><br><span class="line">      <span class="keyword">done</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"> </span><br><span class="line">    <span class="built_in">echo</span> -n &gt; <span class="variable">$RESOLV_CONF</span></span><br><span class="line">    [ -n <span class="string">&quot;<span class="variable">$domain</span>&quot;</span> ] &amp;&amp; <span class="built_in">echo</span> search <span class="variable">$domain</span> &gt;&gt; <span class="variable">$RESOLV_CONF</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="variable">$dns</span> ; <span class="keyword">do</span></span><br><span class="line">      <span class="built_in">echo</span> adding dns <span class="variable">$i</span></span><br><span class="line">      <span class="built_in">echo</span> nameserver <span class="variable">$i</span> &gt;&gt; <span class="variable">$RESOLV_CONF</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">    ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="comment"># ===== wq保存文件, 退出 =====</span></span><br><span class="line"></span><br><span class="line">chmod +x ./usr/share/udhcpc/default.script       <span class="comment"># 加入可执行属性</span></span><br><span class="line"></span><br><span class="line">vim ./etc/init.d/rcS             <span class="comment"># 开机自动执行udhcpc. S是大写!</span></span><br><span class="line"><span class="comment"># ===== 打开vim, 修改/增加如下内容 =====</span></span><br><span class="line"><span class="comment"># ifconfig eth0 192.168.1.17</span></span><br><span class="line">ifconfig eth0 up</span><br><span class="line">udhcpc eth0</span><br><span class="line"><span class="comment"># 上述两行放在最前面. 这样才能成功自动挂载nfs</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ===== wq保存文件, 退出 =====</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vim ./etc/fstab</span><br><span class="line"><span class="comment"># ===== 打开vim, 增加如下内容 =====</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文件最后加入这样一句nfs模板, 便于日后修改</span></span><br><span class="line"><span class="comment"># 192.168.1.100:/home/share /mnt/share nfs rsize=1024,wsize=1024,timeo=14,intr,nolock 0 0</span></span><br><span class="line"><span class="comment"># ===== wq保存文件, 退出 =====</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 制作文件系统</span></span><br><span class="line"><span class="comment"># pwd = fs_mini_mdev_dhcp/..</span></span><br><span class="line">mkyaffs2image fs_mini_mdev_dhcp fs_mini_mdev_dhcp.yaffs2</span><br></pre></td></tr></table></figure>
-
-<p>上述工作完成后, 烧录到开发板即可. 详情可参考:<a href="https://draapho.github.io/2017/11/03/1731-fs-build/">fs之创建文件系统</a></p>
-<h2 id="开发板测试"><a href="#开发板测试" class="headerlink" title="开发板测试"></a>开发板测试</h2><p>烧录好内核和文件系统后, 开机测试一下.<br>注意, udhcpc比较傻, 如果不能联网, 开机就会死在 <code>Sending discover...</code><br>成功启动后, 使用 <code>ifconfig</code> 就可以看到dhcp自动分配的ip地址了.</p>
-<p>所以也有人用别的方式实现dhcp. 我没有尝试, 列在这里供参考</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="http://www.linuxidc.com/Linux/2011-05/36038.htm">成功移植DHCP客户端到mini2440</a>, 用的 dhclient 指令</li>
-<li><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/bca0c470e418964bcf84b9d528ea81c758f52ed1.html">jz2440自动获取ip地址</a>, 源码编译udhcpc, 估计里面会有 default.script 文件.</li>
-</ul>
-<h1 id="开发板挂载nfs"><a href="#开发板挂载nfs" class="headerlink" title="开发板挂载nfs"></a>开发板挂载nfs</h1><p>主机端 nfs环境搭建参考: <a href="https://draapho.github.io/2017/11/29/1739-ubuntu-nfs/">Ubuntu 16.04安装配置NFS</a></p>
-<p>在开发板上挂载服务器共享的目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pwd = / </span></span><br><span class="line">$ mkdir mnt/share          <span class="comment"># 挂载点</span></span><br><span class="line">$ ln -s mnt/share share    <span class="comment"># 创建软连接</span></span><br><span class="line"></span><br><span class="line">$ mount -t nfs -o nolock 192.168.1.100:/home/share /mnt/share/</span><br><span class="line">$ df -h                     <span class="comment"># 查看挂载的文件系统.</span></span><br><span class="line">$ ls share                  <span class="comment"># 查看一下是否可以看到共享内容了.</span></span><br></pre></td></tr></table></figure>
-
-
-<p>每次开机敲一长串 mount 指令也挺麻烦的, 进一步偷懒, 让它开机自启动.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板终端, 修改fstab, 让 mount -a 自动加载nfs</span></span><br><span class="line">$ vi /etc/fstab</span><br><span class="line"><span class="comment"># ===== 打开vi, 修改/增加如下内容 =====</span></span><br><span class="line">192.168.1.111:/home/share /mnt/share nfs rsize=1024,wsize=1024,timeo=14,intr,nolock 0 0</span><br><span class="line"><span class="comment"># ===== wq保存文件, 退出 =====</span></span><br><span class="line"></span><br><span class="line">$ mount -a                  <span class="comment"># 重新加载</span></span><br><span class="line">$ df -h                     <span class="comment"># 查看挂载的文件系统.</span></span><br><span class="line">$ ls share                  <span class="comment"># 查看一下是否可以看到共享内容了.</span></span><br></pre></td></tr></table></figure>
-
-<p>下次重启就能自动加载nfs了. <strong>如果加载失败, 看看是不是主机动态IP变掉了</strong>.<br>jz2440启动后, 加载nfs失败时, 需要等待一段时间才能进入终端界面! </p>
-<h2 id="使用hostname"><a href="#使用hostname" class="headerlink" title="使用hostname"></a>使用hostname</h2><p>这里, 最理想的情况是使用 hostname 而不是IP地址.<br>但网上搜索了一下, 没有找到让jz2440支持hostname的方法.<br>动态IP也不会更换的太频繁, 所以是一个可以忍受的缺点, 就不去深究了.<br>关键点是 <code>/etc/resolv.conf</code>, 应该可以由udhcpc自动生成内容的…<br>找了如下相关信息:</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/mybelief321/article/details/10049429">linux根文件系统 /etc/resolv.conf 文件详解</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.voidcn.com/article/p-yruxiyxx-nk.html">linux系统2440开发板域名解析问题</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/zjzsky/p/3559367.html">JZ2440开发笔记（4）——设置静态IP</a></li>
-</ul>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/ruglcc/article/details/7802077">ubuntu永久修改主机名</a></li>
-<li><a target="_blank" rel="noopener" href="http://felix-lin.com/linux/busybox-%E6%87%89%E7%94%A8-udhcpc/">BusyBox 應用 – udhcpc</a></li>
-<li><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/bca0c470e418964bcf84b9d528ea81c758f52ed1.html">jz2440自动获取ip地址</a></li>
-<li><a target="_blank" rel="noopener" href="https://linoxide.com/file-system/example-linux-nfs-mount-entry-in-fstab-etcfstab/">Linux NFS Mount Entry In fstab ( /etc/fstab ) With Example</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_76c545390100sscr.html">ubuntu下 mini2440的NFS挂载【终极版】</a></li>
-</ul>
-<hr>
-<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
-
+          <p>如题.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/28/1738-dhcp-env/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1491,7 +972,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-05-19 17:48:10" itemprop="dateModified" datetime="2019-05-19T17:48:10+10:00">2019-05-19</time>
+        <time title="Modified: 2021-03-08 23:33:27" itemprop="dateModified" datetime="2021-03-08T23:33:27+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1513,67 +994,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>LinK+ 是一款在linux下基于eclipse开发的免费的Linux内核以及驱动开发软件.<br>这个软件在国外知名度也不高. 国内更是没人介绍过这一款软件.<br>软件的现状是: 开发者似乎已经停止更新, 设想中支持的ARM架构也没有下文. 因此不支持嵌入式的仿真.<br><strong>我主要用它来查看内核源码, 开发驱动, 能快速的搭建好驱动架构, 支持内核函数跳转查看! 自动生成Makefile.</strong></p>
-<p>网址如下: <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/linkplustest/">Linux Kernel Programming IDE (LinK+)</a></p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>根据用户手册, 有多种安装方法. 使用最简单的 LinK+IDE方式.<br>下载 32bit, 因为我用的是32位的Ubuntu.</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/linkplustest/files/installers/">点这里, 下载页面</a></li>
-<li><a target="_blank" rel="noopener" href="http://sourceforge.net/projects/linkplustest/files/documentation/LinK%2B_UserManual_Rev4.pdf">安装和使用手册</a></li>
-</ul>
-<p><strong>说明一下 LinK+ UserManual 里面的 <code>-</code>横杠都是错误的, 终端无法识别!</strong><br>然后按照说明安装如下依赖的软件.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装最新版 openjdk, 向下兼容jdk6即可.</span></span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装open ssh</span></span><br><span class="line">sudo apt-get install openssh-client openssh-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其它依赖的软件</span></span><br><span class="line">sudo apt-get install libqt4-dev</span><br><span class="line">sudo apt-get install libncurses5</span><br><span class="line">sudo apt-get install qemu</span><br><span class="line">sudo apt-get install bridge-utils iptables dnsmasq</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 LinK+IDE</span></span><br><span class="line"><span class="comment"># 下载好LinK+IDE的文件, LinK+ IDE-linux.gtk.x86.tar.gz.tar.gz</span></span><br><span class="line">tar -xzvf LinK+\ IDE-linux.gtk.x86.tar.gz.tar.gz</span><br><span class="line">./linkplus</span><br><span class="line"><span class="comment"># 安装成功的话, 就能运行了.</span></span><br></pre></td></tr></table></figure>
-
-<p>然后, LinK+IDE 的升级和插件不用看了. 很久没更新过了.</p>
-<h1 id="Kernel源码的编译和阅读"><a href="#Kernel源码的编译和阅读" class="headerlink" title="Kernel源码的编译和阅读"></a>Kernel源码的编译和阅读</h1><p>先确定linux内核源码可以在终端下成功编译.<br>新建Makefile工程<br><img src="https://draapho.github.io/images/1737/link1.JPG" alt="link.JPG"></p>
-<p>选择源码路径, 工具链使用Makefile自己的, 所以选<code>&lt;none&gt;</code><br><img src="https://draapho.github.io/images/1737/link2.JPG" alt="link.JPG"></p>
-<p>选中项目, 然后在菜单里取消自动编译, 最后选择项目属性<br><img src="https://draapho.github.io/images/1737/link3.JPG" alt="link.JPG"></p>
-<p>设定编译指令, <code>make</code> 即可<br><img src="https://draapho.github.io/images/1737/link5.JPG" alt="link.JPG"></p>
-<p>设定指令目标. 内核使用 <code>uImage</code>, 驱动使用 <code>make modules</code><br><img src="https://draapho.github.io/images/1737/link6.JPG" alt="link.JPG"></p>
-<p>如果需要设置更多的指令目标, 用如下方式. Create是设置, Build是执行<br><img src="https://draapho.github.io/images/1737/link7.JPG" alt="link.JPG"></p>
-<p>设置自定义目标<br><img src="https://draapho.github.io/images/1737/link8.JPG" alt="link.JPG"></p>
-<p>好了, 如果这样直接 <code>Make Targets</code>-&gt;<code>Build...</code>-&gt;<code>uImage</code>, 会编译失败.<br>原因是Eclipse下面无法正确识别Makefile下面的CROSS_COMPILE路径.<br>见 <a target="_blank" rel="noopener" href="https://www.crifan.com/ubuntu_eclipse_cross_compile_uboot_based_on_makefile/">Ubuntu下基于Eclipse去调用Makefile交叉编译Uboot</a><br>需要将其改为绝对路径. 打开内核源码根目录下的 <code>Makefile</code>, 187行, 修改如下:</p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="comment"># CROSS_COMPILE ?= arm-linux-</span></span><br><span class="line">CROSS_COMPILE   ?= /usr/local/gcc-3.4.5-glibc-2.3.6/bin/arm-linux-</span><br></pre></td></tr></table></figure>
-
-
-<p>再次在eclipse下尝试编译, 就成功了. 看Console的输出, 获得uImage文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Kernel: arch&#x2F;arm&#x2F;boot&#x2F;Image is ready</span><br><span class="line">Kernel: arch&#x2F;arm&#x2F;boot&#x2F;zImage is ready</span><br><span class="line">Image arch&#x2F;arm&#x2F;boot&#x2F;uImage is ready</span><br></pre></td></tr></table></figure>
-
-<p>但Ecilpse依旧会显示很多警告和错误. 原因不明, 查的如下资料:</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/8563978/what-is-kernel-section-mismatch">What is kernel section mismatch?</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.linuxdiyf.com/linux/24369.html">解决编译kernel出现WARNING:Section mismatch(es)</a></li>
-</ul>
-<p>先忽略这些错误警告, 但此时, 有些函数依旧不能正常跳转. 原因是 <code>.\include\linux\autoconf.h</code> 没有被其它头文件包含, 里面的宏定义linux源码无法识别. 解决办法是我们自己把这些宏定义加入eclipse的SYMBOLS. 手工一个个加入不现实, 我写了一个python代码, 把linux下的config自动转为eclipse可识别的XML格式:<br><strong><a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/tree/master/_blog_stuff/linux/config2xml.py">下载config2xml</a></strong></p>
-<p>将这个文件放在linux源码根目录下, 配置好<code>.config</code> 文件. 然后在终端运行它</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pwd = linux内核源码根目录</span></span><br><span class="line">$ python config2xml.py</span><br><span class="line">Generate ../eclipse_SYMBOLS.xml successfully...</span><br></pre></td></tr></table></figure>
-
-<p>成功后, 会在上层目录生成 <code>eclipse_SYMBOLS.xml</code> 这么一个文件.<br>然后回到eclipse里面, 将其导入. 如图:<br><img src="https://draapho.github.io/images/1737/link9.JPG" alt="link.JPG"></p>
-<p>另外, 为方便跳转, 可以在eclipse下面把linux源码下不相关的平台代码排除掉.<br><img src="https://draapho.github.io/images/1737/link4.JPG" alt="link.JPG"></p>
-<p>最后, 需要把项目的index索引重建一下才能正确跳转. 重建耗时较长.<br><img src="https://draapho.github.io/images/1737/link10.JPG" alt="link.JPG"></p>
-<p><strong>至此内核源码的C语言部分已经能成功的跳转查看了.汇编部分可以用eclipse的搜索功能.</strong></p>
-<h1 id="写驱动"><a href="#写驱动" class="headerlink" title="写驱动"></a>写驱动</h1><p>需要先在工程里加载好Kernel源码!<br>然后参考 <strong><a href="https://draapho.github.io/2017/11/30/1740-drv-chr2/">驱动之基于LinK+设计按键驱动</a></strong></p>
-<p>大致步骤如下:</p>
-<ul>
-<li>LinK+IDE里, 新建工程-&gt;Linux Kernel Development(LinK+)</li>
-<li>选择 Device Driver Project</li>
-<li>写好驱动名称, 驱动路径, 作者, 开源证书类型</li>
-<li>Kernel Version 要去掉 <code>Use Host Machine Kernel</code>, 选择我们已经编译好的嵌入式内核源码路径</li>
-<li>X86架构 (ARM不支持),</li>
-<li>下面两步可以根据需求自己选择驱动框架, LinK+会自动生成有框架的.c和.h以及Makefile文件.</li>
-<li>驱动下面, 所有的跳转都可用, 可以非常方便的查看函数和宏定义.</li>
-<li>可以使用eclipse去编译, 设置一个 <code>modules</code> 目标就可以了.</li>
-</ul>
-<h1 id="Eclipse交叉编译说明"><a href="#Eclipse交叉编译说明" class="headerlink" title="Eclipse交叉编译说明"></a>Eclipse交叉编译说明</h1><p>这个方法的核心是不用Eclipse自己的编译工具链. 所有的编译工具都由Makefile内指定了.<br>所以, 这个也适用于编译查看u-boot源码.<br>如果是应用层代码, 那么就需要自己写Makefile指定编译工具了.<br>另外一个方法是, 另外下载一个 <code>Eclipse IDE for C/C++</code>, 单独为应用层代码配置一个环境. </p>
-<p>可参考:</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="http://www.linuxidc.com/Linux/2016-09/135062.htm">Linux下搭建树莓派交叉编译环境</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/lazygunner/archive/2011/11/30/2269726.html">Linux + Eclipse 配置交叉编译环境</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/tianzhihen_wq/article/details/41872365">配置eclipse linux嵌入式 集成开发环境（编译部分）详细</a></li>
-<li><a target="_blank" rel="noopener" href="http://m.itboth.com/d/BzIRZz/windows-eclipse-arm">eclipse在windows下的arm交叉编译环境搭建</a></li>
-</ul>
-<hr>
-<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
-
+          <p>如题.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/27/1737-linux-ide/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1630,7 +1059,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-05-19 17:48:10" itemprop="dateModified" datetime="2019-05-19T17:48:10+10:00">2019-05-19</time>
+        <time title="Modified: 2021-03-08 23:33:31" itemprop="dateModified" datetime="2021-03-08T23:33:31+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1652,116 +1081,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>接触linux至今, 遇到的最大的坑就是软件的安装!<br>找不到包, 找不到指定版本的包, 包依赖关系出问题, 软件源要更新…<br>因此, 在这里集中整理一下上述问题的解决方式.</p>
-<h1 id="apt-命令"><a href="#apt-命令" class="headerlink" title="apt 命令"></a>apt 命令</h1><p>最新 Ubuntu推荐使用 <code>apt</code> 指令. 其常用功能如下</p>
-<table>
-<thead>
-<tr>
-<th>apt 命令</th>
-<th>功能说明</th>
-<th>对应的旧命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>apt list</code></td>
-<td>根据名称列出软件包</td>
-<td><code>dpkg list</code></td>
-</tr>
-<tr>
-<td><code>apt search</code></td>
-<td>搜索软件包描述</td>
-<td><code>apt-cache search</code></td>
-</tr>
-<tr>
-<td><code>apt show</code></td>
-<td>显示软件包细节</td>
-<td><code>apt-cache show</code></td>
-</tr>
-<tr>
-<td><code>apt install</code></td>
-<td>安装软件包</td>
-<td><code>apt-get install</code></td>
-</tr>
-<tr>
-<td><code>apt remove</code></td>
-<td>移除软件包</td>
-<td><code>apt-get remove</code></td>
-</tr>
-<tr>
-<td><code>apt update</code></td>
-<td>更新可用软件包列表</td>
-<td><code>apt-get update</code></td>
-</tr>
-<tr>
-<td><code>apt upgrade</code></td>
-<td>升级指定的软件</td>
-<td><code>apt-get upgrade</code></td>
-</tr>
-<tr>
-<td><code>apt full-upgrade</code></td>
-<td>升级指定的软件并安装或删除其依赖的软件</td>
-<td><code>apt-get dist-upgrade</code></td>
-</tr>
-<tr>
-<td><code>apt edit-sources</code></td>
-<td>编辑软件源信息文件</td>
-<td><code>vim /etc/apt/sources.list</code></td>
-</tr>
-</tbody></table>
-<h1 id="软件源"><a href="#软件源" class="headerlink" title="软件源"></a>软件源</h1><p>就是存放Ubuntu可执行软件的网址. 分为官方软件源和PPA软件源<br>Ubuntu的软件源都记录在了 <code>/etc/apt/sources.list</code> 文件下面.</p>
-<h2 id="Ubuntu-官方软件源"><a href="#Ubuntu-官方软件源" class="headerlink" title="Ubuntu 官方软件源"></a>Ubuntu 官方软件源</h2><p>顾名思义, 就是官方提供的软件下载地址. 格式如下:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;us.archive.ubuntu.com&#x2F;ubuntu&#x2F; xenial main restricted</span><br><span class="line"># deb-src http:&#x2F;&#x2F;us.archive.ubuntu.com&#x2F;ubuntu&#x2F; xenial main restricted</span><br></pre></td></tr></table></figure>
-
-<p>由于众所周知的原因, 在国内经常是不能用的. 那么可以替换为如下网址, 是官方软件源的镜像.<br>更多可见 <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000000375848">国内开源镜像站点汇总</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.zju.edu.cn&#x2F;ubuntu&#x2F; xenial main restricted</span><br><span class="line"># deb-src http:&#x2F;&#x2F;mirrors.zju.edu.cn&#x2F;ubuntu&#x2F; xenial main restricted</span><br></pre></td></tr></table></figure>
-
-<h2 id="PPA软件源"><a href="#PPA软件源" class="headerlink" title="PPA软件源"></a>PPA软件源</h2><p>PPA软件源, 即”Personal Package Archives”, 个人软件包集.<br>Ubuntu开设了一个开发者平台, 允许开发者建立自己的软件仓库并上传.<br>因此, 用PPA不能保证安全性.</p>
-<p>PPA的格式如下, 网址都是 <code>ppa.launchpad.net</code> 开头的</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deb http://ppa.launchpad.net/wireshark-dev/stable/ubuntu trusty main</span><br><span class="line"><span class="comment"># deb-src http://ppa.launchpad.net/wireshark-dev/stable/ubuntu trusty main</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="update-upgrade-dist-upgrade-的区别"><a href="#update-upgrade-dist-upgrade-的区别" class="headerlink" title="update upgrade dist-upgrade 的区别"></a><code>update</code> <code>upgrade</code> <code>dist-upgrade</code> 的区别</h1><p>update 更新的是软件源信息. 因此一般习惯在install之前, 使用update更新一下.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt edit-sources       <span class="comment"># 更改软件源列表</span></span><br><span class="line">sudo apt update             <span class="comment"># 根据软件源列表下载新的版本信息和包信息</span></span><br><span class="line">sudo apt install XXX        <span class="comment"># 可以下载了. 如果还是有问题, 说明这个软件在源列表中不存在或者是网络问题.</span></span><br></pre></td></tr></table></figure>
-
-<p>upgrade 更新的是指定的软件到最新版本. 但不去考虑依赖关系.<br>dist-upgrade 会判断软件新版本的依赖关系, 如果依赖关系变了, 它能自动升级依赖的软件.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt upgrade XXX        <span class="comment"># 只升级指定的软件, 不考虑其依赖关系</span></span><br><span class="line">sudo apt full-upgrade XXX   <span class="comment"># 字面意思: 全面升级! 就是会去自动安装/删除依赖的软件.</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="build-dep-自动建立编译环境"><a href="#build-dep-自动建立编译环境" class="headerlink" title="build-dep 自动建立编译环境"></a>build-dep 自动建立编译环境</h1><p>譬如要手工编译 apache2, 那么可以用 <code>apt-get build-dep</code> 来快速建立编译环境.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get build-dep apache2</span><br><span class="line"><span class="comment"># 会列出一系列会被安装的软件, 并询问是否要安装.</span></span><br><span class="line"><span class="comment"># 先回答NO.</span></span><br><span class="line"></span><br><span class="line">sudo apt-get build-dep apache2 | tee apache2.log </span><br><span class="line"><span class="comment"># 为了便于日后查看关系包, 建议先做个记录:</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="查看依赖关系"><a href="#查看依赖关系" class="headerlink" title="查看依赖关系"></a>查看依赖关系</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-cache depends XXX</span><br><span class="line"><span class="comment"># 查看正向依赖, XXX依赖的软件</span></span><br><span class="line"></span><br><span class="line">apt-cache rdepends XXX</span><br><span class="line"><span class="comment"># 查看反向依赖, 依赖XXX的软件</span></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="遇到错误"><a href="#遇到错误" class="headerlink" title="遇到错误"></a>遇到错误</h1><h2 id="找不到资源"><a href="#找不到资源" class="headerlink" title="找不到资源"></a>找不到资源</h2><ul>
-<li>检查网络, 是否需要翻墙. 必要的话, 更改软件源列表.</li>
-<li>检查网络, 是否安全性太高了. 有些公司网络容易产生这样的情况.</li>
-<li><code>sudo apt update</code>, 更新软件源在试试.</li>
-</ul>
-<h2 id="Java-安装失败"><a href="#Java-安装失败" class="headerlink" title="Java 安装失败"></a>Java 安装失败</h2><p>Java向下兼容, 建议直接安装java最新版<br><code>sudo apt-get install openjdk-8-jdk</code></p>
-<p>更复杂的情况, 参考这篇stackoverflow吧</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/32942023/ubuntu-openjdk-8-unable-to-locate-package">Ubuntu: OpenJDK 8 - Unable to locate package</a></li>
-</ul>
-<h2 id="Could-not-get-lock"><a href="#Could-not-get-lock" class="headerlink" title="Could not get lock"></a>Could not get lock</h2><p><code>E:Could not get lock /var/lib/apt/lists/lock - open (11: Resource temporarily unavailable)</code><br>获取资源锁失败, 说明有另外一个apt-get在运行. 这种情况多发生在新装的Ubuntu中, 他会自动运行apt-get<br>解决方法:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 或者去查看进程</span></span><br><span class="line">ps -e | grep apt</span><br><span class="line"><span class="comment"># 看是否有进程在执行</span></span><br><span class="line"><span class="comment"># 6362 ? 00:00:00 apt</span></span><br><span class="line"><span class="comment"># 6934 ? 00:00:00 apt-get</span></span><br><span class="line"><span class="comment"># 7368 ? 00:00:00 synaptic</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 有的话, 直接杀掉</span></span><br><span class="line">sudo killall apt</span><br><span class="line">sudo killall apt-get</span><br><span class="line">sudo killall synaptic</span><br><span class="line"></span><br><span class="line"><span class="comment"># 还是不行的话, 直接移除锁</span></span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure>
-
-<h2 id="X-not-fully-installed-or-removed"><a href="#X-not-fully-installed-or-removed" class="headerlink" title="X not fully installed or removed"></a>X not fully installed or removed</h2><p>多发生在安装过程中, 发生意外错误, 导致部分软件没有安装好.<br>如果在Ubuntu下面修改过<code>/usr/bin/python</code>软链接, 改2.7版本到3.5的话,<br>安装某些依赖python软件也会发生这个问题!</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 此错误发生在安装 libsdl1.2-dev 过程中. libsdl1.2-dev 依赖另外两个软件</span></span><br><span class="line"><span class="comment"># 原因是, 我修改了  /usr/bin/python -&gt; python3.5*</span></span><br><span class="line"><span class="comment"># 解决方法就是改回来 /usr/bin/python -&gt; python2.7*</span></span><br><span class="line"></span><br><span class="line">$ sudo apt install libsdl1.2-dev</span><br><span class="line">......</span><br><span class="line">3 not fully installed or removed</span><br><span class="line">Do you want to <span class="built_in">continue</span>? [Y/n]</span><br><span class="line">......</span><br><span class="line">Errors were encountered <span class="keyword">while</span> processing:</span><br><span class="line">libglib2.0-dev</span><br><span class="line">libpulse-dev:i386</span><br><span class="line">libsdl1.2-dev</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 先解决没有完全安装或者删除的问题, 方法如下, 按照依赖关系, 倒过来逐一删除:</span></span><br><span class="line">$ sudo dpkg -r libsdl1.2-dev</span><br><span class="line">$ sudo dpkg -r libpulse-dev:i386</span><br><span class="line">$ sudo dpkg -r libglib2.0-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后尝试重新安装. 我这里的问题是python语法错误</span></span><br><span class="line"><span class="comment"># 只能改回来 /usr/bin/python -&gt; python2.7*</span></span><br><span class="line">sudo apt-get -f autoremove</span><br><span class="line">sudo apt-get -f install</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libglib2.0-dev</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="软件版本问题"><a href="#软件版本问题" class="headerlink" title="软件版本问题"></a>软件版本问题</h2><p>先试试指定版本号安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install package=version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 譬如</span></span><br><span class="line">apt-get install nautilus=2.2.4-1</span><br></pre></td></tr></table></figure>
-
-<p>如果更复杂的, 譬如依赖的软件需要指定版本, 直接参考stackoverflow吧<br><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/140246/how-do-i-resolve-unmet-dependencies-after-adding-a-ppa">How do I resolve unmet dependencies after adding a PPA?</a></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/3dad50f452b6">apt与apt-get的区别</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/57a91bc0c594">详解Ubuntu软件源</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/wangyezi19930928/article/details/54928201">apt-get update ，upgarde 和dist-upgrade 的区别</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/mifangdebaise/article/details/50553596">记一条好用的ubuntu命令: apt-get build-dep</a></li>
-<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/zwjsatan/article/details/8101712">sudo apt-get update更新源失败</a></li>
-</ul>
-<hr>
-<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
-
+          <p>如题.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/26/1736-linux-apt/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

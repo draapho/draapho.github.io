@@ -22,16 +22,16 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="UnicodeEncodeError: ‘charmap’ codec can’t encode characters 此问题多发生在windows的区域和开发中用到在字符不匹配. 譬如英文区域的windows要编解码中文字符. 原因及解决方法参考 代码页即地狱  简单来说, 就是windows底层编码的问题. 要解决这个问题, 只能从windows系统着手.   原创于 DRA&amp;PHO">
+<meta name="description" content="Python 疑难错误归纳.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 错误及解决方法">
 <meta property="og:url" content="https://draapho.github.io/2019/05/19/1904-python-error/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="UnicodeEncodeError: ‘charmap’ codec can’t encode characters 此问题多发生在windows的区域和开发中用到在字符不匹配. 譬如英文区域的windows要编解码中文字符. 原因及解决方法参考 代码页即地狱  简单来说, 就是windows底层编码的问题. 要解决这个问题, 只能从windows系统着手.   原创于 DRA&amp;PHO">
+<meta property="og:description" content="Python 疑难错误归纳.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://draapho.github.io/images/1904/Region.png">
 <meta property="article:published_time" content="2019-05-18T14:00:00.000Z">
-<meta property="article:modified_time" content="2019-05-19T08:08:08.000Z">
+<meta property="article:modified_time" content="2021-03-08T12:19:43.299Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="debug">
@@ -188,7 +188,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UnicodeEncodeError-%E2%80%98charmap%E2%80%99-codec-can%E2%80%99t-encode-characters"><span class="nav-number">1.</span> <span class="nav-text">UnicodeEncodeError: ‘charmap’ codec can’t encode characters</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UnicodeEncodeError-%E2%80%98charmap%E2%80%99-codec-can%E2%80%99t-encode-characters"><span class="nav-number">1.</span> <span class="nav-text">UnicodeEncodeError: ‘charmap’ codec can’t encode characters</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#win10%E4%B8%8B-python3-%E5%92%8C-pyqt5-%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">win10下, python3 和 pyqt5 兼容性问题.</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -214,7 +214,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -276,10 +276,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2019-05-19 00:00:00 / Modified: 18:08:08" itemprop="dateCreated datePublished" datetime="2019-05-19T00:00:00+10:00">2019-05-19</time>
+      <time title="Created: 2019-05-19 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-19T00:00:00+10:00">2019-05-19</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-08 23:19:43" itemprop="dateModified" datetime="2021-03-08T23:19:43+11:00">2021-03-08</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -293,6 +299,7 @@
   
 </div>
 
+            <div class="post-description">Python 疑难错误归纳.</div>
         </div>
       </header>
 
@@ -305,6 +312,14 @@
 <li>原因及解决方法参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/haiross/article/details/36189103">代码页即地狱</a></li>
 </ul>
 <p>简单来说, 就是windows底层编码的问题. 要解决这个问题, 只能从windows系统着手.</p>
+<h1 id="win10下-python3-和-pyqt5-兼容性问题"><a href="#win10下-python3-和-pyqt5-兼容性问题" class="headerlink" title="win10下, python3 和 pyqt5 兼容性问题."></a>win10下, python3 和 pyqt5 兼容性问题.</h1><ul>
+<li>现象为: <code>import PyQt5</code> 调用正常. <code>from PyQt5 import QtCore</code> 提示错误, 无法找到模块 <code>PyQt5</code></li>
+<li>解决方法: 试了很多版本组合. 最后成功的是 <code>Python 3.8.8</code> 32位 和 <code>PyQt5 5.15.2</code>.<ul>
+<li>先软件安装 <code>Python 3.8.8</code></li>
+<li>直接 <code>pip install pyqt5-tools</code> 自动安装的最新版本.</li>
+</ul>
+</li>
+</ul>
 <p><img src="https://draapho.github.io/images/1904/Region.png" alt="Region"></p>
 <hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>

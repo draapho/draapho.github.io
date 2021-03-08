@@ -22,12 +22,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="转载自 python基础（5）：深入理解 python 中的赋值、引用、拷贝、作用域  python的赋值在 python 中赋值语句总是建立对象的引用值，而不是复制对象。因此，python 变量更像是指针，而不是数据存储区域，这点和大多数 OO 语言类似吧，比如 C++、java 等 ~ 先来看个问题吧：一个赋值问题在Python中，令values&#x3D;[0,1,2];values[1]&#x3D;value">
+<meta name="description" content="如题.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python基础： 深入理解 python 中的赋值、引用、拷贝、作用域">
 <meta property="og:url" content="https://draapho.github.io/2016/11/21/1618-python-variable/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="转载自 python基础（5）：深入理解 python 中的赋值、引用、拷贝、作用域  python的赋值在 python 中赋值语句总是建立对象的引用值，而不是复制对象。因此，python 变量更像是指针，而不是数据存储区域，这点和大多数 OO 语言类似吧，比如 C++、java 等 ~ 先来看个问题吧：一个赋值问题在Python中，令values&#x3D;[0,1,2];values[1]&#x3D;value">
+<meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://draapho.github.io/images/1618/python_point_1.jpg">
 <meta property="og:image" content="https://draapho.github.io/images/1618/python_point_2.jpg">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://draapho.github.io/images/1618/python_point_5.jpg">
 <meta property="og:image" content="https://draapho.github.io/images/1618/python_point_6.jpg">
 <meta property="article:published_time" content="2016-11-20T13:00:00.000Z">
-<meta property="article:modified_time" content="2017-01-21T22:12:24.000Z">
+<meta property="article:modified_time" content="2021-03-08T12:49:28.931Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -218,7 +218,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -288,7 +288,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2017-01-22 09:12:24" itemprop="dateModified" datetime="2017-01-22T09:12:24+11:00">2017-01-22</time>
+        <time title="Modified: 2021-03-08 23:49:28" itemprop="dateModified" datetime="2021-03-08T23:49:28+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -303,6 +303,7 @@
   
 </div>
 
+            <div class="post-description">如题.</div>
         </div>
       </header>
 
@@ -327,7 +328,7 @@
 <h2 id="浅复制及其风险"><a href="#浅复制及其风险" class="headerlink" title="浅复制及其风险"></a>浅复制及其风险</h2><p>要达到你所需要的效果，即得到 [0, [0, 1, 2], 2] 这个对象，你不能直接将 values[1] 指向 values 引用的对象本身，而是需要吧 [0, 1, 2] 这个对象「复制」一遍，得到一个新对象，再将 values[1] 指向这个复制后的对象。Python 里面复制对象的操作因对象类型而异，复制列表 values 的操作是</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">values[:] <span class="comment">#生成对象的拷贝或者是复制序列，不再是引用和共享变量，但此法只能顶层复制</span></span><br></pre></td></tr></table></figure>
 
-<p>所以你需要执行 <code>values[1] = values[:]</code> </p>
+<p>所以你需要执行 <code>values[1] = values[:]</code></p>
 <p>Python 做的事情是，先 dereference 得到 values 所指向的对象 [0, 1, 2]，然后执行 [0, 1, 2][:] 复制操作得到一个新的对象，内容也是 [0, 1, 2]，然后将 values 所指向的列表对象的第二个元素指向这个复制二来的列表对象，最终 values 指向的对象是 [0, [0, 1, 2], 2]。过程如图所示：</p>
 <p><img src="https://draapho.github.io/images/1618/python_point_4.jpg" alt="python_point"></p>
 <p>往更深处说，values[:] 复制操作是所谓的「浅复制」(shallow copy)，当列表对象有嵌套的时候也会产生出乎意料的错误，比如为何要赋值无限次</p>
@@ -375,9 +376,9 @@
 <li>需要注意的是：这里说的不可变指的是值的不可变。对于不可变类型的变量，如果要更改变量，则会创建一个新值，把变量绑定到新值上，而旧值如果没有被引用就等待垃圾回收。另外，不可变的类型可以计算hash值，作为字典的key。</li>
 <li>可变类型数据对对象操作的时候，不需要再在其他地方申请内存，只需要在此对象后面连续申请(+/-)即可，也就是它的内存地址会保持不变，但区域会变长或者变短。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">&#x27;xianglong.me&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a)</span><br><span class="line"><span class="number">140443303134352</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">&#x27;1saying.com&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a)</span><br><span class="line"><span class="number">140443303131776</span></span><br><span class="line"><span class="comment"># 重新赋值之后，变量a的内存地址已经变了</span></span><br><span class="line"><span class="comment"># &#x27;xianglong.me&#x27;是str类型，不可变，所以赋值操作知识重新创建了str &#x27;1saying.com&#x27;对象，然后将变量a指向了它</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a_list)</span><br><span class="line"><span class="number">140443302951680</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list.append(<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a_list)</span><br><span class="line"><span class="number">140443302951680</span></span><br><span class="line"><span class="comment"># list重新赋值之后，变量a_list的内存地址并未改变</span></span><br><span class="line"><span class="comment"># [1, 2, 3]是可变的，append操作只是改变了其value，变量a_list指向没有变</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">&#x27;xianglong.me&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a)</span><br><span class="line"><span class="number">140443303134352</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">&#x27;1saying.com&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a)</span><br><span class="line"><span class="number">140443303131776</span></span><br><span class="line"><span class="comment"># 重新赋值之后，变量a的内存地址已经变了</span></span><br><span class="line"><span class="comment"># &#x27;xianglong.me&#x27;是str类型，不可变，所以赋值操作知识重新创建了str &#x27;1saying.com&#x27;对象，然后将变量a指向了它</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a_list)</span><br><span class="line"><span class="number">140443302951680</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list.append(<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a_list)</span><br><span class="line"><span class="number">140443302951680</span></span><br><span class="line"><span class="comment"># list重新赋值之后，变量a_list的内存地址并未改变</span></span><br><span class="line"><span class="comment"># [1, 2, 3]是可变的，append操作只是改变了其value，变量a_list指向没有变</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="函数值传递"><a href="#函数值传递" class="headerlink" title="函数值传递"></a>函数值传递</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_int</span>(<span class="params">a</span>):</span></span><br><span class="line">    a += <span class="number">4</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_list</span>(<span class="params">a_list</span>):</span></span><br><span class="line">    a_list[<span class="number">0</span>] = <span class="number">4</span></span><br><span class="line"> </span><br><span class="line">t = <span class="number">0</span></span><br><span class="line">func_int(t)</span><br><span class="line"><span class="built_in">print</span> t</span><br><span class="line"><span class="comment"># output: 0</span></span><br><span class="line"> </span><br><span class="line">t_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">func_list(t_list)</span><br><span class="line"><span class="built_in">print</span> t_list</span><br><span class="line"><span class="comment"># output: [4, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数值传递"><a href="#函数值传递" class="headerlink" title="函数值传递"></a>函数值传递</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_int</span>(<span class="params">a</span>):</span></span><br><span class="line">    a += <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_list</span>(<span class="params">a_list</span>):</span></span><br><span class="line">    a_list[<span class="number">0</span>] = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">t = <span class="number">0</span></span><br><span class="line">func_int(t)</span><br><span class="line"><span class="built_in">print</span> t</span><br><span class="line"><span class="comment"># output: 0</span></span><br><span class="line"></span><br><span class="line">t_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">func_list(t_list)</span><br><span class="line"><span class="built_in">print</span> t_list</span><br><span class="line"><span class="comment"># output: [4, 2, 3]</span></span><br></pre></td></tr></table></figure>
 
 <p>对于上面的输出，不少Python初学者都比较疑惑：第一个例子看起来像是传值，而第二个例子确实传引用。其实，解释这个问题也非常容易，主要是因为可变对象和不可变对象的原因：对于可变对象，对象的操作不会重建对象，而对于不可变对象，每一次操作就重建新的对象。</p>
 <p>在函数参数传递的时候，Python其实就是把参数里传入的变量对应的对象的引用依次赋值给对应的函数内部变量。参照上面的例子来说明更容易理解，func_int中的局部变量”a”其实是全部变量”t”所指向对象的另一个引用，由于整数对象是不可变的，所以当func_int对变量”a”进行修改的时候，实际上是将局部变量”a”指向到了整数对象”1”。所以很明显，func_list修改的是一个可变的对象，局部变量”a”和全局变量”t_list”指向的还是同一个对象。</p>

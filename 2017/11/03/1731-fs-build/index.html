@@ -22,15 +22,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="总览 嵌入式linux学习目录 fs之Busybox的编译与使用 fs之创建文件系统  本文使用 linux-2.6.22.6 内核, 使用jz2440开发板. 要构建一个最小的linux根文件系统 dev&#x2F;console, linux内核的标准IO接口 dev&#x2F;null, 相当于一个NULL文件 init进程, 即 bin&#x2F;busybox etc&#x2F;inittab 配置文件, (可以省略, bus">
+<meta name="description" content="如题.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fs之创建文件系统">
 <meta property="og:url" content="https://draapho.github.io/2017/11/03/1731-fs-build/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="总览 嵌入式linux学习目录 fs之Busybox的编译与使用 fs之创建文件系统  本文使用 linux-2.6.22.6 内核, 使用jz2440开发板. 要构建一个最小的linux根文件系统 dev&#x2F;console, linux内核的标准IO接口 dev&#x2F;null, 相当于一个NULL文件 init进程, 即 bin&#x2F;busybox etc&#x2F;inittab 配置文件, (可以省略, bus">
+<meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-11-02T13:00:00.000Z">
-<meta property="article:modified_time" content="2017-11-27T03:06:38.000Z">
+<meta property="article:modified_time" content="2021-03-08T12:36:12.555Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="embedded linux">
 <meta property="article:tag" content="fs">
@@ -212,7 +212,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -282,7 +282,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2017-11-27 14:06:38" itemprop="dateModified" datetime="2017-11-27T14:06:38+11:00">2017-11-27</time>
+        <time title="Modified: 2021-03-08 23:36:12" itemprop="dateModified" datetime="2021-03-08T23:36:12+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -297,6 +297,7 @@
   
 </div>
 
+            <div class="post-description">如题.</div>
         </div>
       </header>
 
@@ -438,11 +439,11 @@
 <li><code>mount -t devpts devpts /dev/pts</code></li>
 </ul>
 <p>由于我们使用的是 <code>mount -a</code>, 因此具体步骤稍有修改</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Linux主机, Ubuntu终端</span></span><br><span class="line"><span class="comment"># pwd = ~/jz2440/fs_first/</span></span><br><span class="line"></span><br><span class="line">$ mkdir sys</span><br><span class="line">$ vim etc/fstab</span><br><span class="line"><span class="comment"># 修改fstab, 按要求增加 /sys /dev.</span></span><br><span class="line">$ cat etc/fstab</span><br><span class="line"><span class="comment">#dev    dir     type    options         dump    fsck</span></span><br><span class="line">proc    /proc   proc    defaults        0       0</span><br><span class="line">tmpfs   /tmp    tmpfs   defaults        0       0</span><br><span class="line">sysfs   /sys    sysfs   defaults        0       0</span><br><span class="line">tmpfs   /dev    tmpfs   defaults        0       0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加初始化指令到 etc/init.d/rcS</span></span><br><span class="line">$ vim etc/init.d/rcS</span><br><span class="line"><span class="comment"># 修改rcS, mdev的要求增加指令</span></span><br><span class="line">$ cat etc/init.d/rcS</span><br><span class="line">mount -a</span><br><span class="line">mkdir /dev/pts</span><br><span class="line">mount -t devpts devpts /dev/pts</span><br><span class="line"><span class="built_in">echo</span> /sbin/mdev &gt; /proc/sys/kernel/hotplug</span><br><span class="line">mdev -s</span><br><span class="line"><span class="comment"># 不存在 /bin/mdev, busybox实际把它放在了 /sbin/mdev 下面.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这样, 嵌入式linux完成启动后, 会运行init进程.</span></span><br><span class="line"><span class="comment"># - init进程运行 /etc/inittab 内的指令</span></span><br><span class="line"><span class="comment"># - 然后调用 /etc/init.d/rcS 脚本</span></span><br><span class="line"><span class="comment"># - 依次执行rcS脚本内的指令, </span></span><br><span class="line"><span class="comment"># - 执行&quot;mount -a&quot;时, 会根据 /etc/fstab 的配置挂载文件系统.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Linux主机, Ubuntu终端</span></span><br><span class="line"><span class="comment"># pwd = ~/jz2440/fs_first/</span></span><br><span class="line"></span><br><span class="line">$ mkdir sys</span><br><span class="line">$ vim etc/fstab</span><br><span class="line"><span class="comment"># 修改fstab, 按要求增加 /sys /dev.</span></span><br><span class="line">$ cat etc/fstab</span><br><span class="line"><span class="comment">#dev    dir     type    options         dump    fsck</span></span><br><span class="line">proc    /proc   proc    defaults        0       0</span><br><span class="line">tmpfs   /tmp    tmpfs   defaults        0       0</span><br><span class="line">sysfs   /sys    sysfs   defaults        0       0</span><br><span class="line">tmpfs   /dev    tmpfs   defaults        0       0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加初始化指令到 etc/init.d/rcS</span></span><br><span class="line">$ vim etc/init.d/rcS</span><br><span class="line"><span class="comment"># 修改rcS, mdev的要求增加指令</span></span><br><span class="line">$ cat etc/init.d/rcS</span><br><span class="line">mount -a</span><br><span class="line">mkdir /dev/pts</span><br><span class="line">mount -t devpts devpts /dev/pts</span><br><span class="line"><span class="built_in">echo</span> /sbin/mdev &gt; /proc/sys/kernel/hotplug</span><br><span class="line">mdev -s</span><br><span class="line"><span class="comment"># 不存在 /bin/mdev, busybox实际把它放在了 /sbin/mdev 下面.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这样, 嵌入式linux完成启动后, 会运行init进程.</span></span><br><span class="line"><span class="comment"># - init进程运行 /etc/inittab 内的指令</span></span><br><span class="line"><span class="comment"># - 然后调用 /etc/init.d/rcS 脚本</span></span><br><span class="line"><span class="comment"># - 依次执行rcS脚本内的指令,</span></span><br><span class="line"><span class="comment"># - 执行&quot;mount -a&quot;时, 会根据 /etc/fstab 的配置挂载文件系统.</span></span><br></pre></td></tr></table></figure>
 
 <p>完成烧录后, 使用 <code>ls /dev</code>, 就会看到自动生成了非常多的设备文件.<br>至此, 一个最小linux文件系统制作完成了.</p>
 <h1 id="制作-jffs2-映像文件"><a href="#制作-jffs2-映像文件" class="headerlink" title="制作 jffs2 映像文件"></a>制作 jffs2 映像文件</h1><p>jffs2 是一个压缩的文件系统, 所以体积几乎比yaffs2小一半.<br>多用于 NOR FLASH</p>
-<h2 id="生成-jffs2-工具"><a href="#生成-jffs2-工具" class="headerlink" title="生成 jffs2 工具"></a>生成 jffs2 工具</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mtd-utils-05.07.23.tar.bz2 可生成jffs2工具</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 首先需要压缩库zlib-1.2.3的支持</span></span><br><span class="line">$ tar xzf zlib-1.2.3.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> zlib-1.2.3</span><br><span class="line">$ ./configure --shared --prefix=/usr </span><br><span class="line"><span class="comment"># 配置为动态库, 放入/usr目录下</span></span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后编译 mkfs.jffs2</span></span><br><span class="line">$ tar xjf mtd-utils-05.07.23.tar.bz2</span><br><span class="line">$ <span class="built_in">cd</span> mtd-utils-05.07.23/util</span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试一下是否装好了</span></span><br><span class="line">$ mkfs.jffs</span><br></pre></td></tr></table></figure>
+<h2 id="生成-jffs2-工具"><a href="#生成-jffs2-工具" class="headerlink" title="生成 jffs2 工具"></a>生成 jffs2 工具</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mtd-utils-05.07.23.tar.bz2 可生成jffs2工具</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 首先需要压缩库zlib-1.2.3的支持</span></span><br><span class="line">$ tar xzf zlib-1.2.3.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> zlib-1.2.3</span><br><span class="line">$ ./configure --shared --prefix=/usr</span><br><span class="line"><span class="comment"># 配置为动态库, 放入/usr目录下</span></span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后编译 mkfs.jffs2</span></span><br><span class="line">$ tar xjf mtd-utils-05.07.23.tar.bz2</span><br><span class="line">$ <span class="built_in">cd</span> mtd-utils-05.07.23/util</span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试一下是否装好了</span></span><br><span class="line">$ mkfs.jffs</span><br></pre></td></tr></table></figure>
 
 <h2 id="制作-jffs2-映像文件-1"><a href="#制作-jffs2-映像文件-1" class="headerlink" title="制作 jffs2 映像文件"></a>制作 jffs2 映像文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/jz2440/</span><br><span class="line">$ mkfs.jffs -n -s 2048 -e 128KiB -d fs_first -o fs_first.jffs2</span><br><span class="line"><span class="comment"># -n            不要再每个擦除块上都加上清除标记</span></span><br><span class="line"><span class="comment"># -s 2048       指定Flash页大小</span></span><br><span class="line"><span class="comment"># -e 128KiB     指定Flash块大小(最小擦除单位)</span></span><br><span class="line"><span class="comment"># -d fs_first   文件系统目录</span></span><br><span class="line"><span class="comment"># -0 fs_first.jffs2 目标文件</span></span><br></pre></td></tr></table></figure>
 

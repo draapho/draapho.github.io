@@ -22,12 +22,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="总览 Linux 0.11 源码阅读笔记-总览  Linux 0.11 源码阅读笔记-内存的基础概念  Linux 0.11 源码阅读笔记-启动程序  Linux 0.11 源码阅读笔记-内核代码  Linux 0.11 源码阅读笔记-设备驱动程序  Linux 0.11 源码阅读笔记-文件系统  Linux 0.11 源码阅读笔记-内存管理  推荐阅读 我是一块硬盘-码农翻身-刘欣通俗易懂的介绍">
+<meta name="description" content="如题.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 0.11 源码阅读笔记-文件系统">
 <meta property="og:url" content="https://draapho.github.io/2017/02/13/1704-linux-source5/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="总览 Linux 0.11 源码阅读笔记-总览  Linux 0.11 源码阅读笔记-内存的基础概念  Linux 0.11 源码阅读笔记-启动程序  Linux 0.11 源码阅读笔记-内核代码  Linux 0.11 源码阅读笔记-设备驱动程序  Linux 0.11 源码阅读笔记-文件系统  Linux 0.11 源码阅读笔记-内存管理  推荐阅读 我是一块硬盘-码农翻身-刘欣通俗易懂的介绍">
+<meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-map.jpg">
 <meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-hard-disk.jpg">
@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-buffer-function.jpg">
 <meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-getblk.jpg">
 <meta property="article:published_time" content="2017-02-12T13:00:00.000Z">
-<meta property="article:modified_time" content="2019-05-19T07:49:18.000Z">
+<meta property="article:modified_time" content="2021-03-08T12:46:55.161Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -225,7 +225,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -295,7 +295,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-05-19 17:49:18" itemprop="dateModified" datetime="2019-05-19T17:49:18+10:00">2019-05-19</time>
+        <time title="Modified: 2021-03-08 23:46:55" itemprop="dateModified" datetime="2021-03-08T23:46:55+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -310,6 +310,7 @@
   
 </div>
 
+            <div class="post-description">如题.</div>
         </div>
       </header>
 

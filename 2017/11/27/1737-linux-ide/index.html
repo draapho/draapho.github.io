@@ -22,12 +22,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="前言LinK+ 是一款在linux下基于eclipse开发的免费的Linux内核以及驱动开发软件.这个软件在国外知名度也不高. 国内更是没人介绍过这一款软件.软件的现状是: 开发者似乎已经停止更新, 设想中支持的ARM架构也没有下文. 因此不支持嵌入式的仿真.我主要用它来查看内核源码, 开发驱动, 能快速的搭建好驱动架构, 支持内核函数跳转查看! 自动生成Makefile. 网址如下: Linux">
+<meta name="description" content="如题.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LinK+, 一款Linux内核开发IDE">
 <meta property="og:url" content="https://draapho.github.io/2017/11/27/1737-linux-ide/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="前言LinK+ 是一款在linux下基于eclipse开发的免费的Linux内核以及驱动开发软件.这个软件在国外知名度也不高. 国内更是没人介绍过这一款软件.软件的现状是: 开发者似乎已经停止更新, 设想中支持的ARM架构也没有下文. 因此不支持嵌入式的仿真.我主要用它来查看内核源码, 开发驱动, 能快速的搭建好驱动架构, 支持内核函数跳转查看! 自动生成Makefile. 网址如下: Linux">
+<meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://draapho.github.io/images/1737/link1.JPG">
 <meta property="og:image" content="https://draapho.github.io/images/1737/link2.JPG">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://draapho.github.io/images/1737/link4.JPG">
 <meta property="og:image" content="https://draapho.github.io/images/1737/link10.JPG">
 <meta property="article:published_time" content="2017-11-26T13:00:00.000Z">
-<meta property="article:modified_time" content="2019-05-19T07:48:10.000Z">
+<meta property="article:modified_time" content="2021-03-08T12:33:27.945Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="linuxembedded linux">
 <meta property="article:tag" content="ide">
@@ -223,7 +223,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -293,7 +293,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-05-19 17:48:10" itemprop="dateModified" datetime="2019-05-19T17:48:10+10:00">2019-05-19</time>
+        <time title="Modified: 2021-03-08 23:33:27" itemprop="dateModified" datetime="2021-03-08T23:33:27+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -308,6 +308,7 @@
   
 </div>
 
+            <div class="post-description">如题.</div>
         </div>
       </header>
 
@@ -365,7 +366,7 @@
 <li>驱动下面, 所有的跳转都可用, 可以非常方便的查看函数和宏定义.</li>
 <li>可以使用eclipse去编译, 设置一个 <code>modules</code> 目标就可以了.</li>
 </ul>
-<h1 id="Eclipse交叉编译说明"><a href="#Eclipse交叉编译说明" class="headerlink" title="Eclipse交叉编译说明"></a>Eclipse交叉编译说明</h1><p>这个方法的核心是不用Eclipse自己的编译工具链. 所有的编译工具都由Makefile内指定了.<br>所以, 这个也适用于编译查看u-boot源码.<br>如果是应用层代码, 那么就需要自己写Makefile指定编译工具了.<br>另外一个方法是, 另外下载一个 <code>Eclipse IDE for C/C++</code>, 单独为应用层代码配置一个环境. </p>
+<h1 id="Eclipse交叉编译说明"><a href="#Eclipse交叉编译说明" class="headerlink" title="Eclipse交叉编译说明"></a>Eclipse交叉编译说明</h1><p>这个方法的核心是不用Eclipse自己的编译工具链. 所有的编译工具都由Makefile内指定了.<br>所以, 这个也适用于编译查看u-boot源码.<br>如果是应用层代码, 那么就需要自己写Makefile指定编译工具了.<br>另外一个方法是, 另外下载一个 <code>Eclipse IDE for C/C++</code>, 单独为应用层代码配置一个环境.</p>
 <p>可参考:</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="http://www.linuxidc.com/Linux/2016-09/135062.htm">Linux下搭建树莓派交叉编译环境</a></li>

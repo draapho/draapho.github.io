@@ -22,15 +22,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="pip的使用pip 为python的包管理器. 最新的python2和python3都已经自带pip. # 显示帮助pippip --helppip install -h                      # 显示安装的帮助# 安装包pip install PackageName             # latest versionpip install PackageName&#x3D;&#x3D;1.">
+<meta name="description" content="总结了若干种方法.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python2和Python3共存时, pip的使用">
 <meta property="og:url" content="https://draapho.github.io/2017/11/13/1732-python-pip/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="pip的使用pip 为python的包管理器. 最新的python2和python3都已经自带pip. # 显示帮助pippip --helppip install -h                      # 显示安装的帮助# 安装包pip install PackageName             # latest versionpip install PackageName&#x3D;&#x3D;1.">
+<meta property="og:description" content="总结了若干种方法.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-11-12T13:00:00.000Z">
-<meta property="article:modified_time" content="2019-05-19T07:48:10.000Z">
+<meta property="article:modified_time" content="2021-03-08T12:35:30.826Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="pip">
@@ -186,7 +186,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pip%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">pip的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux%E4%B8%8B%E7%9A%84%E5%8F%8C%E7%89%88%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text">linux下的双版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%86%85%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="nav-number">2.1.</span> <span class="nav-text">源码内指定版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux%E4%B8%8B%E7%9A%84%E5%8F%8C%E7%89%88%E6%9C%AC-1"><span class="nav-number">3.</span> <span class="nav-text">linux下的双版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows%E5%AE%98%E8%A7%A3"><span class="nav-number">3.1.</span> <span class="nav-text">windows官解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows%E5%9C%9F%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">windows土法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pip%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">pip的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux%E4%B8%8B%E7%9A%84%E5%8F%8C%E7%89%88%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text">linux下的双版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%86%85%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="nav-number">2.1.</span> <span class="nav-text">源码内指定版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#windows%E4%B8%8B%E7%9A%84%E5%8F%8C%E7%89%88%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">windows下的双版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows%E5%AE%98%E8%A7%A3"><span class="nav-number">3.1.</span> <span class="nav-text">windows官解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows%E5%9C%9F%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">windows土法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -212,7 +212,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -282,7 +282,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-05-19 17:48:10" itemprop="dateModified" datetime="2019-05-19T17:48:10+10:00">2019-05-19</time>
+        <time title="Modified: 2021-03-08 23:35:30" itemprop="dateModified" datetime="2021-03-08T23:35:30+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -297,6 +297,7 @@
   
 </div>
 
+            <div class="post-description">总结了若干种方法.</div>
         </div>
       </header>
 
@@ -305,7 +306,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="pip的使用"><a href="#pip的使用" class="headerlink" title="pip的使用"></a>pip的使用</h1><p>pip 为python的包管理器. 最新的python2和python3都已经自带pip.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 显示帮助</span></span><br><span class="line">pip</span><br><span class="line">pip --<span class="built_in">help</span></span><br><span class="line">pip install -h                      <span class="comment"># 显示安装的帮助</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">pip install PackageName             <span class="comment"># latest version</span></span><br><span class="line">pip install PackageName==1.0.4      <span class="comment"># specific version</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 包列表</span></span><br><span class="line">pip list                            <span class="comment"># 显示已安装的包   </span></span><br><span class="line">pip list --outdated                 <span class="comment"># 显示有更新的包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示包的简介, 以及包的源码文件</span></span><br><span class="line">pip show --files PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">pip install --U PackageName</span><br><span class="line">pip install --upgrade PackageName</span><br><span class="line">pip install --upgrade pip           <span class="comment"># pip更新自己</span></span><br><span class="line">python -m pip install --U pip       <span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载包</span></span><br><span class="line">pip uninstall PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遇到SSL问题, 下载失败时, 信任下载源即可</span></span><br><span class="line"><span class="comment"># [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:XXX)</span></span><br><span class="line">pip list --outdated --trusted-host pypi.python.org </span><br><span class="line">pip install --trusted-host pypi.python.org PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果还是不行, 再试试下面这句. index-url 将源指定为http格式, 不用https了, 然后设置为信任.</span></span><br><span class="line">pip install --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org PackageName</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 显示帮助</span></span><br><span class="line">pip</span><br><span class="line">pip --<span class="built_in">help</span></span><br><span class="line">pip install -h                      <span class="comment"># 显示安装的帮助</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">pip install PackageName             <span class="comment"># latest version</span></span><br><span class="line">pip install PackageName==1.0.4      <span class="comment"># specific version</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 包列表</span></span><br><span class="line">pip list                            <span class="comment"># 显示已安装的包</span></span><br><span class="line">pip list --outdated                 <span class="comment"># 显示有更新的包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示包的简介, 以及包的源码文件</span></span><br><span class="line">pip show --files PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">pip install --U PackageName</span><br><span class="line">pip install --upgrade PackageName</span><br><span class="line">pip install --upgrade pip           <span class="comment"># pip更新自己</span></span><br><span class="line">python -m pip install --U pip       <span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载包</span></span><br><span class="line">pip uninstall PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遇到SSL问题, 下载失败时, 信任下载源即可</span></span><br><span class="line"><span class="comment"># [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:XXX)</span></span><br><span class="line">pip list --outdated --trusted-host pypi.python.org</span><br><span class="line">pip install --trusted-host pypi.python.org PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果还是不行, 再试试下面这句. index-url 将源指定为http格式, 不用https了, 然后设置为信任.</span></span><br><span class="line">pip install --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org PackageName</span><br></pre></td></tr></table></figure>
 
 <h1 id="linux下的双版本"><a href="#linux下的双版本" class="headerlink" title="linux下的双版本"></a>linux下的双版本</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo python2 hello.py</span><br><span class="line">sudo python3 hello.py</span><br><span class="line"><span class="comment"># 指定版本运行源码</span></span><br><span class="line"></span><br><span class="line">sudo pip2 install PackageName</span><br><span class="line">sudo pip3 install PackageName</span><br><span class="line"><span class="comment"># 直接使用pip+版本</span></span><br><span class="line"></span><br><span class="line">sudo python2 -m pip install PackageName</span><br><span class="line">sudo python3 -m pip install PackageName</span><br><span class="line"><span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br></pre></td></tr></table></figure>
 
@@ -315,7 +316,7 @@
 <p>举个python3的例子, 格式如下:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#! python3</span></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="comment"># ... 源码</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="linux下的双版本-1"><a href="#linux下的双版本-1" class="headerlink" title="linux下的双版本"></a>linux下的双版本</h1><h2 id="windows官解"><a href="#windows官解" class="headerlink" title="windows官解"></a>windows官解</h2><p>Windows下, 官方提供了 <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0397/">Python launcher for Windows</a> 的方法.<br>在安装 python3 的时候 (版本&gt;=3.3), 记得勾选 <code>py launcher</code> 选项.<br>这样, 就会python3就会生成一个py.exe命令. 可以指定调用python2或者python3.<br>安装了 <code>py laucher</code> 后, 也支持源码第一行指定版本</p>
+<h1 id="windows下的双版本"><a href="#windows下的双版本" class="headerlink" title="windows下的双版本"></a>windows下的双版本</h1><h2 id="windows官解"><a href="#windows官解" class="headerlink" title="windows官解"></a>windows官解</h2><p>Windows下, 官方提供了 <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0397/">Python launcher for Windows</a> 的方法.<br>在安装 python3 的时候 (版本&gt;=3.3), 记得勾选 <code>py launcher</code> 选项.<br>这样, 就会python3就会生成一个py.exe命令. 可以指定调用python2或者python3.<br>安装了 <code>py laucher</code> 后, 也支持源码第一行指定版本</p>
 <ul>
 <li><code>#! python2</code></li>
 <li><code>#! python3</code></li>
@@ -324,10 +325,10 @@
 
 <h2 id="windows土法"><a href="#windows土法" class="headerlink" title="windows土法"></a>windows土法</h2><p>但是, 官解真的没有土方法方便. 但不知道是否有潜在风险题<br>土法就是改名, 让windows下的用法和linux一样.</p>
 <ul>
-<li>在python2的根目录, <strong>复制</strong>一份<code>python.exe</code>, 然后改名为 <code>python2.exe</code>. </li>
-<li>进入<code>Scripts</code>目录, <strong>复制</strong>一份<code>pip.exe</code>, 然后改名为 <code>pip2.exe</code>. </li>
-<li>同样python3根目录, <strong>复制</strong>一份<code>python.exe</code>, 然后改名为 <code>python3.exe</code>. </li>
-<li>进入<code>Scripts</code>目录, <strong>复制</strong>一份<code>pip.exe</code>, 然后改名为 <code>pip3.exe</code>. </li>
+<li>在python2的根目录, <strong>复制</strong>一份<code>python.exe</code>, 然后改名为 <code>python2.exe</code>.</li>
+<li>进入<code>Scripts</code>目录, <strong>复制</strong>一份<code>pip.exe</code>, 然后改名为 <code>pip2.exe</code>.</li>
+<li>同样python3根目录, <strong>复制</strong>一份<code>python.exe</code>, 然后改名为 <code>python3.exe</code>.</li>
+<li>进入<code>Scripts</code>目录, <strong>复制</strong>一份<code>pip.exe</code>, 然后改名为 <code>pip3.exe</code>.</li>
 <li>注意不是直接改名. 要保留原来的 <code>python.exe</code> 和 <code>pip.exe</code></li>
 <li>可以和linux下一样, 愉快的玩耍了. 如下:</li>
 </ul>

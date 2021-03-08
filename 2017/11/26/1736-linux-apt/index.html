@@ -22,15 +22,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="背景接触linux至今, 遇到的最大的坑就是软件的安装!找不到包, 找不到指定版本的包, 包依赖关系出问题, 软件源要更新…因此, 在这里集中整理一下上述问题的解决方式. apt 命令最新 Ubuntu推荐使用 apt 指令. 其常用功能如下    apt 命令 功能说明 对应的旧命令    apt list 根据名称列出软件包 dpkg list   apt search 搜索软件包描述 apt">
+<meta name="description" content="如题.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux软件的安装和管理">
 <meta property="og:url" content="https://draapho.github.io/2017/11/26/1736-linux-apt/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="背景接触linux至今, 遇到的最大的坑就是软件的安装!找不到包, 找不到指定版本的包, 包依赖关系出问题, 软件源要更新…因此, 在这里集中整理一下上述问题的解决方式. apt 命令最新 Ubuntu推荐使用 apt 指令. 其常用功能如下    apt 命令 功能说明 对应的旧命令    apt list 根据名称列出软件包 dpkg list   apt search 搜索软件包描述 apt">
+<meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-11-25T13:00:00.000Z">
-<meta property="article:modified_time" content="2019-05-19T07:48:10.000Z">
+<meta property="article:modified_time" content="2021-03-08T12:33:31.973Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="apt">
@@ -212,7 +212,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -282,7 +282,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-05-19 17:48:10" itemprop="dateModified" datetime="2019-05-19T17:48:10+10:00">2019-05-19</time>
+        <time title="Modified: 2021-03-08 23:33:31" itemprop="dateModified" datetime="2021-03-08T23:33:31+11:00">2021-03-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -297,6 +297,7 @@
   
 </div>
 
+            <div class="post-description">如题.</div>
         </div>
       </header>
 
@@ -378,7 +379,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt upgrade XXX        <span class="comment"># 只升级指定的软件, 不考虑其依赖关系</span></span><br><span class="line">sudo apt full-upgrade XXX   <span class="comment"># 字面意思: 全面升级! 就是会去自动安装/删除依赖的软件.</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="build-dep-自动建立编译环境"><a href="#build-dep-自动建立编译环境" class="headerlink" title="build-dep 自动建立编译环境"></a>build-dep 自动建立编译环境</h1><p>譬如要手工编译 apache2, 那么可以用 <code>apt-get build-dep</code> 来快速建立编译环境.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get build-dep apache2</span><br><span class="line"><span class="comment"># 会列出一系列会被安装的软件, 并询问是否要安装.</span></span><br><span class="line"><span class="comment"># 先回答NO.</span></span><br><span class="line"></span><br><span class="line">sudo apt-get build-dep apache2 | tee apache2.log </span><br><span class="line"><span class="comment"># 为了便于日后查看关系包, 建议先做个记录:</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get build-dep apache2</span><br><span class="line"><span class="comment"># 会列出一系列会被安装的软件, 并询问是否要安装.</span></span><br><span class="line"><span class="comment"># 先回答NO.</span></span><br><span class="line"></span><br><span class="line">sudo apt-get build-dep apache2 | tee apache2.log</span><br><span class="line"><span class="comment"># 为了便于日后查看关系包, 建议先做个记录:</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="查看依赖关系"><a href="#查看依赖关系" class="headerlink" title="查看依赖关系"></a>查看依赖关系</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-cache depends XXX</span><br><span class="line"><span class="comment"># 查看正向依赖, XXX依赖的软件</span></span><br><span class="line"></span><br><span class="line">apt-cache rdepends XXX</span><br><span class="line"><span class="comment"># 查看反向依赖, 依赖XXX的软件</span></span><br></pre></td></tr></table></figure>
 
@@ -397,7 +398,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 或者去查看进程</span></span><br><span class="line">ps -e | grep apt</span><br><span class="line"><span class="comment"># 看是否有进程在执行</span></span><br><span class="line"><span class="comment"># 6362 ? 00:00:00 apt</span></span><br><span class="line"><span class="comment"># 6934 ? 00:00:00 apt-get</span></span><br><span class="line"><span class="comment"># 7368 ? 00:00:00 synaptic</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 有的话, 直接杀掉</span></span><br><span class="line">sudo killall apt</span><br><span class="line">sudo killall apt-get</span><br><span class="line">sudo killall synaptic</span><br><span class="line"></span><br><span class="line"><span class="comment"># 还是不行的话, 直接移除锁</span></span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure>
 
 <h2 id="X-not-fully-installed-or-removed"><a href="#X-not-fully-installed-or-removed" class="headerlink" title="X not fully installed or removed"></a>X not fully installed or removed</h2><p>多发生在安装过程中, 发生意外错误, 导致部分软件没有安装好.<br>如果在Ubuntu下面修改过<code>/usr/bin/python</code>软链接, 改2.7版本到3.5的话,<br>安装某些依赖python软件也会发生这个问题!</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 此错误发生在安装 libsdl1.2-dev 过程中. libsdl1.2-dev 依赖另外两个软件</span></span><br><span class="line"><span class="comment"># 原因是, 我修改了  /usr/bin/python -&gt; python3.5*</span></span><br><span class="line"><span class="comment"># 解决方法就是改回来 /usr/bin/python -&gt; python2.7*</span></span><br><span class="line"></span><br><span class="line">$ sudo apt install libsdl1.2-dev</span><br><span class="line">......</span><br><span class="line">3 not fully installed or removed</span><br><span class="line">Do you want to <span class="built_in">continue</span>? [Y/n]</span><br><span class="line">......</span><br><span class="line">Errors were encountered <span class="keyword">while</span> processing:</span><br><span class="line">libglib2.0-dev</span><br><span class="line">libpulse-dev:i386</span><br><span class="line">libsdl1.2-dev</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 先解决没有完全安装或者删除的问题, 方法如下, 按照依赖关系, 倒过来逐一删除:</span></span><br><span class="line">$ sudo dpkg -r libsdl1.2-dev</span><br><span class="line">$ sudo dpkg -r libpulse-dev:i386</span><br><span class="line">$ sudo dpkg -r libglib2.0-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后尝试重新安装. 我这里的问题是python语法错误</span></span><br><span class="line"><span class="comment"># 只能改回来 /usr/bin/python -&gt; python2.7*</span></span><br><span class="line">sudo apt-get -f autoremove</span><br><span class="line">sudo apt-get -f install</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libglib2.0-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 此错误发生在安装 libsdl1.2-dev 过程中. libsdl1.2-dev 依赖另外两个软件</span></span><br><span class="line"><span class="comment"># 原因是, 我修改了  /usr/bin/python -&gt; python3.5*</span></span><br><span class="line"><span class="comment"># 解决方法就是改回来 /usr/bin/python -&gt; python2.7*</span></span><br><span class="line"></span><br><span class="line">$ sudo apt install libsdl1.2-dev</span><br><span class="line">......</span><br><span class="line">3 not fully installed or removed</span><br><span class="line">Do you want to <span class="built_in">continue</span>? [Y/n]</span><br><span class="line">......</span><br><span class="line">Errors were encountered <span class="keyword">while</span> processing:</span><br><span class="line">libglib2.0-dev</span><br><span class="line">libpulse-dev:i386</span><br><span class="line">libsdl1.2-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 先解决没有完全安装或者删除的问题, 方法如下, 按照依赖关系, 倒过来逐一删除:</span></span><br><span class="line">$ sudo dpkg -r libsdl1.2-dev</span><br><span class="line">$ sudo dpkg -r libpulse-dev:i386</span><br><span class="line">$ sudo dpkg -r libglib2.0-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后尝试重新安装. 我这里的问题是python语法错误</span></span><br><span class="line"><span class="comment"># 只能改回来 /usr/bin/python -&gt; python2.7*</span></span><br><span class="line">sudo apt-get -f autoremove</span><br><span class="line">sudo apt-get -f install</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libglib2.0-dev</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="软件版本问题"><a href="#软件版本问题" class="headerlink" title="软件版本问题"></a>软件版本问题</h2><p>先试试指定版本号安装</p>
