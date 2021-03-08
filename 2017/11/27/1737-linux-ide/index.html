@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta name="description" content="前言LinK+ 是一款在linux下基于eclipse开发的免费的Linux内核以及驱动开发软件.这个软件在国外知名度也不高. 国内更是没人介绍过这一款软件.软件的现状是: 开发者似乎已经停止更新, 设想中支持的ARM架构也没有下文. 因此不支持嵌入式的仿真.我主要用它来查看内核源码, 开发驱动, 能快速的搭建好驱动架构, 支持内核函数跳转查看! 自动生成Makefile. 网址如下: Linux">
 <meta property="og:type" content="article">
@@ -112,6 +112,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -133,6 +136,13 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/Blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -168,18 +178,20 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">draapho</p>
-  <div class="site-description" itemprop="description">由外转内的探索</div>
+  <div class="site-description" itemprop="description">explore</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives">
+          <a href="/Blog/archives/">
+        
           <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Blog/categories/">
+          
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
@@ -229,7 +241,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="由外转内的探索">
+      <meta itemprop="description" content="explore">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -285,7 +297,7 @@
 <li><a target="_blank" rel="noopener" href="http://sourceforge.net/projects/linkplustest/files/documentation/LinK%2B_UserManual_Rev4.pdf">安装和使用手册</a></li>
 </ul>
 <p><strong>说明一下 LinK+ UserManual 里面的 <code>-</code>横杠都是错误的, 终端无法识别!</strong><br>然后按照说明安装如下依赖的软件.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装最新版 openjdk, 向下兼容jdk6即可.</span></span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装open ssh</span></span><br><span class="line">sudo apt-get install openssh-client openssh-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其它依赖的软件</span></span><br><span class="line">sudo apt-get install libqt4-dev</span><br><span class="line">sudo apt-get install libncurses5</span><br><span class="line">sudo apt-get install qemu</span><br><span class="line">sudo apt-get install bridge-utils iptables dnsmasq</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 LinK+IDE</span></span><br><span class="line"><span class="comment"># 下载好LinK+IDE的文件, LinK+ IDE-linux.gtk.x86.tar.gz.tar.gz</span></span><br><span class="line">tar -xzvf LinK+\ IDE-linux.gtk.x86.tar.gz.tar.gz</span><br><span class="line">./linkplus</span><br><span class="line"><span class="comment"># 安装成功的话, 就能运行了.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装最新版 openjdk, 向下兼容jdk6即可.</span></span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装open ssh</span></span><br><span class="line">sudo apt-get install openssh-client openssh-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其它依赖的软件</span></span><br><span class="line">sudo apt-get install libqt4-dev</span><br><span class="line">sudo apt-get install libncurses5</span><br><span class="line">sudo apt-get install qemu</span><br><span class="line">sudo apt-get install bridge-utils iptables dnsmasq</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 LinK+IDE</span></span><br><span class="line"><span class="comment"># 下载好LinK+IDE的文件, LinK+ IDE-linux.gtk.x86.tar.gz.tar.gz</span></span><br><span class="line">tar -xzvf LinK+\ IDE-linux.gtk.x86.tar.gz.tar.gz</span><br><span class="line">./linkplus</span><br><span class="line"><span class="comment"># 安装成功的话, 就能运行了.</span></span><br></pre></td></tr></table></figure>
 
 <p>然后, LinK+IDE 的升级和插件不用看了. 很久没更新过了.</p>
 <h1 id="Kernel源码的编译和阅读"><a href="#Kernel源码的编译和阅读" class="headerlink" title="Kernel源码的编译和阅读"></a>Kernel源码的编译和阅读</h1><p>先确定linux内核源码可以在终端下成功编译.<br>新建Makefile工程<br><img src="https://draapho.github.io/images/1737/link1.JPG" alt="link.JPG"></p>
@@ -296,11 +308,11 @@
 <p>如果需要设置更多的指令目标, 用如下方式. Create是设置, Build是执行<br><img src="https://draapho.github.io/images/1737/link7.JPG" alt="link.JPG"></p>
 <p>设置自定义目标<br><img src="https://draapho.github.io/images/1737/link8.JPG" alt="link.JPG"></p>
 <p>好了, 如果这样直接 <code>Make Targets</code>-&gt;<code>Build...</code>-&gt;<code>uImage</code>, 会编译失败.<br>原因是Eclipse下面无法正确识别Makefile下面的CROSS_COMPILE路径.<br>见 <a target="_blank" rel="noopener" href="https://www.crifan.com/ubuntu_eclipse_cross_compile_uboot_based_on_makefile/">Ubuntu下基于Eclipse去调用Makefile交叉编译Uboot</a><br>需要将其改为绝对路径. 打开内核源码根目录下的 <code>Makefile</code>, 187行, 修改如下:</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CROSS_COMPILE ?= arm-linux-</span></span><br><span class="line">CROSS_COMPILE   ?= /usr/local/gcc-3.4.5-glibc-2.3.6/bin/arm-linux-</span><br></pre></td></tr></table></figure>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="comment"># CROSS_COMPILE ?= arm-linux-</span></span><br><span class="line">CROSS_COMPILE   ?= /usr/local/gcc-3.4.5-glibc-2.3.6/bin/arm-linux-</span><br></pre></td></tr></table></figure>
 
 
 <p>再次在eclipse下尝试编译, 就成功了. 看Console的输出, 获得uImage文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Kernel: arch&#x2F;arm&#x2F;boot&#x2F;Image is ready</span><br><span class="line">Kernel: arch&#x2F;arm&#x2F;boot&#x2F;zImage is ready</span><br><span class="line">Image arch&#x2F;arm&#x2F;boot&#x2F;uImage is ready</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Kernel: arch&#x2F;arm&#x2F;boot&#x2F;Image is ready</span><br><span class="line">Kernel: arch&#x2F;arm&#x2F;boot&#x2F;zImage is ready</span><br><span class="line">Image arch&#x2F;arm&#x2F;boot&#x2F;uImage is ready</span><br></pre></td></tr></table></figure>
 
 <p>但Ecilpse依旧会显示很多警告和错误. 原因不明, 查的如下资料:</p>
 <ul>
@@ -309,7 +321,7 @@
 </ul>
 <p>先忽略这些错误警告, 但此时, 有些函数依旧不能正常跳转. 原因是 <code>.\include\linux\autoconf.h</code> 没有被其它头文件包含, 里面的宏定义linux源码无法识别. 解决办法是我们自己把这些宏定义加入eclipse的SYMBOLS. 手工一个个加入不现实, 我写了一个python代码, 把linux下的config自动转为eclipse可识别的XML格式:<br><strong><a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/tree/master/_blog_stuff/linux/config2xml.py">下载config2xml</a></strong></p>
 <p>将这个文件放在linux源码根目录下, 配置好<code>.config</code> 文件. 然后在终端运行它</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pwd = linux内核源码根目录</span></span><br><span class="line">$ python config2xml.py</span><br><span class="line">Generate ../eclipse_SYMBOLS.xml successfully...</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pwd = linux内核源码根目录</span></span><br><span class="line">$ python config2xml.py</span><br><span class="line">Generate ../eclipse_SYMBOLS.xml successfully...</span><br></pre></td></tr></table></figure>
 
 <p>成功后, 会在上层目录生成 <code>eclipse_SYMBOLS.xml</code> 这么一个文件.<br>然后回到eclipse里面, 将其导入. 如图:<br><img src="https://draapho.github.io/images/1737/link9.JPG" alt="link.JPG"></p>
 <p>另外, 为方便跳转, 可以在eclipse下面把linux源码下不相关的平台代码排除掉.<br><img src="https://draapho.github.io/images/1737/link4.JPG" alt="link.JPG"></p>
@@ -410,7 +422,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">draapho</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
     </div>

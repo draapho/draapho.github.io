@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta name="description" content="我需要一个博客三年前学linux的时候, 深感复杂,  然后也略微记录了些笔记放在电脑里. 但是真要用的时候, 依旧会google或baidu, 原因很简单: 电脑的笔记用起来不方便, 找文档慢不说, 找到后要么是没有格式的txt文档, 有些是花了力气排版好的word, 又觉得打开很慢. 于是觉得需要一个博客, 在CSDN开了博, 坚持不到10篇文章就放弃了, 原因很简单: 太麻烦了. 我的本意只">
 <meta property="og:type" content="article">
@@ -101,6 +101,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -122,6 +125,13 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/Blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -157,18 +167,20 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">draapho</p>
-  <div class="site-description" itemprop="description">由外转内的探索</div>
+  <div class="site-description" itemprop="description">explore</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives">
+          <a href="/Blog/archives/">
+        
           <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Blog/categories/">
+          
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
@@ -218,7 +230,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="由外转内的探索">
+      <meta itemprop="description" content="explore">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -280,11 +292,11 @@
 <li><p>安装<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.JS</a>, 选推荐版本, 目前是v4.5.0 LTS (即 Long Term Support), 环境变量默认会设置好.</p>
 </li>
 <li><p>安装Hexo</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
 <li><p>创建并初始化博客文件夹,这里命名为<em><strong>Blog</strong></em>, 右键点”Git Bash Here”, 或者打开cmd进入到<em><strong>Blog</strong></em>目录下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd Blog           # 确保在Blog这文件夹下</span><br><span class="line">npm install hexo --save # 安装hexo</span><br><span class="line">hexo init         # 初始化Blog文件夹内容</span><br><span class="line">npm install       # 安装必要的依赖包</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下面是必要的插件包</span></span><br><span class="line">npm install hexo-deployer-git --save      # 使用github发布</span><br><span class="line">npm install hexo-deployer-rsync --save    # 不装, 使用 rysnc发布</span><br><span class="line">npm install hexo-deployer-openshift --save    # 不装, 使用OpenShift发布</span><br><span class="line">npm install hexo-generator-feed --save    # 不装, 生成atom.xml, 供RSS使用</span><br><span class="line">npm install hexo-generator-sitemap --save # 不装, 生成sitemap.xml, 用于提高搜索量</span><br><span class="line">npm install hexo-generator-search --save  # 用于本地搜索</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd Blog           # 确保在Blog这文件夹下</span><br><span class="line">npm install hexo --save # 安装hexo</span><br><span class="line">hexo init         # 初始化Blog文件夹内容</span><br><span class="line">npm install       # 安装必要的依赖包</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下面是必要的插件包</span></span><br><span class="line">npm install hexo-deployer-git --save      # 使用github发布</span><br><span class="line">npm install hexo-deployer-rsync --save    # 不装, 使用 rysnc发布</span><br><span class="line">npm install hexo-deployer-openshift --save    # 不装, 使用OpenShift发布</span><br><span class="line">npm install hexo-generator-feed --save    # 不装, 生成atom.xml, 供RSS使用</span><br><span class="line">npm install hexo-generator-sitemap --save # 不装, 生成sitemap.xml, 用于提高搜索量</span><br><span class="line">npm install hexo-generator-search --save  # 用于本地搜索</span><br></pre></td></tr></table></figure></li>
 <li><p>本地查看效果, 输入<code>hexo s</code>成功后登录 <code>localhost:4000</code>查看效果<br>这里, 我遇到了错误, 提示是 4000 端口已经被占用.<br>最后发现是 foxitProtect.exe (福昕PDF保护进程)占用此端口, 先结束, 然后直接删除.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -aon | findstr &quot;4000&quot;     # 查找占用4000端口的PID, 譬如, 结果为1234</span><br><span class="line">tasklist | findstr &quot;1234&quot;         # 查找PID=1234的进程名称, 譬如, 结果为foxitProtect.exe</span><br><span class="line">taskkill /f /t /im foxitProtect.exe   # 强制杀死此进程</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netstat -aon | findstr &quot;4000&quot;     # 查找占用4000端口的PID, 譬如, 结果为1234</span><br><span class="line">tasklist | findstr &quot;1234&quot;         # 查找PID=1234的进程名称, 譬如, 结果为foxitProtect.exe</span><br><span class="line">taskkill /f /t /im foxitProtect.exe   # 强制杀死此进程</span><br></pre></td></tr></table></figure></li>
 <li><p>配置 hexo 的 <code>_config.yml</code></p>
 <blockquote>
 <p># Site<br>title: DRA&amp;PHO                  # 博客名字<br>subtitle: thinking &amp; logging    # 副标题<br>description: Embedded System, IoT, M2M  # 博客描述<br>author: draapho                 # 作者<br>language: en        # 语言, 中文为 zh-Hans, 需设置category_map和tag_map</p>
@@ -314,9 +326,9 @@
 <li>这里就不详细展开了, 具体步骤参考github, <a target="_blank" rel="noopener" href="https://help.github.com/articles/generating-a-gpg-key/">生成一个GPG key</a></li>
 </ul>
 <h1 id="使用mermaid插件支持流程图等"><a href="#使用mermaid插件支持流程图等" class="headerlink" title="使用mermaid插件支持流程图等"></a><del>使用mermaid插件支持流程图等</del></h1><ul>
-<li>安装<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-tag-mermaid --save</span><br></pre></td></tr></table></figure></li>
-<li>添加mermaid依赖到主题模板<br>进入themes/your_theme_folder/layout/partial目录，添加mermaid相关文件。<br>head.jade 添加如下代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">link(rel&#x3D;&quot;stylesheet&quot;, href&#x3D;url_for(&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;mermaid&#x2F;6.0.0&#x2F;mermaid.min.css&quot;))</span><br></pre></td></tr></table></figure>
-scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">link(rel&#x3D;&quot;stylesheet&quot;, script(src&#x3D;&quot;&#x2F;&#x2F;cdn.bootcss.com&#x2F;mermaid&#x2F;6.0.0&#x2F;mermaid.min.js&quot;)</span><br></pre></td></tr></table></figure></li>
+<li>安装<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-mermaid --save</span><br></pre></td></tr></table></figure></li>
+<li>添加mermaid依赖到主题模板<br>进入themes/your_theme_folder/layout/partial目录，添加mermaid相关文件。<br>head.jade 添加如下代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">link(rel&#x3D;&quot;stylesheet&quot;, href&#x3D;url_for(&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;mermaid&#x2F;6.0.0&#x2F;mermaid.min.css&quot;))</span><br></pre></td></tr></table></figure>
+scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">link(rel&#x3D;&quot;stylesheet&quot;, script(src&#x3D;&quot;&#x2F;&#x2F;cdn.bootcss.com&#x2F;mermaid&#x2F;6.0.0&#x2F;mermaid.min.js&quot;)</span><br></pre></td></tr></table></figure></li>
 <li>我暂时放弃了<br>next用的swig, 不知道和jade文件是什么关系. 暂时不愿去研究.<br>看了下此插件的格式, 和我常用的Typora使用的mermaid不一样.<br>博客上用到流程图之类的机会不多, 偶尔需要使用图片即可.<br>如有兴趣, 可参考 <a target="_blank" rel="noopener" href="http://jcchow.com/2016/07/11/mermaid-sequence/">Hexo流程图等插件安装教程</a></li>
 </ul>
 <h1 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h1><p>主题的选择我没有花太多时间, 测试了2-3个主题后, 最终还是随大流的用了NexT主题. 说实话, 设计感很好, 用的人很多, 略有审美疲劳. 好在博客目标明确, NexT能很好的覆盖我几个基本需求, 文档又写的很完善, 就不折腾了.</p>
@@ -331,7 +343,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p>title: Windows下使用github和hexo建立自己的博客<br>date: 2016-09-08<br>categories: environment<br>tags: [blog, hexo, next]</p>
 </blockquote>
 </li>
-<li>Hexo的常用指令<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean    #更换hexo主题后, 建议先执行此条命令清空</span><br><span class="line">hexo g        # g=generate, 生成public静态文件</span><br><span class="line">hexo s        # s=server, 本地发布预览效果, 默认地址是 localhost:4000</span><br><span class="line">hexo d        # d=deploy, 自动部署</span><br><span class="line">hexo d -g     # 我最常用的指令, 意思是先generate再deploy.</span><br></pre></td></tr></table></figure></li>
+<li>Hexo的常用指令<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean    #更换hexo主题后, 建议先执行此条命令清空</span><br><span class="line">hexo g        # g=generate, 生成public静态文件</span><br><span class="line">hexo s        # s=server, 本地发布预览效果, 默认地址是 localhost:4000</span><br><span class="line">hexo d        # d=deploy, 自动部署</span><br><span class="line">hexo d -g     # 我最常用的指令, 意思是先generate再deploy.</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://wsgzao.github.io/post/hexo-guide/">使用GitHub和Hexo搭建免费静态Blog</a></li>
@@ -414,7 +426,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </span>
   <span class="author" itemprop="copyrightHolder">draapho</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
     </div>

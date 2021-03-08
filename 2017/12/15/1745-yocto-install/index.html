@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta name="description" content="前言Yocto的简介就不抄写了, 反正我光看介绍并不明白Yocto到底是干吗的.但应该确确实实让定制和开发嵌入式Linux系统变得更方便, 招聘要求里会Yocto都是加分项.所以决定动手实践一下, 先有个感性认识再说. 下文基本按照官网的 Yocto Project Quick Start 步骤而来. 第一步, 安装 Yocto Project安装 Yocto Project 有两个方法:  使用">
 <meta property="og:type" content="article">
@@ -101,6 +101,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -122,6 +125,13 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/Blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -157,18 +167,20 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">draapho</p>
-  <div class="site-description" itemprop="description">由外转内的探索</div>
+  <div class="site-description" itemprop="description">explore</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives">
+          <a href="/Blog/archives/">
+        
           <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Blog/categories/">
+          
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
@@ -218,7 +230,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="由外转内的探索">
+      <meta itemprop="description" content="explore">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -285,21 +297,21 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu, 安装软件</span></span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib \</span><br><span class="line">    build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \</span><br><span class="line">    xz-utils debianutils iputils-ping libsdl1.2-dev xterm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 确认一下软件版本</span></span><br><span class="line">$ git --version</span><br><span class="line">git version 2.7.4</span><br><span class="line">$ tar --version</span><br><span class="line">tar (GNU tar) 1.28</span><br><span class="line">$ python3</span><br><span class="line">Python 3.5.2</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">exit</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果没有装好, 可单独安装</span></span><br><span class="line">$ sudo apt install git</span><br><span class="line">$ sudo apt install tar</span><br><span class="line">$ sudo apt install python3</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu, 安装软件</span></span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib \</span><br><span class="line">    build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \</span><br><span class="line">    xz-utils debianutils iputils-ping libsdl1.2-dev xterm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 确认一下软件版本</span></span><br><span class="line">$ git --version</span><br><span class="line">git version 2.7.4</span><br><span class="line">$ tar --version</span><br><span class="line">tar (GNU tar) 1.28</span><br><span class="line">$ python3</span><br><span class="line">Python 3.5.2</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">exit</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果没有装好, 可单独安装</span></span><br><span class="line">$ sudo apt install git</span><br><span class="line">$ sudo apt install tar</span><br><span class="line">$ sudo apt install python3</span><br></pre></td></tr></table></figure>
 
 <p>这样就准备好了安装环境. 然后安装 Yocto Project</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一下yocto目录, 整个项目就放在此目录下面</span></span><br><span class="line">$ mkdir ~/yocto</span><br><span class="line">$ <span class="built_in">cd</span> ~/yocto</span><br><span class="line"></span><br><span class="line"><span class="comment"># git获取工程</span></span><br><span class="line">$ git <span class="built_in">clone</span> git://git.yoctoproject.org/poky</span><br><span class="line">...</span><br><span class="line">Checking connectivity... <span class="keyword">done</span>.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载完成后, 有个poky文件夹. </span></span><br><span class="line"><span class="comment"># 如果是从别处下载再拷贝进Ubuntu的, 可能需要改个权限</span></span><br><span class="line"><span class="comment"># 因为后面的bitbake命令不允许已root用户操作.</span></span><br><span class="line">$ sudo chmod -R +777 poky/</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建一下yocto目录, 整个项目就放在此目录下面</span></span><br><span class="line">$ mkdir ~/yocto</span><br><span class="line">$ <span class="built_in">cd</span> ~/yocto</span><br><span class="line"></span><br><span class="line"><span class="comment"># git获取工程</span></span><br><span class="line">$ git <span class="built_in">clone</span> git://git.yoctoproject.org/poky</span><br><span class="line">...</span><br><span class="line">Checking connectivity... <span class="keyword">done</span>.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载完成后, 有个poky文件夹. </span></span><br><span class="line"><span class="comment"># 如果是从别处下载再拷贝进Ubuntu的, 可能需要改个权限</span></span><br><span class="line"><span class="comment"># 因为后面的bitbake命令不允许已root用户操作.</span></span><br><span class="line">$ sudo chmod -R +777 poky/</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="第二步-定制Linux镜像文件"><a href="#第二步-定制Linux镜像文件" class="headerlink" title="第二步, 定制Linux镜像文件"></a>第二步, 定制Linux镜像文件</h1><p>安装好 Yocto Project 后, 就需要体验一把定制Linux镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># pwd &#x3D; ~&#x2F;yocto&#x2F;poky&#x2F;</span><br><span class="line"></span><br><span class="line"># 创建一个git分支, 基于此分支制作自己的Linux镜像</span><br><span class="line">$ sudo git checkout -b rocko origin&#x2F;rocko</span><br><span class="line">$ git branch</span><br><span class="line">  master</span><br><span class="line">* rocko</span><br><span class="line"></span><br><span class="line"># 执行脚本, 创建了一些默认配置</span><br><span class="line">$ source oe-init-build-env</span><br><span class="line">You can now run &#39;bitbake &lt;target&gt;&#39;</span><br><span class="line">Common targets are:</span><br><span class="line">    core-image-minimal</span><br><span class="line">    core-image-sato</span><br><span class="line">    meta-toolchain</span><br><span class="line">    meta-ide-support</span><br><span class="line"># 显示后续操作的说明, 并自动进入 build 目录</span><br><span class="line"></span><br><span class="line"># pwd &#x3D; ~&#x2F;yocto&#x2F;poky&#x2F;build</span><br><span class="line">$ ls conf&#x2F;</span><br><span class="line"># 三个.conf文件, 教程简单介绍了一下 local.conf 里的 MACHINE 和 PACKAGE_CLASSES</span><br><span class="line">$ vim conf&#x2F;local.conf</span><br><span class="line"># 看一下配置文件, 有个直观感受. 先用默认值, 不去修改</span><br><span class="line"></span><br><span class="line">$ bitbake core-image-sato</span><br><span class="line"># 第一次的话, 会非常非常慢, 下载源码加编译, 可能花费几个小时...</span><br><span class="line"></span><br><span class="line"># 烘焙(bitbake)好image后, 在虚拟环境QEMU下看看效果</span><br><span class="line">$ runqemu qemux86</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># pwd &#x3D; ~&#x2F;yocto&#x2F;poky&#x2F;</span><br><span class="line"></span><br><span class="line"># 创建一个git分支, 基于此分支制作自己的Linux镜像</span><br><span class="line">$ sudo git checkout -b rocko origin&#x2F;rocko</span><br><span class="line">$ git branch</span><br><span class="line">  master</span><br><span class="line">* rocko</span><br><span class="line"></span><br><span class="line"># 执行脚本, 创建了一些默认配置</span><br><span class="line">$ source oe-init-build-env</span><br><span class="line">You can now run &#39;bitbake &lt;target&gt;&#39;</span><br><span class="line">Common targets are:</span><br><span class="line">    core-image-minimal</span><br><span class="line">    core-image-sato</span><br><span class="line">    meta-toolchain</span><br><span class="line">    meta-ide-support</span><br><span class="line"># 显示后续操作的说明, 并自动进入 build 目录</span><br><span class="line"></span><br><span class="line"># pwd &#x3D; ~&#x2F;yocto&#x2F;poky&#x2F;build</span><br><span class="line">$ ls conf&#x2F;</span><br><span class="line"># 三个.conf文件, 教程简单介绍了一下 local.conf 里的 MACHINE 和 PACKAGE_CLASSES</span><br><span class="line">$ vim conf&#x2F;local.conf</span><br><span class="line"># 看一下配置文件, 有个直观感受. 先用默认值, 不去修改</span><br><span class="line"></span><br><span class="line">$ bitbake core-image-sato</span><br><span class="line"># 第一次的话, 会非常非常慢, 下载源码加编译, 可能花费几个小时...</span><br><span class="line"></span><br><span class="line"># 烘焙(bitbake)好image后, 在虚拟环境QEMU下看看效果</span><br><span class="line">$ runqemu qemux86</span><br></pre></td></tr></table></figure>
 
 <p>至此, 体验完成. 实际硬件环境的流程基本一致, 就是还要考虑烧录和启动的问题.<br>这是嵌入式Linux开发的基本能力, 略过不表.</p>
 <h1 id="一些弯路"><a href="#一些弯路" class="headerlink" title="一些弯路"></a><del>一些弯路</del></h1><p>第一个弯路是python版本问题, 造成安装软件失败<br>直接运行python, 默认是2.7. 然后想着需要改成3.5版本的.<br>按照网上教程, 修改python软链接, 但会导致apt安装软件失败.<br>原因是有些软件依赖于python2.7, 改为3.5后, 安装过程会发生语法错误.<br>具体可参考 <a href="https://draapho.github.io/2017/11/26/1736-linux-apt/">linux软件的安装和管理</a> 的 <code>X not fully installed or removed</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ ll /usr/bin/python*</span><br><span class="line">lrwxrwxrwx 1 root root       9 Nov 24 07:18 /usr/bin/python -&gt; python2.7*</span><br><span class="line">$ sudo rm /usr/bin/python</span><br><span class="line">$ sudo ln -s /usr/bin/python3.5 /usr/bin/python</span><br><span class="line">$ ll /usr/bin/python*</span><br><span class="line">lrwxrwxrwx 1 root root       9 Nov 24 07:18 /usr/bin/python -&gt; python3.5*</span><br><span class="line">$ python</span><br><span class="line">Python 3.5.2 (default, Nov 23 2017, 16:37:01) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 这样改完以后, 再去安装 libsdl1.2-dev 会报错! 解决方法是改回来...</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ll /usr/bin/python*</span><br><span class="line">lrwxrwxrwx 1 root root       9 Nov 24 07:18 /usr/bin/python -&gt; python2.7*</span><br><span class="line">$ sudo rm /usr/bin/python</span><br><span class="line">$ sudo ln -s /usr/bin/python3.5 /usr/bin/python</span><br><span class="line">$ ll /usr/bin/python*</span><br><span class="line">lrwxrwxrwx 1 root root       9 Nov 24 07:18 /usr/bin/python -&gt; python3.5*</span><br><span class="line">$ python</span><br><span class="line">Python 3.5.2 (default, Nov 23 2017, 16:37:01) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 这样改完以后, 再去安装 libsdl1.2-dev 会报错! 解决方法是改回来...</span></span><br></pre></td></tr></table></figure>
 
 <p>第二个弯路是安装虚拟机的时候, 只给了20G的空间. 扩盘的方法如下:<br><a target="_blank" rel="noopener" href="https://lzw.me/a/vmware-ubuntu-disk-space.html">扩大Vmware虚拟机中Ubuntu系统磁盘空间的方法</a>, 建议直接用可视化的软件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install gparted</span><br><span class="line">$ sudo gparted</span><br><span class="line"></span><br><span class="line"># 重启后自动挂载, 可以格式化并重命名为 extend</span><br><span class="line"># 自动挂载路径为 &#x2F;media&#x2F;user-name&#x2F;extend, 没有重命名的话, 是一长串ID</span><br><span class="line">$ sudo chmod +777 &#x2F;media&#x2F;draapho&#x2F;extend</span><br><span class="line">$ sudo ln -s &#x2F;media&#x2F;draapho&#x2F;extend ~&#x2F;share&#x2F;extend</span><br><span class="line"># 改下权限, 建立软连接方便操作.</span><br><span class="line"># 由于空间要求, yocto项目就放在这个盘里面.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt install gparted</span><br><span class="line">$ sudo gparted</span><br><span class="line"></span><br><span class="line"># 重启后自动挂载, 可以格式化并重命名为 extend</span><br><span class="line"># 自动挂载路径为 &#x2F;media&#x2F;user-name&#x2F;extend, 没有重命名的话, 是一长串ID</span><br><span class="line">$ sudo chmod +777 &#x2F;media&#x2F;draapho&#x2F;extend</span><br><span class="line">$ sudo ln -s &#x2F;media&#x2F;draapho&#x2F;extend ~&#x2F;share&#x2F;extend</span><br><span class="line"># 改下权限, 建立软连接方便操作.</span><br><span class="line"># 由于空间要求, yocto项目就放在这个盘里面.</span><br></pre></td></tr></table></figure>
 
 
 
@@ -384,7 +396,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">draapho</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
     </div>

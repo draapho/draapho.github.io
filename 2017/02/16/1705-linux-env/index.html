@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta name="description" content="总览 嵌入式linux学习目录 嵌入式linux环境搭建-主机端 嵌入式linux环境搭建-jz2440开发板 基于DHCP建立嵌入式Linux开发环境  嵌入式linux开发环境搭建思路学习过大半, 总结经验后, 得出如下环境搭建的最新思路:  使用32位桌面版Ubuntu, 推荐使用 ubuntu-16.04.3-desktop-i386.iso linux源码必须放在Linux文件系统下.">
 <meta property="og:type" content="article">
@@ -101,6 +101,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -122,6 +125,13 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/Blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -157,18 +167,20 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">draapho</p>
-  <div class="site-description" itemprop="description">由外转内的探索</div>
+  <div class="site-description" itemprop="description">explore</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives">
+          <a href="/Blog/archives/">
+        
           <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Blog/categories/">
+          
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
@@ -218,7 +230,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="由外转内的探索">
+      <meta itemprop="description" content="explore">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -330,7 +342,7 @@
 <li>使用串口, 可用putty 或 TeraTerm, 远程登录控制 Embedded linux,<br>文本编辑器只能用vi</li>
 <li>PC windows的环境搭建可参考:<br>设置IP, 安装虚拟机属于常规内容, 按下不表.<br>NFS服务器 HaneWIN 的配置见 <strong><a href="https://draapho.github.io/2016/10/03/1606-WinSoft-cloud/">Windows 软件系列-基于NFS的家庭网</a></strong><br>其中 <code>Exports</code> 内容如下:</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for linux</span></span><br><span class="line">E:\My_Study\linux -name:study -mapall:0:0 10.0.0.100</span><br><span class="line">E:\My_Work\linux -name:work -mapall:0:0 10.0.0.100</span><br><span class="line"></span><br><span class="line"><span class="comment"># for embedded linux.</span></span><br><span class="line">E:\My_Study\linux\jz2440\ -name:jz2440 -mapall:0:0 -range 10.0.0.1 10.0.0.111</span><br><span class="line"></span><br><span class="line"><span class="comment"># for loading file system, should be no limit, root account</span></span><br><span class="line"><span class="comment"># E:\My_Study\linux\jz2440\nfs\fs_qtopia -name:fs -mapall:0:0 10.0.0.111</span></span><br><span class="line"><span class="comment"># E:\My_Study\linux\jz2440\nfs\fs_mini_mdev -name:fs -mapall:0:0 10.0.0.111</span></span><br><span class="line"><span class="comment"># E:\My_Study\linux\jz2440\nfs\fs_mini -name:fs -mapall:0:0 10.0.0.111</span></span><br><span class="line"><span class="comment"># please choose one:</span></span><br><span class="line"></span><br><span class="line">E:\My_Study\linux\jz2440\nfs\fs_mini_mdev -name:fs -mapall:0:0 10.0.0.111</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># for linux</span></span><br><span class="line">E:\My_Study\linux -name:study -mapall:0:0 10.0.0.100</span><br><span class="line">E:\My_Work\linux -name:work -mapall:0:0 10.0.0.100</span><br><span class="line"></span><br><span class="line"><span class="comment"># for embedded linux.</span></span><br><span class="line">E:\My_Study\linux\jz2440\ -name:jz2440 -mapall:0:0 -range 10.0.0.1 10.0.0.111</span><br><span class="line"></span><br><span class="line"><span class="comment"># for loading file system, should be no limit, root account</span></span><br><span class="line"><span class="comment"># E:\My_Study\linux\jz2440\nfs\fs_qtopia -name:fs -mapall:0:0 10.0.0.111</span></span><br><span class="line"><span class="comment"># E:\My_Study\linux\jz2440\nfs\fs_mini_mdev -name:fs -mapall:0:0 10.0.0.111</span></span><br><span class="line"><span class="comment"># E:\My_Study\linux\jz2440\nfs\fs_mini -name:fs -mapall:0:0 10.0.0.111</span></span><br><span class="line"><span class="comment"># please choose one:</span></span><br><span class="line"></span><br><span class="line">E:\My_Study\linux\jz2440\nfs\fs_mini_mdev -name:fs -mapall:0:0 10.0.0.111</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="PC-linux-ubuntu-serve-16-04-32bit"><a href="#PC-linux-ubuntu-serve-16-04-32bit" class="headerlink" title="PC linux ubuntu serve 16.04 32bit"></a>PC linux ubuntu serve 16.04 32bit</h2><p>ip addr: <code>10.0.0.100</code><br>gateway: <code>10.0.0.138</code></p>
@@ -365,7 +377,7 @@
 </ul>
 </li>
 <li><p>基于u-boot, 更改 <strong>file system</strong> 的加载方式为nfs系统, 并自动加载</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以jz2440的u-boot为例, 进入u-boot命令行模式, 将其设置为nfs加载file system</span></span><br><span class="line"><span class="built_in">set</span> bootargs noinitrd root=/dev/nfs nfsroot=10.0.0.98:/fs ip=10.0.0.111:10.0.0.98:10.0.0.138:255.255.255.0::eth0:off init=/linuxrc console=ttySAC0</span><br><span class="line"><span class="comment"># (简化ip: &#x27;set bootargs noinitrd root=/dev/nfs nfsroot=10.0.0.98:/fs ip=10.0.0.111 init=/linuxrc console=ttySAC0&#x27; 也可以工作)</span></span><br><span class="line"><span class="comment"># (默认值: &#x27;set bootargs noinitrd root=/dev/mtdblock3 init=/linuxrc console=ttySAC0&#x27;)</span></span><br><span class="line">save        <span class="comment"># 保存修改</span></span><br><span class="line">reset       <span class="comment"># 重启.</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 以jz2440的u-boot为例, 进入u-boot命令行模式, 将其设置为nfs加载file system</span></span><br><span class="line"><span class="built_in">set</span> bootargs noinitrd root=/dev/nfs nfsroot=10.0.0.98:/fs ip=10.0.0.111:10.0.0.98:10.0.0.138:255.255.255.0::eth0:off init=/linuxrc console=ttySAC0</span><br><span class="line"><span class="comment"># (简化ip: &#x27;set bootargs noinitrd root=/dev/nfs nfsroot=10.0.0.98:/fs ip=10.0.0.111 init=/linuxrc console=ttySAC0&#x27; 也可以工作)</span></span><br><span class="line"><span class="comment"># (默认值: &#x27;set bootargs noinitrd root=/dev/mtdblock3 init=/linuxrc console=ttySAC0&#x27;)</span></span><br><span class="line">save        <span class="comment"># 保存修改</span></span><br><span class="line">reset       <span class="comment"># 重启.</span></span><br></pre></td></tr></table></figure></li>
 <li><p>jz2440的环境搭建可参考:</p>
 <ul>
 <li><a href="https://draapho.github.io/2017/02/21/1707-jz2440-env/">嵌入式linux-jz2440环境搭建</a></li>
@@ -391,7 +403,7 @@
 </ol>
 <h2 id="编译器的巨坑"><a href="#编译器的巨坑" class="headerlink" title="编译器的巨坑"></a><del>编译器的巨坑</del></h2><p>刚开始用了 arm-linux-gcc 4.3.2, 编译u-boot时遇到了第一个坑, 还给解决了.<br>于是”顺利”使用 arm-linux-gcc 4.3.2 编译了u-boot, kernel, led驱动程序.<br>所谓顺利, 是因为没有报错, 生成的文件可以烧录, 启动.<br>加上引号, 是因为最后证明这些生成文件是有问题的, 会导致整个嵌入式系统某些部分无法正常工作.<br>最后在编译测试驱动用的C文件时, 编译出来的可执行文件在开发板上不可执行,<br>才想到可能是编译器问题而尝试着换回到 3.4.5 版本. 并连同内核全部重新编译了.<br>换回去后, 之前一度认为的源码有问题的fs也能成功加载了, 真是个巨坑…</p>
 <p>下面列出使用 <code>arm-linux-gcc 4.3.2</code> 编译u-boot遇到问题时的解决方法 (<strong>巨坑的开始</strong>):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果用gcc 4.3.2, 则版本太新, 编译错误. 可以使用自带的arm-none-linux-gnueabi</span></span><br><span class="line"><span class="comment"># 解决方法如下:</span></span><br><span class="line"><span class="comment"># 修改Makefile文件中的PLATFORM_LIBS, 将:</span></span><br><span class="line">PLATFORM_LIBS += -L $(shell dirname `$(CC) $(CFLAGS) -print-libgcc-file-name`) -lgcc</span><br><span class="line"><span class="comment"># 修改成:</span></span><br><span class="line">PLATFORM_LIBS += -L $(shell dirname `$(CC) $(CFLAGS) -print-libgcc-file-name`) -lgcc -lc -L /usr/<span class="built_in">local</span>/arm/4.3.2/arm-none-linux-gnueabi/libc/armv4t/usr/lib</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 cpu /arm920t/config.mk 文件, 将:</span></span><br><span class="line">PLATFORM_CPPFLAGS +=$(call cc-option,-mapcs-32,-mabi=apcs-gnu)</span><br><span class="line">PLATFORM_RELFLAGS +=$(call cc-option,-mshort-load-bytes,$(call cc-option,-malignment-traps,))</span><br><span class="line"><span class="comment"># 修改成:</span></span><br><span class="line">PLATFORM_CPPFLAGS +=$(call cc-option,)</span><br><span class="line">PLATFORM_RELFLAGS +=$(call cc-option,$(call cc-option,))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新make, 即可生成 u-boot.bin</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果用gcc 4.3.2, 则版本太新, 编译错误. 可以使用自带的arm-none-linux-gnueabi</span></span><br><span class="line"><span class="comment"># 解决方法如下:</span></span><br><span class="line"><span class="comment"># 修改Makefile文件中的PLATFORM_LIBS, 将:</span></span><br><span class="line">PLATFORM_LIBS += -L $(shell dirname `$(CC) $(CFLAGS) -print-libgcc-file-name`) -lgcc</span><br><span class="line"><span class="comment"># 修改成:</span></span><br><span class="line">PLATFORM_LIBS += -L $(shell dirname `$(CC) $(CFLAGS) -print-libgcc-file-name`) -lgcc -lc -L /usr/<span class="built_in">local</span>/arm/4.3.2/arm-none-linux-gnueabi/libc/armv4t/usr/lib</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 cpu /arm920t/config.mk 文件, 将:</span></span><br><span class="line">PLATFORM_CPPFLAGS +=$(call cc-option,-mapcs-32,-mabi=apcs-gnu)</span><br><span class="line">PLATFORM_RELFLAGS +=$(call cc-option,-mshort-load-bytes,$(call cc-option,-malignment-traps,))</span><br><span class="line"><span class="comment"># 修改成:</span></span><br><span class="line">PLATFORM_CPPFLAGS +=$(call cc-option,)</span><br><span class="line">PLATFORM_RELFLAGS +=$(call cc-option,$(call cc-option,))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新make, 即可生成 u-boot.bin</span></span><br></pre></td></tr></table></figure>
 
 <p>最后, 对于 arm-linux-gcc 版本问题, 又研究了一下. 应该说不是新版本不能用, 而是需要设置.<br>对应编译原理之类的基本不懂, 暂时也没有时间去验证, 此处写出来提供一个思路, 感觉是可行的.<br>关键点有这么几个.</p>
 <ul>
@@ -400,7 +412,7 @@
 <li>指定使用的库</li>
 </ul>
 <p>这个在上面uboot的例子也能看出一二了. 在网上还有人提到:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译 hello.c 时, 需要用如下命令</span></span><br><span class="line">arm-none-linux-gnueabi-gcc -o hello hello.c -static <span class="comment"># 特别指明了 static不能省略!</span></span><br><span class="line"><span class="comment"># 配置Makefile时, 需要指明arm架构</span></span><br><span class="line">CC=<span class="string">&quot;arm-none-linux-gnueabi-gcc -march=armv4t&quot;</span></span><br><span class="line"><span class="comment"># 指定交叉编译工具</span></span><br><span class="line"><span class="built_in">export</span> CROSS_COMPILE=/usr/<span class="built_in">local</span>/arm-2008q3/bin/arm-none-linux-gnueabi-</span><br><span class="line"><span class="comment"># 最后, 还是没明白 arm-linux-gcc 和 arm-none-linux-gnueabi-gcc的区别.</span></span><br><span class="line"><span class="comment"># 因为打开 arm-linux-gcc 4.3.2 bin下的 arm-linux-gcc 可以看到如下内容:</span></span><br><span class="line"><span class="built_in">exec</span> arm-none-linux-gnueabi-gcc -march=armv4t $*</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编译 hello.c 时, 需要用如下命令</span></span><br><span class="line">arm-none-linux-gnueabi-gcc -o hello hello.c -static <span class="comment"># 特别指明了 static不能省略!</span></span><br><span class="line"><span class="comment"># 配置Makefile时, 需要指明arm架构</span></span><br><span class="line">CC=<span class="string">&quot;arm-none-linux-gnueabi-gcc -march=armv4t&quot;</span></span><br><span class="line"><span class="comment"># 指定交叉编译工具</span></span><br><span class="line"><span class="built_in">export</span> CROSS_COMPILE=/usr/<span class="built_in">local</span>/arm-2008q3/bin/arm-none-linux-gnueabi-</span><br><span class="line"><span class="comment"># 最后, 还是没明白 arm-linux-gcc 和 arm-none-linux-gnueabi-gcc的区别.</span></span><br><span class="line"><span class="comment"># 因为打开 arm-linux-gcc 4.3.2 bin下的 arm-linux-gcc 可以看到如下内容:</span></span><br><span class="line"><span class="built_in">exec</span> arm-none-linux-gnueabi-gcc -march=armv4t $*</span><br></pre></td></tr></table></figure>
 
 <p>找到二篇详细说明的, 放上链接<br><a target="_blank" rel="noopener" href="http://www.veryarm.com/296.html">arm交叉编译器gnueabi、none-eabi、arm-eabi、gnueabihf、gnueabi区别</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/u013467442/article/details/44197725">arm-none-linux-gnueabi交叉工具链安装,介绍，区别总结</a></p>
 <h1 id="新技术-Docker"><a href="#新技术-Docker" class="headerlink" title="新技术 Docker"></a>新技术 <a target="_blank" rel="noopener" href="https://docs.docker.com/">Docker</a></h1><p>Linux下的环境搭建一直让人比较痛苦, 这也直接使得 <code>Docker</code> 优势尽显.<br>简单研究了一下Docker, 这个方案是可行的!<br>可参考 <a href="https://draapho.github.io/2017/02/23/1708-docker/">Docker 初学笔记</a></p>
@@ -484,7 +496,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">draapho</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
     </div>

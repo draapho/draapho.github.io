@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta name="description" content="Notepad++Npp简介 Notepad++简称Npp, 是免费好用的记事本 轻便小巧, 打开速度快. 自带丰富功能且有插件, 如语法高亮 建议用他彻底替换windows自带的记事本 目前出到npp7, 不要装64位版本, 很多插件都不支持 有绿色便携版, 但需要额外设置右键打开和文件关联功能  Npp设置首选项设置 Setting-&gt;Preferences 打开首选项页面 Genera">
 <meta property="og:type" content="article">
@@ -104,6 +104,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -125,6 +128,13 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/Blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -160,18 +170,20 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">draapho</p>
-  <div class="site-description" itemprop="description">由外转内的探索</div>
+  <div class="site-description" itemprop="description">explore</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives">
+          <a href="/Blog/archives/">
+        
           <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Blog/categories/">
+          
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
@@ -221,7 +233,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="由外转内的探索">
+      <meta itemprop="description" content="explore">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -320,16 +332,16 @@
 <li><p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/npppythonscript/files/Python%20Script%201.0.8.0/">下载最新版本1.0.8.0</a> <code>PythonScript_Full_1.0.8.0.zip</code> 即可</p>
 </li>
 <li><p>解压后将整个文件拷贝到notepad++的根目录下, 目录结构如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Notepad++ (Notepad++ 根目录, 例如&quot;C:\Program Files\npp&quot;)</span><br><span class="line"> +</span><br><span class="line"> |-- python26.dll</span><br><span class="line"> +-- plugins</span><br><span class="line">           |-- PythonScript.dll</span><br><span class="line">           |-- PythonScript</span><br><span class="line">           |   |-- lib</span><br><span class="line">           |   |     |-- (*.py)</span><br><span class="line">           |   |-- scripts</span><br><span class="line">           |             |-- (machine-level scripts)</span><br><span class="line">           |-- doc</span><br><span class="line">           |     |-- PythonScript</span><br><span class="line">           |             |-- PythonScript.chm</span><br><span class="line">           |-- Config (也可能在 %APPDATA%\Notepad++\plugins\config\)</span><br><span class="line">                         \-- PythonScript</span><br><span class="line">                                         |-- scripts</span><br><span class="line">                                                   |-- (用户脚本)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Notepad++ (Notepad++ 根目录, 例如&quot;C:\Program Files\npp&quot;)</span><br><span class="line"> +</span><br><span class="line"> |-- python26.dll</span><br><span class="line"> +-- plugins</span><br><span class="line">           |-- PythonScript.dll</span><br><span class="line">           |-- PythonScript</span><br><span class="line">           |   |-- lib</span><br><span class="line">           |   |     |-- (*.py)</span><br><span class="line">           |   |-- scripts</span><br><span class="line">           |             |-- (machine-level scripts)</span><br><span class="line">           |-- doc</span><br><span class="line">           |     |-- PythonScript</span><br><span class="line">           |             |-- PythonScript.chm</span><br><span class="line">           |-- Config (也可能在 %APPDATA%\Notepad++\plugins\config\)</span><br><span class="line">                         \-- PythonScript</span><br><span class="line">                                         |-- scripts</span><br><span class="line">                                                   |-- (用户脚本)</span><br></pre></td></tr></table></figure></li>
 <li><p>检测是否安装成功. 重启notepad++. 按如下步骤进行测试<br><code>Plugins-&gt;Python Script</code>-&gt;<code>Show Console</code>-&gt;显示<code>Python ... Ready.</code></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/tree/master/_blog_stuff/Notepad%2B%2B/Python%20Script">一个实用的脚本示例</a>, <strong>注意</strong>, 需要使用Notepad++ 7及以上版本, 否则执行结果和预期会有差别.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os;</span><br><span class="line"><span class="keyword">import</span> sys;</span><br><span class="line"><span class="keyword">from</span> Npp <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对所有打开的文件去除行尾空格并将空格替换为TAB</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_menu_command</span>():</span></span><br><span class="line">  <span class="comment"># Edit-&gt;Blank Operations</span></span><br><span class="line">  notepad.runMenuCommand(<span class="string">&quot;Blank Operations&quot;</span>, <span class="string">&quot;Trim Trailing Space&quot;</span>)</span><br><span class="line">  notepad.runMenuCommand(<span class="string">&quot;Blank Operations&quot;</span>, <span class="string">&quot;Space to TAB (All)&quot;</span>)</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Find and operate files opened at notepad</span></span><br><span class="line"><span class="comment"># There is something wrong run in NPP6.X</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">operate_file_in_notepad</span>():</span></span><br><span class="line">  file_list = notepad.getFiles()</span><br><span class="line">  <span class="keyword">for</span> file <span class="keyword">in</span> file_list:</span><br><span class="line">      fn = file[<span class="number">0</span>]</span><br><span class="line">      notepad.activateFile(fn)</span><br><span class="line">      run_menu_command()</span><br><span class="line"></span><br><span class="line">operate_file_in_notepad()</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os;</span><br><span class="line"><span class="keyword">import</span> sys;</span><br><span class="line"><span class="keyword">from</span> Npp <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对所有打开的文件去除行尾空格并将空格替换为TAB</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_menu_command</span>():</span></span><br><span class="line">  <span class="comment"># Edit-&gt;Blank Operations</span></span><br><span class="line">  notepad.runMenuCommand(<span class="string">&quot;Blank Operations&quot;</span>, <span class="string">&quot;Trim Trailing Space&quot;</span>)</span><br><span class="line">  notepad.runMenuCommand(<span class="string">&quot;Blank Operations&quot;</span>, <span class="string">&quot;Space to TAB (All)&quot;</span>)</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Find and operate files opened at notepad</span></span><br><span class="line"><span class="comment"># There is something wrong run in NPP6.X</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">operate_file_in_notepad</span>():</span></span><br><span class="line">  file_list = notepad.getFiles()</span><br><span class="line">  <span class="keyword">for</span> file <span class="keyword">in</span> file_list:</span><br><span class="line">      fn = file[<span class="number">0</span>]</span><br><span class="line">      notepad.activateFile(fn)</span><br><span class="line">      run_menu_command()</span><br><span class="line"></span><br><span class="line">operate_file_in_notepad()</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="绿色版注册右键"><a href="#绿色版注册右键" class="headerlink" title="绿色版注册右键"></a>绿色版注册右键</h2><ul>
 <li>基本思路是直接修改注册表, 增加右键<code>Notepad++ Here</code></li>
 <li>写了批处理文件, 放到notepad++根目录, 管理员权限执行即可.<br><a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/blob/master/_blog_stuff/Notepad%2B%2B/_RegisterKey_Admin.bat">_RegisterKey_Admin.bat</a> 注册右键, 需管理员权限执行.<br><a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/blob/master/_blog_stuff/Notepad%2B%2B/_UnregisterKey_Admin.bat">_UnregisterKey_Admin.bat</a> 注销右键, 需管理员权限执行.</li>
-<li>也可以手动创建文件 <code>注册右键.reg</code>, 内容如下.<br><strong>上述批处理的思路</strong>就是自动生成这个 <code>.reg</code> 文件然后导入注册表.<br><strong>需要替换notepad++安装路径</strong>. 然后管理员权限执行即可.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line">[HKEY_CLASSES_ROOT\*\Shell\NotePad++ Here]</span><br><span class="line">[HKEY_CLASSES_ROOT\*\Shell\NotePad++ Here\Command]</span><br><span class="line">@&#x3D;&quot;\&quot;D:\\Program Files\\npp\\notepad++.exe\&quot; \&quot;%1\&quot;&quot;</span><br></pre></td></tr></table></figure></li>
+<li>也可以手动创建文件 <code>注册右键.reg</code>, 内容如下.<br><strong>上述批处理的思路</strong>就是自动生成这个 <code>.reg</code> 文件然后导入注册表.<br><strong>需要替换notepad++安装路径</strong>. 然后管理员权限执行即可.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line">[HKEY_CLASSES_ROOT\*\Shell\NotePad++ Here]</span><br><span class="line">[HKEY_CLASSES_ROOT\*\Shell\NotePad++ Here\Command]</span><br><span class="line">@&#x3D;&quot;\&quot;D:\\Program Files\\npp\\notepad++.exe\&quot; \&quot;%1\&quot;&quot;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h2><ul>
 <li>需按照<a href="https://draapho.github.io/2016/10/08/1607-CheatSheet-win/">编辑器快捷键</a>设置</li>
@@ -408,8 +420,8 @@
 <li>可以禁止vim的<code>keybindings</code>, 但这里不适用, 因为还要用vim的其它快捷键.</li>
 <li><code>ctrl+,</code>-&gt;进入设置界面 <code>Settings</code>-&gt;<code>Keybindings</code>-&gt;输入<code>ctrl-f</code></li>
 <li>找到<code>vim-mode:scroll-full-screen-down</code>-&gt;点左边的复制图标</li>
-<li>点击<code>your keymap file</code>-&gt;打开<code>keymap.cson</code>-&gt;黏贴内容<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#39;atom-text-editor.vim-mode:not(.insert-mode)&#39;:</span><br><span class="line">  &#39;ctrl-f&#39;: &#39;vim-mode:scroll-full-screen-down&#39;</span><br></pre></td></tr></table></figure></li>
-<li>要屏蔽 vim 的 <code>ctrl-f</code>, 修改为<code>unset!</code>即可. 内容如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#39;atom-text-editor.vim-mode:not(.insert-mode)&#39;:</span><br><span class="line">  &#39;ctrl-f&#39;: &#39;unset!&#39;</span><br></pre></td></tr></table></figure></li>
+<li>点击<code>your keymap file</code>-&gt;打开<code>keymap.cson</code>-&gt;黏贴内容<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;atom-text-editor.vim-mode:not(.insert-mode)&#39;:</span><br><span class="line">  &#39;ctrl-f&#39;: &#39;vim-mode:scroll-full-screen-down&#39;</span><br></pre></td></tr></table></figure></li>
+<li>要屏蔽 vim 的 <code>ctrl-f</code>, 修改为<code>unset!</code>即可. 内容如下:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;atom-text-editor.vim-mode:not(.insert-mode)&#39;:</span><br><span class="line">  &#39;ctrl-f&#39;: &#39;unset!&#39;</span><br></pre></td></tr></table></figure></li>
 <li>自定义详情可以参考官网的<a target="_blank" rel="noopener" href="http://flight-manual.atom.io/using-atom/sections/basic-customization/#_customizing_keybindings">Basic Customization</a></li>
 <li>需按照<a href="https://draapho.github.io/2016/10/08/1607-CheatSheet-win/">编辑器快捷键</a>设置</li>
 <li>环境变量的配置, 可以参考<a href="https://draapho.github.io/2016/10/09/1608-WinSoft-path/">Windows 软件系列-自定义环境变量</a></li>
@@ -543,7 +555,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">draapho</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
     </div>

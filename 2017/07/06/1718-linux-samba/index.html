@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta name="description" content="背景家用电脑, 环境的搭建思路可参考嵌入式linux环境搭建-主机端 单位电脑, 没有使用nfs共享文件.用的环境是: VMware Ubuntu 16.04 + Windows 7 + VMware 文件共享尝试编译uboot时, 弹出一个错误提示  ln: creating symbolic link XXXXXX : Operation not supported  问题根源和解决方法:出现">
 <meta property="og:type" content="article">
@@ -102,6 +102,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -123,6 +126,13 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/Blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -158,18 +168,20 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">draapho</p>
-  <div class="site-description" itemprop="description">由外转内的探索</div>
+  <div class="site-description" itemprop="description">explore</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives">
+          <a href="/Blog/archives/">
+        
           <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Blog/categories/">
+          
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
@@ -219,7 +231,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="由外转内的探索">
+      <meta itemprop="description" content="explore">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -277,31 +289,31 @@
 <hr>
 <p>下文转载自 <a target="_blank" rel="noopener" href="http://blog.csdn.net/i_chips/article/details/19191957">Ubuntu下配置支持Windows访问的samba共享</a></p>
 <hr>
-<h1 id="一、安装Ubuntu-samba服务器"><a href="#一、安装Ubuntu-samba服务器" class="headerlink" title="一、安装Ubuntu samba服务器"></a>一、安装Ubuntu samba服务器</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install samba</span><br><span class="line">$ sudo apt-get install smbclient <span class="comment"># Linux客户端测试用</span></span><br></pre></td></tr></table></figure>
+<h1 id="一、安装Ubuntu-samba服务器"><a href="#一、安装Ubuntu-samba服务器" class="headerlink" title="一、安装Ubuntu samba服务器"></a>一、安装Ubuntu samba服务器</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install samba</span><br><span class="line">$ sudo apt-get install smbclient <span class="comment"># Linux客户端测试用</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="二、创建samba配置文件"><a href="#二、创建samba配置文件" class="headerlink" title="二、创建samba配置文件"></a>二、创建samba配置文件</h1><ol>
 <li><p>备份原配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak</span><br></pre></td></tr></table></figure></li>
 <li><p>创建共享目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mkdir -p /home/share</span><br><span class="line"><span class="comment"># 一般来说，该目录的权限为755，将其改为777之后，Owner之外的其他用户才有权限写入。</span></span><br><span class="line">$ sudo chmod 777 /home/share</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo mkdir -p /home/share</span><br><span class="line"><span class="comment"># 一般来说，该目录的权限为755，将其改为777之后，Owner之外的其他用户才有权限写入。</span></span><br><span class="line">$ sudo chmod 777 /home/share</span><br></pre></td></tr></table></figure></li>
 <li><p>修改配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/samba/smb.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># ===== 文件内容, 在smb.conf最后添加： =====</span></span><br><span class="line">[share]</span><br><span class="line">    path = /home/share</span><br><span class="line">    browseable = yes</span><br><span class="line">    writable = yes</span><br><span class="line">    comment = smb share <span class="built_in">test</span></span><br><span class="line"><span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/samba/smb.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># ===== 文件内容, 在smb.conf最后添加： =====</span></span><br><span class="line">[share]</span><br><span class="line">    path = /home/share</span><br><span class="line">    browseable = yes</span><br><span class="line">    writable = yes</span><br><span class="line">    comment = smb share <span class="built_in">test</span></span><br><span class="line"><span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>另外，总结一下常见的samba配置及说明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[share]                           # 该共享的共享名</span><br><span class="line">    comment &#x3D; smb share test  # 该共享的备注</span><br><span class="line">    path &#x3D; &#x2F;home&#x2F;share        # 共享路径</span><br><span class="line">    allow hosts &#x3D; host(subnet) # 设置该Samba服务器允许的工作组或者域</span><br><span class="line">    deny hosts &#x3D; host(subnet) # 设置该Samba服务器拒绝的工作组或者域</span><br><span class="line">    available &#x3D; yes|no        # 设置该共享目录是否可用</span><br><span class="line">    browseable &#x3D; yes|no       # 设置该共享目录是否可显示</span><br><span class="line">    writable &#x3D; yes|no         # 指定了这个目录缺省是否可写，也可以用readonly &#x3D; no来设置可写</span><br><span class="line">    public &#x3D; yes|no           # 指明该共享资源是否能给游客帐号访问，guest ok &#x3D; yes其实和public &#x3D; yes是一样的</span><br><span class="line">    user &#x3D; user, @group       # user设置所有可能使用该共享资源的用户，也可以用@group代表group这个组的所有成员，不同的项目之间用空格或者逗号隔开</span><br><span class="line">    valid users &#x3D; user, @group # 指定能够使用该共享资源的用户和组</span><br><span class="line">    invalid users &#x3D; user, @group # 指定不能够使用该共享资源的用户和组</span><br><span class="line">    read list &#x3D; user, @group  # 指定只能读取该共享资源的用户和组</span><br><span class="line">    write list &#x3D; user, @group # 指定能读取和写该共享资源的用户和组</span><br><span class="line">    admin list &#x3D; user, @group # 指定能管理该共享资源（包括读写和权限赋予等）的用户和组</span><br><span class="line">    hide dot files &#x3D; yes|no   # 指明是否像UNIX那样隐藏以“.”号开头的文件</span><br><span class="line">    create mode &#x3D; 0755        # 指明新建立的文件的属性，一般是0755</span><br><span class="line">    directory mode &#x3D; 0755     # 指明新建立的目录的属性，一般是0755</span><br><span class="line">    sync always &#x3D; yes|no      # 指明对该共享资源进行写操作后是否进行同步操作</span><br><span class="line">    short preserve case &#x3D; yes|no # 指明是否区分文件名大小写</span><br><span class="line">    preserve case &#x3D; yes|no    # 指明是否保持大小写</span><br><span class="line">    case sensitive &#x3D; yes|no   # 指明是否对大小写敏感，一般选no，不然可能引起错误</span><br><span class="line">    mangle case &#x3D; yes|no      # 指明混合大小写</span><br><span class="line">    default case &#x3D; upper|lower # 指明缺省的文件名是全部大写还是小写</span><br><span class="line">    force user &#x3D; testuser     # 强制把建立文件的属主是谁。如果我有一个目录，让guest可以写，那么guest就可以删除，如果我用force user&#x3D; testuser强制建立文件的属主是testuser，同时限制create mask &#x3D; 0755，这样guest就不能删除了</span><br><span class="line">    wide links &#x3D; yes|no       # 指明是否允许共享外符号连接，比如共享资源里面有个连接指向非共享资源里面的文件或者目录，如果设置wide links &#x3D; no将使该连接不可用</span><br><span class="line">    max connections &#x3D; 100     # 设定最大同时连接数</span><br><span class="line">    delete readonly &#x3D; yes|no  # 指明能否删除共享资源里面已经被定义为只读的文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[share]                           # 该共享的共享名</span><br><span class="line">    comment &#x3D; smb share test  # 该共享的备注</span><br><span class="line">    path &#x3D; &#x2F;home&#x2F;share        # 共享路径</span><br><span class="line">    allow hosts &#x3D; host(subnet) # 设置该Samba服务器允许的工作组或者域</span><br><span class="line">    deny hosts &#x3D; host(subnet) # 设置该Samba服务器拒绝的工作组或者域</span><br><span class="line">    available &#x3D; yes|no        # 设置该共享目录是否可用</span><br><span class="line">    browseable &#x3D; yes|no       # 设置该共享目录是否可显示</span><br><span class="line">    writable &#x3D; yes|no         # 指定了这个目录缺省是否可写，也可以用readonly &#x3D; no来设置可写</span><br><span class="line">    public &#x3D; yes|no           # 指明该共享资源是否能给游客帐号访问，guest ok &#x3D; yes其实和public &#x3D; yes是一样的</span><br><span class="line">    user &#x3D; user, @group       # user设置所有可能使用该共享资源的用户，也可以用@group代表group这个组的所有成员，不同的项目之间用空格或者逗号隔开</span><br><span class="line">    valid users &#x3D; user, @group # 指定能够使用该共享资源的用户和组</span><br><span class="line">    invalid users &#x3D; user, @group # 指定不能够使用该共享资源的用户和组</span><br><span class="line">    read list &#x3D; user, @group  # 指定只能读取该共享资源的用户和组</span><br><span class="line">    write list &#x3D; user, @group # 指定能读取和写该共享资源的用户和组</span><br><span class="line">    admin list &#x3D; user, @group # 指定能管理该共享资源（包括读写和权限赋予等）的用户和组</span><br><span class="line">    hide dot files &#x3D; yes|no   # 指明是否像UNIX那样隐藏以“.”号开头的文件</span><br><span class="line">    create mode &#x3D; 0755        # 指明新建立的文件的属性，一般是0755</span><br><span class="line">    directory mode &#x3D; 0755     # 指明新建立的目录的属性，一般是0755</span><br><span class="line">    sync always &#x3D; yes|no      # 指明对该共享资源进行写操作后是否进行同步操作</span><br><span class="line">    short preserve case &#x3D; yes|no # 指明是否区分文件名大小写</span><br><span class="line">    preserve case &#x3D; yes|no    # 指明是否保持大小写</span><br><span class="line">    case sensitive &#x3D; yes|no   # 指明是否对大小写敏感，一般选no，不然可能引起错误</span><br><span class="line">    mangle case &#x3D; yes|no      # 指明混合大小写</span><br><span class="line">    default case &#x3D; upper|lower # 指明缺省的文件名是全部大写还是小写</span><br><span class="line">    force user &#x3D; testuser     # 强制把建立文件的属主是谁。如果我有一个目录，让guest可以写，那么guest就可以删除，如果我用force user&#x3D; testuser强制建立文件的属主是testuser，同时限制create mask &#x3D; 0755，这样guest就不能删除了</span><br><span class="line">    wide links &#x3D; yes|no       # 指明是否允许共享外符号连接，比如共享资源里面有个连接指向非共享资源里面的文件或者目录，如果设置wide links &#x3D; no将使该连接不可用</span><br><span class="line">    max connections &#x3D; 100     # 设定最大同时连接数</span><br><span class="line">    delete readonly &#x3D; yes|no  # 指明能否删除共享资源里面已经被定义为只读的文件</span><br></pre></td></tr></table></figure>
 
 <h1 id="三、创建samba用户"><a href="#三、创建samba用户" class="headerlink" title="三、创建samba用户"></a>三、创建samba用户</h1><p>注意，创建samba用户之前，必须先确保有一个同名的linux用户，否则samba用户会创建失败。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo smbpasswd -a <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo smbpasswd -a <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="四、重启samba服务"><a href="#四、重启samba服务" class="headerlink" title="四、重启samba服务"></a>四、重启samba服务</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service smbd restart</span><br></pre></td></tr></table></figure>
+<h1 id="四、重启samba服务"><a href="#四、重启samba服务" class="headerlink" title="四、重启samba服务"></a>四、重启samba服务</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo service smbd restart</span><br></pre></td></tr></table></figure>
 
 <h1 id="五-客户端访问测试"><a href="#五-客户端访问测试" class="headerlink" title="五. 客户端访问测试"></a>五. 客户端访问测试</h1><ol>
 <li><p>Linux客户端访问测试</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ smbclient -L //localhost/share</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ smbclient -L //localhost/share</span><br></pre></td></tr></table></figure></li>
 <li><p>Windows客户端访问测试<br> 可以访问如下地址 <code>\\Linux的IP或者主机名\share</code></p>
 </li>
 <li><p>我一般会把虚拟机端Linux的IP搞成静态地址, 这样远程登录也更方便</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig                          <span class="comment"># 查看IP信息</span></span><br><span class="line">$ sudo vim /etc/network/interfaces</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ===== 文件内容, 大致修改如下: =====</span></span><br><span class="line">    auto lo</span><br><span class="line">    iface lo inet loopback</span><br><span class="line">    auto eth0</span><br><span class="line"></span><br><span class="line">    iface eth0 inet static          <span class="comment"># 使用静态地址</span></span><br><span class="line">    address  192.168.0.100          <span class="comment"># 设置静态地址</span></span><br><span class="line">    netmask  255.255.255.0</span><br><span class="line">    gateway  192.168.0.1            <span class="comment"># 网关</span></span><br><span class="line">    dns-nameservers   8.8.8.8  192.168.0.1 </span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ifconfig                          <span class="comment"># 查看IP信息</span></span><br><span class="line">$ sudo vim /etc/network/interfaces</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ===== 文件内容, 大致修改如下: =====</span></span><br><span class="line">    auto lo</span><br><span class="line">    iface lo inet loopback</span><br><span class="line">    auto eth0</span><br><span class="line"></span><br><span class="line">    iface eth0 inet static          <span class="comment"># 使用静态地址</span></span><br><span class="line">    address  192.168.0.100          <span class="comment"># 设置静态地址</span></span><br><span class="line">    netmask  255.255.255.0</span><br><span class="line">    gateway  192.168.0.1            <span class="comment"># 网关</span></span><br><span class="line">    dns-nameservers   8.8.8.8  192.168.0.1 </span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>如果public = no，此时需要输入samba用户密码；<br>如果public = yes，则作为nobody用户直接访问。<br>另外，在Windows客户端使用 <code>net use * /del /y</code> 这条命令可以清理访问缓存。</p>
 <hr>
@@ -380,7 +392,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">draapho</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
     </div>

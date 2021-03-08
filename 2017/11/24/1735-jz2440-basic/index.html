@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta name="description" content="前言 嵌入式linux学习目录 jz2440分区及启动的基础概念 uboot之makefile分析 uboot之源码分析 uboot之定制指令 大致了解一下linux软件层次, 以及jz2440的分区情况, 启动流程.  linux软件层次 引导程序: 分为两部分 硬件中的固化boot代码 和 BootLoader代码, 其中固化的boot代码可有可无, BootLoader是烧写上去的 PC l">
 <meta property="og:type" content="article">
@@ -106,6 +106,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -127,6 +130,13 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/Blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -162,18 +172,20 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">draapho</p>
-  <div class="site-description" itemprop="description">由外转内的探索</div>
+  <div class="site-description" itemprop="description">explore</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives">
+          <a href="/Blog/archives/">
+        
           <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Blog/categories/">
+          
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
@@ -223,7 +235,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="由外转内的探索">
+      <meta itemprop="description" content="explore">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -364,7 +376,7 @@
 <li>Nor flash: JLink 只能烧录 Nor flash. 默认使用这种方式! 使用nfs文件系统<br><img src="https://draapho.github.io/images/1707/nor-flash-boot.png" alt="Nor flash boot"></li>
 <li>Nand flash: 使用本地文件系统启动. 也可用于裸跑测试. (Steppingstone 就是 BootSRAM)<br><img src="https://draapho.github.io/images/1707/nand-flash-boot.png" alt="Nand flash boot"></li>
 <li>**以下部分初学先忽略! **</li>
-<li>如果是通过uboot的内核命令行给MTD层传递MTD分区信息, 内核读取到的分区信息始终和u-boot中的保持一致(推荐的做法)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line">setenv bootargs noinitrd console=ttySAC0 root=/dev/mtdblock3 rootfstype=jffs2 mtdparts=nand_flash:128k(u-boot)ro,64k(u-boot envs),3m(kernel),30m(root.jffs2),30m(root.yaffs)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ubuntu shell, 内核配置时使能</span></span><br><span class="line">Device Drivers -&gt; Memory Technology Device (MTD) support -&gt; Command line partition table parsing</span><br></pre></td></tr></table></figure></li>
+<li>如果是通过uboot的内核命令行给MTD层传递MTD分区信息, 内核读取到的分区信息始终和u-boot中的保持一致(推荐的做法)<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line">setenv bootargs noinitrd console=ttySAC0 root=/dev/mtdblock3 rootfstype=jffs2 mtdparts=nand_flash:128k(u-boot)ro,64k(u-boot envs),3m(kernel),30m(root.jffs2),30m(root.yaffs)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ubuntu shell, 内核配置时使能</span></span><br><span class="line">Device Drivers -&gt; Memory Technology Device (MTD) support -&gt; Command line partition table parsing</span><br></pre></td></tr></table></figure></li>
 <li>如果是把分区信息写在内核源代码MTD里定义好的方法, 要保证它和u-boot中的保持一致,即同步修改uboot及内核的相关部分</li>
 <li><strong>参考</strong>: <a target="_blank" rel="noopener" href="http://laokongzhuang.blog.51cto.com/2404494/858788">嵌入式linux flash分区配置</a></li>
 <li>**以上部分初学先忽略! **</li>
@@ -445,7 +457,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">draapho</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
     </div>

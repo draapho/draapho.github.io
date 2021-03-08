@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta name="description" content="需求分析基于 Chemist Warehouse 的商品, 抓取其每天的价格变化. 并根据历史信息, 判断其价格变化规律, 以便在打折时购买. 因此, 用户需求有如下几点:  抓取网站价格, 需要知道其商品全名, 原价, 打折价, 打折日期, 持续时间 存储这些数据, 供日后分析使用 数据挖掘和分析, 已直观的方式多维度显示出来(譬如单品的打折规律, 打折力度, 打折持续时间. 全年的打折规律)">
 <meta property="og:type" content="article">
@@ -102,6 +102,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -123,6 +126,13 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/Blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -158,18 +168,20 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">draapho</p>
-  <div class="site-description" itemprop="description">由外转内的探索</div>
+  <div class="site-description" itemprop="description">explore</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives">
+          <a href="/Blog/archives/">
+        
           <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Blog/categories/">
+          
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
@@ -219,7 +231,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="由外转内的探索">
+      <meta itemprop="description" content="explore">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -294,7 +306,7 @@
 <li>使用 <code>requests</code> <code>urllib</code> <code>lxml</code> 库. 简单项目直接用这个就够了.</li>
 <li>最终抓数据只用了 <code>lxml</code> 一个库就完成了数据抓取, 去重的工作. 关键源码如下:</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># pip --trusted-host pypi.python.org install lxml</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取url的原始数据</span></span><br><span class="line">doc = html.parse(<span class="string">&#x27;http://www.chemistwarehouse.com.au/search?searchtext=blackmores%20bone&amp;searchmode=allwords&#x27;</span>)</span><br><span class="line"><span class="comment"># 获取指定的数据值</span></span><br><span class="line">names = doc.xpath(<span class="string">&#x27;//a[@class=&quot;product-container search-result&quot;]/@title&#x27;</span>)</span><br><span class="line"><span class="comment"># 处理数据, 准备存入数据库即可.</span></span><br><span class="line">name = <span class="built_in">map</span>(string.strip, names)</span><br><span class="line"><span class="built_in">print</span> name</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># pip --trusted-host pypi.python.org install lxml</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取url的原始数据</span></span><br><span class="line">doc = html.parse(<span class="string">&#x27;http://www.chemistwarehouse.com.au/search?searchtext=blackmores%20bone&amp;searchmode=allwords&#x27;</span>)</span><br><span class="line"><span class="comment"># 获取指定的数据值</span></span><br><span class="line">names = doc.xpath(<span class="string">&#x27;//a[@class=&quot;product-container search-result&quot;]/@title&#x27;</span>)</span><br><span class="line"><span class="comment"># 处理数据, 准备存入数据库即可.</span></span><br><span class="line">name = <span class="built_in">map</span>(string.strip, names)</span><br><span class="line"><span class="built_in">print</span> name</span><br></pre></td></tr></table></figure>
 
 <p>另:<br>遇到过了错误 <code>There was a problem confirming the ssl certificate: [SSL: CERTIFICATE_VERIFY_FAILED]</code><br>使用 <code>pip --trusted-host pypi.python.org install lxml</code> 即可避免. 也是安全性问题导致的.</p>
 <h1 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h1><p>同样地, 该项目对数据存储的要求也很低. 直接选择使用MySQL.</p>
@@ -316,9 +328,9 @@
 <li><p>将<code>mysql.exe</code>的路径添加<code>PATH</code>环境变量.</p>
 </li>
 <li><p>创建新的数据库(Workbecn下, 英文为<code>schema</code>), 命名为 <code>chemistwarehouse</code>. 或者输入指令:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p      <span class="comment"># 登录本机的MySQL数据库服务</span></span><br><span class="line"><span class="comment"># mysql&gt;              # 成功后, 提示符变为 mysql&gt;</span></span><br><span class="line">create database chemistwarehouse; <span class="comment"># 创建一个数据库</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u root -p      <span class="comment"># 登录本机的MySQL数据库服务</span></span><br><span class="line"><span class="comment"># mysql&gt;              # 成功后, 提示符变为 mysql&gt;</span></span><br><span class="line">create database chemistwarehouse; <span class="comment"># 创建一个数据库</span></span><br></pre></td></tr></table></figure></li>
 <li><p>安装 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mysql-python/">MySQL for Python</a><br>然后, 在python下面测试一下是否可以成功连接到刚建立的 <code>chemistwarehouse</code> 数据库.<br>成功的话, 会打印版本信息.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initDatabase</span>():</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 连接mysql的方法：connect(&#x27;ip&#x27;,&#x27;user&#x27;,&#x27;password&#x27;,&#x27;dbname&#x27;)</span></span><br><span class="line">        connect_db = db.connect(</span><br><span class="line">            <span class="string">&#x27;localhost&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;chemistwarehouse&#x27;</span>)</span><br><span class="line">        <span class="comment"># 所有的查询，都在连接con的一个模块cursor上面运行的</span></span><br><span class="line">        cur = connect_db.cursor()</span><br><span class="line">        <span class="comment"># 执行一个查询</span></span><br><span class="line">        cur.execute(<span class="string">&quot;SELECT VERSION()&quot;</span>)</span><br><span class="line">        <span class="comment"># 取得上个查询的结果，是单个结果</span></span><br><span class="line">        data = cur.fetchone()</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;Database version : %s &quot;</span> % data</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        logging.error(e)</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        <span class="keyword">if</span> connect_db:</span><br><span class="line">            <span class="comment"># 无论如何，连接记得关闭</span></span><br><span class="line">            connect_db.close()</span><br><span class="line"></span><br><span class="line">initDatabase()</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initDatabase</span>():</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 连接mysql的方法：connect(&#x27;ip&#x27;,&#x27;user&#x27;,&#x27;password&#x27;,&#x27;dbname&#x27;)</span></span><br><span class="line">        connect_db = db.connect(</span><br><span class="line">            <span class="string">&#x27;localhost&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;chemistwarehouse&#x27;</span>)</span><br><span class="line">        <span class="comment"># 所有的查询，都在连接con的一个模块cursor上面运行的</span></span><br><span class="line">        cur = connect_db.cursor()</span><br><span class="line">        <span class="comment"># 执行一个查询</span></span><br><span class="line">        cur.execute(<span class="string">&quot;SELECT VERSION()&quot;</span>)</span><br><span class="line">        <span class="comment"># 取得上个查询的结果，是单个结果</span></span><br><span class="line">        data = cur.fetchone()</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;Database version : %s &quot;</span> % data</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        logging.error(e)</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        <span class="keyword">if</span> connect_db:</span><br><span class="line">            <span class="comment"># 无论如何，连接记得关闭</span></span><br><span class="line">            connect_db.close()</span><br><span class="line"></span><br><span class="line">initDatabase()</span><br></pre></td></tr></table></figure></li>
 <li><p>至此, 就可以在python下正常使用MySQL数据库了.<br>将提取出来的数据去重后, 按一定的格式保存进数据库即可.</p>
 </li>
 <li><p>默认安装在C盘, 而且数据存储也是在C盘. 这个没法接受! 需要把数据存储位置修改到空间更大的E盘.</p>
@@ -426,7 +438,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">draapho</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
     </div>

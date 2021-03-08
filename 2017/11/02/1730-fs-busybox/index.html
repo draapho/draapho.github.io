@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta name="description" content="总览 嵌入式linux学习目录 fs之Busybox的编译与使用 fs之创建文件系统  本文使用 linux-2.6.22.6 内核, 使用jz2440开发板. 什么是BusyBoxBusyBox 是linux下的一个应用程序, 集成了最常用的Linux命令和工具.在jz2440开发板里, BusyBox是内核成功启动后, 调用的第一个应用程序.启动jz2440开发板, 在终端内输入如下指令, 可">
 <meta property="og:type" content="article">
@@ -101,6 +101,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -122,6 +125,13 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/Blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -157,18 +167,20 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">draapho</p>
-  <div class="site-description" itemprop="description">由外转内的探索</div>
+  <div class="site-description" itemprop="description">explore</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives">
+          <a href="/Blog/archives/">
+        
           <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Blog/categories/">
+          
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
@@ -218,7 +230,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="由外转内的探索">
+      <meta itemprop="description" content="explore">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -273,7 +285,7 @@
 </ul>
 <p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.</p>
 <h1 id="什么是BusyBox"><a href="#什么是BusyBox" class="headerlink" title="什么是BusyBox"></a>什么是BusyBox</h1><p>BusyBox 是linux下的一个应用程序, 集成了最常用的Linux命令和工具.<br>在jz2440开发板里, <strong>BusyBox是内核成功启动后, 调用的第一个应用程序.</strong><br>启动jz2440开发板, 在终端内输入如下指令, 可以发现系统指令都是BusyBox的软链接.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开发板终端</span></span><br><span class="line">$ ls -l /bin/ls</span><br><span class="line">lrwxrwxrwx    1 1000     1000            7 Jan 22  2008 /bin/ls -&gt; busybox</span><br><span class="line">$ ls -l /bin/cp</span><br><span class="line">lrwxrwxrwx    1 1000     1000            7 Jan 22  2008 /bin/cp -&gt; busybox</span><br><span class="line"></span><br><span class="line">$ ls -l /linuxrc</span><br><span class="line">lrwxrwxrwx    1 1000     1000           11 Jan 22  2008 /linuxrc -&gt; bin/busybox</span><br><span class="line">$ ls -l /sbin/init</span><br><span class="line">lrwxrwxrwx    1 1000     1000            7 Jan 22  2008 /sbin/init -&gt; ../bin/busybox</span><br><span class="line">$ ls -l /bin/sh</span><br><span class="line">lrwxrwxrwx    1 1000     1000            7 Jan 22  2008 /bin/sh -&gt; busybox</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板终端</span></span><br><span class="line">$ ls -l /bin/ls</span><br><span class="line">lrwxrwxrwx    1 1000     1000            7 Jan 22  2008 /bin/ls -&gt; busybox</span><br><span class="line">$ ls -l /bin/cp</span><br><span class="line">lrwxrwxrwx    1 1000     1000            7 Jan 22  2008 /bin/cp -&gt; busybox</span><br><span class="line"></span><br><span class="line">$ ls -l /linuxrc</span><br><span class="line">lrwxrwxrwx    1 1000     1000           11 Jan 22  2008 /linuxrc -&gt; bin/busybox</span><br><span class="line">$ ls -l /sbin/init</span><br><span class="line">lrwxrwxrwx    1 1000     1000            7 Jan 22  2008 /sbin/init -&gt; ../bin/busybox</span><br><span class="line">$ ls -l /bin/sh</span><br><span class="line">lrwxrwxrwx    1 1000     1000            7 Jan 22  2008 /bin/sh -&gt; busybox</span><br></pre></td></tr></table></figure>
 
 <h1 id="BusyBox的使用"><a href="#BusyBox的使用" class="headerlink" title="BusyBox的使用"></a>BusyBox的使用</h1><p>内核启动后, 调用的第一个应用程序就是BusyBox. 而BusyBox的职责如下:</p>
 <ul>
@@ -357,10 +369,10 @@
 </li>
 </ul>
 <h1 id="BusyBox的编译"><a href="#BusyBox的编译" class="headerlink" title="BusyBox的编译"></a>BusyBox的编译</h1><p>BusyBox的编译和安装可以查看源码内提供的 <code>INSRALL</code> 文件. 编译方法和过程和内核是类似的.<br>在linux主机ubuntu下进行交叉编译:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -xjf busybox-1.7.0.tar.bz2      <span class="comment"># 解压</span></span><br><span class="line"><span class="built_in">cd</span> busybox-1.7.0/                   <span class="comment"># 进入目录, pwd=./busybox-1.7.0</span></span><br><span class="line">make menuconfig                     <span class="comment"># 会弹出UI配置界面</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果报错: *** mixed implicit and normal rules: deprecated syntax</span></span><br><span class="line"><span class="comment"># 修改makefile相关的行:</span></span><br><span class="line"><span class="comment"># config %config: 修改为 %config:</span></span><br><span class="line"><span class="comment"># / %/: 修改为 %/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xjf busybox-1.7.0.tar.bz2      <span class="comment"># 解压</span></span><br><span class="line"><span class="built_in">cd</span> busybox-1.7.0/                   <span class="comment"># 进入目录, pwd=./busybox-1.7.0</span></span><br><span class="line">make menuconfig                     <span class="comment"># 会弹出UI配置界面</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果报错: *** mixed implicit and normal rules: deprecated syntax</span></span><br><span class="line"><span class="comment"># 修改makefile相关的行:</span></span><br><span class="line"><span class="comment"># config %config: 修改为 %config:</span></span><br><span class="line"><span class="comment"># / %/: 修改为 %/</span></span><br></pre></td></tr></table></figure>
 
 <p>BusyBox的配置项也非常多, 在此就不深入研究了.<br>需要注意的是, 因为这里是交叉编译. 所以编译前, 需要修改BusyBox的编译工具链.<br>因为没有在Menuconfig界面里找到, 所以通过Makefile文件直接修改</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pwd=./busybox-1.7.0</span></span><br><span class="line">vim Makefile</span><br><span class="line"></span><br><span class="line"><span class="comment"># vim 界面</span></span><br><span class="line"><span class="comment"># 使用 :/COMPILE 找到 CROSS_COMPILE 配置项, 修改为</span></span><br><span class="line">CROSS_COMPILE   ?= arm-linux-</span><br><span class="line"><span class="comment"># 使用 :wq 保存退出</span></span><br><span class="line"></span><br><span class="line">make                <span class="comment"># 编译</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装, 不能使用 make install, 否则Linux主机Ubuntu的命令就会被破坏掉!</span></span><br><span class="line">mkdir ~/jz2440/fs_first                         <span class="comment"># 创建一个filesystem, 实验用</span></span><br><span class="line">make CONFIG_PREFIX=~/jz2440/fs_first install    <span class="comment"># 安装到指定目录</span></span><br><span class="line"><span class="comment"># 再次强调, 这里是交叉编译, 不能直接用 make install. 否则linux主机的系统就被破坏了.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 fs_first 目录</span></span><br><span class="line"><span class="comment"># 可以看到全部都是常用的linux指令, 存放在 /bin /sbin /usr/bin /usr/sbin 目录下面.</span></span><br><span class="line"><span class="built_in">cd</span> ~/jz2440/fs_first/</span><br><span class="line">total 20</span><br><span class="line">drwxrwxr-x 5 name group 4096 Nov  2 15:46 ./</span><br><span class="line">drwxrwxrwx 7 name group 4096 Nov  2 15:44 ../</span><br><span class="line">drwxrwxr-x 2 name group 4096 Nov  2 15:46 bin/</span><br><span class="line">lrwxrwxrwx 1 name group   11 Nov  2 15:46 linuxrc -&gt; bin/busybox*</span><br><span class="line">drwxrwxr-x 2 name group 4096 Nov  2 15:46 sbin/</span><br><span class="line">drwxrwxr-x 4 name group 4096 Nov  2 15:46 usr/</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pwd=./busybox-1.7.0</span></span><br><span class="line">vim Makefile</span><br><span class="line"></span><br><span class="line"><span class="comment"># vim 界面</span></span><br><span class="line"><span class="comment"># 使用 :/COMPILE 找到 CROSS_COMPILE 配置项, 修改为</span></span><br><span class="line">CROSS_COMPILE   ?= arm-linux-</span><br><span class="line"><span class="comment"># 使用 :wq 保存退出</span></span><br><span class="line"></span><br><span class="line">make                <span class="comment"># 编译</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装, 不能使用 make install, 否则Linux主机Ubuntu的命令就会被破坏掉!</span></span><br><span class="line">mkdir ~/jz2440/fs_first                         <span class="comment"># 创建一个filesystem, 实验用</span></span><br><span class="line">make CONFIG_PREFIX=~/jz2440/fs_first install    <span class="comment"># 安装到指定目录</span></span><br><span class="line"><span class="comment"># 再次强调, 这里是交叉编译, 不能直接用 make install. 否则linux主机的系统就被破坏了.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 fs_first 目录</span></span><br><span class="line"><span class="comment"># 可以看到全部都是常用的linux指令, 存放在 /bin /sbin /usr/bin /usr/sbin 目录下面.</span></span><br><span class="line"><span class="built_in">cd</span> ~/jz2440/fs_first/</span><br><span class="line">total 20</span><br><span class="line">drwxrwxr-x 5 name group 4096 Nov  2 15:46 ./</span><br><span class="line">drwxrwxrwx 7 name group 4096 Nov  2 15:44 ../</span><br><span class="line">drwxrwxr-x 2 name group 4096 Nov  2 15:46 bin/</span><br><span class="line">lrwxrwxrwx 1 name group   11 Nov  2 15:46 linuxrc -&gt; bin/busybox*</span><br><span class="line">drwxrwxr-x 2 name group 4096 Nov  2 15:46 sbin/</span><br><span class="line">drwxrwxr-x 4 name group 4096 Nov  2 15:46 usr/</span><br></pre></td></tr></table></figure>
 
 <p>这样, BusyBox编译就完成了.<br>然后, 就可以考虑构建linux的文件系统了</p>
 <p>要构建一个最小的linux根文件系统, 至少需要如下文件:</p>
@@ -451,7 +463,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">draapho</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
     </div>

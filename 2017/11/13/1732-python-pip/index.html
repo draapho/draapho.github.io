@@ -21,14 +21,14 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="pip的使用pip 为python的包管理器. 最新的python2和python3都已经自带pip. 1234567891011121314151617181920212223242526272829303132# 显示帮助pippip --helppip install -h                      # 显示安装的帮助# 安装包pip install PackageName">
+<meta name="description" content="pip的使用pip 为python的包管理器. 最新的python2和python3都已经自带pip. # 显示帮助pippip --helppip install -h                      # 显示安装的帮助# 安装包pip install PackageName             # latest versionpip install PackageName&#x3D;&#x3D;1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python2和Python3共存时, pip的使用">
 <meta property="og:url" content="https://draapho.github.io/Blog/2017/11/13/1732-python-pip/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
-<meta property="og:description" content="pip的使用pip 为python的包管理器. 最新的python2和python3都已经自带pip. 1234567891011121314151617181920212223242526272829303132# 显示帮助pippip --helppip install -h                      # 显示安装的帮助# 安装包pip install PackageName">
+<meta property="og:description" content="pip的使用pip 为python的包管理器. 最新的python2和python3都已经自带pip. # 显示帮助pippip --helppip install -h                      # 显示安装的帮助# 安装包pip install PackageName             # latest versionpip install PackageName&#x3D;&#x3D;1.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-11-12T13:00:00.000Z">
 <meta property="article:modified_time" content="2019-05-19T07:48:10.000Z">
@@ -101,6 +101,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -122,6 +125,13 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/Blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -157,18 +167,20 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">draapho</p>
-  <div class="site-description" itemprop="description">由外转内的探索</div>
+  <div class="site-description" itemprop="description">explore</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives">
+          <a href="/Blog/archives/">
+        
           <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Blog/categories/">
+          
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
@@ -218,7 +230,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="由外转内的探索">
+      <meta itemprop="description" content="explore">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -267,22 +279,22 @@
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="pip的使用"><a href="#pip的使用" class="headerlink" title="pip的使用"></a>pip的使用</h1><p>pip 为python的包管理器. 最新的python2和python3都已经自带pip.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示帮助</span></span><br><span class="line">pip</span><br><span class="line">pip --<span class="built_in">help</span></span><br><span class="line">pip install -h                      <span class="comment"># 显示安装的帮助</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">pip install PackageName             <span class="comment"># latest version</span></span><br><span class="line">pip install PackageName==1.0.4      <span class="comment"># specific version</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 包列表</span></span><br><span class="line">pip list                            <span class="comment"># 显示已安装的包   </span></span><br><span class="line">pip list --outdated                 <span class="comment"># 显示有更新的包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示包的简介, 以及包的源码文件</span></span><br><span class="line">pip show --files PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">pip install --U PackageName</span><br><span class="line">pip install --upgrade PackageName</span><br><span class="line">pip install --upgrade pip           <span class="comment"># pip更新自己</span></span><br><span class="line">python -m pip install --U pip       <span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载包</span></span><br><span class="line">pip uninstall PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遇到SSL问题, 下载失败时, 信任下载源即可</span></span><br><span class="line"><span class="comment"># [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:XXX)</span></span><br><span class="line">pip list --outdated --trusted-host pypi.python.org </span><br><span class="line">pip install --trusted-host pypi.python.org PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果还是不行, 再试试下面这句. index-url 将源指定为http格式, 不用https了, 然后设置为信任.</span></span><br><span class="line">pip install --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org PackageName</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 显示帮助</span></span><br><span class="line">pip</span><br><span class="line">pip --<span class="built_in">help</span></span><br><span class="line">pip install -h                      <span class="comment"># 显示安装的帮助</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">pip install PackageName             <span class="comment"># latest version</span></span><br><span class="line">pip install PackageName==1.0.4      <span class="comment"># specific version</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 包列表</span></span><br><span class="line">pip list                            <span class="comment"># 显示已安装的包   </span></span><br><span class="line">pip list --outdated                 <span class="comment"># 显示有更新的包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示包的简介, 以及包的源码文件</span></span><br><span class="line">pip show --files PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">pip install --U PackageName</span><br><span class="line">pip install --upgrade PackageName</span><br><span class="line">pip install --upgrade pip           <span class="comment"># pip更新自己</span></span><br><span class="line">python -m pip install --U pip       <span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载包</span></span><br><span class="line">pip uninstall PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遇到SSL问题, 下载失败时, 信任下载源即可</span></span><br><span class="line"><span class="comment"># [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:XXX)</span></span><br><span class="line">pip list --outdated --trusted-host pypi.python.org </span><br><span class="line">pip install --trusted-host pypi.python.org PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果还是不行, 再试试下面这句. index-url 将源指定为http格式, 不用https了, 然后设置为信任.</span></span><br><span class="line">pip install --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org PackageName</span><br></pre></td></tr></table></figure>
 
-<h1 id="linux下的双版本"><a href="#linux下的双版本" class="headerlink" title="linux下的双版本"></a>linux下的双版本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo python2 hello.py</span><br><span class="line">sudo python3 hello.py</span><br><span class="line"><span class="comment"># 指定版本运行源码</span></span><br><span class="line"></span><br><span class="line">sudo pip2 install PackageName</span><br><span class="line">sudo pip3 install PackageName</span><br><span class="line"><span class="comment"># 直接使用pip+版本</span></span><br><span class="line"></span><br><span class="line">sudo python2 -m pip install PackageName</span><br><span class="line">sudo python3 -m pip install PackageName</span><br><span class="line"><span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br></pre></td></tr></table></figure>
+<h1 id="linux下的双版本"><a href="#linux下的双版本" class="headerlink" title="linux下的双版本"></a>linux下的双版本</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo python2 hello.py</span><br><span class="line">sudo python3 hello.py</span><br><span class="line"><span class="comment"># 指定版本运行源码</span></span><br><span class="line"></span><br><span class="line">sudo pip2 install PackageName</span><br><span class="line">sudo pip3 install PackageName</span><br><span class="line"><span class="comment"># 直接使用pip+版本</span></span><br><span class="line"></span><br><span class="line">sudo python2 -m pip install PackageName</span><br><span class="line">sudo python3 -m pip install PackageName</span><br><span class="line"><span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="源码内指定版本"><a href="#源码内指定版本" class="headerlink" title="源码内指定版本"></a>源码内指定版本</h2><p>将需要指定的python版本放在源码的第一行.<br>支持如下方式:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env</span></span><br><span class="line"><span class="comment"># 使用默认的系统环境</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#!python2</span></span><br><span class="line"><span class="comment">#!python3</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python2</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># 指定python版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#!/usr/bin/python2</span></span><br><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment">#!/usr/local/bin/python2.7</span></span><br><span class="line"><span class="comment">#!/usr/local/bin/python3.5</span></span><br><span class="line"><span class="comment"># 通过路径指定版本</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env</span></span><br><span class="line"><span class="comment"># 使用默认的系统环境</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#!python2</span></span><br><span class="line"><span class="comment">#!python3</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python2</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># 指定python版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#!/usr/bin/python2</span></span><br><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment">#!/usr/local/bin/python2.7</span></span><br><span class="line"><span class="comment">#!/usr/local/bin/python3.5</span></span><br><span class="line"><span class="comment"># 通过路径指定版本</span></span><br></pre></td></tr></table></figure>
 
 <p>举个python3的例子, 格式如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! python3</span></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="comment"># ... 源码</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#! python3</span></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="comment"># ... 源码</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="linux下的双版本-1"><a href="#linux下的双版本-1" class="headerlink" title="linux下的双版本"></a>linux下的双版本</h1><h2 id="windows官解"><a href="#windows官解" class="headerlink" title="windows官解"></a>windows官解</h2><p>Windows下, 官方提供了 <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0397/">Python launcher for Windows</a> 的方法.<br>在安装 python3 的时候 (版本&gt;=3.3), 记得勾选 <code>py launcher</code> 选项.<br>这样, 就会python3就会生成一个py.exe命令. 可以指定调用python2或者python3.<br>安装了 <code>py laucher</code> 后, 也支持源码第一行指定版本</p>
 <ul>
 <li><code>#! python2</code></li>
 <li><code>#! python3</code></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">py -2 hello.py</span><br><span class="line">py -3 hello.py</span><br><span class="line"><span class="comment"># 指定版本运行源码</span></span><br><span class="line"></span><br><span class="line">py -2 -m pip install PackageName</span><br><span class="line">py -3 -m pip install PackageName</span><br><span class="line"><span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">py -2 hello.py</span><br><span class="line">py -3 hello.py</span><br><span class="line"><span class="comment"># 指定版本运行源码</span></span><br><span class="line"></span><br><span class="line">py -2 -m pip install PackageName</span><br><span class="line">py -3 -m pip install PackageName</span><br><span class="line"><span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="windows土法"><a href="#windows土法" class="headerlink" title="windows土法"></a>windows土法</h2><p>但是, 官解真的没有土方法方便. 但不知道是否有潜在风险题<br>土法就是改名, 让windows下的用法和linux一样.</p>
 <ul>
@@ -293,7 +305,7 @@
 <li>注意不是直接改名. 要保留原来的 <code>python.exe</code> 和 <code>pip.exe</code></li>
 <li>可以和linux下一样, 愉快的玩耍了. 如下:</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">python2 hello.py</span><br><span class="line">python3 hello.py</span><br><span class="line"><span class="comment"># 指定版本运行源码</span></span><br><span class="line"></span><br><span class="line">pip2 install PackageName</span><br><span class="line">pip3 install PackageName</span><br><span class="line"><span class="comment"># 直接使用pip+版本</span></span><br><span class="line"></span><br><span class="line">sudo python2 -m pip install PackageName</span><br><span class="line">sudo python3 -m pip install PackageName</span><br><span class="line"><span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python2 hello.py</span><br><span class="line">python3 hello.py</span><br><span class="line"><span class="comment"># 指定版本运行源码</span></span><br><span class="line"></span><br><span class="line">pip2 install PackageName</span><br><span class="line">pip3 install PackageName</span><br><span class="line"><span class="comment"># 直接使用pip+版本</span></span><br><span class="line"></span><br><span class="line">sudo python2 -m pip install PackageName</span><br><span class="line">sudo python3 -m pip install PackageName</span><br><span class="line"><span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br></pre></td></tr></table></figure>
 
 
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
@@ -375,7 +387,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">draapho</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
     </div>
