@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>uboot之makefile分析 | DRA&amp;PHO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="总览 嵌入式linux学习目录 jz2440分区及启动的基础概念 uboot之makefile分析 uboot之源码分析 uboot之定制指令  本文基于 u-boot-1.1.6, 使用jz2440开发板. 若要使用最新的u-boot版本见: u-boot官网  u-boot下载 u-boot 编译过程 解压缩 u-boot-1.1.6 打补丁 针对特定开发板发布的补丁. 打补丁方法uboot目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uboot之makefile分析">
+<meta property="og:url" content="https://draapho.github.io/Blog/2017/07/07/1719-uboot-makefile/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="总览 嵌入式linux学习目录 jz2440分区及启动的基础概念 uboot之makefile分析 uboot之源码分析 uboot之定制指令  本文基于 u-boot-1.1.6, 使用jz2440开发板. 若要使用最新的u-boot版本见: u-boot官网  u-boot下载 u-boot 编译过程 解压缩 u-boot-1.1.6 打补丁 针对特定开发板发布的补丁. 打补丁方法uboot目">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-07-06T14:00:00.000Z">
+<meta property="article:modified_time" content="2017-11-27T06:55:44.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="jz2440">
+<meta property="article:tag" content="uboot">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="DRA&PHO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">DRA&amp;PHO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">thinking &amp; logging</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://draapho.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1719-uboot-makefile" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2017/07/07/1719-uboot-makefile/" class="article-date">
+  <time class="dt-published" datetime="2017-07-06T14:00:00.000Z" itemprop="datePublished">2017-07-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/embedded-linux/">embedded linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      uboot之makefile分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/11/24/1735-jz2440-basic/">jz2440分区及启动的基础概念</a></li>
+<li><a href="https://draapho.github.io/2017/07/07/1719-uboot-makefile/">uboot之makefile分析</a></li>
+<li><a href="https://draapho.github.io/2017/08/25/1720-uboot-source/">uboot之源码分析</a></li>
+<li><a href="https://draapho.github.io/2017/08/30/1721-uboot-modify/">uboot之定制指令</a></li>
+</ul>
+<p>本文基于 u-boot-1.1.6, 使用jz2440开发板. 若要使用最新的u-boot版本见: <a target="_blank" rel="noopener" href="http://www.denx.de/wiki/U-Boot/WebHome">u-boot官网</a>  <a href="ftp://ftp.denx.de/pub/u-boot/">u-boot下载</a></p>
+<h1 id="u-boot-编译过程"><a href="#u-boot-编译过程" class="headerlink" title="u-boot 编译过程"></a>u-boot 编译过程</h1><ol>
+<li>解压缩 u-boot-1.1.6</li>
+<li>打补丁 针对特定开发板发布的补丁. 打补丁方法<br><code>uboot目录下$ patch -p1 &lt; ../补丁文件</code>  p1表示忽略补丁目标目录的第一层</li>
+<li>配置 <code>make 100ask24x0_config</code></li>
+<li>编译: <code>make</code>, 获取 <code>u-boot.bin</code> 文件</li>
+<li>烧录, 多种方式, 可以用jlink烧录到 NOR Flash 中</li>
+</ol>
+<h1 id="u-boot功能"><a href="#u-boot功能" class="headerlink" title="u-boot功能:"></a>u-boot功能:</h1><ul>
+<li>本质是单片机程序</li>
+<li>硬件相关初始化<ul>
+<li>关看门狗</li>
+<li>初始化时钟</li>
+<li>初始化SDRAM</li>
+<li>从Flash读取内核</li>
+</ul>
+</li>
+<li>最终目的: 启动内核</li>
+<li>为开发方便, 还支持:<ul>
+<li>烧写flash</li>
+<li>网卡</li>
+<li>USB</li>
+<li>串口</li>
+</ul>
+</li>
+</ul>
+<h1 id="u-boot的README"><a href="#u-boot的README" class="headerlink" title="u-boot的README"></a>u-boot的README</h1><p>要了解 u-boot 的架构和设计思路, 建议先看自带的 <code>README</code> 文件. 重要信息如下:</p>
+<ul>
+<li><code>include/configs/&lt;board_name&gt;.h</code>  板级配置头文件</li>
+<li><code>make NAME_config</code>                加载配置, 准备编译</li>
+<li><code>make</code> or <code>make all</code>              编译生成bin文件</li>
+<li><code>Monitor Commands - Overview:</code>    u-boot 指令概览</li>
+<li><code>Environment Variables:</code>          u-boot 环境变量</li>
+<li><code>Linux HOWTO:</code>                    编译linux uImage</li>
+<li><code>Boot Linux:</code>                     u-boot 启动Linux相关设置</li>
+</ul>
+<p>自己设置板级配置的步骤: (位于 README line 2375)</p>
+<ol>
+<li>Add a new configuration option for your board to the toplevel<br> “Makefile” and to the “MAKEALL” script, using the existing<br> entries as examples. Note that here and at many other places<br> boards and other names are listed in alphabetical sort order. Please<br> keep this order.</li>
+<li>Create a new directory to hold your board specific code. Add any<br> files you need. In your board directory, you will need at least<br> the “Makefile”, a “<board>.c”, “flash.c” and “u-boot.lds”.</li>
+<li>Create a new configuration file “include/configs/<board>.h” for<br> your board</li>
+<li>If you’re porting U-Boot to a new CPU, then also create a new<br> directory to hold your CPU specific code. Add any files you need.</li>
+<li> Run “make <board>_config” with your new name.</li>
+<li>Type “make”, and you should get a working “u-boot.srec” file<br> to be installed on your target system.</li>
+<li> Debug and solve any problems that might arise.</li>
+</ol>
+<h1 id="u-boot的Makefile"><a href="#u-boot的Makefile" class="headerlink" title="u-boot的Makefile"></a>u-boot的Makefile</h1><p>分析 <code>100ask24x0</code> 即jz2440板子的Makefile实现. Linux下可以使用grep搜索.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pwd = u-boot-1.1.6 文件夹下</span></span><br><span class="line">grep -n 100ask24x0 ./Makefile       <span class="comment"># 在Makefile文件下查找 100ask24x0, 并显示行号</span></span><br><span class="line">grep -nr 100ask24x0 *               <span class="comment"># 当前目录递归查找 100ask24x0</span></span><br><span class="line">grep -nwr 100ask24x0 *              <span class="comment"># w=word, 100ask24x0 作为一个单词查找</span></span><br><span class="line">grep -nd skip 100ask24x0 *          <span class="comment"># 仅在当前目录查找, 不显示子目录信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 特别强大的一条指令, 可针对指定文件搜索指定关键字!</span></span><br><span class="line"><span class="comment"># 先用find找出所有的Makefile文件, 然后在Makefile文件内查找 uImage 关键字.</span></span><br><span class="line">find ./ -name <span class="string">&quot;Makefile&quot;</span> | xargs grep -nw --color <span class="string">&quot;uboot&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="‘make-100ask24x0-config’-指令分析"><a href="#‘make-100ask24x0-config’-指令分析" class="headerlink" title="‘make 100ask24x0_config’ 指令分析"></a>‘make 100ask24x0_config’ 指令分析</h2><p><code>make 100ask24x0_config</code> 其指令结构和 <code>make clean</code> 是一样的.<br>因此在 Makefile 里找到 <code>100ask24x0_config</code> 为目标的行即可:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1886    100ask24x0_config	:	unconfig    </span><br><span class="line">1887	    @$(MKCONFIG) $(@:_config=) arm arm920t 100ask24x0 NULL s3c24x0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目标为 100ask24x0_config, 没有依赖</span></span><br><span class="line"><span class="comment"># 执行 make 100ask24x0_config 后, 实际运行的就是第二行的指令</span></span><br><span class="line"><span class="comment"># 找到并替换里面的变量:</span></span><br><span class="line"><span class="comment">#   MKCONFIG	:= $(SRCTREE)/mkconfig</span></span><br><span class="line"><span class="comment">#   SRCTREE		:= $(CURDIR)</span></span><br><span class="line"><span class="comment">#   $(@:_config=) 其中 $(@) 表示目标, 即 `100ask24x0_config:_config=空`, 最终得到 `100ask24x0`</span></span><br><span class="line"><span class="comment"># 整句替换下来的指令就变成了:</span></span><br><span class="line">    ./mkconfig 100ask24x0 arm arm920t 100ask24x0 NULL s3c24x0</span><br></pre></td></tr></table></figure>
+
+<p>因此, 我们需要去当前文件夹下查找 <code>mkconfig</code> 这个脚本文件.<br>下面直接删减成最终执行的样子, 前面加上原来的行号便于学习比较</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输入为: ./mkconfig 100ask24x0 arm arm920t 100ask24x0 NULL s3c24x0</span></span><br><span class="line"><span class="comment"># 对应的变量:  $0        $1      $2   $3       $4        $5    $6</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印信息</span></span><br><span class="line">23  BOARD_NAME=<span class="string">&quot;<span class="variable">$1</span>&quot;</span>                             <span class="comment"># BOARD_NAME=100ask24x0</span></span><br><span class="line">28  <span class="string">&quot;Configuring for <span class="variable">$&#123;BOARD_NAME&#125;</span> board...&quot;</span>    <span class="comment"># Configuring for 100ask24x0 board...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新创建一系列的软链接:</span></span><br><span class="line">46  <span class="built_in">cd</span> ./include</span><br><span class="line">47  rm -f asm</span><br><span class="line">48  ln -s asm-<span class="variable">$2</span> asm                            <span class="comment"># asm-&gt;asm-arm, 建立一个软连接, 使用asm-arm</span></span><br><span class="line">51  rm -f asm-<span class="variable">$2</span>/arch                           <span class="comment"># asm-arm/arch</span></span><br><span class="line">56  ln -s <span class="variable">$&#123;LNPREFIX&#125;</span>arch-<span class="variable">$6</span> asm-<span class="variable">$2</span>/arch        <span class="comment"># LNPREFIX. 因此 asm-arm/arch-&gt;arch-s3c24x0</span></span><br><span class="line">60  rm -f asm-<span class="variable">$2</span>/proc</span><br><span class="line">61	ln -s <span class="variable">$&#123;LNPREFIX&#125;</span>proc-armv asm-<span class="variable">$2</span>/proc      <span class="comment"># asm-arm/proc-&gt;proc-armv, </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 config.mk 文件</span></span><br><span class="line">67  <span class="built_in">echo</span> <span class="string">&quot;ARCH   = <span class="variable">$2</span>&quot;</span> &gt;  config.mk             <span class="comment"># &gt;  新建, &quot;ARCH   = arm&quot;</span></span><br><span class="line">68  <span class="built_in">echo</span> <span class="string">&quot;CPU    = <span class="variable">$3</span>&quot;</span> &gt;&gt; config.mk             <span class="comment"># &gt;&gt; 追加, &quot;CPU    = arm920t&quot;</span></span><br><span class="line">69  <span class="built_in">echo</span> <span class="string">&quot;BOARD  = <span class="variable">$4</span>&quot;</span> &gt;&gt; config.mk             <span class="comment"># &gt;&gt; 追加, &quot;BOARD  = 100ask24x0&quot;</span></span><br><span class="line">71  [ <span class="string">&quot;<span class="variable">$5</span>&quot;</span> ] &amp;&amp; [ <span class="string">&quot;<span class="variable">$5</span>&quot;</span> != <span class="string">&quot;NULL&quot;</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;VENDOR = <span class="variable">$5</span>&quot;</span> &gt;&gt; config.mk   <span class="comment"># $5 = NULL, 不写VENDOR字段</span></span><br><span class="line">73  [ <span class="string">&quot;<span class="variable">$6</span>&quot;</span> ] &amp;&amp; [ <span class="string">&quot;<span class="variable">$6</span>&quot;</span> != <span class="string">&quot;NULL&quot;</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;SOC    = <span class="variable">$6</span>&quot;</span> &gt;&gt; config.mk   <span class="comment"># &quot;SOC = s3c24x0&quot;</span></span><br><span class="line"><span class="comment"># 可以使用 `cat ./include/config.mk` 查看该文件的内容.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 config.h 文件. 为了 `#include &lt;configs/100ask24x0.h&gt;`</span></span><br><span class="line">82  &gt; config.h                                                      <span class="comment"># &gt;  新建 config.h</span></span><br><span class="line">84  <span class="built_in">echo</span> <span class="string">&quot;/* Automatically generated - do not edit */&quot;</span> &gt;&gt;config.h   <span class="comment"># &gt;&gt; 追加写入</span></span><br><span class="line">85  <span class="built_in">echo</span> <span class="string">&quot;#include &lt;configs/<span class="variable">$1</span>.h&gt;&quot;</span> &gt;&gt;config.h                       <span class="comment"># &gt;&gt; 追加写入, $1=100ask24x0</span></span><br><span class="line"><span class="comment"># 可以使用 `cat ./include/config.h` 查看该文件的内容.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="‘make’-指令分析"><a href="#‘make’-指令分析" class="headerlink" title="‘make’ 指令分析"></a>‘make’ 指令分析</h2><p><code>make</code> 实际上执行的是 <code>make all</code>, Makefile 中比较重要的几行为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">116 # load ARCH, BOARD, and CPU configuration</span><br><span class="line">117 include $(OBJTREE)&#x2F;include&#x2F;config.mk</span><br><span class="line">118 export	ARCH CPU BOARD VENDOR SOC</span><br><span class="line"># .&#x2F;include&#x2F;config.mk 这个文件由 &#96;make 100ask24x0_config&#96; 指令生成, 可获得如下变量</span><br><span class="line"># ARCH   &#x3D; arm</span><br><span class="line"># CPU    &#x3D; arm920t</span><br><span class="line"># BOARD  &#x3D; 100ask24x0</span><br><span class="line"># SOC    &#x3D; s3c24x0</span><br><span class="line"></span><br><span class="line">164 include $(TOPDIR)&#x2F;config.mk</span><br><span class="line"># u-boot-1.1.6 根目录下的配置文件, 里面有一些变量的定义</span><br><span class="line"></span><br><span class="line">169 OBJS  &#x3D; cpu&#x2F;$(CPU)&#x2F;start.o</span><br><span class="line">193 LIBS  &#x3D; lib_generic&#x2F;libgeneric.a</span><br><span class="line">194 LIBS +&#x3D; board&#x2F;$(BOARDDIR)&#x2F;lib$(BOARD).a</span><br><span class="line">195 LIBS +&#x3D; cpu&#x2F;$(CPU)&#x2F;lib$(CPU).a</span><br><span class="line">197 LIBS +&#x3D; cpu&#x2F;$(CPU)&#x2F;$(SOC)&#x2F;lib$(SOC).a</span><br><span class="line">199 LIBS +&#x3D; lib_$(ARCH)&#x2F;lib$(ARCH).a</span><br><span class="line"># 加载几个板级参数相关的变量值. 特别注意 start.o 这个文件, 是整个u-boot最先运行的文件</span><br><span class="line"></span><br><span class="line">239 ALL &#x3D; $(obj)u-boot.srec $(obj)u-boot.bin $(obj)System.map $(U_BOOT_NAND)</span><br><span class="line">241 all:		$(ALL)</span><br><span class="line"># &#96;make&#96; 指令的入口就在这里. 可以根据 ALL 目标后面的依赖开始看这个 make 的过程</span><br><span class="line"></span><br><span class="line">262 $(obj)u-boot:		depend version $(SUBDIRS) $(OBJS) $(LIBS) $(LDSCRIPT)</span><br><span class="line">263		    UNDEF_SYM&#x3D;&#96;$(OBJDUMP) -x $(LIBS) |sed  -n -e &#39;s&#x2F;.*\(__u_boot_cmd_.*\)&#x2F;-u\1&#x2F;p&#39;|sort|uniq&#96;;\</span><br><span class="line">264		    cd $(LNDIR) &amp;&amp; $(LD) $(LDFLAGS) $$UNDEF_SYM $(__OBJS) \</span><br><span class="line">265             --start-group $(__LIBS) --end-group $(PLATFORM_LIBS) \</span><br><span class="line">266             -Map u-boot.map -o u-boot</span><br><span class="line"># 比较重要的一个指令. 可以运行 &#96;make&#96;, 在最后会看到这条指令的展开式, 用这种倒推的方式比较方便. 其展开如下:</span><br><span class="line"></span><br><span class="line">make[1]: Leaving directory &#39;&#x2F;home&#x2F;draapho&#x2F;jz2440&#x2F;uboot&#x2F;u-boot-1.1.6&#x2F;common&#39;</span><br><span class="line"># 这句不重要, 但这句的位置很明显, 所以写在这里了.</span><br><span class="line"></span><br><span class="line">UNDEF_SYM&#x3D;&#96;arm-linux-objdump -x lib_generic&#x2F;libgeneric.a board&#x2F;100ask24x0&#x2F;lib100ask24x0.a cpu&#x2F;arm920t&#x2F;libarm920t.a cpu&#x2F;arm920t&#x2F;s3c24x0&#x2F;libs3c24x0.a lib_arm&#x2F;libarm.a fs&#x2F;cramfs&#x2F;libcramfs.a fs&#x2F;fat&#x2F;libfat.a fs&#x2F;fdos&#x2F;libfdos.a fs&#x2F;jffs2&#x2F;libjffs2.a fs&#x2F;reiserfs&#x2F;libreiserfs.a fs&#x2F;ext2&#x2F;libext2fs.a net&#x2F;libnet.a disk&#x2F;libdisk.a rtc&#x2F;librtc.a dtt&#x2F;libdtt.a drivers&#x2F;libdrivers.a drivers&#x2F;nand&#x2F;libnand.a drivers&#x2F;nand_legacy&#x2F;libnand_legacy.a drivers&#x2F;usb&#x2F;libusb.a drivers&#x2F;sk98lin&#x2F;libsk98lin.a common&#x2F;libcommon.a |sed  -n -e &#39;s&#x2F;.*\(__u_boot_cmd_.*\)&#x2F;-u\1&#x2F;p&#39;|sort|uniq&#96;;\</span><br><span class="line"># 整个语句有点复杂, 用了一系列管道指令, 将最终结果赋值给 UNDEF_SYM 这么一个变量</span><br><span class="line"># 对 &quot;UNDEF_SYM&#x3D;&#96;$(OBJDUMP) -x $(LIBS) |sed  -n -e &#39;s&#x2F;.*\(__u_boot_cmd_.*\)&#x2F;-u\1&#x2F;p&#39;|sort|uniq&#96;;\&quot; 的展开</span><br><span class="line"># 其中 &quot;board&#x2F;100ask24x0&#x2F;lib100ask24x0.a cpu&#x2F;arm920t&#x2F;libarm920t.a cpu&#x2F;arm920t&#x2F;s3c24x0&#x2F;libs3c24x0.a lib_arm&#x2F;libarm.a&quot; 就是对 $(LIBS) 的展开</span><br><span class="line">  </span><br><span class="line">cd &#x2F;home&#x2F;draapho&#x2F;jz2440&#x2F;uboot&#x2F;u-boot-1.1.6 &amp;&amp; </span><br><span class="line"># &quot;cd $(LNDIR) &amp;&amp;&quot; 的展开, 进入 u-boot-1.1.6 目录. </span><br><span class="line"></span><br><span class="line">arm-linux-ld -Bstatic -T &#x2F;home&#x2F;draapho&#x2F;jz2440&#x2F;uboot&#x2F;u-boot-1.1.6&#x2F;board&#x2F;100ask24x0&#x2F;u-boot.lds -Ttext 0x33F80000  $UNDEF_SYM cpu&#x2F;arm920t&#x2F;start.o \</span><br><span class="line"># &quot;$(LD) $(LDFLAGS) $$UNDEF_SYM $(__OBJS) \&quot; 的展开</span><br><span class="line"># $(LD) 就是 arm-linux-ld 链接指令. 其中 &quot;LD	&#x3D; $(CROSS_COMPILE)ld&quot;, 定义在 &quot;.&#x2F;config.mk&quot;, $(CROSS_COMPILE) 在 Makefile 下面. </span><br><span class="line"># $(LDFLAGS) 给出了链接指令的参数, 定义在 &quot;.&#x2F;config.mk&quot;, 形式为 &quot;LDFLAGS +&#x3D; -Bstatic -T $(LDSCRIPT) -Ttext $(TEXT_BASE) $(PLATFORM_LDFLAGS)&quot;</span><br><span class="line"># 根据 &quot;cpu&#x2F;arm920t&#x2F;start.o&quot;, 可以知道 start.s 的文件位置, 便于以后查看. (由u-boot.lds可知, 这是u-boot第一个运行的代码段)</span><br><span class="line"># !!! 其中 $(LDSCRIPT) 和 $(TEXT_BASE) 很重要 !!!</span><br><span class="line">    # &quot;LDSCRIPT :&#x3D; $(TOPDIR)&#x2F;board&#x2F;$(BOARDDIR)&#x2F;u-boot.lds&quot;, 定义在 &quot;.&#x2F;config.mk&quot;. 可以查看链接脚本</span><br><span class="line">    # &quot;TEXT_BASE &#x3D; 0x33F80000&quot;, 定义在 &quot;.&#x2F;board&#x2F;100ask24x0&#x2F;config.mk&quot;. 这个参数明显是板级相关的. 也可以使用 0x33F80000 来搜索.</span><br><span class="line"></span><br><span class="line">                --start-group lib_generic&#x2F;libgeneric.a board&#x2F;100ask24x0&#x2F;lib100ask24x0.a cpu&#x2F;arm920t&#x2F;libarm920t.a cpu&#x2F;arm920t&#x2F;s3c24x0&#x2F;libs3c24x0.a lib_arm&#x2F;libarm.a fs&#x2F;cramfs&#x2F;libcramfs.a fs&#x2F;fat&#x2F;libfat.a fs&#x2F;fdos&#x2F;libfdos.a fs&#x2F;jffs2&#x2F;libjffs2.a fs&#x2F;reiserfs&#x2F;libreiserfs.a fs&#x2F;ext2&#x2F;libext2fs.a net&#x2F;libnet.a disk&#x2F;libdisk.a rtc&#x2F;librtc.a dtt&#x2F;libdtt.a drivers&#x2F;libdrivers.a drivers&#x2F;nand&#x2F;libnand.a drivers&#x2F;nand_legacy&#x2F;libnand_legacy.a drivers&#x2F;usb&#x2F;libusb.a drivers&#x2F;sk98lin&#x2F;libsk98lin.a common&#x2F;libcommon.a --end-group -L &#x2F;usr&#x2F;local&#x2F;gcc-3.4.5-glibc-2.3.6&#x2F;bin&#x2F;..&#x2F;lib&#x2F;gcc&#x2F;arm-linux&#x2F;3.4.5 -lgcc \</span><br><span class="line">                -Map u-boot.map -o u-boot</span><br><span class="line"># 依旧属于 arm-linux-ld 的指令, 这里就是对 &quot;$(__LIBS)&quot; 和 &quot;$(PLATFORM_LIBS)&quot; 的展开, 忽略这一段, 对理解没有影响.</span><br></pre></td></tr></table></figure>
+
+<h2 id="‘u-boot-lds’-链接脚本分析"><a href="#‘u-boot-lds’-链接脚本分析" class="headerlink" title="‘u-boot.lds’ 链接脚本分析"></a>‘u-boot.lds’ 链接脚本分析</h2><p>根据对 Makefile 的分析, 可以知道uboot代码的偏移地址被设置成了 <code>-Ttext 0x33F80000</code> 这么一个值.<br>其含义就是, <strong>给u-boot的代码段分配的空间位于SDRAM最顶部的512K.</strong><br>jz2440使用的SDRAM大小为 64M, 即 0x400_0000, 预留512K (0x8_0000)给u-boot代码, 得到地址 0x3F8_0000.<br>因为 s3c24x0 给SDRAM分配的地址是从 0x3000_0000 开始的, 所以有了 0x33F8_0000 这么一个值. </p>
+<p>链接脚本 <code>./board/100ask24x0/u-boot.lds</code> 也很重要. 从中可以知道u-boot整个代码段的分配情况. 下面来分析一下:<br>链接脚本的作用就是安排目标文件在可执行文件中的顺序, 便于链接器生成最终的可执行文件.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">OUTPUT_FORMAT(&quot;elf32-littlearm&quot;, &quot;elf32-littlearm&quot;, &quot;elf32-littlearm&quot;)</span><br><span class="line">&#x2F;*OUTPUT_FORMAT(&quot;elf32-arm&quot;, &quot;elf32-arm&quot;, &quot;elf32-arm&quot;)*&#x2F;</span><br><span class="line">OUTPUT_ARCH(arm)</span><br><span class="line">ENTRY(_start)</span><br><span class="line">SECTIONS</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; . 表示当前位置, 设置当前位置为 0. 实际物理地址需要加上偏移量 0x33F80000</span><br><span class="line">	. &#x3D; 0x00000000;</span><br><span class="line"></span><br><span class="line">	. &#x3D; ALIGN(4);                   &#x2F;&#x2F; 4字节对齐</span><br><span class="line">	.text      :                    &#x2F;&#x2F; 代码段</span><br><span class="line">	&#123;</span><br><span class="line">	  cpu&#x2F;arm920t&#x2F;start.o	(.text) &#x2F;&#x2F; 第一段代码放 start.s</span><br><span class="line">      board&#x2F;100ask24x0&#x2F;boot_init.o (.text)  &#x2F;&#x2F; 第二段代码放 boot_init.c (非必须)</span><br><span class="line">	  *(.text)                      &#x2F;&#x2F; 其它的代码段</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	. &#x3D; ALIGN(4);</span><br><span class="line">	.rodata : &#123; *(.rodata) &#125;        &#x2F;&#x2F; 只读数据段, RO段</span><br><span class="line"></span><br><span class="line">	. &#x3D; ALIGN(4);</span><br><span class="line">	.data : &#123; *(.data) &#125;            &#x2F;&#x2F; 数据段, RW段</span><br><span class="line"></span><br><span class="line">	. &#x3D; ALIGN(4);</span><br><span class="line">	.got : &#123; *(.got) &#125;              &#x2F;&#x2F; uboot自定义, 非标准段</span><br><span class="line"></span><br><span class="line">	. &#x3D; .;</span><br><span class="line">	__u_boot_cmd_start &#x3D; .;         &#x2F;&#x2F; 赋值 __u_boot_cmd_start, 命令段起始位置</span><br><span class="line">	.u_boot_cmd : &#123; *(.u_boot_cmd) &#125;&#x2F;&#x2F; uboot 命令段, uboot通过宏定义, 将命令放在该段</span><br><span class="line">	__u_boot_cmd_end &#x3D; .;           &#x2F;&#x2F; 赋值 __u_boot_cmd_end, 命令段结束位置</span><br><span class="line"></span><br><span class="line">	. &#x3D; ALIGN(4);</span><br><span class="line">	__bss_start &#x3D; .;                &#x2F;&#x2F; 赋值 __bss_start</span><br><span class="line">	.bss : &#123; *(.bss) &#125;              &#x2F;&#x2F; bss 段</span><br><span class="line">	_end &#x3D; .;                       &#x2F;&#x2F; 赋值 _end</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2017/07/07/1719-uboot-makefile/" data-id="cklzxufie004jm8qo79g37k97" data-title="uboot之makefile分析" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2017/08/25/1720-uboot-source/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          uboot之源码分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2017/07/06/1718-linux-samba/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Ubuntu下配置支持Windows访问的samba共享</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/dao/">dao</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded/">embedded</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded-linux/">embedded linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/interview/">interview</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/qqiot/">qqiot</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/software/">software</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/thoughts/">thoughts</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AI-IoT-thoughts/" rel="tag">AI IoT thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AutoHotKey/" rel="tag">AutoHotKey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/apt/" rel="tag">apt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/collections/" rel="tag">collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dao/" rel="tag">dao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/data-struct/" rel="tag">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dict/" rel="tag">dict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/driver/" rel="tag">driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/drv/" rel="tag">drv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/env/" rel="tag">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/environment/" rel="tag">environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/error/" rel="tag">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ezos/" rel="tag">ezos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/fs/" rel="tag">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ide/" rel="tag">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ipc/" rel="tag">ipc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linuxembedded-linux/" rel="tag">linuxembedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/makefile/" rel="tag">makefile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/nfs/" rel="tag">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pygatt/" rel="tag">pygatt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/regular/" rel="tag">regular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/scrum/" rel="tag">scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/self-expression/" rel="tag">self-expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/software/" rel="tag">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/string/" rel="tag">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/thoughts/" rel="tag">thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/timeout/" rel="tag">timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/tuple/" rel="tag">tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/yocto/" rel="tag">yocto</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" rel="tag">线程同步</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/AI-IoT-thoughts/" style="font-size: 10px;">AI IoT thoughts</a> <a href="/Blog/tags/AutoHotKey/" style="font-size: 10px;">AutoHotKey</a> <a href="/Blog/tags/BLE/" style="font-size: 10.77px;">BLE</a> <a href="/Blog/tags/ConEmu/" style="font-size: 10px;">ConEmu</a> <a href="/Blog/tags/Hyper-V/" style="font-size: 10px;">Hyper-V</a> <a href="/Blog/tags/Listary/" style="font-size: 10px;">Listary</a> <a href="/Blog/tags/NAS/" style="font-size: 10px;">NAS</a> <a href="/Blog/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/Blog/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/Blog/tags/TrueSTUIDO/" style="font-size: 10px;">TrueSTUIDO</a> <a href="/Blog/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/Blog/tags/android/" style="font-size: 10px;">android</a> <a href="/Blog/tags/apt/" style="font-size: 10px;">apt</a> <a href="/Blog/tags/atom/" style="font-size: 11.54px;">atom</a> <a href="/Blog/tags/ble/" style="font-size: 10px;">ble</a> <a href="/Blog/tags/c/" style="font-size: 10.77px;">c</a> <a href="/Blog/tags/cheat-sheet/" style="font-size: 12.31px;">cheat sheet</a> <a href="/Blog/tags/cli/" style="font-size: 10px;">cli</a> <a href="/Blog/tags/collections/" style="font-size: 10px;">collections</a> <a href="/Blog/tags/command/" style="font-size: 11.54px;">command</a> <a href="/Blog/tags/cygwin/" style="font-size: 10px;">cygwin</a> <a href="/Blog/tags/dao/" style="font-size: 10.77px;">dao</a> <a href="/Blog/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/Blog/tags/debug/" style="font-size: 10.77px;">debug</a> <a href="/Blog/tags/dict/" style="font-size: 10px;">dict</a> <a href="/Blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/Blog/tags/driver/" style="font-size: 16.92px;">driver</a> <a href="/Blog/tags/drv/" style="font-size: 14.62px;">drv</a> <a href="/Blog/tags/eclipse/" style="font-size: 10.77px;">eclipse</a> <a href="/Blog/tags/embedded/" style="font-size: 13.85px;">embedded</a> <a href="/Blog/tags/embedded-linux/" style="font-size: 20px;">embedded linux</a> <a href="/Blog/tags/env/" style="font-size: 10px;">env</a> <a href="/Blog/tags/environment/" style="font-size: 13.85px;">environment</a> <a href="/Blog/tags/error/" style="font-size: 10px;">error</a> <a href="/Blog/tags/ezos/" style="font-size: 10px;">ezos</a> <a href="/Blog/tags/freefilesync/" style="font-size: 10px;">freefilesync</a> <a href="/Blog/tags/fs/" style="font-size: 10.77px;">fs</a> <a href="/Blog/tags/git/" style="font-size: 10px;">git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/Blog/tags/ide/" style="font-size: 10px;">ide</a> <a href="/Blog/tags/interview/" style="font-size: 11.54px;">interview</a> <a href="/Blog/tags/ipc/" style="font-size: 10.77px;">ipc</a> <a href="/Blog/tags/jz2440/" style="font-size: 13.08px;">jz2440</a> <a href="/Blog/tags/kernel/" style="font-size: 11.54px;">kernel</a> <a href="/Blog/tags/linux/" style="font-size: 19.23px;">linux</a> <a href="/Blog/tags/linuxembedded-linux/" style="font-size: 16.15px;">linuxembedded linux</a> <a href="/Blog/tags/list/" style="font-size: 10px;">list</a> <a href="/Blog/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/Blog/tags/mingw/" style="font-size: 11.54px;">mingw</a> <a href="/Blog/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/Blog/tags/notepad/" style="font-size: 10px;">notepad++</a> <a href="/Blog/tags/other/" style="font-size: 10px;">other</a> <a href="/Blog/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/Blog/tags/path/" style="font-size: 10px;">path</a> <a href="/Blog/tags/pip/" style="font-size: 10px;">pip</a> <a href="/Blog/tags/process/" style="font-size: 10px;">process</a> <a href="/Blog/tags/putty/" style="font-size: 10px;">putty</a> <a href="/Blog/tags/pygatt/" style="font-size: 10px;">pygatt</a> <a href="/Blog/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/Blog/tags/pyqt/" style="font-size: 10.77px;">pyqt</a> <a href="/Blog/tags/python/" style="font-size: 18.46px;">python</a> <a href="/Blog/tags/qqiot/" style="font-size: 12.31px;">qqiot</a> <a href="/Blog/tags/regular/" style="font-size: 11.54px;">regular</a> <a href="/Blog/tags/scrum/" style="font-size: 10px;">scrum</a> <a href="/Blog/tags/self-expression/" style="font-size: 10px;">self-expression</a> <a href="/Blog/tags/set/" style="font-size: 10px;">set</a> <a href="/Blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/Blog/tags/shortcut/" style="font-size: 10px;">shortcut</a> <a href="/Blog/tags/software/" style="font-size: 11.54px;">software</a> <a href="/Blog/tags/stm32/" style="font-size: 10px;">stm32</a> <a href="/Blog/tags/string/" style="font-size: 10px;">string</a> <a href="/Blog/tags/thoughts/" style="font-size: 17.69px;">thoughts</a> <a href="/Blog/tags/timeout/" style="font-size: 10px;">timeout</a> <a href="/Blog/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/Blog/tags/uboot/" style="font-size: 12.31px;">uboot</a> <a href="/Blog/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/Blog/tags/vim/" style="font-size: 10px;">vim</a> <a href="/Blog/tags/windows/" style="font-size: 15.38px;">windows</a> <a href="/Blog/tags/yocto/" style="font-size: 10px;">yocto</a> <a href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" style="font-size: 10px;">线程同步</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2021/03/05/2107-tuibeitu/">推背图, 马前课, 万年歌, 梅花诗</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/03/01/2106-dao-doubt/">修道之路-起疑</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/14/2105-dao-outline/">修道之路-总纲</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/13/2104-satori/">修行总领——明心见性</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/09/2102-intermittent/">一张简单图片演示的“甚深佛法”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 draapho<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

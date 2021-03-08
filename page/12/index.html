@@ -1,0 +1,2615 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>DRA&amp;PHO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="由外转内的探索">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DRA&amp;PHO">
+<meta property="og:url" content="https://draapho.github.io/Blog/page/12/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="由外转内的探索">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="draapho">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="DRA&PHO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">DRA&amp;PHO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">thinking &amp; logging</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://draapho.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-1612-python-pyqtui" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/20/1612-python-pyqtui/" class="article-date">
+  <time class="dt-published" datetime="2016-10-19T13:00:00.000Z" itemprop="datePublished">2016-10-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Blog/2016/10/20/1612-python-pyqtui/">PyQt 的交互操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="environment"><a href="#environment" class="headerlink" title="environment"></a>environment</h1><ul>
+<li>Windows</li>
+<li><a target="_blank" rel="noopener" href="https://www.python.org/downloads/">python 2.7</a></li>
+<li><a target="_blank" rel="noopener" href="https://riverbankcomputing.com/software/pyqt/download">PyQt 4.11.4</a></li>
+</ul>
+<h1 id="useful-guide-startup"><a href="#useful-guide-startup" class="headerlink" title="useful guide / startup"></a>useful guide / startup</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.training.prace-ri.eu/uploads/tx_pracetmo/QtGuiIntro.pdf">Introduction to GUI development using Qt</a>, 简单明了的介绍了qt gui的基本特性</li>
+<li><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/pyqt/">PyQt Tutorial</a>, learn PyQt step by step.</li>
+<li><a target="_blank" rel="noopener" href="https://nikolak.com/pyqt-threading-tutorial/">PyQt: Threading Basics Tutorial</a>, 防止UI阻塞, 使用线程</li>
+</ul>
+<h1 id="Generate-basic-UI-file"><a href="#Generate-basic-UI-file" class="headerlink" title="Generate basic UI file"></a>Generate basic UI file</h1><ul>
+<li>use <code>Qt Designer</code> to create basic UI<ul>
+<li><code>New</code>-&gt;<code>Widget</code>-&gt;drag <code>PushButton</code> to <code>Form</code> Window</li>
+<li>Save it, for example <code>demo.ui</code></li>
+</ul>
+</li>
+<li>make sure <code>pyuic4.bat</code> is in the System PATH<ul>
+<li>input <code>pyuic4.bat -h</code> in shell, check the response.</li>
+</ul>
+</li>
+<li>change <code>.ui</code> to <code>.py</code> file<ul>
+<li>run <code>pyuic4.bat -x -o demo.py demo.ui</code> in the working folder.</li>
+<li><code>-o</code> means output, set the output filename.</li>
+<li><code>-x</code> will generate <code>if __name__ == &#39;__main__&#39;:</code> then can run directly</li>
+<li><code>pyuic4.bat demo.ui &gt; demo.py</code> is also OK.</li>
+</ul>
+</li>
+<li><del>the sample of <code>demo.py</code>, generated automatically by pyuic4.bat</del></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Form implementation generated from reading ui file &#x27;demo.ui&#x27;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Created by: PyQt4 UI code generator 4.11.4</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># WARNING! All changes made in this file will be lost!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PyQt4 <span class="keyword">import</span> QtCore, QtGui</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    _fromUtf8 = QtCore.QString.fromUtf8</span><br><span class="line"><span class="keyword">except</span> AttributeError:</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_fromUtf8</span>(<span class="params">s</span>):</span></span><br><span class="line">        <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    _encoding = QtGui.QApplication.UnicodeUTF8</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_translate</span>(<span class="params">context, text, disambig</span>):</span></span><br><span class="line">        <span class="keyword">return</span> QtGui.QApplication.translate(context, text, disambig, _encoding)</span><br><span class="line"><span class="keyword">except</span> AttributeError:</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_translate</span>(<span class="params">context, text, disambig</span>):</span></span><br><span class="line">        <span class="keyword">return</span> QtGui.QApplication.translate(context, text, disambig)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ui_Form</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setupUi</span>(<span class="params">self, Form</span>):</span></span><br><span class="line">        Form.setObjectName(_fromUtf8(<span class="string">&quot;Form&quot;</span>))</span><br><span class="line">        self.pushButton = QtGui.QPushButton(Form)</span><br><span class="line">        self.pushButton.setGeometry(QtCore.QRect(<span class="number">40</span>, <span class="number">40</span>, <span class="number">75</span>, <span class="number">23</span>))</span><br><span class="line">        self.pushButton.setObjectName(_fromUtf8(<span class="string">&quot;pushButton&quot;</span>))</span><br><span class="line"></span><br><span class="line">        self.retranslateUi(Form)</span><br><span class="line">        QtCore.QMetaObject.connectSlotsByName(Form)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">retranslateUi</span>(<span class="params">self, Form</span>):</span></span><br><span class="line">        Form.setWindowTitle(_translate(<span class="string">&quot;Form&quot;</span>, <span class="string">&quot;Form&quot;</span>, <span class="literal">None</span>))</span><br><span class="line">        self.pushButton.setText(_translate(<span class="string">&quot;Form&quot;</span>, <span class="string">&quot;PushButton&quot;</span>, <span class="literal">None</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># using -x will generate the following code</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">import</span> sys</span><br><span class="line">    app = QtGui.QApplication(sys.argv)</span><br><span class="line">    Form = QtGui.QWidget()</span><br><span class="line">    ui = Ui_Form()</span><br><span class="line">    ui.setupUi(Form)</span><br><span class="line">    Form.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><del>run &amp; check the　UI</del><ul>
+<li>run <code>python demo.py</code> in the working folder.</li>
+<li>OR run directly in editor like atom.</li>
+</ul>
+</li>
+</ul>
+<h1 id="click-then-do-sth"><a href="#click-then-do-sth" class="headerlink" title="click then do sth"></a>click then do sth</h1><ul>
+<li>create a new py file, for example <code>show.py</code>. input code like:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> demo  <span class="comment"># generated from xxx.ui</span></span><br><span class="line"><span class="keyword">from</span> PyQt4 <span class="keyword">import</span> QtGui</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyForm</span>(<span class="params">QtGui.QWidget, demo.Ui_Form</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(self.__class__, self).__init__()  <span class="comment"># QtGui.QWidget.__init__()</span></span><br><span class="line">        self.setupUi(self)</span><br><span class="line">        self.pushButton.clicked.connect(</span><br><span class="line">            self.handleButton)  <span class="comment"># here is important line</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handleButton</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span> (<span class="string">&quot;hello, https://draapho.github.io/&quot;</span>)</span><br><span class="line">        <span class="comment"># size = self.geometry()</span></span><br><span class="line">        <span class="comment"># self.resize(size.width() + 2, size.height() + 2)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app = QtGui.QApplication(sys.argv)</span><br><span class="line">    form = MyForm()</span><br><span class="line">    form.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>look at <code>self.ui.pushButton.clicked.connect(self.handleButton)</code><br>it links clicked event with handleButton function.</li>
+<li>if you want to resize the window after clicked the button. change <code>handleButton</code> to</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handleButton</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="comment"># print (&quot;hello, https://draapho.github.io/&quot;)</span></span><br><span class="line">    size = self.geometry()</span><br><span class="line">    self.resize(size.width() + <span class="number">2</span>, size.height() + <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="click-then-do-heavy-work"><a href="#click-then-do-heavy-work" class="headerlink" title="click then do heavy work"></a>click then do heavy work</h1><ul>
+<li><p><del>bad code, UI totally dead</del></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PyQt4 <span class="keyword">import</span> QtGui</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> demo</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyForm</span>(<span class="params">QtGui.QWidget, demo.Ui_Form</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(self.__class__, self).__init__()</span><br><span class="line">        self.setupUi(self)</span><br><span class="line">        self.pushButton.clicked.connect(self.startCount)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">startCount</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.pushButton.clicked.disconnect()</span><br><span class="line">        self.pushButton.clicked.connect(self.stopCount)</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="number">15</span>:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            self.pushButton.setText(<span class="built_in">str</span>(i))</span><br><span class="line">            <span class="built_in">print</span> i</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stopCount</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.pushButton.clicked.disconnect()</span><br><span class="line">        self.pushButton.clicked.connect(self.startCount)</span><br><span class="line">        self.pushButton.setText(<span class="string">&quot;PushButton&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app = QtGui.QApplication(sys.argv)</span><br><span class="line">    form = MyForm()</span><br><span class="line">    form.show()</span><br><span class="line">    app.exec_()</span><br></pre></td></tr></table></figure></li>
+<li><p>use thread, can do everything in UI</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PyQt4 <span class="keyword">import</span> QtGui</span><br><span class="line"><span class="keyword">from</span> PyQt4.QtCore <span class="keyword">import</span> QThread, SIGNAL</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> demo</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">getCountThread</span>(<span class="params">QThread</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        QThread.__init__(self)</span><br><span class="line">        self.count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.wait()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">while</span> self.count &lt; <span class="number">15</span>:</span><br><span class="line">            self.count += <span class="number">1</span></span><br><span class="line">            self.emit(SIGNAL(<span class="string">&#x27;showCount(int)&#x27;</span>), self.count)</span><br><span class="line">            <span class="built_in">print</span> self.count</span><br><span class="line">            self.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyForm</span>(<span class="params">QtGui.QWidget, demo.Ui_Form</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(self.__class__, self).__init__()</span><br><span class="line">        self.setupUi(self)</span><br><span class="line">        self.pushButton.clicked.connect(self.startCount)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">startCount</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.pushButton.clicked.disconnect()</span><br><span class="line">        self.get_thread = getCountThread()</span><br><span class="line">        self.connect(self.get_thread, SIGNAL(<span class="string">&quot;showCount(int)&quot;</span>), self.showCount)</span><br><span class="line">        self.connect(self.get_thread, SIGNAL(<span class="string">&quot;finished()&quot;</span>), self.done)</span><br><span class="line">        self.get_thread.start()</span><br><span class="line">        <span class="comment"># must be under the self.get_thread.start()</span></span><br><span class="line">        self.pushButton.clicked.connect(self.get_thread.terminate)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">showCount</span>(<span class="params">self, count</span>):</span></span><br><span class="line">        self.pushButton.setText(<span class="built_in">str</span>(count))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">done</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.pushButton.clicked.disconnect()</span><br><span class="line">        self.pushButton.setText(<span class="string">&quot;PushButton&quot;</span>)</span><br><span class="line">        self.pushButton.clicked.connect(self.startCount)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app = QtGui.QApplication(sys.argv)</span><br><span class="line">    form = MyForm()</span><br><span class="line">    form.show()</span><br><span class="line">    app.exec_()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
+<li>explanation<ul>
+<li><code>getCountThread</code> 子线程类, 执行繁重任务</li>
+<li><code>MyForm</code>-&gt;<code>startCount</code> 点击按键后执行, 设置好信号, 启动子线程</li>
+<li><code>self.connect(self.get_thread, SIGNAL(&quot;showCount(int)&quot;), self.showCount)</code><br>准备接收来自线程的信号, 并在 <code>showCount</code> 更新UI</li>
+<li><code>self.connect(self.get_thread, SIGNAL(&quot;finished()&quot;), self.done)</code><br>准备接收来自线程的结束信号, 然后在 <code>done</code> 下更新标记和UI</li>
+<li><code>self.get_thread.start()</code><br>启动子线程</li>
+<li><code>self.pushButton.clicked.connect(self.get_thread.terminate)</code><br>将按键的功能设置为终止子线程, 必须放在 <code>self.get_thread.start()</code> 下面</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/10/20/1612-python-pyqtui/" data-id="cklzxufhe000xm8qo7tt8bajd" data-title="PyQt 的交互操作" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-1611-WinSoft-other" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/16/1611-WinSoft-other/" class="article-date">
+  <time class="dt-published" datetime="2016-10-15T13:00:00.000Z" itemprop="datePublished">2016-10-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/windows/">windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Blog/2016/10/16/1611-WinSoft-other/">Windows 软件系列-开发软件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="eclipse"><a href="#eclipse" class="headerlink" title="eclipse"></a><a target="_blank" rel="noopener" href="https://eclipse.org/downloads/">eclipse</a></h1><ul>
+<li><a target="_blank" rel="noopener" href="https://eclipse.org/downloads/">eclipse</a> 就不做介绍了.</li>
+<li>设置主题<ul>
+<li><code>Window</code>-&gt;<code>Preferences</code>-&gt;<code>General</code>-&gt;<code>Appearance</code>-&gt;<code>Color Theme</code>-&gt;<code>Sublime Text 2</code></li>
+</ul>
+</li>
+<li>设置编辑界面<ul>
+<li><code>Window</code>-&gt;<code>Preferences</code>-&gt; <code>General</code>-&gt;<code>Editors</code>-&gt;<code>Text Editors</code>-&gt;<ul>
+<li><code>Insert spaces for tabs</code></li>
+<li><code>Show print margin</code></li>
+<li><code>Show whitespace characters</code>-&gt;<code>configure visibility</code>-&gt;<del><code>Carriage Return</code></del> <del><code>Line Feed</code></del></li>
+</ul>
+</li>
+<li><code>Window</code>-&gt;<code>Preferences</code>-&gt; <code>General</code>-&gt;<code>Editors</code>-&gt;<code>Text Editors</code>-&gt;<code>Quick Diff</code><ul>
+<li><code>Enable Quick Diff</code></li>
+<li><code>Use this reference source:</code>-&gt;<code>A Git Revision</code></li>
+<li>需要装好git</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设置路径<ul>
+<li><code>Window</code>-&gt;<code>Preferences</code>-&gt;<code>Team</code>-&gt;<code>Git</code>-&gt;<code>Default repository folder:</code>-&gt;<code>$&#123;project_loc&#125;</code></li>
+<li><code>Window</code>-&gt;<code>Preferences</code>-&gt;<code>Terminal</code>-&gt;<code>Local Terminal</code>-&gt;<code>Initial Working Directory</code>-&gt;<code>$&#123;project_loc&#125;</code></li>
+<li>注意, 上述两项需要有git项目并编译后, 才可以成功设置</li>
+</ul>
+</li>
+<li>设置快捷键<ul>
+<li><code>Window</code>-&gt;<code>Preferences</code>-&gt;<code>General</code>-&gt;<code>Keys</code> 可设置快捷键</li>
+<li>快捷键设置要求见 <a href="https://draapho.github.io/2016/10/08/1607-CheatSheet-win/">Windows快捷键</a></li>
+<li>配置文件名为 <code>org.eclipse.ui.workbench.prefs</code>, 路径如下, $workspace$ 表示 eclipse 的工作路径.</li>
+<li><code>$workspace$\.metadata\.plugins\org.eclipse.core.runtime\.settings</code>下</li>
+<li>TrueSTUIDO版的快捷键见TureSTUDIO</li>
+</ul>
+</li>
+</ul>
+<h1 id="TrueSTUIDO"><a href="#TrueSTUIDO" class="headerlink" title="TrueSTUIDO"></a><a target="_blank" rel="noopener" href="http://atollic.com/truestudio/">TrueSTUIDO</a></h1><ul>
+<li><a target="_blank" rel="noopener" href="http://atollic.com/truestudio/">TrueSTUIDO</a>是一款免费的ARM IDE, 基于eclipse. 免费版有5s广告.</li>
+<li>快捷键配置文件<ul>
+<li>我的配置文件 <a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/tree/master/_blog_stuff/TrueSTUIDIO/org.eclipse.ui.workbench.prefs">org.eclipse.ui.workbench.prefs</a></li>
+<li>下载后直接覆盖放入 <code>$workspace$/.metadata/.plugins/org.eclipse.core.runtime/.settings/</code></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=R2hfq4S_-B0">TrueSTUIDO Download and Reset (no debug)</a><ul>
+<li><code>Run</code>-&gt;<code>Debug Configurations...</code>-&gt;<code>Embedded C/C++...</code>下的文件-&gt;<code>Startup Scripts</code></li>
+<li>delete all context after <code>load</code> and input <code>quit</code></li>
+<li><code>Window</code>-&gt;<code>Perspective</code>-&gt;<code>Customize Pespective...</code>-&gt;<code>Launch</code>-&gt;选择 <code>Debug</code> 和 <code>Run</code></li>
+</ul>
+</li>
+<li>生成指定格式<ul>
+<li>项目右键 <code>Properties</code>-&gt;<code>C/C++ Build</code>-&gt;<code>Settings</code>-&gt;<code>Tool Settings</code>-&gt;<code>Other</code>-&gt;<code>Output format</code>-&gt;<code>Convert build output</code>-&gt;<code>Intel Hex</code> or <code>Binary</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="RealView-MDK"><a href="#RealView-MDK" class="headerlink" title="RealView MDK"></a>RealView MDK</h1><ul>
+<li>RVMDK 设置成utf8格式. <code>Edit</code>-&gt;<code>Configuration</code>-&gt;<code>Editor</code>-&gt;<code>Encoding</code>-&gt;<code>UTF8</code></li>
+</ul>
+<h1 id="Source-Insight"><a href="#Source-Insight" class="headerlink" title="Source Insight"></a>Source Insight</h1><ul>
+<li>添加完文件后, 需要同步. <code>Project</code>-&gt;<code>Synchronize Files...</code></li>
+<li>添加文件类型. <code>Options</code>-&gt;<code>Document Options</code>-&gt;<code>Document Type</code>, 在file filter内增加文件类型即可</li>
+</ul>
+<h1 id="使用mingw编译C语言"><a href="#使用mingw编译C语言" class="headerlink" title="使用mingw编译C语言"></a>使用mingw编译C语言</h1><ul>
+<li><p>主要用于写一些小程序用来验证或测试. 与linux开发习惯一致, 而且免费轻巧快捷.</p>
+</li>
+<li><p>下载 <a target="_blank" rel="noopener" href="http://www.mingw.org/">MinGW</a>, 安装并设置好环境变量.</p>
+<ul>
+<li>安装好后, 只是 MinGW Installation Manager, 实际上是个绿色软件. 打开后继续安装组件</li>
+<li><code>Basic Setup</code>-&gt;<code>mingw32-base</code> 和 <code>mingw32-gcc-g++</code>-&gt;左上 <code>Installation</code>-&gt;<code>Apply changes</code>-&gt;等待安装完成.</li>
+<li>这里只需要编译c和c++文件, 无需安装其它组件了.</li>
+<li>设置 <code>...\MinGW\bin</code> 文件夹到系统环境变量中</li>
+<li>复制一份 <code>mingw32-make.exe</code> 并重命名为 <code>make.exe</code>, 这样就能直接用 make 指令了</li>
+<li>测试. 终端中输入 <code>make -v</code> 和 <code>gcc -v</code>, 看是否可以识别到指令</li>
+</ul>
+</li>
+<li><p>建立一个工作目录, 建立2个文件即可. 一个 <code>.c</code>, 另一个 <code>makefile</code> 即可</p>
+<ul>
+<li>创建并命名为 <code>main.c</code><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\r\nhello: %s\r\n&quot;</span>, <span class="string">&quot;DRA&amp;PHO&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>创建并命名为 <code>makefile</code><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">test:main.o</span></span><br><span class="line">    gcc -o hello main.o</span><br><span class="line"></span><br><span class="line"><span class="section">main.o:main.c</span></span><br><span class="line">    gcc -c main.c</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>打开终端, 切换到这个工作目录<ul>
+<li>输入 <code>make</code> 即可编译, 会生成 <code>main.o</code> <code>hello.exe</code> 两个文件</li>
+<li>输入 <code>./hello.exe</code> 执行, 终端就会输出 <code>hello: DRA&amp;PHO</code></li>
+</ul>
+</li>
+<li>资料和参考<ul>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/zhanghan3/article/details/1334308">windows下使用makefile编译C语言</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/10/16/1611-WinSoft-other/" data-id="cklzxufhd000vm8qo98v8bqoq" data-title="Windows 软件系列-开发软件" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-1610-WinSoft-atompack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/12/1610-WinSoft-atompack/" class="article-date">
+  <time class="dt-published" datetime="2016-10-11T13:00:00.000Z" itemprop="datePublished">2016-10-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/windows/">windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Blog/2016/10/12/1610-WinSoft-atompack/">Windows 软件系列-atom插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="atom简介"><a href="#atom简介" class="headerlink" title="atom简介"></a><a target="_blank" rel="noopener" href="https://atom.io/">atom</a>简介</h1><ul>
+<li>界面简洁, 基本上手可用, 无需复杂设置</li>
+<li>开源免费, 而且多平台支持, 有丰富的插件库</li>
+<li>和git的整合度很好! 直观明了好用</li>
+<li>启动相对较慢, 但可接受.</li>
+<li>懒人不想折腾, atom无明显短板, 就作为主力代码编辑器了</li>
+<li>定位是 Notepad++ 为快速处理文件, atom 处理项目</li>
+<li>此篇重点介绍 atom 插件的选择和安装, 以及配置快捷键. 基础介绍见<a href="https://draapho.github.io/2016/09/30/1603-WinSoft-editor/">Windows 软件系列-文本编辑</a></li>
+</ul>
+<h1 id="atom-插件的安装方式"><a href="#atom-插件的安装方式" class="headerlink" title="atom 插件的安装方式"></a>atom 插件的安装方式</h1><ul>
+<li><code>ctrl-,</code>-&gt;<code>Settings</code>-&gt;<code>Install</code>-&gt;选择要安装的插件</li>
+<li>终端下使用命令行 <code>apm install</code>, 装完后需要重启atom.<br>有些插件只能通过这个方式安装. 譬如要安装 <code>linter</code>, 命令行输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apm install linter</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="atom-通用插件"><a href="#atom-通用插件" class="headerlink" title="atom 通用插件"></a>atom 通用插件</h1><ul>
+<li><code>Sublime-Style-Column-Selection</code> 使用 <code>alt-鼠标左键</code> 进入列选模式</li>
+<li><code>atom-beautify</code> 自动格式化代码,<ul>
+<li>需设置 <code>ctrl-b</code> 美化</li>
+</ul>
+</li>
+<li><del><code>autocomplete-paths</code></del> 辅助完成路径</li>
+<li><code>block-comment-plus</code> 批量注释, 支持多种语言<ul>
+<li>需设置 <code>ctrl-shift-/</code> 和 <code>ctrl-shift-\</code></li>
+</ul>
+</li>
+<li><code>dash</code>  文档帮助, 配合 zeal (windows/linux) 或 dash(apple), 实现快速查询API<ul>
+<li>需设置 <code>F1</code> 帮助</li>
+</ul>
+</li>
+<li><del><code>disable-keybindings</code></del> 快速禁用atom的部分快捷键</li>
+<li><code>docblockr</code> 注释辅助, 快速添加函数的注释<ul>
+<li>支持 <code>tab</code> 键直接在参数间跳转</li>
+<li><code>Align tags</code>-&gt;<code>deep</code></li>
+<li><code>Auto add method tag</code></li>
+<li><del><code>Extend double slash</code></del></li>
+</ul>
+</li>
+<li><code>highlight-selected</code> 自动高亮匹配的词,</li>
+<li><code>hyperclick</code> 快速跳转到定义处, 仅限单文件, 但可由别的插件扩展<ul>
+<li><code>Trigger keys for Windows</code> <code>ctrl-shift-click</code>. 用ctrl键和系统多选冲突</li>
+</ul>
+</li>
+<li><code>last-cursor-position</code> 浏览历史跳转<ul>
+<li>需设置 <code>ctrl-shift-z</code> <code>ctrl-shift-y</code> 进行跳转</li>
+</ul>
+</li>
+<li><code>linter</code> 语法检查基础包</li>
+<li><code>minimap</code> 文件地图</li>
+<li><code>minimap-highlight-selected</code> 在文件地图中显示匹配的词</li>
+<li><code>platformio-ide-terminal</code> 终端软件 <ul>
+<li>支持 <code>ctrl-~</code> 快速打开, <code>ctrl-enter</code> 输入选中的文本</li>
+<li><code>Close Terminal on Exit</code></li>
+<li><code>Shell Override</code>-&gt;<code>git-cmd.exe</code> 没有配置环境变量则需要使用绝对路径</li>
+<li><code>Shell Arguments</code>-&gt;<code>--no-cd --command=usr/bin/bash.exe -l -i</code></li>
+<li><code>Working Directory</code>-&gt;<code>Project</code></li>
+<li><code>Theme</code>-&gt;<code>homebrew</code> 黑底绿字</li>
+</ul>
+</li>
+<li><del><code>Project Manager</code></del> 加入项目的概念, 纯快捷键操作. 与<code>project-viewer</code>二选一即可.</li>
+<li><code>project-viewer</code> 加入项目的概念,  带UI. 与<code>Project Manager</code>二选一即可.<ul>
+<li><code>Status Bar Visibility</code></li>
+<li><code>Autohide</code></li>
+<li><code>Positon of the panel</code>-&gt;<code>Left</code></li>
+<li><del><code>Convert Old Data</code></del></li>
+</ul>
+</li>
+<li><code>script</code> 一键执行, 支持多种代码, 不弹窗<ul>
+<li>需设置 <code>F5</code> 执行</li>
+</ul>
+</li>
+<li><code>symbols-tree-view</code> 显示类/变量/函数列表<ul>
+<li><code>Auto Hide</code></li>
+<li><code>Auto Toggle</code></li>
+</ul>
+</li>
+<li><code>tabs-to-spaces</code> tab空格互相转换</li>
+<li><del><code>vim-mode</code></del> vim操作方式. 需要屏蔽按键 <code>ctrl-f</code>, 恢复为搜索按键<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#39;atom-text-editor.vim-mode:not(.insert-mode)&#39;:</span><br><span class="line">  &#39;ctrl-f&#39;: &#39;unset!&#39;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="git-插件"><a href="#git-插件" class="headerlink" title="git 插件"></a>git 插件</h1><ul>
+<li><code>git-time-machine</code> 查看单文件的git历史<ul>
+<li>需设置 <code>f6</code> 查看比较</li>
+</ul>
+</li>
+<li><del><code>git-plus</code></del> git辅助, 我是通过 <code>platformio-ide-terminal</code> 打开终端敲git命令.</li>
+<li>merge-conflicts 查看git文件冲突<ul>
+<li>需设置 <code>ctrl-f6</code> 查看冲突</li>
+</ul>
+</li>
+</ul>
+<h1 id="python-插件"><a href="#python-插件" class="headerlink" title="python 插件"></a>python 插件</h1><ul>
+<li>配置 <code>atom-beautify</code> 之python语言<ul>
+<li>安装 <a target="_blank" rel="noopener" href="https://www.python.org/">python</a> </li>
+<li>安装 <a target="_blank" rel="noopener" href="https://github.com/hhatto/autopep8">autopep8</a>, 调用 <code>pip install --upgrade autopep8</code></li>
+<li>默认就是使用 <code>autopep8</code> 优化代码, 也推荐这个使用这个工具. <code>yapf</code>的优化结果无法满足<code>linter-flake8</code>的检查.</li>
+<li>测试. 打开一个 <code>.py</code> 文件, 右键选择 <code>Beautify editor contents</code> 看是否成功了.</li>
+</ul>
+</li>
+<li><del><code>atom-python-run</code></del> <code>F5</code>运行, 但是会弹cmd窗, 改用<code>script</code></li>
+<li><code>autocomplete-python</code> python辅助, 配合 <code>hyperclick</code> 跳转很方便<ul>
+<li>设置快捷键 <code>f4</code> 跳转</li>
+<li><code>Show Descriptions</code></li>
+<li><code>Autocomplete Function Parameters</code>-&gt;<code>all</code></li>
+</ul>
+</li>
+<li><code>linter-flake8</code> 代码规范检查, 检查很严, 配合 autopep8 的自动格式化就很完美了.<ul>
+<li>终端输入 <code>pip install flake8</code> python 安装 <code>flake8</code></li>
+<li>终端输入 <code>apm install linter-flake8</code> atom 安装 <code>linter-flake8</code></li>
+<li>插件配置 <code>Ignore Error</code>-&gt;<code>E501</code> 超过79列不要提示错误</li>
+</ul>
+</li>
+</ul>
+<h1 id="c-c-插件"><a href="#c-c-插件" class="headerlink" title="c/c++ 插件"></a>c/c++ 插件</h1><ul>
+<li>配置 <code>atom-beautify</code> 之c/c++语言<ul>
+<li>安装<a target="_blank" rel="noopener" href="http://uncrustify.sourceforge.net/">uncrustify</a>, 可以自动美化多种语言的格式.<ul>
+<li>下载<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/uncrustify/files/uncrustify/uncrustify-0.63/">uncrustify-0.63.0-g44ce0f1-win32.zip</a></li>
+<li>解压后, 将uncrustify目录加入环境变量, 已 <code>D:\uncrustify\</code> 为例</li>
+<li>终端内输入 <code>uncrustify -v</code>, 测试是否配置好 uncrustify</li>
+</ul>
+</li>
+<li><code>atom-beautify</code> 插件的配置, 在c和c++下分别操作一次.<ul>
+<li><code>Default Beautifier</code>-&gt;<code>Uncrustify</code> . <del>另一个选项 <code>clang-format</code> 需要安装clang, 里面带有指令<code>clang-format.exe</code></del></li>
+<li><code>Config Path</code>-&gt;<code>D:\uncrustify\cfg\linux.cfg</code> 选择格式化模板</li>
+</ul>
+</li>
+<li>测试, 打开一个 <code>.c</code> 文件, 右键选择 <code>Beautify editor contents</code> 看是否成功了.</li>
+</ul>
+</li>
+<li><code>atom-gtags</code>, 能比较好的实现跳转<ul>
+<li>设置快捷键 <code>f4</code> 跳转</li>
+<li>右键项目根目录即可 <code>Build Gtags</code></li>
+<li>放弃 <del><code>atom-ctags</code></del> 实测效果很差!</li>
+<li>比较: <a target="_blank" rel="noopener" href="https://github.com/OpenGrok/OpenGrok/wiki/Comparison-with-Similar-Tools">https://github.com/OpenGrok/OpenGrok/wiki/Comparison-with-Similar-Tools</a></li>
+</ul>
+</li>
+<li>基于gcc编译的配置<ul>
+<li>下载 <a target="_blank" rel="noopener" href="http://www.mingw.org/">MinGW</a>, 安装并设置好环境变量<ul>
+<li>安装好后, 只是 <code>MinGW Installation Manager</code>, 实际上是个绿色软件. 打开后继续安装组件</li>
+<li><code>Basic Setup</code>-&gt;<code>mingw32-base</code> 和 <code>mingw32-gcc-g++</code>-&gt;左上 <code>Installation</code>-&gt;<code>Apply changes</code>-&gt;等待安装完成.</li>
+<li>这里只需要编译c和c++文件, 无需安装其它组件了.</li>
+<li>设置 <code>...\MinGW\bin</code> 文件夹到系统环境变量中</li>
+<li>复制一份 <code>mingw32-make.exe</code> 并重命名为 <code>make.exe</code>, 这样就能直接用 <code>make</code> 指令了</li>
+<li>测试. 终端中输入 <code>make -v</code> 和 <code>gcc -v</code>, 看是否可以识别到指令</li>
+</ul>
+</li>
+<li><del><code>gpp-compiler</code></del> <code>f5</code>运行, 但会弹cmd窗, 决定使用内置终端</li>
+<li><code>linter-gcc</code> 基于gcc进行语法检查<ul>
+<li><code>GCC Excutable Path</code>-&gt;<code>gcc</code> 或 <code>g++</code>, 没有配置环境变量的话, 使用绝对路径, 注意斜杠!</li>
+<li><code>GCC Include Paths</code>-&gt;<code>.../MinGW/include/*</code> 注意斜杠方向! 加入必要头文件.</li>
+<li>只在保存时, 才会进行语法检查</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><del>基于clang编译的配置</del><ul>
+<li>彻底放弃这个系列, 不用vs, 基于mingw的配置失败.</li>
+<li>相关软件和参考如下</li>
+<li><del><code>autocomplete-clang</code></del> 自动完成</li>
+<li><del><code>linter-clang</code></del> 语法检查</li>
+<li><a target="_blank" rel="noopener" href="http://llvm.org/">clang官网</a>. 官网进入的链接是找不到windows下编译好的版本的.</li>
+<li>下载特定版本的clang, 如 <code>LLVM-3.9.0</code>, 使用链接:<a target="_blank" rel="noopener" href="http://llvm.org/releases/3.9.0/">http://llvm.org/releases/3.9.0/</a></li>
+<li>参考 <a target="_blank" rel="noopener" href="http://m.blog.csdn.net/article/details?id=49902519">解决llvm/clang在windows下编译时找不到头文件和Lib的问题</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="markdown插件"><a href="#markdown插件" class="headerlink" title="markdown插件"></a>markdown插件</h1><ul>
+<li>atom已经支持markdown, 使用<code>ctrl-shift-m</code>即可预览. 如果要增强功能, 可以使用插件</li>
+<li><del><code>markdown-preview-enhanced</code></del> markdown, 导出为pdf时, 制图显示有问题<ul>
+<li><code>Break On Single Newline</code></li>
+<li><code>Enable Typographer</code></li>
+<li><code>Math Rendering Option</code>-&gt;<code>MathJax</code></li>
+<li><del><code>Enable Wiki Link Syntax</code></del></li>
+<li><del><code>Use GitHub.com syntax theme</code></del></li>
+<li><del><code>Print Background when generating pdf</code></del> 否则pdf不显示制图</li>
+<li><del><code>Use Github style when generating pdf</code></del> 否则pdf不显示制图</li>
+<li><del><code>Open preview pane automatically when opening a markdown file</code></del></li>
+<li><code>Image Uploader</code>-&gt;<code>sm.ms</code> 建议这个. <code>imgur</code> 有时限</li>
+<li><code>Mermaid Theme</code>-&gt;<code>mermaid.forest.css</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="atom快捷键配置"><a href="#atom快捷键配置" class="headerlink" title="atom快捷键配置"></a>atom快捷键配置</h1><ul>
+<li><p>使用 <code>ctrl-.</code> 查看按键冲突. 如果无效, 试试点到非编辑区(如目录树)试试.</p>
+</li>
+<li><p><code>ctrl-,</code>-&gt;<code>Settings</code>-&gt;<code>Keybindings</code>-&gt;<code>your keymap file</code>-&gt;打开<code>keymap.cson</code></p>
+</li>
+<li><p>自定义快捷键方式可参考 <a target="_blank" rel="noopener" href="http://flight-manual.atom.io/using-atom/sections/basic-customization/#_customizing_keybindings">Basic Customization</a></p>
+</li>
+<li><p>很明显, 要备份自己的快捷键设置, 只需要保存这份 <code>keymap.cson</code> 文件</p>
+</li>
+<li><p>最后禁用插件里不需要的快捷键, 或者使用 <code>disable-keybindings</code>.</p>
+<ul>
+<li><code>Keybindings</code> -&gt; <del><code>Enable</code></del>. 屏蔽以下插件:</li>
+<li><code>atom-beautify</code>, <code>atom-gtags</code>, <code>autocomplete-python</code></li>
+<li><code>block-comment-plus</code>, <code>dash</code>, <code>git-time-machine</code></li>
+<li><code>highlight-selected</code>, <code>hyperclick</code>, </li>
+<li><code>script</code>, <code>symbols-tree-view</code>, <code>tabs-to-spaces</code></li>
+</ul>
+</li>
+<li><p>我的 <code>keymap.cson</code> 配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"># atom 大致原则是, 小窗口&gt;大窗口, 然后才是客户配置&gt;插件配置&gt;系统配置</span><br><span class="line"># 因此优先级 &#39;body&#39; &lt; &#39;atom-workspace&#39; &lt; &#39;atom-text-editor&#39; &lt; &#39;atom-text-editor:not([mini])&#39;</span><br><span class="line"></span><br><span class="line">&#39;atom-text-editor[data-grammar~&#x3D;python]:not(.mini)&#39;:</span><br><span class="line">  &#39;f4&#39;: &#39;autocomplete-python:go-to-definition&#39;</span><br><span class="line">  &#39;shift-f4&#39;: &#39;autocomplete-python:go-to-definition&#39;</span><br><span class="line">  &#39;alt-shift-s&#39;: &#39;autocomplete-python:override-method&#39;</span><br><span class="line"></span><br><span class="line">&#39;atom-text-editor[data-grammar~&#x3D;c]:not(.mini)&#39;:</span><br><span class="line">  &#39;f4&#39;: &#39;atom-gtags:get-definitions&#39;</span><br><span class="line">  &#39;shift-f4&#39;: &#39;atom-gtags:get-references&#39;</span><br><span class="line"></span><br><span class="line">&#39;.platform-win32 atom-workspace atom-text-editor:not([mini])&#39;:</span><br><span class="line"># character                            </span><br><span class="line">  &#39;ctrl-b&#39;: &#39;atom-beautify:beautify-editor&#39;</span><br><span class="line">  &#39;ctrl-d&#39;: &#39;core:delete&#39;</span><br><span class="line">  &#39;ctrl-shift-d&#39;: &#39;editor:delete-line&#39;</span><br><span class="line">  &#39;ctrl-j&#39;: &#39;core:move-down&#39; </span><br><span class="line">  &#39;ctrl-k&#39;: &#39;core:move-up&#39;   </span><br><span class="line">  &#39;ctrl-l&#39;: &#39;core:move-right&#39;</span><br><span class="line">  &#39;ctrl-h&#39;: &#39;core:move-left&#39;</span><br><span class="line">  &#39;ctrl-shift-j&#39;: &#39;editor:move-line-down&#39;</span><br><span class="line">  &#39;ctrl-shift-k&#39;: &#39;editor:move-line-up&#39;</span><br><span class="line">  &#39;ctrl-shift-l&#39;: &#39;editor:move-to-end-of-word&#39;</span><br><span class="line">  &#39;ctrl-shift-h&#39;: &#39;editor:move-to-beginning-of-word&#39;</span><br><span class="line">  &#39;alt-shift-j&#39;: &#39;editor:join-lines&#39;</span><br><span class="line">  &#39;ctrl-m&#39;: &#39;bookmarks:toggle-bookmark&#39;  </span><br><span class="line">  &#39;ctrl-r&#39;: &#39;core:redo&#39;</span><br><span class="line">  &#39;ctrl-u&#39;: &#39;core:undo&#39;</span><br><span class="line">  &#39;ctrl-shift-v&#39;: &#39;editor:duplicate-lines&#39;</span><br><span class="line">  &#39;ctrl-shift-W&#39;: &#39;tabs:close-other-tabs&#39;</span><br><span class="line">  &#39;ctrl-shift-x&#39;: &#39;editor:select-line&#39;</span><br><span class="line">  &#39;ctrl-shift-y&#39;: &#39;last-cursor-position:next&#39;</span><br><span class="line">  &#39;ctrl-shift-z&#39;: &#39;last-cursor-position:previous&#39;</span><br><span class="line"># special</span><br><span class="line">  &#39;ctrl-4&#39;: &#39;editor:move-to-end-of-screen-line&#39;         # ctrl-$</span><br><span class="line">  &#39;ctrl-6&#39;: &#39;editor:move-to-first-character-of-line&#39;    # ctrl-^</span><br><span class="line">  &#39;ctrl-$&#39;: &#39;editor:select-to-end-of-line&#39;              # ctrl-shift-$</span><br><span class="line">  &#39;ctrl-^&#39;: &#39;editor:select-to-first-character-of-line&#39;  # ctrl-shift-^</span><br><span class="line">  &#39;ctrl-?&#39;: &#39;block-comment-plus:toggle&#39;                 # ctrl-shift-&#x2F;</span><br><span class="line">  &#39;ctrl-|&#39;: &#39;block-comment-plus:toggle&#39;                 # ctrl-shift-\</span><br><span class="line">  &#39;ctrl-]&#39;: &#39;bracket-matcher:select-inside-brackets&#39;</span><br><span class="line">  &#39;ctrl-[&#39;: &#39;bracket-matcher:go-to-matching-bracket&#39;</span><br><span class="line">  &#39;ctrl-.&#39;: &#39;tabs-to-spaces:untabify-all&#39;</span><br><span class="line">  &#39;ctrl-&gt;&#39;: &#39;tabs-to-spaces:tabify&#39;                     # ctrl-shift-.</span><br><span class="line"># alt</span><br><span class="line">  &#39;alt-0&#39;: &#39;editor:fold-all&#39;</span><br><span class="line">  &#39;alt-)&#39;: &#39;editor:unfold-all&#39;                          # alt-shift-0</span><br><span class="line">  &#39;alt-!&#39;: &#39;editor:unfold-all&#39;                          # alt-shift-1</span><br><span class="line">  &#39;alt-1&#39;: &#39;editor:fold-at-indent-level-1&#39;</span><br><span class="line">  &#39;alt-2&#39;: &#39;editor:fold-at-indent-level-2&#39;</span><br><span class="line">  &#39;alt-3&#39;: &#39;editor:fold-at-indent-level-3&#39;</span><br><span class="line">  &#39;alt-4&#39;: &#39;editor:fold-at-indent-level-4&#39;</span><br><span class="line">  &#39;alt-5&#39;: &#39;editor:fold-at-indent-level-5&#39;</span><br><span class="line">  &#39;alt-6&#39;: &#39;editor:fold-at-indent-level-6&#39;</span><br><span class="line">  &#39;alt-7&#39;: &#39;editor:fold-at-indent-level-7&#39;</span><br><span class="line">  &#39;alt-8&#39;: &#39;editor:fold-at-indent-level-8&#39;</span><br><span class="line">  &#39;alt-9&#39;: &#39;editor:fold-at-indent-level-9&#39;</span><br><span class="line"># f1-f6</span><br><span class="line">  &#39;f1&#39;: &#39;dash:shortcut&#39;</span><br><span class="line">  &#39;ctrl-f2&#39;: &#39;bookmarks:view-all&#39;</span><br><span class="line">  &#39;ctrl-shift-f2&#39;: &#39;bookmarks:clear-bookmarks&#39;</span><br><span class="line">  &#39;ctrl-f3&#39;: &#39;find-and-replace:select-all&#39;</span><br><span class="line">  &#39;f5&#39;: &#39;script:run&#39;</span><br><span class="line">  &#39;ctrl-f5&#39;: &#39;script:run-with-profile&#39;</span><br><span class="line">  &#39;shift-f5&#39;: &#39;script:run-options&#39;</span><br><span class="line">  &#39;f6&#39;: &#39;git-time-machine:toggle&#39;</span><br><span class="line">  &#39;ctrl-f6&#39;: &#39;merge-conflicts:detect&#39;</span><br><span class="line">  &#39;shift-f6&#39;: &#39;merge-conflicts:next-unresolved&#39;</span><br><span class="line">  &#39;ctrl-shift-f6&#39;: &#39;merge-conflicts:previous-unresolved&#39;</span><br><span class="line"></span><br><span class="line">&#39;body&#39;:</span><br><span class="line">  &#39;ctrl-j&#39;: &#39;core:move-down&#39;</span><br><span class="line">  &#39;ctrl-k&#39;: &#39;core:move-up&#39;</span><br><span class="line">  &#39;ctrl-r&#39;: &#39;core:redo&#39;</span><br><span class="line">  &#39;ctrl-u&#39;: &#39;core:undo&#39;</span><br><span class="line">  &#39;ctrl-shift-S&#39;: &#39;window:save-all&#39;</span><br><span class="line"># unset ctrl-k *</span><br><span class="line">  &#39;ctrl-k up&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k down&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k left&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k right&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-w&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-alt-w&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-p&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-n&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-up&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-down&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-left&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-right&#39;: &#39;unset!&#39;</span><br><span class="line">&#39;atom-workspace atom-text-editor&#39;:</span><br><span class="line">  &#39;ctrl-k ctrl-u&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-l&#39;: &#39;unset!&#39;</span><br><span class="line">&#39;atom-workspace atom-text-editor:not([mini])&#39;:</span><br><span class="line">  &#39;ctrl-k ctrl-0&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-1&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-2&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-3&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-4&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-5&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-6&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-7&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-8&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-9&#39;: &#39;unset!&#39;</span><br><span class="line">&#39;.platform-win32, .platform-linux&#39;: </span><br><span class="line">  &#39;ctrl-k ctrl-b&#39;: &#39;unset!&#39;</span><br><span class="line">&#39;.platform-win32 .tree-view, .platform-linux .tree-view&#39;:</span><br><span class="line">  &#39;ctrl-k right&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k l&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k left&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k h&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k up&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k k&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k down&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k j&#39;: &#39;unset!&#39;</span><br><span class="line">&#39;.platform-win32 atom-text-editor, .platform-linux atom-text-editor&#39;:</span><br><span class="line">  &#39;ctrl-k ctrl-d&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-u&#39;: &#39;unset!&#39;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="参考和资料"><a href="#参考和资料" class="headerlink" title="参考和资料"></a>参考和资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://flight-manual.atom.io/">Atom Flight Manual</a>, atom手册</li>
+<li><a target="_blank" rel="noopener" href="https://atom.io/packages">atom Packages</a>, atom插件中心</li>
+<li>我的 <a href="https://draapho.github.io/2016/10/08/1607-CheatSheet-win/">Windows快捷键</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/10/12/1610-WinSoft-atompack/" data-id="cklzxufhc000qm8qoaowfe0ll" data-title="Windows 软件系列-atom插件" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-1609-WinSoft-terminal" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/10/1609-WinSoft-terminal/" class="article-date">
+  <time class="dt-published" datetime="2016-10-09T13:00:00.000Z" itemprop="datePublished">2016-10-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/windows/">windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Blog/2016/10/10/1609-WinSoft-terminal/">Windows 软件系列-终端</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ConEmu-简介"><a href="#ConEmu-简介" class="headerlink" title="ConEmu 简介"></a><a target="_blank" rel="noopener" href="https://conemu.github.io/">ConEmu</a> 简介</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://conemu.github.io/">ConEmu</a> 即 Console Emulate, 一款终端模拟器, 完全免费, 可以通过他加载多种终端如 cmd, shell, bash, putty 而且便于管理!</li>
+<li>简而言之, 凡是喜欢用命令行方式的, windows就请使用这款软件, 分分钟变身geek或者hacker的感觉…</li>
+<li>右键文件夹打开ConEmu就自动进入此文件夹, <code>ConEmu Inside</code> 甚至能嵌入到文件夹中.</li>
+<li>顺便说一句, cmder就是他的马甲, 核心还是ConEmu.</li>
+</ul>
+<h2 id="我的ConEmu"><a href="#我的ConEmu" class="headerlink" title="我的ConEmu"></a>我的ConEmu</h2><ul>
+<li>我希望的ConEmu, 就是想输命令行, 打开ConEmu就行!</li>
+<li>本文的配置可以在ConEmu中执行:<ul>
+<li><code>cmd</code> <code>shell</code> windows自带终端</li>
+<li><code>git</code> windows下安装好git即可, 包含了<code>git-bash</code></li>
+<li><code>mingw</code> windows下用gnu工具链编译c, c++</li>
+<li><code>putty</code> ssh链接远程linux, 串口链接嵌入式linux</li>
+<li><code>cygwin</code> windows下模拟linux运行环境 (目前尚未使用, 在用传统的虚拟机)</li>
+<li>其它指令如: <code>hexo</code> 博客使用, <code>choco</code> 安装软件使用, <code>apm</code> atom下载插件使用.</li>
+</ul>
+</li>
+<li>快速在指定文件夹下打开ConEmu, 可在 <code>Listary</code> 关联快捷键 <code>ctrl-~</code></li>
+<li>快速在Notepad++下打开ConEmu, 关联快捷键 <code>ctrl-~</code></li>
+</ul>
+<h2 id="自制ConEmu绿色版"><a href="#自制ConEmu绿色版" class="headerlink" title="自制ConEmu绿色版"></a>自制ConEmu绿色版</h2><ul>
+<li>下载 <a target="_blank" rel="noopener" href="https://conemu.github.io/">ConEmu便携版</a><ul>
+<li>解压后放在理想的文件夹中. 下面以 <code>D:\Green\ConEmu</code> 路径为例.</li>
+</ul>
+</li>
+<li>下载 <a target="_blank" rel="noopener" href="https://mridgers.github.io/clink/">clink便携版</a>, 用于增强终端操作, 如复制拷贝快捷键等<ul>
+<li>解压后, 所有文件放入 <code>D:\Green\ConEmu\ConEmu\clink</code>, 这里面原来就有个 <code>Readme.txt</code>, 说的非常清楚了</li>
+</ul>
+</li>
+<li>下载 <a target="_blank" rel="noopener" href="https://git-scm.com/download/win">git便携版</a>, 版本管理软件<ul>
+<li>解压后命名为 <code>Git</code> 放到 <code>D:\Green\ConEmu\plugins</code>,</li>
+</ul>
+</li>
+<li>下载并使用默认设置安装 <a target="_blank" rel="noopener" href="http://www.mingw.org/">mingw</a>, 用于在win下使用gnu工具编译<ul>
+<li>只是装了 <code>MinGW Installation Manager</code> (实际上是个绿色软件). 打开后继续安装组件</li>
+<li><code>Basic Setup</code>-&gt;<code>mingw32-base</code>和<code>mingw32-gcc-g++</code>-&gt;左上<code>Installation</code>-&gt;<code>Apply changes</code>-&gt;等待安装完成.</li>
+<li>我只需要编译c和c++文件, <code>msys</code>也已经由git软件实现了, 因此无需安装其它组件了.</li>
+<li>然后把整个 <code>MinGW</code> 文件夹放到 <code>D:\Green\ConEmu\plugins</code><br> - 复制一份 <code>mingw32-make.exe</code> 并重命名为 <code>make.exe</code>, 这样就能直接用 <code>make</code> 指令了</li>
+</ul>
+</li>
+<li>下载 <a target="_blank" rel="noopener" href="http://www.putty.org/">putty.zip</a>, ssh远程连接软件及串口软件<ul>
+<li>解压后命名为 <code>putty</code> 放到 <code>D:\Green\ConEmu\plugins</code></li>
+</ul>
+</li>
+<li>然后需要将上述软件加入环境变量, 这个可以在ConEmu设置中完成!!!<ul>
+<li>打开ConEmu, <code>Setting</code>-&gt;<code>Startup</code>-&gt;<code>Environment</code>-&gt;<code>set PATH=%ConEmuBaseDir%\Scripts;%PATH%</code> 下面加上如下语句<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># git PATH</span><br><span class="line">set PATH&#x3D;%ConEmuDir%\plugins\Git;%PATH%</span><br><span class="line">set PATH&#x3D;%ConEmuDir%\plugins\Git\cmd;%PATH%</span><br><span class="line"># mingw PATH</span><br><span class="line">set PATH&#x3D;%ConEmuDir%\plugins\MinGW\bin;%PATH%</span><br><span class="line"># putty PATH%</span><br><span class="line">set PATH&#x3D;%ConEmuDir%\plugins\putty;%PATH%</span><br></pre></td></tr></table></figure></li>
+<li>这样, ConEmu在启动时, 会自动加入上述软件到PATH中</li>
+<li>如果使用 <strong>更通用的做法</strong>, 把上述环境变量删除或注释掉.</li>
+</ul>
+</li>
+<li>自制ConEmu绿色版就初步完成, 下面只需要配置了.</li>
+</ul>
+<h2 id="更通用的做法"><a href="#更通用的做法" class="headerlink" title="更通用的做法"></a>更通用的做法</h2><ul>
+<li>用上述方法有三个缺点<ul>
+<li>git便携版不支持ssh或GPG免密远程同步, 每次都要求输入用户名和密码, 非常麻烦.</li>
+<li>如果不用ConEmu, 那么其它终端, 如atom下的终端就无法使用上述软件.</li>
+<li>发现putty会新打开一个窗口, 而不是嵌入到ConEmu中.</li>
+</ul>
+</li>
+<li>下载 <a target="_blank" rel="noopener" href="https://git-scm.com/download/win">git安装版</a>, 使用默认配置安装即可.<ul>
+<li>为了便于使用, 建议把git的根目录也加入环境变量, 这样就能直接调用 <code>git-cmd.exe</code></li>
+</ul>
+</li>
+<li>设置 <code>D:\Green\ConEmu\plugins\MinGW\bin</code> 文件夹到系统环境变量中</li>
+<li>设置 <code>D:\Green\ConEmu\plugins\putty</code> 文件夹到系统环境变量中</li>
+<li>还可以考虑下载安装 <a target="_blank" rel="noopener" href="https://www.cygwin.com/">cygwin</a> 并加入ConEmu中, 这是一款Windows下的Linux模拟器. 注意安装和卸载都比较麻烦.<h2 id="ConEmu的设置"><a href="#ConEmu的设置" class="headerlink" title="ConEmu的设置"></a>ConEmu的设置</h2></li>
+<li>所有设置都会存放在 <code>conEmu.xml</code> 里, 所以设置的备份很简单</li>
+<li>首次打开会有设置向导 <code>fast configuration</code>, 用于生成 <code>conEmu.xml</code></li>
+<li>可以在设置好环境变量, 安装好git后, 删除<code>conEmu.xml</code>重新运行, 这样ConEmu会自动检测加入<code>Git bash</code> 和 <code>putty</code>, 省心不少. clink放在指定路径后, 其功能也会自动启用.</li>
+<li>配置过程如下, 需要图文版可参考 <a target="_blank" rel="noopener" href="https://higoge.github.io/2015/07/22/tools02/">工具02：cmd的替代品ConEmu+Clink</a>, 配置上略有区别, 进入 <code>Settings</code> 后<ul>
+<li><code>Main</code>-&gt;<code>Appearance</code>-&gt;<code>Generic</code>-&gt;<code>Single instance mode (...)</code></li>
+<li><code>Main</code>-&gt;<code>Confirm</code>-&gt;<code>CLose confirmations</code>-&gt;<del><code>When running process was detected</code></del></li>
+<li><code>Startup</code>-&gt;<code>Specified named task</code>-&gt;<code>Bash:: Git bash</code> 更改打开时默认使用的终端类型</li>
+<li><code>Startup</code>-&gt;<code>Environment</code> 启动时, 会加载这里的环境变量. 配置好系统环境变量的话, 可以全部删除</li>
+<li>注册鼠标右键 <code>ConEmu Here</code> 和 <code>ConEmu Inside</code>, 并设置为使用 <code>Git bash</code> 启动<ul>
+<li><code>Integration</code>-&gt;<code>ConEmu Here</code>-&gt;<code>Command:</code>改为<code>&#123;Git Bash&#125; -cur_console:n</code>-&gt;<code>Register</code></li>
+<li><code>Integration</code>-&gt;<code>ConEmu Inside</code>-&gt;<code>Command:</code>改为<code>&#123;Git Bash&#125; -cur_console:n</code>-&gt;<code>Register</code></li>
+</ul>
+</li>
+<li><code>Integration</code>-&gt;<code>Default term</code>-&gt;<code>Force ConEmu as default terminal for console applications</code></li>
+<li>添加 <code>tasks</code>. 选择 <code>Startup</code>-&gt;<code>Tasks</code>, 根据现有例子依样画葫芦即可.<ul>
+<li><code>Bash::Git bash</code>: <code>git-cmd.lnk --no-cd --command=usr/bin/bash.exe -l -i</code> 也可以点击<code>File path...</code>使用绝对路径替代快捷方式.</li>
+<li><code>Bash::Git bash(Admin)</code>: <code>*git-cmd.exe --no-cd --command=usr/bin/bash.exe -l -i</code> 最前面加个<code>*</code>就是管理员权限了.</li>
+<li><code>Putty::default</code>: <code>putty.exe</code> 同样, 可能需要使用绝对路径, 点击<code>File path...</code>选择即可</li>
+<li><code>Putty::Ubuntu</code>: <code>putty.exe -new_console -load &quot;ubuntu&quot;</code> 需要putty设置好名为<code>ubuntu</code>的session</li>
+<li><code>Cygwin</code>: <code>set HOME=d:\cygwin\home\XXX &amp; &quot;d:\cygwin\bin\mintty.exe&quot; -i /Cygwin.ico -</code> 这条指令没有测试过.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Putty"><a href="#Putty" class="headerlink" title="Putty"></a><a target="_blank" rel="noopener" href="http://www.putty.org/">Putty</a></h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.putty.org/">Putty</a> 可用于ssh连接远程主机, 也支持串口. 使用简单, 完全免费</li>
+<li>putty的配置, 一个配置就是一个<code>Session</code>. 可以参考<a target="_blank" rel="noopener" href="http://blog.csdn.net/tianlesoftware/article/details/5831605">Putty 工具 保存配置的 小技巧</a></li>
+<li>putty免密登录, 没有尝试, 可以参考如下两篇文章.<ul>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000000639516">PuTTY的自动登录设置</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/hxg130435477/article/details/9960187">windows 上用程序putty使用 ssh自动登录linux</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="设置Default"><a href="#设置Default" class="headerlink" title="设置Default"></a>设置Default</h2><ul>
+<li><code>Window</code>-&gt;<code>Lines of scrollback</code>-<code>20000</code>  回看更多历史屏幕信息</li>
+<li><code>Window</code>-&gt;<code>Apperance</code>-&gt;<code>Vertical line</code>, <code>Cursor blinks</code> 游标闪烁</li>
+<li><code>Window</code>-&gt;<code>Colours</code>-&gt;<code>Default Backgroud</code>-&gt;<code>R0 G43 B54</code> 使用ConEmu背景色</li>
+<li><code>Connection</code>-&gt;<code>Serial</code>-&gt;<code>Flow control</code>-&gt;<code>None</code> 默认串口不用流控制</li>
+<li><code>Session</code>-&gt;<code>Saved Sessions</code>-&gt;输入 <code>Default Settings</code>-&gt;<code>Save</code> 默认值设置完成</li>
+</ul>
+<h2 id="设置ssh"><a href="#设置ssh" class="headerlink" title="设置ssh"></a>设置ssh</h2><ul>
+<li><code>Session</code>-&gt;<code>Conncection type</code>选<code>SSH</code>-&gt;<code>Host Name (or IP address)</code>-&gt;<code>10.0.0.99</code> 或者  <code>username@10.0.0.99</code> 来指定登录名</li>
+<li><code>Session</code>-&gt;<code>Saved Session</code> <code>Ubuntu</code>-&gt;<code>Save</code> 设置好配置名称, 保存即可.</li>
+<li>如果需要免密登录, 明文的很简单, 调用 <code>putty.exe -load &quot;session_name&quot; -l &quot;username&quot; -pw &quot;password&quot;</code> 即可</li>
+<li>如果需要密码加密, 稍微麻烦点. 参考 <a target="_blank" rel="noopener" href="http://blog.csdn.net/hxg130435477/article/details/9960187">windows 上用程序putty使用 ssh自动登录linux</a>. 我不需要这个功能, 略过不表.</li>
+</ul>
+<h2 id="设置serial"><a href="#设置serial" class="headerlink" title="设置serial"></a>设置serial</h2><ul>
+<li><code>Session</code>-&gt;<code>Conncection type</code>选<code>Serial</code>-&gt;<code>Serial line</code> <code>COM4</code>-&gt;<code>Speed</code> <code>9600</code> 即串口4, 波特率9600</li>
+<li><code>Connection</code>-&gt;<code>Serial</code>-&gt;<code>Flow control</code> <code>None</code> 这里可以设置其它串口参数, 不支持自动回显.</li>
+<li><code>Session</code>-&gt;<code>Saved Session</code> <code>COM4-9600</code>-&gt;<code>Save</code> 设置好配置名称, 保存即可.</li>
+</ul>
+<h2 id="配置的导入和导出"><a href="#配置的导入和导出" class="headerlink" title="配置的导入和导出"></a>配置的导入和导出</h2><ul>
+<li>putty直接把配置存放在注册表中. 所以思路就是导入导出注册表</li>
+<li>cmd下-&gt;<code>regedit</code>-&gt;打开注册表</li>
+<li>找到 <code>HKEY_CURRENT_USER\Software\SimonTatham</code></li>
+<li>在 <code>SimonTatham</code> 这个节点上点击右键, 选择导出, 保存为<code>config.reg</code>. 这里不单单是putty的配置</li>
+<li>恢复时, 管理员权限执行 <code>config.reg</code> 即可</li>
+</ul>
+<h2 id="putty的调用"><a href="#putty的调用" class="headerlink" title="putty的调用"></a>putty的调用</h2><ul>
+<li>基本用法 <code>putty.exe -load &quot;session_name&quot;</code></li>
+<li>自动登录 <code>putty.exe -load &quot;session_name&quot; -l &quot;username&quot; -pw &quot;password&quot;</code></li>
+<li>更多调用方式可查看 <code>PUTTY.CHM 3.8.x</code> 包含于下载的<code>putty.zip</code>中</li>
+</ul>
+<h2 id="对比TeraTerm"><a href="#对比TeraTerm" class="headerlink" title="对比TeraTerm"></a>对比<a target="_blank" rel="noopener" href="https://ttssh2.osdn.jp/index.html.en">TeraTerm</a></h2><ul>
+<li>TeraTerm相比于putty设置显得更复杂, 至少串口的功能比putty的要多一点</li>
+<li>TeraTerm有自己的脚本语句, 可以实现比较复杂的自动化功能</li>
+<li>TeraTerm在ConEmu字体显示有问题.</li>
+<li>putty完全满足需求, 配置简单, 完美兼容ConEmu, 因此没有考虑TeraTerm</li>
+</ul>
+<h1 id="Cygwin"><a href="#Cygwin" class="headerlink" title="Cygwin"></a><a target="_blank" rel="noopener" href="https://www.cygwin.com/">Cygwin</a></h1><ul>
+<li>是windows下的unix仿真环境, 可以用来做交叉编译, 因此可替代虚拟机安装linux.</li>
+<li>安装, 可以参考 <a target="_blank" rel="noopener" href="http://velep.com/archives/747.html">cygwin介绍、安装及其使用</a></li>
+<li>交叉编译, 可以参考<ul>
+<li><a target="_blank" rel="noopener" href="http://mazhijing.blog.51cto.com/215535/39539/">Cygwin 安装  基本使用 交叉编译vivi kernel</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.360doc.com/content/12/0929/14/5013584_238783155.shtml">在cygwin中安装gcc编译器</a></li>
+</ul>
+</li>
+<li>卸载, 因为权限问题, Cygwin卸载很麻烦. 可以参考两篇文章, 已经是最简单的方法了<ul>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/yelangjueqi/article/details/45199209">window 下完全卸载Cygwin最简单方法</a>, 就是在运行一次 <code>setup.exe</code> 来卸载</li>
+<li><a target="_blank" rel="noopener" href="http://blog.163.com/zhuandi_h/blog/static/180270288201282204521376/">Win7 完全删除cygwin（本人已删除成功）</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/10/10/1609-WinSoft-terminal/" data-id="cklzxufha000nm8qo1qr7hhp0" data-title="Windows 软件系列-终端" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-1608-WinSoft-path" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/09/1608-WinSoft-path/" class="article-date">
+  <time class="dt-published" datetime="2016-10-08T13:00:00.000Z" itemprop="datePublished">2016-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/windows/">windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Blog/2016/10/09/1608-WinSoft-path/">Windows 软件系列-自定义环境变量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="自定义环境变量"><a href="#自定义环境变量" class="headerlink" title="自定义环境变量"></a>自定义环境变量</h1><ul>
+<li>测试过几个例子, 简单的调用没问题, 但带参调用就会有各种无法预料的问题.</li>
+<li><code>ConEmu.lnk</code> 后面不支持带参数, <code>git-cmd.lnk</code> 支持带参, 但有奇怪现象.</li>
+<li><code>Typora.lnk</code> <code>zeal.lnk</code> 没有问题.</li>
+<li>使用此方法可以配合 <code>win-r</code> 快速打开文件夹, 软件等功能! 我没有使用, 因为有更好的替代方案.</li>
+<li>!!!注意!!!, 带参调用 <code>.lnk</code> 不完全等同于 <code>.exe</code>, 还是没有linux的链接来的便捷</li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>做软件开发是绕不过环境变量 <code>PATH</code> 的设置的, 经常到后来 <code>PATH</code> 就变得非常长, 难以管理维护.</li>
+<li>借助linux链接的概念, 实验了一下windows的快捷方式是否也可以用命令行执行, 发现是可行的!</li>
+<li>譬如创建 <code>ConEmu.exe</code> 的快捷方式 <code>ConEmu.lnk</code> (.lnk不会显示). 此时, 在cmd内执行 <code>ConEmu.lnk</code> 等同于执行 <code>ConEmu.exe</code></li>
+<li>这样, 就有办法简化自定义 <code>PATH</code> 的数量了, 只需添加一个用户路径到 <code>PATH</code> 中, 如<code>D:\Green\userpath\bin</code>, 然后把用户软件的 <code>.exe</code> 和 <code>.lnk</code> 放到这个目录下面就可以了.</li>
+</ul>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><ul>
+<li>譬如, 配置 <code>D:\Green\cli\bin</code> 到环境变量中.</li>
+<li><code>我的电脑</code>-&gt;右键<code>属性</code> 或者 <code>控制面板</code>-&gt;<code>系统和安全</code>-&gt;<code>系统</code>-&gt;<code>高级系统设置</code></li>
+<li>弹出 <code>系统属性</code> 页面-&gt;<code>高级</code> 标签-&gt;最下面 <code>环境变量...</code>-&gt;<code>系统变量</code>-&gt;<code>Path</code>-&gt;加入自定义路径如 <code>D:\Green\cli\bin</code>, windows7的话需要分隔符<code>;</code></li>
+<li><code>D:\Green\cli\bin</code> 只是个例子, 可以自己规定任意一个文件夹, 便于记忆即可.</li>
+</ul>
+<h2 id="添加软件"><a href="#添加软件" class="headerlink" title="添加软件"></a>添加软件</h2><ul>
+<li>MinGW, windows下提供 gnu 工具链, 像linux下一样使用 make 编译即可<br>把 <code>.\MinGW\bin</code> 下的所有文件复制一份到 <code>D:\Green\cli\bin</code> 即可</li>
+<li>Pandoc, 格式转换软件. 众多markdown编辑器需要此软件来转换格式<br>把 <code>pandoc.exe</code> 和 <code>pandoc-citeproc.exe</code> 复制一份到 <code>D:\Green\cli\bin</code> 即可</li>
+<li>putty, ssh和串口终端软件, 多用于远程连接<br><del>putty所有文件复制一份到 <code>D:\Green\cli\bin</code></del>, 放个 <code>putty.exe</code> 即可</li>
+<li>uncrustify, 编程语言格式化软件. 可格式化 c, c++, d, java 等众多语言<br>把 <code>uncrustify.exe</code> 复制到 <code>D:\Green\cli\bin</code> 即可</li>
+<li>下述软件创建快捷方式, 然后放到 <code>D:\Green\cli\bin</code> 即可</li>
+<li><del><code>ConEmu.lnk</code></del> 模拟终端软件, 可整合多种终端如cmd, shell, bash, putty</li>
+<li><del><code>Cygwin.lnk</code></del> 模拟linux环境, 可以部分充当windows下的linux虚拟机使用</li>
+<li><del><code>git-cmd.lnk</code></del> 启动git, 供ConEmu调用</li>
+<li><code>Typora.lnk</code> 一款markdown编辑器</li>
+<li><code>zeal.lnk</code> 软件API离线查询工具, windows下的dash</li>
+</ul>
+<h2 id="便捷性"><a href="#便捷性" class="headerlink" title="便捷性"></a>便捷性</h2><ul>
+<li>上述软件主要是辅助作用, 我会在常用软件中调用上述软件. 如notepad++, atom, ConEmu中</li>
+<li>以 notepad++ 调用 <code>zeal.lnk</code> 为例.</li>
+<li><code>notepad++</code>-&gt;<code>Run</code>-&gt;<code>Run...</code>-&gt;输入 <code>zeal.lnk $(CURRENT_WORD)</code>-&gt;<code>Save...</code>-&gt;<code>Name:``help</code>, 快捷键<code>F1</code>-&gt;<code>OK</code></li>
+<li>配置好以后, 写代码遇到需要查询的地方, 只要选中关键词, 按 <code>F1</code> 就会自动调用 zeal 了</li>
+<li>以后环境变了, 只需要重新创建一下 <code>zeal.lnk</code> 然后放到 <code>D:\Green\userpath\bin</code> 即可.</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/10/09/1608-WinSoft-path/" data-id="cklzxufh9000jm8qo46nm6k51" data-title="Windows 软件系列-自定义环境变量" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-1607-CheatSheet-win" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/08/1607-CheatSheet-win/" class="article-date">
+  <time class="dt-published" datetime="2016-10-07T13:00:00.000Z" itemprop="datePublished">2016-10-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/windows/">windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Blog/2016/10/08/1607-CheatSheet-win/">Windows快捷键</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="专用快捷键"><a href="#专用快捷键" class="headerlink" title="专用快捷键"></a>专用快捷键</h1><table>
+<thead>
+<tr>
+<th>atom</th>
+<th>备注</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ctrl-shift-p</code></td>
+<td>palette</td>
+<td>调出命令板</td>
+</tr>
+<tr>
+<td><code>ctrl-alt-i</code></td>
+<td>information</td>
+<td>调用控制台</td>
+</tr>
+<tr>
+<td><code>ctrl-,</code></td>
+<td></td>
+<td>打开设置面板</td>
+</tr>
+<tr>
+<td><code>ctrl-.</code></td>
+<td>非编辑区有效</td>
+<td>调试快捷键</td>
+</tr>
+<tr>
+<td>+<code>ctrl-f6</code></td>
+<td>merge-conflicts</td>
+<td>显示有冲突的文件</td>
+</tr>
+<tr>
+<td>+<code>shift-f6</code></td>
+<td>merge-conflicts</td>
+<td>显示下一个冲突</td>
+</tr>
+<tr>
+<td>+<code>ctrl-shift-f6</code></td>
+<td>merge-conflicts</td>
+<td>显示上一个冲突</td>
+</tr>
+<tr>
+<td><strong>eclipse</strong></td>
+<td><strong>备注</strong></td>
+<td><strong>说明</strong></td>
+</tr>
+<tr>
+<td><code>ctrl-o</code></td>
+<td></td>
+<td>显示函数列表</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-o</code></td>
+<td></td>
+<td>自动处理 include/import</td>
+</tr>
+<tr>
+<td><code>alt-shift-s</code></td>
+<td>source</td>
+<td>显示代码常用操作</td>
+</tr>
+<tr>
+<td><code>alt-/</code></td>
+<td></td>
+<td>代码提示</td>
+</tr>
+<tr>
+<td>+ <code>ctrl \</code></td>
+<td><del><code>ctrl-tab</code></del></td>
+<td>切换<code>.c``.h</code>文件</td>
+</tr>
+<tr>
+<td>+ <code>alt-\</code></td>
+<td><code>alt-shift-a</code></td>
+<td>列选模式</td>
+</tr>
+<tr>
+<td>+ <code>ctrl-f3</code></td>
+<td><code>ctrl-1</code></td>
+<td>快速修复</td>
+</tr>
+<tr>
+<td>+ <code>alt-shift-f</code></td>
+<td><code>ctrl-shift-t</code></td>
+<td>查找类</td>
+</tr>
+</tbody></table>
+<h1 id="编辑器快捷键"><a href="#编辑器快捷键" class="headerlink" title="编辑器快捷键"></a>编辑器快捷键</h1><table>
+<thead>
+<tr>
+<th>文件操作</th>
+<th>助记</th>
+<th>说明</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ctrl-n</code></td>
+<td>new</td>
+<td>创建文件</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-o</code></td>
+<td>open</td>
+<td>打开文件</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-s</code></td>
+<td>save</td>
+<td>保存</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-s</code></td>
+<td>save</td>
+<td>保存所有</td>
+<td>notepad++</td>
+</tr>
+<tr>
+<td><code>ctrl-w</code></td>
+<td>windows</td>
+<td>关闭当前页</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-w</code></td>
+<td>windows</td>
+<td>关闭其它页面</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-t</code></td>
+<td>tags</td>
+<td>恢复关闭的文件</td>
+<td>notepad++</td>
+</tr>
+<tr>
+<td><code>ctrl-tab</code></td>
+<td>tab</td>
+<td>下一个标签</td>
+<td>notepad++</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-tab</code></td>
+<td>tab</td>
+<td>上一个标签</td>
+<td>notepad++</td>
+</tr>
+<tr>
+<td><code>f1</code></td>
+<td></td>
+<td>help</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-f1</code></td>
+<td></td>
+<td>google搜索选定内容</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><strong>文件编辑</strong></td>
+<td><strong>助记</strong></td>
+<td><strong>说明</strong></td>
+<td><strong>来源</strong></td>
+</tr>
+<tr>
+<td><code>ctrl-a</code></td>
+<td>all</td>
+<td>全部选中</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-c</code></td>
+<td>copy</td>
+<td>复制</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-c</code></td>
+<td>copy</td>
+<td>复制文档路径</td>
+<td>atom</td>
+</tr>
+<tr>
+<td><code>ctrl-d</code></td>
+<td>delete</td>
+<td>删除</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-d</code></td>
+<td>delete</td>
+<td>删除当前行</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-</code> <code>h</code> <code>j</code> <code>k</code> <code>l</code></td>
+<td>vim</td>
+<td>上下左右</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-h</code> <code>ctrl-←</code></td>
+<td>vim h</td>
+<td>左移到词首</td>
+<td>custom / sublime</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-l</code> <code>ctrl-→</code></td>
+<td>vim l</td>
+<td>右移到词尾</td>
+<td>custom / sublime</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-j</code> <code>ctrl-↓</code></td>
+<td>vim j</td>
+<td>向下移行</td>
+<td>custom / sublime</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-k</code> <code>ctrl-↑</code></td>
+<td>vim k</td>
+<td>向上移行</td>
+<td>custom / sublime</td>
+</tr>
+<tr>
+<td><code>alt-shift-j</code></td>
+<td>vim J</td>
+<td>合并行</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><del><code>ctrl-t</code></del></td>
+<td>禁用掉</td>
+<td>避免<code>ctrl-y</code>失效</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-v</code></td>
+<td>velcro</td>
+<td>黏贴</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-v</code></td>
+<td>ctrl-v</td>
+<td>复制当前行</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-x</code></td>
+<td></td>
+<td>剪切</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-x</code></td>
+<td>ctrl-x</td>
+<td>剪切当前行</td>
+<td>notepad++</td>
+</tr>
+<tr>
+<td><code>ctrl-y</code> <code>ctrl-r</code></td>
+<td>redo</td>
+<td>恢复更改</td>
+<td>windows / vim</td>
+</tr>
+<tr>
+<td><code>ctrl-z</code> <code>ctrl-u</code></td>
+<td>undo</td>
+<td>撤销更改</td>
+<td>windows / vim</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-y</code></td>
+<td></td>
+<td>下一个浏览记录</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-z</code></td>
+<td></td>
+<td>上一个浏览记录</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>alt-鼠标</code> <code>alt-\</code></td>
+<td></td>
+<td>列选模式</td>
+<td>notepad++ / custom</td>
+</tr>
+<tr>
+<td><code>ctrl-enter</code></td>
+<td>enter</td>
+<td>下面新增一行</td>
+<td>sublime</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-enter</code></td>
+<td>enter</td>
+<td>上面新增一行</td>
+<td>sublime</td>
+</tr>
+<tr>
+<td><code>tab</code> <code>shift-tab</code></td>
+<td></td>
+<td>插入缩进/删除缩进</td>
+<td>notepad++</td>
+</tr>
+<tr>
+<td><code>ctrl-^</code></td>
+<td>vim</td>
+<td>移到行首</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-^</code></td>
+<td>vim</td>
+<td>选到行首</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-$</code></td>
+<td>vim</td>
+<td>移到行尾</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-$</code></td>
+<td>vim</td>
+<td>选到行尾</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><strong>查找与替换</strong></td>
+<td><strong>助记</strong></td>
+<td><strong>说明</strong></td>
+<td><strong>来源</strong></td>
+</tr>
+<tr>
+<td><code>ctrl-f</code></td>
+<td>find</td>
+<td>查找</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-f</code></td>
+<td>find</td>
+<td>多文件查找</td>
+<td>sublime</td>
+</tr>
+<tr>
+<td><code>f3</code> <code>shift-f3</code></td>
+<td></td>
+<td>查找下一个 / 查找上一个</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><code>ctrl-f3</code></td>
+<td></td>
+<td>选中所有匹配的关键字</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-m</code></td>
+<td>mark</td>
+<td>打标记</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>f2</code> <code>shift-f2</code></td>
+<td>tag</td>
+<td>下一个标记/上一个标记</td>
+<td>notepad++</td>
+</tr>
+<tr>
+<td><code>ctrl-f2</code></td>
+<td>tag</td>
+<td>显示所有标签</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-f2</code></td>
+<td>tag</td>
+<td>清空所有标签</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-.</code></td>
+<td>..</td>
+<td>TAB转为空格</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-.</code></td>
+<td>&gt;&gt;</td>
+<td>空格转为TAB</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><strong>代码专用</strong></td>
+<td><strong>助记</strong></td>
+<td><strong>说明</strong></td>
+<td><strong>来源</strong></td>
+</tr>
+<tr>
+<td><code>ctrl-b</code></td>
+<td>beautify</td>
+<td>格式化代码</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-m</code></td>
+<td>markdown</td>
+<td>markdown预览</td>
+<td>atom</td>
+</tr>
+<tr>
+<td><code>alt-0</code> <code>alt-shift-0</code></td>
+<td>0-9</td>
+<td>折叠代码/展开代码</td>
+<td>notepad++</td>
+</tr>
+<tr>
+<td><code>ctrl-[</code> <code>ctrl-]</code></td>
+<td></td>
+<td>移动/全选对应括号</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-鼠标</code> <code>shift-鼠标</code></td>
+<td></td>
+<td>跳转</td>
+<td>eclipse / custom</td>
+</tr>
+<tr>
+<td><code>f4</code> <code>shift-f4</code></td>
+<td></td>
+<td>跳转 / 跳回</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>f5</code></td>
+<td>run</td>
+<td>运行</td>
+<td>notepad++</td>
+</tr>
+<tr>
+<td><code>f6</code></td>
+<td></td>
+<td>比较文件</td>
+<td>custom</td>
+</tr>
+<tr>
+<td><code>ctrl-/</code></td>
+<td><code>//</code></td>
+<td>单行注释翻转</td>
+<td>eclipse</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-/</code></td>
+<td><code>/*</code></td>
+<td>多行注释</td>
+<td>eclipse</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-\</code></td>
+<td><code>/*</code></td>
+<td>取消多行注释</td>
+<td>eclipse</td>
+</tr>
+<tr>
+<td><code>ctrl-~</code></td>
+<td></td>
+<td>打开终端</td>
+<td>sublime</td>
+</tr>
+</tbody></table>
+<h1 id="Win系统快捷键"><a href="#Win系统快捷键" class="headerlink" title="Win系统快捷键"></a>Win系统快捷键</h1><table>
+<thead>
+<tr>
+<th>Listary</th>
+<th>助记</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>win-~</code></td>
+<td></td>
+<td>打开Listary</td>
+</tr>
+<tr>
+<td><code>enter</code></td>
+<td>enter</td>
+<td>打开文件</td>
+</tr>
+<tr>
+<td><code>ctrl-enter</code></td>
+<td>enter</td>
+<td>打开路径</td>
+</tr>
+<tr>
+<td><code>ctrl-c</code></td>
+<td>copy</td>
+<td>复制</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-c</code></td>
+<td>copy</td>
+<td>复制路径</td>
+</tr>
+<tr>
+<td><code>ctrl+j</code> <code>ctrl+k</code></td>
+<td>vim j,k</td>
+<td>下一个 / 上一个(需设置)</td>
+</tr>
+<tr>
+<td><strong>Ditto</strong></td>
+<td><strong>助记</strong></td>
+<td><strong>文件夹/应用</strong></td>
+</tr>
+<tr>
+<td><code>ctrl-1</code></td>
+<td>list</td>
+<td>打开ditto面板</td>
+</tr>
+<tr>
+<td><code>enter</code></td>
+<td>enter</td>
+<td>黏贴</td>
+</tr>
+<tr>
+<td><code>shift-enter</code></td>
+<td>enter</td>
+<td>纯文本黏贴</td>
+</tr>
+<tr>
+<td><strong>AHK</strong></td>
+<td><strong>助记</strong></td>
+<td><strong>功能</strong></td>
+</tr>
+<tr>
+<td><code>鼠标中键</code></td>
+<td></td>
+<td>复制</td>
+</tr>
+<tr>
+<td><code>shift-鼠标中键</code></td>
+<td></td>
+<td>剪切</td>
+</tr>
+<tr>
+<td><code>ctrl-shift-鼠标中键</code></td>
+<td></td>
+<td>复制当前路径</td>
+</tr>
+<tr>
+<td><code>鼠标右键</code></td>
+<td></td>
+<td>首次黏贴</td>
+</tr>
+<tr>
+<td><code>ctrl-鼠标右键</code></td>
+<td></td>
+<td>黏贴</td>
+</tr>
+<tr>
+<td><code>ctrl-~</code></td>
+<td></td>
+<td>打开终端 (关联路径)</td>
+</tr>
+<tr>
+<td><code>alt-win-鼠标中键</code></td>
+<td></td>
+<td>复制屏幕颜色</td>
+</tr>
+<tr>
+<td><code>alt-win-←↑↓→</code></td>
+<td></td>
+<td>单像素移动鼠标</td>
+</tr>
+<tr>
+<td><code>alt-win-d</code></td>
+<td>date</td>
+<td>输入当前日期</td>
+</tr>
+<tr>
+<td><strong>AHK快捷方式</strong></td>
+<td><strong>助记</strong></td>
+<td><strong>文件夹/应用</strong></td>
+</tr>
+<tr>
+<td><code>alt-a</code> <code>win-a</code></td>
+<td>all / audio</td>
+<td>我的电脑 / 音频处理软件</td>
+</tr>
+<tr>
+<td><code>alt-b</code> <code>win-b</code></td>
+<td>backup</td>
+<td>backup / FreeFileSync</td>
+</tr>
+<tr>
+<td><code>alt-c</code> <code>win-c</code></td>
+<td>c盘 / caculate</td>
+<td>c盘 / 计算器</td>
+</tr>
+<tr>
+<td><code>alt-d</code> <code>win-d</code></td>
+<td>download</td>
+<td>download / 迅雷</td>
+</tr>
+<tr>
+<td><code>alt-e</code> <code>win-e</code></td>
+<td>e盘 / editor</td>
+<td>e盘 / 编辑器</td>
+</tr>
+<tr>
+<td><code>alt-f</code> <code>win-f</code></td>
+<td>f盘 / find</td>
+<td>f盘 / everything</td>
+</tr>
+<tr>
+<td><code>alt-g</code> <code>win-g</code></td>
+<td>green / google</td>
+<td>绿色软件 / 浏览器</td>
+</tr>
+<tr>
+<td><code>win-h</code></td>
+<td>help</td>
+<td>zeal 文档帮助</td>
+</tr>
+<tr>
+<td><code>win-i</code></td>
+<td>ie</td>
+<td>IE核浏览器</td>
+</tr>
+<tr>
+<td><code>win-j</code></td>
+<td>记账</td>
+<td>MoneyHome</td>
+</tr>
+<tr>
+<td><code>alt-l</code> <code>win-l</code></td>
+<td>life / look</td>
+<td>life / 视频搜索</td>
+</tr>
+<tr>
+<td><code>alt-m</code> <code>win-m</code></td>
+<td>music</td>
+<td>music / mcool</td>
+</tr>
+<tr>
+<td><code>win-n</code></td>
+<td>notepad</td>
+<td>notepad++</td>
+</tr>
+<tr>
+<td><code>alt-p</code> <code>win-p</code></td>
+<td>picture</td>
+<td>picture / Paint.Net</td>
+</tr>
+<tr>
+<td><code>alt-s</code> <code>win-s</code></td>
+<td>study / ScreenShot</td>
+<td>study / 截屏</td>
+</tr>
+<tr>
+<td><code>alt-v</code> <code>win-v</code></td>
+<td>video</td>
+<td>video / PotPlayer</td>
+</tr>
+<tr>
+<td><code>alt-w</code> <code>win-w</code></td>
+<td>work / word</td>
+<td>work / word</td>
+</tr>
+<tr>
+<td><code>win-x</code></td>
+<td>虚拟机</td>
+<td>Hyper-V</td>
+</tr>
+<tr>
+<td><code>alt-y</code> <code>win-y</code></td>
+<td>移动硬盘 / 翻译</td>
+<td>y盘 / 有道词典</td>
+</tr>
+<tr>
+<td><code>win-z</code></td>
+<td>证券</td>
+<td>证券</td>
+</tr>
+</tbody></table>
+<h1 id="大致原则"><a href="#大致原则" class="headerlink" title="大致原则"></a>大致原则</h1><ul>
+<li><code>ctrl</code> 基本操作</li>
+<li><code>shift</code> 反向操作/块操作</li>
+<li><code>alt</code> 处理文件-AHK使用</li>
+<li><code>win</code> 打开应用-AHK使用</li>
+<li><code>alt-win</code> 特殊应用-AHK使用</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/10/08/1607-CheatSheet-win/" data-id="cklzxufh6000em8qo892s23xa" data-title="Windows快捷键" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-1606-WinSoft-cloud" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/03/1606-WinSoft-cloud/" class="article-date">
+  <time class="dt-published" datetime="2016-10-02T13:00:00.000Z" itemprop="datePublished">2016-10-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/windows/">windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Blog/2016/10/03/1606-WinSoft-cloud/">Windows 软件系列-基于NFS的家庭网</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="家庭网设想"><a href="#家庭网设想" class="headerlink" title="家庭网设想"></a>家庭网设想</h1><h2 id="理想的云"><a href="#理想的云" class="headerlink" title="理想的云"></a>理想的云</h2><ul>
+<li>理想的家庭网是由NAS做数据中心, 是家里的云</li>
+<li>需要使用千兆网来支持数据分享(如视频流)</li>
+<li>考虑到设备多样性, 可使用多种分享模式, 如NFS, windows共享服务等等</li>
+<li>理想很丰满, 现实很骨干. 由于预算, 稳定性, 易用性等问题, 多半会用折中方案</li>
+<li>可以看看混乱的方案推荐: <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20791825">如何实现一个简单的家庭云存储（NAS）系统？</a></li>
+</ul>
+<h2 id="现实的云"><a href="#现实的云" class="headerlink" title="现实的云"></a>现实的云</h2><ul>
+<li>理想之所以遥远, 往往是因为没有明确需求, 导致什么都想要! 所以, 先明确需求<ul>
+<li>NAS是用来折腾和看电影的(电影存在硬盘上, 能在沙发上和床上观影).</li>
+<li>日常资料还是存储在本地硬盘比较便捷</li>
+<li>有安全需求, 要备份或镜像本地资料到家庭云(<strong>双设备备份</strong>, 相比NAS的各种RAID, 一大优势是<strong>防偷</strong>)</li>
+<li>做嵌入式开发, 需要在windows上装linux虚拟机, 然后数据共享</li>
+<li>关键数据出问题时, 在可靠和有把握的环境下来恢复数据.</li>
+</ul>
+</li>
+<li>给出最终使用的方案. 折腾记就不写在此文了.<ul>
+<li>使用 Intel NUC 作为桌面主机和云服务器. 小巧, 够用(不玩游戏), 省电.</li>
+<li>使用 Hyper-V 安装 家用NAS 和 Ubuntu.</li>
+<li>另有嵌入式linux开发板, 投影仪, 手机等设备需要和云交换数据.</li>
+<li>使用 <a target="_blank" rel="noopener" href="https://www.hanewin.net/nfs-e.htm">HaneWIN</a> 向其它设备提供NFS服务</li>
+<li>使用 <a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a> 备份资料到移动硬盘(和理想中的备份方式差好多…)</li>
+</ul>
+</li>
+</ul>
+<h1 id="HaneWIN"><a href="#HaneWIN" class="headerlink" title="HaneWIN"></a><a target="_blank" rel="noopener" href="https://www.hanewin.net/nfs-e.htm">HaneWIN</a></h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.hanewin.net/nfs-e.htm">HaneWIN</a> 可免费试用30天. 适合做win下的nfs服务器. </li>
+<li>如果要免费软件, 可尝试 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/freenfs/">FreeNFS</a>. 功能较弱. 可参考<a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/b9dccaedf8c75fbfc77db2c1.html?from=search">FreeNFS简易教程</a>.</li>
+<li>需要支持嵌入式linux端的NFS(只支持NFS v2), 配置见图:<br><img src="https://draapho.github.io/images/1606/haneWIN_NFS.PNG" alt="haneWIN_NFS"></li>
+<li>务必使用<code>UTF-8 character set</code><br><img src="https://draapho.github.io/images/1606/haneWIN_Server.PNG" alt="haneWIN_Server"></li>
+<li>重点说一下<code>Exports</code>这一块, 即把文件通过NFS分享出去.<br><img src="https://draapho.github.io/images/1606/haneWIN_Exports.PNG" alt="haneWIN_Exports"><ul>
+<li><code>E:\Downloads -name:Downloads 10.0.0.99</code><br>就是把本地<code>Downloads</code>文件夹分享给<code>ip=10.0.0.99</code>的机器, 对外名称为<code>Downloads</code></li>
+<li><code>-mapall:0:0</code> 是提供给linux端root权限. (这句最短? 花了一周时间才实验成功啊…)</li>
+<li><code>-range 10.0.0.1 10.0.0.111</code> 是设置ip范围, 这里是从<code>10.0.0.1</code>-<code>10.0.0.111</code></li>
+<li>语法规则不多, 详见<a target="_blank" rel="noopener" href="https://www.hanewin.net/doc/nfs/nfsd.htm">官网说明</a>. 可用参数如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># The following options are supported:</span><br><span class="line">-name:&lt;sharename&gt;   assigns a name to the exported path as an alternate name for mounting.</span><br><span class="line">-alldirs    allows the host(s) to mount at any point within the filesystem.</span><br><span class="line">-umask:&lt;mask&gt;   set the umask for group and world permissions on the filesystem, default 022</span><br><span class="line">-readonly   limits access to reading</span><br><span class="line">-public Enables WebNFS access.</span><br><span class="line">-lowercase  maps all file names to lowercase, otherwise case is preserved.</span><br><span class="line">-exec   forces in access rights the x bit for all files.</span><br><span class="line">-mapall:&lt;uid&gt;[:&lt;gid&gt;]   all Unix user-ids and group-ids are mapped to the specified user-id and group-id.</span><br><span class="line">-maproot:&lt;uid&gt;[:&lt;gid&gt;]  the Unix super user root is mapped to the specified user-id, group-id. Without a mapping entry root will be mapped to user and group nobody.</span><br><span class="line">-range  IP adresses are interpreted in pairs as from-to ranges enabling client access from all addresses in a range (more flexible than the unix -net -mask options).</span><br></pre></td></tr></table></figure></li>
+<li>再举几个例子:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># exports example</span><br><span class="line">c:\ftp -range 192.168.1.1 192.168.1.10</span><br><span class="line">c:\public -public -readonly</span><br><span class="line">c:\tools -readonly 192.168.1.4</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>如果NFS被成功加载, 那么会在<code>Mounts</code>页显示出来<br><img src="https://draapho.github.io/images/1606/haneWIN_Mounts.PNG" alt="haneWIN_Mounts"></li>
+<li>参考<ul>
+<li><a target="_blank" rel="noopener" href="http://www.nasyun.com/thread-25086-1-1.html">GEN8折腾日记-第三方NFS工具 hanewin 设置(需登录)</a></li>
+<li><a target="_blank" rel="noopener" href="http://wenku.baidu.com/view/c78baefefad6195f302ba665.html">GEN8折腾日记-第三方NFS工具 hanewin 设置(百度文库)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.chiphell.com/thread-1240623-1-1.html">群晖加载Windows NFS文件</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="Hyper-V"><a href="#Hyper-V" class="headerlink" title="Hyper-V"></a>Hyper-V</h1><ul>
+<li>从Win8开始, Hyper-V是Windows自带的软件.</li>
+<li>启用Hper-V, <code>控制面板</code>-&gt;<code>程序和功能</code>-&gt;<code>启用或关闭Windows功能</code>-&gt;<code>Hyper-V</code><br><img src="https://draapho.github.io/images/1606/HyperV_Enable.PNG" alt="HyperV_Enable"></li>
+<li>设置虚拟网络<br><img src="https://draapho.github.io/images/1606/HyperV_NIC1.PNG" alt="HyperV_NIC1"><br><img src="https://draapho.github.io/images/1606/HyperV_NIC2.PNG" alt="HyperV_NIC2"></li>
+<li>新建虚拟机<br><img src="https://draapho.github.io/images/1606/HyperV_Install1.png" alt="HyperV_Install1"><br><img src="https://draapho.github.io/images/1606/HyperV_Install2.png" alt="HyperV_Install2"><br><img src="https://draapho.github.io/images/1606/HyperV_Install3.png" alt="HyperV_Install3"></li>
+<li>安装Ubuntu 32位服务器版本, 用于交叉编译. (另一个备选方案是用cygwin)</li>
+<li>安装家用NAS, 用于多设备(投影仪, 平板, 手机)看硬盘上的影片.</li>
+</ul>
+<h1 id="NAS和智能路由器"><a href="#NAS和智能路由器" class="headerlink" title="NAS和智能路由器"></a>NAS和智能路由器</h1><h2 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h2><ul>
+<li>NAS, Network Attached Storage. 家用的话, 大多定位于多媒体观赏和数据备份两个核心功能.</li>
+<li>专做NAS的厂家, <a target="_blank" rel="noopener" href="https://www.synology.com/">Synology(群晖)</a> 和 <a target="_blank" rel="noopener" href="https://www.qnap.com/">QNAP(威联通)</a> 比较有名</li>
+<li>智能路由器, 从小米路由器到airport extreme.</li>
+<li>两者区别的话, 就是一个更专业, 一个更娱乐.<br>所谓专业, 就是更多的权限设置和管理(对用户不友好), 更多的功能, 更高的安全要求.<br>所谓娱乐, 就是傻瓜易上手, 能用好用为主要需求.<br>简而言之, 一个是专业单反, 一个是傻瓜机, 然后有一些就是处于中间位置的微单…</li>
+</ul>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><ul>
+<li>大多数的家庭, 对此类产品的第一要求就是<strong>好用</strong>. 只有Geek一类的人需要<strong>好玩</strong>.</li>
+<li>NAS在宣传上, 必然会强调数据安全, 列出诸如支持多种RAID这种让非专业人士云里雾里的概念.</li>
+<li>而普通家庭最大的数据安全问题就是数据过于集中, 防偷防意外损坏之类的风险防范反而不足了.</li>
+<li>因此, 家用云市场应该侧重于易于配置和使用. 家庭的数据安全问题不是靠一台专业NAS设备就能解决的.</li>
+<li>结论: 在家用市场, 智能路由器有更好的市场前景.</li>
+</ul>
+<h2 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h2><ul>
+<li>家庭环境的话, 建议用移动硬盘备份关键资料(即RAID1), 然后分开存储, 当然也可以基于SFTP等服务自动备份. 这样可以做到物理上相对独立, 而且因为用的是RAID1, 数据出问题后的恢复也非常简单.</li>
+<li>中小企业就需要用到稍微专业一点的NAS才比较好了. 话说, 很多本土企业对数据安全这一块很不上心啊…</li>
+<li>推荐完全免费的同步软件<a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a>, 买块硬盘, 家用足够了.</li>
+</ul>
+<h2 id="个人推荐"><a href="#个人推荐" class="headerlink" title="个人推荐"></a>个人推荐</h2><ul>
+<li>听说过家庭云, 不知道具体需求, 买个便宜的小米路由器先体验体验.</li>
+<li>苹果爱好者直接上 airport extreme, 二千元可以给手机平板太多额外的存储空间了.</li>
+<li>想要玩NAS的, 可以先用虚拟机装了体验一下效果.</li>
+<li>如果买专业的NAS, 推荐直接用企业入门级产品QNAP的<code>TS-251</code>或<code>TS-253 Pro</code>,内置虚拟机, 可玩性很高.</li>
+<li>群晖的机器不太推荐, 因为数据的存储格式很奇怪, 万一出点问题自己一点办法也没有!</li>
+<li>组装机也不是太推荐, 因为功耗美观服务都要考虑进去.</li>
+</ul>
+<h1 id="同步软件freefilesync"><a href="#同步软件freefilesync" class="headerlink" title="同步软件freefilesync"></a>同步软件<a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a></h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a>是一款完全免费的同步软件, 可以完全媲美GoodSync</li>
+<li>支持sftp, 所以也可以通过网络自动备份数据</li>
+<li>家庭用户使用RAID1, 即关键资料双硬盘完整备份, 然后分开存放就足够了.</li>
+</ul>
+<h1 id="远程开机"><a href="#远程开机" class="headerlink" title="远程开机"></a>远程开机</h1><p>如果是7x24小时开机当服务器用, 则不用考虑这一块. 远程开机是针对虚拟机和组装机用户说的.</p>
+<h2 id="LAN唤醒"><a href="#LAN唤醒" class="headerlink" title="LAN唤醒"></a>LAN唤醒</h2><ul>
+<li>LAN唤醒需要主板的支持, 不支持无线网络, 必须使用有线. 新一点的机器一般都能支持.</li>
+<li>启用主板的WOL功能<ul>
+<li>开机进入BIOS, 寻找<code>wake on lan``resume on lan``power on PME``power on by PCI-E device``Power on by Onboard LAN</code>等与电源管理和唤醒有关的选项并使能</li>
+</ul>
+</li>
+<li>设置网卡驱动<ul>
+<li><code>设备管理器</code>-&gt;<code>网络适配器</code>-&gt;选择有线网卡设备-&gt;右键<code>属性</code>-&gt;在<code>高级</code>和<code>电源管理</code>标签下-&gt;启用<code>唤醒模式``唤醒魔包``幻数据包``唤醒计算机</code>之类的选项</li>
+</ul>
+</li>
+<li>配置 WIN10 WOL(Wake on Lan 远程唤醒) 最大的坑就是要关闭 “启用快速启动(推荐)”, 而默认是打开的. 另外, <ul>
+<li><code>控制面板</code>-&gt;<code>硬件和声音</code>-&gt;<code>电源选项</code>-&gt;左边栏<code>选择电源按钮的功能</code>-&gt;弹出<code>系统设置</code>页面-&gt;<code>关机设置</code>-&gt;<del><code>启用快速启动(推荐)</code></del></li>
+</ul>
+</li>
+<li>电脑非正常关机后, 是无法远程唤醒的.</li>
+<li>建议分级测试.<ol>
+<li>可以先确定bios配置正确. 配置好bios, 进入winPE之类的系统, 选择关机, 看WOL是否起作用.</li>
+<li>然后进入win10配置网卡的相关选项, 然后让机器进入睡眠模式, 看WOL是否起作用.</li>
+<li>最后win10关机, 测试WOL是否起作用.</li>
+<li>“启用快速启动(推荐)”, 位于 控制面板\硬件和声音\电源选项\唤醒时需要密码(系统设置)\关机设置.</li>
+<li>注意: bios设置内关于PCI节能的设置特别注意, 考虑全部关闭</li>
+</ol>
+</li>
+<li>Android端WOL软件推荐. <code>Wake On LAN</code> 配置简单, 界面友好.</li>
+<li>参考链接<ul>
+<li><a target="_blank" rel="noopener" href="https://www.teamviewer.com/zhCN/res/pdf/Teamviewer9-Manual-Wake-on-LAN-zhCN.pdf">TeamViewer手册-LAN唤醒</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.iplaysoft.com/wol.html">WOL 网络唤醒远程开机设置方法教程 + 多款软件下载！(手机远程开启电脑)</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="WAN远程唤醒"><a href="#WAN远程唤醒" class="headerlink" title="WAN远程唤醒"></a>WAN远程唤醒</h2><ul>
+<li>WAN远程唤醒的前提是配置好LAN唤醒.</li>
+<li>需要设置路由器, 设置过程非常复杂, 而且免费的不稳定.</li>
+<li>我买了向日葵开机棒, 但实际体验不好. 一是向日葵的服务器不太稳定, 而是远程操作意义不大, 纯玩性质.</li>
+<li>所以, 建议普通用户不用折腾这块了. 真有异地工作, 资料同步的需求, 用公共云, github, BitBucket都很好.</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/10/03/1606-WinSoft-cloud/" data-id="cklzxufh8000im8qo1sj6bzk8" data-title="Windows 软件系列-基于NFS的家庭网" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-1604-CheatSheet-vim" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/01/1604-CheatSheet-vim/" class="article-date">
+  <time class="dt-published" datetime="2016-09-30T14:00:00.000Z" itemprop="datePublished">2016-10-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Blog/2016/10/01/1604-CheatSheet-vim/">Vim常用快捷键</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Vim常用快捷键"><a href="#Vim常用快捷键" class="headerlink" title="Vim常用快捷键"></a>Vim常用快捷键</h1><h2 id="进入输入模式"><a href="#进入输入模式" class="headerlink" title="进入输入模式"></a>进入输入模式</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>助记</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>i</code></td>
+<td>insert</td>
+<td>光标前插入文本</td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>insert</td>
+<td>行首插入文本</td>
+</tr>
+<tr>
+<td><code>ea</code></td>
+<td>end append</td>
+<td>单词末插入文本</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>append</td>
+<td>光标后插入文本</td>
+</tr>
+<tr>
+<td><code>A</code></td>
+<td>append</td>
+<td>行尾插入文本</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>open new line</td>
+<td>向下插入新行</td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td>open new line</td>
+<td>向上插入新行</td>
+</tr>
+<tr>
+<td><code>cw</code></td>
+<td>change word</td>
+<td>修改单词</td>
+</tr>
+<tr>
+<td><code>cc</code></td>
+<td>change</td>
+<td>删除整行后修改</td>
+</tr>
+<tr>
+<td><code>c^</code> <code>c$</code></td>
+<td>change</td>
+<td>删除到行首/行尾后修改</td>
+</tr>
+</tbody></table>
+<h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>助记</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>h</code> <code>j</code> <code>k</code> <code>l</code></td>
+<td></td>
+<td>左/下/上/右</td>
+</tr>
+<tr>
+<td><code>^</code> <code>0</code> <code>$</code></td>
+<td></td>
+<td>行首/首字母/行尾</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>word</td>
+<td>下个字开头</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>end</td>
+<td>本字结尾</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>before</td>
+<td>上个字开头</td>
+</tr>
+<tr>
+<td><code>fx</code></td>
+<td>find+字符</td>
+<td>移动到x字符处</td>
+</tr>
+<tr>
+<td><code>5enter</code></td>
+<td></td>
+<td>向下移5行</td>
+</tr>
+<tr>
+<td><code>gg</code> <code>1G</code></td>
+<td>go</td>
+<td>回首行</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>go</td>
+<td>到末行</td>
+</tr>
+<tr>
+<td><code>5G</code></td>
+<td>num+go</td>
+<td>到第5行</td>
+</tr>
+<tr>
+<td><code>ctrl+u</code></td>
+<td>up</td>
+<td>向上翻半页</td>
+</tr>
+<tr>
+<td><code>ctrl+d</code></td>
+<td>down</td>
+<td>向下翻半页</td>
+</tr>
+<tr>
+<td><code>&#123;</code> <code>&#125;</code></td>
+<td></td>
+<td>块首/块尾</td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>high</td>
+<td>屏幕顶部</td>
+</tr>
+<tr>
+<td><code>M</code></td>
+<td>medium</td>
+<td>屏幕中部</td>
+</tr>
+<tr>
+<td><code>L</code></td>
+<td>low</td>
+<td>屏幕底部</td>
+</tr>
+</tbody></table>
+<h2 id="文本编辑"><a href="#文本编辑" class="headerlink" title="文本编辑"></a>文本编辑</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>助记</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>r</code></td>
+<td>repalce</td>
+<td>替换单个字符</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td></td>
+<td>改变字符大小写</td>
+</tr>
+<tr>
+<td><code>x</code> <code>5x</code></td>
+<td></td>
+<td>删除字符</td>
+</tr>
+<tr>
+<td><code>dw</code> <code>5dw</code></td>
+<td>delete word</td>
+<td>删除单词</td>
+</tr>
+<tr>
+<td><code>db</code> <code>5db</code></td>
+<td>delete befor</td>
+<td>向前删除单词</td>
+</tr>
+<tr>
+<td><code>dd</code> <code>5dd</code></td>
+<td>delete</td>
+<td>删除整行</td>
+</tr>
+<tr>
+<td><code>d^</code> <code>d$</code></td>
+<td>delete</td>
+<td>删除到行首/行尾</td>
+</tr>
+<tr>
+<td><code>d1G</code> <code>dG</code></td>
+<td>delete</td>
+<td>删除到第一行/最后一行</td>
+</tr>
+<tr>
+<td><code>yw</code> <code>5yw</code></td>
+<td>yank word</td>
+<td>复制单词</td>
+</tr>
+<tr>
+<td><code>yy</code> <code>5yy</code></td>
+<td>yank</td>
+<td>复制整行</td>
+</tr>
+<tr>
+<td><code>y^</code> <code>y$</code></td>
+<td>yank</td>
+<td>复制到行首/行尾</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code> <code>&lt;&lt;</code></td>
+<td></td>
+<td>单行缩进</td>
+</tr>
+<tr>
+<td><code>p</code> <code>P</code></td>
+<td>paste</td>
+<td>黏贴(光标后/光标前)</td>
+</tr>
+<tr>
+<td><code>J</code></td>
+<td>join</td>
+<td>将下一行合并到当前行</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>undo</td>
+<td>撤销更改/撤销输入</td>
+</tr>
+<tr>
+<td><code>ctrl+r</code></td>
+<td>redo</td>
+<td>恢复</td>
+</tr>
+<tr>
+<td><code>ctrl+r</code></td>
+<td>redo</td>
+<td>恢复</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td></td>
+<td>重复编辑动作</td>
+</tr>
+</tbody></table>
+<h2 id="视图模式"><a href="#视图模式" class="headerlink" title="视图模式"></a>视图模式</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>助记</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>v</code></td>
+<td>visual</td>
+<td>进入视图模式</td>
+</tr>
+<tr>
+<td><code>&gt;</code> <code>&lt;</code></td>
+<td></td>
+<td>代码缩进</td>
+</tr>
+<tr>
+<td><code>d</code> <code>y</code></td>
+<td>delete yank</td>
+<td>剪切/复制</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td></td>
+<td>改变大小写</td>
+</tr>
+</tbody></table>
+<h2 id="查找与替换"><a href="#查找与替换" class="headerlink" title="查找与替换"></a>查找与替换</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>助记</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/str</code></td>
+<td></td>
+<td>查找str</td>
+</tr>
+<tr>
+<td><code>n</code> <code>N</code></td>
+<td>next</td>
+<td>查找下一个/上一个</td>
+</tr>
+<tr>
+<td><code>:s/old/new/g</code></td>
+<td>start…go</td>
+<td>所在行old替换为new</td>
+</tr>
+<tr>
+<td><code>:n1,n2s/old/new/g</code></td>
+<td>start…go</td>
+<td>n1-n2行old替换为new</td>
+</tr>
+<tr>
+<td><code>:0,$/old/new/g</code></td>
+<td>start…go</td>
+<td>全文old替换为new</td>
+</tr>
+<tr>
+<td><code>:%s/old/new/g</code></td>
+<td>start…go</td>
+<td>全文old替换为new</td>
+</tr>
+<tr>
+<td><code>:n1,n2s/^/\/\//g</code></td>
+<td><code>^</code> 行首 <code>/</code> 转义</td>
+<td>行首替换为//, 即注释掉</td>
+</tr>
+</tbody></table>
+<h2 id="保存与退出"><a href="#保存与退出" class="headerlink" title="保存与退出"></a>保存与退出</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>助记</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>esc</code></td>
+<td></td>
+<td>返回命令模式</td>
+</tr>
+<tr>
+<td><code>:wq</code> <code>:wq!</code></td>
+<td>write &amp; quit</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td><code>:q</code> <code>:q!</code></td>
+<td>quit  <code>!</code> sudo</td>
+<td>退出</td>
+</tr>
+</tbody></table>
+<h2 id="Vim-助记图-总有一款适合你"><a href="#Vim-助记图-总有一款适合你" class="headerlink" title="Vim 助记图, 总有一款适合你"></a>Vim 助记图, 总有一款适合你</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="http://vim.rtorr.com/lang/zh_cn/">中文版 Vim Cheat Sheet</a> 网页版, 支持多语言</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://vimsheet.com/">A Great Vim Cheat Sheet</a> 网页版</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html">Graphical vi-vim Cheat Sheet and Tutorial</a><br><img src="http://www.viemu.com/vi-vim-cheat-sheet.gif" alt="vi/vim graphical cheat sheet"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://vimcheatsheet.com/">Beautiful Vim Cheat-Sheet</a><br><img src="https://cdn.shopify.com/s/files/1/0165/4168/files/preview.png" alt="Vim Cheat-Sheet Preview"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.gosquared.com/blog/vi-linux-terminal-help-sheet">VI (Linux Terminal) Help Sheet</a><br><img src="https://downloads.gosquared.com/help_sheets/10/VI-Help-Sheet-large.jpg" alt="VI Help Sheet"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.vgod.tw/2009/12/08/vim-cheat-sheet-for-programmers/">給程式設計師的Vim入門圖解說明</a><br><img src="http://blog.vgod.tw.s3.amazonaws.com/wp-content/uploads/2009/12/vim-cheat-sheet-diagram.png" alt="Vim入門圖解說明"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://linux.vbird.org/linux_basic/0310vi.php">vim极简中文示意图</a>-&gt;<code>9.3.6 vim 常用指令示意图</code><br><img src="https://draapho.github.io/images/1604/vimCheatSheet.jpg" alt="vim极简中文示意图"></p>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/10/01/1604-CheatSheet-vim/" data-id="cklzxufh40009m8qo6hgccyxo" data-title="Vim常用快捷键" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-1605-Stm32Selection" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/01/1605-Stm32Selection/" class="article-date">
+  <time class="dt-published" datetime="2016-09-30T14:00:00.000Z" itemprop="datePublished">2016-10-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/embedded/">embedded</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Blog/2016/10/01/1605-Stm32Selection/">stm32选型及资料搜索指南</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="stm32选型及手册搜索"><a href="#stm32选型及手册搜索" class="headerlink" title="stm32选型及手册搜索"></a>stm32选型及手册搜索</h1><ul>
+<li>进入搜索网页<a target="_blank" rel="noopener" href="http://www.st.com/content/st_com/en/products/microcontrollers.html">STM选型</a></li>
+<li>在搜索框输入指定型号, 点击进入具体型号的页面. 如<a target="_blank" rel="noopener" href="http://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32f1-series/stm32f103/stm32f103rc.html">STM32F103RC</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.st.com/content/ccc/resource/technical/document/datasheet/59/f6/fa/84/20/4e/4c/59/CD00191185.pdf/files/CD00191185.pdf/jcr:content/translations/en.CD00191185.pdf">DS5792</a> -  <strong>DataSheet, 数据手册. 电气参数详解, 软硬件必备</strong></li>
+<li><a target="_blank" rel="noopener" href="http://www.st.com/content/ccc/resource/technical/document/reference_manual/59/b9/ba/7f/11/af/43/d5/CD00171190.pdf/files/CD00171190.pdf/jcr:content/translations/en.CD00171190.pdf">RM0008</a> - <strong>Reference Manuals, 参考手册. 寄存器详解. 软件开发必备</strong></li>
+<li><a target="_blank" rel="noopener" href="http://www.st.com/content/ccc/resource/technical/document/application_note/a2/9c/07/d9/2a/b2/47/dc/CD00004479.pdf/files/CD00004479.pdf/jcr:content/translations/en.CD00004479.pdf">AN1709</a> - <strong>Application Notes, 应用指南. 需要仔细看这类文档</strong>. 是针对具体问题的指南, 如这一篇是EMC设计指南</li>
+<li><a target="_blank" rel="noopener" href="http://www.st.com/content/ccc/resource/technical/document/programming_manual/10/98/e8/d4/2b/51/4b/f5/CD00283419.pdf/files/CD00283419.pdf/jcr:content/translations/en.CD00283419.pdf">PM0075</a> - Programming Manuals, 烧录手册. 介绍擦写flash相关的流程和寄存器</li>
+<li><a target="_blank" rel="noopener" href="http://www.st.com/content/ccc/resource/technical/document/errata_sheet/f5/50/c9/46/56/db/4a/f6/CD00197763.pdf/files/CD00197763.pdf/jcr:content/translations/en.CD00197763.pdf">ES0340</a> - Errata Sheets, 勘误表. 遇到非常奇怪的问题时, 可以先来看看勘误表, 是否源文件就是错的!</li>
+<li><a target="_blank" rel="noopener" href="http://www.st.com/content/ccc/resource/technical/document/technical_note/92/30/3c/a1/4c/bb/43/6f/DM00103228.pdf/files/DM00103228.pdf/jcr:content/translations/en.DM00103228.pdf">TN1163</a> - Technical Notes &amp; Articles, 技术指南, 存储焊接, 开发工具配置之类的解答. <strong>生产必备</strong></li>
+<li><a target="_blank" rel="noopener" href="http://www.st.com/content/ccc/resource/technical/document/user_manual/f9/4a/8d/e6/b8/20/4a/46/DM00062592.pdf/files/DM00062592.pdf/jcr:content/translations/en.DM00062592.pdf">UM1561</a> - User Manuals, 对官方开发板或开发工具的用户说明书</li>
+</ul>
+<h1 id="其它设计资料的搜索"><a href="#其它设计资料的搜索" class="headerlink" title="其它设计资料的搜索"></a>其它设计资料的搜索</h1><ul>
+<li>根据型号并不能找出期望的文档. 譬如需要一份电源设计参考.</li>
+<li>进去搜索网页<a target="_blank" rel="noopener" href="http://www.st.com/content/st_com/en/products/microcontrollers.html">STM选型</a></li>
+<li>在搜索框输入关键词<code>hardware power</code>, 在搜索结果页面, 选择<code>Resouces</code>标签</li>
+<li>这里第一条就是 <a target="_blank" rel="noopener" href="http://www.st.com/content/ccc/resource/technical/document/application_note/87/b8/0f/5e/ab/d0/4f/2d/DM00071779.pdf/files/DM00071779.pdf/jcr:content/translations/en.DM00071779.pdf">AN4218: Hardware design guideline power supply and voltage measurement</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/10/01/1605-Stm32Selection/" data-id="cklzxufh6000dm8qo5ek0fizw" data-title="stm32选型及资料搜索指南" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-1603-WinSoft-editor" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/09/30/1603-WinSoft-editor/" class="article-date">
+  <time class="dt-published" datetime="2016-09-29T14:00:00.000Z" itemprop="datePublished">2016-09-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/windows/">windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Blog/2016/09/30/1603-WinSoft-editor/">Windows 软件系列-文本编辑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad++"></a><a target="_blank" rel="noopener" href="https://notepad-plus-plus.org/">Notepad++</a></h1><h2 id="Npp简介"><a href="#Npp简介" class="headerlink" title="Npp简介"></a>Npp简介</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://notepad-plus-plus.org/">Notepad++</a>简称Npp, 是免费好用的记事本</li>
+<li>轻便小巧, 打开速度快. 自带丰富功能且有插件, 如语法高亮</li>
+<li>建议用他彻底替换windows自带的记事本</li>
+<li>目前出到npp7, <strong>不要装64位版本</strong>, 很多插件都不支持</li>
+<li>有绿色便携版, 但需要额外设置右键打开和文件关联功能</li>
+</ul>
+<h2 id="Npp设置"><a href="#Npp设置" class="headerlink" title="Npp设置"></a>Npp设置</h2><h3 id="首选项设置"><a href="#首选项设置" class="headerlink" title="首选项设置"></a>首选项设置</h3><ul>
+<li><code>Setting</code>-&gt;<code>Preferences</code> 打开首选项页面</li>
+<li><code>General</code>-&gt;<code>Double click to close document</code></li>
+<li><code>Editing</code>-&gt;<code>Muli-Editing Setting</code>-&gt;<code>Enable (Ctrl...)</code></li>
+<li><code>Editing</code>-&gt;<code>Vertical Edge Setting</code>-&gt;<code>Show vertical edge</code>-&gt;<code>Line mode</code>-&gt;<code>Number of columns: 80</code></li>
+<li><code>File Association</code>-&gt;选择需要关联的文件后缀, 加入到<code>Registered extensions</code><br>关联其它后缀名, 只需在<code>customize</code>-&gt;填入后缀并加入, 如 <code>.config</code> <code>.gitignore</code><br>注意: <strong>绿色便携版设置了文件关联也是没有效果的</strong>, 用windows下右键<code>打开方式</code>设置吧</li>
+<li><code>Tab Setting</code>-&gt;<code>[Default]</code>-&gt;<code>Tab size:4</code>-&gt;<code>Replace by space</code></li>
+<li><code>Tab Setting</code>-&gt;<code>makefile</code>-&gt;<del><code>Use default value</code></del>-&gt;<del><code>Replace by space</code></del>, 因为make只认TAB键</li>
+<li><code>Auto-Completion</code>-&gt;<code>Auto-Completion</code>-&gt;<code>From 2 th character</code></li>
+<li><code>Auto-Completion</code>-&gt;<code>Auto-Insert</code>-&gt;<code>&#39;</code></li>
+<li><code>Auto-Completion</code>-&gt;<code>Auto-Insert</code>-&gt;<code>html/xml close tag</code></li>
+<li><del><code>Auto-Completion</code>-&gt;<code>Auto-Insert</code>-&gt;<code>Matched pair</code></del> 加入 <code>*</code> 和 <code>(即</code>~`键), !!!重启后失效, 原因不明.</li>
+</ul>
+<h3 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h3><ul>
+<li><code>Settings</code>-&gt;<code>Style Configurator</code>-&gt;<code>Select theme</code>-&gt;<code>Twilight</code></li>
+<li>对<code>Monokai </code>注释配色非常无语, 而且对python的配色也太不友好了, 只好放弃.</li>
+</ul>
+<h3 id="自定义语法高亮"><a href="#自定义语法高亮" class="headerlink" title="自定义语法高亮"></a>自定义语法高亮</h3><ul>
+<li>以导入自定义的 markdown 语法高亮为例</li>
+<li>可以去网上搜索<a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/tree/master/_blog_stuff/Notepad%2B%2B/markdown">下载markdown语法高亮文件</a></li>
+<li><code>Language</code>-&gt;<code>Define your language ...</code>-&gt;<code>Import</code>-&gt;选择下载的<code>markdown_*.xml</code>文件即可</li>
+<li>导入成功后, <code>Language</code>-&gt;<code>Define your language ...</code>下面就会有markdown语言了</li>
+</ul>
+<h3 id="Npp插件"><a href="#Npp插件" class="headerlink" title="Npp插件"></a>Npp插件</h3><ul>
+<li>插件的安装 (<strong>64位版本无法支持大多数插件</strong>)<ol>
+<li><code>Plugins</code>-&gt;<code>Plugin Manager</code>-&gt;<code>Show Plugin Manager</code>-&gt;安装插件</li>
+<li>将插件的<code>.dll</code>文件直接放到<code>plugins</code>目录下. (说明插件可以免安装)</li>
+</ol>
+</li>
+<li><code>compare</code> 文件比较功能.<br>由于使用了深色主题, 需要使用深色作为背景<br><code>Plugins</code>-&gt;<code>compare</code>-&gt;<code>Option</code>-&gt;<code>Clolr setting</code>-&gt;点选颜色<code>More Colors</code> 调深即可</li>
+<li><code>customize toolbar</code> 可自定义工具栏</li>
+<li><code>File Switcher</code> 提供<code>ctrl+tab</code>在视图窗口切换标签的功能</li>
+<li><code>Hex-Editor</code> 增加二进制编辑模式</li>
+<li><code>Light Explorer</code> 增加资源管理器界面</li>
+<li><code>Location Navigate</code> 浏览历史跳转<br>取消 <code>Mark Changed Line</code>, 配色看不清楚!</li>
+<li><del><code>ViSimulator</code></del> vim模式, <code>ctrl+shift+alt+v</code> 使能或禁止. 可以从<a target="_blank" rel="noopener" href="https://web.archive.org/web/20150515145616/http://www.visimulator.com/download.html">这里下载</a></li>
+<li><code>Zoom Disabler</code> 屏蔽ctrl+滚轮的缩放功能</li>
+</ul>
+<h2 id="Python-Script插件"><a href="#Python-Script插件" class="headerlink" title="Python Script插件"></a><a target="_blank" rel="noopener" href="http://npppythonscript.sourceforge.net/index.shtml">Python Script</a>插件</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="http://npppythonscript.sourceforge.net/index.shtml">Python Script</a>针对notepad++的python插件, 可以用来批量处理文件</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/npppythonscript/files/Python%20Script%201.0.8.0/">下载最新版本1.0.8.0</a> <code>PythonScript_Full_1.0.8.0.zip</code> 即可</p>
+</li>
+<li><p>解压后将整个文件拷贝到notepad++的根目录下, 目录结构如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Notepad++ (Notepad++ 根目录, 例如&quot;C:\Program Files\npp&quot;)</span><br><span class="line"> +</span><br><span class="line"> |-- python26.dll</span><br><span class="line"> +-- plugins</span><br><span class="line">           |-- PythonScript.dll</span><br><span class="line">           |-- PythonScript</span><br><span class="line">           |   |-- lib</span><br><span class="line">           |   |     |-- (*.py)</span><br><span class="line">           |   |-- scripts</span><br><span class="line">           |             |-- (machine-level scripts)</span><br><span class="line">           |-- doc</span><br><span class="line">           |     |-- PythonScript</span><br><span class="line">           |             |-- PythonScript.chm</span><br><span class="line">           |-- Config (也可能在 %APPDATA%\Notepad++\plugins\config\)</span><br><span class="line">                         \-- PythonScript</span><br><span class="line">                                         |-- scripts</span><br><span class="line">                                                   |-- (用户脚本)</span><br></pre></td></tr></table></figure></li>
+<li><p>检测是否安装成功. 重启notepad++. 按如下步骤进行测试<br><code>Plugins-&gt;Python Script</code>-&gt;<code>Show Console</code>-&gt;显示<code>Python ... Ready.</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/tree/master/_blog_stuff/Notepad%2B%2B/Python%20Script">一个实用的脚本示例</a>, <strong>注意</strong>, 需要使用Notepad++ 7及以上版本, 否则执行结果和预期会有差别.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os;</span><br><span class="line"><span class="keyword">import</span> sys;</span><br><span class="line"><span class="keyword">from</span> Npp <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对所有打开的文件去除行尾空格并将空格替换为TAB</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_menu_command</span>():</span></span><br><span class="line">  <span class="comment"># Edit-&gt;Blank Operations</span></span><br><span class="line">  notepad.runMenuCommand(<span class="string">&quot;Blank Operations&quot;</span>, <span class="string">&quot;Trim Trailing Space&quot;</span>)</span><br><span class="line">  notepad.runMenuCommand(<span class="string">&quot;Blank Operations&quot;</span>, <span class="string">&quot;Space to TAB (All)&quot;</span>)</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Find and operate files opened at notepad</span></span><br><span class="line"><span class="comment"># There is something wrong run in NPP6.X</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">operate_file_in_notepad</span>():</span></span><br><span class="line">  file_list = notepad.getFiles()</span><br><span class="line">  <span class="keyword">for</span> file <span class="keyword">in</span> file_list:</span><br><span class="line">      fn = file[<span class="number">0</span>]</span><br><span class="line">      notepad.activateFile(fn)</span><br><span class="line">      run_menu_command()</span><br><span class="line"></span><br><span class="line">operate_file_in_notepad()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="绿色版注册右键"><a href="#绿色版注册右键" class="headerlink" title="绿色版注册右键"></a>绿色版注册右键</h2><ul>
+<li>基本思路是直接修改注册表, 增加右键<code>Notepad++ Here</code></li>
+<li>写了批处理文件, 放到notepad++根目录, 管理员权限执行即可.<br><a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/blob/master/_blog_stuff/Notepad%2B%2B/_RegisterKey_Admin.bat">_RegisterKey_Admin.bat</a> 注册右键, 需管理员权限执行.<br><a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/blob/master/_blog_stuff/Notepad%2B%2B/_UnregisterKey_Admin.bat">_UnregisterKey_Admin.bat</a> 注销右键, 需管理员权限执行.</li>
+<li>也可以手动创建文件 <code>注册右键.reg</code>, 内容如下.<br><strong>上述批处理的思路</strong>就是自动生成这个 <code>.reg</code> 文件然后导入注册表.<br><strong>需要替换notepad++安装路径</strong>. 然后管理员权限执行即可.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line">[HKEY_CLASSES_ROOT\*\Shell\NotePad++ Here]</span><br><span class="line">[HKEY_CLASSES_ROOT\*\Shell\NotePad++ Here\Command]</span><br><span class="line">@&#x3D;&quot;\&quot;D:\\Program Files\\npp\\notepad++.exe\&quot; \&quot;%1\&quot;&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h2><ul>
+<li>需按照<a href="https://draapho.github.io/2016/10/08/1607-CheatSheet-win/">编辑器快捷键</a>设置</li>
+<li>设置好的<a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/tree/master/_blog_stuff/Notepad%2B%2B/shortcuts.xml">快捷键配置文件</a>, 直接替换原有的shortcuts.xml即可</li>
+<li>说明一下<code>run</code>的设置, 可参考官方说明<a target="_blank" rel="noopener" href="http://docs.notepad-plus-plus.org/index.php/External_Programs">Notepad++调用外部程序</a><ul>
+<li><code>Zeal.lnk $(CURRENT_WORD)</code> 在Zeal中查询选中内容</li>
+<li><code>Typora.lnk &quot;$(FULL_CURRENT_PATH)&quot;</code> 在Typora中预览文件</li>
+<li><code>ConEmu.lnk -Dir &quot;$(CURRENT_DIRECTORY)&quot;</code> 使用当前路径打开ConEmu</li>
+<li>上述三个指令需要配置好全局变量, 或者使用绝对路径. </li>
+<li>后缀名为lnk是因为我用了快捷方式放在同一个目录下, 简化设置全局变量的步骤</li>
+<li><code>http://www.google.com/search?q=$(CURRENT_WORD)</code> 选中的内容直接google搜索</li>
+</ul>
+</li>
+<li>环境变量的配置, 可以参考<a href="https://draapho.github.io/2016/10/09/1608-WinSoft-path/">Windows 软件系列-自定义环境变量</a></li>
+<li>notepad++的宏录制功能也非常有用, 譬如可以录制一个 <code>TAB to Space</code> + <code>Trim Trailing Space</code> + <code>Save</code> 保存并设置快捷键为 <code>ctrl-s</code>, 这样就可以保存前自动完成空格处理了.</li>
+</ul>
+<h2 id="资源和参考"><a href="#资源和参考" class="headerlink" title="资源和参考"></a>资源和参考</h2><p><a target="_blank" rel="noopener" href="https://notepad-plus-plus.org/">Notepad++官网</a><br><a target="_blank" rel="noopener" href="http://docs.notepad-plus-plus.org/index.php/Plugin_Central">Notepad++插件中心</a><br><a target="_blank" rel="noopener" href="http://docs.notepad-plus-plus.org/index.php/External_Programs">Notepad++调用外部程序</a><br><a target="_blank" rel="noopener" href="http://www.crifan.com/files/doc/docbook/rec_soft_npp/release/html/rec_soft_npp.html">轻量级文本编辑器，Notepad最佳替代品：Notepad++</a><br><a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/a24b33cd71f2d619ff002b60.html">notepad++如何关联到右键菜单</a></p>
+<h1 id="atom"><a href="#atom" class="headerlink" title="atom"></a><a target="_blank" rel="noopener" href="https://atom.io/">atom</a></h1><h2 id="atom简介"><a href="#atom简介" class="headerlink" title="atom简介"></a>atom简介</h2><ul>
+<li>界面简洁, 基本上手可用, 无需复杂设置</li>
+<li>开源免费, 而且多平台支持, 有丰富的插件库</li>
+<li>和git的整合度很好! 直观明了好用</li>
+<li>启动相对较慢, 但可接受.</li>
+<li>懒人不想折腾, atom无明显短板, 就作为主力代码编辑器了</li>
+<li>定位是 Notepad++ 为快速处理文件, atom 处理项目</li>
+</ul>
+<h2 id="两个快捷键"><a href="#两个快捷键" class="headerlink" title="两个快捷键"></a>两个快捷键</h2><ul>
+<li>为了避免打开atom后一头雾水, 需要记住两个快捷键</li>
+<li><code>ctrl+shift+p</code>, 打开atom命令窗口, 可以输入指令如<code>setting</code></li>
+<li><code>ctrl+,</code> 打开设置页面</li>
+</ul>
+<h2 id="atom设置"><a href="#atom设置" class="headerlink" title="atom设置"></a>atom设置</h2><ul>
+<li><code>ctrl+,</code>进入设置界面 <code>Settings</code></li>
+<li><code>Editor</code> 界面下, 设置基本参数<ul>
+<li><code>Show Ivisibles</code></li>
+<li><code>Soft Tabs</code></li>
+<li><code>Tab Length</code>-&gt;<code>4</code></li>
+<li><code>Tab Type</code>-&gt;<code>auto</code>, 由于makefile必须为TAB, 否则可以设为 <code>soft</code> Tab键输入4个空格</li>
+</ul>
+</li>
+<li><code>System</code> 界面下, 增加系统右键<ul>
+<li><code>Register as file handler</code></li>
+<li><code>Show in file context menus</code></li>
+<li><code>Show in folder context menus</code></li>
+</ul>
+</li>
+<li><code>Themes</code> 界面下, 选个喜欢的主题. 默认是<code>One Dark</code></li>
+<li><code>Packages</code>-&gt;搜索<code>tree view</code>-&gt;<code>Core Packages</code>-&gt;<code>tree-view</code>-&gt;<code>Settings</code><ul>
+<li><code>Hide Ignored Names</code> 隐藏atom指定的文件</li>
+<li><code>Hide VCS Ignored Files</code> 隐藏<code>.gitignore</code>指定的文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="atom插件"><a href="#atom插件" class="headerlink" title="atom插件"></a>atom插件</h2><ul>
+<li>插件太多, 脱离需求讲插件是没有意义的. 新手的话, 先探索着玩玩吧.</li>
+<li>记得仔细阅读插件的使用说明, 有些插件配置起来挺麻烦的. 但atom的插件管理已经很好了.</li>
+<li>后续会根据自己的需求再写一篇atom的插件篇, 并详述如何配置.</li>
+<li>下面推荐几个通用型的实用插件.</li>
+<li><code>ctrl+,</code>进入设置界面 <code>Settings</code></li>
+<li><code>Install</code> 界面下, 搜索安装如下插件<ul>
+<li><code>atom-beautify</code> 代码格式美化, 需要安装辅助软件</li>
+<li><code>git-time-machine</code> 查看比较文件的git历史</li>
+<li><code>highlight-selected</code> 高亮选择的词</li>
+<li><code>minimap</code> 文件小地图</li>
+<li><code>minimap-highlight-selected</code> 在minimap内高亮选择的词</li>
+<li><code>platformio-ide-terminal</code> 内嵌终端</li>
+<li><code>project-manager</code> 管理项目.</li>
+<li><code>project-viewer</code> 管理项目, 带UI</li>
+<li><code>Sublime-Style-Column-Selection</code> 列操作使用<code>alt+drag</code></li>
+<li><code>tabs-to-spaces</code> 空格/TAB自动转换</li>
+<li><code>vim-mode</code> 提供vim模式.</li>
+</ul>
+</li>
+</ul>
+<h2 id="自定义快捷键"><a href="#自定义快捷键" class="headerlink" title="自定义快捷键"></a>自定义快捷键</h2><ul>
+<li>以 <code>ctrl-f</code> 为例, 安装vim后, 变成翻页键, 但希望的是文件搜索和替换键.</li>
+<li>可以禁止vim的<code>keybindings</code>, 但这里不适用, 因为还要用vim的其它快捷键.</li>
+<li><code>ctrl+,</code>-&gt;进入设置界面 <code>Settings</code>-&gt;<code>Keybindings</code>-&gt;输入<code>ctrl-f</code></li>
+<li>找到<code>vim-mode:scroll-full-screen-down</code>-&gt;点左边的复制图标</li>
+<li>点击<code>your keymap file</code>-&gt;打开<code>keymap.cson</code>-&gt;黏贴内容<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#39;atom-text-editor.vim-mode:not(.insert-mode)&#39;:</span><br><span class="line">  &#39;ctrl-f&#39;: &#39;vim-mode:scroll-full-screen-down&#39;</span><br></pre></td></tr></table></figure></li>
+<li>要屏蔽 vim 的 <code>ctrl-f</code>, 修改为<code>unset!</code>即可. 内容如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#39;atom-text-editor.vim-mode:not(.insert-mode)&#39;:</span><br><span class="line">  &#39;ctrl-f&#39;: &#39;unset!&#39;</span><br></pre></td></tr></table></figure></li>
+<li>自定义详情可以参考官网的<a target="_blank" rel="noopener" href="http://flight-manual.atom.io/using-atom/sections/basic-customization/#_customizing_keybindings">Basic Customization</a></li>
+<li>需按照<a href="https://draapho.github.io/2016/10/08/1607-CheatSheet-win/">编辑器快捷键</a>设置</li>
+<li>环境变量的配置, 可以参考<a href="https://draapho.github.io/2016/10/09/1608-WinSoft-path/">Windows 软件系列-自定义环境变量</a></li>
+</ul>
+<h1 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a><a target="_blank" rel="noopener" href="http://www.typora.io/">Typora</a></h1><h2 id="markdown简介"><a href="#markdown简介" class="headerlink" title="markdown简介"></a>markdown简介</h2><ul>
+<li><em><strong>强烈推荐 Markdown</strong></em>, 基本可以放弃office word了!!!</li>
+<li>markdown在专注于写作内容的同时, 快速便捷的自动美化格式</li>
+<li><a href="https://draapho.github.io/about/markdownplus/">查看Markdown语法和效果</a></li>
+<li>atom做编辑器也不错, 推荐插件 <code>markdown-preview-enhanced</code>. 但mermaid制图打印有问题.</li>
+<li>而且什么都用atom, atom就太重了, 这里推荐 <a target="_blank" rel="noopener" href="http://www.typora.io/">Typora</a>.</li>
+</ul>
+<h2 id="Typora简介"><a href="#Typora简介" class="headerlink" title="Typora简介"></a>Typora简介</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.typora.io/">Typora</a>是一款极简的markdown编辑器. 多平台可用</li>
+<li>单窗口显示, 使用 <code>ctrl+/</code> 切换预览和写作模式. 而且预览模式下也可直接写作.</li>
+<li>支持<a target="_blank" rel="noopener" href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTex数学公式</a>, <a target="_blank" rel="noopener" href="http://knsv.github.io/mermaid/">mermaid制图</a>,<a target="_blank" rel="noopener" href="http://www.webpagefx.com/tools/emoji-cheat-sheet/">Emoji图标</a></li>
+<li>借助<a target="_blank" rel="noopener" href="http://pandoc.org/">pandoc</a>,可导出多种格式</li>
+<li>缺点: 打开较慢, 不支持列操作, 不能用鼠标右键.</li>
+<li>熟悉markdown格式后, 可以用notepad++写作, 用Typora查看效果和转换格式.</li>
+</ul>
+<h2 id="Typora安装和设置"><a href="#Typora安装和设置" class="headerlink" title="Typora安装和设置"></a>Typora安装和设置</h2><ul>
+<li>下载并安装<a target="_blank" rel="noopener" href="http://www.typora.io/#windows">Typora windows 版本</a></li>
+<li>下载并安装<a target="_blank" rel="noopener" href="http://pandoc.org/installing.html">pandoc-xxx-windows.msi</a></li>
+<li>打开<code>Typora</code>-&gt;<code>File</code>-&gt;<code>Preference</code></li>
+<li><code>Syntax Support</code> 使能如下选项<ul>
+<li><code>Inline math</code> 数学公式</li>
+<li><code>Subscript</code> 下标</li>
+<li><code>Superscript</code> 上标</li>
+<li><code>Highlight</code> 高亮</li>
+<li><code>Diagrams</code> 制图</li>
+</ul>
+</li>
+<li><code>Syntax Preference</code><ul>
+<li><code>Heading Style</code> <code>atx(#)</code> 偏好使用<code>#</code>标记为标题</li>
+<li><code>Unodered List</code> <code>-</code> 偏好使用<code>-</code>标记为列表</li>
+</ul>
+</li>
+</ul>
+<h2 id="markdown语法参考"><a href="#markdown语法参考" class="headerlink" title="markdown语法参考"></a>markdown语法参考</h2><ul>
+<li><a href="https://draapho.github.io/about/markdownplus/">Markdown语法</a></li>
+<li><a target="_blank" rel="noopener" href="http://knsv.github.io/mermaid/">mermaid制图</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX数学公式</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.webpagefx.com/tools/emoji-cheat-sheet/">Emoji图标</a></li>
+</ul>
+<h1 id="google-drive"><a href="#google-drive" class="headerlink" title="google drive"></a><a target="_blank" rel="noopener" href="https://drive.google.com/">google drive</a></h1><ul>
+<li>主要作为云使用, 不少手机APP支持<a target="_blank" rel="noopener" href="https://drive.google.com/">google drive</a>, 而且还有好用的网页端应用</li>
+<li>在线markdown编辑器<a target="_blank" rel="noopener" href="https://stackedit.io/">stackedit</a></li>
+<li>在线制图软件<a target="_blank" rel="noopener" href="https://www.draw.io/">draw.io</a></li>
+<li>手机端markdown编辑器<a target="_blank" rel="noopener" href="https://ia.net/writer">iA Writer</a></li>
+</ul>
+<h1 id="默认新建utf-8文本文件"><a href="#默认新建utf-8文本文件" class="headerlink" title="默认新建utf-8文本文件"></a>默认新建utf-8文本文件</h1><ul>
+<li>用notepad++建立一个样本文件, 命名为<code>UTF8.txt</code>, 设置为 <code>UTF-8</code> 编码(不带BOM), 放在 <code>C:\Windows\SHELLNEW</code> 下. 建议内容为空(内容会出现在新建文件中).</li>
+<li><code>regedit</code>-&gt;打开 <code>注册表</code>-&gt;<code>HKEY_CLASSES_ROOT\.txt\ShellNew</code>-&gt;右侧新建 <code>字符串值</code>-&gt;名称 <code>FileName</code>-&gt; 数据 <code>UTF8.txt</code></li>
+<li>此时, 新建的<code>文本文档</code>就是<code>UTF-8</code>编码的的文件. 事实上是复制了 <code>UTF8.txt</code> 这个样本文件.</li>
+<li>参考 <a target="_blank" rel="noopener" href="http://alanhou.org/windows-default-encoding-utf8/">Windows新建文件改为默认UTF8</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/09/30/1603-WinSoft-editor/" data-id="cklzxufh40008m8qo42za3j3f" data-title="Windows 软件系列-文本编辑" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/Blog/page/11/">&laquo; Prev</a><a class="page-number" href="/Blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Blog/page/10/">10</a><a class="page-number" href="/Blog/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/Blog/page/13/">13</a><a class="extend next" rel="next" href="/Blog/page/13/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/dao/">dao</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded/">embedded</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded-linux/">embedded linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/interview/">interview</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/qqiot/">qqiot</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/software/">software</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/thoughts/">thoughts</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AI-IoT-thoughts/" rel="tag">AI IoT thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AutoHotKey/" rel="tag">AutoHotKey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/apt/" rel="tag">apt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/collections/" rel="tag">collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dao/" rel="tag">dao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/data-struct/" rel="tag">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dict/" rel="tag">dict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/driver/" rel="tag">driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/drv/" rel="tag">drv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/env/" rel="tag">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/environment/" rel="tag">environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/error/" rel="tag">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ezos/" rel="tag">ezos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/fs/" rel="tag">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ide/" rel="tag">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ipc/" rel="tag">ipc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linuxembedded-linux/" rel="tag">linuxembedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/makefile/" rel="tag">makefile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/nfs/" rel="tag">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pygatt/" rel="tag">pygatt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/regular/" rel="tag">regular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/scrum/" rel="tag">scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/self-expression/" rel="tag">self-expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/software/" rel="tag">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/string/" rel="tag">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/thoughts/" rel="tag">thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/timeout/" rel="tag">timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/tuple/" rel="tag">tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/yocto/" rel="tag">yocto</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" rel="tag">线程同步</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/AI-IoT-thoughts/" style="font-size: 10px;">AI IoT thoughts</a> <a href="/Blog/tags/AutoHotKey/" style="font-size: 10px;">AutoHotKey</a> <a href="/Blog/tags/BLE/" style="font-size: 10.77px;">BLE</a> <a href="/Blog/tags/ConEmu/" style="font-size: 10px;">ConEmu</a> <a href="/Blog/tags/Hyper-V/" style="font-size: 10px;">Hyper-V</a> <a href="/Blog/tags/Listary/" style="font-size: 10px;">Listary</a> <a href="/Blog/tags/NAS/" style="font-size: 10px;">NAS</a> <a href="/Blog/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/Blog/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/Blog/tags/TrueSTUIDO/" style="font-size: 10px;">TrueSTUIDO</a> <a href="/Blog/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/Blog/tags/android/" style="font-size: 10px;">android</a> <a href="/Blog/tags/apt/" style="font-size: 10px;">apt</a> <a href="/Blog/tags/atom/" style="font-size: 11.54px;">atom</a> <a href="/Blog/tags/ble/" style="font-size: 10px;">ble</a> <a href="/Blog/tags/c/" style="font-size: 10.77px;">c</a> <a href="/Blog/tags/cheat-sheet/" style="font-size: 12.31px;">cheat sheet</a> <a href="/Blog/tags/cli/" style="font-size: 10px;">cli</a> <a href="/Blog/tags/collections/" style="font-size: 10px;">collections</a> <a href="/Blog/tags/command/" style="font-size: 11.54px;">command</a> <a href="/Blog/tags/cygwin/" style="font-size: 10px;">cygwin</a> <a href="/Blog/tags/dao/" style="font-size: 10.77px;">dao</a> <a href="/Blog/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/Blog/tags/debug/" style="font-size: 10.77px;">debug</a> <a href="/Blog/tags/dict/" style="font-size: 10px;">dict</a> <a href="/Blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/Blog/tags/driver/" style="font-size: 16.92px;">driver</a> <a href="/Blog/tags/drv/" style="font-size: 14.62px;">drv</a> <a href="/Blog/tags/eclipse/" style="font-size: 10.77px;">eclipse</a> <a href="/Blog/tags/embedded/" style="font-size: 13.85px;">embedded</a> <a href="/Blog/tags/embedded-linux/" style="font-size: 20px;">embedded linux</a> <a href="/Blog/tags/env/" style="font-size: 10px;">env</a> <a href="/Blog/tags/environment/" style="font-size: 13.85px;">environment</a> <a href="/Blog/tags/error/" style="font-size: 10px;">error</a> <a href="/Blog/tags/ezos/" style="font-size: 10px;">ezos</a> <a href="/Blog/tags/freefilesync/" style="font-size: 10px;">freefilesync</a> <a href="/Blog/tags/fs/" style="font-size: 10.77px;">fs</a> <a href="/Blog/tags/git/" style="font-size: 10px;">git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/Blog/tags/ide/" style="font-size: 10px;">ide</a> <a href="/Blog/tags/interview/" style="font-size: 11.54px;">interview</a> <a href="/Blog/tags/ipc/" style="font-size: 10.77px;">ipc</a> <a href="/Blog/tags/jz2440/" style="font-size: 13.08px;">jz2440</a> <a href="/Blog/tags/kernel/" style="font-size: 11.54px;">kernel</a> <a href="/Blog/tags/linux/" style="font-size: 19.23px;">linux</a> <a href="/Blog/tags/linuxembedded-linux/" style="font-size: 16.15px;">linuxembedded linux</a> <a href="/Blog/tags/list/" style="font-size: 10px;">list</a> <a href="/Blog/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/Blog/tags/mingw/" style="font-size: 11.54px;">mingw</a> <a href="/Blog/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/Blog/tags/notepad/" style="font-size: 10px;">notepad++</a> <a href="/Blog/tags/other/" style="font-size: 10px;">other</a> <a href="/Blog/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/Blog/tags/path/" style="font-size: 10px;">path</a> <a href="/Blog/tags/pip/" style="font-size: 10px;">pip</a> <a href="/Blog/tags/process/" style="font-size: 10px;">process</a> <a href="/Blog/tags/putty/" style="font-size: 10px;">putty</a> <a href="/Blog/tags/pygatt/" style="font-size: 10px;">pygatt</a> <a href="/Blog/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/Blog/tags/pyqt/" style="font-size: 10.77px;">pyqt</a> <a href="/Blog/tags/python/" style="font-size: 18.46px;">python</a> <a href="/Blog/tags/qqiot/" style="font-size: 12.31px;">qqiot</a> <a href="/Blog/tags/regular/" style="font-size: 11.54px;">regular</a> <a href="/Blog/tags/scrum/" style="font-size: 10px;">scrum</a> <a href="/Blog/tags/self-expression/" style="font-size: 10px;">self-expression</a> <a href="/Blog/tags/set/" style="font-size: 10px;">set</a> <a href="/Blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/Blog/tags/shortcut/" style="font-size: 10px;">shortcut</a> <a href="/Blog/tags/software/" style="font-size: 11.54px;">software</a> <a href="/Blog/tags/stm32/" style="font-size: 10px;">stm32</a> <a href="/Blog/tags/string/" style="font-size: 10px;">string</a> <a href="/Blog/tags/thoughts/" style="font-size: 17.69px;">thoughts</a> <a href="/Blog/tags/timeout/" style="font-size: 10px;">timeout</a> <a href="/Blog/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/Blog/tags/uboot/" style="font-size: 12.31px;">uboot</a> <a href="/Blog/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/Blog/tags/vim/" style="font-size: 10px;">vim</a> <a href="/Blog/tags/windows/" style="font-size: 15.38px;">windows</a> <a href="/Blog/tags/yocto/" style="font-size: 10px;">yocto</a> <a href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" style="font-size: 10px;">线程同步</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2021/03/05/2107-tuibeitu/">推背图, 马前课, 万年歌, 梅花诗</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/03/01/2106-dao-doubt/">修道之路-起疑</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/14/2105-dao-outline/">修道之路-总纲</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/13/2104-satori/">修行总领——明心见性</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/09/2102-intermittent/">一张简单图片演示的“甚深佛法”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 draapho<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

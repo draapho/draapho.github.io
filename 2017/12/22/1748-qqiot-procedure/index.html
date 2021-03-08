@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>QQ物联开发步骤简介 | DRA&amp;PHO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="总览 嵌入式linux学习目录 嵌入式linux环境搭建-QQ物联 QQ物联开发步骤简介 QQ物联绑定分析 QQ物联演示项目  本文使用 linux-3.4.2 内核, 使用jz2440开发板. 基础概念硬件设备概念 SN (serial number), 序列号 由产品开发商提供, 但QQ规定了格式要求 需要保证唯一性. 即同一种类的单品都有其唯一的SN 格式: 16个字符长度. 由字母, 数字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QQ物联开发步骤简介">
+<meta property="og:url" content="https://draapho.github.io/Blog/2017/12/22/1748-qqiot-procedure/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="总览 嵌入式linux学习目录 嵌入式linux环境搭建-QQ物联 QQ物联开发步骤简介 QQ物联绑定分析 QQ物联演示项目  本文使用 linux-3.4.2 内核, 使用jz2440开发板. 基础概念硬件设备概念 SN (serial number), 序列号 由产品开发商提供, 但QQ规定了格式要求 需要保证唯一性. 即同一种类的单品都有其唯一的SN 格式: 16个字符长度. 由字母, 数字">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-12-21T13:00:00.000Z">
+<meta property="article:modified_time" content="2017-12-22T07:17:02.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="qqiot">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="DRA&PHO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">DRA&amp;PHO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">thinking &amp; logging</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://draapho.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1748-qqiot-procedure" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2017/12/22/1748-qqiot-procedure/" class="article-date">
+  <time class="dt-published" datetime="2017-12-21T13:00:00.000Z" itemprop="datePublished">2017-12-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/qqiot/">qqiot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      QQ物联开发步骤简介
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/12/18/1746-qqiot-env/">嵌入式linux环境搭建-QQ物联</a></li>
+<li><a href="https://draapho.github.io/2017/12/22/1748-qqiot-procedure/">QQ物联开发步骤简介</a></li>
+<li><a href="https://draapho.github.io/2017/12/20/1747-qqiot-bind/">QQ物联绑定分析</a></li>
+<li><a href="https://draapho.github.io/2017/12/23/1749-qqiot-demo/">QQ物联演示项目</a></li>
+</ul>
+<p>本文使用 linux-3.4.2 内核, 使用jz2440开发板.</p>
+<h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><h2 id="硬件设备概念"><a href="#硬件设备概念" class="headerlink" title="硬件设备概念"></a>硬件设备概念</h2><ul>
+<li>SN (serial number), 序列号<ul>
+<li>由产品开发商提供, 但QQ规定了格式要求</li>
+<li>需要保证唯一性. 即同一种类的单品都有其唯一的SN</li>
+<li>格式: 16个字符长度. 由字母, 数字, 下划线, 连词符, 冒号组成.</li>
+<li>譬如 <code>ABC-0032-1234567</code></li>
+<li>历史原因, 源码里面的名称是 <code>guid</code></li>
+</ul>
+</li>
+<li>LICENSE, 数字签名<ul>
+<li>license 是对sn的数字签名, 所以与sn是一一对应的关系</li>
+<li>license由腾讯提供的工具来实现, 输入sn即可</li>
+<li>其目的就是保护设备信息, 避免设备被山寨.</li>
+</ul>
+</li>
+<li>PID(product identify), 产品ID.<ul>
+<li>即产品类别ID, 类似于超市商品的二维码, 表明产品类别</li>
+<li>有了PID和SN后, QQ就可以唯一确定一台智能设备</li>
+<li>QQ物联的设备二维码就是由PID和SN这两个信息组成的</li>
+<li>QQ会提供PID值</li>
+</ul>
+</li>
+<li>DIN(device identify number), 设备ID<ul>
+<li>可以认为就是此设备的QQ号码, 64位长度.</li>
+<li>DIN 由 PID + SN + LICENSE 产生.</li>
+<li>QQ会保证DIN的唯一性</li>
+</ul>
+</li>
+<li>SDK, 开发套件<ul>
+<li>分为设备SDK和应用SDK</li>
+<li>设备SDK, 就是给智能硬件使用的开发套件. 以后学习的重点是在这里.</li>
+<li>应用SDK, 如果要开发独立APP, 就需要此SDK. 提供QQ开放接口. 此处略过不表.</li>
+</ul>
+</li>
+</ul>
+<h2 id="QQ云端概念"><a href="#QQ云端概念" class="headerlink" title="QQ云端概念"></a>QQ云端概念</h2><ul>
+<li>datapoint, 数据点<ul>
+<li>理解为QQ指定的一套数据格式规范即可.</li>
+</ul>
+</li>
+<li>PropertyID, 属性ID<ul>
+<li>每个datapoint都有自己的id, 用于表明此数值的属性.</li>
+<li>譬如property_id (200001), 表示摄像头分辨率.</li>
+<li>简单的理解, datapoint传输整个键值对. PropertyID是key.</li>
+</ul>
+</li>
+</ul>
+<h2 id="轻APP前端"><a href="#轻APP前端" class="headerlink" title="轻APP前端"></a>轻APP前端</h2><p>QQ物联轻APP是手机QQ里“我的设备”控制器内嵌的HTML5页面（模板），分为通用/公共模板和开发商自定义模板</p>
+<ul>
+<li>通用/公共模板<ul>
+<li>公共模板的样式不可自定义, 但可以自行配置功能控件.</li>
+<li>可节省软件端的研发和维护成本, 缩短产品研发周期.</li>
+</ul>
+</li>
+<li>自定义模板<ul>
+<li>使用Html5, 根据QQ物联提供的设计规范和接口实现定制化用户界面 (内嵌在QQ里)</li>
+<li>自定义模板需要开发者将页面发布到自有的服务器, 然后将url地址提交到平台.</li>
+</ul>
+</li>
+<li>deviceAPI<ul>
+<li>QQ物联提供的给自定义模板调用的JS接口.</li>
+<li>注意, 目前其对视屏功能仅部分支持.</li>
+</ul>
+</li>
+</ul>
+<h2 id="手机APP"><a href="#手机APP" class="headerlink" title="手机APP"></a>手机APP</h2><p>手机端概念只有在需要自己开发app, 调用应用SDK时, 才会用到!</p>
+<ul>
+<li>AppID<ul>
+<li>标识APP, 此App使用QQ登录组件. 即调用了QQ的应用SDK</li>
+</ul>
+</li>
+<li>OpenID<ul>
+<li>等同于用户QQ号码的身份. 长度128bit</li>
+<li>OpenID 由 appid + qq号码 产生</li>
+</ul>
+</li>
+<li>TinyID (Tiny OpenID)<ul>
+<li>QQ内部由于兼容问题, 对OpenID的一个缩略, 使用64bit长度</li>
+</ul>
+</li>
+</ul>
+<h2 id="配网方式-wifi下"><a href="#配网方式-wifi下" class="headerlink" title="配网方式(wifi下)"></a>配网方式(wifi下)</h2><p>不少硬件设备是没有屏幕的, 如何接入wifi就成为一个大问题. QQ物联提供如下几种方式</p>
+<ul>
+<li>WiFi Router： 设备自行解决入网问题，适用于有屏幕的智能设备</li>
+<li>SmartLink： 博通合作方案, 其wifi芯片支持Monitor模式(可实现数据包注入), 内置了AES-CCM加密库</li>
+<li>SmartLinkEx: 额外采用声波通讯技术协同配网, 提高极端环境下的配网成功率. 适合有麦克风的设备</li>
+<li>QQLink： SmartLink的弱加密版本, 安全性没有SmartLink方案高.</li>
+<li>QQLinkEx： 额外采用声波通讯技术协同配网. 适合有麦克风的设备</li>
+</ul>
+<h1 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h1><ol>
+<li>建立企业开发账号.<ul>
+<li><a target="_blank" rel="noopener" href="http://iot.open.qq.com/wiki/index.html#!FUNC/Register_On_WebSite.md">Step1. 申请开发者账号</a>, 申请一个公司用QQ</li>
+<li><a target="_blank" rel="noopener" href="http://iot.open.qq.com/wiki/index.html#!FUNC/Register_On_WebSite.md">Step2. 申请加入白名单</a>, 需等待审核结果.</li>
+<li><a target="_blank" rel="noopener" href="http://iot.open.qq.com/wiki/index.html#!FUNC/Register_On_WebSite.md">Step3. 进入配置平台</a>, 成功后, 就有开发配置平台了.</li>
+</ul>
+</li>
+<li>创建新设备.<ul>
+<li>在配置平台里面, 可以创建新设备.</li>
+<li>慎重选择设备类型, 不同的设备类型提供不同的后台功能!</li>
+<li>测试环境不要点击 <code>提交上线</code>, 最多有100台设备任意调试.</li>
+<li>如果提交上线, 设备就会被锁定, 等待QQ审核结果. 此过程无法开发调试!</li>
+<li>开发和测试完成后, 再去 <code>提交上线</code>, 等待审核结果.</li>
+<li>已审核通过的产品如果还要更改配置页面, 则需要再次通过腾讯审核.</li>
+</ul>
+</li>
+<li>配置设备后台<ul>
+<li>新建设备之设备类型: 决定QQ物联设备大致需要的功能(控制/音视频).</li>
+<li>设备信息之公钥上传: 用工具生成<code>public.pem</code>, 然后上传. 用于认证GUID/SN号.</li>
+<li>设备信息之联网方式: 如果设备有界面可以自行入网, 可以选择自行入网. 如果没有输入界面, 则需要选wifi配网方式.</li>
+<li>功能配置之公有功能: 设定手机QQ和QQ物联设备的收发内容</li>
+<li>功能配置之特殊功能: 用来定义手机QQ与QQ物联设备两者之间特殊消息的数据格式<ul>
+<li>显示类型：只能是QQ物联设备向手机QQ发送用于显示的的数据</li>
+<li>控制类型：QQ物联设备与手机QQ可以互传控制消息的数据</li>
+<li>设置好后, 会获得一个ID值! 数据传输格式是腾讯的 datapoint</li>
+<li><strong>功能描述</strong>:  自定义数据的组织格式. 参考 <a target="_blank" rel="noopener" href="http://iot.open.qq.com/wiki/index.html#!FUNC/DataPoint_Custom_CMD.md">自定义指令</a> 里的说明</li>
+</ul>
+</li>
+<li>控制器设置: 配置手机QQ的控制UI界面<ul>
+<li>自动生成控制器, 就是使用QQ提供的通用模板. 模板里的元素可以自定义</li>
+<li>自定义控制器, 就是自定义模板. 需要HTML5开发并放到自己的服务器端</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>创建设备序列号和密钥<ul>
+<li>整个过程有两组公钥私钥配对.</li>
+<li>服务器生成的公钥私钥, 开发者需下载公钥<code>170000xxxx.pem</code>. 此配对用于加密数据, 保证通讯安全.</li>
+<li>开发者生成的公钥私钥, 开发者需上传公钥<code>public.pem</code>. 保证私钥安全性. 此配对用于认证设备SN没有被盗用.</li>
+<li>设备SN的认证方法是, 开发者用私钥加密SN生成license, 将SN和license传给QQ服务器, QQ服务器会用上传的公钥去检查SN合法性.</li>
+<li>license最好也保存好. 因为如果别人获取license和SN后, 可以仿冒特定的设备.</li>
+<li><code>公钥&amp;证书工具</code>, 在设备信息的公钥上传里提供了下载.</li>
+</ul>
+</li>
+<li>QQ物联设备端功能开发<ul>
+<li><a target="_blank" rel="noopener" href="http://iot.open.qq.com/wiki/#!FUNC/DataPoint_Common_CMD.md">控制指令</a></li>
+<li><a target="_blank" rel="noopener" href="http://iot.open.qq.com/wiki/#!FUNC/DataPoint_Custom_CMD.md">自定义指令</a></li>
+<li><a target="_blank" rel="noopener" href="http://iot.open.qq.com/wiki/#!FUNC/DataPoint_Sync_Status.md">状态同步</a></li>
+</ul>
+</li>
+<li>开发者测试</li>
+<li>交给QQ物联官方审核</li>
+<li>发布产品</li>
+</ol>
+<h1 id="收发消息的过程"><a href="#收发消息的过程" class="headerlink" title="收发消息的过程"></a>收发消息的过程</h1><h2 id="QQ物联设备接收消息"><a href="#QQ物联设备接收消息" class="headerlink" title="QQ物联设备接收消息"></a>QQ物联设备接收消息</h2><p>datapoint的主要函数:</p>
+<ul>
+<li><code>tx_init_data_point</code>: 初始化</li>
+<li><code>tx_report_data_point</code>: 上报</li>
+<li><code>tx_ack_data_point</code>: 回应</li>
+</ul>
+<p>QQ物联设备端, 对消息处理的主要过程如下:</p>
+<ul>
+<li><code>tx_init_data_point</code> 进行初始化后, 并定义回调函数 <code>on_receive_datapoint</code></li>
+<li>手机QQ发送datapoint消息给QQ物联设备</li>
+<li>QQ物联设备接收到后, 使用回调函数处理消息</li>
+<li>处理方式是通过datapoint的ID来分辨消息类型(特殊功能里设置)</li>
+</ul>
+<h2 id="QQ物联设备发送消息"><a href="#QQ物联设备发送消息" class="headerlink" title="QQ物联设备发送消息"></a>QQ物联设备发送消息</h2><ul>
+<li>QQ设备发送消息给QQ服务器<ul>
+<li><code>tx_send_text_msg</code> 发送文本</li>
+<li><code>tx_send_structuring_msg</code> 发送图文和音视频</li>
+</ul>
+</li>
+<li>QQ服务器更具配置情况(触发器-动作-模板), 只转发满足条件的消息给手机QQ</li>
+<li>触发器页面: 设置过滤条件并制定动作<ul>
+<li>该消息由哪个QQ物联设备发送来的</li>
+<li>该消息的ID号</li>
+<li>触发后要执行的动作</li>
+</ul>
+</li>
+<li>动作页面: 动作制定模板(文本/图片/语音/视频)</li>
+<li>QQ服务器根据模板构造发送给手机QQ的消息</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://iot.open.qq.com/wiki/index.html">QQ物联资料库</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2017/12/22/1748-qqiot-procedure/" data-id="cklzxufiz006um8qof0dj4v3h" data-title="QQ物联开发步骤简介" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2017/12/23/1749-qqiot-demo/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          QQ物联演示项目
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2017/12/20/1747-qqiot-bind/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">QQ物联绑定分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/dao/">dao</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded/">embedded</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded-linux/">embedded linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/interview/">interview</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/qqiot/">qqiot</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/software/">software</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/thoughts/">thoughts</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AI-IoT-thoughts/" rel="tag">AI IoT thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AutoHotKey/" rel="tag">AutoHotKey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/apt/" rel="tag">apt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/collections/" rel="tag">collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dao/" rel="tag">dao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/data-struct/" rel="tag">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dict/" rel="tag">dict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/driver/" rel="tag">driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/drv/" rel="tag">drv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/env/" rel="tag">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/environment/" rel="tag">environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/error/" rel="tag">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ezos/" rel="tag">ezos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/fs/" rel="tag">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ide/" rel="tag">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ipc/" rel="tag">ipc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linuxembedded-linux/" rel="tag">linuxembedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/makefile/" rel="tag">makefile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/nfs/" rel="tag">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pygatt/" rel="tag">pygatt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/regular/" rel="tag">regular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/scrum/" rel="tag">scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/self-expression/" rel="tag">self-expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/software/" rel="tag">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/string/" rel="tag">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/thoughts/" rel="tag">thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/timeout/" rel="tag">timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/tuple/" rel="tag">tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/yocto/" rel="tag">yocto</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" rel="tag">线程同步</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/AI-IoT-thoughts/" style="font-size: 10px;">AI IoT thoughts</a> <a href="/Blog/tags/AutoHotKey/" style="font-size: 10px;">AutoHotKey</a> <a href="/Blog/tags/BLE/" style="font-size: 10.77px;">BLE</a> <a href="/Blog/tags/ConEmu/" style="font-size: 10px;">ConEmu</a> <a href="/Blog/tags/Hyper-V/" style="font-size: 10px;">Hyper-V</a> <a href="/Blog/tags/Listary/" style="font-size: 10px;">Listary</a> <a href="/Blog/tags/NAS/" style="font-size: 10px;">NAS</a> <a href="/Blog/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/Blog/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/Blog/tags/TrueSTUIDO/" style="font-size: 10px;">TrueSTUIDO</a> <a href="/Blog/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/Blog/tags/android/" style="font-size: 10px;">android</a> <a href="/Blog/tags/apt/" style="font-size: 10px;">apt</a> <a href="/Blog/tags/atom/" style="font-size: 11.54px;">atom</a> <a href="/Blog/tags/ble/" style="font-size: 10px;">ble</a> <a href="/Blog/tags/c/" style="font-size: 10.77px;">c</a> <a href="/Blog/tags/cheat-sheet/" style="font-size: 12.31px;">cheat sheet</a> <a href="/Blog/tags/cli/" style="font-size: 10px;">cli</a> <a href="/Blog/tags/collections/" style="font-size: 10px;">collections</a> <a href="/Blog/tags/command/" style="font-size: 11.54px;">command</a> <a href="/Blog/tags/cygwin/" style="font-size: 10px;">cygwin</a> <a href="/Blog/tags/dao/" style="font-size: 10.77px;">dao</a> <a href="/Blog/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/Blog/tags/debug/" style="font-size: 10.77px;">debug</a> <a href="/Blog/tags/dict/" style="font-size: 10px;">dict</a> <a href="/Blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/Blog/tags/driver/" style="font-size: 16.92px;">driver</a> <a href="/Blog/tags/drv/" style="font-size: 14.62px;">drv</a> <a href="/Blog/tags/eclipse/" style="font-size: 10.77px;">eclipse</a> <a href="/Blog/tags/embedded/" style="font-size: 13.85px;">embedded</a> <a href="/Blog/tags/embedded-linux/" style="font-size: 20px;">embedded linux</a> <a href="/Blog/tags/env/" style="font-size: 10px;">env</a> <a href="/Blog/tags/environment/" style="font-size: 13.85px;">environment</a> <a href="/Blog/tags/error/" style="font-size: 10px;">error</a> <a href="/Blog/tags/ezos/" style="font-size: 10px;">ezos</a> <a href="/Blog/tags/freefilesync/" style="font-size: 10px;">freefilesync</a> <a href="/Blog/tags/fs/" style="font-size: 10.77px;">fs</a> <a href="/Blog/tags/git/" style="font-size: 10px;">git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/Blog/tags/ide/" style="font-size: 10px;">ide</a> <a href="/Blog/tags/interview/" style="font-size: 11.54px;">interview</a> <a href="/Blog/tags/ipc/" style="font-size: 10.77px;">ipc</a> <a href="/Blog/tags/jz2440/" style="font-size: 13.08px;">jz2440</a> <a href="/Blog/tags/kernel/" style="font-size: 11.54px;">kernel</a> <a href="/Blog/tags/linux/" style="font-size: 19.23px;">linux</a> <a href="/Blog/tags/linuxembedded-linux/" style="font-size: 16.15px;">linuxembedded linux</a> <a href="/Blog/tags/list/" style="font-size: 10px;">list</a> <a href="/Blog/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/Blog/tags/mingw/" style="font-size: 11.54px;">mingw</a> <a href="/Blog/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/Blog/tags/notepad/" style="font-size: 10px;">notepad++</a> <a href="/Blog/tags/other/" style="font-size: 10px;">other</a> <a href="/Blog/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/Blog/tags/path/" style="font-size: 10px;">path</a> <a href="/Blog/tags/pip/" style="font-size: 10px;">pip</a> <a href="/Blog/tags/process/" style="font-size: 10px;">process</a> <a href="/Blog/tags/putty/" style="font-size: 10px;">putty</a> <a href="/Blog/tags/pygatt/" style="font-size: 10px;">pygatt</a> <a href="/Blog/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/Blog/tags/pyqt/" style="font-size: 10.77px;">pyqt</a> <a href="/Blog/tags/python/" style="font-size: 18.46px;">python</a> <a href="/Blog/tags/qqiot/" style="font-size: 12.31px;">qqiot</a> <a href="/Blog/tags/regular/" style="font-size: 11.54px;">regular</a> <a href="/Blog/tags/scrum/" style="font-size: 10px;">scrum</a> <a href="/Blog/tags/self-expression/" style="font-size: 10px;">self-expression</a> <a href="/Blog/tags/set/" style="font-size: 10px;">set</a> <a href="/Blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/Blog/tags/shortcut/" style="font-size: 10px;">shortcut</a> <a href="/Blog/tags/software/" style="font-size: 11.54px;">software</a> <a href="/Blog/tags/stm32/" style="font-size: 10px;">stm32</a> <a href="/Blog/tags/string/" style="font-size: 10px;">string</a> <a href="/Blog/tags/thoughts/" style="font-size: 17.69px;">thoughts</a> <a href="/Blog/tags/timeout/" style="font-size: 10px;">timeout</a> <a href="/Blog/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/Blog/tags/uboot/" style="font-size: 12.31px;">uboot</a> <a href="/Blog/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/Blog/tags/vim/" style="font-size: 10px;">vim</a> <a href="/Blog/tags/windows/" style="font-size: 15.38px;">windows</a> <a href="/Blog/tags/yocto/" style="font-size: 10px;">yocto</a> <a href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" style="font-size: 10px;">线程同步</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2021/03/05/2107-tuibeitu/">推背图, 马前课, 万年歌, 梅花诗</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/03/01/2106-dao-doubt/">修道之路-起疑</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/14/2105-dao-outline/">修道之路-总纲</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/13/2104-satori/">修行总领——明心见性</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/09/2102-intermittent/">一张简单图片演示的“甚深佛法”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 draapho<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
