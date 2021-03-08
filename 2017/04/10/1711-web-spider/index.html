@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>使用网络爬虫抓取商品价格并分析 | DRA&amp;PHO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="需求分析基于 Chemist Warehouse 的商品, 抓取其每天的价格变化. 并根据历史信息, 判断其价格变化规律, 以便在打折时购买. 因此, 用户需求有如下几点:  抓取网站价格, 需要知道其商品全名, 原价, 打折价, 打折日期, 持续时间 存储这些数据, 供日后分析使用 数据挖掘和分析, 已直观的方式多维度显示出来(譬如单品的打折规律, 打折力度, 打折持续时间. 全年的打折规律)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用网络爬虫抓取商品价格并分析">
+<meta property="og:url" content="https://draapho.github.io/Blog/2017/04/10/1711-web-spider/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="需求分析基于 Chemist Warehouse 的商品, 抓取其每天的价格变化. 并根据历史信息, 判断其价格变化规律, 以便在打折时购买. 因此, 用户需求有如下几点:  抓取网站价格, 需要知道其商品全名, 原价, 打折价, 打折日期, 持续时间 存储这些数据, 供日后分析使用 数据挖掘和分析, 已直观的方式多维度显示出来(譬如单品的打折规律, 打折力度, 打折持续时间. 全年的打折规律)">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-04-09T14:00:00.000Z">
+<meta property="article:modified_time" content="2019-05-19T07:48:10.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="embedded">
+<meta property="article:tag" content="jz2440">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="DRA&PHO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">DRA&amp;PHO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">thinking &amp; logging</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://draapho.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1711-web-spider" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2017/04/10/1711-web-spider/" class="article-date">
+  <time class="dt-published" datetime="2017-04-09T14:00:00.000Z" itemprop="datePublished">2017-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      使用网络爬虫抓取商品价格并分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><p>基于 <a target="_blank" rel="noopener" href="http://www.chemistwarehouse.com.au/">Chemist Warehouse</a> 的商品, 抓取其每天的价格变化. 并根据历史信息, 判断其价格变化规律, 以便在打折时购买.</p>
+<p>因此, 用户需求有如下几点:</p>
+<ul>
+<li>抓取网站价格, 需要知道其商品全名, 原价, 打折价, 打折日期, 持续时间</li>
+<li>存储这些数据, 供日后分析使用</li>
+<li>数据挖掘和分析, 已直观的方式多维度显示出来(譬如单品的打折规律, 打折力度, 打折持续时间. 全年的打折规律)</li>
+</ul>
+<p>进一步, 技术分析如下:</p>
+<ul>
+<li>全程使用python即可满足全部需求.</li>
+<li>网络爬虫难度不高, 仅需针对特定商品, 每天抓一次, 无需多线程/进程, 无需登录, 无验证码, 无需考虑反爬虫, 无需额外加载JS程序.</li>
+<li>数据存储, 使用MySQL, 数据需要去重, 仅记录关键信息. 以便减少数据存储量, 简化数据挖掘和分析的工作</li>
+<li>搜索指定产品, 展示历史数据, 使用 pyqt + matplotlib.</li>
+</ul>
+<h1 id="网络爬虫"><a href="#网络爬虫" class="headerlink" title="网络爬虫"></a>网络爬虫</h1><p>花了二天时间, 简单过了一遍网络爬虫的关键技术. 参考资料如下:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://cuiqingcai.com/1052.html">Python爬虫学习系列教程-静觅</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/lining0806/PythonSpiderNotes">Python入门网络爬虫之精华版</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3school.com.cn/xpath/xpath_syntax.asp">XPath 语法</a></li>
+</ul>
+<p>本着项目导向, 做出结果为先的思路, 没有一步步的实验. 上来先看了几个爬虫框架.</p>
+<ul>
+<li><code>pyspider</code> 基于web UI, 感觉很直观, 适合于随便玩玩. 个人不喜欢, 二次开发不方便.</li>
+<li>python 下另外一个很有名的框架就是 <code>scrapy</code>, 可惜我连配置安装都没有成功的做完. 适合二次开发.<br>应该是公司网络安全机制比较高, 遇到的问题基本都是SSL相关的, 解决了2-3个, 剩下的实在没有思路去解决了…<br>另外scrapy依赖的库也比较多, 因此初装也就比较麻烦. 安装推荐参考<a target="_blank" rel="noopener" href="https://docs.scrapy.org/en/latest/intro/install.html#">官网的 Installation guide</a></li>
+<li>使用 <code>requests</code> <code>urllib</code> <code>lxml</code> 库. 简单项目直接用这个就够了.</li>
+<li>最终抓数据只用了 <code>lxml</code> 一个库就完成了数据抓取, 去重的工作. 关键源码如下:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># pip --trusted-host pypi.python.org install lxml</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取url的原始数据</span></span><br><span class="line">doc = html.parse(<span class="string">&#x27;http://www.chemistwarehouse.com.au/search?searchtext=blackmores%20bone&amp;searchmode=allwords&#x27;</span>)</span><br><span class="line"><span class="comment"># 获取指定的数据值</span></span><br><span class="line">names = doc.xpath(<span class="string">&#x27;//a[@class=&quot;product-container search-result&quot;]/@title&#x27;</span>)</span><br><span class="line"><span class="comment"># 处理数据, 准备存入数据库即可.</span></span><br><span class="line">name = <span class="built_in">map</span>(string.strip, names)</span><br><span class="line"><span class="built_in">print</span> name</span><br></pre></td></tr></table></figure>
+
+<p>另:<br>遇到过了错误 <code>There was a problem confirming the ssl certificate: [SSL: CERTIFICATE_VERIFY_FAILED]</code><br>使用 <code>pip --trusted-host pypi.python.org install lxml</code> 即可避免. 也是安全性问题导致的.</p>
+<h1 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h1><p>同样地, 该项目对数据存储的要求也很低. 直接选择使用MySQL.</p>
+<p>参考资料如下:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.runoob.com/python/python-mysql.html">python操作mysql数据库</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.crazyant.net/686.html">Python操作Mysql实例代码教程（查询手册）</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/mr-wid/archive/2013/05/09/3068229.html">21分钟 MySQL 入门教程</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/heizistudio/article/details/8234185">Windows下更改MySQL数据库的存储位置</a></li>
+</ul>
+<p>Windows 下配置使用MySQL:</p>
+<ul>
+<li><p>下载运行 <a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/windows/">MySQL Installer</a></p>
+</li>
+<li><p>必须安装 <code>MySQL Server</code>. 建议安装 <code>MySQL Workbench</code>, 为可视化图像, 便于管理查看.</p>
+</li>
+<li><p>可视化工具也可以使用别的软件. 如 <a target="_blank" rel="noopener" href="https://www.heidisql.com/">heidisql</a></p>
+</li>
+<li><p>将<code>mysql.exe</code>的路径添加<code>PATH</code>环境变量.</p>
+</li>
+<li><p>创建新的数据库(Workbecn下, 英文为<code>schema</code>), 命名为 <code>chemistwarehouse</code>. 或者输入指令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p      <span class="comment"># 登录本机的MySQL数据库服务</span></span><br><span class="line"><span class="comment"># mysql&gt;              # 成功后, 提示符变为 mysql&gt;</span></span><br><span class="line">create database chemistwarehouse; <span class="comment"># 创建一个数据库</span></span><br></pre></td></tr></table></figure></li>
+<li><p>安装 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mysql-python/">MySQL for Python</a><br>然后, 在python下面测试一下是否可以成功连接到刚建立的 <code>chemistwarehouse</code> 数据库.<br>成功的话, 会打印版本信息.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initDatabase</span>():</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 连接mysql的方法：connect(&#x27;ip&#x27;,&#x27;user&#x27;,&#x27;password&#x27;,&#x27;dbname&#x27;)</span></span><br><span class="line">        connect_db = db.connect(</span><br><span class="line">            <span class="string">&#x27;localhost&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;chemistwarehouse&#x27;</span>)</span><br><span class="line">        <span class="comment"># 所有的查询，都在连接con的一个模块cursor上面运行的</span></span><br><span class="line">        cur = connect_db.cursor()</span><br><span class="line">        <span class="comment"># 执行一个查询</span></span><br><span class="line">        cur.execute(<span class="string">&quot;SELECT VERSION()&quot;</span>)</span><br><span class="line">        <span class="comment"># 取得上个查询的结果，是单个结果</span></span><br><span class="line">        data = cur.fetchone()</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;Database version : %s &quot;</span> % data</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        logging.error(e)</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        <span class="keyword">if</span> connect_db:</span><br><span class="line">            <span class="comment"># 无论如何，连接记得关闭</span></span><br><span class="line">            connect_db.close()</span><br><span class="line"></span><br><span class="line">initDatabase()</span><br></pre></td></tr></table></figure></li>
+<li><p>至此, 就可以在python下正常使用MySQL数据库了.<br>将提取出来的数据去重后, 按一定的格式保存进数据库即可.</p>
+</li>
+<li><p>默认安装在C盘, 而且数据存储也是在C盘. 这个没法接受! 需要把数据存储位置修改到空间更大的E盘.</p>
+<ul>
+<li>停止MySQL服务, 命令行 <code>net stop MySQL57</code> 或者使用 <code>MySQL Workbench</code> 停止服务</li>
+<li>打开 <code>C:\ProgramData\MySQL\MySQL Server 5.7\my.ini</code></li>
+<li>修改为 <code>datadir=E:/MySQLdata</code>, 即设置数据库的新目录</li>
+<li>复制 <code>C:\ProgramData\MySQL\MySQL Server 5.7\Data</code> 下所有文件到 <code>E:/MySQLdata</code></li>
+<li>开启MySQL服务 命令行 <code>net start MySQL57</code> 或者使用 <code>MySQL Workbench</code> 开启服务</li>
+<li>检查 MySQL 服务器状态, 确定数据库目录已更新</li>
+<li>删除 <code>C:\ProgramData\MySQL\MySQL Server 5.7\Data</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="数据显示"><a href="#数据显示" class="headerlink" title="数据显示"></a>数据显示</h1><p>参考资料如下:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://blog.topspeedsnail.com/archives/814">Python 中用 matplotlib 绘制直方图</a> 这个博客有对 matplotlib 制图有一个系列的文章</li>
+<li><a target="_blank" rel="noopener" href="http://ningning.today/2015/04/17/python/%E7%94%A8matplotlib%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE%E5%92%8C%E9%A5%BC%E5%9B%BE/">用python的matplotlib库绘制柱状图和饼图</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.jdon.com/idea/matplotlib.html">使用Python matplotlib绘制股票走势图</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.rcnelson.com/building-a-matplotlib-gui-with-qt-designer-part-1/">Building a Matplotlib GUI with Qt Designer: Part 1</a>, 由三部分组成, 还有<a target="_blank" rel="noopener" href="http://blog.rcnelson.com/building-a-matplotlib-gui-with-qt-designer-part-2/">Part2</a>和<a target="_blank" rel="noopener" href="http://blog.rcnelson.com/building-a-matplotlib-gui-with-qt-designer-part-3/">Part3</a></li>
+<li><a target="_blank" rel="noopener" href="http://eli.thegreenplace.net/2009/01/20/matplotlib-with-pyqt-guis">matplotlib with PyQt GUIs</a>, 有 <a target="_blank" rel="noopener" href="https://github.com/eliben/code-for-blog/blob/master/2009/qt_mpl_bars.py">github 范例</a></li>
+<li>pyqt的使用可参考我的博客 <a href="https://draapho.github.io/2016/11/16/1617-python-terminal/">python的第一个小程序, 蓝牙及串口终端</a></li>
+</ul>
+<p>设计思路和注意事项</p>
+<ul>
+<li>使用pip安装 matplotlib: <code>pip --trusted-host pypi.python.org install matplotlib</code></li>
+<li>数据显示和数据抓取是完全独立的, 因此数据抓取单独生成了一个exe文件, 数据显示也单独生成一个文件.</li>
+<li>数据显示exe可以打开多个, 以便分析比较. 数据抓取仅可打开一个.</li>
+</ul>
+<h1 id="源码及性能"><a href="#源码及性能" class="headerlink" title="源码及性能"></a>源码及性能</h1><p>最终源码见 <a target="_blank" rel="noopener" href="https://github.com/draapho/chemistwarehouse-spider">github</a></p>
+<p>爬虫最终性能:<br>抓取效率一般, 每1000条数据大概要2分钟. 要提高效率可以考虑使用多进程!<br>但一天抓取一次即可, 因此这个速度可以接受. 暂时保持单进程不变.</p>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2017/04/10/1711-web-spider/" data-id="cklzxspxr003hasqo0bj33ow5" data-title="使用网络爬虫抓取商品价格并分析" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2017/04/19/1713-ble/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          BLE基础概念
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2017/04/10/1712-ezos/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ezos简要用户手册</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/dao/">dao</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded/">embedded</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded-linux/">embedded linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/interview/">interview</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/qqiot/">qqiot</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/software/">software</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/thoughts/">thoughts</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AI-IoT-thoughts/" rel="tag">AI IoT thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AutoHotKey/" rel="tag">AutoHotKey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/apt/" rel="tag">apt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/collections/" rel="tag">collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dao/" rel="tag">dao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/data-struct/" rel="tag">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dict/" rel="tag">dict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/driver/" rel="tag">driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/drv/" rel="tag">drv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/env/" rel="tag">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/environment/" rel="tag">environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/error/" rel="tag">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ezos/" rel="tag">ezos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/fs/" rel="tag">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ide/" rel="tag">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ipc/" rel="tag">ipc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linuxembedded-linux/" rel="tag">linuxembedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/makefile/" rel="tag">makefile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/nfs/" rel="tag">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pygatt/" rel="tag">pygatt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/regular/" rel="tag">regular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/scrum/" rel="tag">scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/self-expression/" rel="tag">self-expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/software/" rel="tag">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/string/" rel="tag">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/thoughts/" rel="tag">thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/timeout/" rel="tag">timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/tuple/" rel="tag">tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/yocto/" rel="tag">yocto</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" rel="tag">线程同步</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/AI-IoT-thoughts/" style="font-size: 10px;">AI IoT thoughts</a> <a href="/Blog/tags/AutoHotKey/" style="font-size: 10px;">AutoHotKey</a> <a href="/Blog/tags/BLE/" style="font-size: 10.77px;">BLE</a> <a href="/Blog/tags/ConEmu/" style="font-size: 10px;">ConEmu</a> <a href="/Blog/tags/Hyper-V/" style="font-size: 10px;">Hyper-V</a> <a href="/Blog/tags/Listary/" style="font-size: 10px;">Listary</a> <a href="/Blog/tags/NAS/" style="font-size: 10px;">NAS</a> <a href="/Blog/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/Blog/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/Blog/tags/TrueSTUIDO/" style="font-size: 10px;">TrueSTUIDO</a> <a href="/Blog/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/Blog/tags/android/" style="font-size: 10px;">android</a> <a href="/Blog/tags/apt/" style="font-size: 10px;">apt</a> <a href="/Blog/tags/atom/" style="font-size: 11.54px;">atom</a> <a href="/Blog/tags/ble/" style="font-size: 10px;">ble</a> <a href="/Blog/tags/c/" style="font-size: 10.77px;">c</a> <a href="/Blog/tags/cheat-sheet/" style="font-size: 12.31px;">cheat sheet</a> <a href="/Blog/tags/cli/" style="font-size: 10px;">cli</a> <a href="/Blog/tags/collections/" style="font-size: 10px;">collections</a> <a href="/Blog/tags/command/" style="font-size: 11.54px;">command</a> <a href="/Blog/tags/cygwin/" style="font-size: 10px;">cygwin</a> <a href="/Blog/tags/dao/" style="font-size: 10.77px;">dao</a> <a href="/Blog/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/Blog/tags/debug/" style="font-size: 10.77px;">debug</a> <a href="/Blog/tags/dict/" style="font-size: 10px;">dict</a> <a href="/Blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/Blog/tags/driver/" style="font-size: 16.92px;">driver</a> <a href="/Blog/tags/drv/" style="font-size: 14.62px;">drv</a> <a href="/Blog/tags/eclipse/" style="font-size: 10.77px;">eclipse</a> <a href="/Blog/tags/embedded/" style="font-size: 13.85px;">embedded</a> <a href="/Blog/tags/embedded-linux/" style="font-size: 20px;">embedded linux</a> <a href="/Blog/tags/env/" style="font-size: 10px;">env</a> <a href="/Blog/tags/environment/" style="font-size: 13.85px;">environment</a> <a href="/Blog/tags/error/" style="font-size: 10px;">error</a> <a href="/Blog/tags/ezos/" style="font-size: 10px;">ezos</a> <a href="/Blog/tags/freefilesync/" style="font-size: 10px;">freefilesync</a> <a href="/Blog/tags/fs/" style="font-size: 10.77px;">fs</a> <a href="/Blog/tags/git/" style="font-size: 10px;">git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/Blog/tags/ide/" style="font-size: 10px;">ide</a> <a href="/Blog/tags/interview/" style="font-size: 11.54px;">interview</a> <a href="/Blog/tags/ipc/" style="font-size: 10.77px;">ipc</a> <a href="/Blog/tags/jz2440/" style="font-size: 13.08px;">jz2440</a> <a href="/Blog/tags/kernel/" style="font-size: 11.54px;">kernel</a> <a href="/Blog/tags/linux/" style="font-size: 19.23px;">linux</a> <a href="/Blog/tags/linuxembedded-linux/" style="font-size: 16.15px;">linuxembedded linux</a> <a href="/Blog/tags/list/" style="font-size: 10px;">list</a> <a href="/Blog/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/Blog/tags/mingw/" style="font-size: 11.54px;">mingw</a> <a href="/Blog/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/Blog/tags/notepad/" style="font-size: 10px;">notepad++</a> <a href="/Blog/tags/other/" style="font-size: 10px;">other</a> <a href="/Blog/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/Blog/tags/path/" style="font-size: 10px;">path</a> <a href="/Blog/tags/pip/" style="font-size: 10px;">pip</a> <a href="/Blog/tags/process/" style="font-size: 10px;">process</a> <a href="/Blog/tags/putty/" style="font-size: 10px;">putty</a> <a href="/Blog/tags/pygatt/" style="font-size: 10px;">pygatt</a> <a href="/Blog/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/Blog/tags/pyqt/" style="font-size: 10.77px;">pyqt</a> <a href="/Blog/tags/python/" style="font-size: 18.46px;">python</a> <a href="/Blog/tags/qqiot/" style="font-size: 12.31px;">qqiot</a> <a href="/Blog/tags/regular/" style="font-size: 11.54px;">regular</a> <a href="/Blog/tags/scrum/" style="font-size: 10px;">scrum</a> <a href="/Blog/tags/self-expression/" style="font-size: 10px;">self-expression</a> <a href="/Blog/tags/set/" style="font-size: 10px;">set</a> <a href="/Blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/Blog/tags/shortcut/" style="font-size: 10px;">shortcut</a> <a href="/Blog/tags/software/" style="font-size: 11.54px;">software</a> <a href="/Blog/tags/stm32/" style="font-size: 10px;">stm32</a> <a href="/Blog/tags/string/" style="font-size: 10px;">string</a> <a href="/Blog/tags/thoughts/" style="font-size: 17.69px;">thoughts</a> <a href="/Blog/tags/timeout/" style="font-size: 10px;">timeout</a> <a href="/Blog/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/Blog/tags/uboot/" style="font-size: 12.31px;">uboot</a> <a href="/Blog/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/Blog/tags/vim/" style="font-size: 10px;">vim</a> <a href="/Blog/tags/windows/" style="font-size: 15.38px;">windows</a> <a href="/Blog/tags/yocto/" style="font-size: 10px;">yocto</a> <a href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" style="font-size: 10px;">线程同步</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2021/03/05/2107-tuibeitu/">推背图, 马前课, 万年歌, 梅花诗</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/03/01/2106-dao-doubt/">修道之路-起疑</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/14/2105-dao-outline/">修道之路-总纲</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/13/2104-satori/">修行总领——明心见性</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/09/2102-intermittent/">一张简单图片演示的“甚深佛法”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 draapho<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

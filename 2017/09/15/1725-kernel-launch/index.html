@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>kernel之内核启动分析 | DRA&amp;PHO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="总览 嵌入式linux学习目录 kernel之编译体验 kernel之Makefile分析 kernel之内核启动分析  本文使用 linux-2.6.22.6 内核, 使用jz2440开发板. 内核引导阶段 head.S由 uboot之源码分析 可知, uboot最后调用的函数是  theKernel (0, bd-&gt;bi_arch_number, bd-&gt;bi_boot_param">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kernel之内核启动分析">
+<meta property="og:url" content="https://draapho.github.io/Blog/2017/09/15/1725-kernel-launch/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="总览 嵌入式linux学习目录 kernel之编译体验 kernel之Makefile分析 kernel之内核启动分析  本文使用 linux-2.6.22.6 内核, 使用jz2440开发板. 内核引导阶段 head.S由 uboot之源码分析 可知, uboot最后调用的函数是  theKernel (0, bd-&gt;bi_arch_number, bd-&gt;bi_boot_param">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1725/stage1.JPG">
+<meta property="og:image" content="https://draapho.github.io/images/1725/stage2.JPG">
+<meta property="article:published_time" content="2017-09-14T14:00:00.000Z">
+<meta property="article:modified_time" content="2017-11-27T03:06:16.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="kernel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1725/stage1.JPG">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="DRA&PHO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">DRA&amp;PHO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">thinking &amp; logging</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://draapho.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1725-kernel-launch" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2017/09/15/1725-kernel-launch/" class="article-date">
+  <time class="dt-published" datetime="2017-09-14T14:00:00.000Z" itemprop="datePublished">2017-09-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/embedded-linux/">embedded linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      kernel之内核启动分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/09/01/1722-kernel-compile/">kernel之编译体验</a></li>
+<li><a href="https://draapho.github.io/2017/09/14/1724-kernel-makefile/">kernel之Makefile分析</a></li>
+<li><a href="https://draapho.github.io/2017/09/15/1725-kernel-launch/">kernel之内核启动分析</a></li>
+</ul>
+<p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.</p>
+<h1 id="内核引导阶段-head-S"><a href="#内核引导阶段-head-S" class="headerlink" title="内核引导阶段 head.S"></a>内核引导阶段 <code>head.S</code></h1><p>由 <a href="https://draapho.github.io/2017/08/25/1720-uboot-source/">uboot之源码分析</a> 可知, uboot最后调用的函数是</p>
+<ul>
+<li><code>theKernel (0, bd-&gt;bi_arch_number, bd-&gt;bi_boot_params)</code>, 会把一些板级参数传递给linux内核使用.</li>
+</ul>
+<p>由 <a href="https://draapho.github.io/2017/09/14/1724-kernel-makefile/">kernel之Makefile分析</a> 可知, 两个重要的文件如下:</p>
+<ul>
+<li>第1个文件: <code>arch/arm/kernel/head.S</code></li>
+<li>链接脚本: <code>arch/arm/kernel/vmlinux.lds</code></li>
+</ul>
+<p><code>head.S</code> 主要完成了如下工作.</p>
+<p><img src="https://draapho.github.io/images/1725/stage1.JPG" alt="内核引导阶段"></p>
+<ul>
+<li><code>__lookup_machine_type</code> 会将 theKernel 传入的单板类型与内核支持的单板类型逐一比较.</li>
+<li><code>.arch.info.init</code> 这一个段存放的就是内核支持的单板类型.<ul>
+<li>定义在 <code>./arch/arm/kernel/vmlinux.lds</code></li>
+<li><code>__lookup_machine_type</code> 会对该段进行轮询</li>
+<li>该段的数据结构为 <code>machine_desc</code>, 定义在 <code>./include/asm-arm/mach/arch.h</code></li>
+<li><code>arch.h</code> 文件还宏定义了 <code>MACHINE_START</code> <code>MACHINE_END</code>,<br>  调用该宏定义, 就会将相关数据放在 <code>.arch.info.init</code> 段内</li>
+</ul>
+</li>
+<li><code>./arch/arm/mach-s3c2440/mach-smdk2440.c:</code> 内调用了 <code>MACHINE_START(S3C2440, &quot;SMDK2440&quot;)</code><ul>
+<li>kernel下 <code>grep -nr MACH_TYPE_S3C2440</code> 可知 MACH_TYPE_S3C2440 的值为 362</li>
+<li>uboot下 <code>grep -nr bi_arch_number</code> 可知其值为 MACH_TYPE_S3C2440, 即 362</li>
+<li>这样, kernel就能确定是支持当前的开发板的. (当前的开发板信息由uboot提供给kernel)</li>
+</ul>
+</li>
+</ul>
+<h1 id="内核启动第二阶段-init-main-c"><a href="#内核启动第二阶段-init-main-c" class="headerlink" title="内核启动第二阶段 init/main.c"></a>内核启动第二阶段 <code>init/main.c</code></h1><p><code>head-common.S</code> 调用 <code>start_kernel</code> 后, 代码会转到 <code>init/main.c</code>, 使用的是C语言.</p>
+<p><img src="https://draapho.github.io/images/1725/stage2.JPG" alt="内核启动第二阶段"></p>
+<p>从 <code>start_kernel</code> 开始, 函数的基本调用关系如下:</p>
+<ul>
+<li><code>setup_arch(&amp;command_line);</code> 读取uboot传过来的TAG参数<ul>
+<li>位于 <code>./arch/arm/kernel/setup.c</code> 770 行</li>
+<li>uboot 的 <code>setup_memory_tags</code> 存放内存大小</li>
+<li>uboot 的 <code>setup_commandline_tag</code> 告知linux挂载文件系统的命令行</li>
+<li>uboot 的 <code>/board/100ask24x0/100ask24x0.c</code> 中, <code>gd-&gt;bd-&gt;bi_boot_params = 0x30000100</code></li>
+<li>使用了 <code>machine_desc</code> 结构体, <code>.boot_params = S3C2410_SDRAM_PA + 0x100</code>, 其值就是 <code>0x30000100</code></li>
+<li>至此, uboot存放在内存中的TAG参数, 就能被内核读取出来了.</li>
+<li>此函数还会把挂载文件系统的命令赋值给 <code>boot_command_line</code>, 后续会去处理.</li>
+<li><code>parse_cmdline</code> 会去处理放在 <code>early_param.init</code> 段的指令.</li>
+</ul>
+</li>
+<li><code>parse_early_param</code>, 此函数会把 <code>boot_command_line</code>传递给<code>do_early_param</code>让其执行挂载文件系统的指令.<ul>
+<li><code>do_early_param</code><ul>
+<li>搜索 <code>.init.setup</code> 段, 调用有early标记的函数 (大多只是设置一下参数)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>unknown_bootoption</code> (使用 parse_args 先检查参数后再执行该函数)<ul>
+<li><code>obsolete_checksetup</code><ul>
+<li>搜索 <code>.init.setup</code> 段, 调用非early标记的函数 (大多只是设置一下参数)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>rest_init</code>, 去做剩余的初始化工作<ul>
+<li><code>kernel_thread(kernel_init, NULL, CLONE_FS | CLONE_SIGHAND);</code> 首先就是创建一个线程来做初始化工作<ul>
+<li><code>kernel_init</code> 会调用 <code>prepare_namespace</code><ul>
+<li>在 <code>do_mounts.c</code> 文件下 <code>prepare_namespace</code> 调用 <code>mount_root</code></li>
+<li>目的就是挂载文件系统.</li>
+</ul>
+</li>
+<li>挂载完文件系统后, 调用 <code>init_post</code>, 尝试执行第一个应用程序(下述应用程序不会再返回)<ul>
+<li><code>run_init_process(execute_command);</code></li>
+<li><code>run_init_process(&quot;/sbin/init&quot;);</code></li>
+<li><code>run_init_process(&quot;/etc/init&quot;);</code></li>
+<li><code>run_init_process(&quot;/bin/init&quot;);</code></li>
+<li><code>run_init_process(&quot;/bin/sh&quot;);</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>以默认的启动指令为例 <code>&quot;root=/dev/hda1 ro init=/bin/bash console=ttySAC0&quot;</code><pre><code>      - `__setup(&quot;root=&quot;, root_dev_setup);` 位于 `./init/do_mounts.c`
+      - `__setup(&quot;init=&quot;, init_setup);` 位于 `./init/main.c`
+      - `__setup(&quot;console=&quot;, console_setup);` 位于 `./kernel/printk.c`
+      - 以上命令对应的函数都会由 `obsolete_checksetup` 函数来调用. 主要是设置好相关参数.
+</code></pre>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./init/main.c</span></span><br><span class="line"></span><br><span class="line"><span class="number">497</span> <span class="function">asmlinkage <span class="keyword">void</span> __init <span class="title">start_kernel</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line"><span class="number">520</span>     tick_init();</span><br><span class="line"><span class="number">521</span>     boot_cpu_init();</span><br><span class="line"><span class="number">522</span>     page_address_init();</span><br><span class="line"><span class="number">524</span>     printk(linux_banner);                           <span class="comment">// 打印linux版本信息</span></span><br><span class="line"><span class="number">525</span>     setup_arch(&amp;command_line);                      <span class="comment">// 读取uboot传过来的TAG参数</span></span><br><span class="line">                                                        <span class="comment">// 搜索 &quot;early_param.init&quot; 段, 并调用相关函数</span></span><br><span class="line"><span class="number">526</span>     setup_command_line(command_line);               <span class="comment">// 复制一下 command_line.</span></span><br><span class="line"></span><br><span class="line"><span class="number">544</span>     printk(KERN_NOTICE <span class="string">&quot;Kernel command line: %s\n&quot;</span>, boot_command_line); <span class="comment">// 打印文件系统挂载命令</span></span><br><span class="line"><span class="number">545</span>     parse_early_param();                            <span class="comment">// 最终会搜索 &quot;.init.setup&quot; 段, 调用有early标记的函数</span></span><br><span class="line"><span class="number">546</span>     parse_args(<span class="string">&quot;Booting kernel&quot;</span>, static_command_line, __start___param,</span><br><span class="line"><span class="number">547</span>        __stop___param - __start___param,            <span class="comment">// 搜索 &quot;__param&quot; 段</span></span><br><span class="line"><span class="number">548</span>        &amp;unknown_bootoption);                        <span class="comment">// 最终会搜索 &quot;.init.setup&quot; 段, 调用非early标记的函数</span></span><br><span class="line"></span><br><span class="line"><span class="number">575</span>     console_init();                                 <span class="comment">// 控制终端初始化</span></span><br><span class="line"></span><br><span class="line"><span class="number">636</span>     rest_init();                                    <span class="comment">// 剩余部分的初始化</span></span><br><span class="line"><span class="number">637</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">466</span> <span class="function"><span class="keyword">void</span> __init <span class="title">parse_early_param</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line"><span class="number">475</span>     strlcpy(tmp_cmdline, boot_command_line, COMMAND_LINE_SIZE);</span><br><span class="line">        <span class="comment">// parse_args 会先检查参数, 最后调用函数, 此处是do_early_param,</span></span><br><span class="line">        <span class="comment">// 参数为 boot_command_line 启动命令, 由uboot传递进来. 实际不会在此处执行.</span></span><br><span class="line"><span class="number">476</span>     parse_args(<span class="string">&quot;early options&quot;</span>, tmp_cmdline, <span class="literal">NULL</span>, <span class="number">0</span>, do_early_param);</span><br><span class="line"><span class="number">478</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">450</span> <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> __init <span class="title">do_early_param</span><span class="params">(<span class="keyword">char</span> *param, <span class="keyword">char</span> *val)</span> </span>&#123;</span><br><span class="line"><span class="number">454</span>     <span class="keyword">for</span> (p = __setup_start; p &lt; __setup_end; p++)   <span class="comment">// 遍历 &quot;.init.setup&quot; 段</span></span><br><span class="line"><span class="number">455</span>         <span class="keyword">if</span> (p-&gt;early &amp;&amp; <span class="built_in">strcmp</span>(param, p-&gt;str) == <span class="number">0</span>) <span class="comment">// 在段内找了匹配boot_command_line的命令, 则执行</span></span><br><span class="line"><span class="number">456</span>             <span class="keyword">if</span> (p-&gt;setup_func(val) != <span class="number">0</span>)</span><br><span class="line"><span class="number">463</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">258</span> <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> __init <span class="title">unknown_bootoption</span><span class="params">(<span class="keyword">char</span> *param, <span class="keyword">char</span> *val)</span> </span>&#123;</span><br><span class="line"><span class="number">274</span>     <span class="keyword">if</span> (obsolete_checksetup(param))                 <span class="comment">// 调用 obsolete_checksetup</span></span><br><span class="line"><span class="number">313</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">190</span> <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> __init <span class="title">obsolete_checksetup</span><span class="params">(<span class="keyword">char</span> *line)</span> </span>&#123;</span><br><span class="line"><span class="number">195</span>     p = __setup_start;                              <span class="comment">// 遍历 &quot;.init.setup&quot; 段</span></span><br><span class="line"><span class="number">196</span>     <span class="keyword">do</span> &#123;</span><br><span class="line"><span class="number">199</span>         <span class="keyword">if</span> (p-&gt;early) &#123;                             <span class="comment">// 有early标记, 跳过.</span></span><br><span class="line"><span class="number">210</span>         &#125; <span class="keyword">else</span> <span class="keyword">if</span> (p-&gt;setup_func(line + n))         <span class="comment">// 执行指令对应的函数</span></span><br><span class="line"><span class="number">214</span>     &#125; <span class="keyword">while</span> (p &lt; __setup_end);<span class="number">24</span></span><br><span class="line"><span class="number">217</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">426</span> <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> noinline __init_refok <span class="title">rest_init</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">        kernel_thread(kernel_init, <span class="literal">NULL</span>, CLONE_FS | CLONE_SIGHAND); <span class="comment">// 创建一个初始化用的线程</span></span><br><span class="line">        schedule();                                     <span class="comment">// 调度</span></span><br><span class="line"><span class="number">447</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">787</span> <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> __init <span class="title">kernel_init</span><span class="params">(<span class="keyword">void</span> * unused)</span> </span>&#123;</span><br><span class="line"><span class="number">828</span>         prepare_namespace();                        <span class="comment">// 调用 mount_root, 加载文件系统</span></span><br><span class="line"><span class="number">836</span>     init_post();                                    <span class="comment">// 执行应用程序</span></span><br><span class="line"><span class="number">838</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">748</span> <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> noinline <span class="title">init_post</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;               <span class="comment">// 执行应用程序</span></span><br><span class="line"><span class="number">756</span>     <span class="keyword">if</span> (sys_open((<span class="keyword">const</span> <span class="keyword">char</span> __user *) <span class="string">&quot;/dev/console&quot;</span>, O_RDWR, <span class="number">0</span>) &lt; <span class="number">0</span>)      </span><br><span class="line">                                                        <span class="comment">// 尝试打开终端设备, 文件0-&gt;printf</span></span><br><span class="line"><span class="number">757</span>         printk(KERN_WARNING <span class="string">&quot;Warning: unable to open an initial console.\n&quot;</span>);</span><br><span class="line"><span class="number">759</span>	    (<span class="keyword">void</span>) sys_dup(<span class="number">0</span>);                              <span class="comment">// 赋值文件0, 生成文件1-&gt;scanf</span></span><br><span class="line"><span class="number">760</span>	    (<span class="keyword">void</span>) sys_dup(<span class="number">0</span>);                              <span class="comment">// 赋值文件0, 生成文件2-&gt;err</span></span><br><span class="line">        <span class="comment">// 以上四句作用为设置标准输入输出流, (printf, scanf, err)</span></span><br><span class="line">        </span><br><span class="line"><span class="number">744</span> 	<span class="keyword">if</span> (execute_command) &#123;</span><br><span class="line"><span class="number">745</span>	    	run_init_process(execute_command);</span><br><span class="line"><span class="number">746</span>		    printk(KERN_WARNING <span class="string">&quot;Failed to execute %s.  Attempting &quot;</span></span><br><span class="line"><span class="number">747</span>					<span class="string">&quot;defaults...\n&quot;</span>, execute_command);</span><br><span class="line"><span class="number">748</span>  	&#125;</span><br><span class="line">        <span class="comment">// 传入的启动参数内有 &quot;init=&quot; 启动程序, 则执行! 执行成功的话不会再返回这里!</span></span><br><span class="line"></span><br><span class="line"><span class="number">779</span>     run_init_process(<span class="string">&quot;/sbin/init&quot;</span>);</span><br><span class="line"><span class="number">780</span>     run_init_process(<span class="string">&quot;/etc/init&quot;</span>);</span><br><span class="line"><span class="number">781</span>     run_init_process(<span class="string">&quot;/bin/init&quot;</span>);</span><br><span class="line"><span class="number">782</span>     run_init_process(<span class="string">&quot;/bin/sh&quot;</span>);</span><br><span class="line">        <span class="comment">// 没有配置过启动指令, 依次尝试上述四个默认程序. 某一个执行成功后就不会再返回!</span></span><br><span class="line">        </span><br><span class="line"><span class="number">784</span>     panic(<span class="string">&quot;No init found.  Try passing init= option to kernel.&quot;</span>);</span><br><span class="line">        <span class="comment">// 执行首个应用程序失败, 打印内核错误信息!</span></span><br><span class="line"><span class="number">785</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我们擦除开发板文件系统后, 来看一下打印出来的启动信息</span></span><br><span class="line"></span><br><span class="line">OpenJTAG&gt; nand erase root           <span class="comment"># uboot 下, 擦除root块</span></span><br><span class="line">OpenJTAG&gt; reset                     <span class="comment"># uboot 下, 重启系统</span></span><br><span class="line"></span><br><span class="line">Booting Linux ...</span><br><span class="line">NAND <span class="built_in">read</span>: device 0 offset 0x60000, size 0x200000</span><br><span class="line"><span class="comment">## Booting image at 30007fc0 ...</span></span><br><span class="line">...</span><br><span class="line">Starting kernel ...</span><br><span class="line">...</span><br><span class="line">Kernel <span class="built_in">command</span> line: noinitrd root=/dev/mtdblock3 init=/linuxrc console=ttySAC0</span><br><span class="line">loop: module loaded</span><br><span class="line">...</span><br><span class="line">Creating 4 MTD partitions on <span class="string">&quot;NAND 256MiB 3,3V 8-bit&quot;</span>:</span><br><span class="line">0x00000000-0x00040000 : <span class="string">&quot;bootloader&quot;</span></span><br><span class="line">0x00040000-0x00060000 : <span class="string">&quot;params&quot;</span></span><br><span class="line">0x00060000-0x00260000 : <span class="string">&quot;kernel&quot;</span></span><br><span class="line">0x00260000-0x10000000 : <span class="string">&quot;root&quot;</span></span><br><span class="line">...</span><br><span class="line">VFS: Mounted root (yaffs filesystem).</span><br><span class="line">...</span><br><span class="line">Kernel panic - not syncing: No init found.  Try passing init= option to kernel.</span><br><span class="line"><span class="comment"># 此句就是由./init/main.c文件784行打印出来的. 因为没有文件系统, 第一个应用程序执行失败!</span></span><br></pre></td></tr></table></figure>
+
+<p>如果正常启动, 会打印如下信息, 可知第一个应用程序名字是 <code>BusyBox</code>, 然后启动了 <code>/bin/sh</code>!!!<br><code>init started: BusyBox v1.7.0 (2008-01-22 10:04:09 EST)</code><br><code>starting pid 764, tty &#39;&#39;: &#39;/etc/init.d/rcS&#39;</code><br><code>Please press Enter to activate this console.</code><br><code>starting pid 770, tty &#39;/dev/s3c2410_serial0&#39;: &#39;/bin/sh&#39;</code></p>
+<h1 id="初始化中用到的段-vmlinux-lds"><a href="#初始化中用到的段-vmlinux-lds" class="headerlink" title="初始化中用到的段 vmlinux.lds"></a>初始化中用到的段 <code>vmlinux.lds</code></h1><h2 id="init-setup-段分析"><a href="#init-setup-段分析" class="headerlink" title=".init.setup 段分析"></a><code>.init.setup</code> 段分析</h2><p>在 <code>./arch/arm/kernel/vmlinux.lds</code> 中有这么一个段<br><code>*(.init.setup)</code>, 其头尾为 <code>__setup_start</code> <code>__setup_end</code></p>
+<p>这一个段存放着需要通过读取命令行来执行的初始化工作, 内核称之为 <code>unknow_xxx</code><br>定义在此段的变量通过两个宏定义实现 <code>__setup</code> 以及 <code>early_param</code><br>简单理解的话, <code>early_param</code> 是需要先执行的命令行, <code>__setup</code> 则稍后执行.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># ./include/linux/init.h</span><br><span class="line"></span><br><span class="line"><span class="number">148</span> <span class="class"><span class="keyword">struct</span> <span class="title">obs_kernel_param</span> &#123;</span></span><br><span class="line"><span class="number">149</span>     <span class="keyword">const</span> <span class="keyword">char</span> *str;</span><br><span class="line"><span class="number">150</span>     <span class="keyword">int</span> (*setup_func)(<span class="keyword">char</span> *);</span><br><span class="line"><span class="number">151</span>     <span class="keyword">int</span> early;</span><br><span class="line"><span class="number">152</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="number">160</span> <span class="meta">#<span class="meta-keyword">define</span> __setup_param(str, unique_id, fn, early)            \</span></span><br><span class="line"><span class="number">161</span>     <span class="keyword">static</span> <span class="keyword">char</span> __setup_str_##unique_id[] __initdata = str; \</span><br><span class="line"><span class="number">162</span>     <span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">obs_kernel_param</span> __<span class="title">setup_</span>##<span class="title">unique_id</span>  \</span></span><br><span class="line"><span class="class">163         __<span class="title">attribute_used__</span>              \</span></span><br><span class="line"><span class="class">164         __<span class="title">attribute__</span>((__<span class="title">section__</span>(&quot;.<span class="title">init</span>.<span class="title">setup</span>&quot;))) \</span></span><br><span class="line"><span class="class">165         __<span class="title">attribute__</span>((<span class="title">aligned</span>((<span class="title">sizeof</span>(<span class="title">long</span>)))))    \</span></span><br><span class="line"><span class="class">166         =</span> &#123; __setup_str_##unique_id, fn, early &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">171</span> <span class="meta">#<span class="meta-keyword">define</span> __setup(str, fn)                    \</span></span><br><span class="line"><span class="number">172</span>     __setup_param(str, fn, fn, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">179</span> <span class="meta">#<span class="meta-keyword">define</span> early_param(str, fn)                    \</span></span><br><span class="line"><span class="number">180</span>     __setup_param(str, fn, fn, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>先来分析 <code>__setup(str, fn)</code> 这么一个宏定义, 它设置的就是命令行队列, 将字符串关联到函数.</p>
+<ul>
+<li><code>unique_id</code> 就是fn的函数地址</li>
+<li>存放在 <code>.init.setup</code> 段内.</li>
+<li>与数据结构 <code>obs_kernel_param</code> 相关. 保存的就是 str, fn, 以及early三个变量.</li>
+<li>通过这样一种结构, 可以很方便的使用字符串来调用指定的函数.</li>
+<li><code>grep -nwr __setup ./arch/arm</code> 可找到 <code>__setup(&quot;tft=&quot;, qt2410_tft_setup);</code>, 很明显就是用来初始化屏幕的.</li>
+<li>在 <code>./init/do_mounts.c</code>里, 还能找到 <code>__setup(&quot;root=&quot;, root_dev_setup)</code>, 是用来挂载文件系统的.</li>
+</ul>
+<p>然后看 <code>early_param(str, fn)</code> 宏定义.</p>
+<ul>
+<li><code>__setup</code> 是一样的.</li>
+<li>只是将标记 <code>early</code> 赋值为1. 表示需要较早执行的初始化工作, 一般为更底层的驱动</li>
+<li>arm 架构几乎没有用到 <code>early_param</code> 的地方, 搜索的话, 可以看到 pci 的初始化就用到了 <code>early_param</code></li>
+</ul>
+<h2 id="early-param-init-段"><a href="#early-param-init-段" class="headerlink" title="early_param.init 段"></a><code>early_param.init</code> 段</h2><p>和 <code>.init.setup</code> 段类似, 其定义在<br><code>./include/asm-arm/setup.h</code>, 220行.<br>关联的宏定义为 <code>__early_param</code>, 初始化如 <code>initrd=</code> <code>mem=</code> 之类的命令<br><code>grep -nwr __early_param</code> 进行查询, 结果不多的.<br>搜索 <code>grep -nwr __early_begin</code>, 可知, 其处理函数为 <code>parse_cmdline</code></p>
+<h2 id="param-段"><a href="#param-段" class="headerlink" title="__param 段"></a><code>__param</code> 段</h2><p>该段主要用于给驱动模块的初始化. 设置参数使用.<br>定义在 <code>./include/linux/moduleparam.h</code>, 72 行<br>其调用位于 <code>./init/main.c</code> 的 <code>parse_args</code> (<code>grep -nwr __start___param</code>)<br>关联的宏定义为 <code>module_param_call</code> <code>module_param_named</code> <code>module_param</code> 以及 <code>module_param_string</code><br>查阅后, 可以发现全部是和驱动模块有关的.</p>
+<h1 id="linux下的分区"><a href="#linux下的分区" class="headerlink" title="linux下的分区"></a>linux下的分区</h1><p>jz2440的启动参数为 <code>root= /dev/mtdblock3</code>,<br>linux下没有分区表的概念, 这里分区是在内核源码里写死的.<br>可见 <code>./arch/arm/plat-s3c24xx/common-smdk.c</code> 的118行, <code>smdk_default_nand_part</code><br>它分配了4个的分区:</p>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>对应mtdblock</th>
+<th>size</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>bootloader</code></td>
+<td>mtdblock0</td>
+<td>0x00040000</td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td>mtdblock1</td>
+<td>0x00020000</td>
+</tr>
+<tr>
+<td><code>kernel</code></td>
+<td>mtdblock2</td>
+<td>0x00200000</td>
+</tr>
+<tr>
+<td><code>root</code></td>
+<td>mtdblock3</td>
+<td>MTDPART_SIZ_FULL</td>
+</tr>
+</tbody></table>
+<h1 id="更多参考"><a href="#更多参考" class="headerlink" title="更多参考"></a>更多参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/skyflying2012/article/details/41142801"> linux kernel的cmdline参数解析原理分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://danielmaker.github.io/blog/linux/inside_start_kernel.html">深入淺出 start_kernel</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_5d9051c00100ij93.html">嵌入式Linux中基于MTD的文件系统的结构框架图</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/yusiguyuan/article/details/9471577">u-boot中分区和内核MTD分区关系</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2017/09/15/1725-kernel-launch/" data-id="cklzxspy3004nasqo2nr87skb" data-title="kernel之内核启动分析" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2017/09/19/1726-soft-easyre/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          人人都看得懂的正则表达式教程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2017/09/14/1724-kernel-makefile/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">kernel之Makefile分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/dao/">dao</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded/">embedded</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded-linux/">embedded linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/interview/">interview</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/qqiot/">qqiot</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/software/">software</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/thoughts/">thoughts</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AI-IoT-thoughts/" rel="tag">AI IoT thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AutoHotKey/" rel="tag">AutoHotKey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/apt/" rel="tag">apt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/collections/" rel="tag">collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dao/" rel="tag">dao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/data-struct/" rel="tag">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dict/" rel="tag">dict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/driver/" rel="tag">driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/drv/" rel="tag">drv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/env/" rel="tag">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/environment/" rel="tag">environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/error/" rel="tag">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ezos/" rel="tag">ezos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/fs/" rel="tag">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ide/" rel="tag">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ipc/" rel="tag">ipc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linuxembedded-linux/" rel="tag">linuxembedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/makefile/" rel="tag">makefile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/nfs/" rel="tag">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pygatt/" rel="tag">pygatt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/regular/" rel="tag">regular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/scrum/" rel="tag">scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/self-expression/" rel="tag">self-expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/software/" rel="tag">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/string/" rel="tag">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/thoughts/" rel="tag">thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/timeout/" rel="tag">timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/tuple/" rel="tag">tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/yocto/" rel="tag">yocto</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" rel="tag">线程同步</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/AI-IoT-thoughts/" style="font-size: 10px;">AI IoT thoughts</a> <a href="/Blog/tags/AutoHotKey/" style="font-size: 10px;">AutoHotKey</a> <a href="/Blog/tags/BLE/" style="font-size: 10.77px;">BLE</a> <a href="/Blog/tags/ConEmu/" style="font-size: 10px;">ConEmu</a> <a href="/Blog/tags/Hyper-V/" style="font-size: 10px;">Hyper-V</a> <a href="/Blog/tags/Listary/" style="font-size: 10px;">Listary</a> <a href="/Blog/tags/NAS/" style="font-size: 10px;">NAS</a> <a href="/Blog/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/Blog/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/Blog/tags/TrueSTUIDO/" style="font-size: 10px;">TrueSTUIDO</a> <a href="/Blog/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/Blog/tags/android/" style="font-size: 10px;">android</a> <a href="/Blog/tags/apt/" style="font-size: 10px;">apt</a> <a href="/Blog/tags/atom/" style="font-size: 11.54px;">atom</a> <a href="/Blog/tags/ble/" style="font-size: 10px;">ble</a> <a href="/Blog/tags/c/" style="font-size: 10.77px;">c</a> <a href="/Blog/tags/cheat-sheet/" style="font-size: 12.31px;">cheat sheet</a> <a href="/Blog/tags/cli/" style="font-size: 10px;">cli</a> <a href="/Blog/tags/collections/" style="font-size: 10px;">collections</a> <a href="/Blog/tags/command/" style="font-size: 11.54px;">command</a> <a href="/Blog/tags/cygwin/" style="font-size: 10px;">cygwin</a> <a href="/Blog/tags/dao/" style="font-size: 10.77px;">dao</a> <a href="/Blog/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/Blog/tags/debug/" style="font-size: 10.77px;">debug</a> <a href="/Blog/tags/dict/" style="font-size: 10px;">dict</a> <a href="/Blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/Blog/tags/driver/" style="font-size: 16.92px;">driver</a> <a href="/Blog/tags/drv/" style="font-size: 14.62px;">drv</a> <a href="/Blog/tags/eclipse/" style="font-size: 10.77px;">eclipse</a> <a href="/Blog/tags/embedded/" style="font-size: 13.85px;">embedded</a> <a href="/Blog/tags/embedded-linux/" style="font-size: 20px;">embedded linux</a> <a href="/Blog/tags/env/" style="font-size: 10px;">env</a> <a href="/Blog/tags/environment/" style="font-size: 13.85px;">environment</a> <a href="/Blog/tags/error/" style="font-size: 10px;">error</a> <a href="/Blog/tags/ezos/" style="font-size: 10px;">ezos</a> <a href="/Blog/tags/freefilesync/" style="font-size: 10px;">freefilesync</a> <a href="/Blog/tags/fs/" style="font-size: 10.77px;">fs</a> <a href="/Blog/tags/git/" style="font-size: 10px;">git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/Blog/tags/ide/" style="font-size: 10px;">ide</a> <a href="/Blog/tags/interview/" style="font-size: 11.54px;">interview</a> <a href="/Blog/tags/ipc/" style="font-size: 10.77px;">ipc</a> <a href="/Blog/tags/jz2440/" style="font-size: 13.08px;">jz2440</a> <a href="/Blog/tags/kernel/" style="font-size: 11.54px;">kernel</a> <a href="/Blog/tags/linux/" style="font-size: 19.23px;">linux</a> <a href="/Blog/tags/linuxembedded-linux/" style="font-size: 16.15px;">linuxembedded linux</a> <a href="/Blog/tags/list/" style="font-size: 10px;">list</a> <a href="/Blog/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/Blog/tags/mingw/" style="font-size: 11.54px;">mingw</a> <a href="/Blog/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/Blog/tags/notepad/" style="font-size: 10px;">notepad++</a> <a href="/Blog/tags/other/" style="font-size: 10px;">other</a> <a href="/Blog/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/Blog/tags/path/" style="font-size: 10px;">path</a> <a href="/Blog/tags/pip/" style="font-size: 10px;">pip</a> <a href="/Blog/tags/process/" style="font-size: 10px;">process</a> <a href="/Blog/tags/putty/" style="font-size: 10px;">putty</a> <a href="/Blog/tags/pygatt/" style="font-size: 10px;">pygatt</a> <a href="/Blog/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/Blog/tags/pyqt/" style="font-size: 10.77px;">pyqt</a> <a href="/Blog/tags/python/" style="font-size: 18.46px;">python</a> <a href="/Blog/tags/qqiot/" style="font-size: 12.31px;">qqiot</a> <a href="/Blog/tags/regular/" style="font-size: 11.54px;">regular</a> <a href="/Blog/tags/scrum/" style="font-size: 10px;">scrum</a> <a href="/Blog/tags/self-expression/" style="font-size: 10px;">self-expression</a> <a href="/Blog/tags/set/" style="font-size: 10px;">set</a> <a href="/Blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/Blog/tags/shortcut/" style="font-size: 10px;">shortcut</a> <a href="/Blog/tags/software/" style="font-size: 11.54px;">software</a> <a href="/Blog/tags/stm32/" style="font-size: 10px;">stm32</a> <a href="/Blog/tags/string/" style="font-size: 10px;">string</a> <a href="/Blog/tags/thoughts/" style="font-size: 17.69px;">thoughts</a> <a href="/Blog/tags/timeout/" style="font-size: 10px;">timeout</a> <a href="/Blog/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/Blog/tags/uboot/" style="font-size: 12.31px;">uboot</a> <a href="/Blog/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/Blog/tags/vim/" style="font-size: 10px;">vim</a> <a href="/Blog/tags/windows/" style="font-size: 15.38px;">windows</a> <a href="/Blog/tags/yocto/" style="font-size: 10px;">yocto</a> <a href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" style="font-size: 10px;">线程同步</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2021/03/05/2107-tuibeitu/">推背图, 马前课, 万年歌, 梅花诗</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/03/01/2106-dao-doubt/">修道之路-起疑</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/14/2105-dao-outline/">修道之路-总纲</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/13/2104-satori/">修行总领——明心见性</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/09/2102-intermittent/">一张简单图片演示的“甚深佛法”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 draapho<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>QQ物联绑定分析 | DRA&amp;PHO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="总览 嵌入式linux学习目录 嵌入式linux环境搭建-QQ物联 QQ物联开发步骤简介 QQ物联绑定分析 QQ物联演示项目  本文使用 linux-3.4.2 内核, 使用jz2440开发板. demo_bind.c 的分析与测试分析打开demo_bind.c, 说明很详细, 主要流程如下  调用 tx_init_device 初始化设备信息. 可理解为将设备在QQ服务器上注册一下 打开QQ,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QQ物联绑定分析">
+<meta property="og:url" content="https://draapho.github.io/Blog/2017/12/20/1747-qqiot-bind/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="总览 嵌入式linux学习目录 嵌入式linux环境搭建-QQ物联 QQ物联开发步骤简介 QQ物联绑定分析 QQ物联演示项目  本文使用 linux-3.4.2 内核, 使用jz2440开发板. demo_bind.c 的分析与测试分析打开demo_bind.c, 说明很详细, 主要流程如下  调用 tx_init_device 初始化设备信息. 可理解为将设备在QQ服务器上注册一下 打开QQ,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-12-19T13:00:00.000Z">
+<meta property="article:modified_time" content="2017-12-22T07:17:02.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="qqiot">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="DRA&PHO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">DRA&amp;PHO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">thinking &amp; logging</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://draapho.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1747-qqiot-bind" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2017/12/20/1747-qqiot-bind/" class="article-date">
+  <time class="dt-published" datetime="2017-12-19T13:00:00.000Z" itemprop="datePublished">2017-12-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/qqiot/">qqiot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      QQ物联绑定分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/12/18/1746-qqiot-env/">嵌入式linux环境搭建-QQ物联</a></li>
+<li><a href="https://draapho.github.io/2017/12/22/1748-qqiot-procedure/">QQ物联开发步骤简介</a></li>
+<li><a href="https://draapho.github.io/2017/12/20/1747-qqiot-bind/">QQ物联绑定分析</a></li>
+<li><a href="https://draapho.github.io/2017/12/23/1749-qqiot-demo/">QQ物联演示项目</a></li>
+</ul>
+<p>本文使用 linux-3.4.2 内核, 使用jz2440开发板.</p>
+<h1 id="demo-bind-c-的分析与测试"><a href="#demo-bind-c-的分析与测试" class="headerlink" title="demo_bind.c 的分析与测试"></a>demo_bind.c 的分析与测试</h1><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>打开demo_bind.c, 说明很详细, 主要流程如下</p>
+<ul>
+<li>调用 <code>tx_init_device</code> 初始化设备信息. 可理解为将设备在QQ服务器上注册一下</li>
+<li>打开QQ, 保证和设备连在同一个路由器上且能上网.</li>
+<li>然后就可以在QQ我的设备中, 点击搜索新设备.</li>
+<li>扫描设备并绑定成功后, 即触发设备的登录逻辑. 调用指定的回调函数.</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">initDevice</span><span class="params">()</span> </span>&#123;                 <span class="comment">// bind的核心函数, 初始化设备</span></span><br><span class="line">    <span class="comment">// 先读取三个重要文件</span></span><br><span class="line">    <span class="comment">// license, 认证文件. 文件名 ./licence.sign.file.txt</span></span><br><span class="line">    <span class="comment">// guid, 即SN设备序列号. 文件名 ./GUID_file.txt</span></span><br><span class="line">    <span class="comment">// svrPubkey变量中, 公钥. 文件名 ./1000000004.pem</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置设备的基本信息</span></span><br><span class="line">    tx_device_info info = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    info.os_platform            = <span class="string">&quot;Linux&quot;</span>;              <span class="comment">// os平台</span></span><br><span class="line"></span><br><span class="line">    info.device_name            = <span class="string">&quot;demo1&quot;</span>;              <span class="comment">// 设备名称</span></span><br><span class="line">    info.device_serial_number   = guid;                 <span class="comment">// 设备SN</span></span><br><span class="line">    info.device_license         = license;              <span class="comment">// 由SN生成的LICENSE</span></span><br><span class="line">    info.product_version        = <span class="number">1</span>;</span><br><span class="line">    info.network_type           = network_type_wifi;    <span class="comment">// 入网方式</span></span><br><span class="line">    info.product_id             = <span class="number">1000000004</span>;           <span class="comment">// PID, QQ分配</span></span><br><span class="line">    info.server_pub_key         = svrPubkey;            <span class="comment">// 公钥</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置回调函数</span></span><br><span class="line">    tx_device_notify notify      = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    notify.on_login_complete     = on_login_complete;   <span class="comment">// 登录完成</span></span><br><span class="line">    notify.on_online_status      = on_online_status;    <span class="comment">// 状态改变</span></span><br><span class="line">    notify.on_binder_list_change = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置目录和文件大小</span></span><br><span class="line">    tx_init_path init_path = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 核心语句, 向QQ服务器注册此设备.</span></span><br><span class="line">    <span class="keyword">int</span> ret = tx_init_device(&amp;info, &amp;notify, &amp;init_path);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><p>示例里面的 <code>readBufferFromFile</code> 已经对license和SN进行文件化管理了.<br>为了以后的批量生产, 这里将必要的配置信息再打包一层, 统一放入一个配置文件.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu端</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立一个分支, 用来修改和测试bind</span></span><br><span class="line">sudo cp -rf Tencent_iot_SDK/ bind_test/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压获得的QQ物联相关文件, 包括 licence, sn和公钥</span></span><br><span class="line">sudo tar xzf 1700003137001488.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 改名后放到测试目录</span></span><br><span class="line">sudo mv 1700003137001488/ conf/</span><br><span class="line">sudo mv conf/ bind_test/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 改下权限</span></span><br><span class="line">sudo chmod -R 777 bind_test/</span><br></pre></td></tr></table></figure>
+
+<p>然后打开 <code>./bind_test/demo_bind.c</code> 文件, 仿照readBufferFromFile进行修改</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新增如下内容</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">conf_info</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span>  pid;</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">128</span>];</span><br><span class="line">    <span class="keyword">char</span> pubkey_file[<span class="number">128</span>];</span><br><span class="line">    <span class="keyword">char</span> guid_file[<span class="number">128</span>];</span><br><span class="line">    <span class="keyword">char</span> license_file[<span class="number">128</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">conf_info</span> <span class="title">configInfo</span> =</span> &#123;<span class="number">0</span>, &#123;<span class="number">0</span>&#125;, &#123;<span class="number">0</span>&#125;, &#123;<span class="number">0</span>&#125;, &#123;<span class="number">0</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">readConfigFromFile</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">128</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">char</span> *line = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">size_t</span> len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">ssize_t</span> read;</span><br><span class="line">    <span class="keyword">bool</span> ret = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">char</span> *pconf[] = &#123;configInfo.pubkey_file, configInfo.guid_file,  configInfo.license_file&#125;;</span><br><span class="line">    <span class="comment">// 尝试打开目录下的配置文件</span></span><br><span class="line">    FILE * file = fopen(<span class="string">&quot;./conf/config&quot;</span>, <span class="string">&quot;rb&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!file) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;open ./conf/config failed...\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 读取第一行的数据, PID信息</span></span><br><span class="line">    read = getline(&amp;line, &amp;len, file);</span><br><span class="line">    <span class="keyword">if</span> (read &gt; <span class="keyword">sizeof</span>(buf)) &#123;</span><br><span class="line">        ret = <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;read PID failed...\n&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">strncpy</span>(buf,line,read<span class="number">-1</span>);</span><br><span class="line">        buf[read]=<span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        configInfo.pid = atoi(buf);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;PID=%d\n&quot;</span>,configInfo.pid);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 读取第二行的数据, Name信息</span></span><br><span class="line">    read = getline(&amp;line, &amp;len, file);</span><br><span class="line">    <span class="keyword">if</span> (read &gt; <span class="keyword">sizeof</span>(buf)) &#123;</span><br><span class="line">        ret = <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;read Name failed...\n&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">strncpy</span>(buf,line,read<span class="number">-1</span>);</span><br><span class="line">        buf[read]=<span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        <span class="built_in">sprintf</span>(configInfo.name, buf);</span><br><span class="line">        <span class="comment">// printf(&quot;Name=%s\n&quot;,configInfo.name);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 读取剩下的行, 都是文件数据</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;<span class="keyword">sizeof</span>(pconf)/<span class="keyword">sizeof</span>(<span class="keyword">char</span> *); i++) &#123;</span><br><span class="line">        read = getline(&amp;line, &amp;len, file);</span><br><span class="line">        <span class="keyword">if</span> (read &gt; <span class="keyword">sizeof</span>(buf)) &#123;</span><br><span class="line">            ret = <span class="literal">false</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;read line%d failed...\n&quot;</span>, i+<span class="number">2</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">strncpy</span>(buf,line,read<span class="number">-1</span>);</span><br><span class="line">            buf[read]=<span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span> (access(buf, R_OK)) &#123;</span><br><span class="line">                ret = <span class="literal">false</span>;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;fail to read %s\n&quot;</span>,buf);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">sprintf</span>(pconf[i], buf);</span><br><span class="line">                <span class="comment">// printf(&quot;line%d: %s\n&quot;, i+2, pconf[i]);</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (ret) &#123;                                  <span class="comment">// 调试检查</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;NAME=%s\n&quot;</span>,configInfo.name);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;PEM =%s\n&quot;</span>,configInfo.pubkey_file);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;GUID=%s\n&quot;</span>,configInfo.guid_file);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;LICENSE=%s\n&quot;</span>,configInfo.license_file);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (line) <span class="built_in">free</span>(line);</span><br><span class="line">    fclose(file);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改如下内容, -为原内容, +为修改后的内容</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">initDevice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">+   <span class="keyword">if</span>(readConfigFromFile() == <span class="literal">false</span>)&#123;</span><br><span class="line">+       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">+   &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读取 license</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> license[<span class="number">256</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> nLicenseSize = <span class="number">0</span>;</span><br><span class="line">-   <span class="keyword">if</span> (!readBufferFromFile(<span class="string">&quot;./licence.sign.file.txt&quot;</span>, license, <span class="keyword">sizeof</span>(license), &amp;nLicenseSize)) &#123;</span><br><span class="line">+   <span class="keyword">if</span> (!readBufferFromFile(configInfo.license_file, license, <span class="keyword">sizeof</span>(license), &amp;nLicenseSize)) &#123;</span><br><span class="line"></span><br><span class="line">-   <span class="keyword">if</span>(!readBufferFromFile(<span class="string">&quot;./GUID_file.txt&quot;</span>, guid, <span class="keyword">sizeof</span>(guid), &amp;nGUIDSize)) &#123;</span><br><span class="line">+   <span class="keyword">if</span> (!readBufferFromFile(configInfo.guid_file, guid, <span class="keyword">sizeof</span>(guid), &amp;nGUIDSize)) &#123;</span><br><span class="line"></span><br><span class="line">-   <span class="keyword">if</span> (!readBufferFromFile(<span class="string">&quot;./1000000004.pem&quot;</span>, svrPubkey, <span class="keyword">sizeof</span>(svrPubkey), &amp;nPubkeySize))</span><br><span class="line">+   <span class="keyword">if</span> (!readBufferFromFile(configInfo.pubkey_file, svrPubkey, <span class="keyword">sizeof</span>(svrPubkey), &amp;nPubkeySize))</span><br><span class="line"></span><br><span class="line">-   info.device_name            = <span class="string">&quot;demo1&quot;</span>;</span><br><span class="line">+   info.device_name            = configInfo.name;</span><br><span class="line">    info.device_serial_number   = guid;</span><br><span class="line">    info.device_license         = license;</span><br><span class="line">    info.product_version        = <span class="number">1</span>;</span><br><span class="line">    info.network_type           = network_type_wifi;</span><br><span class="line">-   info.product_id             = <span class="number">1000000004</span>;</span><br><span class="line">+   info.product_id             = configInfo.pid;</span><br><span class="line">    info.server_pub_key         = svrPubkey;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后, 需要修改makefile文件, 用的交叉编译. (注意空格改为TAB)</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 改为交叉编译!</span></span><br><span class="line">CROSS_COMPILE = arm-linux-</span><br><span class="line">CC  = <span class="variable">$(CROSS_COMPILE)</span>gcc</span><br><span class="line"></span><br><span class="line"><span class="section">all:app1</span></span><br><span class="line">    @echo build complete</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    -rm SDKDemo_bind</span><br><span class="line"></span><br><span class="line"><span class="section">app1:demo_bind.c</span></span><br><span class="line">    <span class="variable">$(CC)</span> demo_bind.c -o SDKDemo_bind -O0 -g3 -I<span class="string">&quot;./include&quot;</span> -L<span class="string">&quot;./lib&quot;</span> -ltxdevicesdk -lpthread -ldl -lstdc++</span><br></pre></td></tr></table></figure>
+
+
+<p>最后, 设置conf文件.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1700003137</span><br><span class="line">jz2440_bind_demo</span><br><span class="line">.&#x2F;conf&#x2F;1700003137.pem</span><br><span class="line">.&#x2F;conf&#x2F;GUID_file[1700003137001488].txt</span><br><span class="line">.&#x2F;conf&#x2F;licence.sign.file[1700003137001488].txt</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ubuntu端</span></span><br><span class="line"><span class="comment"># pwd = share/.../bind_test         # 共享文件夹下的bind_test目录</span></span><br><span class="line">$ make                              <span class="comment"># 编译</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># jz2440端</span></span><br><span class="line"><span class="comment"># pwd = mnt/share/.../bind_test     # 共享文件夹下的bind_test目录</span></span><br><span class="line">$ cp ./lib/libtxdevicesdk.so /lib   <span class="comment"># 拷贝动态库到开发板本地lib</span></span><br><span class="line">$ ls -l /lib/libtxdevicesdk.so      <span class="comment"># 检查一下</span></span><br><span class="line"></span><br><span class="line">$ mkdir /qqiot</span><br><span class="line">$ cp SDKDemo_bind /qqiot            <span class="comment"># 拷贝执行文件</span></span><br><span class="line">$ cp -rf conf/ /qqiot               <span class="comment"># 拷贝配置文件</span></span><br><span class="line">$ <span class="built_in">cd</span> /qqiot                         <span class="comment"># 切换目录</span></span><br><span class="line">$ ls                                <span class="comment"># 查看结果</span></span><br><span class="line"></span><br><span class="line">$ ./SDKDemo_bind                    <span class="comment"># 运行范例</span></span><br><span class="line"><span class="comment"># 会打印很多信息. 查看是否有如下类似信息</span></span><br><span class="line">WLAN connection with tencent iot server ... is setting up</span><br><span class="line">xpnet_gethostbyname: Begin gethostbyname device msf.3g.qq.com</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>:<br>必须正确设置开发板的网络. 我已设置开发板为dhcp, 因此没有遇到网络方面的问题.<br>如果使用的是静态IP, 记得设置一下网关等信息.<br>可以用 <code>route</code> 指令查看网络路由表</p>
+<p>然后, 打开手机端QQ, 保证手机和开发板在同一局域网下.<br>联系人-&gt;设备-&gt;发现新设备-&gt;绑定设备…就能看到jz2440_demo设备的界面了.</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://iot.open.qq.com/wiki/index.html">QQ物联资料库</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2017/12/20/1747-qqiot-bind/" data-id="cklzxspyl006gasqo71y281ko" data-title="QQ物联绑定分析" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2017/12/22/1748-qqiot-procedure/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          QQ物联开发步骤简介
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2017/12/18/1746-qqiot-env/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">嵌入式linux环境搭建-QQ物联</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/dao/">dao</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded/">embedded</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded-linux/">embedded linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/interview/">interview</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/qqiot/">qqiot</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/software/">software</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/thoughts/">thoughts</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AI-IoT-thoughts/" rel="tag">AI IoT thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AutoHotKey/" rel="tag">AutoHotKey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/apt/" rel="tag">apt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/collections/" rel="tag">collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dao/" rel="tag">dao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/data-struct/" rel="tag">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dict/" rel="tag">dict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/driver/" rel="tag">driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/drv/" rel="tag">drv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/env/" rel="tag">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/environment/" rel="tag">environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/error/" rel="tag">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ezos/" rel="tag">ezos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/fs/" rel="tag">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ide/" rel="tag">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ipc/" rel="tag">ipc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linuxembedded-linux/" rel="tag">linuxembedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/makefile/" rel="tag">makefile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/nfs/" rel="tag">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pygatt/" rel="tag">pygatt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/regular/" rel="tag">regular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/scrum/" rel="tag">scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/self-expression/" rel="tag">self-expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/software/" rel="tag">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/string/" rel="tag">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/thoughts/" rel="tag">thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/timeout/" rel="tag">timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/tuple/" rel="tag">tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/yocto/" rel="tag">yocto</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" rel="tag">线程同步</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/AI-IoT-thoughts/" style="font-size: 10px;">AI IoT thoughts</a> <a href="/Blog/tags/AutoHotKey/" style="font-size: 10px;">AutoHotKey</a> <a href="/Blog/tags/BLE/" style="font-size: 10.77px;">BLE</a> <a href="/Blog/tags/ConEmu/" style="font-size: 10px;">ConEmu</a> <a href="/Blog/tags/Hyper-V/" style="font-size: 10px;">Hyper-V</a> <a href="/Blog/tags/Listary/" style="font-size: 10px;">Listary</a> <a href="/Blog/tags/NAS/" style="font-size: 10px;">NAS</a> <a href="/Blog/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/Blog/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/Blog/tags/TrueSTUIDO/" style="font-size: 10px;">TrueSTUIDO</a> <a href="/Blog/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/Blog/tags/android/" style="font-size: 10px;">android</a> <a href="/Blog/tags/apt/" style="font-size: 10px;">apt</a> <a href="/Blog/tags/atom/" style="font-size: 11.54px;">atom</a> <a href="/Blog/tags/ble/" style="font-size: 10px;">ble</a> <a href="/Blog/tags/c/" style="font-size: 10.77px;">c</a> <a href="/Blog/tags/cheat-sheet/" style="font-size: 12.31px;">cheat sheet</a> <a href="/Blog/tags/cli/" style="font-size: 10px;">cli</a> <a href="/Blog/tags/collections/" style="font-size: 10px;">collections</a> <a href="/Blog/tags/command/" style="font-size: 11.54px;">command</a> <a href="/Blog/tags/cygwin/" style="font-size: 10px;">cygwin</a> <a href="/Blog/tags/dao/" style="font-size: 10.77px;">dao</a> <a href="/Blog/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/Blog/tags/debug/" style="font-size: 10.77px;">debug</a> <a href="/Blog/tags/dict/" style="font-size: 10px;">dict</a> <a href="/Blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/Blog/tags/driver/" style="font-size: 16.92px;">driver</a> <a href="/Blog/tags/drv/" style="font-size: 14.62px;">drv</a> <a href="/Blog/tags/eclipse/" style="font-size: 10.77px;">eclipse</a> <a href="/Blog/tags/embedded/" style="font-size: 13.85px;">embedded</a> <a href="/Blog/tags/embedded-linux/" style="font-size: 20px;">embedded linux</a> <a href="/Blog/tags/env/" style="font-size: 10px;">env</a> <a href="/Blog/tags/environment/" style="font-size: 13.85px;">environment</a> <a href="/Blog/tags/error/" style="font-size: 10px;">error</a> <a href="/Blog/tags/ezos/" style="font-size: 10px;">ezos</a> <a href="/Blog/tags/freefilesync/" style="font-size: 10px;">freefilesync</a> <a href="/Blog/tags/fs/" style="font-size: 10.77px;">fs</a> <a href="/Blog/tags/git/" style="font-size: 10px;">git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/Blog/tags/ide/" style="font-size: 10px;">ide</a> <a href="/Blog/tags/interview/" style="font-size: 11.54px;">interview</a> <a href="/Blog/tags/ipc/" style="font-size: 10.77px;">ipc</a> <a href="/Blog/tags/jz2440/" style="font-size: 13.08px;">jz2440</a> <a href="/Blog/tags/kernel/" style="font-size: 11.54px;">kernel</a> <a href="/Blog/tags/linux/" style="font-size: 19.23px;">linux</a> <a href="/Blog/tags/linuxembedded-linux/" style="font-size: 16.15px;">linuxembedded linux</a> <a href="/Blog/tags/list/" style="font-size: 10px;">list</a> <a href="/Blog/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/Blog/tags/mingw/" style="font-size: 11.54px;">mingw</a> <a href="/Blog/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/Blog/tags/notepad/" style="font-size: 10px;">notepad++</a> <a href="/Blog/tags/other/" style="font-size: 10px;">other</a> <a href="/Blog/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/Blog/tags/path/" style="font-size: 10px;">path</a> <a href="/Blog/tags/pip/" style="font-size: 10px;">pip</a> <a href="/Blog/tags/process/" style="font-size: 10px;">process</a> <a href="/Blog/tags/putty/" style="font-size: 10px;">putty</a> <a href="/Blog/tags/pygatt/" style="font-size: 10px;">pygatt</a> <a href="/Blog/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/Blog/tags/pyqt/" style="font-size: 10.77px;">pyqt</a> <a href="/Blog/tags/python/" style="font-size: 18.46px;">python</a> <a href="/Blog/tags/qqiot/" style="font-size: 12.31px;">qqiot</a> <a href="/Blog/tags/regular/" style="font-size: 11.54px;">regular</a> <a href="/Blog/tags/scrum/" style="font-size: 10px;">scrum</a> <a href="/Blog/tags/self-expression/" style="font-size: 10px;">self-expression</a> <a href="/Blog/tags/set/" style="font-size: 10px;">set</a> <a href="/Blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/Blog/tags/shortcut/" style="font-size: 10px;">shortcut</a> <a href="/Blog/tags/software/" style="font-size: 11.54px;">software</a> <a href="/Blog/tags/stm32/" style="font-size: 10px;">stm32</a> <a href="/Blog/tags/string/" style="font-size: 10px;">string</a> <a href="/Blog/tags/thoughts/" style="font-size: 17.69px;">thoughts</a> <a href="/Blog/tags/timeout/" style="font-size: 10px;">timeout</a> <a href="/Blog/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/Blog/tags/uboot/" style="font-size: 12.31px;">uboot</a> <a href="/Blog/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/Blog/tags/vim/" style="font-size: 10px;">vim</a> <a href="/Blog/tags/windows/" style="font-size: 15.38px;">windows</a> <a href="/Blog/tags/yocto/" style="font-size: 10px;">yocto</a> <a href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" style="font-size: 10px;">线程同步</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2021/03/05/2107-tuibeitu/">推背图, 马前课, 万年歌, 梅花诗</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/03/01/2106-dao-doubt/">修道之路-起疑</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/14/2105-dao-outline/">修道之路-总纲</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/13/2104-satori/">修行总领——明心见性</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/09/2102-intermittent/">一张简单图片演示的“甚深佛法”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 draapho<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

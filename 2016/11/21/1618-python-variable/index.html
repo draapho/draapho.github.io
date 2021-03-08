@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>python基础： 深入理解 python 中的赋值、引用、拷贝、作用域 | DRA&amp;PHO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="转载自 python基础（5）：深入理解 python 中的赋值、引用、拷贝、作用域  python的赋值在 python 中赋值语句总是建立对象的引用值，而不是复制对象。因此，python 变量更像是指针，而不是数据存储区域，这点和大多数 OO 语言类似吧，比如 C++、java 等 ~ 先来看个问题吧：一个赋值问题在Python中，令values&#x3D;[0,1,2];values[1]&#x3D;value">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础： 深入理解 python 中的赋值、引用、拷贝、作用域">
+<meta property="og:url" content="https://draapho.github.io/Blog/2016/11/21/1618-python-variable/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="转载自 python基础（5）：深入理解 python 中的赋值、引用、拷贝、作用域  python的赋值在 python 中赋值语句总是建立对象的引用值，而不是复制对象。因此，python 变量更像是指针，而不是数据存储区域，这点和大多数 OO 语言类似吧，比如 C++、java 等 ~ 先来看个问题吧：一个赋值问题在Python中，令values&#x3D;[0,1,2];values[1]&#x3D;value">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1618/python_point_1.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1618/python_point_2.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1618/python_point_3.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1618/python_point_4.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1618/python_point_5.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1618/python_point_6.jpg">
+<meta property="article:published_time" content="2016-11-20T13:00:00.000Z">
+<meta property="article:modified_time" content="2017-01-21T22:12:24.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1618/python_point_1.jpg">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="DRA&PHO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">DRA&amp;PHO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">thinking &amp; logging</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://draapho.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1618-python-variable" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/11/21/1618-python-variable/" class="article-date">
+  <time class="dt-published" datetime="2016-11-20T13:00:00.000Z" itemprop="datePublished">2016-11-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      python基础： 深入理解 python 中的赋值、引用、拷贝、作用域
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><em><strong>转载自 <a target="_blank" rel="noopener" href="https://my.oschina.net/leejun2005/blog/145911">python基础（5）：深入理解 python 中的赋值、引用、拷贝、作用域</a></strong></em></p>
+<hr>
+<h1 id="python的赋值"><a href="#python的赋值" class="headerlink" title="python的赋值"></a>python的赋值</h1><p>在 python 中赋值语句总是建立对象的引用值，而不是复制对象。因此，python 变量更像是指针，而不是数据存储区域，<br><img src="https://draapho.github.io/images/1618/python_point_1.jpg" alt="python_point"><br>这点和大多数 OO 语言类似吧，比如 C++、java 等 ~</p>
+<h1 id="先来看个问题吧："><a href="#先来看个问题吧：" class="headerlink" title="先来看个问题吧："></a>先来看个问题吧：</h1><h2 id="一个赋值问题"><a href="#一个赋值问题" class="headerlink" title="一个赋值问题"></a>一个赋值问题</h2><p>在Python中，令<code>values=[0,1,2];values[1]=values</code>,为何结果是<code>[0,[...],2]</code>? <a target="_blank" rel="noopener" href="http://www.zhihu.com/question/21000872">链接</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>values = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>values[<span class="number">1</span>] = values</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>values</span><br><span class="line">[<span class="number">0</span>, [...], <span class="number">2</span>]       <span class="comment"># 实际结果, 为何要赋值无限次?</span></span><br><span class="line">[<span class="number">0</span>, [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], <span class="number">2</span>]   <span class="comment"># 预想结果</span></span><br></pre></td></tr></table></figure>
+
+<p>可以说 Python 没有赋值，只有引用。你这样相当于创建了一个引用自身的结构，所以导致了无限循环。为了理解这个问题，有个基本概念需要搞清楚。</p>
+<p>Python 没有「变量」，我们平时所说的变量其实只是「标签」，是引用。</p>
+<p>执行 <code>values = [0, 1, 2]</code> 的时候，Python 做的事情是首先创建一个列表对象 [0, 1, 2]，然后给它贴上名为 values 的标签。</p>
+<p>如果随后又执行 <code>values = [3, 4, 5]</code> 的话，Python 做的事情是创建另一个列表对象 [3, 4, 5]，然后把刚才那张名为 values 的标签从前面的 [0, 1, 2] 对象上撕下来，重新贴到 [3, 4, 5] 这个对象上。</p>
+<p>至始至终，并没有一个叫做 values 的列表对象容器存在，Python 也没有把任何对象的值复制进 values 去。过程如图所示：</p>
+<p><img src="https://draapho.github.io/images/1618/python_point_2.jpg" alt="python_point"></p>
+<p>执行 <code>values[1] = values</code> 的时候，Python 做的事情则是把 values 这个标签所引用的列表对象的第二个元素指向 values 所引用的列表对象本身。执行完毕后，values 标签还是指向原来那个对象，只不过那个对象的结构发生了变化，从之前的列表 [0, 1, 2] 变成了 [0, ?, 2]，而这个 ? 则是指向那个对象本身的一个引用。如图所示：</p>
+<p><img src="https://draapho.github.io/images/1618/python_point_3.jpg" alt="python_point"></p>
+<h2 id="浅复制及其风险"><a href="#浅复制及其风险" class="headerlink" title="浅复制及其风险"></a>浅复制及其风险</h2><p>要达到你所需要的效果，即得到 [0, [0, 1, 2], 2] 这个对象，你不能直接将 values[1] 指向 values 引用的对象本身，而是需要吧 [0, 1, 2] 这个对象「复制」一遍，得到一个新对象，再将 values[1] 指向这个复制后的对象。Python 里面复制对象的操作因对象类型而异，复制列表 values 的操作是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">values[:] <span class="comment">#生成对象的拷贝或者是复制序列，不再是引用和共享变量，但此法只能顶层复制</span></span><br></pre></td></tr></table></figure>
+
+<p>所以你需要执行 <code>values[1] = values[:]</code> </p>
+<p>Python 做的事情是，先 dereference 得到 values 所指向的对象 [0, 1, 2]，然后执行 [0, 1, 2][:] 复制操作得到一个新的对象，内容也是 [0, 1, 2]，然后将 values 所指向的列表对象的第二个元素指向这个复制二来的列表对象，最终 values 指向的对象是 [0, [0, 1, 2], 2]。过程如图所示：</p>
+<p><img src="https://draapho.github.io/images/1618/python_point_4.jpg" alt="python_point"></p>
+<p>往更深处说，values[:] 复制操作是所谓的「浅复制」(shallow copy)，当列表对象有嵌套的时候也会产生出乎意料的错误，比如为何要赋值无限次</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">0</span>, [<span class="number">1</span>, <span class="number">2</span>], <span class="number">3</span>]</span><br><span class="line">b = a[:]</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">8</span></span><br><span class="line">a[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>问：此时 a 和 b 分别是多少？</p>
+<p>正确答案是 a 为 [8, [1, 9], 3]，b 为 [0, [1, 9], 3]。发现没？b 的第二个元素也被改变了。想想是为什么？不明白的话看下图</p>
+<p><img src="https://draapho.github.io/images/1618/python_point_5.jpg" alt="python_point"></p>
+<h2 id="深复制"><a href="#深复制" class="headerlink" title="深复制"></a>深复制</h2><p>正确的复制嵌套元素的方法是进行「深复制」(deep copy)，方法是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">a = [<span class="number">0</span>, [<span class="number">1</span>, <span class="number">2</span>], <span class="number">3</span>]</span><br><span class="line">b = copy.deepcopy(a)</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">8</span></span><br><span class="line">a[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://draapho.github.io/images/1618/python_point_6.jpg" alt="python_point"></p>
+<h1 id="引用-VS-拷贝："><a href="#引用-VS-拷贝：" class="headerlink" title="引用 VS 拷贝："></a>引用 VS 拷贝：</h1><ul>
+<li>没有限制条件的分片表达式（L[:]）能够复制序列，但此法只能浅层复制。</li>
+<li>字典 copy 方法，D.copy() 能够复制字典，但此法只能浅层复制</li>
+<li>有些内置函数，例如 list，能够生成拷贝 list(L)</li>
+<li>copy 标准库模块能够生成完整拷贝：deepcopy 本质上是递归 copy</li>
+<li>对于不可变对象和可变对象来说，浅复制都是复制的引用，只是因为复制不变对象和复制不变对象的引用是等效的（因为对象不可变，当改变时会新建对象重新赋值）。所以看起来浅复制只复制不可变对象（整数，实数，字符串等），对于可变对象，浅复制其实是创建了一个对于该对象的引用，也就是说只是给同一个对象贴上了另一个标签而已。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">D = &#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>:<span class="number">2</span>&#125;</span><br><span class="line">A = L[:]</span><br><span class="line">B = D.copy()</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;L, D&quot;</span></span><br><span class="line"><span class="built_in">print</span>  L, D</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;A, B&quot;</span></span><br><span class="line"><span class="built_in">print</span> A, B</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;--------------------&quot;</span></span><br><span class="line">A[<span class="number">1</span>] = <span class="string">&#x27;NI&#x27;</span></span><br><span class="line">B[<span class="string">&#x27;c&#x27;</span>] = <span class="string">&#x27;spam&#x27;</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;L, D&quot;</span></span><br><span class="line"><span class="built_in">print</span>  L, D</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;A, B&quot;</span></span><br><span class="line"><span class="built_in">print</span> A, B</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">L, D</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>&#125;</span><br><span class="line">A, B</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>&#125;</span><br><span class="line">--------------------</span><br><span class="line">L, D</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>&#125;</span><br><span class="line">A, B</span><br><span class="line">[<span class="number">1</span>, <span class="string">&#x27;NI&#x27;</span>, <span class="number">3</span>] &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;c&#x27;</span>: <span class="string">&#x27;spam&#x27;</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="增强赋值以及共享引用："><a href="#增强赋值以及共享引用：" class="headerlink" title="增强赋值以及共享引用："></a>增强赋值以及共享引用：</h1><p>x = x + y，x 出现两次，必须执行两次，性能不好，合并必须新建对象 x，然后复制两个列表合并</p>
+<p>属于复制/拷贝</p>
+<p>x += y，x 只出现一次，也只会计算一次，性能好，不生成新对象，只在内存块末尾增加元素。</p>
+<p>当 x、y 为list时， += 会自动调用 extend 方法进行合并运算，in-place change。</p>
+<p>属于共享引用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">M = L</span><br><span class="line">L = L + [<span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="built_in">print</span> L, M</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;-------------------&quot;</span></span><br><span class="line">L = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">M = L</span><br><span class="line">L += [<span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="built_in">print</span> L, M</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>] [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">-------------------</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>] [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+<h1 id="python-从-2k-到-3k，语句变函数引发的变量作用域问题"><a href="#python-从-2k-到-3k，语句变函数引发的变量作用域问题" class="headerlink" title="python 从 2k 到 3k，语句变函数引发的变量作用域问题"></a>python 从 2k 到 3k，语句变函数引发的变量作用域问题</h1><p>先看段代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span></span><br><span class="line">    a = <span class="literal">False</span></span><br><span class="line">    <span class="built_in">exec</span> (<span class="string">&quot;a = True&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">&quot;a = &quot;</span>, a)</span><br><span class="line">test()</span><br><span class="line"></span><br><span class="line">b = <span class="literal">False</span></span><br><span class="line"><span class="built_in">exec</span> (<span class="string">&quot;b = True&quot;</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;b = &quot;</span>, b)</span><br></pre></td></tr></table></figure>
+
+<p>在 python 2k 和 3k 下 你会发现他们的结果不一样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2K：</span><br><span class="line">a =  <span class="literal">True</span></span><br><span class="line">b =  <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">3K：</span><br><span class="line">a =  <span class="literal">False</span></span><br><span class="line">b =  <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>这是为什么呢？</p>
+<p>因为 3k 中 exec 由语句变成函数了，而在函数中变量默认都是局部的，也就是说<br>你所见到的两个 a，是两个不同的变量，分别处于不同的命名空间中，而不会冲突。</p>
+<p>具体参考 《learning python》P331-P332</p>
+<p>知道原因了，我们可以这么改改：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span></span><br><span class="line">    a = <span class="literal">False</span></span><br><span class="line">    ldict = <span class="built_in">locals</span>()</span><br><span class="line">    exec(<span class="string">&quot;a=True&quot;</span>,<span class="built_in">globals</span>(),ldict)</span><br><span class="line">    a = ldict[<span class="string">&#x27;a&#x27;</span>]</span><br><span class="line">    print(a)</span><br><span class="line"></span><br><span class="line">test()</span><br><span class="line"></span><br><span class="line">b = <span class="literal">False</span></span><br><span class="line">exec(<span class="string">&quot;b = True&quot;</span>, <span class="built_in">globals</span>())</span><br><span class="line">print(<span class="string">&quot;b = &quot;</span>, b)</span><br></pre></td></tr></table></figure>
+
+<p>这是一个典型的 python 2k 移植到 3k 不兼容的案例，类似的还有很多，也算是移植的坑吧~</p>
+<p>具体的 2k 与 3k 有哪些差异可以看这里： <a target="_blank" rel="noopener" href="http://woodpecker.org.cn/diveintopython3/porting-code-to-python-3-with-2to3.html"><strong>使用 2to3 将代码移植到 Python 3</strong></a></p>
+<h1 id="深入理解-python-变量作用域及其陷阱"><a href="#深入理解-python-变量作用域及其陷阱" class="headerlink" title="深入理解 python 变量作用域及其陷阱"></a>深入理解 python 变量作用域及其陷阱</h1><h2 id="可变对象-amp-不可变对象"><a href="#可变对象-amp-不可变对象" class="headerlink" title="可变对象 &amp; 不可变对象"></a>可变对象 &amp; 不可变对象</h2><ul>
+<li>在Python中，对象分为两种：可变对象和不可变对象，</li>
+<li>不可变对象包括int，float，long，str，tuple等，可变对象包括list，set，dict等。</li>
+<li>需要注意的是：这里说的不可变指的是值的不可变。对于不可变类型的变量，如果要更改变量，则会创建一个新值，把变量绑定到新值上，而旧值如果没有被引用就等待垃圾回收。另外，不可变的类型可以计算hash值，作为字典的key。</li>
+<li>可变类型数据对对象操作的时候，不需要再在其他地方申请内存，只需要在此对象后面连续申请(+/-)即可，也就是它的内存地址会保持不变，但区域会变长或者变短。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">&#x27;xianglong.me&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a)</span><br><span class="line"><span class="number">140443303134352</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">&#x27;1saying.com&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a)</span><br><span class="line"><span class="number">140443303131776</span></span><br><span class="line"><span class="comment"># 重新赋值之后，变量a的内存地址已经变了</span></span><br><span class="line"><span class="comment"># &#x27;xianglong.me&#x27;是str类型，不可变，所以赋值操作知识重新创建了str &#x27;1saying.com&#x27;对象，然后将变量a指向了它</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a_list)</span><br><span class="line"><span class="number">140443302951680</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list.append(<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a_list)</span><br><span class="line"><span class="number">140443302951680</span></span><br><span class="line"><span class="comment"># list重新赋值之后，变量a_list的内存地址并未改变</span></span><br><span class="line"><span class="comment"># [1, 2, 3]是可变的，append操作只是改变了其value，变量a_list指向没有变</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函数值传递"><a href="#函数值传递" class="headerlink" title="函数值传递"></a>函数值传递</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_int</span>(<span class="params">a</span>):</span></span><br><span class="line">    a += <span class="number">4</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_list</span>(<span class="params">a_list</span>):</span></span><br><span class="line">    a_list[<span class="number">0</span>] = <span class="number">4</span></span><br><span class="line"> </span><br><span class="line">t = <span class="number">0</span></span><br><span class="line">func_int(t)</span><br><span class="line"><span class="built_in">print</span> t</span><br><span class="line"><span class="comment"># output: 0</span></span><br><span class="line"> </span><br><span class="line">t_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">func_list(t_list)</span><br><span class="line"><span class="built_in">print</span> t_list</span><br><span class="line"><span class="comment"># output: [4, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<p>对于上面的输出，不少Python初学者都比较疑惑：第一个例子看起来像是传值，而第二个例子确实传引用。其实，解释这个问题也非常容易，主要是因为可变对象和不可变对象的原因：对于可变对象，对象的操作不会重建对象，而对于不可变对象，每一次操作就重建新的对象。</p>
+<p>在函数参数传递的时候，Python其实就是把参数里传入的变量对应的对象的引用依次赋值给对应的函数内部变量。参照上面的例子来说明更容易理解，func_int中的局部变量”a”其实是全部变量”t”所指向对象的另一个引用，由于整数对象是不可变的，所以当func_int对变量”a”进行修改的时候，实际上是将局部变量”a”指向到了整数对象”1”。所以很明显，func_list修改的是一个可变的对象，局部变量”a”和全局变量”t_list”指向的还是同一个对象。</p>
+<h2 id="为什么修改全局的dict变量不用global关键字"><a href="#为什么修改全局的dict变量不用global关键字" class="headerlink" title="为什么修改全局的dict变量不用global关键字"></a>为什么修改全局的dict变量不用global关键字</h2><p>为什么修改字典d的值不用global关键字先声明呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;foo&#x27;</span></span><br><span class="line">d = &#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>():</span></span><br><span class="line">    s = <span class="string">&#x27;bar&#x27;</span></span><br><span class="line">    d[<span class="string">&#x27;b&#x27;</span>] = <span class="number">2</span></span><br><span class="line">f()</span><br><span class="line"><span class="built_in">print</span> s  <span class="comment"># foo</span></span><br><span class="line"><span class="built_in">print</span> d  <span class="comment"># &#123;&#x27;a&#x27;: 1, &#x27;b&#x27;: 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>这是因为，在s = ‘bar’这句中，它是“有歧义的“，因为它既可以是表示引用全局变量s，也可以是创建一个新的局部变量，所以在python中，默认它的行为是创建局部变量，除非显式声明global，global定义的本地变量会变成其对应全局变量的一个别名，即是同一个变量。</p>
+<p>在d[‘b’]=2这句中，它是“明确的”，因为如果把d当作是局部变量的话，它会报KeyError，所以它只能是引用全局的d,故不需要多此一举显式声明global。</p>
+<p>上面这两句赋值语句其实是不同的行为，一个是<strong>rebinding（不可变对象）</strong>, 一个是<strong>mutation（可变对象）</strong>.</p>
+<p>但是如果是下面这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>():</span></span><br><span class="line">    d = &#123;&#125;</span><br><span class="line">    d[<span class="string">&#x27;b&#x27;</span>] = <span class="number">2</span></span><br><span class="line">f()</span><br><span class="line"><span class="built_in">print</span> d  <span class="comment"># &#123;&#x27;a&#x27;: 1&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>在d = {}这句，它是”有歧义的“了，所以它是创建了局部变量d，而不是引用全局变量d，所以d[‘b’]=2也是操作的局部变量。</p>
+<p>推而远之，这一切现象的本质就是”它是否是明确的“。</p>
+<p>仔细想想，就会发现不止dict不需要global，所有”明确的“东西都不需要global。因为int类型str类型之类的不可变对象，每一次操作就重建新的对象，他们只有一种修改方法，即x = y， 恰好这种修改方法同时也是创建变量的方法，所以产生了歧义，不知道是要修改还是创建。而dict/list/对象等可变对象，操作不会重建对象，可以通过dict[‘x’]=y或list.append()之类的来修改，跟创建变量不冲突，不产生歧义，所以都不用显式global。</p>
+<h2 id="可变对象-list-的-和-append-extend-差别在哪？"><a href="#可变对象-list-的-和-append-extend-差别在哪？" class="headerlink" title="可变对象 list 的 = 和 append/extend 差别在哪？"></a>可变对象 list 的 = 和 append/extend 差别在哪？</h2><p>接上面 5.3 的理论，下面咱们再看一例常见的错误：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment"># 测试utf-8编码</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line">list_a = []</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">a</span>():</span></span><br><span class="line">    list_a = [<span class="number">1</span>]      <span class="comment">## 语句1</span></span><br><span class="line">a()</span><br><span class="line"><span class="built_in">print</span> list_a    <span class="comment"># []</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;======================&quot;</span></span><br><span class="line"></span><br><span class="line">list_b = []</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">b</span>():</span></span><br><span class="line">    list_b.append(<span class="number">1</span>)    <span class="comment">## 语句2</span></span><br><span class="line">b()</span><br><span class="line"><span class="built_in">print</span> list_b    <span class="comment"># [1]</span></span><br></pre></td></tr></table></figure>
+
+<p>大家可以看到为什么 语句1 不能改变 list_a 的值，而 语句2 却可以？他们的差别在哪呢？</p>
+<p><strong>因为 = 创建了局部变量，而 .append() 或者 .extend() 重用了全局变量。</strong></p>
+<h2 id="陷阱：使用可变的默认参数"><a href="#陷阱：使用可变的默认参数" class="headerlink" title="陷阱：使用可变的默认参数"></a>陷阱：使用可变的默认参数</h2><p>我多次见到过如下的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">a, b, c=[]</span>):</span></span><br><span class="line"><span class="comment"># append to c</span></span><br><span class="line"><span class="comment"># do some more stuff</span></span><br></pre></td></tr></table></figure>
+
+<p>永远不要使用可变的默认参数，可以使用如下的代码代替：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">a, b, c=<span class="literal">None</span></span>):</span></span><br><span class="line">    <span class="keyword">if</span> c <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        c = []</span><br><span class="line">    <span class="comment"># append to c</span></span><br><span class="line">    <span class="comment"># do some more stuff</span></span><br></pre></td></tr></table></figure>
+
+<p>‍‍与其解释这个问题是什么，不如展示下使用可变默认参数的影响：‍‍</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">In[<span class="number">2</span>]: <span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">a, b, c=[]</span>):</span></span><br><span class="line"><span class="meta">... </span>       c.append(a)</span><br><span class="line"><span class="meta">... </span>       c.append(b)</span><br><span class="line"><span class="meta">... </span>       print(c)</span><br><span class="line">...</span><br><span class="line">In[<span class="number">3</span>]: foo(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">[<span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">In[<span class="number">4</span>]: foo(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">In[<span class="number">5</span>]: foo(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<p>同一个变量c在函数调用的每一次都被反复引用。这可能有一些意想不到的后果。</p>
+<h1 id="REF："><a href="#REF：" class="headerlink" title="REF："></a>REF：</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.zhihu.com/question/21000872/answer/16856382">《learning python》：P130、P134、P202、P204 、P245</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.segmentfault.com/sunisdown/1190000000640834">理解 Python 的 LEGB</a></li>
+<li><a target="_blank" rel="noopener" href="http://cenalulu.github.io/python/default-mutable-arguments/">Python函数参数默认值的陷阱和原理深究</a></li>
+<li><a target="_blank" rel="noopener" href="http://python.jobbole.com/81564/">潜在的Python陷阱</a></li>
+<li><a target="_blank" rel="noopener" href="http://segmentfault.com/a/1190000000743526">陷阱！python参数默认值</a></li>
+<li><a target="_blank" rel="noopener" href="http://xianglong.me/article/python-variable-quote-copy-and-scope/">Python中的变量、引用、拷贝和作用域</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/wanxsb/archive/2013/05/07/3064783.html">Python入门基础知识(1) :locals() 和globals()</a></li>
+<li><a target="_blank" rel="noopener" href="http://bit.ly/29vnLvz">Python程序员写代码时应该避免的16个“坑”</a></li>
+</ul>
+<hr>
+<p><em><strong>转载自 <a target="_blank" rel="noopener" href="https://my.oschina.net/leejun2005/blog/145911">python基础（5）：深入理解 python 中的赋值、引用、拷贝、作用域</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/11/21/1618-python-variable/" data-id="cklzxspx4001aasqo61ts9vp9" data-title="python基础： 深入理解 python 中的赋值、引用、拷贝、作用域" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2016/11/22/1619-python-tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          30 个有关 Python 的小技巧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2016/11/16/1617-python-terminal/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python的第一个小程序, 蓝牙及串口终端</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/dao/">dao</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded/">embedded</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded-linux/">embedded linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/interview/">interview</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/qqiot/">qqiot</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/software/">software</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/thoughts/">thoughts</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AI-IoT-thoughts/" rel="tag">AI IoT thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AutoHotKey/" rel="tag">AutoHotKey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/apt/" rel="tag">apt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/collections/" rel="tag">collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dao/" rel="tag">dao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/data-struct/" rel="tag">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dict/" rel="tag">dict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/driver/" rel="tag">driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/drv/" rel="tag">drv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/env/" rel="tag">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/environment/" rel="tag">environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/error/" rel="tag">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ezos/" rel="tag">ezos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/fs/" rel="tag">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ide/" rel="tag">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ipc/" rel="tag">ipc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linuxembedded-linux/" rel="tag">linuxembedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/makefile/" rel="tag">makefile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/nfs/" rel="tag">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pygatt/" rel="tag">pygatt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/regular/" rel="tag">regular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/scrum/" rel="tag">scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/self-expression/" rel="tag">self-expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/software/" rel="tag">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/string/" rel="tag">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/thoughts/" rel="tag">thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/timeout/" rel="tag">timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/tuple/" rel="tag">tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/yocto/" rel="tag">yocto</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" rel="tag">线程同步</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/AI-IoT-thoughts/" style="font-size: 10px;">AI IoT thoughts</a> <a href="/Blog/tags/AutoHotKey/" style="font-size: 10px;">AutoHotKey</a> <a href="/Blog/tags/BLE/" style="font-size: 10.77px;">BLE</a> <a href="/Blog/tags/ConEmu/" style="font-size: 10px;">ConEmu</a> <a href="/Blog/tags/Hyper-V/" style="font-size: 10px;">Hyper-V</a> <a href="/Blog/tags/Listary/" style="font-size: 10px;">Listary</a> <a href="/Blog/tags/NAS/" style="font-size: 10px;">NAS</a> <a href="/Blog/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/Blog/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/Blog/tags/TrueSTUIDO/" style="font-size: 10px;">TrueSTUIDO</a> <a href="/Blog/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/Blog/tags/android/" style="font-size: 10px;">android</a> <a href="/Blog/tags/apt/" style="font-size: 10px;">apt</a> <a href="/Blog/tags/atom/" style="font-size: 11.54px;">atom</a> <a href="/Blog/tags/ble/" style="font-size: 10px;">ble</a> <a href="/Blog/tags/c/" style="font-size: 10.77px;">c</a> <a href="/Blog/tags/cheat-sheet/" style="font-size: 12.31px;">cheat sheet</a> <a href="/Blog/tags/cli/" style="font-size: 10px;">cli</a> <a href="/Blog/tags/collections/" style="font-size: 10px;">collections</a> <a href="/Blog/tags/command/" style="font-size: 11.54px;">command</a> <a href="/Blog/tags/cygwin/" style="font-size: 10px;">cygwin</a> <a href="/Blog/tags/dao/" style="font-size: 10.77px;">dao</a> <a href="/Blog/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/Blog/tags/debug/" style="font-size: 10.77px;">debug</a> <a href="/Blog/tags/dict/" style="font-size: 10px;">dict</a> <a href="/Blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/Blog/tags/driver/" style="font-size: 16.92px;">driver</a> <a href="/Blog/tags/drv/" style="font-size: 14.62px;">drv</a> <a href="/Blog/tags/eclipse/" style="font-size: 10.77px;">eclipse</a> <a href="/Blog/tags/embedded/" style="font-size: 13.85px;">embedded</a> <a href="/Blog/tags/embedded-linux/" style="font-size: 20px;">embedded linux</a> <a href="/Blog/tags/env/" style="font-size: 10px;">env</a> <a href="/Blog/tags/environment/" style="font-size: 13.85px;">environment</a> <a href="/Blog/tags/error/" style="font-size: 10px;">error</a> <a href="/Blog/tags/ezos/" style="font-size: 10px;">ezos</a> <a href="/Blog/tags/freefilesync/" style="font-size: 10px;">freefilesync</a> <a href="/Blog/tags/fs/" style="font-size: 10.77px;">fs</a> <a href="/Blog/tags/git/" style="font-size: 10px;">git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/Blog/tags/ide/" style="font-size: 10px;">ide</a> <a href="/Blog/tags/interview/" style="font-size: 11.54px;">interview</a> <a href="/Blog/tags/ipc/" style="font-size: 10.77px;">ipc</a> <a href="/Blog/tags/jz2440/" style="font-size: 13.08px;">jz2440</a> <a href="/Blog/tags/kernel/" style="font-size: 11.54px;">kernel</a> <a href="/Blog/tags/linux/" style="font-size: 19.23px;">linux</a> <a href="/Blog/tags/linuxembedded-linux/" style="font-size: 16.15px;">linuxembedded linux</a> <a href="/Blog/tags/list/" style="font-size: 10px;">list</a> <a href="/Blog/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/Blog/tags/mingw/" style="font-size: 11.54px;">mingw</a> <a href="/Blog/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/Blog/tags/notepad/" style="font-size: 10px;">notepad++</a> <a href="/Blog/tags/other/" style="font-size: 10px;">other</a> <a href="/Blog/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/Blog/tags/path/" style="font-size: 10px;">path</a> <a href="/Blog/tags/pip/" style="font-size: 10px;">pip</a> <a href="/Blog/tags/process/" style="font-size: 10px;">process</a> <a href="/Blog/tags/putty/" style="font-size: 10px;">putty</a> <a href="/Blog/tags/pygatt/" style="font-size: 10px;">pygatt</a> <a href="/Blog/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/Blog/tags/pyqt/" style="font-size: 10.77px;">pyqt</a> <a href="/Blog/tags/python/" style="font-size: 18.46px;">python</a> <a href="/Blog/tags/qqiot/" style="font-size: 12.31px;">qqiot</a> <a href="/Blog/tags/regular/" style="font-size: 11.54px;">regular</a> <a href="/Blog/tags/scrum/" style="font-size: 10px;">scrum</a> <a href="/Blog/tags/self-expression/" style="font-size: 10px;">self-expression</a> <a href="/Blog/tags/set/" style="font-size: 10px;">set</a> <a href="/Blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/Blog/tags/shortcut/" style="font-size: 10px;">shortcut</a> <a href="/Blog/tags/software/" style="font-size: 11.54px;">software</a> <a href="/Blog/tags/stm32/" style="font-size: 10px;">stm32</a> <a href="/Blog/tags/string/" style="font-size: 10px;">string</a> <a href="/Blog/tags/thoughts/" style="font-size: 17.69px;">thoughts</a> <a href="/Blog/tags/timeout/" style="font-size: 10px;">timeout</a> <a href="/Blog/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/Blog/tags/uboot/" style="font-size: 12.31px;">uboot</a> <a href="/Blog/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/Blog/tags/vim/" style="font-size: 10px;">vim</a> <a href="/Blog/tags/windows/" style="font-size: 15.38px;">windows</a> <a href="/Blog/tags/yocto/" style="font-size: 10px;">yocto</a> <a href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" style="font-size: 10px;">线程同步</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2021/03/05/2107-tuibeitu/">推背图, 马前课, 万年歌, 梅花诗</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/03/01/2106-dao-doubt/">修道之路-起疑</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/14/2105-dao-outline/">修道之路-总纲</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/13/2104-satori/">修行总领——明心见性</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/09/2102-intermittent/">一张简单图片演示的“甚深佛法”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 draapho<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

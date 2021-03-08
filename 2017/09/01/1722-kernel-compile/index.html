@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>kernel之编译体验 | DRA&amp;PHO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="总览 嵌入式linux学习目录 kernel之编译体验 kernel之Makefile分析 kernel之内核启动分析  本文使用 linux-2.6.22.6 内核, 使用jz2440开发板. 解压缩和打补丁12345678# ubuntu shelltar xjvf linux-2.6.22.6.tar.bz2             # 解压kernel源码cd linux-2.6.22.6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kernel之编译体验">
+<meta property="og:url" content="https://draapho.github.io/Blog/2017/09/01/1722-kernel-compile/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="总览 嵌入式linux学习目录 kernel之编译体验 kernel之Makefile分析 kernel之内核启动分析  本文使用 linux-2.6.22.6 内核, 使用jz2440开发板. 解压缩和打补丁12345678# ubuntu shelltar xjvf linux-2.6.22.6.tar.bz2             # 解压kernel源码cd linux-2.6.22.6">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-08-31T14:00:00.000Z">
+<meta property="article:modified_time" content="2019-06-03T01:43:09.831Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="kernel">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="DRA&PHO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">DRA&amp;PHO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">thinking &amp; logging</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://draapho.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1722-kernel-compile" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2017/09/01/1722-kernel-compile/" class="article-date">
+  <time class="dt-published" datetime="2017-08-31T14:00:00.000Z" itemprop="datePublished">2017-09-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/embedded-linux/">embedded linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      kernel之编译体验
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/09/01/1722-kernel-compile/">kernel之编译体验</a></li>
+<li><a href="https://draapho.github.io/2017/09/14/1724-kernel-makefile/">kernel之Makefile分析</a></li>
+<li><a href="https://draapho.github.io/2017/09/15/1725-kernel-launch/">kernel之内核启动分析</a></li>
+</ul>
+<p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.</p>
+<h1 id="解压缩和打补丁"><a href="#解压缩和打补丁" class="headerlink" title="解压缩和打补丁"></a>解压缩和打补丁</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line"></span><br><span class="line">tar xjvf linux-2.6.22.6.tar.bz2             <span class="comment"># 解压kernel源码</span></span><br><span class="line"><span class="built_in">cd</span> linux-2.6.22.6                           <span class="comment"># 进入kernel源码目录</span></span><br><span class="line">patch -p1 &lt; ../linux-2.6.22.6_jz2440.patch  <span class="comment"># 打补丁文件, p1表忽略patch文件内的1层目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pwd = linux-2.6.22.6</span></span><br><span class="line">cp ../4.3寸LCD_mach-smdk2440.c arch/arm/mach-s3c2440/mach-smdk2440.c    <span class="comment"># 替换为4.3寸屏源码</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="生成配置文件-“-config”"><a href="#生成配置文件-“-config”" class="headerlink" title="生成配置文件 “.config”"></a>生成配置文件 “.config”</h1><p>整个嵌入式linux系统的配置, 其根源就是这么一个 “.config” 文件.<br>然后编译时, 会通过makefile变量和C语言的宏定义来实现模块的使能, 禁止或生成为<code>.ko</code>模块.</p>
+<h2 id="生成”-config”"><a href="#生成”-config”" class="headerlink" title="生成”.config”"></a>生成”.config”</h2><p>生成<code>.config</code>配置文件有三种方法:</p>
+<ul>
+<li>直接使用 <code>make menuconfig</code> 进行配置<ul>
+<li>配置项太多了, 基本不会直接用这种方式</li>
+</ul>
+</li>
+<li>基于默认配置自行修改<ul>
+<li>确保 <code>pwd</code> 路径在kernel源码路径下: <code>./linux-2.6.22.6/</code></li>
+<li><code>find -name &quot;*defconfig&quot;</code>, 查找默认配置文件</li>
+<li>可以找到, 最相关的配置文件为 <code>./arch/arm/configs/s3c2410_defconfig</code></li>
+<li><code>make s3c2410_defconfig</code>, 加载这个默认配置.</li>
+<li>注意最后一句 “configuration written to .config”, 因此最终生成的就是一个 <code>.config</code> 文件</li>
+<li><code>make menuconfig</code> 根据需求, 部分修改配置 <code>.config</code> 文件.</li>
+<li>如果遇到错误提示 <code>fatal error: curses.h:</code>. 安装 <code>sudo apt-get install libncurses5-dev libncursesw5-dev</code></li>
+</ul>
+</li>
+<li>使用厂家提供的配置文件<ul>
+<li>jz2440 提供的配置文件名为 <code>config_ok</code></li>
+<li><code>cp config_ok .config</code> 直接改名为 <code>.config</code> 文件即可.</li>
+<li><code>make menuconfig</code>, 一样可以再自己定制配置.</li>
+</ul>
+</li>
+</ul>
+<h2 id="修改”-config”"><a href="#修改”-config”" class="headerlink" title="修改”.config”"></a>修改”.config”</h2><p>执行 <code>make menuconfig</code> 后, 有个简单的用户界面. 关键操作如下:</p>
+<ul>
+<li><code>上下左右</code>键进行移动, <code>Enter</code>键进入子菜单.</li>
+<li>按两边 <code>ESC</code> 返回上一级, 或退出界面.</li>
+<li><code>蓝色高亮字母</code> 为快捷键, 按了直接跳到那一行</li>
+<li><code>Y</code> 表示需要加载这个模块</li>
+<li><code>N</code> 表示不要加载这个模块</li>
+<li><code>M</code> 表示将此模块生成 <code>.ko</code> 文件, 可动态加载.</li>
+<li><code>?</code> 显示当前行的帮助信息, 帮助页按 <code>上下</code> 或 <code>jk</code> 进行翻页</li>
+<li><code>/</code> 搜索关键字</li>
+</ul>
+<h1 id="分析配置过程"><a href="#分析配置过程" class="headerlink" title="分析配置过程"></a>分析配置过程</h1><p>从 “.config” 文件出发, 分析查看该文件如何影响 Makefile 文件以及C语言的宏定义.</p>
+<h2 id="“-config”-文件"><a href="#“-config”-文件" class="headerlink" title="“.config” 文件"></a>“.config” 文件</h2><p>使用 <code>vim .config</code> 查看该文件, 可知其基本格式为 <code>CONFIG_XXX=</code></p>
+<ul>
+<li><code># CONFIG_XXX is not set</code> 此项被配置为 <code>N</code>, 不编译</li>
+<li><code>CONFIG_XXX=y</code> 此项被配置为 <code>Y</code>, 直接编译进内核</li>
+<li><code>CONFIG_XXX=m</code> 此项被配置为 <code>M</code>, 编译为<code>.ko</code>文件, 供动态加载</li>
+<li><code>CONFIG_LOCALVERSION=&quot;&quot;</code> 此项为字符串, 也可能是数值</li>
+</ul>
+<p>我们以 <code>CONFIG_DM9000</code> 为例, 进行搜索. 忽略一些其他的配置文件, 关键的文件有如下几个:</p>
+<ul>
+<li><code>include/linux/autoconf.h:129:   #define CONFIG_DM9000 1</code><ul>
+<li>这是个C语言的头文件, 很明显是给C语言代码调用的.</li>
+<li>该文件由Makefile调用 <code>./scripts/kconfig/</code> 内的脚本自动生成.</li>
+<li>对于 <code>y</code> <code>m</code> 的配置项, 宏定义为 <code>1</code></li>
+<li>对于 <code>n</code> 的配置项, 不进行宏定义</li>
+</ul>
+</li>
+<li><code>include/config/auto.conf:128:   CONFIG_DM9000=y</code><ul>
+<li>这个文件是给 Makefile 调用的, 里面的值全部被认为是Makefile变量.</li>
+<li>该文件由Makefile调用 <code>./scripts/kconfig/</code> 内的脚本自动生成.</li>
+<li>对于 <code>y</code> <code>m</code> 以及其它值的配置项, 照抄一遍 <code>.config</code> 里的内容</li>
+<li>对于 <code>n</code> 的配置项, 无定义!</li>
+</ul>
+</li>
+<li><code>drivers/net/Makefile:197:   obj-$(CONFIG_DM9000) += dm9dev9000c.o</code><ul>
+<li>子目录下的 Makefile 会被顶层的 Makefile 包含</li>
+<li>由<code>auto.conf</code>文件可知<code>$(CONFIG_DM9000)=y</code></li>
+<li>所以此句等同于 <code>obj-y += dm9dev9000c.o</code></li>
+<li>同理, 被设置成 <code>m</code> 的变量就会有 <code>obj-m += xxx.o</code></li>
+<li>如果配置项被设为 <code>n</code>, 则变量为空, 替换后为 <code>obj- += xxx.o</code>, 会被直接忽略</li>
+<li>Makefile 最后就通过 <code>obj-y</code> 或 <code>obj-m</code> 来识别配置, 编译模块.</li>
+</ul>
+</li>
+<li><code>.config:588:   CONFIG_DM9000=y</code><ul>
+<li><code>./.config</code> 配置文件. 一切配置的源头文件.</li>
+</ul>
+</li>
+</ul>
+<h1 id="编译和烧录内核"><a href="#编译和烧录内核" class="headerlink" title="编译和烧录内核"></a>编译和烧录内核</h1><h2 id="编译内核"><a href="#编译内核" class="headerlink" title="编译内核"></a>编译内核</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cp config_ok .config                        <span class="comment"># 加载厂家默认配置</span></span><br><span class="line">make clean                                  <span class="comment"># 清空</span></span><br><span class="line">make uImage                                 <span class="comment"># 编译获得内核image</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可能在make时, 提示如下错误信息. 原因是新版的make对老的Makefile规则不兼容</span></span><br><span class="line">Makefile:1449: *** mixed implicit and normal rules.  Stop.</span><br><span class="line"></span><br><span class="line">vim Makefile</span><br><span class="line">    <span class="comment"># 416行      config %config: scripts_basic outputmakefile FORCE</span></span><br><span class="line">    <span class="comment">#   改为 -&gt;  %config: scripts_basic outputmakefile FORCE</span></span><br><span class="line">    <span class="comment"># 1449行     / %/: prepare scripts FORCE</span></span><br><span class="line">    <span class="comment">#   改为 -&gt;  %/: prepare scripts FORCE</span></span><br><span class="line">    <span class="comment"># 保存后重新编译即可.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-nfs-烧录"><a href="#使用-nfs-烧录" class="headerlink" title="使用 nfs 烧录"></a>使用 nfs 烧录</h2><p>如果配置好网路, 建议使用 nfs 进行烧录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 要使用nfs功能, 必须正确设置uboot的ip地址</span></span><br><span class="line"><span class="comment"># 将 .../linux-2.6.22.6/arch/arm/boot/uImage 拷贝到 /jz2440/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># kernel: 在OpenJTAG&gt; 提示符下</span></span><br><span class="line">nfs 30000000 10.0.0.98:/jz2440/uImage       <span class="comment"># nfs 加载 kernel 固件到ram中 (0x30000000是sdram的地址)</span></span><br><span class="line">nand erase kernel                           <span class="comment"># 擦除 falsh 的 kernel 区</span></span><br><span class="line">nand write.jffs2 30000000 kernel            <span class="comment"># 烧录 kernel (ram-&gt;flash)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-dnw-烧录"><a href="#使用-dnw-烧录" class="headerlink" title="使用 dnw 烧录"></a>使用 dnw 烧录</h2><p><strong>确保链接了开发板的串口和usb口, 并把usb口关联到Ubuntu上.</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开 jz2440 开发板串口终端, 启动时输入空格键, 进入如下菜单</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[n] Download u-boot to Nand Flash</span><br><span class="line">[o] Download u-boot to Nor Flash            <span class="comment"># 如果是Nand Flash启动的话，这个菜单项没有</span></span><br><span class="line">[k] Download Linux kernel uImage</span><br><span class="line">[j] Download root_jffs2 image</span><br><span class="line">[y] Download root_yaffs image</span><br><span class="line">[d] Download to SDRAM &amp; Run</span><br><span class="line">[z] Download zImage into RAM</span><br><span class="line">[g] Boot linux from RAM</span><br><span class="line">[f] Format the Nand Flash</span><br><span class="line">[s] Set the boot parameters</span><br><span class="line">[b] Boot the system</span><br><span class="line">[r] Reboot u-boot</span><br><span class="line">[q] Quit from menu</span><br><span class="line"></span><br><span class="line">Enter your selection: k                     <span class="comment"># 输入k, 烧录 kernel</span></span><br><span class="line">USB host is connected. Waiting a download.  <span class="comment"># 提示连接成功</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到 Ubuntu 终端, 输入</span></span><br><span class="line"><span class="comment"># pwd = ./linux-2.6.22.6                    # 确保在 kernel 源码路径下</span></span><br><span class="line">sudo dnw ./arch/arm/boot/uImage             <span class="comment"># 输入dnw指令, 指明烧录文件</span></span><br><span class="line"><span class="comment"># DNW usb device found!                     # 开始烧录</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2017/09/01/1722-kernel-compile/" data-id="cklzxspy1004dasqodunzcicu" data-title="kernel之编译体验" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2017/09/07/1723-linux-cmd-useful/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          最实用的 Linux 命令行使用技巧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2017/08/30/1721-uboot-modify/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">uboot之定制指令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/dao/">dao</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded/">embedded</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded-linux/">embedded linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/interview/">interview</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/qqiot/">qqiot</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/software/">software</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/thoughts/">thoughts</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AI-IoT-thoughts/" rel="tag">AI IoT thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AutoHotKey/" rel="tag">AutoHotKey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/apt/" rel="tag">apt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/collections/" rel="tag">collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dao/" rel="tag">dao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/data-struct/" rel="tag">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dict/" rel="tag">dict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/driver/" rel="tag">driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/drv/" rel="tag">drv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/env/" rel="tag">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/environment/" rel="tag">environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/error/" rel="tag">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ezos/" rel="tag">ezos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/fs/" rel="tag">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ide/" rel="tag">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ipc/" rel="tag">ipc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linuxembedded-linux/" rel="tag">linuxembedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/makefile/" rel="tag">makefile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/nfs/" rel="tag">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pygatt/" rel="tag">pygatt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/regular/" rel="tag">regular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/scrum/" rel="tag">scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/self-expression/" rel="tag">self-expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/software/" rel="tag">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/string/" rel="tag">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/thoughts/" rel="tag">thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/timeout/" rel="tag">timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/tuple/" rel="tag">tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/yocto/" rel="tag">yocto</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" rel="tag">线程同步</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/AI-IoT-thoughts/" style="font-size: 10px;">AI IoT thoughts</a> <a href="/Blog/tags/AutoHotKey/" style="font-size: 10px;">AutoHotKey</a> <a href="/Blog/tags/BLE/" style="font-size: 10.77px;">BLE</a> <a href="/Blog/tags/ConEmu/" style="font-size: 10px;">ConEmu</a> <a href="/Blog/tags/Hyper-V/" style="font-size: 10px;">Hyper-V</a> <a href="/Blog/tags/Listary/" style="font-size: 10px;">Listary</a> <a href="/Blog/tags/NAS/" style="font-size: 10px;">NAS</a> <a href="/Blog/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/Blog/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/Blog/tags/TrueSTUIDO/" style="font-size: 10px;">TrueSTUIDO</a> <a href="/Blog/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/Blog/tags/android/" style="font-size: 10px;">android</a> <a href="/Blog/tags/apt/" style="font-size: 10px;">apt</a> <a href="/Blog/tags/atom/" style="font-size: 11.54px;">atom</a> <a href="/Blog/tags/ble/" style="font-size: 10px;">ble</a> <a href="/Blog/tags/c/" style="font-size: 10.77px;">c</a> <a href="/Blog/tags/cheat-sheet/" style="font-size: 12.31px;">cheat sheet</a> <a href="/Blog/tags/cli/" style="font-size: 10px;">cli</a> <a href="/Blog/tags/collections/" style="font-size: 10px;">collections</a> <a href="/Blog/tags/command/" style="font-size: 11.54px;">command</a> <a href="/Blog/tags/cygwin/" style="font-size: 10px;">cygwin</a> <a href="/Blog/tags/dao/" style="font-size: 10.77px;">dao</a> <a href="/Blog/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/Blog/tags/debug/" style="font-size: 10.77px;">debug</a> <a href="/Blog/tags/dict/" style="font-size: 10px;">dict</a> <a href="/Blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/Blog/tags/driver/" style="font-size: 16.92px;">driver</a> <a href="/Blog/tags/drv/" style="font-size: 14.62px;">drv</a> <a href="/Blog/tags/eclipse/" style="font-size: 10.77px;">eclipse</a> <a href="/Blog/tags/embedded/" style="font-size: 13.85px;">embedded</a> <a href="/Blog/tags/embedded-linux/" style="font-size: 20px;">embedded linux</a> <a href="/Blog/tags/env/" style="font-size: 10px;">env</a> <a href="/Blog/tags/environment/" style="font-size: 13.85px;">environment</a> <a href="/Blog/tags/error/" style="font-size: 10px;">error</a> <a href="/Blog/tags/ezos/" style="font-size: 10px;">ezos</a> <a href="/Blog/tags/freefilesync/" style="font-size: 10px;">freefilesync</a> <a href="/Blog/tags/fs/" style="font-size: 10.77px;">fs</a> <a href="/Blog/tags/git/" style="font-size: 10px;">git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/Blog/tags/ide/" style="font-size: 10px;">ide</a> <a href="/Blog/tags/interview/" style="font-size: 11.54px;">interview</a> <a href="/Blog/tags/ipc/" style="font-size: 10.77px;">ipc</a> <a href="/Blog/tags/jz2440/" style="font-size: 13.08px;">jz2440</a> <a href="/Blog/tags/kernel/" style="font-size: 11.54px;">kernel</a> <a href="/Blog/tags/linux/" style="font-size: 19.23px;">linux</a> <a href="/Blog/tags/linuxembedded-linux/" style="font-size: 16.15px;">linuxembedded linux</a> <a href="/Blog/tags/list/" style="font-size: 10px;">list</a> <a href="/Blog/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/Blog/tags/mingw/" style="font-size: 11.54px;">mingw</a> <a href="/Blog/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/Blog/tags/notepad/" style="font-size: 10px;">notepad++</a> <a href="/Blog/tags/other/" style="font-size: 10px;">other</a> <a href="/Blog/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/Blog/tags/path/" style="font-size: 10px;">path</a> <a href="/Blog/tags/pip/" style="font-size: 10px;">pip</a> <a href="/Blog/tags/process/" style="font-size: 10px;">process</a> <a href="/Blog/tags/putty/" style="font-size: 10px;">putty</a> <a href="/Blog/tags/pygatt/" style="font-size: 10px;">pygatt</a> <a href="/Blog/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/Blog/tags/pyqt/" style="font-size: 10.77px;">pyqt</a> <a href="/Blog/tags/python/" style="font-size: 18.46px;">python</a> <a href="/Blog/tags/qqiot/" style="font-size: 12.31px;">qqiot</a> <a href="/Blog/tags/regular/" style="font-size: 11.54px;">regular</a> <a href="/Blog/tags/scrum/" style="font-size: 10px;">scrum</a> <a href="/Blog/tags/self-expression/" style="font-size: 10px;">self-expression</a> <a href="/Blog/tags/set/" style="font-size: 10px;">set</a> <a href="/Blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/Blog/tags/shortcut/" style="font-size: 10px;">shortcut</a> <a href="/Blog/tags/software/" style="font-size: 11.54px;">software</a> <a href="/Blog/tags/stm32/" style="font-size: 10px;">stm32</a> <a href="/Blog/tags/string/" style="font-size: 10px;">string</a> <a href="/Blog/tags/thoughts/" style="font-size: 17.69px;">thoughts</a> <a href="/Blog/tags/timeout/" style="font-size: 10px;">timeout</a> <a href="/Blog/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/Blog/tags/uboot/" style="font-size: 12.31px;">uboot</a> <a href="/Blog/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/Blog/tags/vim/" style="font-size: 10px;">vim</a> <a href="/Blog/tags/windows/" style="font-size: 15.38px;">windows</a> <a href="/Blog/tags/yocto/" style="font-size: 10px;">yocto</a> <a href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" style="font-size: 10px;">线程同步</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2021/03/05/2107-tuibeitu/">推背图, 马前课, 万年歌, 梅花诗</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/03/01/2106-dao-doubt/">修道之路-起疑</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/14/2105-dao-outline/">修道之路-总纲</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/13/2104-satori/">修行总领——明心见性</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/09/2102-intermittent/">一张简单图片演示的“甚深佛法”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 draapho<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

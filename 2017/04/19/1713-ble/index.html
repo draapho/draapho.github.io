@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>BLE基础概念 | DRA&amp;PHO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="ble 架构  PHY, Physical Layer:物理层, 控制无线电信号的收发 LL, Link Layer:链路层, 定义数据包结构, 包括状态信息和收发控制, 以及链路层的加密 HCI, Host-Controller Interface:通过此标准接口, Host层和Controller层进行通讯 L2CAP, Logical Link Control and Adaptation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BLE基础概念">
+<meta property="og:url" content="https://draapho.github.io/Blog/2017/04/19/1713-ble/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="ble 架构  PHY, Physical Layer:物理层, 控制无线电信号的收发 LL, Link Layer:链路层, 定义数据包结构, 包括状态信息和收发控制, 以及链路层的加密 HCI, Host-Controller Interface:通过此标准接口, Host层和Controller层进行通讯 L2CAP, Logical Link Control and Adaptation">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1713/ble-architecture.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1713/ble-channel.png">
+<meta property="og:image" content="https://draapho.github.io/images/1713/ble-scan.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1713/ble-connect.png">
+<meta property="og:image" content="https://draapho.github.io/images/1713/ble-gatt1.png">
+<meta property="og:image" content="https://draapho.github.io/images/1713/ble-gatt.gif">
+<meta property="article:published_time" content="2017-04-18T14:00:00.000Z">
+<meta property="article:modified_time" content="2019-05-19T07:48:10.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded">
+<meta property="article:tag" content="ble">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1713/ble-architecture.jpg">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="DRA&PHO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">DRA&amp;PHO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">thinking &amp; logging</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://draapho.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1713-ble" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2017/04/19/1713-ble/" class="article-date">
+  <time class="dt-published" datetime="2017-04-18T14:00:00.000Z" itemprop="datePublished">2017-04-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/embedded/">embedded</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      BLE基础概念
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ble-架构"><a href="#ble-架构" class="headerlink" title="ble 架构"></a>ble 架构</h1><p><img src="https://draapho.github.io/images/1713/ble-architecture.jpg" alt="ble architecture"></p>
+<ul>
+<li>PHY, Physical Layer:<br>物理层, 控制无线电信号的收发</li>
+<li>LL, Link Layer:<br>链路层, 定义数据包结构, 包括状态信息和收发控制, 以及链路层的加密</li>
+<li>HCI, Host-Controller Interface:<br>通过此标准接口, Host层和Controller层进行通讯</li>
+<li>L2CAP, Logical Link Control and Adaptation Protocol. 可以理解为一个协议多路复用和分配器(功能上类似于TCPIP的端口).<br><strong>一般而言, BLE应用层开发者无需了解L2CAP层的细节</strong></li>
+<li>ATT, Attribute Protocol:<br>该协议将单一的数值(信息)以Attribute(属性)的形式抽象出来，并提供一些方法，供远端设备读取和修改</li>
+<li>GATT, Generic Attribute Protocol:<br>基于ATT提供的数值, 将有用的数值组打包好, 已服务(service)的方式开放给上层应用. 它相当于提供一套数据打包框架/规则.</li>
+<li>GAP, Generic Access Profile:<br>通用访问服务, 是对LL层的广播,监听,建立连接功能的抽象, 便于开发人员来理解和开发</li>
+<li>SM, Security Manager<br>负责BLE通信中有关安全的内容.</li>
+</ul>
+<h1 id="Physical-Layer"><a href="#Physical-Layer" class="headerlink" title="Physical Layer"></a>Physical Layer</h1><p>物理层, 控制无线电信号的收发</p>
+<p><img src="https://draapho.github.io/images/1713/ble-channel.png" alt="ble channel"><br>一图胜千言. 如图所示:</p>
+<ul>
+<li>BLE占用的频段为 2402Mhz-2480Mhz, 划分为40个Channel(频道), 每个频段2Mhz</li>
+<li>3个广播频段被放在了干扰冲突最少的频段, 并被命名为 37,38,39 频道</li>
+<li>其余的频段用作数据通讯, 并会采用调频技术来避免干扰和冲突.</li>
+<li>BLE和wifi的重合频段还是比较严重的! 和 wifi 的 1,6,11 三个频道完全重合.</li>
+</ul>
+<h1 id="Link-Layer"><a href="#Link-Layer" class="headerlink" title="Link Layer"></a>Link Layer</h1><p>链路层, 定义数据包结构, 包括状态信息和收发控制, 以及链路层的加密</p>
+<p>Link Layer 链路层有5个基本状态:</p>
+<ul>
+<li>Standby: 睡觉省电.</li>
+<li>Advertising: 广播模式, 周期性地发送数据, 使用的是 37-39的广播频道</li>
+<li>Scanning: 扫描模式, 扫描/接收广播数据；</li>
+<li>Initiating: 连接发起方，扫描带有“可连接”标志的广播数据,一旦发现,则发起连接请求.</li>
+<li>Connection: 建立点对点的通讯模式, 此后就开始使用 0-36频道开始通讯了!</li>
+</ul>
+<p>设备的几种角色</p>
+<ul>
+<li>Advertiser: 广播者, 处于 Advertising 模式即广播者</li>
+<li>Scanner: 扫描者, 处于 Scanning 模式即扫描者</li>
+<li>Initiator: 扫描者, 处于 Initiating 模式的扫描, 用于准备建立连接</li>
+<li>Slave: 建立通讯后 (Connection 模式), 之前的广播者就变成了Slave从机</li>
+<li>Master: 建立通讯后 (Connection 模式), 之前的扫描者/发起者就变成了Master主机</li>
+<li>混合模式: 一个设备可以同时是 Advertiser &amp; Scanner 或者 Advertiser &amp; Master 等等. 但需要供应商的软件支持!</li>
+</ul>
+<p><strong>关于蓝牙设备的角色名称问题, 无力吐槽, 各个分层都有一套自己的术语, 看的时候注意其对应的架构层次再来理解</strong></p>
+<h2 id="Advertisement"><a href="#Advertisement" class="headerlink" title="Advertisement"></a>Advertisement</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>数值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Advertisement interval</td>
+<td>20 ms to 10240 ms</td>
+<td>定义广播时间间隔</td>
+</tr>
+<tr>
+<td>Advertisement channels</td>
+<td>CH37-CH39</td>
+<td>默认值, 不可修改. BLE5新增了第二广播频道</td>
+</tr>
+<tr>
+<td>Discoverability mode</td>
+<td>ADV_IND</td>
+<td>可被连接的广播</td>
+</tr>
+</tbody></table>
+<pre><code>            | ADV_DIRECT_IND | 可被连接的定向广播
+            | ADV_NONCONN_IND | 不可连接的广播
+            | ADV_SCAN_IND | 可接受SCAN_REQ请求的广播数据
+</code></pre>
+<h2 id="Scanning"><a href="#Scanning" class="headerlink" title="Scanning"></a>Scanning</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>数值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Scan interval</td>
+<td>2.5 ms to 10240 ms</td>
+<td>定义扫描时间间隔</td>
+</tr>
+<tr>
+<td>Scan window</td>
+<td>2.5 ms to 10240 ms</td>
+<td>定义扫描时间窗口</td>
+</tr>
+<tr>
+<td>Scan mode</td>
+<td>Active / Passive</td>
+<td>主动扫描(会发送Scan Request)</td>
+</tr>
+</tbody></table>
+<p>上图:<br><img src="https://draapho.github.io/images/1713/ble-scan.PNG" alt="ble scan"></p>
+<h2 id="Connections"><a href="#Connections" class="headerlink" title="Connections"></a>Connections</h2><ul>
+<li>建立通讯后, 设备的角色被分为 Master 和 Slave</li>
+<li>发起建立通讯的设备, 即 Initiating 状态的扫描者, 为 Master</li>
+<li>之前在广播状态的设备, 即 Advertising 状态的广播者, 为 Slave</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>数值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Minimum Connection Interval</td>
+<td>7.5 ms</td>
+<td>允许的最小连接间隔</td>
+</tr>
+<tr>
+<td>Maximum Connection Interval</td>
+<td>4000 ms</td>
+<td>允许的最大连接间隔</td>
+</tr>
+<tr>
+<td>Connection (slave) latency</td>
+<td>0 to 500</td>
+<td>Slaver允许的延迟次数</td>
+</tr>
+<tr>
+<td>Supervision timeout</td>
+<td>100 ms to 32000 ms</td>
+<td>设置一个失败超时时间</td>
+</tr>
+</tbody></table>
+<p>对于 <code>Connection latency</code>, 就是Master会持续发送多个数据包来等待Slaver的回应.</p>
+<p>BLE点对点连接的数据交换示意图, 也同时说明了频道的变化:<br><img src="https://draapho.github.io/images/1713/ble-connect.png" alt="ble connect.png"></p>
+<h1 id="GAP"><a href="#GAP" class="headerlink" title="GAP"></a>GAP</h1><p>通用访问服务, 是对LL层的广播,监听,建立连接功能的抽象, 便于开发人员来理解和开发</p>
+<p>GAP的主要作用:</p>
+<ul>
+<li>Broadcast mode and observation procedure，实现单向的、无连接的通信方式；</li>
+<li>Discovery modes and procedures，实现蓝牙设备的发现操作；</li>
+<li>Connection modes and procedures，实现蓝牙设备的连接操作；</li>
+<li>Bonding modes and procedures，实现蓝牙设备的配对操作.</li>
+</ul>
+<p>GAP层的蓝牙设备角色:</p>
+<ul>
+<li>Broadcaster Role，设备正在发送广播；</li>
+<li>Observer Role，设备正在扫描广播；</li>
+<li>Peripheral Role， 对应Link Layer的slave角色, 可广播和被连接</li>
+<li>Central Role，对应Link Layer的master角色, 扫描和发起连接的一方</li>
+</ul>
+<p><strong>关于蓝牙设备的角色名称问题, 无力吐槽, 各个分层都有一套自己的术语, 看的时候注意其对应的架构层次再来理解</strong></p>
+<h1 id="ATT"><a href="#ATT" class="headerlink" title="ATT"></a>ATT</h1><p>该协议将单一的数值(信息)以Attribute(属性)的形式抽象出来，并提供一些方法，供远端设备读取和修改</p>
+<p>一个Attribute由Attribute Type、Attribute Handle和Attribute Value组成</p>
+<ul>
+<li>Attribute Type用于标示Attribute的类型, 譬如温度/湿度等.<br>Attribute Type使用 <code>UUID</code> (Universally Unique IDentifier)区分, 有 16-bit, 32-bit, 128-bit</li>
+<li>Attribute Handle是一个16-bit的数值, 简称 <code>Handle</code>. 用作唯一识别Attribute server上的所有Attribute<br>Attribute Handle可理解为Attribute的地址, 有如下意义：<ul>
+<li>一个server上可能存在多个相同类型的Attribute, 显然, client有区分这些Attribute的需要</li>
+<li>同一类型的多个Attribute, 可以组成一个Group, client可以通过这个Group中的起, 始handle访问所有的Attributes</li>
+</ul>
+</li>
+<li>Attribute Value代表Attribute的值，可以是任何固定长度或者可变长度的octet array （理解为字节类型的数组即可）。</li>
+<li>Attribute Permission代表Attribute的权限. 是否可读写, 是否加密等等.</li>
+</ul>
+<p>ATT设备角色, 采用client-server的形式.</p>
+<ul>
+<li>Server: 提供信息(即Attribute)的一方为服务方, 一般是传感器节点 (大多数情况是Advertiser / Slaver / Peripheral)</li>
+<li>Client: 访问信息(即Attribute)的一方为客户端, 一般是手机等终端 (大多数情况是Scanner / Master / Central)</li>
+</ul>
+<p><strong>关于蓝牙设备的角色名称问题, 无力吐槽, 各个分层都有一套自己的术语, 看的时候注意其对应的架构层次再来理解</strong></p>
+<h1 id="GATT"><a href="#GATT" class="headerlink" title="GATT"></a>GATT</h1><p>基于ATT提供的数值, 将有用的数值组打包好, 已服务(service)的方式开放给上层应用. 它相当于提供一套数据打包框架/规则.</p>
+<p>看框架图:<br><img src="https://draapho.github.io/images/1713/ble-gatt1.png" alt="ble gatt.png"><br><img src="https://draapho.github.io/images/1713/ble-gatt.gif" alt="ble gatt.gif"></p>
+<p>GATT profile的层次结构依次是： Profile—&gt;Service—&gt;characteristic</p>
+<ul>
+<li><code>Profile</code> 是基于GATT所派生出的真正的Profile， 由一个或者多个和某一应用场景有关的 <code>Service</code> 组成</li>
+<li><code>Service</code> 包含一个或者多个 <code>Characteristic</code>, 也可以通过Include的方式, 包含其它 <code>Service</code></li>
+<li><code>Characteristic</code> 则是GATT profile中最基本的数据单位, 由一个 <code>Properties / Declaration</code>, 一个 <code>Value</code>, 一个或者多个<code>Descriptor</code>组成</li>
+<li><code>Characteristic Properties / Declaration</code> 定义了characteristic的Value如何被使用，以及characteristic的Descriptor如何被访问。</li>
+<li><code>Characteristic Value</code> 是特征的实际值，例如一个温度特征，其Characteristic Value就是温度值就。</li>
+<li><code>Characteristic Descriptor</code> 则保存了一些和Characteristic Value相关的信息</li>
+</ul>
+<p>UUID 的分配</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.bluetooth.com/specifications/gatt/services">GATT Services 官方标准</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bluetooth.com/specifications/gatt/characteristics">GATT Characteristics 官方标准</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.itu.int/en/ITU-T/asn1/Pages/UUID/uuids.aspx">UUID Generation UUID 生成器</a></li>
+</ul>
+<h1 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h1><p>负责BLE通信中有关安全的内容.</p>
+<p>主要技术有:</p>
+<ul>
+<li>配对, pairing</li>
+<li>认证, authentication</li>
+<li>加密, encryption</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.silabs.com/documents/login/user-guides/ug103-14-fundamentals-ble.pdf">UG103.14: Application Development Fundamentals: Bluetooth® Smart Technology</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/bluetooth/bt_overview.html">蓝牙协议分析(1)_基本概念</a>,<br>简单介绍了标准蓝牙和低功耗蓝牙. 正如作者所说, 蓝牙的架构设计很不”美”, 给人一种拆拆补补, 各自为政的感觉. 但不可否认, 商业上, 蓝牙是成功的!</li>
+<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/bluetooth/bt_protocol_arch.html">蓝牙协议分析(2)_协议架构</a><br>从全局概念介绍了蓝牙架构的设计, 并对各个分层进行了简单的介绍.</li>
+<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/bluetooth/ble_stack_overview.html">蓝牙协议分析(3)_蓝牙低功耗(BLE)协议栈介绍</a><br>对快速理解低功耗蓝牙(BLE) 非常有帮助! 也是从架构说起, 逐步深入细节的叙事风格</li>
+<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/bluetooth/ipv6_over_ble_intro.html">蓝牙协议分析(4)_IPv6 Over BLE介绍</a><br>说明了加入IPv6协议的重大意义. 物联网大势所趋, 而IPv6必将成为数据传输的最终标准! (Zigbee也支持了IPv6, Thread天生就采用6LowPAN协议)</li>
+<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/bluetooth/ble_broadcast.html">蓝牙协议分析(5)_BLE广播通信相关的技术分析</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/bluetooth/ble_address_type.html">蓝牙协议分析(6)_BLE地址类型</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/bluetooth/ble_connection.html">蓝牙协议分析(7)_BLE连接有关的技术分析</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/bluetooth/ble_white_list.html">蓝牙协议分析(8)_BLE安全机制之白名单</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/bluetooth/ble_ll_privacy.html">蓝牙协议分析(9)_BLE安全机制之LL Privacy</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.wowotech.net/bluetooth/le_encryption.html">蓝牙协议分析(10)_BLE安全机制之LE Encryption</a><br>渐渐就由浅入深, 探讨技术细节了.</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2017/04/19/1713-ble/" data-id="cklzxspxs003masqo85qadd54" data-title="BLE基础概念" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2017/05/04/1714-expression/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          逻辑|这样表达，事半功倍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2017/04/10/1711-web-spider/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用网络爬虫抓取商品价格并分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/dao/">dao</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded/">embedded</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded-linux/">embedded linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/interview/">interview</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/qqiot/">qqiot</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/software/">software</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/thoughts/">thoughts</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AI-IoT-thoughts/" rel="tag">AI IoT thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AutoHotKey/" rel="tag">AutoHotKey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/apt/" rel="tag">apt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/collections/" rel="tag">collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dao/" rel="tag">dao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/data-struct/" rel="tag">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dict/" rel="tag">dict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/driver/" rel="tag">driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/drv/" rel="tag">drv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/env/" rel="tag">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/environment/" rel="tag">environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/error/" rel="tag">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ezos/" rel="tag">ezos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/fs/" rel="tag">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ide/" rel="tag">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ipc/" rel="tag">ipc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linuxembedded-linux/" rel="tag">linuxembedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/makefile/" rel="tag">makefile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/nfs/" rel="tag">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pygatt/" rel="tag">pygatt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/regular/" rel="tag">regular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/scrum/" rel="tag">scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/self-expression/" rel="tag">self-expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/software/" rel="tag">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/string/" rel="tag">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/thoughts/" rel="tag">thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/timeout/" rel="tag">timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/tuple/" rel="tag">tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/yocto/" rel="tag">yocto</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" rel="tag">线程同步</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/AI-IoT-thoughts/" style="font-size: 10px;">AI IoT thoughts</a> <a href="/Blog/tags/AutoHotKey/" style="font-size: 10px;">AutoHotKey</a> <a href="/Blog/tags/BLE/" style="font-size: 10.77px;">BLE</a> <a href="/Blog/tags/ConEmu/" style="font-size: 10px;">ConEmu</a> <a href="/Blog/tags/Hyper-V/" style="font-size: 10px;">Hyper-V</a> <a href="/Blog/tags/Listary/" style="font-size: 10px;">Listary</a> <a href="/Blog/tags/NAS/" style="font-size: 10px;">NAS</a> <a href="/Blog/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/Blog/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/Blog/tags/TrueSTUIDO/" style="font-size: 10px;">TrueSTUIDO</a> <a href="/Blog/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/Blog/tags/android/" style="font-size: 10px;">android</a> <a href="/Blog/tags/apt/" style="font-size: 10px;">apt</a> <a href="/Blog/tags/atom/" style="font-size: 11.54px;">atom</a> <a href="/Blog/tags/ble/" style="font-size: 10px;">ble</a> <a href="/Blog/tags/c/" style="font-size: 10.77px;">c</a> <a href="/Blog/tags/cheat-sheet/" style="font-size: 12.31px;">cheat sheet</a> <a href="/Blog/tags/cli/" style="font-size: 10px;">cli</a> <a href="/Blog/tags/collections/" style="font-size: 10px;">collections</a> <a href="/Blog/tags/command/" style="font-size: 11.54px;">command</a> <a href="/Blog/tags/cygwin/" style="font-size: 10px;">cygwin</a> <a href="/Blog/tags/dao/" style="font-size: 10.77px;">dao</a> <a href="/Blog/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/Blog/tags/debug/" style="font-size: 10.77px;">debug</a> <a href="/Blog/tags/dict/" style="font-size: 10px;">dict</a> <a href="/Blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/Blog/tags/driver/" style="font-size: 16.92px;">driver</a> <a href="/Blog/tags/drv/" style="font-size: 14.62px;">drv</a> <a href="/Blog/tags/eclipse/" style="font-size: 10.77px;">eclipse</a> <a href="/Blog/tags/embedded/" style="font-size: 13.85px;">embedded</a> <a href="/Blog/tags/embedded-linux/" style="font-size: 20px;">embedded linux</a> <a href="/Blog/tags/env/" style="font-size: 10px;">env</a> <a href="/Blog/tags/environment/" style="font-size: 13.85px;">environment</a> <a href="/Blog/tags/error/" style="font-size: 10px;">error</a> <a href="/Blog/tags/ezos/" style="font-size: 10px;">ezos</a> <a href="/Blog/tags/freefilesync/" style="font-size: 10px;">freefilesync</a> <a href="/Blog/tags/fs/" style="font-size: 10.77px;">fs</a> <a href="/Blog/tags/git/" style="font-size: 10px;">git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/Blog/tags/ide/" style="font-size: 10px;">ide</a> <a href="/Blog/tags/interview/" style="font-size: 11.54px;">interview</a> <a href="/Blog/tags/ipc/" style="font-size: 10.77px;">ipc</a> <a href="/Blog/tags/jz2440/" style="font-size: 13.08px;">jz2440</a> <a href="/Blog/tags/kernel/" style="font-size: 11.54px;">kernel</a> <a href="/Blog/tags/linux/" style="font-size: 19.23px;">linux</a> <a href="/Blog/tags/linuxembedded-linux/" style="font-size: 16.15px;">linuxembedded linux</a> <a href="/Blog/tags/list/" style="font-size: 10px;">list</a> <a href="/Blog/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/Blog/tags/mingw/" style="font-size: 11.54px;">mingw</a> <a href="/Blog/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/Blog/tags/notepad/" style="font-size: 10px;">notepad++</a> <a href="/Blog/tags/other/" style="font-size: 10px;">other</a> <a href="/Blog/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/Blog/tags/path/" style="font-size: 10px;">path</a> <a href="/Blog/tags/pip/" style="font-size: 10px;">pip</a> <a href="/Blog/tags/process/" style="font-size: 10px;">process</a> <a href="/Blog/tags/putty/" style="font-size: 10px;">putty</a> <a href="/Blog/tags/pygatt/" style="font-size: 10px;">pygatt</a> <a href="/Blog/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/Blog/tags/pyqt/" style="font-size: 10.77px;">pyqt</a> <a href="/Blog/tags/python/" style="font-size: 18.46px;">python</a> <a href="/Blog/tags/qqiot/" style="font-size: 12.31px;">qqiot</a> <a href="/Blog/tags/regular/" style="font-size: 11.54px;">regular</a> <a href="/Blog/tags/scrum/" style="font-size: 10px;">scrum</a> <a href="/Blog/tags/self-expression/" style="font-size: 10px;">self-expression</a> <a href="/Blog/tags/set/" style="font-size: 10px;">set</a> <a href="/Blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/Blog/tags/shortcut/" style="font-size: 10px;">shortcut</a> <a href="/Blog/tags/software/" style="font-size: 11.54px;">software</a> <a href="/Blog/tags/stm32/" style="font-size: 10px;">stm32</a> <a href="/Blog/tags/string/" style="font-size: 10px;">string</a> <a href="/Blog/tags/thoughts/" style="font-size: 17.69px;">thoughts</a> <a href="/Blog/tags/timeout/" style="font-size: 10px;">timeout</a> <a href="/Blog/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/Blog/tags/uboot/" style="font-size: 12.31px;">uboot</a> <a href="/Blog/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/Blog/tags/vim/" style="font-size: 10px;">vim</a> <a href="/Blog/tags/windows/" style="font-size: 15.38px;">windows</a> <a href="/Blog/tags/yocto/" style="font-size: 10px;">yocto</a> <a href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" style="font-size: 10px;">线程同步</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2021/03/05/2107-tuibeitu/">推背图, 马前课, 万年歌, 梅花诗</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/03/01/2106-dao-doubt/">修道之路-起疑</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/14/2105-dao-outline/">修道之路-总纲</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/13/2104-satori/">修行总领——明心见性</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/09/2102-intermittent/">一张简单图片演示的“甚深佛法”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 draapho<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

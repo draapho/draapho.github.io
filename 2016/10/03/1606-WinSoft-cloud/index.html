@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Windows 软件系列-基于NFS的家庭网 | DRA&amp;PHO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="家庭网设想理想的云 理想的家庭网是由NAS做数据中心, 是家里的云 需要使用千兆网来支持数据分享(如视频流) 考虑到设备多样性, 可使用多种分享模式, 如NFS, windows共享服务等等 理想很丰满, 现实很骨干. 由于预算, 稳定性, 易用性等问题, 多半会用折中方案 可以看看混乱的方案推荐: 如何实现一个简单的家庭云存储（NAS）系统？  现实的云 理想之所以遥远, 往往是因为没有明确需求">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 软件系列-基于NFS的家庭网">
+<meta property="og:url" content="https://draapho.github.io/Blog/2016/10/03/1606-WinSoft-cloud/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="家庭网设想理想的云 理想的家庭网是由NAS做数据中心, 是家里的云 需要使用千兆网来支持数据分享(如视频流) 考虑到设备多样性, 可使用多种分享模式, 如NFS, windows共享服务等等 理想很丰满, 现实很骨干. 由于预算, 稳定性, 易用性等问题, 多半会用折中方案 可以看看混乱的方案推荐: 如何实现一个简单的家庭云存储（NAS）系统？  现实的云 理想之所以遥远, 往往是因为没有明确需求">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1606/haneWIN_NFS.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/haneWIN_Server.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/haneWIN_Exports.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/haneWIN_Mounts.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_Enable.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_NIC1.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_NIC2.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_Install1.png">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_Install2.png">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_Install3.png">
+<meta property="article:published_time" content="2016-10-02T13:00:00.000Z">
+<meta property="article:modified_time" content="2019-05-19T07:46:14.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="NFS">
+<meta property="article:tag" content="Hyper-V">
+<meta property="article:tag" content="NAS">
+<meta property="article:tag" content="freefilesync">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1606/haneWIN_NFS.PNG">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="DRA&PHO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">DRA&amp;PHO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">thinking &amp; logging</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://draapho.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1606-WinSoft-cloud" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/03/1606-WinSoft-cloud/" class="article-date">
+  <time class="dt-published" datetime="2016-10-02T13:00:00.000Z" itemprop="datePublished">2016-10-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/windows/">windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Windows 软件系列-基于NFS的家庭网
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="家庭网设想"><a href="#家庭网设想" class="headerlink" title="家庭网设想"></a>家庭网设想</h1><h2 id="理想的云"><a href="#理想的云" class="headerlink" title="理想的云"></a>理想的云</h2><ul>
+<li>理想的家庭网是由NAS做数据中心, 是家里的云</li>
+<li>需要使用千兆网来支持数据分享(如视频流)</li>
+<li>考虑到设备多样性, 可使用多种分享模式, 如NFS, windows共享服务等等</li>
+<li>理想很丰满, 现实很骨干. 由于预算, 稳定性, 易用性等问题, 多半会用折中方案</li>
+<li>可以看看混乱的方案推荐: <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20791825">如何实现一个简单的家庭云存储（NAS）系统？</a></li>
+</ul>
+<h2 id="现实的云"><a href="#现实的云" class="headerlink" title="现实的云"></a>现实的云</h2><ul>
+<li>理想之所以遥远, 往往是因为没有明确需求, 导致什么都想要! 所以, 先明确需求<ul>
+<li>NAS是用来折腾和看电影的(电影存在硬盘上, 能在沙发上和床上观影).</li>
+<li>日常资料还是存储在本地硬盘比较便捷</li>
+<li>有安全需求, 要备份或镜像本地资料到家庭云(<strong>双设备备份</strong>, 相比NAS的各种RAID, 一大优势是<strong>防偷</strong>)</li>
+<li>做嵌入式开发, 需要在windows上装linux虚拟机, 然后数据共享</li>
+<li>关键数据出问题时, 在可靠和有把握的环境下来恢复数据.</li>
+</ul>
+</li>
+<li>给出最终使用的方案. 折腾记就不写在此文了.<ul>
+<li>使用 Intel NUC 作为桌面主机和云服务器. 小巧, 够用(不玩游戏), 省电.</li>
+<li>使用 Hyper-V 安装 家用NAS 和 Ubuntu.</li>
+<li>另有嵌入式linux开发板, 投影仪, 手机等设备需要和云交换数据.</li>
+<li>使用 <a target="_blank" rel="noopener" href="https://www.hanewin.net/nfs-e.htm">HaneWIN</a> 向其它设备提供NFS服务</li>
+<li>使用 <a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a> 备份资料到移动硬盘(和理想中的备份方式差好多…)</li>
+</ul>
+</li>
+</ul>
+<h1 id="HaneWIN"><a href="#HaneWIN" class="headerlink" title="HaneWIN"></a><a target="_blank" rel="noopener" href="https://www.hanewin.net/nfs-e.htm">HaneWIN</a></h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.hanewin.net/nfs-e.htm">HaneWIN</a> 可免费试用30天. 适合做win下的nfs服务器. </li>
+<li>如果要免费软件, 可尝试 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/freenfs/">FreeNFS</a>. 功能较弱. 可参考<a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/b9dccaedf8c75fbfc77db2c1.html?from=search">FreeNFS简易教程</a>.</li>
+<li>需要支持嵌入式linux端的NFS(只支持NFS v2), 配置见图:<br><img src="https://draapho.github.io/images/1606/haneWIN_NFS.PNG" alt="haneWIN_NFS"></li>
+<li>务必使用<code>UTF-8 character set</code><br><img src="https://draapho.github.io/images/1606/haneWIN_Server.PNG" alt="haneWIN_Server"></li>
+<li>重点说一下<code>Exports</code>这一块, 即把文件通过NFS分享出去.<br><img src="https://draapho.github.io/images/1606/haneWIN_Exports.PNG" alt="haneWIN_Exports"><ul>
+<li><code>E:\Downloads -name:Downloads 10.0.0.99</code><br>就是把本地<code>Downloads</code>文件夹分享给<code>ip=10.0.0.99</code>的机器, 对外名称为<code>Downloads</code></li>
+<li><code>-mapall:0:0</code> 是提供给linux端root权限. (这句最短? 花了一周时间才实验成功啊…)</li>
+<li><code>-range 10.0.0.1 10.0.0.111</code> 是设置ip范围, 这里是从<code>10.0.0.1</code>-<code>10.0.0.111</code></li>
+<li>语法规则不多, 详见<a target="_blank" rel="noopener" href="https://www.hanewin.net/doc/nfs/nfsd.htm">官网说明</a>. 可用参数如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># The following options are supported:</span><br><span class="line">-name:&lt;sharename&gt;   assigns a name to the exported path as an alternate name for mounting.</span><br><span class="line">-alldirs    allows the host(s) to mount at any point within the filesystem.</span><br><span class="line">-umask:&lt;mask&gt;   set the umask for group and world permissions on the filesystem, default 022</span><br><span class="line">-readonly   limits access to reading</span><br><span class="line">-public Enables WebNFS access.</span><br><span class="line">-lowercase  maps all file names to lowercase, otherwise case is preserved.</span><br><span class="line">-exec   forces in access rights the x bit for all files.</span><br><span class="line">-mapall:&lt;uid&gt;[:&lt;gid&gt;]   all Unix user-ids and group-ids are mapped to the specified user-id and group-id.</span><br><span class="line">-maproot:&lt;uid&gt;[:&lt;gid&gt;]  the Unix super user root is mapped to the specified user-id, group-id. Without a mapping entry root will be mapped to user and group nobody.</span><br><span class="line">-range  IP adresses are interpreted in pairs as from-to ranges enabling client access from all addresses in a range (more flexible than the unix -net -mask options).</span><br></pre></td></tr></table></figure></li>
+<li>再举几个例子:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># exports example</span><br><span class="line">c:\ftp -range 192.168.1.1 192.168.1.10</span><br><span class="line">c:\public -public -readonly</span><br><span class="line">c:\tools -readonly 192.168.1.4</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>如果NFS被成功加载, 那么会在<code>Mounts</code>页显示出来<br><img src="https://draapho.github.io/images/1606/haneWIN_Mounts.PNG" alt="haneWIN_Mounts"></li>
+<li>参考<ul>
+<li><a target="_blank" rel="noopener" href="http://www.nasyun.com/thread-25086-1-1.html">GEN8折腾日记-第三方NFS工具 hanewin 设置(需登录)</a></li>
+<li><a target="_blank" rel="noopener" href="http://wenku.baidu.com/view/c78baefefad6195f302ba665.html">GEN8折腾日记-第三方NFS工具 hanewin 设置(百度文库)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.chiphell.com/thread-1240623-1-1.html">群晖加载Windows NFS文件</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="Hyper-V"><a href="#Hyper-V" class="headerlink" title="Hyper-V"></a>Hyper-V</h1><ul>
+<li>从Win8开始, Hyper-V是Windows自带的软件.</li>
+<li>启用Hper-V, <code>控制面板</code>-&gt;<code>程序和功能</code>-&gt;<code>启用或关闭Windows功能</code>-&gt;<code>Hyper-V</code><br><img src="https://draapho.github.io/images/1606/HyperV_Enable.PNG" alt="HyperV_Enable"></li>
+<li>设置虚拟网络<br><img src="https://draapho.github.io/images/1606/HyperV_NIC1.PNG" alt="HyperV_NIC1"><br><img src="https://draapho.github.io/images/1606/HyperV_NIC2.PNG" alt="HyperV_NIC2"></li>
+<li>新建虚拟机<br><img src="https://draapho.github.io/images/1606/HyperV_Install1.png" alt="HyperV_Install1"><br><img src="https://draapho.github.io/images/1606/HyperV_Install2.png" alt="HyperV_Install2"><br><img src="https://draapho.github.io/images/1606/HyperV_Install3.png" alt="HyperV_Install3"></li>
+<li>安装Ubuntu 32位服务器版本, 用于交叉编译. (另一个备选方案是用cygwin)</li>
+<li>安装家用NAS, 用于多设备(投影仪, 平板, 手机)看硬盘上的影片.</li>
+</ul>
+<h1 id="NAS和智能路由器"><a href="#NAS和智能路由器" class="headerlink" title="NAS和智能路由器"></a>NAS和智能路由器</h1><h2 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h2><ul>
+<li>NAS, Network Attached Storage. 家用的话, 大多定位于多媒体观赏和数据备份两个核心功能.</li>
+<li>专做NAS的厂家, <a target="_blank" rel="noopener" href="https://www.synology.com/">Synology(群晖)</a> 和 <a target="_blank" rel="noopener" href="https://www.qnap.com/">QNAP(威联通)</a> 比较有名</li>
+<li>智能路由器, 从小米路由器到airport extreme.</li>
+<li>两者区别的话, 就是一个更专业, 一个更娱乐.<br>所谓专业, 就是更多的权限设置和管理(对用户不友好), 更多的功能, 更高的安全要求.<br>所谓娱乐, 就是傻瓜易上手, 能用好用为主要需求.<br>简而言之, 一个是专业单反, 一个是傻瓜机, 然后有一些就是处于中间位置的微单…</li>
+</ul>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><ul>
+<li>大多数的家庭, 对此类产品的第一要求就是<strong>好用</strong>. 只有Geek一类的人需要<strong>好玩</strong>.</li>
+<li>NAS在宣传上, 必然会强调数据安全, 列出诸如支持多种RAID这种让非专业人士云里雾里的概念.</li>
+<li>而普通家庭最大的数据安全问题就是数据过于集中, 防偷防意外损坏之类的风险防范反而不足了.</li>
+<li>因此, 家用云市场应该侧重于易于配置和使用. 家庭的数据安全问题不是靠一台专业NAS设备就能解决的.</li>
+<li>结论: 在家用市场, 智能路由器有更好的市场前景.</li>
+</ul>
+<h2 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h2><ul>
+<li>家庭环境的话, 建议用移动硬盘备份关键资料(即RAID1), 然后分开存储, 当然也可以基于SFTP等服务自动备份. 这样可以做到物理上相对独立, 而且因为用的是RAID1, 数据出问题后的恢复也非常简单.</li>
+<li>中小企业就需要用到稍微专业一点的NAS才比较好了. 话说, 很多本土企业对数据安全这一块很不上心啊…</li>
+<li>推荐完全免费的同步软件<a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a>, 买块硬盘, 家用足够了.</li>
+</ul>
+<h2 id="个人推荐"><a href="#个人推荐" class="headerlink" title="个人推荐"></a>个人推荐</h2><ul>
+<li>听说过家庭云, 不知道具体需求, 买个便宜的小米路由器先体验体验.</li>
+<li>苹果爱好者直接上 airport extreme, 二千元可以给手机平板太多额外的存储空间了.</li>
+<li>想要玩NAS的, 可以先用虚拟机装了体验一下效果.</li>
+<li>如果买专业的NAS, 推荐直接用企业入门级产品QNAP的<code>TS-251</code>或<code>TS-253 Pro</code>,内置虚拟机, 可玩性很高.</li>
+<li>群晖的机器不太推荐, 因为数据的存储格式很奇怪, 万一出点问题自己一点办法也没有!</li>
+<li>组装机也不是太推荐, 因为功耗美观服务都要考虑进去.</li>
+</ul>
+<h1 id="同步软件freefilesync"><a href="#同步软件freefilesync" class="headerlink" title="同步软件freefilesync"></a>同步软件<a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a></h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a>是一款完全免费的同步软件, 可以完全媲美GoodSync</li>
+<li>支持sftp, 所以也可以通过网络自动备份数据</li>
+<li>家庭用户使用RAID1, 即关键资料双硬盘完整备份, 然后分开存放就足够了.</li>
+</ul>
+<h1 id="远程开机"><a href="#远程开机" class="headerlink" title="远程开机"></a>远程开机</h1><p>如果是7x24小时开机当服务器用, 则不用考虑这一块. 远程开机是针对虚拟机和组装机用户说的.</p>
+<h2 id="LAN唤醒"><a href="#LAN唤醒" class="headerlink" title="LAN唤醒"></a>LAN唤醒</h2><ul>
+<li>LAN唤醒需要主板的支持, 不支持无线网络, 必须使用有线. 新一点的机器一般都能支持.</li>
+<li>启用主板的WOL功能<ul>
+<li>开机进入BIOS, 寻找<code>wake on lan``resume on lan``power on PME``power on by PCI-E device``Power on by Onboard LAN</code>等与电源管理和唤醒有关的选项并使能</li>
+</ul>
+</li>
+<li>设置网卡驱动<ul>
+<li><code>设备管理器</code>-&gt;<code>网络适配器</code>-&gt;选择有线网卡设备-&gt;右键<code>属性</code>-&gt;在<code>高级</code>和<code>电源管理</code>标签下-&gt;启用<code>唤醒模式``唤醒魔包``幻数据包``唤醒计算机</code>之类的选项</li>
+</ul>
+</li>
+<li>配置 WIN10 WOL(Wake on Lan 远程唤醒) 最大的坑就是要关闭 “启用快速启动(推荐)”, 而默认是打开的. 另外, <ul>
+<li><code>控制面板</code>-&gt;<code>硬件和声音</code>-&gt;<code>电源选项</code>-&gt;左边栏<code>选择电源按钮的功能</code>-&gt;弹出<code>系统设置</code>页面-&gt;<code>关机设置</code>-&gt;<del><code>启用快速启动(推荐)</code></del></li>
+</ul>
+</li>
+<li>电脑非正常关机后, 是无法远程唤醒的.</li>
+<li>建议分级测试.<ol>
+<li>可以先确定bios配置正确. 配置好bios, 进入winPE之类的系统, 选择关机, 看WOL是否起作用.</li>
+<li>然后进入win10配置网卡的相关选项, 然后让机器进入睡眠模式, 看WOL是否起作用.</li>
+<li>最后win10关机, 测试WOL是否起作用.</li>
+<li>“启用快速启动(推荐)”, 位于 控制面板\硬件和声音\电源选项\唤醒时需要密码(系统设置)\关机设置.</li>
+<li>注意: bios设置内关于PCI节能的设置特别注意, 考虑全部关闭</li>
+</ol>
+</li>
+<li>Android端WOL软件推荐. <code>Wake On LAN</code> 配置简单, 界面友好.</li>
+<li>参考链接<ul>
+<li><a target="_blank" rel="noopener" href="https://www.teamviewer.com/zhCN/res/pdf/Teamviewer9-Manual-Wake-on-LAN-zhCN.pdf">TeamViewer手册-LAN唤醒</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.iplaysoft.com/wol.html">WOL 网络唤醒远程开机设置方法教程 + 多款软件下载！(手机远程开启电脑)</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="WAN远程唤醒"><a href="#WAN远程唤醒" class="headerlink" title="WAN远程唤醒"></a>WAN远程唤醒</h2><ul>
+<li>WAN远程唤醒的前提是配置好LAN唤醒.</li>
+<li>需要设置路由器, 设置过程非常复杂, 而且免费的不稳定.</li>
+<li>我买了向日葵开机棒, 但实际体验不好. 一是向日葵的服务器不太稳定, 而是远程操作意义不大, 纯玩性质.</li>
+<li>所以, 建议普通用户不用折腾这块了. 真有异地工作, 资料同步的需求, 用公共云, github, BitBucket都很好.</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://draapho.github.io/Blog/2016/10/03/1606-WinSoft-cloud/" data-id="cklzxspwr000casqogokv6vae" data-title="Windows 软件系列-基于NFS的家庭网" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2016/10/08/1607-CheatSheet-win/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Windows快捷键
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2016/10/01/1604-CheatSheet-vim/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vim常用快捷键</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/dao/">dao</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded/">embedded</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/embedded-linux/">embedded linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/interview/">interview</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/qqiot/">qqiot</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/software/">software</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/thoughts/">thoughts</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AI-IoT-thoughts/" rel="tag">AI IoT thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/AutoHotKey/" rel="tag">AutoHotKey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/BLE/" rel="tag">BLE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ConEmu/" rel="tag">ConEmu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Hyper-V/" rel="tag">Hyper-V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Listary/" rel="tag">Listary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NAS/" rel="tag">NAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/NFS/" rel="tag">NFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Notepad/" rel="tag">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/TrueSTUIDO/" rel="tag">TrueSTUIDO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/apt/" rel="tag">apt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ble/" rel="tag">ble</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cheat-sheet/" rel="tag">cheat sheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/collections/" rel="tag">collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/cygwin/" rel="tag">cygwin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dao/" rel="tag">dao</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/data-struct/" rel="tag">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/debug/" rel="tag">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/dict/" rel="tag">dict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/driver/" rel="tag">driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/drv/" rel="tag">drv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/embedded-linux/" rel="tag">embedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/env/" rel="tag">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/environment/" rel="tag">environment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/error/" rel="tag">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ezos/" rel="tag">ezos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/freefilesync/" rel="tag">freefilesync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/fs/" rel="tag">fs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ide/" rel="tag">ide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ipc/" rel="tag">ipc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/jz2440/" rel="tag">jz2440</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/linuxembedded-linux/" rel="tag">linuxembedded linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/makefile/" rel="tag">makefile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/mingw/" rel="tag">mingw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/nfs/" rel="tag">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/notepad/" rel="tag">notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/path/" rel="tag">path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pip/" rel="tag">pip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/process/" rel="tag">process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/putty/" rel="tag">putty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pygatt/" rel="tag">pygatt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/pyqt/" rel="tag">pyqt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/qqiot/" rel="tag">qqiot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/regular/" rel="tag">regular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/scrum/" rel="tag">scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/self-expression/" rel="tag">self-expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/shortcut/" rel="tag">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/software/" rel="tag">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/string/" rel="tag">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/thoughts/" rel="tag">thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/timeout/" rel="tag">timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/tuple/" rel="tag">tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/uboot/" rel="tag">uboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/yocto/" rel="tag">yocto</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" rel="tag">线程同步</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/AI-IoT-thoughts/" style="font-size: 10px;">AI IoT thoughts</a> <a href="/Blog/tags/AutoHotKey/" style="font-size: 10px;">AutoHotKey</a> <a href="/Blog/tags/BLE/" style="font-size: 10.77px;">BLE</a> <a href="/Blog/tags/ConEmu/" style="font-size: 10px;">ConEmu</a> <a href="/Blog/tags/Hyper-V/" style="font-size: 10px;">Hyper-V</a> <a href="/Blog/tags/Listary/" style="font-size: 10px;">Listary</a> <a href="/Blog/tags/NAS/" style="font-size: 10px;">NAS</a> <a href="/Blog/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/Blog/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/Blog/tags/TrueSTUIDO/" style="font-size: 10px;">TrueSTUIDO</a> <a href="/Blog/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/Blog/tags/android/" style="font-size: 10px;">android</a> <a href="/Blog/tags/apt/" style="font-size: 10px;">apt</a> <a href="/Blog/tags/atom/" style="font-size: 11.54px;">atom</a> <a href="/Blog/tags/ble/" style="font-size: 10px;">ble</a> <a href="/Blog/tags/c/" style="font-size: 10.77px;">c</a> <a href="/Blog/tags/cheat-sheet/" style="font-size: 12.31px;">cheat sheet</a> <a href="/Blog/tags/cli/" style="font-size: 10px;">cli</a> <a href="/Blog/tags/collections/" style="font-size: 10px;">collections</a> <a href="/Blog/tags/command/" style="font-size: 11.54px;">command</a> <a href="/Blog/tags/cygwin/" style="font-size: 10px;">cygwin</a> <a href="/Blog/tags/dao/" style="font-size: 10.77px;">dao</a> <a href="/Blog/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/Blog/tags/debug/" style="font-size: 10.77px;">debug</a> <a href="/Blog/tags/dict/" style="font-size: 10px;">dict</a> <a href="/Blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/Blog/tags/driver/" style="font-size: 16.92px;">driver</a> <a href="/Blog/tags/drv/" style="font-size: 14.62px;">drv</a> <a href="/Blog/tags/eclipse/" style="font-size: 10.77px;">eclipse</a> <a href="/Blog/tags/embedded/" style="font-size: 13.85px;">embedded</a> <a href="/Blog/tags/embedded-linux/" style="font-size: 20px;">embedded linux</a> <a href="/Blog/tags/env/" style="font-size: 10px;">env</a> <a href="/Blog/tags/environment/" style="font-size: 13.85px;">environment</a> <a href="/Blog/tags/error/" style="font-size: 10px;">error</a> <a href="/Blog/tags/ezos/" style="font-size: 10px;">ezos</a> <a href="/Blog/tags/freefilesync/" style="font-size: 10px;">freefilesync</a> <a href="/Blog/tags/fs/" style="font-size: 10.77px;">fs</a> <a href="/Blog/tags/git/" style="font-size: 10px;">git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/Blog/tags/ide/" style="font-size: 10px;">ide</a> <a href="/Blog/tags/interview/" style="font-size: 11.54px;">interview</a> <a href="/Blog/tags/ipc/" style="font-size: 10.77px;">ipc</a> <a href="/Blog/tags/jz2440/" style="font-size: 13.08px;">jz2440</a> <a href="/Blog/tags/kernel/" style="font-size: 11.54px;">kernel</a> <a href="/Blog/tags/linux/" style="font-size: 19.23px;">linux</a> <a href="/Blog/tags/linuxembedded-linux/" style="font-size: 16.15px;">linuxembedded linux</a> <a href="/Blog/tags/list/" style="font-size: 10px;">list</a> <a href="/Blog/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/Blog/tags/mingw/" style="font-size: 11.54px;">mingw</a> <a href="/Blog/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/Blog/tags/notepad/" style="font-size: 10px;">notepad++</a> <a href="/Blog/tags/other/" style="font-size: 10px;">other</a> <a href="/Blog/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/Blog/tags/path/" style="font-size: 10px;">path</a> <a href="/Blog/tags/pip/" style="font-size: 10px;">pip</a> <a href="/Blog/tags/process/" style="font-size: 10px;">process</a> <a href="/Blog/tags/putty/" style="font-size: 10px;">putty</a> <a href="/Blog/tags/pygatt/" style="font-size: 10px;">pygatt</a> <a href="/Blog/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/Blog/tags/pyqt/" style="font-size: 10.77px;">pyqt</a> <a href="/Blog/tags/python/" style="font-size: 18.46px;">python</a> <a href="/Blog/tags/qqiot/" style="font-size: 12.31px;">qqiot</a> <a href="/Blog/tags/regular/" style="font-size: 11.54px;">regular</a> <a href="/Blog/tags/scrum/" style="font-size: 10px;">scrum</a> <a href="/Blog/tags/self-expression/" style="font-size: 10px;">self-expression</a> <a href="/Blog/tags/set/" style="font-size: 10px;">set</a> <a href="/Blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/Blog/tags/shortcut/" style="font-size: 10px;">shortcut</a> <a href="/Blog/tags/software/" style="font-size: 11.54px;">software</a> <a href="/Blog/tags/stm32/" style="font-size: 10px;">stm32</a> <a href="/Blog/tags/string/" style="font-size: 10px;">string</a> <a href="/Blog/tags/thoughts/" style="font-size: 17.69px;">thoughts</a> <a href="/Blog/tags/timeout/" style="font-size: 10px;">timeout</a> <a href="/Blog/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/Blog/tags/uboot/" style="font-size: 12.31px;">uboot</a> <a href="/Blog/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/Blog/tags/vim/" style="font-size: 10px;">vim</a> <a href="/Blog/tags/windows/" style="font-size: 15.38px;">windows</a> <a href="/Blog/tags/yocto/" style="font-size: 10px;">yocto</a> <a href="/Blog/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/" style="font-size: 10px;">线程同步</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2021/03/05/2107-tuibeitu/">推背图, 马前课, 万年歌, 梅花诗</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/03/01/2106-dao-doubt/">修道之路-起疑</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/14/2105-dao-outline/">修道之路-总纲</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/13/2104-satori/">修行总领——明心见性</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2021/02/09/2102-intermittent/">一张简单图片演示的“甚深佛法”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 draapho<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
