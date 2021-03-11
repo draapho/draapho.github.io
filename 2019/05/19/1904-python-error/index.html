@@ -31,7 +31,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://draapho.github.io/images/1904/Region.png">
 <meta property="article:published_time" content="2019-05-18T14:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-08T12:19:43.299Z">
+<meta property="article:modified_time" content="2021-03-11T02:41:37.000Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="debug">
@@ -188,7 +188,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UnicodeEncodeError-%E2%80%98charmap%E2%80%99-codec-can%E2%80%99t-encode-characters"><span class="nav-number">1.</span> <span class="nav-text">UnicodeEncodeError: ‘charmap’ codec can’t encode characters</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#win10%E4%B8%8B-python3-%E5%92%8C-pyqt5-%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">win10下, python3 和 pyqt5 兼容性问题.</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UnicodeEncodeError-%E2%80%98charmap%E2%80%99-codec-can%E2%80%99t-encode-characters"><span class="nav-number">1.</span> <span class="nav-text">UnicodeEncodeError: ‘charmap’ codec can’t encode characters</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#from-PyQt5-import-QtCore-from-PyQt5-QtGui-import-errors-No-module-named-39-PyQt5-39"><span class="nav-number">2.</span> <span class="nav-text">from PyQt5 import QtCore from PyQt5.QtGui import * errors No module named &#39;PyQt5&#39;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-2-%E4%B8%8B-pip-install-pyinstaller-%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85-%E7%BC%96%E8%AF%91%E5%A4%B1%E8%B4%A5"><span class="nav-number">3.</span> <span class="nav-text">Python 2 下 pip install pyinstaller 无法安装, 编译失败.</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -284,7 +284,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-08 23:19:43" itemprop="dateModified" datetime="2021-03-08T23:19:43+11:00">2021-03-08</time>
+        <time title="Modified: 2021-03-11 13:41:37" itemprop="dateModified" datetime="2021-03-11T13:41:37+11:00">2021-03-11</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -312,7 +312,9 @@
 <li>原因及解决方法参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/haiross/article/details/36189103">代码页即地狱</a></li>
 </ul>
 <p>简单来说, 就是windows底层编码的问题. 要解决这个问题, 只能从windows系统着手.</p>
-<h1 id="win10下-python3-和-pyqt5-兼容性问题"><a href="#win10下-python3-和-pyqt5-兼容性问题" class="headerlink" title="win10下, python3 和 pyqt5 兼容性问题."></a>win10下, python3 和 pyqt5 兼容性问题.</h1><ul>
+<p><img src="https://draapho.github.io/images/1904/Region.png" alt="Region"></p>
+<h1 id="from-PyQt5-import-QtCore-from-PyQt5-QtGui-import-errors-No-module-named-39-PyQt5-39"><a href="#from-PyQt5-import-QtCore-from-PyQt5-QtGui-import-errors-No-module-named-39-PyQt5-39" class="headerlink" title="from PyQt5 import QtCore from PyQt5.QtGui import * errors No module named &#39;PyQt5&#39;"></a><code>from PyQt5 import QtCore</code> <code>from PyQt5.QtGui import *</code> errors <code>No module named &#39;PyQt5&#39;</code></h1><ul>
+<li>python3 和 pyqt5 兼容性问题. 最新版本的 pyqt5 和 python3.6, python3.7 不兼容.</li>
 <li>现象为: <code>import PyQt5</code> 调用正常. <code>from PyQt5 import QtCore</code> 提示错误, 无法找到模块 <code>PyQt5</code></li>
 <li>解决方法: 试了很多版本组合. 最后成功的是 <code>Python 3.8.8</code> 32位 和 <code>PyQt5 5.15.2</code>.<ul>
 <li>先软件安装 <code>Python 3.8.8</code></li>
@@ -320,7 +322,12 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://draapho.github.io/images/1904/Region.png" alt="Region"></p>
+<h1 id="Python-2-下-pip-install-pyinstaller-无法安装-编译失败"><a href="#Python-2-下-pip-install-pyinstaller-无法安装-编译失败" class="headerlink" title="Python 2 下 pip install pyinstaller 无法安装, 编译失败."></a>Python 2 下 <code>pip install pyinstaller</code> 无法安装, 编译失败.</h1><ul>
+<li>很复杂的兼容性问题. 需要降低 pip 版本以及 pyinstaller 版本</li>
+<li>首先, 降低pip版本到18.1: <code>pip install pip==18.1</code></li>
+<li>然后, 指定pyinstaller版本为3.4: <code>pip install pyinstaller==3.4</code></li>
+<li>检查是否安装成功. <code>pyinstaller -v</code></li>
+</ul>
 <hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 
