@@ -25,19 +25,19 @@
 <meta name="description" content="基于淘汰了的NUC5i5, 搭建家庭NAS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用OMV搭建家庭NAS">
-<meta property="og:url" content="https://draapho.github.io/2021/03/31/2019-nuc-omv/index.html">
+<meta property="og:url" content="https://draapho.github.io/2021/03/31/2109-nuc-omv/index.html">
 <meta property="og:site_name" content="DRA&amp;PHO">
 <meta property="og:description" content="基于淘汰了的NUC5i5, 搭建家庭NAS">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-30T13:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-30T13:23:30.081Z">
+<meta property="article:modified_time" content="2021-03-30T13:32:13.425Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="OMV">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://draapho.github.io/2021/03/31/2019-nuc-omv/">
+<link rel="canonical" href="https://draapho.github.io/2021/03/31/2109-nuc-omv/">
 
 
 <script class="page-configurations">
@@ -253,7 +253,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2021/03/31/2019-nuc-omv/">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2021/03/31/2109-nuc-omv/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -278,7 +278,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-03-31 00:00:00 / Modified: 00:23:30" itemprop="dateCreated datePublished" datetime="2021-03-31T00:00:00+11:00">2021-03-31</time>
+      <time title="Created: 2021-03-31 00:00:00 / Modified: 00:32:13" itemprop="dateCreated datePublished" datetime="2021-03-31T00:00:00+11:00">2021-03-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -416,17 +416,19 @@
 </ul>
 </li>
 </ul>
-<h2 id="heimdall-收藏夹"><a href="#heimdall-收藏夹" class="headerlink" title="heimdall 收藏夹"></a><code>heimdall</code> 收藏夹</h2><pre><code>- [heimdall](https://hub.docker.com/r/linuxserver/heimdall), 使用docker-compose安装即可
-- PUID和GUID的值, 指令 `id user_name`
-- TZ配置项, 参考[List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-- ports, 为了避免冲突, 使用高位端口, 如 `8880:80`, 用8880映射80端口.
-- OMV的docker-compose, 选择`portainer.io`-&gt;`local`-&gt;`Stacks`-&gt;`Add stack`即可.
-</code></pre>
-<h2 id="jellyfin-影音播放"><a href="#jellyfin-影音播放" class="headerlink" title="jellyfin 影音播放"></a><code>jellyfin</code> 影音播放</h2><pre><code>- [jellyfin](https://hub.docker.com/r/linuxserver/jellyfin), 使用docker-compose安装即可. 官网地址为 [Welcome to the Jellyfin Documentation](https://jellyfin.org/docs/)
-- OMV需要先共享音视频文件夹.
-- 然后在`docker-compose`的`volumes`一栏下, 映射好相关文件夹.
-- 输入`jellyfin`的地址`192.168.xx.xx:8096`, 设置`Users`, 添加`Libraries`即可.
-</code></pre>
+<h2 id="heimdall-收藏夹"><a href="#heimdall-收藏夹" class="headerlink" title="heimdall 收藏夹"></a><code>heimdall</code> 收藏夹</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://hub.docker.com/r/linuxserver/heimdall">heimdall</a>, 使用docker-compose安装即可</li>
+<li>PUID和GUID的值, 指令 <code>id user_name</code></li>
+<li>TZ配置项, 参考<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">List of tz database time zones</a></li>
+<li>ports, 为了避免冲突, 使用高位端口, 如 <code>8880:80</code>, 用8880映射80端口.</li>
+<li>OMV的docker-compose, 选择<code>portainer.io</code>-&gt;<code>local</code>-&gt;<code>Stacks</code>-&gt;<code>Add stack</code>即可.</li>
+</ul>
+<h2 id="jellyfin-影音播放"><a href="#jellyfin-影音播放" class="headerlink" title="jellyfin 影音播放"></a><code>jellyfin</code> 影音播放</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://hub.docker.com/r/linuxserver/jellyfin">jellyfin</a>, 使用docker-compose安装即可. 官网地址为 <a target="_blank" rel="noopener" href="https://jellyfin.org/docs/">Welcome to the Jellyfin Documentation</a></li>
+<li>OMV需要先共享音视频文件夹.</li>
+<li>然后在<code>docker-compose</code>的<code>volumes</code>一栏下, 映射好相关文件夹.</li>
+<li>输入<code>jellyfin</code>的地址<code>192.168.xx.xx:8096</code>, 设置<code>Users</code>, 添加<code>Libraries</code>即可.</li>
+</ul>
 <h2 id="filebrowsers-文件管理"><a href="#filebrowsers-文件管理" class="headerlink" title="filebrowsers 文件管理"></a><code>filebrowsers</code> 文件管理</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/filebrowser/filebrowser">filebrowsers</a>, 使用如下docker-compose安装即可.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">version: &quot;2.1&quot;</span><br><span class="line">services:</span><br><span class="line">  filebrowser:</span><br><span class="line">    image: filebrowser&#x2F;filebrowser</span><br><span class="line">    container_name: filebrowser</span><br><span class="line">    volumes:</span><br><span class="line">      - &#x2F;srv:&#x2F;srv</span><br><span class="line">      #- .&#x2F;config.json:&#x2F;config.json     # 要自己指定配置文件的话, 必须先存在文件.</span><br><span class="line">      #- .&#x2F;database.db:&#x2F;database.db</span><br><span class="line">    ports:</span><br><span class="line">      - 8888:80</span><br><span class="line">    restart: unless-stopped</span><br></pre></td></tr></table></figure></li>
 </ul>
