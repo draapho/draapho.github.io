@@ -19860,8 +19860,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>系统设置里, <code>连接</code>-&gt;反选<code>全球发现</code>. 全部配置好后, 可反选所有选项: <code>启用 NAT 遍历</code>, <code>本地发现</code>, <code>开启中继</code></li>
 <li>OMV端的文件夹权限需要改成777, 可以在OMV共享文件夹设置里, <code>Reset Permissions</code> -&gt; <code>每个人:读/写.</code></li>
 <li>设备选项里, 将<code>NAS-OMV</code>添加为远程设备时, <code>高级</code>-&gt;<code>地址列表</code>-&gt;直接用静态ip <code>tcp://192.168.xx.xx:22000</code></li>
-<li><code>文件夹选项</code>. <code>高级</code>. 如果是和Android手机同步, 勾选 <code>忽略文件夹权限</code></li>
-<li><code>文件夹选项</code>. 忽略模式. 忽略Linux隐藏文件, Windows回收站, 系统文件等.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.*</span><br><span class="line">!.gitignore</span><br><span class="line">*RECYCLE*\</span><br><span class="line">*Recycle*\</span><br><span class="line">*\desktop.ini</span><br><span class="line">*\thumbs.db</span><br><span class="line">\System*Volume*Information\</span><br><span class="line">\OneDriveTemp\</span><br></pre></td></tr></table></figure></li>
+<li><code>文件夹选项</code>. <code>高级</code>. 如果是和Windows/Android同步, 勾选 <code>忽略文件夹权限</code></li>
+<li><code>文件夹选项</code>. 忽略模式. 忽略Linux隐藏文件, Windows回收站, 系统文件等.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.*</span><br><span class="line">!.gitignore</span><br><span class="line">*RECYCLE*\</span><br><span class="line">*Recycle*\</span><br><span class="line">*\desktop.ini</span><br><span class="line">*\thumbs.db</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li>参考资料<ul>
