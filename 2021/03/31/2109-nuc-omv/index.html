@@ -30,7 +30,7 @@
 <meta property="og:description" content="基于淘汰了的NUC5i5, 搭建家庭NAS">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-30T13:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-30T13:32:13.425Z">
+<meta property="article:modified_time" content="2021-03-31T01:32:31.000Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="OMV">
@@ -186,7 +186,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E9%80%89%E6%8B%A9"><span class="nav-number">2.</span> <span class="nav-text">方案选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">3.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E4%B9%8B%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">Docker之路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#heimdall-%E6%94%B6%E8%97%8F%E5%A4%B9"><span class="nav-number">4.1.</span> <span class="nav-text">heimdall 收藏夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jellyfin-%E5%BD%B1%E9%9F%B3%E6%92%AD%E6%94%BE"><span class="nav-number">4.2.</span> <span class="nav-text">jellyfin 影音播放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filebrowsers-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="nav-number">4.3.</span> <span class="nav-text">filebrowsers 文件管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wetty-%E7%BD%91%E9%A1%B5%E7%89%88ssh"><span class="nav-number">4.4.</span> <span class="nav-text">wetty 网页版ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aria2pro-%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7"><span class="nav-number">4.5.</span> <span class="nav-text">aria2pro 下载工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#syncthing-%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7"><span class="nav-number">4.6.</span> <span class="nav-text">syncthing 同步工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zerotier-%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE"><span class="nav-number">4.7.</span> <span class="nav-text">zerotier 外网访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Clonezilla%E5%85%8B%E9%9A%86%E5%BC%8F%E5%A4%87%E4%BB%BD"><span class="nav-number">5.</span> <span class="nav-text">Clonezilla克隆式备份</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E9%80%89%E6%8B%A9"><span class="nav-number">2.</span> <span class="nav-text">方案选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">3.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E4%B9%8B%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">Docker之路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#heimdall-%E6%94%B6%E8%97%8F%E5%A4%B9"><span class="nav-number">4.1.</span> <span class="nav-text">heimdall 收藏夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jellyfin-%E5%BD%B1%E9%9F%B3%E6%92%AD%E6%94%BE"><span class="nav-number">4.2.</span> <span class="nav-text">jellyfin 影音播放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filebrowsers-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="nav-number">4.3.</span> <span class="nav-text">filebrowsers 文件管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wetty-%E7%BD%91%E9%A1%B5%E7%89%88ssh"><span class="nav-number">4.4.</span> <span class="nav-text">wetty 网页版ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aria2pro-%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7"><span class="nav-number">4.5.</span> <span class="nav-text">aria2pro 下载工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#syncthing-%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7"><span class="nav-number">4.6.</span> <span class="nav-text">syncthing 同步工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zerotier-%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE"><span class="nav-number">4.7.</span> <span class="nav-text">zerotier 外网访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zerotier-%E6%8A%98%E8%85%BE%E8%AE%B0"><span class="nav-number">4.8.</span> <span class="nav-text">zerotier 折腾记</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Clonezilla-%E7%B3%BB%E7%BB%9F%E7%9B%98%E5%A4%87%E4%BB%BD"><span class="nav-number">5.</span> <span class="nav-text">Clonezilla 系统盘备份</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -278,7 +278,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-03-31 00:00:00 / Modified: 00:32:13" itemprop="dateCreated datePublished" datetime="2021-03-31T00:00:00+11:00">2021-03-31</time>
+      <time title="Created: 2021-03-31 00:00:00 / Modified: 12:32:31" itemprop="dateCreated datePublished" datetime="2021-03-31T00:00:00+11:00">2021-03-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -345,10 +345,10 @@
 <li><code>Partition(s) 1 on /dev/sda have been written, but we have been unable to inform the kernel of the change, probably because it they are in use. As a result, the old part it ion(s) will remain in use. You should reboot now before making further changes ERROR</code></li>
 </ul>
 </li>
-<li>如果出错了, 删除EFI分区需要用到<code>diskpart</code>内的<code>clean</code>指令. 可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013005025/article/details/52947632">DOS命令diskpart格式化磁盘</a>. 务必再三确认, 谨慎操作!!!</li>
+<li>如果出错了, 删除EFI分区需要用到<code>diskpart</code>内的<code>clean</code>指令. 可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013005025/article/details/52947632">DOS命令diskpart格式化磁盘</a>. <strong>务必再三确认, 谨慎操作!!!</strong></li>
 <li>键盘选择 <code>keymap</code> 建议选 <code>British English</code>, 不选 <code>American English</code>. 我遇到了标点符号乱码的情况.</li>
 <li><code>Root password</code> 要填写并记好.</li>
-<li>安装完毕, 提示<code>Finsih the installation</code>, 不要拔出安装用的U盘. 否则可能进不了OMV系统. 进过一次系统后, 可以安全拔出安装U盘.</li>
+<li>安装完毕, 提示<code>Finsih the installation</code>, <strong>不要拔出安装用的U盘. 否则可能进不了OMV系统.</strong> 进过一次系统后, 可以安全拔出安装U盘.</li>
 </ul>
 </li>
 <li>第二步, 配置OMV, 过程略, 继续参考 <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/av7z2564/">OMV安装：系统安装设置及一些功能的开启</a>. 注意点如下:<ul>
@@ -405,6 +405,7 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/P3TERX/Aria2-Pro-Docker">aria2-pro</a>, 下载工具</li>
 <li><a target="_blank" rel="noopener" href="https://hub.docker.com/r/linuxserver/syncthing">syncthing</a>, 同步备份软件. 放弃了收费的 Resilio_sync</li>
 <li><a target="_blank" rel="noopener" href="https://hub.docker.com/r/filebrowser/filebrowser">filebrowser</a>, 文件管理</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/butlerx/wetty">wetty</a>  网页版ssh</li>
 </ul>
 </li>
 <li>外网访问:<ul>
@@ -433,6 +434,7 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/filebrowser/filebrowser">filebrowsers</a>, 使用如下docker-compose安装即可.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">version: &quot;2.1&quot;</span><br><span class="line">services:</span><br><span class="line">  filebrowser:</span><br><span class="line">    image: filebrowser&#x2F;filebrowser</span><br><span class="line">    container_name: filebrowser</span><br><span class="line">    volumes:</span><br><span class="line">      - &#x2F;srv:&#x2F;srv</span><br><span class="line">      #- .&#x2F;config.json:&#x2F;config.json     # 要自己指定配置文件的话, 必须先存在文件.</span><br><span class="line">      #- .&#x2F;database.db:&#x2F;database.db</span><br><span class="line">    ports:</span><br><span class="line">      - 8888:80</span><br><span class="line">    restart: unless-stopped</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="wetty-网页版ssh"><a href="#wetty-网页版ssh" class="headerlink" title="wetty 网页版ssh"></a>wetty 网页版ssh</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/butlerx/wetty">wetty</a>, 使用如下命令安装即可.</li>
 <li>docker指令安装 <code>docker run --rm -p 3000:3000 wettyoss/wetty --ssh-host=192.168.xx.xx</code></li>
 <li>网址登录 <code>192.168.xx.xx:3000/wetty</code></li>
 <li>android端输入法, 推荐 <code>Hacker&#39;s Keyboard</code></li>
@@ -487,10 +489,30 @@
 <li><code>zerotier-cli set 35xxxxxxxxxxxx22 allowManaged=1</code></li>
 <li><code>zerotier-cli info</code> 检查连接状态. 返回值 <code>200 info 7cXXXXXX6f 1.6.4 ONLINE</code></li>
 <li>在另外一台设备上, 如windows或手机端. 安装zerotier, 加入网络. 网页端使能加入的网络.</li>
-<li>两个设备相互ping zerotier给出的ip地址. 然后再测试外网的情况.</li>
+<li>两个设备相互ping zerotier给出的ip地址.</li>
+<li>然后再测试外网的情况. 如果外网情况也能相互ping通, 继续设置.</li>
+<li>在zerotier官网管理界面 <code>Managed Routes</code>, 添加转发规则 <code>家庭局域网IP/24 via NAS在zero-tier端的IP</code>,<ul>
+<li>譬如 <code>192.168.1.0/24 via 10.147.17.111</code>.</li>
+<li>其中的<code>192.168.1.0</code>是家庭局域网地址段,</li>
+<li>其中的<code>10.147.17.111</code>是zero-tier分配给NAS的地址.</li>
 </ul>
 </li>
-<li>我这边, 刚开始连内网都ping不通. 最后一通修改, 突然通了. 可能的问题如下:<ul>
+<li>NAS端打开IP转发 <code>sudo sysctl -w net.ipv4.ip_forward=1</code></li>
+<li>测试: 外网电脑登录OMV控制界面.</li>
+<li>安装完成.</li>
+</ul>
+</li>
+<li>我这边, 一共试了三到四次, 总是失败. 最后发现是路由器的问题.<ul>
+<li><code>Amplifi</code>需要关闭<code>硬件NAT</code>功能, 有线连接的设备才能正常使用第三方VPN.</li>
+<li>参考资料 <a target="_blank" rel="noopener" href="https://community.amplifi.com/topic/3916/unable-to-connect-to-my-work-vpn">UNABLE TO CONNECT TO MY WORK VPN</a></li>
+<li>把折腾过程也记录一下, 仅供参考.</li>
+</ul>
+</li>
+</ul>
+<h2 id="zerotier-折腾记"><a href="#zerotier-折腾记" class="headerlink" title="zerotier 折腾记"></a><del>zerotier 折腾记</del></h2><ul>
+<li>凭着记忆记录下折腾过程. 没有遇到问题的话, 不需要看.</li>
+<li>现象: NAS端显示连接zerotier成功, 有ip地址, 返回200, 显示ONLINE. 但内外网都ping不通.</li>
+<li>一通查资料和修改, 突然ping通了内网. 大概的折腾过程如下:<ul>
 <li><code>apt-get install net-tools</code> 安装 netstat.  <code>netstat -ntulp | grep 9993</code> 查看9993端口使用情况.</li>
 <li><code>ip link</code> 查看网卡状态. zerotier的网卡名字为 zt开头的一串数字字母组合.</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/zerotier/ZeroTierOne/issues/74">Make MTU configurable</a><ul>
@@ -510,10 +532,13 @@
 <li><code>Name=zt* Unmanaged=yes</code></li>
 </ul>
 </li>
-<li>这样, 可以ping内网, 但还是ping不通外网.</li>
 </ul>
 </li>
-<li>其他参考资料<ul>
+</ul>
+</li>
+<li>这样可以ping内网, 但还是ping不通外网. 继续瞎折腾<ul>
+<li>参考资料.<ul>
+<li><a target="_blank" rel="noopener" href="https://chrisatech.wordpress.com/2020/02/09/setting-up-a-zerotier-network/">设置ZeroTier网络</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/getting-started-software-defined-networking-creating-vpn-zerotier-one">Getting Started with Software-Defined Networking and Creating a VPN with ZeroTier One</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.v2ex.com/t/681731">Zerotier 异地组网问题</a></li>
 <li><code>zerotier-cli listnetworks</code> 查看状态</li>
@@ -521,20 +546,21 @@
 <li><code>systemctl restart zerotier-one</code> 重启服务. 另stop则停止, start则开始.</li>
 </ul>
 </li>
-<li>最后放弃折腾. 自己的路由器是AmpliFi, 可以很方便的实现手机外网访问.</li>
-<li>彻底卸载 Zerotier-one<ul>
+<li>最后放弃. 想着自己的路由器是AmpliFi, 可以很方便的实现手机外网访问.</li>
+</ul>
+</li>
+<li>彻底卸载 Zerotier-one 的方法<ul>
 <li>参考 <a target="_blank" rel="noopener" href="https://www.taodudu.cc/news/show-1734416.html">搭建Zerotier内网穿透网络及彻底删除zerotier方法</a></li>
 <li><code>sudo dpkg -P zerotier-one</code></li>
 <li><code>sudo rm -rf /var/lib/zerotier-one/</code></li>
 </ul>
 </li>
+<li>最后一次尝试前, 查了一下路由器端的资料, 关了硬件NAT, 重新安装配置, 一切顺利…</li>
 </ul>
-</li>
-</ul>
-<h1 id="Clonezilla克隆式备份"><a href="#Clonezilla克隆式备份" class="headerlink" title="Clonezilla克隆式备份"></a>Clonezilla克隆式备份</h1><ul>
+<h1 id="Clonezilla-系统盘备份"><a href="#Clonezilla-系统盘备份" class="headerlink" title="Clonezilla 系统盘备份"></a>Clonezilla 系统盘备份</h1><ul>
 <li>防止系统盘损害, 无法启动. 直接替换克隆下的系统U盘即可.</li>
 <li>克隆系统U盘方法如下:<ul>
-<li>NAS-OMV主页-&gt;<code>磁盘</code>-&gt;确定系统盘的序列号, 记录下来</li>
+<li>NAS-OMV主页-&gt;<code>磁盘</code>-&gt;<strong>确定系统盘的序列号, 记录下来</strong></li>
 <li>插入目标U盘-&gt;方法同上, 记录下序列号.</li>
 <li>NAS-OMV主页-&gt;<code>OMV-extras</code>-&gt;<code>内核</code>-&gt;<code>再生龙 Clonezilla</code>-&gt;安装</li>
 <li>然后点击下面的<code>从再生龙 Clonezilla 启动一次</code>.</li>
