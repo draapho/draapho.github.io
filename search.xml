@@ -19832,7 +19832,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 <h2 id="wetty-网页版ssh"><a href="#wetty-网页版ssh" class="headerlink" title="wetty 网页版ssh"></a>wetty 网页版ssh</h2><ul>
 <li><a href="https://github.com/butlerx/wetty">wetty</a>, 使用如下命令安装即可.</li>
-<li>docker指令安装 <code>docker run --rm -p 3000:3000 wettyoss/wetty --ssh-host=192.168.xx.xx</code></li>
+<li>docker指令安装 <code>docker run --restart always -p 3000:3000 wettyoss/wetty --ssh-host=192.168.xx.xx</code></li>
 <li>网址登录 <code>192.168.xx.xx:3000/wetty</code></li>
 <li>android端输入法, 推荐 <code>Hacker&#39;s Keyboard</code></li>
 </ul>
@@ -19963,7 +19963,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>然后点击下面的<code>从再生龙 Clonezilla 启动一次</code>.</li>
 <li>重启 NAS-OMV, 等待进入Clonezilla系统.</li>
 <li>使用ssh, 登录到Clonezilla界面. 用户名<code>user</code>, 密码<code>live</code></li>
-<li>输入指令 <code>sudo clonezila</code>, 启动该软件.</li>
+<li>输入指令 <code>sudo clonezilla</code>, 启动该软件.</li>
 <li>选择第二项, 设备到设备. <code>device-device work directly from ...</code></li>
 <li>选初学者模式 <code>beginner ...</code></li>
 <li>选磁盘到磁盘 <code>disk to local disk</code></li>
