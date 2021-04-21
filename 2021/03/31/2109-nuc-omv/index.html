@@ -30,7 +30,7 @@
 <meta property="og:description" content="基于淘汰了的NUC5i5, 搭建家庭NAS">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-30T13:00:00.000Z">
-<meta property="article:modified_time" content="2021-04-06T09:06:42.164Z">
+<meta property="article:modified_time" content="2021-04-09T14:10:57.967Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="OMV">
@@ -284,7 +284,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-04-06 19:06:42" itemprop="dateModified" datetime="2021-04-06T19:06:42+10:00">2021-04-06</time>
+        <time title="Modified: 2021-04-10 00:10:57" itemprop="dateModified" datetime="2021-04-10T00:10:57+10:00">2021-04-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -469,7 +469,7 @@
 <li>所有电脑都在同一个局域网下的话, 系统<code>设置</code>-&gt;<code>连接</code>-&gt;反选<code>全球发现</code>, 反选<code>启用 NAT 遍历</code>, 反选<code>开启中继</code></li>
 <li>OMV端的文件夹权限需要改成777, 可以在OMV共享文件夹设置里, <code>Reset Permissions</code> -&gt; <code>每个人:读/写.</code></li>
 <li><code>文件夹选项</code>. <code>高级</code>. 如果是和Windows/Android同步, 勾选 <code>忽略文件夹权限</code></li>
-<li><code>文件夹选项</code>. 忽略模式. 忽略Linux隐藏文件, Windows回收站, 系统文件等.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.*</span><br><span class="line">!.gitignore</span><br><span class="line">*RECYCLE*\</span><br><span class="line">*Recycle*\</span><br><span class="line">*\desktop.ini</span><br><span class="line">*\thumbs.db</span><br></pre></td></tr></table></figure></li>
+<li><code>文件夹选项</code>. 忽略模式. 忽略Linux隐藏文件, Windows回收站, 系统文件等.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.*</span><br><span class="line">!.gitignore</span><br><span class="line">*RECYCLE*\</span><br><span class="line">*Recycle*\</span><br><span class="line">**\desktop.ini</span><br><span class="line">**\thumbs.db</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li>参考资料<ul>
