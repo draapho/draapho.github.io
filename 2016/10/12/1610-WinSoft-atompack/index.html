@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="atom配置. 已不用, 请忽略.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 软件系列-atom插件">
+<meta property="og:url" content="https://draapho.github.io/2016/10/12/1610-WinSoft-atompack/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="atom配置. 已不用, 请忽略.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-10-11T13:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.708Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="atom">
+<meta property="article:tag" content="mingw">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2016/10/12/1610-WinSoft-atompack/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Windows 软件系列-atom插件 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B2%E4%B8%8D%E7%94%A8atom"><span class="nav-number">1.</span> <span class="nav-text">已不用atom</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#atom%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">atom简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#atom-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">atom 插件的安装方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#atom-%E9%80%9A%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">atom 通用插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-%E6%8F%92%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">git 插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-%E6%8F%92%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">python 插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c-c-%E6%8F%92%E4%BB%B6"><span class="nav-number">7.</span> <span class="nav-text">c&#x2F;c++ 插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown%E6%8F%92%E4%BB%B6"><span class="nav-number">8.</span> <span class="nav-text">markdown插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#atom%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E7%BD%AE"><span class="nav-number">9.</span> <span class="nav-text">atom快捷键配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E5%92%8C%E8%B5%84%E6%96%99"><span class="nav-number">10.</span> <span class="nav-text">参考和资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2016/10/12/1610-WinSoft-atompack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Windows 软件系列-atom插件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-10-12 00:00:00" itemprop="dateCreated datePublished" datetime="2016-10-12T00:00:00+11:00">2016-10-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">windows</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">atom配置. 已不用, 请忽略.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="已不用atom"><a href="#已不用atom" class="headerlink" title="已不用atom"></a>已不用atom</h1><ul>
+<li>想通用的结果就是: 启动慢, 不稳定, 配置烦.</li>
+</ul>
+<h1 id="atom简介"><a href="#atom简介" class="headerlink" title="atom简介"></a><a target="_blank" rel="noopener" href="https://atom.io/">atom</a>简介</h1><ul>
+<li>界面简洁, 基本上手可用, 无需复杂设置</li>
+<li>开源免费, 而且多平台支持, 有丰富的插件库</li>
+<li>和git的整合度很好! 直观明了好用</li>
+<li>启动相对较慢, 但可接受.</li>
+<li>懒人不想折腾, atom无明显短板, 就作为主力代码编辑器了</li>
+<li>定位是 Notepad++ 为快速处理文件, atom 处理项目</li>
+<li>此篇重点介绍 atom 插件的选择和安装, 以及配置快捷键. 基础介绍见<a href="https://draapho.github.io/2016/09/30/1603-WinSoft-editor/">Windows 软件系列-文本编辑</a></li>
+</ul>
+<h1 id="atom-插件的安装方式"><a href="#atom-插件的安装方式" class="headerlink" title="atom 插件的安装方式"></a>atom 插件的安装方式</h1><ul>
+<li><code>ctrl-,</code>-&gt;<code>Settings</code>-&gt;<code>Install</code>-&gt;选择要安装的插件</li>
+<li>终端下使用命令行 <code>apm install</code>, 装完后需要重启atom.<br>有些插件只能通过这个方式安装. 譬如要安装 <code>linter</code>, 命令行输入<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apm install linter</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="atom-通用插件"><a href="#atom-通用插件" class="headerlink" title="atom 通用插件"></a>atom 通用插件</h1><ul>
+<li><code>Sublime-Style-Column-Selection</code> 使用 <code>alt-鼠标左键</code> 进入列选模式</li>
+<li><code>atom-beautify</code> 自动格式化代码,<ul>
+<li>需设置 <code>ctrl-b</code> 美化</li>
+</ul>
+</li>
+<li><del><code>autocomplete-paths</code></del> 辅助完成路径</li>
+<li><code>block-comment-plus</code> 批量注释, 支持多种语言<ul>
+<li>需设置 <code>ctrl-shift-/</code> 和 <code>ctrl-shift-\</code></li>
+</ul>
+</li>
+<li><code>dash</code>  文档帮助, 配合 zeal (windows/linux) 或 dash(apple), 实现快速查询API<ul>
+<li>需设置 <code>F1</code> 帮助</li>
+</ul>
+</li>
+<li><del><code>disable-keybindings</code></del> 快速禁用atom的部分快捷键</li>
+<li><code>docblockr</code> 注释辅助, 快速添加函数的注释<ul>
+<li>支持 <code>tab</code> 键直接在参数间跳转</li>
+<li><code>Align tags</code>-&gt;<code>deep</code></li>
+<li><code>Auto add method tag</code></li>
+<li><del><code>Extend double slash</code></del></li>
+</ul>
+</li>
+<li><code>highlight-selected</code> 自动高亮匹配的词,</li>
+<li><code>hyperclick</code> 快速跳转到定义处, 仅限单文件, 但可由别的插件扩展<ul>
+<li><code>Trigger keys for Windows</code> <code>ctrl-shift-click</code>. 用ctrl键和系统多选冲突</li>
+</ul>
+</li>
+<li><code>last-cursor-position</code> 浏览历史跳转<ul>
+<li>需设置 <code>ctrl-shift-z</code> <code>ctrl-shift-y</code> 进行跳转</li>
+</ul>
+</li>
+<li><code>linter</code> 语法检查基础包</li>
+<li><code>minimap</code> 文件地图</li>
+<li><code>minimap-highlight-selected</code> 在文件地图中显示匹配的词</li>
+<li><code>platformio-ide-terminal</code> 终端软件<ul>
+<li>支持 <code>ctrl-~</code> 快速打开, <code>ctrl-enter</code> 输入选中的文本</li>
+<li><code>Close Terminal on Exit</code></li>
+<li><code>Shell Override</code>-&gt;<code>git-cmd.exe</code> 没有配置环境变量则需要使用绝对路径</li>
+<li><code>Shell Arguments</code>-&gt;<code>--no-cd --command=usr/bin/bash.exe -l -i</code></li>
+<li><code>Working Directory</code>-&gt;<code>Project</code></li>
+<li><code>Theme</code>-&gt;<code>homebrew</code> 黑底绿字</li>
+</ul>
+</li>
+<li><del><code>Project Manager</code></del> 加入项目的概念, 纯快捷键操作. 与<code>project-viewer</code>二选一即可.</li>
+<li><code>project-viewer</code> 加入项目的概念,  带UI. 与<code>Project Manager</code>二选一即可.<ul>
+<li><code>Status Bar Visibility</code></li>
+<li><code>Autohide</code></li>
+<li><code>Positon of the panel</code>-&gt;<code>Left</code></li>
+<li><del><code>Convert Old Data</code></del></li>
+</ul>
+</li>
+<li><code>script</code> 一键执行, 支持多种代码, 不弹窗<ul>
+<li>需设置 <code>F5</code> 执行</li>
+</ul>
+</li>
+<li><code>symbols-tree-view</code> 显示类/变量/函数列表<ul>
+<li><code>Auto Hide</code></li>
+<li><code>Auto Toggle</code></li>
+</ul>
+</li>
+<li><code>tabs-to-spaces</code> tab空格互相转换</li>
+<li><del><code>vim-mode</code></del> vim操作方式. 需要屏蔽按键 <code>ctrl-f</code>, 恢复为搜索按键<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;atom-text-editor.vim-mode:not(.insert-mode)&#39;:</span><br><span class="line">  &#39;ctrl-f&#39;: &#39;unset!&#39;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="git-插件"><a href="#git-插件" class="headerlink" title="git 插件"></a>git 插件</h1><ul>
+<li><code>git-time-machine</code> 查看单文件的git历史<ul>
+<li>需设置 <code>f6</code> 查看比较</li>
+</ul>
+</li>
+<li><del><code>git-plus</code></del> git辅助, 我是通过 <code>platformio-ide-terminal</code> 打开终端敲git命令.</li>
+<li>merge-conflicts 查看git文件冲突<ul>
+<li>需设置 <code>ctrl-f6</code> 查看冲突</li>
+</ul>
+</li>
+</ul>
+<h1 id="python-插件"><a href="#python-插件" class="headerlink" title="python 插件"></a>python 插件</h1><ul>
+<li>配置 <code>atom-beautify</code> 之python语言<ul>
+<li>安装 <a target="_blank" rel="noopener" href="https://www.python.org/">python</a></li>
+<li>安装 <a target="_blank" rel="noopener" href="https://github.com/hhatto/autopep8">autopep8</a>, 调用 <code>pip install --upgrade autopep8</code></li>
+<li>默认就是使用 <code>autopep8</code> 优化代码, 也推荐这个使用这个工具. <code>yapf</code>的优化结果无法满足<code>linter-flake8</code>的检查.</li>
+<li>测试. 打开一个 <code>.py</code> 文件, 右键选择 <code>Beautify editor contents</code> 看是否成功了.</li>
+</ul>
+</li>
+<li><del><code>atom-python-run</code></del> <code>F5</code>运行, 但是会弹cmd窗, 改用<code>script</code></li>
+<li><code>autocomplete-python</code> python辅助, 配合 <code>hyperclick</code> 跳转很方便<ul>
+<li>设置快捷键 <code>f4</code> 跳转</li>
+<li><code>Show Descriptions</code></li>
+<li><code>Autocomplete Function Parameters</code>-&gt;<code>all</code></li>
+</ul>
+</li>
+<li><code>linter-flake8</code> 代码规范检查, 检查很严, 配合 autopep8 的自动格式化就很完美了.<ul>
+<li>终端输入 <code>pip install flake8</code> python 安装 <code>flake8</code></li>
+<li>终端输入 <code>apm install linter-flake8</code> atom 安装 <code>linter-flake8</code></li>
+<li>插件配置 <code>Ignore Error</code>-&gt;<code>E501</code> 超过79列不要提示错误</li>
+</ul>
+</li>
+</ul>
+<h1 id="c-c-插件"><a href="#c-c-插件" class="headerlink" title="c/c++ 插件"></a>c/c++ 插件</h1><ul>
+<li>配置 <code>atom-beautify</code> 之c/c++语言<ul>
+<li>安装<a target="_blank" rel="noopener" href="http://uncrustify.sourceforge.net/">uncrustify</a>, 可以自动美化多种语言的格式.<ul>
+<li>下载<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/uncrustify/files/uncrustify/uncrustify-0.63/">uncrustify-0.63.0-g44ce0f1-win32.zip</a></li>
+<li>解压后, 将uncrustify目录加入环境变量, 已 <code>D:\uncrustify\</code> 为例</li>
+<li>终端内输入 <code>uncrustify -v</code>, 测试是否配置好 uncrustify</li>
+</ul>
+</li>
+<li><code>atom-beautify</code> 插件的配置, 在c和c++下分别操作一次.<ul>
+<li><code>Default Beautifier</code>-&gt;<code>Uncrustify</code> . <del>另一个选项 <code>clang-format</code> 需要安装clang, 里面带有指令<code>clang-format.exe</code></del></li>
+<li><code>Config Path</code>-&gt;<code>D:\uncrustify\cfg\linux.cfg</code> 选择格式化模板</li>
+</ul>
+</li>
+<li>测试, 打开一个 <code>.c</code> 文件, 右键选择 <code>Beautify editor contents</code> 看是否成功了.</li>
+</ul>
+</li>
+<li><code>atom-gtags</code>, 能比较好的实现跳转<ul>
+<li>设置快捷键 <code>f4</code> 跳转</li>
+<li>右键项目根目录即可 <code>Build Gtags</code></li>
+<li>放弃 <del><code>atom-ctags</code></del> 实测效果很差!</li>
+<li>比较: <a target="_blank" rel="noopener" href="https://github.com/OpenGrok/OpenGrok/wiki/Comparison-with-Similar-Tools">https://github.com/OpenGrok/OpenGrok/wiki/Comparison-with-Similar-Tools</a></li>
+</ul>
+</li>
+<li>基于gcc编译的配置<ul>
+<li>下载 <a target="_blank" rel="noopener" href="http://www.mingw.org/">MinGW</a>, 安装并设置好环境变量<ul>
+<li>安装好后, 只是 <code>MinGW Installation Manager</code>, 实际上是个绿色软件. 打开后继续安装组件</li>
+<li><code>Basic Setup</code>-&gt;<code>mingw32-base</code> 和 <code>mingw32-gcc-g++</code>-&gt;左上 <code>Installation</code>-&gt;<code>Apply changes</code>-&gt;等待安装完成.</li>
+<li>这里只需要编译c和c++文件, 无需安装其它组件了.</li>
+<li>设置 <code>...\MinGW\bin</code> 文件夹到系统环境变量中</li>
+<li>复制一份 <code>mingw32-make.exe</code> 并重命名为 <code>make.exe</code>, 这样就能直接用 <code>make</code> 指令了</li>
+<li>测试. 终端中输入 <code>make -v</code> 和 <code>gcc -v</code>, 看是否可以识别到指令</li>
+</ul>
+</li>
+<li><del><code>gpp-compiler</code></del> <code>f5</code>运行, 但会弹cmd窗, 决定使用内置终端</li>
+<li><code>linter-gcc</code> 基于gcc进行语法检查<ul>
+<li><code>GCC Excutable Path</code>-&gt;<code>gcc</code> 或 <code>g++</code>, 没有配置环境变量的话, 使用绝对路径, 注意斜杠!</li>
+<li><code>GCC Include Paths</code>-&gt;<code>.../MinGW/include/*</code> 注意斜杠方向! 加入必要头文件.</li>
+<li>只在保存时, 才会进行语法检查</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><del>基于clang编译的配置</del><ul>
+<li>彻底放弃这个系列, 不用vs, 基于mingw的配置失败.</li>
+<li>相关软件和参考如下</li>
+<li><del><code>autocomplete-clang</code></del> 自动完成</li>
+<li><del><code>linter-clang</code></del> 语法检查</li>
+<li><a target="_blank" rel="noopener" href="http://llvm.org/">clang官网</a>. 官网进入的链接是找不到windows下编译好的版本的.</li>
+<li>下载特定版本的clang, 如 <code>LLVM-3.9.0</code>, 使用链接:<a target="_blank" rel="noopener" href="http://llvm.org/releases/3.9.0/">http://llvm.org/releases/3.9.0/</a></li>
+<li>参考 <a target="_blank" rel="noopener" href="http://m.blog.csdn.net/article/details?id=49902519">解决llvm/clang在windows下编译时找不到头文件和Lib的问题</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="markdown插件"><a href="#markdown插件" class="headerlink" title="markdown插件"></a>markdown插件</h1><ul>
+<li>atom已经支持markdown, 使用<code>ctrl-shift-m</code>即可预览. 如果要增强功能, 可以使用插件</li>
+<li><del><code>markdown-preview-enhanced</code></del> markdown, 导出为pdf时, 制图显示有问题<ul>
+<li><code>Break On Single Newline</code></li>
+<li><code>Enable Typographer</code></li>
+<li><code>Math Rendering Option</code>-&gt;<code>MathJax</code></li>
+<li><del><code>Enable Wiki Link Syntax</code></del></li>
+<li><del><code>Use GitHub.com syntax theme</code></del></li>
+<li><del><code>Print Background when generating pdf</code></del> 否则pdf不显示制图</li>
+<li><del><code>Use Github style when generating pdf</code></del> 否则pdf不显示制图</li>
+<li><del><code>Open preview pane automatically when opening a markdown file</code></del></li>
+<li><code>Image Uploader</code>-&gt;<code>sm.ms</code> 建议这个. <code>imgur</code> 有时限</li>
+<li><code>Mermaid Theme</code>-&gt;<code>mermaid.forest.css</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="atom快捷键配置"><a href="#atom快捷键配置" class="headerlink" title="atom快捷键配置"></a>atom快捷键配置</h1><ul>
+<li><p>使用 <code>ctrl-.</code> 查看按键冲突. 如果无效, 试试点到非编辑区(如目录树)试试.</p>
+</li>
+<li><p><code>ctrl-,</code>-&gt;<code>Settings</code>-&gt;<code>Keybindings</code>-&gt;<code>your keymap file</code>-&gt;打开<code>keymap.cson</code></p>
+</li>
+<li><p>自定义快捷键方式可参考 <a target="_blank" rel="noopener" href="http://flight-manual.atom.io/using-atom/sections/basic-customization/#_customizing_keybindings">Basic Customization</a></p>
+</li>
+<li><p>很明显, 要备份自己的快捷键设置, 只需要保存这份 <code>keymap.cson</code> 文件</p>
+</li>
+<li><p>最后禁用插件里不需要的快捷键, 或者使用 <code>disable-keybindings</code>.</p>
+<ul>
+<li><code>Keybindings</code> -&gt; <del><code>Enable</code></del>. 屏蔽以下插件:</li>
+<li><code>atom-beautify</code>, <code>atom-gtags</code>, <code>autocomplete-python</code></li>
+<li><code>block-comment-plus</code>, <code>dash</code>, <code>git-time-machine</code></li>
+<li><code>highlight-selected</code>, <code>hyperclick</code>,</li>
+<li><code>script</code>, <code>symbols-tree-view</code>, <code>tabs-to-spaces</code></li>
+</ul>
+</li>
+<li><p>我的 <code>keymap.cson</code> 配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># atom 大致原则是, 小窗口&gt;大窗口, 然后才是客户配置&gt;插件配置&gt;系统配置</span><br><span class="line"># 因此优先级 &#39;body&#39; &lt; &#39;atom-workspace&#39; &lt; &#39;atom-text-editor&#39; &lt; &#39;atom-text-editor:not([mini])&#39;</span><br><span class="line"></span><br><span class="line">&#39;atom-text-editor[data-grammar~&#x3D;python]:not(.mini)&#39;:</span><br><span class="line">  &#39;f4&#39;: &#39;autocomplete-python:go-to-definition&#39;</span><br><span class="line">  &#39;shift-f4&#39;: &#39;autocomplete-python:go-to-definition&#39;</span><br><span class="line">  &#39;alt-shift-s&#39;: &#39;autocomplete-python:override-method&#39;</span><br><span class="line"></span><br><span class="line">&#39;atom-text-editor[data-grammar~&#x3D;c]:not(.mini)&#39;:</span><br><span class="line">  &#39;f4&#39;: &#39;atom-gtags:get-definitions&#39;</span><br><span class="line">  &#39;shift-f4&#39;: &#39;atom-gtags:get-references&#39;</span><br><span class="line"></span><br><span class="line">&#39;.platform-win32 atom-workspace atom-text-editor:not([mini])&#39;:</span><br><span class="line"># character</span><br><span class="line">  &#39;ctrl-b&#39;: &#39;atom-beautify:beautify-editor&#39;</span><br><span class="line">  &#39;ctrl-d&#39;: &#39;core:delete&#39;</span><br><span class="line">  &#39;ctrl-shift-d&#39;: &#39;editor:delete-line&#39;</span><br><span class="line">  &#39;ctrl-j&#39;: &#39;core:move-down&#39;</span><br><span class="line">  &#39;ctrl-k&#39;: &#39;core:move-up&#39;</span><br><span class="line">  &#39;ctrl-l&#39;: &#39;core:move-right&#39;</span><br><span class="line">  &#39;ctrl-h&#39;: &#39;core:move-left&#39;</span><br><span class="line">  &#39;ctrl-shift-j&#39;: &#39;editor:move-line-down&#39;</span><br><span class="line">  &#39;ctrl-shift-k&#39;: &#39;editor:move-line-up&#39;</span><br><span class="line">  &#39;ctrl-shift-l&#39;: &#39;editor:move-to-end-of-word&#39;</span><br><span class="line">  &#39;ctrl-shift-h&#39;: &#39;editor:move-to-beginning-of-word&#39;</span><br><span class="line">  &#39;alt-shift-j&#39;: &#39;editor:join-lines&#39;</span><br><span class="line">  &#39;ctrl-m&#39;: &#39;bookmarks:toggle-bookmark&#39;</span><br><span class="line">  &#39;ctrl-r&#39;: &#39;core:redo&#39;</span><br><span class="line">  &#39;ctrl-u&#39;: &#39;core:undo&#39;</span><br><span class="line">  &#39;ctrl-shift-v&#39;: &#39;editor:duplicate-lines&#39;</span><br><span class="line">  &#39;ctrl-shift-W&#39;: &#39;tabs:close-other-tabs&#39;</span><br><span class="line">  &#39;ctrl-shift-x&#39;: &#39;editor:select-line&#39;</span><br><span class="line">  &#39;ctrl-shift-y&#39;: &#39;last-cursor-position:next&#39;</span><br><span class="line">  &#39;ctrl-shift-z&#39;: &#39;last-cursor-position:previous&#39;</span><br><span class="line"># special</span><br><span class="line">  &#39;ctrl-4&#39;: &#39;editor:move-to-end-of-screen-line&#39;         # ctrl-$</span><br><span class="line">  &#39;ctrl-6&#39;: &#39;editor:move-to-first-character-of-line&#39;    # ctrl-^</span><br><span class="line">  &#39;ctrl-$&#39;: &#39;editor:select-to-end-of-line&#39;              # ctrl-shift-$</span><br><span class="line">  &#39;ctrl-^&#39;: &#39;editor:select-to-first-character-of-line&#39;  # ctrl-shift-^</span><br><span class="line">  &#39;ctrl-?&#39;: &#39;block-comment-plus:toggle&#39;                 # ctrl-shift-&#x2F;</span><br><span class="line">  &#39;ctrl-|&#39;: &#39;block-comment-plus:toggle&#39;                 # ctrl-shift-\</span><br><span class="line">  &#39;ctrl-]&#39;: &#39;bracket-matcher:select-inside-brackets&#39;</span><br><span class="line">  &#39;ctrl-[&#39;: &#39;bracket-matcher:go-to-matching-bracket&#39;</span><br><span class="line">  &#39;ctrl-.&#39;: &#39;tabs-to-spaces:untabify-all&#39;</span><br><span class="line">  &#39;ctrl-&gt;&#39;: &#39;tabs-to-spaces:tabify&#39;                     # ctrl-shift-.</span><br><span class="line"># alt</span><br><span class="line">  &#39;alt-0&#39;: &#39;editor:fold-all&#39;</span><br><span class="line">  &#39;alt-)&#39;: &#39;editor:unfold-all&#39;                          # alt-shift-0</span><br><span class="line">  &#39;alt-!&#39;: &#39;editor:unfold-all&#39;                          # alt-shift-1</span><br><span class="line">  &#39;alt-1&#39;: &#39;editor:fold-at-indent-level-1&#39;</span><br><span class="line">  &#39;alt-2&#39;: &#39;editor:fold-at-indent-level-2&#39;</span><br><span class="line">  &#39;alt-3&#39;: &#39;editor:fold-at-indent-level-3&#39;</span><br><span class="line">  &#39;alt-4&#39;: &#39;editor:fold-at-indent-level-4&#39;</span><br><span class="line">  &#39;alt-5&#39;: &#39;editor:fold-at-indent-level-5&#39;</span><br><span class="line">  &#39;alt-6&#39;: &#39;editor:fold-at-indent-level-6&#39;</span><br><span class="line">  &#39;alt-7&#39;: &#39;editor:fold-at-indent-level-7&#39;</span><br><span class="line">  &#39;alt-8&#39;: &#39;editor:fold-at-indent-level-8&#39;</span><br><span class="line">  &#39;alt-9&#39;: &#39;editor:fold-at-indent-level-9&#39;</span><br><span class="line"># f1-f6</span><br><span class="line">  &#39;f1&#39;: &#39;dash:shortcut&#39;</span><br><span class="line">  &#39;ctrl-f2&#39;: &#39;bookmarks:view-all&#39;</span><br><span class="line">  &#39;ctrl-shift-f2&#39;: &#39;bookmarks:clear-bookmarks&#39;</span><br><span class="line">  &#39;ctrl-f3&#39;: &#39;find-and-replace:select-all&#39;</span><br><span class="line">  &#39;f5&#39;: &#39;script:run&#39;</span><br><span class="line">  &#39;ctrl-f5&#39;: &#39;script:run-with-profile&#39;</span><br><span class="line">  &#39;shift-f5&#39;: &#39;script:run-options&#39;</span><br><span class="line">  &#39;f6&#39;: &#39;git-time-machine:toggle&#39;</span><br><span class="line">  &#39;ctrl-f6&#39;: &#39;merge-conflicts:detect&#39;</span><br><span class="line">  &#39;shift-f6&#39;: &#39;merge-conflicts:next-unresolved&#39;</span><br><span class="line">  &#39;ctrl-shift-f6&#39;: &#39;merge-conflicts:previous-unresolved&#39;</span><br><span class="line"></span><br><span class="line">&#39;body&#39;:</span><br><span class="line">  &#39;ctrl-j&#39;: &#39;core:move-down&#39;</span><br><span class="line">  &#39;ctrl-k&#39;: &#39;core:move-up&#39;</span><br><span class="line">  &#39;ctrl-r&#39;: &#39;core:redo&#39;</span><br><span class="line">  &#39;ctrl-u&#39;: &#39;core:undo&#39;</span><br><span class="line">  &#39;ctrl-shift-S&#39;: &#39;window:save-all&#39;</span><br><span class="line"># unset ctrl-k *</span><br><span class="line">  &#39;ctrl-k up&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k down&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k left&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k right&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-w&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-alt-w&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-p&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-n&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-up&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-down&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-left&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-right&#39;: &#39;unset!&#39;</span><br><span class="line">&#39;atom-workspace atom-text-editor&#39;:</span><br><span class="line">  &#39;ctrl-k ctrl-u&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-l&#39;: &#39;unset!&#39;</span><br><span class="line">&#39;atom-workspace atom-text-editor:not([mini])&#39;:</span><br><span class="line">  &#39;ctrl-k ctrl-0&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-1&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-2&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-3&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-4&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-5&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-6&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-7&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-8&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k ctrl-9&#39;: &#39;unset!&#39;</span><br><span class="line">&#39;.platform-win32, .platform-linux&#39;:</span><br><span class="line">  &#39;ctrl-k ctrl-b&#39;: &#39;unset!&#39;</span><br><span class="line">&#39;.platform-win32 .tree-view, .platform-linux .tree-view&#39;:</span><br><span class="line">  &#39;ctrl-k right&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k l&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k left&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k h&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k up&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k k&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k down&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-k j&#39;: &#39;unset!&#39;</span><br><span class="line">&#39;.platform-win32 atom-text-editor, .platform-linux atom-text-editor&#39;:</span><br><span class="line">  &#39;ctrl-k ctrl-d&#39;: &#39;unset!&#39;</span><br><span class="line">  &#39;ctrl-u&#39;: &#39;unset!&#39;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="参考和资料"><a href="#参考和资料" class="headerlink" title="参考和资料"></a>参考和资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://flight-manual.atom.io/">Atom Flight Manual</a>, atom手册</li>
+<li><a target="_blank" rel="noopener" href="https://atom.io/packages">atom Packages</a>, atom插件中心</li>
+<li>我的 <a href="https://draapho.github.io/2016/10/08/1607-CheatSheet-win/">Windows快捷键</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/windows/" rel="tag"># windows</a>
+              <a href="/tags/atom/" rel="tag"># atom</a>
+              <a href="/tags/mingw/" rel="tag"># mingw</a>
+              <a href="/tags/c/" rel="tag"># c</a>
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/10/10/1609-WinSoft-terminal/" rel="prev" title="Windows 软件系列-终端">
+                  <i class="fa fa-chevron-left"></i> Windows 软件系列-终端
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/10/16/1611-WinSoft-other/" rel="next" title="Windows 软件系列-开发软件">
+                  Windows 软件系列-开发软件 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

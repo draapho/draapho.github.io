@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="驱动之NAND Flash源码">
+<meta property="og:url" content="https://draapho.github.io/2018/01/25/1811-drv-nand2/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1810/nand3.jpg">
+<meta property="article:published_time" content="2018-01-24T13:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.762Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="driver">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1810/nand3.jpg">
+
+
+<link rel="canonical" href="https://draapho.github.io/2018/01/25/1811-drv-nand2/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>驱动之NAND Flash源码 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">源码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#s3c-nand-c"><span class="nav-number">2.1.</span> <span class="nav-text">s3c_nand.c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Makefile"><span class="nav-number">2.2.</span> <span class="nav-text">Makefile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%951"><span class="nav-number">2.3.</span> <span class="nav-text">测试1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%952"><span class="nav-number">2.4.</span> <span class="nav-text">测试2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2018/01/25/1811-drv-nand2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          驱动之NAND Flash源码
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-01-25 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-25T00:00:00+11:00">2018-01-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded-linux/" itemprop="url" rel="index"><span itemprop="name">embedded linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2018/01/22/1809-drv-blk/">驱动之块设备-框架</a></li>
+<li><a href="https://draapho.github.io/2018/01/24/1810-drv-nand1/">驱动之NAND Flash框架</a></li>
+<li><a href="https://draapho.github.io/2018/01/25/1811-drv-nand2/">驱动之NAND Flash源码</a></li>
+<li><a href="https://draapho.github.io/2018/01/26/1812-drv-nor/">驱动之NOR Flash</a></li>
+<li><a href="https://draapho.github.io/2018/02/06/1813-drv-net/">驱动之网卡驱动</a></li>
+</ul>
+<p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><p>由 <strong>nand flash 系统框架</strong> 分析可知, Linux内核系统以及完成了Nand Flash设备的绝大部分的核心工作.<br>因此Nand Flash驱动真正要做的工作主要就是:</p>
+<ul>
+<li>分配并初始化 <code>nand_chip</code> 结构体</li>
+<li>初始化硬件</li>
+<li>调用 <code>nand_scan</code></li>
+<li>调用 <code>add_mtd_partitions</code></li>
+</ul>
+<p>可以参考内核文件的相关源码, 学着写.</p>
+<ul>
+<li><code>drivers\mtd\nand\at91_nand.c</code></li>
+<li><code>drivers\mtd\nand\s3c2410.c</code></li>
+</ul>
+<p>流程如下图:<br><img src="https://draapho.github.io/images/1810/nand3.jpg" alt="nand3"></p>
+<h2 id="s3c-nand-c"><a href="#s3c-nand-c" class="headerlink" title="s3c_nand.c"></a>s3c_nand.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/slab.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/platform_device.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/mtd/mtd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/mtd/nand.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/mtd/partitions.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/clk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/io.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/arch/regs-nand.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/arch/nand.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">&quot;GPL&quot;</span>);</span><br><span class="line">MODULE_AUTHOR(<span class="string">&quot;DRAAPHO&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">s3c_nand_regs</span> &#123;</span>                              <span class="comment">// 2440芯片NAND Flash相关寄存器</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfconf  ;                         <span class="comment">// 物理地址 0x4E000000</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfcont  ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfcmd   ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfaddr  ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfdata  ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfeccd0 ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfeccd1 ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfeccd  ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfstat  ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfestat0;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfestat1;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfmecc0 ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfmecc1 ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfsecc  ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfsblk  ;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> nfeblk  ;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">nand_chip</span> *<span class="title">s3c_nand</span>;</span>                  <span class="comment">// NAND Flash操作的核心结构体</span></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">mtd_info</span> *<span class="title">s3c_mtd</span>;</span>                    <span class="comment">// 给两个系统函数使用的结构体</span></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">s3c_nand_regs</span> *<span class="title">s3c_nand_regs</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">mtd_partition</span> <span class="title">s3c_nand_parts</span>[] =</span> &#123;    <span class="comment">// 分区信息</span></span><br><span class="line">    [<span class="number">0</span>] = &#123;</span><br><span class="line">        .name   = <span class="string">&quot;bootloader&quot;</span>,</span><br><span class="line">        .size   = <span class="number">0x00040000</span>,</span><br><span class="line">        .offset = <span class="number">0</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    [<span class="number">1</span>] = &#123;</span><br><span class="line">        .name   = <span class="string">&quot;params&quot;</span>,</span><br><span class="line">        .offset = MTDPART_OFS_APPEND,</span><br><span class="line">        .size   = <span class="number">0x00020000</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    [<span class="number">2</span>] = &#123;</span><br><span class="line">        .name   = <span class="string">&quot;kernel&quot;</span>,</span><br><span class="line">        .offset = MTDPART_OFS_APPEND,</span><br><span class="line">        .size   = <span class="number">0x00200000</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    [<span class="number">3</span>] = &#123;</span><br><span class="line">        .name   = <span class="string">&quot;root&quot;</span>,</span><br><span class="line">        .offset = MTDPART_OFS_APPEND,</span><br><span class="line">        .size   = MTDPART_SIZ_FULL,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不能用Linux默认的片选函数(nand_set_defaults), 自己根据数据手册写一下.</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">s3c2440_select_chip</span><span class="params">(struct mtd_info *mtd, <span class="keyword">int</span> chipnr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (chipnr == <span class="number">-1</span>) &#123;</span><br><span class="line">        s3c_nand_regs-&gt;nfcont |= (<span class="number">1</span>&lt;&lt;<span class="number">1</span>);            <span class="comment">// NFCONT bit1=1, 取消片选</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        s3c_nand_regs-&gt;nfcont &amp;= ~(<span class="number">1</span>&lt;&lt;<span class="number">1</span>);           <span class="comment">// NFCONT bit1=0, 使能片选</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">s3c2440_cmd_ctrl</span><span class="params">(struct mtd_info *mtd, <span class="keyword">int</span> dat, <span class="keyword">unsigned</span> <span class="keyword">int</span> ctrl)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ctrl &amp; NAND_CLE) &#123;</span><br><span class="line">        s3c_nand_regs-&gt;nfcmd = dat;                 <span class="comment">// NFCMMD=dat, 发送命令</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        s3c_nand_regs-&gt;nfaddr = dat;                <span class="comment">// NFADDR=dat, 发送地址</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">s3c2440_dev_ready</span><span class="params">(struct mtd_info *mtd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (s3c_nand_regs-&gt;nfstat &amp; (<span class="number">1</span>&lt;&lt;<span class="number">0</span>));        <span class="comment">// NFSTAT bit0=0, Busy else Ready</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">s3c_nand_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">clk</span> *<span class="title">clk</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 1. 分配nand_chip 和 mtd_info 结构体 */</span></span><br><span class="line">    s3c_nand = kzalloc(<span class="keyword">sizeof</span>(struct nand_chip), GFP_KERNEL);</span><br><span class="line">    s3c_mtd = kzalloc(<span class="keyword">sizeof</span>(struct mtd_info), GFP_KERNEL);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获得寄存器的虚拟地址. 0x4E000000是这些寄存器的起始物理地址</span></span><br><span class="line">    s3c_nand_regs = ioremap(<span class="number">0x4E000000</span>, <span class="keyword">sizeof</span>(struct s3c_nand_regs));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 2. 设置nand_chip */</span></span><br><span class="line">    <span class="comment">/* nand_chip 需要提供 NAND Flash 操作的基本函数. 通用的函数已经由 nand_set_defaults 设置好了.</span></span><br><span class="line"><span class="comment">     * 需要自己设置的函数主要有: 片选,发指令,发地址,发数据,读数据,判断状态的功能</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    s3c_nand-&gt;select_chip = s3c2440_select_chip;    <span class="comment">// 片选函数</span></span><br><span class="line">    s3c_nand-&gt;cmd_ctrl    = s3c2440_cmd_ctrl;       <span class="comment">// 发送指令/地址</span></span><br><span class="line">    s3c_nand-&gt;IO_ADDR_R   = &amp;s3c_nand_regs-&gt;nfdata; <span class="comment">// 读数据的虚拟地址</span></span><br><span class="line">    s3c_nand-&gt;IO_ADDR_W   = &amp;s3c_nand_regs-&gt;nfdata; <span class="comment">// 发数据的虚拟地址</span></span><br><span class="line">    s3c_nand-&gt;dev_ready   = s3c2440_dev_ready;      <span class="comment">// 芯片Busy/Ready的状态反馈</span></span><br><span class="line">    s3c_nand-&gt;ecc.mode    = NAND_ECC_SOFT;          <span class="comment">// ECC校验方式. 软件或硬件.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 3. 硬件相关的设置: 根据NAND FLASH的手册设置时间参数 */</span></span><br><span class="line">    <span class="comment">// 使能NAND控制器的时钟</span></span><br><span class="line">    clk = clk_get(<span class="literal">NULL</span>, <span class="string">&quot;nand&quot;</span>);                    <span class="comment">// 由名称&quot;nand&quot;获得时钟</span></span><br><span class="line">    clk_enable(clk);                                <span class="comment">// 实际上就是 CLKCON bit[4]=1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置 NFCONF 寄存器. 由启动的打印信息可获得 HCLK=100MHz, 设置时序要求.</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TACLS    0  <span class="comment">// 发出CLE/ALE之后多长时间才发出nWE信号, 从NAND手册可知CLE/ALE与nWE可以同时发出,所以TACLS=0</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TWRPH0   1  <span class="comment">// nWE的脉冲宽度, HCLK x ( TWRPH0 + 1 ), 从NAND手册可知它要&gt;=12ns, 所以TWRPH0&gt;=1</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TWRPH1   0  <span class="comment">// nWE变为高电平后多长时间CLE/ALE才能变为低电平, 从NAND手册可知它要&gt;=5ns, 所以TWRPH1&gt;=0</span></span></span><br><span class="line">    s3c_nand_regs-&gt;nfconf = (TACLS&lt;&lt;<span class="number">12</span>) | (TWRPH0&lt;&lt;<span class="number">8</span>) | (TWRPH1&lt;&lt;<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置 NFCONT 寄存器. BIT1=1, 取消片选. BIT0=1, 使能NAND控制器</span></span><br><span class="line">    s3c_nand_regs-&gt;nfcont = (<span class="number">1</span>&lt;&lt;<span class="number">1</span>) | (<span class="number">1</span>&lt;&lt;<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 4. 使用: nand_scan */</span></span><br><span class="line">    s3c_mtd-&gt;owner = THIS_MODULE;</span><br><span class="line">    s3c_mtd-&gt;priv  = s3c_nand;</span><br><span class="line">    nand_scan(s3c_mtd, <span class="number">1</span>);                          <span class="comment">// 识别NAND FLASH, 构造mtd_info. 硬件只有1块NAND Flash.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 5. add_mtd_partitions</span></span><br><span class="line"><span class="comment">     * 增加 add_mtd_partitions 函数后,</span></span><br><span class="line"><span class="comment">     * 内核必须去掉自带的NAND Flash驱动, 从NFS启动系统.</span></span><br><span class="line"><span class="comment">     * 确认要做这个实验的时候, 再取消下面的注释, 编译测试</span></span><br><span class="line"><span class="comment">     * 如果不需要分区, 只需调用 add_mtd_device(s3c_mtd);</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// add_mtd_partitions(s3c_mtd, s3c_nand_parts, 4);  // 告知分区要求, 调用 add_mtd_partitions</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">s3c_nand_exit</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    del_mtd_partitions(s3c_mtd);</span><br><span class="line">    iounmap(s3c_nand_regs);</span><br><span class="line">    kfree(s3c_mtd);</span><br><span class="line">    kfree(s3c_nand);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module_init(s3c_nand_init);</span><br><span class="line">module_exit(s3c_nand_exit);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">obj-m       := s3c_nand.o</span><br><span class="line">KERN_SRC    := /home/draapho/share/jz2440/kernel/linux-2.6.22.6/</span><br><span class="line">PWD         := <span class="variable">$(<span class="built_in">shell</span> pwd)</span></span><br><span class="line"></span><br><span class="line"><span class="section">modules:</span></span><br><span class="line">    make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> modules</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> clean</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试1"><a href="#测试1" class="headerlink" title="测试1"></a>测试1</h2><p>源码没有调用 <code>add_mtd_partitions</code> 时, 简单测试一下NAND Flash是否正常工作了.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu 主机端</span></span><br><span class="line"><span class="comment"># pwd = ~/share/jz2440/drivers/nand/            # NAND flash驱动目录</span></span><br><span class="line">$ make modules                                  <span class="comment"># 生成s3c_nand.ko, 忽略 s3c_nand_parts 没有使用的警告信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开发板端, 开始测试</span></span><br><span class="line"><span class="comment"># pwd = ~/share/jz2440/drivers/nand/            # NAND flash驱动目录, nfs</span></span><br><span class="line">$ insmod s3c_nand.ko                            <span class="comment"># 加载驱动</span></span><br><span class="line">NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND 256MiB 3,3V 8-bit)</span><br><span class="line">Scanning device <span class="keyword">for</span> bad blocks</span><br><span class="line">......</span><br><span class="line"><span class="comment"># 打印信息正确识别了 Nand Flash, 说明底层操作都成功了.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试2"><a href="#测试2" class="headerlink" title="测试2"></a>测试2</h2><p>源码调用 <code>add_mtd_partitions</code> 时, 测试过程比较复杂.</p>
+<ol>
+<li>卸载内核自带的NAND Flash驱动</li>
+<li>导致无法从本地Flash启动, 必须设置为从nfs启动</li>
+<li>从nfs启动后, 加载 s3c_nand.ko 驱动.</li>
+<li>使用工具 <code>mtd-utils</code> 格式化 NAND Flash</li>
+<li>格式化后, 就能挂载测试了.</li>
+<li>恢复原来的开发环境.</li>
+</ol>
+<p><strong>这个实验我没有实际去做, 设置和恢复都太麻烦. 而且正常的开发过程是不会这样去操作的.</strong><br>下面给出实验步骤:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 卸载内核自带的NAND Flash驱动</span></span><br><span class="line"><span class="comment"># Ubuntu 主机端</span></span><br><span class="line"><span class="comment"># pwd = ./linux-2.6.22.6_custom  复制一个新的内核源码目录</span></span><br><span class="line"></span><br><span class="line">$ make clean</span><br><span class="line">$ make menuconfig                               <span class="comment"># 去掉自带的HID USB驱动程序</span></span><br><span class="line"><span class="comment"># -&gt; Device Drivers</span></span><br><span class="line"><span class="comment">#   -&gt; Memory Technology Device (MTD) support</span></span><br><span class="line"><span class="comment">#     -&gt; NAND Device Support</span></span><br><span class="line"><span class="comment">#       &lt; &gt; NAND Flash support for S3C2410/S3C2440 SoC  # 取消内置的NAND Flash驱动</span></span><br><span class="line"></span><br><span class="line">$ make uImage</span><br><span class="line"><span class="comment"># 烧录新的uImage</span></span><br><span class="line"><span class="comment"># 重启开发板进入uboot烧录界面, 按k准备烧录内核. 略过不表</span></span><br><span class="line">$ sudo dnw ./arch/arm/boot/uImage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2. 导致无法从本地Flash启动, 必须设置为从nfs启动.</span><br><span class="line"><span class="comment"># 可参考 &quot;嵌入式linux环境搭建-jz2440开发板&quot; 一文</span></span><br><span class="line"><span class="comment"># 开发板, uboot命令行下</span></span><br><span class="line"><span class="comment"># 要使用nfs功能, 必须正确设置uboot的ip地址, 并且Ubuntu端正确设置了nfs</span></span><br><span class="line"></span><br><span class="line">printenv                                        <span class="comment"># 看下现有的uboot环境, 记好bootargs, 恢复的时候要用的.</span></span><br><span class="line"><span class="comment"># bootargs=noinitrd root=/dev/mtdblock3 init=/linuxrc console=ttySAC0</span></span><br><span class="line"><span class="built_in">set</span> bootargs noinitrd root=/dev/nfs nfsroot=10.0.0.98:/fs ip=10.0.0.111:10.0.0.98:10.0.0.138:255.255.255.0::eth0:off init=/linuxrc console=ttySAC0</span><br><span class="line"><span class="comment"># (简化ip: &#x27;set bootargs noinitrd root=/dev/nfs nfsroot=10.0.0.98:/fs ip=10.0.0.111 init=/linuxrc console=ttySAC0&#x27; 也可以工作)</span></span><br><span class="line">save        <span class="comment"># 保存修改</span></span><br><span class="line">reset       <span class="comment"># 重启.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 参数简要说明:</span></span><br><span class="line"><span class="comment"># &#x27;root=/dev/nfs&#x27; 加载nfs文件系统</span></span><br><span class="line"><span class="comment"># &#x27;nfsroot=10.0.0.98:/fs&#x27; nfs文件系统的来源, 此处是由Ubuntu当nfs服务器, 共享出/fs文件夹</span></span><br><span class="line"><span class="comment"># &#x27;ip=10.0.0.111:10.0.0.98:10.0.0.138:255.255.255.0::eth0:off&#x27; 分别表示:</span></span><br><span class="line"><span class="comment">#  ip= 开发板ip : nfs服务器ip: 网关ip : 子网掩码 :: 开发板网口 : off</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3. 从nfs启动后, 加载 s3c_nand.ko 驱动.</span><br><span class="line"><span class="comment"># Ubuntu 主机端</span></span><br><span class="line"><span class="comment"># pwd = ~/share/jz2440/drivers/nand/            # NAND flash驱动目录</span></span><br><span class="line">$ make modules                                  <span class="comment"># 生成s3c_nand.ko</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开发板端, 开始测试</span></span><br><span class="line"><span class="comment"># pwd = ~/share/jz2440/drivers/nand/            # NAND flash驱动目录, nfs</span></span><br><span class="line">$ insmod s3c_nand.ko                            <span class="comment"># 加载驱动</span></span><br><span class="line">NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND 256MiB 3,3V 8-bit)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4. 使用工具 mtd-utils 格式化 NAND Flash</span><br><span class="line"><span class="comment"># Ubuntu 主机端, 需要先编译mtd-utils</span></span><br><span class="line">$ tar xjf mtd-utils-05.07.23.tar.bz2</span><br><span class="line">$ <span class="built_in">cd</span> mtd-utils-05.07.23/util</span><br><span class="line">$ vim Makefile</span><br><span class="line">    <span class="comment"># ===== 文件内容, 修改如下内容: =====</span></span><br><span class="line">    <span class="comment">#CROSS=arm-linux-   # 需要交叉编译, 取消注释</span></span><br><span class="line">    CROSS=arm-linux-</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line">$ make</span><br><span class="line"><span class="comment"># 拷贝可执行文件到挂载的nfs文件系统的bin目录下</span></span><br><span class="line">$ cp flash_erase flash_eraseall /home/draapho/share/jz2440/nfs/fs_mini_mdev/bin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5. 格式化后, 就能挂载测试了.</span><br><span class="line"><span class="comment"># 开发板端 bash</span></span><br><span class="line">$ ls -l /dev/mtd*                               <span class="comment"># 查看一下分区情况, 有0-3共四个分区</span></span><br><span class="line"><span class="comment"># 应该是用 &quot;flash_eraseall /dev/mtd1&quot; 格式化 &quot;params&quot; 分区, 恢复起来最方便.</span></span><br><span class="line">$ flash_eraseall /dev/mtd3                      <span class="comment"># 格式化 root分区 (用的字符设备), 文件格式为yaffs</span></span><br><span class="line">$ mount -t yaffs /dev/mtdblock3 /tmp            <span class="comment"># 以yaffs格式挂载 root分区</span></span><br><span class="line">$ ls /tmp                                       <span class="comment"># 应该只有一个 lost+found 文件.</span></span><br><span class="line"><span class="comment"># 然后可以对这个分区进行文件创建, 读写的操作了.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">6. 恢复原来的开发环境</span><br><span class="line"><span class="comment"># 开发板 uboot:</span></span><br><span class="line"><span class="comment"># 破坏了root区的话, 就恢复root区, 重新烧写文件系统到flash就行了. 猜测使用 params 区做测试是没有影响的.</span></span><br><span class="line"><span class="comment"># 烧录原来的 uImage 到 kernel.</span></span><br><span class="line"><span class="comment"># 改回 uboot 的 bootargs 参数</span></span><br><span class="line"><span class="comment"># 重启, 从NAND Flash正常启动.</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TaigaCon/archive/2012/11/17/2775057.html">Linux操作系统下 NAND FLASH驱动程序框架</a></p>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+              <a href="/tags/driver/" rel="tag"># driver</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/01/24/1810-drv-nand1/" rel="prev" title="驱动之NAND Flash框架">
+                  <i class="fa fa-chevron-left"></i> 驱动之NAND Flash框架
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/01/26/1812-drv-nor/" rel="next" title="驱动之NOR Flash">
+                  驱动之NOR Flash <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

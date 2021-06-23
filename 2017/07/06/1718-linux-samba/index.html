@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="嵌入式linux环境搭建步骤之一.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下配置支持Windows访问的samba共享">
+<meta property="og:url" content="https://draapho.github.io/2017/07/06/1718-linux-samba/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="嵌入式linux环境搭建步骤之一.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-07-05T14:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.735Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="uboot">
+<meta property="article:tag" content="error">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/07/06/1718-linux-samba/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Ubuntu下配置支持Windows访问的samba共享 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85Ubuntu-samba%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">一、安装Ubuntu samba服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%88%9B%E5%BB%BAsamba%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">二、创建samba配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%88%9B%E5%BB%BAsamba%E7%94%A8%E6%88%B7"><span class="nav-number">4.</span> <span class="nav-text">三、创建samba用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%87%8D%E5%90%AFsamba%E6%9C%8D%E5%8A%A1"><span class="nav-number">5.</span> <span class="nav-text">四、重启samba服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BF%E9%97%AE%E6%B5%8B%E8%AF%95"><span class="nav-number">6.</span> <span class="nav-text">五. 客户端访问测试</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/07/06/1718-linux-samba/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ubuntu下配置支持Windows访问的samba共享
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-07-06 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-06T00:00:00+10:00">2017-07-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded-linux/" itemprop="url" rel="index"><span itemprop="name">embedded linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">嵌入式linux环境搭建步骤之一.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>家用电脑, 环境的搭建思路可参考<a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a></p>
+<p>单位电脑, 没有使用nfs共享文件.<br>用的环境是: VMware Ubuntu 16.04 + Windows 7 + VMware 文件共享<br>尝试编译uboot时, 弹出一个错误提示</p>
+<blockquote>
+<p>ln: creating symbolic link XXXXXX : Operation not supported</p>
+</blockquote>
+<p>问题根源和解决方法:<br>出现这类问题，主要是由于在编译的时候，要用ln去建立一些软链接，而这些文件是从Windows中，通过VMWare虚拟机共享进Linux的，Windows不支持软链接，所以，编译会报错。<br>解决办法就是，在VMWare下的Linux中，建立Samba服务， 然后新创建新samba用户和文件夹，然后在windows中就可以访问到该文件夹了。</p>
+<p>相比于nfs共享文件, 唯一的缺点是: 文件存放在虚拟机中, 需要始终打开虚拟机才能在windows下访问文件. 因此文件的备份和修复也稍微麻烦一点. 优点是, 不需要付费软件.</p>
+<hr>
+<p>下文转载自 <a target="_blank" rel="noopener" href="http://blog.csdn.net/i_chips/article/details/19191957">Ubuntu下配置支持Windows访问的samba共享</a></p>
+<hr>
+<h1 id="一、安装Ubuntu-samba服务器"><a href="#一、安装Ubuntu-samba服务器" class="headerlink" title="一、安装Ubuntu samba服务器"></a>一、安装Ubuntu samba服务器</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install samba</span><br><span class="line">$ sudo apt-get install smbclient <span class="comment"># Linux客户端测试用</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="二、创建samba配置文件"><a href="#二、创建samba配置文件" class="headerlink" title="二、创建samba配置文件"></a>二、创建samba配置文件</h1><ol>
+<li><p>备份原配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak</span><br></pre></td></tr></table></figure></li>
+<li><p>创建共享目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo mkdir -p /home/share</span><br><span class="line"><span class="comment"># 一般来说，该目录的权限为755，将其改为777之后，Owner之外的其他用户才有权限写入。</span></span><br><span class="line">$ sudo chmod 777 /home/share</span><br></pre></td></tr></table></figure></li>
+<li><p>修改配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/samba/smb.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># ===== 文件内容, 在smb.conf最后添加： =====</span></span><br><span class="line">[share]</span><br><span class="line">    path = /home/share</span><br><span class="line">    browseable = yes</span><br><span class="line">    writable = yes</span><br><span class="line">    comment = smb share <span class="built_in">test</span></span><br><span class="line"><span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>另外，总结一下常见的samba配置及说明：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[share]                           # 该共享的共享名</span><br><span class="line">    comment &#x3D; smb share test  # 该共享的备注</span><br><span class="line">    path &#x3D; &#x2F;home&#x2F;share        # 共享路径</span><br><span class="line">    allow hosts &#x3D; host(subnet) # 设置该Samba服务器允许的工作组或者域</span><br><span class="line">    deny hosts &#x3D; host(subnet) # 设置该Samba服务器拒绝的工作组或者域</span><br><span class="line">    available &#x3D; yes|no        # 设置该共享目录是否可用</span><br><span class="line">    browseable &#x3D; yes|no       # 设置该共享目录是否可显示</span><br><span class="line">    writable &#x3D; yes|no         # 指定了这个目录缺省是否可写，也可以用readonly &#x3D; no来设置可写</span><br><span class="line">    public &#x3D; yes|no           # 指明该共享资源是否能给游客帐号访问，guest ok &#x3D; yes其实和public &#x3D; yes是一样的</span><br><span class="line">    user &#x3D; user, @group       # user设置所有可能使用该共享资源的用户，也可以用@group代表group这个组的所有成员，不同的项目之间用空格或者逗号隔开</span><br><span class="line">    valid users &#x3D; user, @group # 指定能够使用该共享资源的用户和组</span><br><span class="line">    invalid users &#x3D; user, @group # 指定不能够使用该共享资源的用户和组</span><br><span class="line">    read list &#x3D; user, @group  # 指定只能读取该共享资源的用户和组</span><br><span class="line">    write list &#x3D; user, @group # 指定能读取和写该共享资源的用户和组</span><br><span class="line">    admin list &#x3D; user, @group # 指定能管理该共享资源（包括读写和权限赋予等）的用户和组</span><br><span class="line">    hide dot files &#x3D; yes|no   # 指明是否像UNIX那样隐藏以“.”号开头的文件</span><br><span class="line">    create mode &#x3D; 0755        # 指明新建立的文件的属性，一般是0755</span><br><span class="line">    directory mode &#x3D; 0755     # 指明新建立的目录的属性，一般是0755</span><br><span class="line">    sync always &#x3D; yes|no      # 指明对该共享资源进行写操作后是否进行同步操作</span><br><span class="line">    short preserve case &#x3D; yes|no # 指明是否区分文件名大小写</span><br><span class="line">    preserve case &#x3D; yes|no    # 指明是否保持大小写</span><br><span class="line">    case sensitive &#x3D; yes|no   # 指明是否对大小写敏感，一般选no，不然可能引起错误</span><br><span class="line">    mangle case &#x3D; yes|no      # 指明混合大小写</span><br><span class="line">    default case &#x3D; upper|lower # 指明缺省的文件名是全部大写还是小写</span><br><span class="line">    force user &#x3D; testuser     # 强制把建立文件的属主是谁。如果我有一个目录，让guest可以写，那么guest就可以删除，如果我用force user&#x3D; testuser强制建立文件的属主是testuser，同时限制create mask &#x3D; 0755，这样guest就不能删除了</span><br><span class="line">    wide links &#x3D; yes|no       # 指明是否允许共享外符号连接，比如共享资源里面有个连接指向非共享资源里面的文件或者目录，如果设置wide links &#x3D; no将使该连接不可用</span><br><span class="line">    max connections &#x3D; 100     # 设定最大同时连接数</span><br><span class="line">    delete readonly &#x3D; yes|no  # 指明能否删除共享资源里面已经被定义为只读的文件</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、创建samba用户"><a href="#三、创建samba用户" class="headerlink" title="三、创建samba用户"></a>三、创建samba用户</h1><p>注意，创建samba用户之前，必须先确保有一个同名的linux用户，否则samba用户会创建失败。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo smbpasswd -a <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="四、重启samba服务"><a href="#四、重启samba服务" class="headerlink" title="四、重启samba服务"></a>四、重启samba服务</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo service smbd restart</span><br></pre></td></tr></table></figure>
+
+<h1 id="五-客户端访问测试"><a href="#五-客户端访问测试" class="headerlink" title="五. 客户端访问测试"></a>五. 客户端访问测试</h1><ol>
+<li><p>Linux客户端访问测试</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ smbclient -L //localhost/share</span><br></pre></td></tr></table></figure></li>
+<li><p>Windows客户端访问测试<br> 可以访问如下地址 <code>\\Linux的IP或者主机名\share</code></p>
+</li>
+<li><p>我一般会把虚拟机端Linux的IP搞成静态地址, 这样远程登录也更方便</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ifconfig                          <span class="comment"># 查看IP信息</span></span><br><span class="line">$ sudo vim /etc/network/interfaces</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ===== 文件内容, 大致修改如下: =====</span></span><br><span class="line">    auto lo</span><br><span class="line">    iface lo inet loopback</span><br><span class="line">    auto eth0</span><br><span class="line"></span><br><span class="line">    iface eth0 inet static          <span class="comment"># 使用静态地址</span></span><br><span class="line">    address  192.168.0.100          <span class="comment"># 设置静态地址</span></span><br><span class="line">    netmask  255.255.255.0</span><br><span class="line">    gateway  192.168.0.1            <span class="comment"># 网关</span></span><br><span class="line">    dns-nameservers   8.8.8.8  192.168.0.1</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>如果public = no，此时需要输入samba用户密码；<br>如果public = yes，则作为nobody用户直接访问。<br>另外，在Windows客户端使用 <code>net use * /del /y</code> 这条命令可以清理访问缓存。</p>
+<hr>
+<p>转载自 <a target="_blank" rel="noopener" href="http://blog.csdn.net/i_chips/article/details/19191957">Ubuntu下配置支持Windows访问的samba共享</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+              <a href="/tags/uboot/" rel="tag"># uboot</a>
+              <a href="/tags/error/" rel="tag"># error</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/05/31/1717-scrum/" rel="prev" title="敏捷开发 Scrum 学习">
+                  <i class="fa fa-chevron-left"></i> 敏捷开发 Scrum 学习
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/07/07/1719-uboot-makefile/" rel="next" title="uboot之makefile分析">
+                  uboot之makefile分析 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

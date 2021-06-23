@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="对交易市场的一些个人思考.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="交易市场思考">
+<meta property="og:url" content="https://draapho.github.io/2019/03/26/1902-trading-rule/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="对交易市场的一些个人思考.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-03-25T13:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.771Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="market">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2019/03/26/1902-trading-rule/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>交易市场思考 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E5%AF%BC%E6%80%9D%E6%83%B3"><span class="nav-number">2.</span> <span class="nav-text">指导思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80"><span class="nav-number">3.</span> <span class="nav-text">知行合一</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A5"><span class="nav-number">3.1.</span> <span class="nav-text">知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C"><span class="nav-number">3.2.</span> <span class="nav-text">行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%BA%E6%80%A7%E5%BC%B1%E7%82%B9"><span class="nav-number">3.3.</span> <span class="nav-text">人性弱点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E6%98%93%E5%B8%82%E5%9C%BA%E6%9C%AC%E8%B4%A8"><span class="nav-number">3.4.</span> <span class="nav-text">交易市场本质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E6%98%93%E6%A8%A1%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">交易模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%B4%BE"><span class="nav-number">4.1.</span> <span class="nav-text">技术派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E6%B4%BE"><span class="nav-number">4.2.</span> <span class="nav-text">价值投资派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B2%E7%82%B9%E5%A5%97%E5%88%A9%E6%B4%BE"><span class="nav-number">4.3.</span> <span class="nav-text">盲点套利派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.4.</span> <span class="nav-text">三大系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E9%87%8D%E7%82%B9"><span class="nav-number">5.</span> <span class="nav-text">我的学习重点</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2019/03/26/1902-trading-rule/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          交易市场思考
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-26T00:00:00+11:00">2019-03-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/market/" itemprop="url" rel="index"><span itemprop="name">market</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">对交易市场的一些个人思考.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2019/03/26/1902-trading-rule/">交易市场思考</a></li>
+<li><a href="https://draapho.github.io/2019/04/26/1903-wave-principle/">波浪理论简述</a></li>
+<li><a href="https://draapho.github.io/2019/06/25/1907-investor/">你将不会成为一个伟大的投资人</a></li>
+<li><a href="https://draapho.github.io/2020/02/09/2001-exploration/">交易市场阶段性探索心得</a></li>
+<li><a href="https://draapho.github.io/2020/08/06/2005-wave-mnemonic/">波浪理论口诀</a></li>
+<li><a href="https://draapho.github.io/2020/08/07/2006-wave-thinking/">波浪理论感悟</a></li>
+<li><a href="https://draapho.github.io/2021/02/03/2102-share-skill/">交易市场思路</a></li>
+</ul>
+<h1 id="指导思想"><a href="#指导思想" class="headerlink" title="指导思想"></a>指导思想</h1><ul>
+<li><strong>如果连时间都控制不了(自律), 还谈什么自信!</strong></li>
+<li>高手无他, 知道重点(<strong>强弱, 共振</strong>), 深入研究(<strong>结构, 均线, 资金流</strong>)</li>
+<li><strong>技术分析核心思想: 若何时何价, 则强/中/弱</strong>, 没有期望, 只有通过实际走势客观判断市场强弱.</li>
+<li><strong>技术分析最大的坑: 何时必何价, 预测!</strong>. 由于加入了主观期望后的选择性观察和判断, 故而失去客观性!</li>
+<li>大道至简且相通: <strong>减少交易次数, 顺势而为, 讲的是人性!</strong>.</li>
+</ul>
+<h1 id="知行合一"><a href="#知行合一" class="headerlink" title="知行合一"></a>知行合一</h1><ul>
+<li>要在交易市场生存和获利, 最根本的一句话就是: <strong>知行合一</strong></li>
+<li>当然首先要有自己的知, 知而后行, 行而后知, 不断进步, 直至知行合一.</li>
+<li>炒股级别:<ul>
+<li>无知有行: 随心所欲的不断交易.</li>
+<li>有知有行: 学了点知识, 但依旧是想当然的交易. 或知的不够, 或执行力不够.</li>
+<li>有知无行: 学会了空仓和等待, 只做确定性机会. 但心境依旧波澜起伏, 需要依靠规则和执行力.</li>
+<li>知行合一: 知的最高境界就是知道自己的弱点. 行的最高境界就是知行合一. 从而不立于危墙之下, 只赚认知之内的钱.</li>
+</ul>
+</li>
+</ul>
+<h2 id="知"><a href="#知" class="headerlink" title="知"></a>知</h2><ul>
+<li>当你走进交易市场后, 你将面对如下对手.<ul>
+<li>或拥有最敏锐, 最凶狠的头脑;</li>
+<li>或拥有勤奋努力, 孜孜不倦的态度;</li>
+<li>或拥有说一不二, 严格执行的纪律;</li>
+<li>更多的是三者皆备.</li>
+<li>请问: 如何在市场上把他们的钱挪到自己口袋里?</li>
+</ul>
+</li>
+<li>自己对交易市场的知是本! 而交易规则, 信仰之类的都是为这个”本”服务的位. 所以:<ul>
+<li>别把别人的信仰当成自己的信仰. 譬如”价值投资”</li>
+<li>别把别人的军规当成自己的军规. 譬如”3%无条件止损”</li>
+<li>很明显, “价值投资”和”无条件止损”是相互矛盾的!</li>
+</ul>
+</li>
+<li>什么是知?<ul>
+<li>对交易市场本质的思考和理解</li>
+<li>获利方法的学习和掌握, 探索交易模式.</li>
+<li>自己主观(性格, 心理)和客观(时间, 精力)情况的分析和改进.</li>
+</ul>
+</li>
+<li>投资, 是市场认知和人性的变现.<ul>
+<li>只有市场认知, 最多只能像爬藤植物一般, 可以快速生长, 但无法完成积累!</li>
+<li>同时认知市场和人性, 才可能成长为参天大树.</li>
+<li>任何事物都有自己的路径依赖. 做投资, 必须一开始就培养成为参天大树的交易习惯.</li>
+<li>大道至简: <strong>减少交易次数, 顺势而为.</strong><ul>
+<li>抄底逃顶的技术派一般听不进去.</li>
+<li>长期持股的价值派自带这种模式.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="行"><a href="#行" class="headerlink" title="行"></a>行</h2><ul>
+<li>求知过程本身就是一种行.<ul>
+<li>求知过程最重要的一句话是 <strong>高手无他，知道重点深入研究过而已</strong> (百年一人)</li>
+</ul>
+</li>
+<li>交易过程是行.<ul>
+<li>交易过程最重要的一句话是 <strong>一致性表现!</strong>, 也就是通过”知”识别出一种可重复的交易模式.</li>
+</ul>
+</li>
+<li>知只是理论, 理论知识再丰富, 不上战场也只是纸上谈兵.</li>
+<li>人性的关系, 知行合一非常非常的难! 所以会有一个知而后行, 行而后知, 不断进步的过程.</li>
+<li>目前的交易市场, 主角还是人, 靠人性的弱点赚钱.</li>
+</ul>
+<h2 id="人性弱点"><a href="#人性弱点" class="headerlink" title="人性弱点"></a>人性弱点</h2><ul>
+<li>在达到知行合一之前, 所有人的共同弱点就是人性!</li>
+<li>贪: 追求利润而忽视风险. 区别是, 有些让本金也在高风险之下, 有些人只会让已有的利润承担高分险.</li>
+<li>嗔疑痴: 与预期不一致后的生气,怀疑,拒不认错. 导致无法及时按计划处理错误, 如放弃止损或导致踏空.</li>
+<li>惧: 惧是嗔疑痴的后续情绪, 由于一错再错, 就会恐惧, 最终在行为上表现为卖在低位, 买在高位.</li>
+<li>慢: 慢的危害最大也最不易察觉! 特别是自认为知行合一, 战无不胜之时!</li>
+<li>在交易市场, <strong>克服人性弱点的唯一办法就是承认自己的弱点, 避免自己陷入到不利的处境之中.</strong></li>
+</ul>
+<h2 id="交易市场本质"><a href="#交易市场本质" class="headerlink" title="交易市场本质"></a>交易市场本质</h2><ul>
+<li><strong>成本/价格</strong><ul>
+<li>交易者情绪的起伏取决于价格波动, 价格波动又导致了交易者情绪的起伏.<ul>
+<li>情绪和价格, 就有如电场和磁场, 交织在一起不断的变化延伸, 画出了K线图.</li>
+</ul>
+</li>
+<li>空仓者没有亏损压力, 故只需克服贪字即可.</li>
+<li>更为根本的是持仓成本.<ul>
+<li>能承受50%以上亏损的价值投资者恐怕不多.</li>
+<li>有资金压力的人对亏损高度敏感.</li>
+<li><strong>“恐惧”是写入基因的本能, 别想着去克服, 而是避免让”恐惧”的情况发生.</strong></li>
+<li>底部是一个让”恐惧”的资金换手的地方. 只有这样, 未来上涨的阻力才能最小化.</li>
+</ul>
+</li>
+<li>因而, <strong>防止亏损永远比追求盈利重要.</strong></li>
+</ul>
+</li>
+<li><strong>时间</strong><ul>
+<li><strong>时间是主宰.</strong></li>
+<li>将贪婪的心降低预期至少亏一点, 直至不能再亏.</li>
+<li>让恐高的心习以为常, 因为不忍再次踏空而匆匆买入.</li>
+<li>直觉上, 应该有类似于牛顿冷却定律的数学公式.</li>
+</ul>
+</li>
+<li><strong>结构</strong><ul>
+<li>历史走势形成了交易市场自身的结构, 类似于河床.</li>
+<li>未来的资金流只能沿着已有的河床前进, 唯有这样才符合最小作用量原理(花的钱最少, 造成的波动最大)</li>
+<li>结构被资金流不断的冲击, 会缓慢的改变.</li>
+<li>正如河水只能沿着河床前进, 河床被日积月累的河水冲击而改变. 互为因果.</li>
+</ul>
+</li>
+<li><strong>均线</strong><ul>
+<li>均线能体现综合成本.</li>
+<li>均线暗含着随时间推移, 人心对当前的股价习以为常.</li>
+<li>合适的均线能提炼出K线结构, 显示走势的强弱.</li>
+</ul>
+</li>
+<li>人性<ul>
+<li>市场的所有表象, 最终体现的都是人性的本质.</li>
+<li>交易市场是一个最公平, 最充分, 最激烈, 也最和平的人性博弈场所.</li>
+</ul>
+</li>
+</ul>
+<h1 id="交易模式"><a href="#交易模式" class="headerlink" title="交易模式"></a>交易模式</h1><h2 id="技术派"><a href="#技术派" class="headerlink" title="技术派"></a>技术派</h2><ul>
+<li>基于K线分析的流派.</li>
+<li>代表人物: 江恩, 百年一人, 詹姆斯•西蒙斯</li>
+<li>公理: 股价包容一切.</li>
+<li>操作级别:<ul>
+<li>日内超短线.<ul>
+<li>多用于外汇, 期货市场.</li>
+<li>A股市场不支持.</li>
+</ul>
+</li>
+<li>日间短线. 快进快出<ul>
+<li>A股市场的最短交易时间, 很多散户高手使用.</li>
+<li>优点: 满足高频交易的心理. 适用于与牛熊鹿任何阶段!</li>
+<li>缺点: 对操作者要求极高(能力和心理素质, 全职看盘), 资金容量有限.</li>
+</ul>
+</li>
+<li>波段交易<ul>
+<li>中期持股, 数周或数月.</li>
+<li>优点: 省时省力, 资金容量大. 资金成长性远远高于短线客.</li>
+<li>缺点: 对操作者要求极高(正确识别出波段机会, 能中长期空仓等待)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="价值投资派"><a href="#价值投资派" class="headerlink" title="价值投资派"></a>价值投资派</h2><ul>
+<li>基于行业发展和企业基本面分析的流派.</li>
+<li>代表人物: 巴菲特.</li>
+<li>操作级别: 长期持股.<ul>
+<li>优点: 由于其忽略股价短时波动的理念, 可以很容易的忽略情绪去买卖.</li>
+<li>缺点: 普通投资者缺乏全面的基本面分析能力, 学习手段也有限!</li>
+<li>缺点: 散户解决不了风险分散以及何时卖出的问题.</li>
+</ul>
+</li>
+</ul>
+<h2 id="盲点套利派"><a href="#盲点套利派" class="headerlink" title="盲点套利派"></a>盲点套利派</h2><ul>
+<li>基于思维盲区, 利用规则漏洞或主动攻击他人弱点而获利的流派.</li>
+<li>代表人物: 索罗斯, 青木</li>
+<li>没这个头脑, 资源和能力, 不做评价.</li>
+</ul>
+<h2 id="三大系统"><a href="#三大系统" class="headerlink" title="三大系统"></a>三大系统</h2><ul>
+<li>技术系统<ul>
+<li>预测系统: 不重要!</li>
+<li><strong>确认系统</strong>: 解决确定性问题: 开仓标准, 仓位标准, 平仓标准.</li>
+<li>确认系统必须是经过测试的, 有自信和把握将其作为唯一性买卖标准!</li>
+</ul>
+</li>
+<li><strong>仓位系统</strong><ul>
+<li>应对风险的不二法门, 仓位系统大原则: 始终让自己留在赌桌上.</li>
+<li>分仓比例, 单次允许最大的亏损, 开仓数量, 加仓数量.</li>
+<li>仓位系统是用来对冲人性弱点的!</li>
+</ul>
+</li>
+<li><strong>心性系统</strong><ul>
+<li>心性系统的目标就是知行合一.<ul>
+<li>并不是指练就”无欲无求”, “洒脱自然”的出世态度. (那还入交易市场干吗?)</li>
+<li>知: 承认自己的贪嗔痴疑慢, 承认人性的弱点.</li>
+<li>行: 用交易规则和执行力, 减少和避免不利情况的发生.</li>
+</ul>
+</li>
+<li>能否不为外界所动的坚持标准! (外界指其他人的声音)</li>
+<li>市场证明判断错误后, 能否立刻纠错. (认陪比追涨重要的多!)</li>
+</ul>
+</li>
+<li>心性系统三大矛盾<ul>
+<li>主观追求确定性与股市不可测的矛盾.<ul>
+<li>市场才是老大! 所有交易者都必须遵从市场走势.</li>
+</ul>
+</li>
+<li>期待快速赢利与炒股是持久战的矛盾.<ul>
+<li>曲成万物，欲速则不达</li>
+<li>想想参天大树和快速生长的爬藤植物, 大象和忙忙碌碌的蜜蜂蚂蚁.</li>
+</ul>
+</li>
+<li>思想在高处与操作行为在低处的矛盾<ul>
+<li>希望盈利, 从不亏损入手</li>
+<li>希望快速盈利, 从稳定入手</li>
+<li>希望买入大牛, 从不能买什么入手</li>
+<li>希望提高成功率, 从降低失误率入手</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="我的学习重点"><a href="#我的学习重点" class="headerlink" title="我的学习重点"></a>我的学习重点</h1><ul>
+<li>定位: 绩优股波段交易, 价值投机.</li>
+<li>基础知识: 道氏理论, 波浪理论, 缠论, 江恩时空平衡.<ul>
+<li>铸剑先生, 技术分析, 确认及跟随系统</li>
+<li>柳荫解盘, 资金流分析</li>
+<li>百年一人, 技术分析, 时间预测</li>
+</ul>
+</li>
+<li><strong>确认及跟随系统</strong>:<ul>
+<li><strong>均线</strong><ul>
+<li>高手止于均线(百年一人)</li>
+<li>均线研究的四个要素: 周期, 大小, 方向和拐点.</li>
+<li>一阶均线, 级别分离, 高通滤波.</li>
+</ul>
+</li>
+<li><strong>结构</strong><ul>
+<li>股价的最高最低价, 结合时间要素构成N字形结构.</li>
+<li>结构要素: 横竖斜, 分别对应持续时间, 股价空间, 速度.</li>
+</ul>
+</li>
+<li><strong>时间周期</strong><ul>
+<li>以4和6为数理基础构成的时间序列. (铸剑先生)</li>
+<li>顶底循环周期, 均线交叉/拐点周期, 不同级别比例关系, 同级别对称关系.</li>
+<li>唯一性靠结构解决: 趋势运行需要时间，时间服从于结构，结构排在第一位！(百年一人)</li>
+</ul>
+</li>
+<li><strong>共振</strong><ul>
+<li>级别共振, 注意小服从大.</li>
+<li>技术共振: 资金, 结构, 均线, 时间.</li>
+<li>横向共振: 金融, 市场, 板块, 基本面.</li>
+</ul>
+</li>
+<li><strong>判断级别和走势属性</strong><ul>
+<li>判断出级别, 从而事前确定操作级别.</li>
+<li>判断后续走势的属性, 从而决定是否参与以及参与的仓位.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>仓位系统</strong>:<ul>
+<li>高度看好的股票, 可以建一个跟随仓, 作用类似于侦察兵, 帮助自己随时观察强弱变化.</li>
+<li><strong>潜在盈亏比和市场强弱决定开仓比例, 提前确定好主动止损情况和被动止损点.</strong></li>
+<li>如果市场和个股走势符合预期, 可以在趋势回调中加仓. 加仓仓位必须单独设置止损点.</li>
+<li><strong>要根据市场实际走势的强弱变化来重仓和清仓. 对于预测的顶底, 只允许分仓按短线思维操作!</strong></li>
+</ul>
+</li>
+<li><strong>选股系统</strong>:<ul>
+<li>观察资金流<ul>
+<li><strong>大资金建仓成本是个股的超级底牌.</strong></li>
+<li>技术面和资金面共振做多就是超级牛股.</li>
+<li>并不是看一二天的大资金流入流出. 而是像烧水一样有多重铺垫.</li>
+<li>在重要的点位, 如阻力位, 尤其要看主力资金是虚砸实接还是虚拉实砸.</li>
+</ul>
+</li>
+<li>强弱对比<ul>
+<li>横向比: 当前走势和历史走势比.</li>
+<li>纵向比: 个股和板块比, 板块和指数比.</li>
+</ul>
+</li>
+<li>共振<ul>
+<li>技术面多级别共振.</li>
+<li>不同技术指标共振. (可以归纳为资金,结构,均线)</li>
+<li>政策面, 基本面, 资金面, 技术面共振</li>
+<li>个股, 板块, 大盘环境共振.</li>
+</ul>
+</li>
+<li>基本面优良<ul>
+<li>不会研究基本面, 找行业前三, 国有企业即可.</li>
+<li>重点关注内容: 市值大小, 盈利能力, 稳定性, 发展情况.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>预测系统:<ul>
+<li>暂时不花大力气学习, 稳定盈利靠确认系统和执行力.</li>
+<li>最终是要深入研究的, 股票市场可预测等同于人类行为可预测, 对整个人文科学意义重大.</li>
+<li>这里的预测, 并不是传统科学理论的”精确”预测, 而是如天气预报, 量子理论的概率预测.</li>
+<li>事物和生命是有限选择权, 因此可部分预测. 但精确预测会造成宿命论.</li>
+</ul>
+</li>
+<li>一些体会:<ul>
+<li><strong>稳定盈利的四个条件: 休息, 止损, 一致性交易模式, 持续下单能力.</strong><ul>
+<li><strong>春种(买入), 夏长(获利), 秋收(卖出), 冬藏(休息)</strong></li>
+</ul>
+</li>
+<li>大小资金各有优劣<ul>
+<li>大资金: 主动创造机会, 大主导小; 行动缓慢, 在明处, 只能打阵地战.</li>
+<li>小资金: 被动等待机会, 小跟随大; 行动快捷, 在暗处, 可以打游击战, 运动战.</li>
+<li>**交易是持久战, 重守正, 轻出奇, 多守正, 少出奇. **</li>
+</ul>
+</li>
+<li><strong>多头分两类, 一种是技术多头, 另一种是资金多头.</strong><ul>
+<li>大资金多头往往在技术多头之前就布局好了.</li>
+<li>在技术多头情况下, 大资金做空的抛压就会被技术多头化解掉.</li>
+<li>简单理解的话, 一浪和五浪属于资金和技术的不和谐, 三浪属于资金和技术的共振.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>常见的错误<ul>
+<li>过度交易, 自信膨胀, 驾驭市场, 忽视意外.</li>
+<li>没到买点就摊平亏损 (事前确定最大亏损额度)</li>
+<li>过早获利了结, 过迟认陪 (事前确定操作级别)</li>
+<li>逆向交易 (不做次要方向)</li>
+<li>追涨杀跌 (永不追高买入, 错过了就欣赏)</li>
+<li>冲动交易, 跟着情绪走 (无计划不操作! 按规则严格执行!)</li>
+</ul>
+</li>
+<li>推荐书籍:<ul>
+<li>&lt;江恩华尔街45年&gt;</li>
+<li>&lt;艾略特波浪理论&gt;</li>
+<li>&lt;道氏理论&gt;</li>
+<li>&lt;股票趋势技术分析&gt;</li>
+<li>&lt;亚当理论&gt;</li>
+<li>缠中说禅</li>
+<li>铸剑先生</li>
+<li>百年一人</li>
+<li>&lt;通向财务自由之路&gt; 范.K.撒普</li>
+<li>&lt;专业投机原理&gt; 维克托.斯波朗迪</li>
+<li>&lt;彼得.林奇点评版 股票作手回忆录&gt; 杰西.利弗莫尔</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/market/" rel="tag"># market</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/03/19/1901-tittle-tattle/" rel="prev" title="杂谈">
+                  <i class="fa fa-chevron-left"></i> 杂谈
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/04/26/1903-wave-principle/" rel="next" title="波浪理论简述">
+                  波浪理论简述 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

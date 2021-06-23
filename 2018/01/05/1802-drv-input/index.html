@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="驱动之input子系统">
+<meta property="og:url" content="https://draapho.github.io/2018/01/05/1802-drv-input/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1802/input_struct_relation.png">
+<meta property="og:image" content="https://draapho.github.io/images/1802/link+input.JPG">
+<meta property="article:published_time" content="2018-01-04T13:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.757Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="linuxembedded linux">
+<meta property="article:tag" content="drv">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1802/input_struct_relation.png">
+
+
+<link rel="canonical" href="https://draapho.github.io/2018/01/05/1802-drv-input/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>驱动之input子系统 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E5%AD%90%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">输入子系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#input%E6%A0%B8%E5%BF%83%E5%B1%82"><span class="nav-number">2.1.</span> <span class="nav-text">input核心层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%8A%BD%E8%B1%A1%E5%B1%82"><span class="nav-number">2.2.</span> <span class="nav-text">软件抽象层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E8%AE%BE%E5%A4%87%E5%B1%82"><span class="nav-number">2.3.</span> <span class="nav-text">硬件设备层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E5%B1%82"><span class="nav-number">2.4.</span> <span class="nav-text">连接层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APP%E5%B1%82%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.</span> <span class="nav-text">APP层相关函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E8%AE%BE%E5%A4%87%E7%AB%AF%E6%BA%90%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">硬件设备端源码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#input-keys-c"><span class="nav-number">3.1.</span> <span class="nav-text">input_keys.c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input-keys-h"><span class="nav-number">3.2.</span> <span class="nav-text">input_keys.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Makefile"><span class="nav-number">3.3.</span> <span class="nav-text">Makefile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2018/01/05/1802-drv-input/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          驱动之input子系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-01-05 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-05T00:00:00+11:00">2018-01-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded-linux/" itemprop="url" rel="index"><span itemprop="name">embedded linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2018/01/05/1802-drv-input/">驱动之input子系统</a></li>
+<li><a href="https://draapho.github.io/2018/01/08/1803-drv-platform/">驱动之platform概念</a></li>
+<li><a href="https://draapho.github.io/2018/02/08/1814-drv-rtc/">驱动之RTC分析</a></li>
+<li><a href="https://draapho.github.io/2018/01/09/1804-drv-lcd/">驱动之LCD驱动框架和实现</a></li>
+<li><a href="https://draapho.github.io/2018/01/11/1806-drv-ts/">驱动之触摸屏驱动框架和实现</a></li>
+<li><a href="https://draapho.github.io/2018/01/18/1807-drv-usb1/">驱动之USB基础概念和框架</a></li>
+<li><a href="https://draapho.github.io/2018/01/19/1808-drv-usb2/">驱动之USB设备驱动程序</a></li>
+</ul>
+<p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.</p>
+<h1 id="输入子系统"><a href="#输入子系统" class="headerlink" title="输入子系统"></a>输入子系统</h1><p>输入子系统是Linux对硬件设备进一步的抽象.<br>将输入系统的逻辑概念统一写好, 我们称之为软件抽象层.<br>而硬件部分的底层工作需要由开发人员具体实现, 我们称之为硬件设备层.<br>中间还有个连接层, 用于实现软件抽象层和硬件设备层的多对多关联.</p>
+<p>按键, 鼠标, 键盘, 触摸屏等设备都可以归属为输入子系统.<br>这些设备的硬件驱动和输入子系统对接, 输入子系统再统一将输入事件传递给应用层.<br>这样, 应用层的设备就无需考虑底层硬件的区别.<br>而我们之前写的按键驱动, LED驱动, 一般只是给公司内部调用的, 不具有通用性!</p>
+<p>整个输入子系统完成的工作其实和自己写的驱动是一样的.<br>只是部分可以软件抽象的功能被输入子系统打包掉了.<br>其核心代码在 <code>/drivers/input/input.c</code><br>整体框架如下:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ===== 输入子系统, 核心层 =====</span></span><br><span class="line">文件 /drivers/input/input.c 内, 关键函数</span><br><span class="line">    input_init              <span class="comment">// 初始化</span></span><br><span class="line">    class_register          <span class="comment">// 注册类</span></span><br><span class="line">    register_chrdev         <span class="comment">// 注册设备(主设备号13)</span></span><br><span class="line"></span><br><span class="line">    input_register_device   <span class="comment">// 注册硬件设备 input_dev</span></span><br><span class="line">    input_register_handler  <span class="comment">// 注册软件抽象 input_handler</span></span><br><span class="line">    input_register_handle   <span class="comment">// 注册连接     input_handle</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ===== 软件抽象层, 系统已实现 =====</span></span><br><span class="line"><span class="number">1.</span> <span class="keyword">static</span> 初始化一个 input_handler 全局变量</span><br><span class="line"><span class="number">2.</span> 注册此变量, input_register_handler</span><br><span class="line"><span class="number">3.</span> 实现 event connect 等函数</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">input_handler</span> &#123;</span></span><br><span class="line">    event,connect, disconnect, start        <span class="comment">// 函数具体实现的指针</span></span><br><span class="line">    <span class="keyword">int</span> minor;                              <span class="comment">// 次设备号</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name;                       <span class="comment">// 显示在proc/bus/input/handlers</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">input_device_id</span> *<span class="title">id_table</span>;</span> <span class="comment">// 驱动支持的id表(用于匹配input_dev)</span></span><br><span class="line">    <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">input_device_id</span> *<span class="title">blacklist</span>;</span><span class="comment">// id表黑名单</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>    <span class="title">h_list</span>;</span>             <span class="comment">// 存放input_handle(没有r)的链表</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>    <span class="title">node</span>;</span>               <span class="comment">// 存放input_handler自身的链表</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ===== 连接层, 系统已实现 =====</span></span><br><span class="line">多个文件 /drivers/input<span class="comment">/*dev.c 内*/</span></span><br><span class="line"><span class="number">1.</span> *dev_connect里分配 input_handle(没有r)变量</span><br><span class="line"><span class="number">2.</span> 设置/初始化此变量</span><br><span class="line"><span class="number">3.</span> 注册, input_register_handle(没有r)</span><br><span class="line"></span><br><span class="line"><span class="function">struct <span class="title">input_handle</span><span class="params">(没有r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">void</span> *<span class="keyword">private</span>;                          <span class="comment">// 私有数据, 指向了父指针</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">input_dev</span> *<span class="title">dev</span>;</span>                  <span class="comment">// 指向input_dev</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">input_handler</span> *<span class="title">handler</span>;</span>          <span class="comment">// 指向 input_handler</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>    <span class="title">d_node</span>;</span>             <span class="comment">// 存放input_dev-&gt;h_list的链表</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>    <span class="title">h_node</span>;</span>             <span class="comment">// 存放input_handler-&gt;h_list的链表</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ===== 硬件设备层, 自己写 =====</span></span><br><span class="line"><span class="number">1.</span> 分配一个input_dev变量</span><br><span class="line"><span class="number">2.</span> 设置/初始化此变量</span><br><span class="line"><span class="number">3.</span> 注册, input_register_device</span><br><span class="line"><span class="number">4.</span> 硬件相关代码, open, close, event, sync等等.</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">input_dev</span> &#123;</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name;                       <span class="comment">// 设备描述</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *phys;                       <span class="comment">// 设备路径?</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">input_id</span> <span class="title">id</span>;</span>                     <span class="comment">// 总线类型. 供应商/产品/版本信息. 用于匹配 input_handler</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> evbit[NBITS(EV_MAX)];     <span class="comment">// 记录支持的事件类型位图</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> keybit[NBITS(KEY_MAX)];   <span class="comment">// 记录支持的按键值位图</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> relbit[NBITS(REL_MAX)];   <span class="comment">// 记录支持的相对坐标位图, 如滚轮</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> absbit[NBITS(ABS_MAX)];   <span class="comment">// 记录支持的绝对坐标位图, 如触摸屏</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>    <span class="title">h_list</span>;</span>             <span class="comment">// 存放input_handle(没有r)的链表</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>    <span class="title">node</span>;</span>               <span class="comment">// 存放input_dev自身的链表</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>如图, 较为直观的说明了三者的指针关系, 以及 <code>input_handler</code> 和 <code>input_dev</code> 通过 <code>input_handle(没有r)</code> 的建立的多对多关系</p>
+<p><img src="https://draapho.github.io/images/1802/input_struct_relation.png" alt="input_struct_relation"></p>
+<h2 id="input核心层"><a href="#input核心层" class="headerlink" title="input核心层"></a>input核心层</h2><p>整个input初始化流程大致如下:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// drivers/input/input.c</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> __init <span class="title">input_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function">    <span class="title">class_register</span><span class="params">(&amp;input_class)</span></span>;       <span class="comment">// 注册input类. 对应于自己写的驱动的 class_create, 也会class_register</span></span><br><span class="line">    input_proc_init();                  <span class="comment">// 初始化一些交互文件</span></span><br><span class="line">    register_chrdev(INPUT_MAJOR, <span class="string">&quot;input&quot;</span>, &amp;input_fops); <span class="comment">// 对应于自己写的驱动的 register_chrdev, 注册设备</span></span><br><span class="line">        <span class="comment">// input的主设备号固定为13, 子设备号后面会自动分配. 核心是 input_fops 这么一个结构.</span></span><br><span class="line">        <span class="comment">// 查看 input_fops 变量, 只有一个 .open 函数, 指向 input_open_file</span></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">input_open_file</span><span class="params">(struct inode *inode, struct file *file)</span></span></span><br><span class="line"><span class="function">            struct input_handler *handler </span>= input_table[iminor(inode) &gt;&gt; <span class="number">5</span>];    <span class="comment">// 取出子设备号高3位, 低5位用于自动分配</span></span><br><span class="line">            new_fops = fops_get(handler-&gt;fops)  <span class="comment">// 打开handler指向的fop, 譬如 &amp;evdev_fops (后面会讲到)</span></span><br><span class="line">            file-&gt;f_op = new_fops;</span><br><span class="line">            new_fops-&gt;open(inode, file);        <span class="comment">// 打开真正可操作的文件, 里面会有 read, write</span></span><br><span class="line">            <span class="comment">// 这样 app:read &gt; ... &gt; file-&gt;f_op-&gt;read</span></span><br><span class="line">    <span class="comment">// 另外一个 class_device_create 是在 input_handler.connect 的函数里实现的.</span></span><br></pre></td></tr></table></figure>
+
+<p>上述代码, 关键点在于从 input_table 取出 input_handler的指针.<br>那么 input_table 由谁构造呢? 搜索可知是: <code>input_register_handler</code>. 继续往下看.</p>
+<h2 id="软件抽象层"><a href="#软件抽象层" class="headerlink" title="软件抽象层"></a>软件抽象层</h2><p>注册 input_handler 的过程:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// input_open_file 函数里, 有个关键数组为 input_table, 存储了input_handler的指针!</span></span><br><span class="line"><span class="comment">// 函数 input_register_handler 会设置 input_table. 它被如下代码调用:</span></span><br><span class="line"><span class="comment">// drivers/char/keyboard.c  // 按键抽象</span></span><br><span class="line"><span class="comment">// drivers/input/evbug.c    // 调试用, 所用的事件存到 syslog文件中</span></span><br><span class="line"><span class="comment">// drivers/input/evdev.c    // input_table[2], 子设备号0x40-0x5F, 设备事件抽象</span></span><br><span class="line"><span class="comment">// drivers/input/joydev.c   // input_table[0], 子设备号0x00-0x0F, 游戏杆抽象</span></span><br><span class="line"><span class="comment">// drivers/input/mousedev.c // input_table[1], 子设备号0x20-0x3F, 鼠标抽象</span></span><br><span class="line"><span class="comment">// drivers/input/tsdev.c    // input_table[4], 子设备号0x80-0x9F, 触摸屏抽象</span></span><br><span class="line"><span class="comment">// 上述几个文件真正定义了 input_handler 的变量如 evdev_handler, 并对其初始化, 包括 id_table</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">input_register_handler</span><span class="params">(struct input_handler *handler)</span></span></span><br><span class="line">    input_table[handler-&gt;minor &gt;&gt; 5] = handler;         // 将input_handler指针放入数组</span><br><span class="line">    list_add_tail(&amp;handler-&gt;node, &amp;input_handler_list); <span class="comment">// 放入链表</span></span><br><span class="line">    list_for_each_entry(dev, &amp;input_dev_list, node)</span><br><span class="line">        input_attach_handler(dev, handler);             <span class="comment">// 对于每个input_dev, 调用input_attach_handler</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">input_attach_handler</span><span class="params">(struct input_dev *dev, struct input_handler *handler)</span></span></span><br><span class="line"><span class="function">    id </span>= input_match_device(handler-&gt;id_table, dev);    <span class="comment">// 根据input_handler的id_table判断能否支持这个input_dev</span></span><br><span class="line">    error = handler-&gt;connect(handler, dev, id);         <span class="comment">// 匹配的话, 就自动建立连接, 连接函数由软件抽象层实现</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="硬件设备层"><a href="#硬件设备层" class="headerlink" title="硬件设备层"></a>硬件设备层</h2><p>注册 input_dev 的过程:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数 input_register_device 用于注册硬件设备, 由开发人员写的驱动代码调用.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">input_register_device</span><span class="params">(struct input_dev *dev)</span></span></span><br><span class="line"><span class="function">    <span class="title">list_add_tail</span><span class="params">(&amp;dev-&gt;node, &amp;input_dev_list)</span></span>;         <span class="comment">// 放入链表</span></span><br><span class="line">    list_for_each_entry(handler, &amp;input_handler_list, node)</span><br><span class="line">        input_attach_handler(dev, handler);             <span class="comment">// 对于每一个input_handler，调用 input_attach_handler</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">input_attach_handler</span><span class="params">(struct input_dev *dev, struct input_handler *handler)</span></span></span><br><span class="line"><span class="function">    id </span>= input_match_device(handler-&gt;id_table, dev);    <span class="comment">// 根据input_handler的id_table判断能否支持这个input_dev</span></span><br><span class="line">    error = handler-&gt;connect(handler, dev, id);         <span class="comment">// 匹配的话, 就自动建立连接, 连接函数由软件抽象层实现</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="连接层"><a href="#连接层" class="headerlink" title="连接层"></a>连接层</h2><p>有上述分析可知, 软件抽象层和硬件设备层建立连接的关键是 <code>handler-&gt;connect</code> 指向的函数.<br>建立连接的基本步骤如下:</p>
+<ol>
+<li>分配一个 <code>input_handle(没有r)</code> 结构体</li>
+<li>设置/初始化 <code>input_handle(没有r)</code><ul>
+<li><code>input_handle.dev = input_dev;</code> 保存硬件设备, input_dev</li>
+<li><code>input_handle.handler = input_handler;</code> 保存软件抽象, input_handler</li>
+</ul>
+</li>
+<li>软件层和硬件层分别注册 <code>input_handle(没有r)</code>, 将其指针保存到各自结构体的<code>h_list</code>项中<ul>
+<li><code>input_handler-&gt;h_list = &amp;input_handle;</code></li>
+<li><code>inpu_dev-&gt;h_list = &amp;input_handle;</code></li>
+</ul>
+</li>
+</ol>
+<p>硬件设备层的代码最终是要自己写的, 因此我们会比较熟悉.<br>下面以软件抽象层的 <code>drivers/input/evdev.c</code> 为例, 分析一下整个匹配过程.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 之前已经分析到, 调用 input_register_handler 和 input_register_device 时, 都会进行匹配</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">input_attach_handler</span><span class="params">(struct input_dev *dev, struct input_handler *handler)</span></span></span><br><span class="line"><span class="function">    id </span>= input_match_device(handler-&gt;id_table, dev);    <span class="comment">// 根据input_handler的id_table判断能否支持这个input_dev</span></span><br><span class="line">    error = handler-&gt;connect(handler, dev, id);         <span class="comment">// 匹配的话, 就自动建立连接, 连接函数由软件抽象层实现</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里说明一下, handler-&gt;id_table 和 handler-&gt;connect 的初始值都是由软件抽象层几个文件完成的. 具体就是下面几个:</span></span><br><span class="line"><span class="comment">// drivers/char/keyboard.c  // 按键抽象</span></span><br><span class="line"><span class="comment">// drivers/input/evbug.c    // 调试用, 所用的事件存到 syslog文件中</span></span><br><span class="line"><span class="comment">// drivers/input/evdev.c    // input_table[2], 子设备号0x40-0x5F, 设备事件抽象</span></span><br><span class="line"><span class="comment">// drivers/input/joydev.c   // input_table[0], 子设备号0x00-0x0F, 游戏杆抽象</span></span><br><span class="line"><span class="comment">// drivers/input/mousedev.c // input_table[1], 子设备号0x20-0x3F, 鼠标抽象</span></span><br><span class="line"><span class="comment">// drivers/input/tsdev.c    // input_table[4], 子设备号0x80-0x9F, 触摸屏抽象</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们以 evdev.c 为例深入分析一下. 其定义的 input_handler 变量名为 evdev_handler. connect会调用evdev_connect</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">evdev_connect</span><span class="params">(struct input_handler *handler, struct input_dev *dev, <span class="keyword">const</span> struct input_device_id *id)</span></span></span><br><span class="line"><span class="function">    <span class="comment">// 1. 分配一个evdev, 里面包含了input_handle(没有r)</span></span></span><br><span class="line"><span class="function">    evdev </span>= kzalloc(<span class="keyword">sizeof</span>(struct evdev), GFP_KERNEL);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 设置/初始化</span></span><br><span class="line">    evdev-&gt;handle.dev = dev;            <span class="comment">// 保存硬件设备的input_dev指针</span></span><br><span class="line">    evdev-&gt;handle.name = evdev-&gt;name;</span><br><span class="line">    evdev-&gt;handle.handler = handler;    <span class="comment">// 保存软件抽象的input_handler指针</span></span><br><span class="line">    evdev-&gt;handle.<span class="keyword">private</span> = evdev;      <span class="comment">// 保存 evdev 这个指针. 让handle知道归属.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这里对应于自己写的驱动的 class_device_create, 注册input类下面的设备.</span></span><br><span class="line">    <span class="comment">// 另外两个, 注册驱动和注册类都是在 input_init() 里完成的</span></span><br><span class="line">    class_device_create(&amp;input_class, &amp;dev-&gt;cdev, devt,dev-&gt;cdev.dev, evdev-&gt;name);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 注册</span></span><br><span class="line">    error = input_register_handle(&amp;evdev-&gt;handle);              <span class="comment">// 注意没有r, 不是 input_register_handler</span></span><br><span class="line">        list_add_tail(&amp;handle-&gt;d_node, &amp;handle-&gt;dev-&gt;h_list);   <span class="comment">// 将 handle 加入 dev-&gt;h_list 链表中</span></span><br><span class="line">        list_add_tail(&amp;handle-&gt;h_node, &amp;handler-&gt;h_list);       <span class="comment">// 将 handle 加入 handler-&gt;h_list 链表中</span></span><br><span class="line">        <span class="comment">// 这里可以分析出, 软件抽象层和硬件设备层的对应关系是可以多对多的, 两者都维护着一个handle列表(h_list).</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="APP层相关函数"><a href="#APP层相关函数" class="headerlink" title="APP层相关函数"></a>APP层相关函数</h2><p>最后, 从APP层读取输入子系统进行分析. 以按键为例, 用到 <code>drivers/input/evdev.c</code> 和 <code>drivers/char/keyboard.c</code><br>在书写按键的硬件模块时, input子系统会自动匹配关联到上述两个软件抽象层.<br>(猜测, keyboard的抽象层次比evdev更高. 因此keyboard没有input_table初始值)</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// app: read 试着读取按键值后:</span></span><br><span class="line"><span class="comment">// ....... 中间过程省略掉, 最后会调用:</span></span><br><span class="line">    evdev_read</span><br><span class="line">        <span class="comment">// 无数据(用的环形缓冲区)并且是非阻塞方式打开，则立刻返回</span></span><br><span class="line">        <span class="keyword">if</span> (client-&gt;head == client-&gt;tail &amp;&amp; evdev-&gt;exist &amp;&amp; (file-&gt;f_flags &amp; O_NONBLOCK))</span><br><span class="line">            <span class="keyword">return</span> -EAGAIN;</span><br><span class="line">        <span class="comment">// 否则休眠</span></span><br><span class="line">        retval = wait_event_interruptible(evdev-&gt;wait, client-&gt;head != client-&gt;tail || !evdev-&gt;exist);</span><br><span class="line"></span><br><span class="line">    evdev_event     <span class="comment">// 休眠后, 由evdev_event来唤醒, 此时间和硬件相关, 由硬件设备层实现</span></span><br><span class="line">        wake_up_interruptible(&amp;evdev-&gt;wait);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="硬件设备端源码"><a href="#硬件设备端源码" class="headerlink" title="硬件设备端源码"></a>硬件设备端源码</h1><p>由于input子系统的实际上是帮我们完成了相当一部分的注册工作, 并实现了通用的逻辑功能.<br>因此实际写硬件设备驱动时, 反而变得更简单了. 核心步骤如下:</p>
+<ol>
+<li>分配一个input_dev结构体. <code>input_allocate_device</code></li>
+<li>设置事件, 设置事件支持的操作类型</li>
+<li>注册 <code>input_register_device</code></li>
+<li>硬件初始化和逻辑判断<ul>
+<li>上报事件: <code>input_event</code> <code>input_sync</code></li>
+</ul>
+</li>
+</ol>
+<p>依旧通过 LinK+ 软件来写驱动. LinK+设置步骤可参考 <a href="https://draapho.github.io/2017/11/30/1740-drv-chr2/">驱动之基于LinK+设计按键驱动</a></p>
+<p>与input有关的设置页面如下:<br><img src="https://draapho.github.io/images/1802/link+input.JPG" alt="link+input"></p>
+<h2 id="input-keys-c"><a href="#input-keys-c" class="headerlink" title="input_keys.c"></a>input_keys.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">===============================================================================</span></span><br><span class="line"><span class="comment">Driver Name     :       input_keys</span></span><br><span class="line"><span class="comment">Author          :       DRAAPHO</span></span><br><span class="line"><span class="comment">License         :       GPL</span></span><br><span class="line"><span class="comment">Description     :       LINUX DEVICE DRIVER PROJECT</span></span><br><span class="line"><span class="comment">                :       参考drivers\input\keyboard\gpio_keys.c</span></span><br><span class="line"><span class="comment">===============================================================================</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;input_keys.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">&quot;GPL&quot;</span>);</span><br><span class="line">MODULE_AUTHOR(<span class="string">&quot;DRAAPHO&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">keys_desc</span>&#123;</span>                                       <span class="comment">// 硬件相关参数</span></span><br><span class="line">    <span class="keyword">int</span> irq;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> pin;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> key_val;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">keys_desc</span> <span class="title">keys_desc_public</span>[4] =</span> &#123;                <span class="comment">// 硬件参数初始化</span></span><br><span class="line">    &#123;IRQ_EINT0,  <span class="string">&quot;S2&quot;</span>, S3C2410_GPF0,  KEY_L&#125;,</span><br><span class="line">    &#123;IRQ_EINT2,  <span class="string">&quot;S3&quot;</span>, S3C2410_GPF2,  KEY_S&#125;,</span><br><span class="line">    &#123;IRQ_EINT11, <span class="string">&quot;S4&quot;</span>, S3C2410_GPG3,  KEY_ENTER&#125;,</span><br><span class="line">    &#123;IRQ_EINT19, <span class="string">&quot;S5&quot;</span>, S3C2410_GPG11, KEY_LEFTSHIFT&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">input_keys_private</span> &#123;</span>                             <span class="comment">// 私有变量结构体</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">input_dev</span> *<span class="title">dev</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">keys_desc</span> *<span class="title">keysdesc</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">timer_list</span> <span class="title">keys_timer</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">input_keys_private</span> *<span class="title">input_keys_priv</span>;</span>             <span class="comment">// 私有变量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">irqreturn_t</span> <span class="title">keys_irq</span><span class="params">(<span class="keyword">int</span> irq, <span class="keyword">void</span> *dev_id)</span>      <span class="comment">// 按键中断函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!input_keys_priv)</span><br><span class="line">        <span class="keyword">return</span> IRQ_NONE;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 10ms后启动定时器, 用于按键防抖动</span></span><br><span class="line">    input_keys_priv-&gt;keysdesc = (struct keys_desc *)dev_id;</span><br><span class="line">    mod_timer(&amp;input_keys_priv-&gt;keys_timer, jiffies+HZ/<span class="number">100</span>);</span><br><span class="line">    <span class="keyword">return</span> IRQ_RETVAL(IRQ_HANDLED);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">keys_timer_function</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span> data)</span>     <span class="comment">// 定时器超时中断函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">input_dev</span> *<span class="title">keydev</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">keys_desc</span> *<span class="title">keydesc</span>;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> pinval;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!input_keys_priv)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    keydesc= input_keys_priv-&gt;keysdesc;</span><br><span class="line">    keydev = input_keys_priv-&gt;dev;</span><br><span class="line">    pinval = s3c2410_gpio_getpin(keydesc-&gt;pin);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (pinval) &#123;</span><br><span class="line">        <span class="comment">/* 松开 : 最后一个参数: 0-松开, 1-按下 */</span></span><br><span class="line">        input_event(keydev, EV_KEY, keydesc-&gt;key_val, <span class="number">0</span>);   <span class="comment">// 触发按键事件</span></span><br><span class="line">        input_sync(keydev);                                 <span class="comment">// 事件结束, 同步到用户空间</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">/* 按下 */</span></span><br><span class="line">        input_event(keydev, EV_KEY, keydesc-&gt;key_val, <span class="number">1</span>);   <span class="comment">// 触发按键事件</span></span><br><span class="line">        input_sync(keydev);                                 <span class="comment">// 事件结束, 同步到用户空间</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">input_keys_open</span><span class="params">(struct input_dev *dev)</span>           <span class="comment">// 观察用, 初始化代码建议全部放在init函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    PINFO(<span class="string">&quot;input_keys_open \n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">input_keys_close</span><span class="params">(struct input_dev *dev)</span>         <span class="comment">// 观察用, 退出代码建议全部放在exit函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    PINFO(<span class="string">&quot;input_keys_close \n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> __init <span class="title">input_keys_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, res;</span><br><span class="line"></span><br><span class="line">    PINFO(<span class="string">&quot;input_keys_init\n&quot;</span>);</span><br><span class="line">    input_keys_priv = kzalloc(<span class="keyword">sizeof</span>(struct input_keys_private),GFP_KERNEL);</span><br><span class="line">    <span class="comment">/*===== 1. 分配一个input_dev结构体, 并初始化 =====*/</span></span><br><span class="line">    input_keys_priv-&gt;dev = input_allocate_device();</span><br><span class="line">    <span class="comment">// 1.1 初始化后dev的一些内容</span></span><br><span class="line">    input_keys_priv-&gt;dev-&gt;name = DRIVER_NAME;</span><br><span class="line">    input_keys_priv-&gt;dev-&gt;open = input_keys_open;           <span class="comment">// 可以注释掉</span></span><br><span class="line">    input_keys_priv-&gt;dev-&gt;close = input_keys_close;         <span class="comment">// 可以注释掉</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*===== 2. 设置事件. =====*/</span></span><br><span class="line">    <span class="comment">// 2.1 设置event事件</span></span><br><span class="line">    set_bit(EV_KEY,input_keys_priv-&gt;dev-&gt;evbit);            <span class="comment">// 支持按键事件</span></span><br><span class="line">    set_bit(EV_REP,input_keys_priv-&gt;dev-&gt;evbit);            <span class="comment">// 支持按键连发功能</span></span><br><span class="line">    <span class="comment">// 2.2 设置key事件支持的按键值</span></span><br><span class="line">    set_bit(KEY_L, input_keys_priv-&gt;dev-&gt;keybit);           <span class="comment">// 支持按键 l</span></span><br><span class="line">    set_bit(KEY_S, input_keys_priv-&gt;dev-&gt;keybit);           <span class="comment">// 支持按键 s</span></span><br><span class="line">    set_bit(KEY_ENTER, input_keys_priv-&gt;dev-&gt;keybit);       <span class="comment">// 支持按键 enter</span></span><br><span class="line">    set_bit(KEY_LEFTSHIFT, input_keys_priv-&gt;dev-&gt;keybit);   <span class="comment">// shift</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.2 其它初始化, 然后赋值这个私有结构体给 dev-&gt;private</span></span><br><span class="line">    input_keys_priv-&gt;keysdesc = keys_desc_public;</span><br><span class="line">    input_keys_priv-&gt;keys_timer.function = keys_timer_function;</span><br><span class="line">    input_set_drvdata(input_keys_priv-&gt;dev , input_keys_priv);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*===== 3. 注册 input_device, 此处会去调用 open 函数 =====*/</span></span><br><span class="line">    PINFO(<span class="string">&quot;input_keys_init_befor_register\n&quot;</span>);</span><br><span class="line">    res = input_register_device(input_keys_priv-&gt;dev);</span><br><span class="line">    <span class="keyword">if</span>(res&lt;<span class="number">0</span>) &#123;</span><br><span class="line">        PERR(<span class="string">&quot;input registration failed. error_id=%d\n&quot;</span>, res);</span><br><span class="line">        <span class="keyword">goto</span> fail1;</span><br><span class="line">    &#125;</span><br><span class="line">    PINFO(<span class="string">&quot;input_keys_init_after_register\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*===== 4. 硬件相关的操作, 这部分也可以放在open函数中 =====*/</span></span><br><span class="line">    <span class="comment">// 4.1 注册中断号, 设置中断类型, 设置中断名称(和设备名称无关), 传入自用的数据指针</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        res = request_irq(keys_desc_public[i].irq, keys_irq, IRQT_BOTHEDGE, keys_desc_public[i].name, &amp;keys_desc_public[i]);</span><br><span class="line">        <span class="keyword">if</span> (res&lt;<span class="number">0</span>) &#123;</span><br><span class="line">            PERR(<span class="string">&quot;request_irq(%d), error_id=%d\n&quot;</span>, i, res);</span><br><span class="line">            <span class="keyword">goto</span> fail2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.2 初始化timer, 用于按键延时防抖.</span></span><br><span class="line">    init_timer(&amp;input_keys_priv-&gt;keys_timer);</span><br><span class="line">    add_timer(&amp;input_keys_priv-&gt;keys_timer);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 错误处理部分.</span></span><br><span class="line">fail2:</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        free_irq(keys_desc_public[i].irq, &amp;keys_desc_public[i]);</span><br><span class="line">    &#125;</span><br><span class="line">fail1:</span><br><span class="line">    input_unregister_device(input_keys_priv-&gt;dev);</span><br><span class="line">    input_free_device(input_keys_priv-&gt;dev);</span><br><span class="line">    kfree(input_keys_priv);</span><br><span class="line">    <span class="keyword">return</span> -EBUSY;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> __exit <span class="title">input_keys_exit</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// exit 是 init 的反操作, 严格按照init的倒序执行!</span></span><br><span class="line">    del_timer(&amp;input_keys_priv-&gt;keys_timer);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        free_irq(keys_desc_public[i].irq, &amp;keys_desc_public[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    PINFO(<span class="string">&quot;input_keys_exit_before_unregister\n&quot;</span>);</span><br><span class="line">    <span class="comment">// 此处会调用 close 函数, 因此之前的内容也可以放到close函数中.</span></span><br><span class="line">    input_unregister_device(input_keys_priv-&gt;dev);</span><br><span class="line">    PINFO(<span class="string">&quot;input_keys_exit_after_unregister\n&quot;</span>);</span><br><span class="line">    input_free_device(input_keys_priv-&gt;dev);</span><br><span class="line">    kfree(input_keys_priv);</span><br><span class="line">    PINFO(<span class="string">&quot;input_keys_exit\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module_init(input_keys_init);</span><br><span class="line">module_exit(input_keys_exit);</span><br></pre></td></tr></table></figure>
+
+<h2 id="input-keys-h"><a href="#input-keys-h" class="headerlink" title="input_keys.h"></a>input_keys.h</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DRIVER_NAME <span class="meta-string">&quot;input_keys&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PDEBUG(fmt,args...) printk(KERN_DEBUG<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME, ##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PERR(fmt,args...) printk(KERN_ERR<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME,##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PINFO(fmt,args...) printk(KERN_INFO<span class="meta-string">&quot;%s:&quot;</span>fmt,DRIVER_NAME, ##args)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/init.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/input.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/interrupt.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;linux/slab.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/irq.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/gpio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/io.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/arch/regs-gpio.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">obj-m       := input_keys.o</span><br><span class="line">KERN_SRC    := /home/draapho/share/jz2440/kernel/linux-2.6.22.6/</span><br><span class="line">PWD         := <span class="variable">$(<span class="built_in">shell</span> pwd)</span></span><br><span class="line"></span><br><span class="line"><span class="section">modules:</span></span><br><span class="line">    make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> modules</span><br><span class="line"></span><br><span class="line"><span class="section">install:</span></span><br><span class="line">    make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> modules_install</span><br><span class="line">    depmod -a</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> clean</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ insmod input_keys.ko</span><br><span class="line">input_keys:input_keys_init</span><br><span class="line">input_keys:input_keys_init_befor_register</span><br><span class="line">input: input_keys as /class/input/input1</span><br><span class="line">input_keys:input_keys_open</span><br><span class="line">input_keys:input_keys_init_after_register</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法一 (没有LCD):</span></span><br><span class="line">$ cat /dev/tty1             <span class="comment"># keyboard.c 里面和tty有关联, 不去深究了.</span></span><br><span class="line"><span class="comment"># 依次按下 s2,s3 相当于输入了ls. 此处没有回显! 输入s4, 终端仅显示ls.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二 (没有LCD):</span></span><br><span class="line">$ <span class="built_in">exec</span> 0&lt;/dev/tty1          <span class="comment"># 将标准输入改为 /dey/tty1. (没有改标准输出, 因此还是会回显$)</span></span><br><span class="line">$ ls                        <span class="comment"># 依次按下 s2,s3,s4, 相当于输入了ls enter</span></span><br><span class="line"><span class="comment"># 显示文件夹内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 说明, 由于改了标准输入, 只能重启后键盘才会有效</span></span><br><span class="line"><span class="comment"># ls -l /proc/pid/fd 查看进程的文件描述符. pid值可以由top指令获得.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法三 (有LCD, 没有QT)</span></span><br><span class="line">$ vi /etc/inittab</span><br><span class="line">    <span class="comment"># ===== 设置为如下内容 =====</span></span><br><span class="line">    ::sysinit:/etc/init.d/rcS</span><br><span class="line">    s3c2410_serial0::askfirst:-/bin/sh</span><br><span class="line">    <span class="comment"># 增加了下面一行, 用于屏幕打开终端</span></span><br><span class="line">    tty1::askfirst:-/bin/sh</span><br><span class="line">    ::ctrlaltdel:/sbin/reboot</span><br><span class="line">    ::shutdown:/bin/umount -a -r</span><br><span class="line">    <span class="comment"># ===== wq保存, 退出 =====</span></span><br><span class="line">$ reboot                    <span class="comment"># 重启终端</span></span><br><span class="line"><span class="comment"># 这样点击按键就直接能在LCD上查看输入和输出了.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法三 (有QT)</span></span><br><span class="line"><span class="comment"># 打开开发板上的记事本或终端, 依次按下 s2,s3,s4, 会看到输入了.</span></span><br><span class="line"></span><br><span class="line">$ rmmod input_keys.ko</span><br><span class="line">input_keys:input_keys_exit_before_unregister</span><br><span class="line">input_keys:input_keys_close</span><br><span class="line">input_keys:input_keys_exit_after_unregister</span><br><span class="line">input_keys:input_keys_exit</span><br></pre></td></tr></table></figure>
+
+<p>额外说一下 <code>hexdump</code> 的测试方法</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ insmod input_keys.ko                             <span class="comment"># 加载模块后, 会自动生成 /dev/event1</span></span><br><span class="line">$ hexdump /dev/event1                              <span class="comment"># 16进制显示event1设备在用户空间获得的数据</span></span><br><span class="line"><span class="comment"># 字节数|   秒    |  微秒   | 类  |code|  value      # 小端模式, 低位在前!</span></span><br><span class="line">0000000 0bb2 0000 0e48 000c 0001 0026 0001 0000    <span class="comment"># input_event(keydev, EV_KEY, key_val, 1)</span></span><br><span class="line">0000010 0bb2 0000 0e54 000c 0000 0000 0000 0000    <span class="comment"># input_sync(keydev);</span></span><br><span class="line">0000020 0bb2 0000 5815 000e 0001 0026 0000 0000    <span class="comment"># input_event(keydev, EV_KEY, key_val, 0)</span></span><br><span class="line">0000030 0bb2 0000 581f 000e 0000 0000 0000 0000    <span class="comment"># input_sync(keydev);</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分析这些数值含义的方法:</span></span><br><span class="line"><span class="comment"># 就是从硬件驱动调用了 input_event 开始逐步深入看, 发现会调用 input_handler-&gt;event.</span></span><br><span class="line"><span class="comment"># 于是找到 evdev.c 下的 evdev_event. 看到 client的赋值 和 kill_fasync给用户空间发送异步信号, 可知hexdump显示就是这些数据</span></span><br><span class="line"><span class="comment"># 然后, 查看 struct input_event, 将数据类型一一对应起来就可以了.</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/ITmelody/archive/2012/05/22/2513028.html">arm 驱动进阶：输入子系统概念及架构</a> 图和流程说明很好</li>
+<li><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-29151914-id-3887032.html">Linux Input子系统之第一篇（input_dev/input_handle/input_handler</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/Golf_research/article/details/53293601">输入子系统（1）：数据结构总结</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.bijishequ.com/detail/482153">linux内核input子系统分析</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.360doc.com/content/12/0606/21/7775902_216485127.shtml">input_dev结构体分析</a> 对结构体的注释比较完整</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linuxembedded-linux/" rel="tag"># linuxembedded linux</a>
+              <a href="/tags/drv/" rel="tag"># drv</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/01/04/1801-drv-chr7/" rel="prev" title="驱动之定时器按键防抖">
+                  <i class="fa fa-chevron-left"></i> 驱动之定时器按键防抖
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/01/08/1803-drv-platform/" rel="next" title="驱动之platform概念">
+                  驱动之platform概念 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

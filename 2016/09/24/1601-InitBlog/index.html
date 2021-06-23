@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows下使用github和hexo建独立博客">
+<meta property="og:url" content="https://draapho.github.io/2016/09/24/1601-InitBlog/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-09-23T14:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.703Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2016/09/24/1601-InitBlog/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Windows下使用github和hexo建独立博客 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E6%9B%B4%E6%96%B0-2021%E5%B9%B43%E6%9C%88"><span class="nav-number">1.</span> <span class="nav-text">内容更新(2021年3月)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.</span> <span class="nav-text">我需要一个博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%98%E8%85%BE%E8%AE%B0-jekyII%E6%96%B9%E6%A1%88"><span class="nav-number">3.</span> <span class="nav-text">折腾记, jekyII方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo%E6%96%B9%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">Hexo方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#github%E7%AB%AF%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">github端的配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8mermaid%E6%8F%92%E4%BB%B6%E6%94%AF%E6%8C%81%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%AD%89"><span class="nav-number">6.</span> <span class="nav-text">使用mermaid插件支持流程图等</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NexT%E4%B8%BB%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">NexT主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo%E7%9A%84%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8"><span class="nav-number">8.</span> <span class="nav-text">Hexo的日常使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2016/09/24/1601-InitBlog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Windows下使用github和hexo建独立博客
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-09-24 00:00:00" itemprop="dateCreated datePublished" datetime="2016-09-24T00:00:00+10:00">2016-09-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">windows</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="内容更新-2021年3月"><a href="#内容更新-2021年3月" class="headerlink" title="内容更新(2021年3月)"></a>内容更新(2021年3月)</h1><ul>
+<li>hexo 的安装方式不变<ul>
+<li>先下载安装 Git 和 Node.JS.</li>
+<li><code>npm install hexo-cli -g</code> 安装hexo即可.</li>
+</ul>
+</li>
+<li><code>_config.yml</code> 文件改了某些地方. 具体参数参考 <a target="_blank" rel="noopener" href="https://hexo.io/docs/configuration">Configuration</a></li>
+<li><code>images</code>文件夹直接放到<code>source</code>目录下即可, 会自动生成图片网址.</li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/docs/">hexo 官方文档</a></li>
+<li>提供了更为丰富的<a target="_blank" rel="noopener" href="https://hexo.io/themes/">主题选择</a>.</li>
+<li>依旧选 NexT主题, 改了参数设置. 参考 <a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/getting-started.html">NexT 开始使用</a></li>
+<li>更新结束(2021年3月)</li>
+</ul>
+<h1 id="我需要一个博客"><a href="#我需要一个博客" class="headerlink" title="我需要一个博客"></a>我需要一个<a href="https://draapho.github.io/">博客</a></h1><p>三年前学linux的时候, 深感复杂,  然后也略微记录了些笔记放在电脑里. 但是真要用的时候, 依旧会google或baidu, 原因很简单: 电脑的笔记用起来不方便, 找文档慢不说, 找到后要么是没有格式的txt文档, 有些是花了力气排版好的word, 又觉得打开很慢. 于是觉得需要一个博客, 在CSDN开了博, 坚持不到10篇文章就放弃了, 原因很简单: 太麻烦了. 我的本意只是学习笔记加资料仓库, 但维护它的时间成本太高了. 一晃三年, 工作上进入一个新领域, 需要系统的学习嵌入式linux和python, 再度觉得需要建一个博客来管理和维护一些笔记和资料.</p>
+<p><strong>工欲善其事, 必先利其器</strong>. 所以, 我需要一个博客. 寻寻觅觅, 幸运寻得github.io和markdown写作这么一个方案.</p>
+<h1 id="折腾记-jekyII方案"><a href="#折腾记-jekyII方案" class="headerlink" title="折腾记, jekyII方案"></a><del>折腾记, jekyII方案</del></h1><p>不过依旧走了一点弯路, 因为github.io推荐的是jekyII环境, 如果对这个方案感兴趣, 点击<a target="_blank" rel="noopener" href="https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/">这里</a>可以按照官方教程来操作. 人家第一句话就是<a target="_blank" rel="noopener" href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/"><strong>jekyII并不原生支持Windows</strong></a> , 但我岂是会轻易投降的人, 遇到问题就解决问题, 这不还有另外一句 <a target="_blank" rel="noopener" href="http://jekyllrb.com/docs/windows/#installation"><strong>Jekyll on Windows</strong></a>, 流程如下, 然后还要注意编码问题.</p>
+<ul>
+<li>装<a target="_blank" rel="noopener" href="http://rubyinstaller.org/downloads/">Ruby</a> 或者 <code>choco install ruby -y</code></li>
+<li>装jekyII,   <code>gem install jekyll</code><br>最终, 我是安装失败了…具体卡在哪个错误提示也给忘了. 所幸的是搜到了对windows友好的hexo方案.</li>
+</ul>
+<h1 id="Hexo方案"><a href="#Hexo方案" class="headerlink" title="Hexo方案"></a>Hexo方案</h1><p>恩, 这里才是正文的开始! windows下安装hexo这个任务非常简单!</p>
+<ul>
+<li><p>对<a target="_blank" rel="noopener" href="https://git-scm.com/">Git软件</a>和<a target="_blank" rel="noopener" href="https://github.com/">GitHub网站</a>不熟的话, 建议安装<a target="_blank" rel="noopener" href="https://desktop.github.com/">GitHub Windows</a>, 安装后根据提示操作.</p>
+</li>
+<li><p>安装<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.JS</a>, 选推荐版本, 目前是v4.5.0 LTS (即 Long Term Support), 环境变量默认会设置好.</p>
+</li>
+<li><p>安装Hexo</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
+<li><p>创建并初始化博客文件夹,这里命名为<em><strong>Blog</strong></em>, 右键点”Git Bash Here”, 或者打开cmd进入到<em><strong>Blog</strong></em>目录下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd Blog           # 确保在Blog这文件夹下</span><br><span class="line">npm install hexo --save # 安装hexo</span><br><span class="line">hexo init         # 初始化Blog文件夹内容</span><br><span class="line">npm install       # 安装必要的依赖包</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下面是必要的插件包</span></span><br><span class="line">npm install hexo-deployer-git --save      # 使用github发布</span><br><span class="line">npm install hexo-deployer-rsync --save    # 不装, 使用 rysnc发布</span><br><span class="line">npm install hexo-deployer-openshift --save    # 不装, 使用OpenShift发布</span><br><span class="line">npm install hexo-generator-feed --save    # 不装, 生成atom.xml, 供RSS使用</span><br><span class="line">npm install hexo-generator-sitemap --save # 不装, 生成sitemap.xml, 用于提高搜索量</span><br><span class="line">npm install hexo-generator-search --save  # 用于本地搜索</span><br></pre></td></tr></table></figure></li>
+<li><p>本地查看效果, 输入<code>hexo s</code>成功后登录 <code>localhost:4000</code>查看效果<br>这里, 我遇到了错误, 提示是 4000 端口已经被占用.<br>最后发现是 foxitProtect.exe (福昕PDF保护进程)占用此端口, 先结束, 然后直接删除.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netstat -aon | findstr &quot;4000&quot;     # 查找占用4000端口的PID, 譬如, 结果为1234</span><br><span class="line">tasklist | findstr &quot;1234&quot;         # 查找PID=1234的进程名称, 譬如, 结果为foxitProtect.exe</span><br><span class="line">taskkill /f /t /im foxitProtect.exe   # 强制杀死此进程</span><br></pre></td></tr></table></figure></li>
+<li><p>配置 hexo 的 <code>_config.yml</code></p>
+<blockquote>
+<p># Site<br>title: DRA&amp;PHO                  # 博客名字<br>subtitle: thinking &amp; logging    # 副标题<br>description: Embedded System, IoT, M2M  # 博客描述<br>author: draapho                 # 作者<br>language: en        # 语言, 中文为 zh-Hans, 需设置category_map和tag_map</p>
+<p># URL<br>url: <a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGitHubName.github.io/</a>  # 替换<em><strong>YourGitHubName</strong></em><br># 譬如: <a href="https://draapho.github.io/">https://draapho.github.io/</a> 我的GitHub注册名是<em><strong>draapho</strong></em></p>
+<p># Directory<br>source_dir: source      # source文件夹, 用来写文章<br>public_dir: public      # public文件夹, 自动生成的静态页面都放在这里<br>tag_dir: tags           # 标签文件夹, 需要安装 hexo-generator-tag<br>archive_dir: archives   # 归档文件夹, 需安装 hexo-generator-archive<br>category_dir: categories    # 分类文件夹, 需安装 hexo-generator-category</p>
+<p># Extensions<br>theme: next         # 随了大流, 用了next主题</p>
+<p># Deployment<br>deploy:<br>  type: git         # 使用git部署, 需安装 hexo-deployer-git<br>  repository: <a target="_blank" rel="noopener" href="https://github.com/YourGitHubName/YourGitHubName.github.io.git">https://github.com/YourGitHubName/YourGitHubName.github.io.git</a><br>  # 我的注册名是<em><strong>draapho</strong></em>, 就写成: <a target="_blank" rel="noopener" href="https://github.com/draapho/draapho.github.io.git">https://github.com/draapho/draapho.github.io.git</a><br>  branch: master</p>
+<p># search Settings, 默认没有这行内容, 自己添加即可<br>search:             # 本地搜索功能, 需安装 hexo-generator-search<br>   path: search.xml<br>   field: post</p>
+</blockquote>
+</li>
+<li><p>创建about,categories,tags文件夹及文件<br>在<code>Blog\source</code>下, 新建文件夹about, 然后新建文件index.md, 用于生成关于页面</p>
+<blockquote>
+<p>-–<br>title: about<br>date: 2016-09-08<br>comments: false<br>-–<br>这一篇的内容是自我介绍</p>
+</blockquote>
+<p>在<code>Blog\source</code>下, 新建文件夹categories, 然后新建文件index.md, 用于生成分类页面</p>
+<blockquote>
+<p>-–<br>title: categories<br>date: 2016-09-08<br>type: “categories”<br>comments: false<br>-–</p>
+</blockquote>
+<p>在<code>Blog\source</code>下, 新建文件夹tags, 然后新建文件index.md, 用于生成标签页面</p>
+<blockquote>
+<p>-–<br>title: tags<br>date: 2016-09-08<br>type: “tags”<br>comments: false<br>-–</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="github端的配置"><a href="#github端的配置" class="headerlink" title="github端的配置"></a>github端的配置</h1><ul>
+<li>如果之前没有使用过github, 第一次上传应该要求输入用户名和密码. 但如果每次部署都要这样, 就显得很麻烦. github端可以使用SSH 或 GPG keys来免去这个步骤. 建议使用GPG keys.</li>
+<li>这里就不详细展开了, 具体步骤参考github, <a target="_blank" rel="noopener" href="https://help.github.com/articles/generating-a-gpg-key/">生成一个GPG key</a></li>
+</ul>
+<h1 id="使用mermaid插件支持流程图等"><a href="#使用mermaid插件支持流程图等" class="headerlink" title="使用mermaid插件支持流程图等"></a><del>使用mermaid插件支持流程图等</del></h1><ul>
+<li>安装<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-mermaid --save</span><br></pre></td></tr></table></figure></li>
+<li>添加mermaid依赖到主题模板<br>进入themes/your_theme_folder/layout/partial目录，添加mermaid相关文件。<br>head.jade 添加如下代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">link(rel&#x3D;&quot;stylesheet&quot;, href&#x3D;url_for(&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;mermaid&#x2F;6.0.0&#x2F;mermaid.min.css&quot;))</span><br></pre></td></tr></table></figure>
+scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">link(rel&#x3D;&quot;stylesheet&quot;, script(src&#x3D;&quot;&#x2F;&#x2F;cdn.bootcss.com&#x2F;mermaid&#x2F;6.0.0&#x2F;mermaid.min.js&quot;)</span><br></pre></td></tr></table></figure></li>
+<li>我暂时放弃了<br>next用的swig, 不知道和jade文件是什么关系. 暂时不愿去研究.<br>看了下此插件的格式, 和我常用的Typora使用的mermaid不一样.<br>博客上用到流程图之类的机会不多, 偶尔需要使用图片即可.<br>如有兴趣, 可参考 <a target="_blank" rel="noopener" href="http://jcchow.com/2016/07/11/mermaid-sequence/">Hexo流程图等插件安装教程</a></li>
+</ul>
+<h1 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h1><p>主题的选择我没有花太多时间, 测试了2-3个主题后, 最终还是随大流的用了NexT主题. 说实话, 设计感很好, 用的人很多, 略有审美疲劳. 好在博客目标明确, NexT能很好的覆盖我几个基本需求, 文档又写的很完善, 就不折腾了.</p>
+<ul>
+<li>安装NexT, 见<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/getting-started.html">官方文档</a></li>
+<li>menu_icons 图标配置, 名称用的是<a target="_blank" rel="noopener" href="http://fontawesome.io/icons/">Font Awesome</a></li>
+<li>about 页面的链接是 <a target="_blank" rel="noopener" href="https://yourgithubname.github.io/about">https://YourGitHubName.github.io/about</a><br>我的注册名是<em><strong>draapho</strong></em>, 就写成 <a href="https://draapho.github.io/about">https://draapho.github.io/about</a></li>
+<li><code>\themes\next\_config.yml</code>文件内找到<code>use_motion:</code> 设置为<code>false</code>. 表示禁止动画效果, 立刻显示页面</li>
+</ul>
+<h1 id="Hexo的日常使用"><a href="#Hexo的日常使用" class="headerlink" title="Hexo的日常使用"></a>Hexo的日常使用</h1><ul>
+<li>习惯于直接在 \Blog\source_posts\ 下面直接新建文件 xxx.md<br>然后打开文件, 添加并修改如下内容:<blockquote>
+<p>title: Windows下使用github和hexo建立自己的博客<br>date: 2016-09-08<br>categories: environment<br>tags: [blog, hexo, next]</p>
+</blockquote>
+</li>
+<li>Hexo的常用指令<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean    #更换hexo主题后, 建议先执行此条命令清空</span><br><span class="line">hexo g        # g=generate, 生成public静态文件</span><br><span class="line">hexo s        # s=server, 本地发布预览效果, 默认地址是 localhost:4000</span><br><span class="line">hexo d        # d=deploy, 自动部署</span><br><span class="line">hexo d -g     # 我最常用的指令, 意思是先generate再deploy.</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://wsgzao.github.io/post/hexo-guide/">使用GitHub和Hexo搭建免费静态Blog</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/35e197cb1273">Hexo搭建Github-Pages博客填坑教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo 文档</a></li>
+<li><a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/getting-started.html">Next 主题</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/windows/" rel="tag"># windows</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/09/23/1600-Preface/" rel="prev" title="开博序">
+                  <i class="fa fa-chevron-left"></i> 开博序
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/09/28/1602-WinSoft-efficiency/" rel="next" title="Windows 软件系列-提高效率">
+                  Windows 软件系列-提高效率 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

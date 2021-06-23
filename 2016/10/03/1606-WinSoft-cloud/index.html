@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="家庭组网方案探讨">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 软件系列-基于NFS的家庭网">
+<meta property="og:url" content="https://draapho.github.io/2016/10/03/1606-WinSoft-cloud/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="家庭组网方案探讨">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1606/haneWIN_NFS.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/haneWIN_Server.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/haneWIN_Exports.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/haneWIN_Mounts.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_Enable.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_NIC1.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_NIC2.PNG">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_Install1.png">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_Install2.png">
+<meta property="og:image" content="https://draapho.github.io/images/1606/HyperV_Install3.png">
+<meta property="article:published_time" content="2016-10-02T13:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.706Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="NFS">
+<meta property="article:tag" content="Hyper-V">
+<meta property="article:tag" content="NAS">
+<meta property="article:tag" content="freefilesync">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1606/haneWIN_NFS.PNG">
+
+
+<link rel="canonical" href="https://draapho.github.io/2016/10/03/1606-WinSoft-cloud/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Windows 软件系列-基于NFS的家庭网 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B6%E5%BA%AD%E7%BD%91%E8%AE%BE%E6%83%B3"><span class="nav-number">1.</span> <span class="nav-text">家庭网设想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E6%83%B3%E7%9A%84%E4%BA%91"><span class="nav-number">1.1.</span> <span class="nav-text">理想的云</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E5%AE%9E%E7%9A%84%E4%BA%91"><span class="nav-number">1.2.</span> <span class="nav-text">现实的云</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E6%9B%B4%E6%96%B0-2021%E5%B9%B43%E6%9C%88"><span class="nav-number">1.3.</span> <span class="nav-text">方案更新(2021年3月)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HaneWIN"><span class="nav-number">2.</span> <span class="nav-text">HaneWIN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hyper-V"><span class="nav-number">3.</span> <span class="nav-text">Hyper-V</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NAS%E5%92%8C%E6%99%BA%E8%83%BD%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">NAS和智能路由器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.1.</span> <span class="nav-text">两者的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">4.2.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8"><span class="nav-number">4.3.</span> <span class="nav-text">数据安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E6%8E%A8%E8%8D%90"><span class="nav-number">4.4.</span> <span class="nav-text">个人推荐</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6freefilesync"><span class="nav-number">5.</span> <span class="nav-text">同步软件freefilesync</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E5%BC%80%E6%9C%BA"><span class="nav-number">6.</span> <span class="nav-text">远程开机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LAN%E5%94%A4%E9%86%92"><span class="nav-number">6.1.</span> <span class="nav-text">LAN唤醒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WAN%E8%BF%9C%E7%A8%8B%E5%94%A4%E9%86%92"><span class="nav-number">6.2.</span> <span class="nav-text">WAN远程唤醒</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2016/10/03/1606-WinSoft-cloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Windows 软件系列-基于NFS的家庭网
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-10-03 00:00:00" itemprop="dateCreated datePublished" datetime="2016-10-03T00:00:00+11:00">2016-10-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">windows</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">家庭组网方案探讨</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="家庭网设想"><a href="#家庭网设想" class="headerlink" title="家庭网设想"></a>家庭网设想</h1><h2 id="理想的云"><a href="#理想的云" class="headerlink" title="理想的云"></a>理想的云</h2><ul>
+<li>理想的家庭网是由NAS做数据中心, 是家里的云</li>
+<li>需要使用千兆网来支持数据分享(如视频流)</li>
+<li>考虑到设备多样性, 可使用多种分享模式, 如NFS, windows共享服务等等</li>
+<li>理想很丰满, 现实很骨干. 由于预算, 稳定性, 易用性等问题, 多半会用折中方案</li>
+<li>可以看看混乱的方案推荐: <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20791825">如何实现一个简单的家庭云存储（NAS）系统？</a></li>
+</ul>
+<h2 id="现实的云"><a href="#现实的云" class="headerlink" title="现实的云"></a>现实的云</h2><ul>
+<li>理想之所以遥远, 往往是因为没有明确需求, 导致什么都想要! 所以, 先明确需求<ul>
+<li>NAS是用来折腾和看电影的(电影存在硬盘上, 能在沙发上和床上观影).</li>
+<li>日常资料还是存储在本地硬盘比较便捷</li>
+<li>有安全需求, 要备份或镜像本地资料到家庭云(<strong>双设备备份</strong>, 相比NAS的各种RAID, 一大优势是<strong>防偷</strong>)</li>
+<li>做嵌入式开发, 需要在windows上装linux虚拟机, 然后数据共享</li>
+<li>关键数据出问题时, 在可靠和有把握的环境下来恢复数据.</li>
+</ul>
+</li>
+<li>给出最终使用的方案. 折腾记就不写在此文了.<ul>
+<li>使用 Intel NUC 作为桌面主机和云服务器. 小巧, 够用(不玩游戏), 省电.</li>
+<li>使用 Hyper-V 安装 家用NAS 和 Ubuntu.</li>
+<li>另有嵌入式linux开发板, 投影仪, 手机等设备需要和云交换数据.</li>
+<li>使用 <a target="_blank" rel="noopener" href="https://www.hanewin.net/nfs-e.htm">HaneWIN</a> 向其它设备提供NFS服务</li>
+<li>使用 <a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a> 备份资料到移动硬盘(和理想中的备份方式差好多…)</li>
+</ul>
+</li>
+</ul>
+<h2 id="方案更新-2021年3月"><a href="#方案更新-2021年3月" class="headerlink" title="方案更新(2021年3月)"></a>方案更新(2021年3月)</h2><ul>
+<li>基于NUC, 安装OpenMediaVault.</li>
+<li>路由器使用 Ubiquiti AmpliFi.</li>
+</ul>
+<h1 id="HaneWIN"><a href="#HaneWIN" class="headerlink" title="HaneWIN"></a><a target="_blank" rel="noopener" href="https://www.hanewin.net/nfs-e.htm">HaneWIN</a></h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.hanewin.net/nfs-e.htm">HaneWIN</a> 可免费试用30天. 适合做win下的nfs服务器.</li>
+<li>如果要免费软件, 可尝试 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/freenfs/">FreeNFS</a>. 功能较弱. 可参考<a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/b9dccaedf8c75fbfc77db2c1.html?from=search">FreeNFS简易教程</a>.</li>
+<li>需要支持嵌入式linux端的NFS(只支持NFS v2), 配置见图:<br><img src="https://draapho.github.io/images/1606/haneWIN_NFS.PNG" alt="haneWIN_NFS"></li>
+<li>务必使用<code>UTF-8 character set</code><br><img src="https://draapho.github.io/images/1606/haneWIN_Server.PNG" alt="haneWIN_Server"></li>
+<li>重点说一下<code>Exports</code>这一块, 即把文件通过NFS分享出去.<br><img src="https://draapho.github.io/images/1606/haneWIN_Exports.PNG" alt="haneWIN_Exports"><ul>
+<li><code>E:\Downloads -name:Downloads 10.0.0.99</code><br>就是把本地<code>Downloads</code>文件夹分享给<code>ip=10.0.0.99</code>的机器, 对外名称为<code>Downloads</code></li>
+<li><code>-mapall:0:0</code> 是提供给linux端root权限. (这句最短? 花了一周时间才实验成功啊…)</li>
+<li><code>-range 10.0.0.1 10.0.0.111</code> 是设置ip范围, 这里是从<code>10.0.0.1</code>-<code>10.0.0.111</code></li>
+<li>语法规则不多, 详见<a target="_blank" rel="noopener" href="https://www.hanewin.net/doc/nfs/nfsd.htm">官网说明</a>. 可用参数如下:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># The following options are supported:</span><br><span class="line">-name:&lt;sharename&gt;   assigns a name to the exported path as an alternate name for mounting.</span><br><span class="line">-alldirs    allows the host(s) to mount at any point within the filesystem.</span><br><span class="line">-umask:&lt;mask&gt;   set the umask for group and world permissions on the filesystem, default 022</span><br><span class="line">-readonly   limits access to reading</span><br><span class="line">-public Enables WebNFS access.</span><br><span class="line">-lowercase  maps all file names to lowercase, otherwise case is preserved.</span><br><span class="line">-exec   forces in access rights the x bit for all files.</span><br><span class="line">-mapall:&lt;uid&gt;[:&lt;gid&gt;]   all Unix user-ids and group-ids are mapped to the specified user-id and group-id.</span><br><span class="line">-maproot:&lt;uid&gt;[:&lt;gid&gt;]  the Unix super user root is mapped to the specified user-id, group-id. Without a mapping entry root will be mapped to user and group nobody.</span><br><span class="line">-range  IP adresses are interpreted in pairs as from-to ranges enabling client access from all addresses in a range (more flexible than the unix -net -mask options).</span><br></pre></td></tr></table></figure></li>
+<li>再举几个例子:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># exports example</span><br><span class="line">c:\ftp -range 192.168.1.1 192.168.1.10</span><br><span class="line">c:\public -public -readonly</span><br><span class="line">c:\tools -readonly 192.168.1.4</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>如果NFS被成功加载, 那么会在<code>Mounts</code>页显示出来<br><img src="https://draapho.github.io/images/1606/haneWIN_Mounts.PNG" alt="haneWIN_Mounts"></li>
+<li>参考<ul>
+<li><a target="_blank" rel="noopener" href="http://www.nasyun.com/thread-25086-1-1.html">GEN8折腾日记-第三方NFS工具 hanewin 设置(需登录)</a></li>
+<li><a target="_blank" rel="noopener" href="http://wenku.baidu.com/view/c78baefefad6195f302ba665.html">GEN8折腾日记-第三方NFS工具 hanewin 设置(百度文库)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.chiphell.com/thread-1240623-1-1.html">群晖加载Windows NFS文件</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="Hyper-V"><a href="#Hyper-V" class="headerlink" title="Hyper-V"></a>Hyper-V</h1><ul>
+<li>从Win8开始, Hyper-V是Windows自带的软件.</li>
+<li>启用Hper-V, <code>控制面板</code>-&gt;<code>程序和功能</code>-&gt;<code>启用或关闭Windows功能</code>-&gt;<code>Hyper-V</code><br><img src="https://draapho.github.io/images/1606/HyperV_Enable.PNG" alt="HyperV_Enable"></li>
+<li>设置虚拟网络<br><img src="https://draapho.github.io/images/1606/HyperV_NIC1.PNG" alt="HyperV_NIC1"><br><img src="https://draapho.github.io/images/1606/HyperV_NIC2.PNG" alt="HyperV_NIC2"></li>
+<li>新建虚拟机<br><img src="https://draapho.github.io/images/1606/HyperV_Install1.png" alt="HyperV_Install1"><br><img src="https://draapho.github.io/images/1606/HyperV_Install2.png" alt="HyperV_Install2"><br><img src="https://draapho.github.io/images/1606/HyperV_Install3.png" alt="HyperV_Install3"></li>
+<li>安装Ubuntu 32位服务器版本, 用于交叉编译. (另一个备选方案是用cygwin)</li>
+<li>安装家用NAS, 用于多设备(投影仪, 平板, 手机)看硬盘上的影片.</li>
+</ul>
+<h1 id="NAS和智能路由器"><a href="#NAS和智能路由器" class="headerlink" title="NAS和智能路由器"></a>NAS和智能路由器</h1><h2 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h2><ul>
+<li>NAS, Network Attached Storage. 家用的话, 大多定位于多媒体观赏和数据备份两个核心功能.</li>
+<li>专做NAS的厂家, <a target="_blank" rel="noopener" href="https://www.synology.com/">Synology(群晖)</a> 和 <a target="_blank" rel="noopener" href="https://www.qnap.com/">QNAP(威联通)</a> 比较有名</li>
+<li>智能路由器, 从小米路由器到airport extreme.</li>
+<li>两者区别的话, 就是一个更专业, 一个更娱乐.<br>所谓专业, 就是更多的权限设置和管理(对用户不友好), 更多的功能, 更高的安全要求.<br>所谓娱乐, 就是傻瓜易上手, 能用好用为主要需求.<br>简而言之, 一个是专业单反, 一个是傻瓜机, 然后有一些就是处于中间位置的微单…</li>
+</ul>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><ul>
+<li>大多数的家庭, 对此类产品的第一要求就是<strong>好用</strong>. 只有Geek一类的人需要<strong>好玩</strong>.</li>
+<li>NAS在宣传上, 必然会强调数据安全, 列出诸如支持多种RAID这种让非专业人士云里雾里的概念.</li>
+<li>而普通家庭最大的数据安全问题就是数据过于集中, 防偷防意外损坏之类的风险防范反而不足了.</li>
+<li>因此, 家用云市场应该侧重于易于配置和使用. 家庭的数据安全问题不是靠一台专业NAS设备就能解决的.</li>
+<li>结论: 在家用市场, 智能路由器有更好的市场前景.</li>
+</ul>
+<h2 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h2><ul>
+<li>家庭环境的话, 建议用移动硬盘备份关键资料(即RAID1), 然后分开存储, 当然也可以基于SFTP等服务自动备份. 这样可以做到物理上相对独立, 而且因为用的是RAID1, 数据出问题后的恢复也非常简单.</li>
+<li>中小企业就需要用到稍微专业一点的NAS才比较好了. 话说, 很多本土企业对数据安全这一块很不上心啊…</li>
+<li>推荐完全免费的同步软件<a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a>, 买块硬盘, 家用足够了.</li>
+</ul>
+<h2 id="个人推荐"><a href="#个人推荐" class="headerlink" title="个人推荐"></a>个人推荐</h2><ul>
+<li>听说过家庭云, 不知道具体需求, 买个便宜的小米路由器先体验体验.</li>
+<li>苹果爱好者直接上 airport extreme, 二千元可以给手机平板太多额外的存储空间了.</li>
+<li>想要玩NAS的, 可以先用虚拟机装了体验一下效果.</li>
+<li>如果买专业的NAS, 推荐直接用企业入门级产品QNAP的<code>TS-251</code>或<code>TS-253 Pro</code>,内置虚拟机, 可玩性很高.</li>
+<li>群晖的机器不太推荐, 因为数据的存储格式很奇怪, 万一出点问题自己一点办法也没有!</li>
+<li>组装机也不是太推荐, 因为功耗美观服务都要考虑进去.</li>
+</ul>
+<h1 id="同步软件freefilesync"><a href="#同步软件freefilesync" class="headerlink" title="同步软件freefilesync"></a>同步软件<a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a></h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.freefilesync.org/">freefilesync</a>是一款完全免费的同步软件, 可以完全媲美GoodSync</li>
+<li>支持sftp, 所以也可以通过网络自动备份数据</li>
+<li>家庭用户使用RAID1, 即关键资料双硬盘完整备份, 然后分开存放就足够了.</li>
+</ul>
+<h1 id="远程开机"><a href="#远程开机" class="headerlink" title="远程开机"></a>远程开机</h1><p>如果是7x24小时开机当服务器用, 则不用考虑这一块. 远程开机是针对虚拟机和组装机用户说的.</p>
+<h2 id="LAN唤醒"><a href="#LAN唤醒" class="headerlink" title="LAN唤醒"></a>LAN唤醒</h2><ul>
+<li>LAN唤醒需要主板的支持, 不支持无线网络, 必须使用有线. 新一点的机器一般都能支持.</li>
+<li>启用主板的WOL功能<ul>
+<li>开机进入BIOS, 寻找<code>wake on lan``resume on lan``power on PME``power on by PCI-E device``Power on by Onboard LAN</code>等与电源管理和唤醒有关的选项并使能</li>
+</ul>
+</li>
+<li>设置网卡驱动<ul>
+<li><code>设备管理器</code>-&gt;<code>网络适配器</code>-&gt;选择有线网卡设备-&gt;右键<code>属性</code>-&gt;在<code>高级</code>和<code>电源管理</code>标签下-&gt;启用<code>唤醒模式``唤醒魔包``幻数据包``唤醒计算机</code>之类的选项</li>
+</ul>
+</li>
+<li>配置 WIN10 WOL(Wake on Lan 远程唤醒) 最大的坑就是要关闭 “启用快速启动(推荐)”, 而默认是打开的. 另外,<ul>
+<li><code>控制面板</code>-&gt;<code>硬件和声音</code>-&gt;<code>电源选项</code>-&gt;左边栏<code>选择电源按钮的功能</code>-&gt;弹出<code>系统设置</code>页面-&gt;<code>关机设置</code>-&gt;<del><code>启用快速启动(推荐)</code></del></li>
+</ul>
+</li>
+<li>电脑非正常关机后, 是无法远程唤醒的.</li>
+<li>建议分级测试.<ol>
+<li>可以先确定bios配置正确. 配置好bios, 进入winPE之类的系统, 选择关机, 看WOL是否起作用.</li>
+<li>然后进入win10配置网卡的相关选项, 然后让机器进入睡眠模式, 看WOL是否起作用.</li>
+<li>最后win10关机, 测试WOL是否起作用.</li>
+<li>“启用快速启动(推荐)”, 位于 控制面板\硬件和声音\电源选项\唤醒时需要密码(系统设置)\关机设置.</li>
+<li>注意: bios设置内关于PCI节能的设置特别注意, 考虑全部关闭</li>
+</ol>
+</li>
+<li>Android端WOL软件推荐. <code>Wake On LAN</code> 配置简单, 界面友好.</li>
+<li>参考链接<ul>
+<li><a target="_blank" rel="noopener" href="https://www.teamviewer.com/zhCN/res/pdf/Teamviewer9-Manual-Wake-on-LAN-zhCN.pdf">TeamViewer手册-LAN唤醒</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.iplaysoft.com/wol.html">WOL 网络唤醒远程开机设置方法教程 + 多款软件下载！(手机远程开启电脑)</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="WAN远程唤醒"><a href="#WAN远程唤醒" class="headerlink" title="WAN远程唤醒"></a>WAN远程唤醒</h2><ul>
+<li>WAN远程唤醒的前提是配置好LAN唤醒.</li>
+<li>需要设置路由器, 设置过程非常复杂, 而且免费的不稳定.</li>
+<li>我买了向日葵开机棒, 但实际体验不好. 一是向日葵的服务器不太稳定, 而是远程操作意义不大, 纯玩性质.</li>
+<li>所以, 建议普通用户不用折腾这块了. 真有异地工作, 资料同步的需求, 用公共云, github, BitBucket都很好.</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/windows/" rel="tag"># windows</a>
+              <a href="/tags/NFS/" rel="tag"># NFS</a>
+              <a href="/tags/Hyper-V/" rel="tag"># Hyper-V</a>
+              <a href="/tags/NAS/" rel="tag"># NAS</a>
+              <a href="/tags/freefilesync/" rel="tag"># freefilesync</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/10/01/1604-CheatSheet-vim/" rel="prev" title="Vim常用快捷键">
+                  <i class="fa fa-chevron-left"></i> Vim常用快捷键
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/10/08/1607-CheatSheet-win/" rel="next" title="Windows快捷键">
+                  Windows快捷键 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

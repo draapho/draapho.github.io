@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 字符串处理">
+<meta property="og:url" content="https://draapho.github.io/2016/11/24/1621-python-string/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-11-23T13:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.715Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="string">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2016/11/24/1621-python-string/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>python 字符串处理 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2-%E7%BC%96%E7%A0%81%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">进制转换 &#x2F; 编码转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6-lt-gt-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.1.</span> <span class="nav-text">十进制&lt;-&gt;十六进制字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2-lt-gt-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.2.</span> <span class="nav-text">二进制字符串&lt;-&gt;十六进制字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6-lt-gt-unicode%E5%AD%97%E7%AC%A6%E4%B8%B2-lt-gt-utf8%E7%BC%96%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">十进制&lt;-&gt;unicode字符串&lt;-&gt;utf8编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E8%8A%82%E6%B5%81-lt-gt-%E6%95%B4%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">字节流&lt;-&gt;整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E5%AE%9E%E7%94%A8%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">1.5.</span> <span class="nav-text">几个实用的例子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2-lt-gt-%E6%95%B0%E5%80%BC-%E5%88%97%E8%A1%A8-%E5%AD%97%E5%85%B8"><span class="nav-number">2.</span> <span class="nav-text">字符串&lt;-&gt;数值&#x2F;列表&#x2F;字典</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2-lt-gt-%E6%95%B0%E5%80%BC"><span class="nav-number">2.1.</span> <span class="nav-text">字符串&lt;-&gt;数值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2-gt-%E5%88%97%E8%A1%A8-%E5%AD%97%E5%85%B8-%E5%8E%BB%E6%8E%89%E5%BC%95%E5%8F%B7"><span class="nav-number">2.2.</span> <span class="nav-text">字符串-&gt;列表&#x2F;字典 (去掉引号)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2-lt-gt-%E5%88%97%E8%A1%A8"><span class="nav-number">2.3.</span> <span class="nav-text">字符串&lt;-&gt;列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">字符串操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E5%9F%BA%E7%A1%80"><span class="nav-number">3.1.</span> <span class="nav-text">操作基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%8B%E5%86%8C%E5%8F%8A%E9%AB%98%E9%98%B6%E4%BD%BF%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">查看手册及高阶使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BE%8B%E5%AD%90"><span class="nav-number">3.3.</span> <span class="nav-text">使用正则表达式的一些例子</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2016/11/24/1621-python-string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python 字符串处理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-11-24 00:00:00" itemprop="dateCreated datePublished" datetime="2016-11-24T00:00:00+11:00">2016-11-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="进制转换-编码转换"><a href="#进制转换-编码转换" class="headerlink" title="进制转换 / 编码转换"></a>进制转换 / 编码转换</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/functions.html#hex">hex</a>, 十进制-&gt;十六进制字符串</li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/functions.html#oct">oct</a>, 十进制-&gt;八进制字符串</li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/functions.html#oct">oct</a>, 十进制-&gt;八进制字符串</li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/functions.html#chr">chr</a>, 十进制-&gt;ASCII码字符</li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/functions.html#unichr">unichr</a>,  十进制-&gt;unicode编码</li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/functions.html#ord">ord</a>,  ascii码/unicode编码-&gt;十进制</li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/binascii.html">binascii</a>, 字符串&lt;-&gt;字节流</li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/struct.html">struct</a>, 字符串&lt;-&gt;字节流<ul>
+<li>struct中的 <a target="_blank" rel="noopener" href="https://docs.python.org/2/library/struct.html#format-characters">fmt</a> 详解</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/stdtypes.html#string-methods">str.decode / str.encode</a>, 基于unicode的编码转换</li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/codecs.html#standard-encodings">Standard Encodings</a>, python支持的编码表<ul>
+<li>常用的有 <code>hex</code>, <code>utf-8</code>, <code>unicode_escape</code></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/pipisorry/article/details/44136297">python字符串编码及乱码解决方案</a><ul>
+<li>解释了unicode与str在python2.7 和 python3下的区别. <code>str.decode</code>和<code>str.encode</code>的含义</li>
+<li>python2.7, 默认str编码为ascii, 需要使用<code>s=u&quot;人生苦短&quot;</code>来表示unicode编码字符串(便于跨平台统一)</li>
+<li><strong>终极原则： decode early, unicode everywhere, encode late</strong></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/functions.html">更多的python内置函数</a>如下<ul>
+<li>int(x [,base ]), 将x转换为一个整数</li>
+<li>long(x [,base ]), 将x转换为一个长整数</li>
+<li>float(x), 将x转换到一个浮点数</li>
+<li>complex(real [,imag ]), 创建一个复数</li>
+<li>str(x) , 将对象 x 转换为字符串</li>
+<li>repr(x), 将对象 x 转换为表达式字符串</li>
+<li>eval(str), 用来计算在字符串中的有效Python表达式,并返回一个对象</li>
+<li>tuple(s), 将序列 s 转换为一个元组</li>
+<li>list(s), 将序列 s 转换为一个列表</li>
+</ul>
+</li>
+</ul>
+<h2 id="十进制-lt-gt-十六进制字符串"><a href="#十进制-lt-gt-十六进制字符串" class="headerlink" title="十进制&lt;-&gt;十六进制字符串"></a>十进制&lt;-&gt;十六进制字符串</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">hex</span>(<span class="number">255</span>)</span><br><span class="line"><span class="string">&#x27;0xff&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">float</span>.<span class="built_in">hex</span>(<span class="number">1.0</span>)</span><br><span class="line"><span class="string">&#x27;0x1.0000000000000p+0&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以有前缀 0b/0B(二进制), 0o/0O/0(八进制), or 0x/0X(十六进制),</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">int</span>(<span class="string">&#x27;0xff&#x27;</span>, <span class="number">16</span>)</span><br><span class="line"><span class="number">255</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">int</span>(<span class="string">&#x27;ff&#x27;</span>, <span class="number">16</span>)</span><br><span class="line"><span class="number">255</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二进制字符串-lt-gt-十六进制字符串"><a href="#二进制字符串-lt-gt-十六进制字符串" class="headerlink" title="二进制字符串&lt;-&gt;十六进制字符串"></a>二进制字符串&lt;-&gt;十六进制字符串</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">bin</span>(<span class="built_in">int</span>(<span class="string">&#x27;0xff&#x27;</span>, <span class="number">16</span>))</span><br><span class="line"><span class="string">&#x27;0b11111111&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">hex</span>(<span class="built_in">int</span>(<span class="string">&#x27;0b1010&#x27;</span>,<span class="number">2</span>))</span><br><span class="line"><span class="string">&#x27;0xa&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="十进制-lt-gt-unicode字符串-lt-gt-utf8编码"><a href="#十进制-lt-gt-unicode字符串-lt-gt-utf8编码" class="headerlink" title="十进制&lt;-&gt;unicode字符串&lt;-&gt;utf8编码"></a>十进制&lt;-&gt;unicode字符串&lt;-&gt;utf8编码</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = <span class="string">u&#x27;ñ&#x27;</span>            <span class="comment"># u表示使用unicode编码存储.</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c                   <span class="comment"># 显示c在电脑中的值</span></span><br><span class="line"><span class="string">u&#x27;\xf1&#x27;</span>                 <span class="comment"># 即 u&#x27;\u00f1&#x27;, \u需要2byte!</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">ord</span>(c)</span><br><span class="line"><span class="number">241</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>unichr(<span class="number">241</span>)</span><br><span class="line"><span class="string">u&#x27;\xf1&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">u&#x27;\u00f1&#x27;</span>.encode(<span class="string">&#x27;utf-8&#x27;</span>)       <span class="comment"># unicode-&gt;utf-8</span></span><br><span class="line"><span class="string">&#x27;\xc3\xb1&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;\xc3\xb1&#x27;</span>.decode(<span class="string">&#x27;utf-8&#x27;</span>)      <span class="comment"># utf-8-&gt;unicode</span></span><br><span class="line"><span class="string">u&#x27;\xf1&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> <span class="string">u&#x27;\u00f1&#x27;</span>                 <span class="comment"># 打印显示</span></span><br><span class="line">ñ</span><br></pre></td></tr></table></figure>
+
+<h2 id="字节流-lt-gt-整数"><a href="#字节流-lt-gt-整数" class="headerlink" title="字节流&lt;-&gt;整数"></a>字节流&lt;-&gt;整数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 struct</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> struct</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字节流-&gt;整数</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>struct.unpack(<span class="string">&#x27;&lt;hh&#x27;</span>, <span class="built_in">bytes</span>(<span class="string">b&#x27;\x01\x00\x00\x00&#x27;</span>))    <span class="comment"># 转义为short型整数</span></span><br><span class="line">(<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>struct.unpack(<span class="string">&#x27;&lt;L&#x27;</span>, <span class="built_in">bytes</span>(<span class="string">b&#x27;\x01\x00\x00\x00&#x27;</span>))     <span class="comment"># 转义为long型整数</span></span><br><span class="line">(<span class="number">1</span>,)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整数-&gt;字节流</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>struct.pack(<span class="string">&#x27;&lt;HH&#x27;</span>, <span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="string">&#x27;\x01\x00\x02\x00&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>struct.pack(<span class="string">&#x27;&lt;LL&#x27;</span>, <span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="string">&#x27;\x01\x00\x00\x00\x02\x00\x00\x00&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="几个实用的例子"><a href="#几个实用的例子" class="headerlink" title="几个实用的例子"></a>几个实用的例子</h2><ul>
+<li>去掉字符串中的跳脱符, 生成标准的unicode字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">u&#x27;\\u4f60\\u4f60&#x27;</span>.decode(<span class="string">&#x27;unicode_escape&#x27;</span>)</span><br><span class="line"><span class="string">u&#x27;\u4f60\u4f60&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解码16进制字符串：也可以直接 print 出来</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>b=<span class="string">&#x27;\xd1\xee\xba\xea\xc1\xc1\n&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> unicode(b, <span class="string">&#x27;gbk&#x27;</span>).encode(<span class="string">&#x27;utf8&#x27;</span>) <span class="comment"># 等同于 print b.decode(&#x27;gbk&#x27;).encode(&#x27;utf8&#x27;)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>bin &lt;-&gt; ascii</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 字符串-&gt;ASCII编码串</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;1234&#x27;</span>.encode(<span class="string">&quot;hex&quot;</span>)</span><br><span class="line"><span class="string">&#x27;31323334&#x27;</span></span><br><span class="line"><span class="comment"># ASCII编码串-&gt;字符串</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;3031&#x27;</span>.decode(<span class="string">&quot;hex&quot;</span>)</span><br><span class="line"><span class="string">&#x27;01&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 binascii</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> binascii</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>binascii.hexlify(<span class="string">&quot;1234&quot;</span>)    <span class="comment"># 或者 binascii.b2a_hex(&quot;1234&quot;)</span></span><br><span class="line"><span class="string">&#x27;31323334&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>binascii.unhexlify(<span class="string">&quot;3031&quot;</span>)  <span class="comment"># 或者 binascii.a2b_hex(&quot;3031&quot;)</span></span><br><span class="line"><span class="string">&#x27;01&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="字符串-lt-gt-数值-列表-字典"><a href="#字符串-lt-gt-数值-列表-字典" class="headerlink" title="字符串&lt;-&gt;数值/列表/字典"></a>字符串&lt;-&gt;数值/列表/字典</h1><h2 id="字符串-lt-gt-数值"><a href="#字符串-lt-gt-数值" class="headerlink" title="字符串&lt;-&gt;数值"></a>字符串&lt;-&gt;数值</h2><ul>
+<li>int(x [,base ]), 将x转换为一个整数</li>
+<li>long(x [,base ]), 将x转换为一个长整数</li>
+<li>float(x), 将x转换到一个浮点数</li>
+<li><strong>使用re正则表达式, 实用范例</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">str</span> = <span class="string">&quot;test: 12a345 to 325.-123.34&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># this can get the number from str like &quot;good456sdg78&quot;, return [&#x27;456&#x27;, &#x27;78&#x27;]</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> re.findall(<span class="string">r&#x27;\d+&#x27;</span>, <span class="built_in">str</span>)</span><br><span class="line">[<span class="string">&#x27;12&#x27;</span>, <span class="string">&#x27;345&#x27;</span>, <span class="string">&#x27;325&#x27;</span>, <span class="string">&#x27;123&#x27;</span>, <span class="string">&#x27;34&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># this can get the number seperate in str like &quot;good12sd 45 78 &quot;, return [&#x27;45&#x27;, &#x27;78&#x27;]</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> re.findall(<span class="string">r&#x27;\b\d+\b&#x27;</span>, <span class="built_in">str</span>)</span><br><span class="line">[<span class="string">&#x27;325&#x27;</span>, <span class="string">&#x27;123&#x27;</span>, <span class="string">&#x27;34&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># more complicated, can recognize and return [30, -10, 34.12, -12.34, 67.56E+3, -14.23e-2]</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> re.findall(<span class="string">&quot;[-+]?\d+[\.]?\d+[eE]?[-+]?\d*&quot;</span>, <span class="built_in">str</span>)</span><br><span class="line">[<span class="string">&#x27;12&#x27;</span>, <span class="string">&#x27;345&#x27;</span>, <span class="string">&#x27;325&#x27;</span>, <span class="string">&#x27;-123.34&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串-gt-列表-字典-去掉引号"><a href="#字符串-gt-列表-字典-去掉引号" class="headerlink" title="字符串-&gt;列表/字典 (去掉引号)"></a>字符串-&gt;列表/字典 (去掉引号)</h2><ul>
+<li>eval(), 将str当成有效的表达式来求值并返回计算结果. 在确保str源安全的情况下可用.<ul>
+<li><a target="_blank" rel="noopener" href="http://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html">Eval really is dangerous</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/zhanh1218/article/details/37562167">Python:eval的妙用和滥用</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/ast.html#ast-helpers">ast.literal_eval()</a>, eval的替代品, 更安全</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 字符串-&gt;列表</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">eval</span>(<span class="string">&quot;[1,2,3]&quot;</span>)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串-&gt;字典</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">eval</span>(<span class="string">&quot;&#123;&#x27;one&#x27;:1, &#x27;two&#x27;:2&#125;&quot;</span>)</span><br><span class="line">&#123;<span class="string">&#x27;two&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;one&#x27;</span>: <span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串-lt-gt-列表"><a href="#字符串-lt-gt-列表" class="headerlink" title="字符串&lt;-&gt;列表"></a>字符串&lt;-&gt;列表</h2><ul>
+<li>str.join(), 列表-&gt;字符串</li>
+<li>str.split(), 字符串-&gt;列表</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 字符串-&gt;列表</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>lst = <span class="built_in">list</span>(<span class="string">&quot;hello&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>lst</span><br><span class="line">[<span class="string">&#x27;h&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表-&gt;字符串</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;&#x27;</span>.join(lst)</span><br><span class="line"><span class="string">&#x27;hello&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串-&gt;列表 (指定分隔符, 如空格, 逗号)</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>season = <span class="string">&#x27;spring, summer, autumn, winter&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>season.split (<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">[<span class="string">&#x27;spring&#x27;</span>, <span class="string">&#x27; summer&#x27;</span>, <span class="string">&#x27; autumn&#x27;</span>, <span class="string">&#x27; winter&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表-&gt;字符串</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>lst = [<span class="string">&quot;spring&quot;</span>, <span class="string">&quot;summer&quot;</span>, <span class="string">&quot;autumn&quot;</span>, <span class="string">&quot;winter&quot;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;, &#x27;</span>.join(lst)</span><br><span class="line"><span class="string">&#x27;spring, summer, autumn, winter&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 整数列表-&gt;字符串</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>lst = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;&#x27;</span>.join(<span class="built_in">str</span>(e) <span class="keyword">for</span> e <span class="keyword">in</span> lst)</span><br><span class="line"><span class="string">&#x27;123&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串-&gt;hex格式列表-&gt;hex格式字符串</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">map</span>(<span class="built_in">ord</span>, <span class="string">&quot;1234&quot;</span>) <span class="comment"># [0x31, 0x32, 0x33 0x34]</span></span><br><span class="line">[<span class="number">49</span>, <span class="number">50</span>, <span class="number">51</span>, <span class="number">52</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;&#x27;</span>.join([<span class="string">&quot;%02x&quot;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">map</span>(<span class="built_in">ord</span>, <span class="string">&quot;1234&quot;</span>)])</span><br><span class="line"><span class="string">&#x27;31323334&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h1><h2 id="操作基础"><a href="#操作基础" class="headerlink" title="操作基础"></a>操作基础</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 去前后空格及特殊符号</span></span><br><span class="line">s.strip().lstrip().rstrip(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找字符</span></span><br><span class="line">sStr1.index(sStr2)  <span class="comment"># 返回所在位置, 不存在则报错</span></span><br><span class="line">sStr2 <span class="keyword">in</span> sStr1      <span class="comment"># 返回 True or False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 比较字符串</span></span><br><span class="line">cmp(sStr1,sStr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串长度</span></span><br><span class="line"><span class="built_in">len</span>(sStr1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字符串中的大小写转换</span></span><br><span class="line">sStr1.upper().lower()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 扩充到指定长度</span></span><br><span class="line"><span class="built_in">str</span>(01).zfill(<span class="number">5</span>) <span class="comment"># “00001”</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 翻转字符串</span></span><br><span class="line">sStr1[::-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分割字符串</span></span><br><span class="line">s.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串切片</span></span><br><span class="line"><span class="built_in">str</span> = ’0123456789′</span><br><span class="line"><span class="built_in">print</span> <span class="built_in">str</span>[<span class="number">0</span>:<span class="number">3</span>]      <span class="comment"># 截取第一位到第三位的字符</span></span><br><span class="line"><span class="built_in">print</span> <span class="built_in">str</span>[:]        <span class="comment"># 截取字符串的全部字符</span></span><br><span class="line"><span class="built_in">print</span> <span class="built_in">str</span>[<span class="number">6</span>:]       <span class="comment"># 截取第七个字符到结尾</span></span><br><span class="line"><span class="built_in">print</span> <span class="built_in">str</span>[:-<span class="number">3</span>]      <span class="comment"># 截取从头开始到倒数第三个字符之前</span></span><br><span class="line"><span class="built_in">print</span> <span class="built_in">str</span>[<span class="number">2</span>]        <span class="comment"># 截取第三个字符</span></span><br><span class="line"><span class="built_in">print</span> <span class="built_in">str</span>[-<span class="number">1</span>]       <span class="comment"># 截取倒数第一个字符</span></span><br><span class="line"><span class="built_in">print</span> <span class="built_in">str</span>[::-<span class="number">1</span>]     <span class="comment"># 创造一个与原字符串顺序相反的字符串</span></span><br><span class="line"><span class="built_in">print</span> <span class="built_in">str</span>[-<span class="number">3</span>:-<span class="number">1</span>]    <span class="comment"># 截取倒数第三位与倒数第一位之前的字符</span></span><br><span class="line"><span class="built_in">print</span> <span class="built_in">str</span>[-<span class="number">3</span>:]      <span class="comment"># 截取倒数第三位到结尾</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看手册及高阶使用"><a href="#查看手册及高阶使用" class="headerlink" title="查看手册及高阶使用"></a>查看手册及高阶使用</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/chapters/p02_strings_and_text.html">cookbook-第二章：字符串和文本</a>, 实用范例<ul>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p01_split_string_on_multiple_delimiters.html">2.1 使用多个界定符分割字符串</a>, split(), re.split()</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p02_match_text_at_start_end.html">2.2 字符串开头或结尾匹配</a>, startswith(), endswith()</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p03_match_strings_with_shell_wildcard.html">2.3 用Shell通配符匹配字符串</a>, fnmatch(), fnmatchcase()</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p04_match_and_search_text.html">2.4 字符串匹配和搜索</a>, find(), findall(), match(), re.match()</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p05_search_and_replace_text.html">2.5 字符串搜索和替换</a>, replace(), re.sub()</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p06_search_replace_case_insensitive.html">2.6 字符串忽略大小写的搜索替换</a>, re.IGNORECASE</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p07_specify_regexp_for_shortest_match.html">2.7 最短匹配模式</a>, 解决成对符号的问题, 避免贪婪算法</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p08_regexp_for_multiline_partterns.html">2.8 多行匹配模式</a>, 解决回车换行的问题</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p09_normalize_unicode_text_to_regexp.html">2.9 将Unicode文本标准化</a></li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p10_work_with_unicode_in_regexp.html">2.10 在正则式中使用Unicode</a></li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p11_strip_unwanted_characters.html">2.11 删除字符串中不需要的字符</a>, strip(), replace(), re.sub()</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p12_sanitizing_clean_up_text.html">2.12 审查清理文本字符串</a></li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p13_aligning_text_strings.html">2.13 字符串对齐</a>, ljust(), rjust(), center(), format()</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html">2.14 合并拼接字符串</a>, join()</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p15_interpolating_variables_in_strings.html">2.15 字符串中插入变量</a>, format()的高阶使用</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p16_reformat_text_to_fixed_number_columns.html">2.16 以指定列宽格式化字符串</a>, textwrap</li>
+<li><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p17_handle_html_xml_in_text.html">2.17 在字符串中处理html和xml</a></li>
+<li><del><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p18_tokenizing_text.html">2.18 字符串令牌解析</a>, 语法的解析</del></li>
+<li><del><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p19_writing_recursive_descent_parser.html">2.19 实现一个简单的递归下降分析器</a>, 语法的解析</del></li>
+<li><del><a target="_blank" rel="noopener" href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p20_perform_text_operations_on_byte_string.html">2.20 字节字符串上的字符串操作</a>, bytearray</del></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/stdtypes.html#string-methods">String Methods</a>, string提供的方法/函数<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/stdtypes.html#string-formatting-operations">String Formatting Operations</a>, 格式化显示, 建议使用format替代</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/string.html">string — Common string operations</a>, python官方手册之字符串操作<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/string.html#string-constants">String constants</a>, 字符串常量, 如字母, 数字</li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/string.html#format-examples">Format examples</a>, 格式化显示</li>
+<li><del><a target="_blank" rel="noopener" href="https://docs.python.org/2/library/string.html#template-strings">Template strings</a>, 模板显示</del>, 建议使用format代替.</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用正则表达式的一些例子"><a href="#使用正则表达式的一些例子" class="headerlink" title="使用正则表达式的一些例子"></a>使用正则表达式的一些例子</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 去掉所有的空格和tab</span></span><br><span class="line">re.sub(<span class="string">&#x27;[\s+]&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="built_in">str</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换小写下划线格式变化为驼峰格式</span></span><br><span class="line">re.sub(<span class="string">&#x27;^\w|_\w&#x27;</span>, <span class="keyword">lambda</span> x:x.group()[-<span class="number">1</span>].upper(), <span class="string">&#x27;blog_view&#x27;</span>) <span class="comment"># 输出 &#x27;BlogView&#x27;。</span></span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/string/" rel="tag"># string</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/11/23/1620-software-data-struct/" rel="prev" title="数据结构资料收集">
+                  <i class="fa fa-chevron-left"></i> 数据结构资料收集
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/11/28/1622-python-time/" rel="next" title="python 延时及超时">
+                  python 延时及超时 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

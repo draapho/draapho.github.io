@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux文件与目录相关指令">
+<meta property="og:url" content="https://draapho.github.io/2016/12/16/1626-linux-cmd-file/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-12-15T13:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.718Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="command">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2016/12/16/1626-linux-cmd-file/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>linux文件与目录相关指令 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux-%E6%96%87%E4%BB%B6%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">linux 文件基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E4%BB%A3%E8%A1%A8%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">特殊符号代表的目录:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">文件类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">文件与目录常用指令</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2016/12/16/1626-linux-cmd-file/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          linux文件与目录相关指令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-12-16 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-16T00:00:00+11:00">2016-12-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="linux-文件基础"><a href="#linux-文件基础" class="headerlink" title="linux 文件基础"></a>linux 文件基础</h1><h2 id="特殊符号代表的目录"><a href="#特殊符号代表的目录" class="headerlink" title="特殊符号代表的目录:"></a>特殊符号代表的目录:</h2><table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>目录</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.</code></td>
+<td>代表此层目录</td>
+</tr>
+<tr>
+<td><code>..</code></td>
+<td>代表上一层目录</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>代表<strong>目前使用者</strong>所在的家目录</td>
+</tr>
+<tr>
+<td><code>~account</code></td>
+<td>代表<strong>account</strong>这个使用者的家目录</td>
+</tr>
+<tr>
+<td><code>~+</code></td>
+<td>当前的工作目录, 等同于<code>pwd</code></td>
+</tr>
+<tr>
+<td><code>~-</code></td>
+<td>上次的工作目录</td>
+</tr>
+</tbody></table>
+<h2 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h2><table>
+<thead>
+<tr>
+<th>bit9</th>
+<th>8</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>r</td>
+<td>-</td>
+<td>x</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>bit</th>
+<th>字母</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>9</td>
+<td></td>
+<td>文件类型</td>
+</tr>
+<tr>
+<td></td>
+<td><code>d</code></td>
+<td>目录(dir)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>-</code></td>
+<td>文件</td>
+</tr>
+<tr>
+<td></td>
+<td><code>l</code></td>
+<td>链接文件(link)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>b</code></td>
+<td>块设备文件(block)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>c</code></td>
+<td>字符设备文件(character)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>s</code></td>
+<td>网络接口文件(sockets)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>p</code></td>
+<td>管道文件(FIFO, pipe)</td>
+</tr>
+<tr>
+<td>876</td>
+<td><code>rwx</code></td>
+<td>拥有人的权限, r为可读, w为可写, x为可执行</td>
+</tr>
+<tr>
+<td>543</td>
+<td><code>r-x</code></td>
+<td>同群组的权限, r为可读, -为不可写, x为可执行</td>
+</tr>
+<tr>
+<td>210</td>
+<td><code>---</code></td>
+<td>其它群组权限, 不可读, 不可写, 不可执行</td>
+</tr>
+</tbody></table>
+<h1 id="文件与目录常用指令"><a href="#文件与目录常用指令" class="headerlink" title="文件与目录常用指令"></a>文件与目录常用指令</h1><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>cd</code></td>
+<td><strong>Change Directory</strong>, 变换目录</td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td><strong>Print Working Directory</strong>, 显示目前的目录</td>
+</tr>
+<tr>
+<td>…… <strong><code>pwd -P</code></strong></td>
+<td>显示真实路径, 而非link路径</td>
+</tr>
+<tr>
+<td><code>mkdir dir</code></td>
+<td>Make Directory, 建立一个新的目录</td>
+</tr>
+<tr>
+<td>…… <strong><code>mkdir -p dir1/dir2</code></strong></td>
+<td>递归建立所有目录</td>
+</tr>
+<tr>
+<td>…… <strong><code>mkdir -m 711 dir</code></strong></td>
+<td>建立目录时,设定权限</td>
+</tr>
+<tr>
+<td><code>rmdir dir</code></td>
+<td><strong>Remove Directory</strong>, 删除一个空的目录</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td><strong>List Files</strong>, 显示文件与目录</td>
+</tr>
+<tr>
+<td>…… <strong><code>ls -h</code></strong></td>
+<td>以KB,GB显示容量.</td>
+</tr>
+<tr>
+<td>…… <strong><code>ls -R</code></strong></td>
+<td>Recursive, 递归显示子目录信息</td>
+</tr>
+<tr>
+<td>…… <strong><code>ls -t</code></strong></td>
+<td>以时间排序</td>
+</tr>
+<tr>
+<td>…… <strong><code>ls -S</code></strong></td>
+<td>以容量大小排序</td>
+</tr>
+<tr>
+<td>…… <strong><code>ll</code></strong></td>
+<td><code>ls –al</code>, List All, 显示所有文件及信息</td>
+</tr>
+<tr>
+<td><code>cp src dst</code></td>
+<td>copy</td>
+</tr>
+<tr>
+<td>…… <strong><code>cp -a src dst</code></strong></td>
+<td>即<code>cp -pdr</code>, 递归复制目录.不会改变属性和权限</td>
+</tr>
+<tr>
+<td>…… <strong><code>cp -f src dst</code></strong></td>
+<td>Force, 强制复制,不询问使用者</td>
+</tr>
+<tr>
+<td>…… <strong><code>cp -u src dst</code></strong></td>
+<td>若 src比dst新,才进行复制工作,多用于备份</td>
+</tr>
+<tr>
+<td>…… <strong><code>cp src1 src2 src3 dir</code></strong></td>
+<td>将多个原文件拷贝到指定目录</td>
+</tr>
+<tr>
+<td><code>mv src dst</code></td>
+<td><strong>move</strong>, 移动目录和文件</td>
+</tr>
+<tr>
+<td><code>rm file_dir</code></td>
+<td><strong>remove</strong>, 移除文件</td>
+</tr>
+<tr>
+<td>…… <strong><code>rm -fr dir</code></strong></td>
+<td>强制递归删除dir下的所有文件和目录</td>
+</tr>
+<tr>
+<td><code>ln -s src dst</code></td>
+<td><strong>Symbolic Link</strong>, 创建一个符号链接</td>
+</tr>
+<tr>
+<td>…… <strong><code>ln file hardLink</code></strong></td>
+<td>实际链接, 仅支持同区块下的文件,不占用inode</td>
+</tr>
+<tr>
+<td>…… <strong><code>ln -s dir symbolicLink</code></strong></td>
+<td>符号链接, 同快捷方式,为一个文件,占用inode</td>
+</tr>
+<tr>
+<td><code>basename /dir/dir/file</code></td>
+<td>结果为<code>file</code>, 路径中取得文件名称</td>
+</tr>
+<tr>
+<td><code>dirname /dir/dir/file</code></td>
+<td>结果为<code>/dir/dir</code>, 路径中取得目录名称</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cat file</code></td>
+<td><strong>Concatenate</strong> (连续), 连续显示文件内容</td>
+</tr>
+<tr>
+<td>…… <strong><code>cat -n file</code></strong></td>
+<td>在前面加上行号</td>
+</tr>
+<tr>
+<td>…… <strong><code>cat -A</code></strong></td>
+<td>即 <code>cat -vET</code>, 可显示一些特殊符号</td>
+</tr>
+<tr>
+<td><code>more</code> <code>less</code> <code>head</code> <code>tail</code></td>
+<td>都用于显示文件内容, <code>less</code>功能最强大</td>
+</tr>
+<tr>
+<td><code>od -t x1 file</code></td>
+<td>按1byte 十六进制显示文件.若x2则为2byte.</td>
+</tr>
+<tr>
+<td><code>touch file</code></td>
+<td>建立一个空文件, 修改文件时间(mtime和atime)</td>
+</tr>
+<tr>
+<td><code>file file</code></td>
+<td>读取文件类型</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>umask</code></td>
+<td>读取和设置当前默认权限, 数字是被取消的默认权限</td>
+</tr>
+<tr>
+<td>…… <strong><code>umask 022</code></strong></td>
+<td>新建文档权限为 777-022 = 755权限</td>
+</tr>
+<tr>
+<td><code>chgrp -R group file_dir</code></td>
+<td>递归改变file_dir文件/目录的群组(group必须存在)</td>
+</tr>
+<tr>
+<td><code>chown owner file_dir</code></td>
+<td>改变文件或目录的所有者(owner必须存在)</td>
+</tr>
+<tr>
+<td>…… <strong><code>chown -R owner:group dir</code></strong></td>
+<td>递归改变dir的所有者和组群</td>
+</tr>
+<tr>
+<td>…… <strong><code>chmod -R 755 file_dir</code></strong></td>
+<td>递归改名文件或目录的权限 (7=0b111=rwx)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>which -a cmd</code></td>
+<td>搜索执行文件完整路径</td>
+</tr>
+<tr>
+<td><code>whereis file</code></td>
+<td>快速搜索文件(用数据库),实测下来没啥用</td>
+</tr>
+<tr>
+<td><code>find dir -name file</code></td>
+<td>搜索文件(整个硬盘),很强大的一个指令</td>
+</tr>
+<tr>
+<td>…… <strong><code>-name</code></strong></td>
+<td>表示按文件名搜索. 类似的参数有很多.有需要在查.</td>
+</tr>
+<tr>
+<td><code>grep pattern files</code></td>
+<td>在files中寻找 pattern项,支持正则表达式</td>
+</tr>
+<tr>
+<td>…… <strong><code>grep -r “hello” ./*</code></strong></td>
+<td>在当前文件夹下的所有文件下搜索 “hello”</td>
+</tr>
+<tr>
+<td>…… <strong><code>grep -n “Test” *</code></strong></td>
+<td>在当前文件夹下搜索 “hello”, 并显示行号</td>
+</tr>
+<tr>
+<td>…… <strong><code>grep -i “Bye” *</code></strong></td>
+<td>在当前文件夹下忽略大小写搜索 ”Bye”</td>
+</tr>
+<tr>
+<td>…… <strong><code>grep -w “Test” aa bb</code></strong></td>
+<td>在aa, bb文件内,只匹配整个单词搜索 “Test”</td>
+</tr>
+<tr>
+<td>…… <strong><code>grep -nd skip 100ask24x0 *</code></strong></td>
+<td>仅在当前目录查找, 不显示子目录信息</td>
+</tr>
+<tr>
+<td><code>find ./ -name &quot;*&quot; l(竖杠) xargs grep --color &quot;key&quot;</code></td>
+<td>在当前文件夹下查找包含 “key” 内容的文件</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>tar -cvf file.tar /dir</code></td>
+<td>将/dir打包为file.tar,没有压缩</td>
+</tr>
+<tr>
+<td><code>tar -zcvf file.tar.gz /dir</code></td>
+<td>将/dir打包为file.tar.gz,用gzip压缩</td>
+</tr>
+<tr>
+<td><code>tar -jcvf file.tar.bz2 /dir</code></td>
+<td>将/dir打包为file.tar.gz2,用bzip2压缩</td>
+</tr>
+<tr>
+<td><code>tar -xvf file.tar</code></td>
+<td>还原file.tar到当前目录</td>
+</tr>
+<tr>
+<td><code>tar -zxvf file.tar.gz</code></td>
+<td>解压file.tar.gz到当前目录</td>
+</tr>
+<tr>
+<td><code>tar -jxvf file.tar.bz2</code></td>
+<td>解压file.tar.bz2到当前目录</td>
+</tr>
+<tr>
+<td><code>tar -N ‘2005/06/01’ -zcvffile.tar.gz /dir</code></td>
+<td>将/dir下比2005/06/01新的文件备份</td>
+</tr>
+<tr>
+<td><code>cpio</code></td>
+<td>文件/设备的输入输出, 多配合find进行备份</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong><code>find ./ -name &quot;*&quot; | xargs grep --color &quot;key&quot;</code></strong> 在当前文件夹下查找包含 “key” 内容的文件</li>
+<li><strong><code>find / -print | cpio -covB &gt; /dev/st0</code></strong> , 将系统数据全部写入磁带机</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/command/" rel="tag"># command</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/12/15/1625-linux-cmd-disk/" rel="prev" title="linux 系统文件及磁盘指令">
+                  <i class="fa fa-chevron-left"></i> linux 系统文件及磁盘指令
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/12/17/1627-linux-cmd-bash/" rel="next" title="Bash Shell及环境变量">
+                  Bash Shell及环境变量 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="自己写的用于单片机的轻量级协作式操作系统.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ezos简要用户手册">
+<meta property="og:url" content="https://draapho.github.io/2017/04/10/1712-ezos/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="自己写的用于单片机的轻量级协作式操作系统.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-04-09T14:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.732Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded">
+<meta property="article:tag" content="ezos">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/04/10/1712-ezos/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>ezos简要用户手册 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ezos%E5%BC%80%E5%8F%91%E5%8E%86%E5%8F%B2"><span class="nav-number">1.</span> <span class="nav-text">ezos开发历史</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ezos-%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">ezos 原理介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ezos%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%95%B0%E6%8D%AE"><span class="nav-number">2.1.</span> <span class="nav-text">ezos的任务数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E9%93%BE%E8%A1%A8%E5%92%8C%E5%9B%9E%E6%94%B6%E9%93%BE%E8%A1%A8"><span class="nav-number">2.2.</span> <span class="nav-text">任务链表和回收链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ezos%E7%9A%84%E4%BB%BB%E5%8A%A1%E7%8A%B6%E6%80%81"><span class="nav-number">2.3.</span> <span class="nav-text">ezos的任务状态:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ezos%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6"><span class="nav-number">2.4.</span> <span class="nav-text">ezos任务调度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E7%9A%84%E9%87%8D%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">任务的重载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ezos-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">ezos 使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ezos-%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0"><span class="nav-number">4.1.</span> <span class="nav-text">ezos 基础函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ezos%E8%B0%83%E8%AF%95%E5%87%BD%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">ezos调试函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BB%BB%E5%8A%A1%E5%87%BD%E6%95%B0"><span class="nav-number">4.3.</span> <span class="nav-text">常用的任务函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ezos%E7%BC%96%E7%A8%8B%E8%8C%83%E4%BE%8B"><span class="nav-number">4.4.</span> <span class="nav-text">ezos编程范例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ezos%E4%B9%8B%E4%BB%BB%E5%8A%A1%E9%80%9A%E8%AE%AF"><span class="nav-number">5.</span> <span class="nav-text">ezos之任务通讯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IPC%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">5.1.</span> <span class="nav-text">IPC的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPC%E7%BC%96%E7%A8%8B%E8%8C%83%E4%BE%8B"><span class="nav-number">5.2.</span> <span class="nav-text">IPC编程范例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ezos-%E6%BA%90%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">ezos 源码</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/04/10/1712-ezos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ezos简要用户手册
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-04-10 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-10T00:00:00+10:00">2017-04-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded/" itemprop="url" rel="index"><span itemprop="name">embedded</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">自己写的用于单片机的轻量级协作式操作系统.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="ezos开发历史"><a href="#ezos开发历史" class="headerlink" title="ezos开发历史"></a>ezos开发历史</h1><p>ezos最早的思想起源于TCS德国的带有任务性质的超循环方式(前后台方式), 为使用方便, 作者将增减任务的方式直接和函数名相关, 加入延时功能.<br>并写了核心代码 ezos_schedule();  ezos_add(); ezos_delete();  ezos_delay(); 这样一个外表酷似RTOS, 内核为超循环任务的OS就诞生了, 版本V1.0.0.<br>由于使用起来非常方便, 代码为纯C语言, 简单易懂, 因此命名为 ezos, 即easy OS.</p>
+<p>后续由 TCS 胡工加入了任务参数, 静态任务, 可实例化任务的概念.<br>整合这些概念后, 重写了部分代码, 将ezos的版本升级至较为实用的V1.3.1.在这个阶段, 使用ezos做了功能较为复杂的项目, 并发现一些任务通讯和同步的问题,<br>在借鉴了抢占式RTOS的一些特性后, 决心重写ezos, 将其变为真正的协作式RTOS. 同时要求代码依旧清晰简洁, 可适用于资源较少的8位单片机应用.</p>
+<p>基于以上想法, 将ezos的提升到了V2开始的主版本. 将代码改为linux书写规范, 进化为协作式OS, 支持254级优先级. 使用了链表, 重写所有系统函数.<br>还有, 非常重要的是, 增加了任务间的通讯方式, 支持信号量, 互斥量, 事件, 邮箱, 消息队列.
+ </p>
+<h1 id="ezos-原理介绍"><a href="#ezos-原理介绍" class="headerlink" title="ezos 原理介绍"></a>ezos 原理介绍</h1><p>ezos是协作式的操作系统, 即支持优先级, 支持任务间通讯. 但任务的轮询调度不是抢占式的, 而必须由任务自己放弃CPU的控制权.<br>即当有一更高优先级的任务需要运行时, ezos并不会马上剥夺现有任务CPU的控制权, 必须等待现有任务自己放弃CPU的控制权, 更高优先级的任务才会被运行.</p>
+<p>一个软件系统是否需要使用操作系统, 操作系统的好坏, 个人明确强调, 没有最好只有最合适!<br>这是嵌入式行业的原则之一, 如果有最好最合适的, 那就成了通用的PC行业软件开发, 而非嵌入式软件开发了.</p>
+<p>对于软件功能非常简单的嵌入式系统, 前后台/超循环模式可能就是最好的! 资源开销小, 代码直观, 易于调试.<br>对于有一定复杂度的嵌入式系统, 就需要使用操作系统了, 否则软件会变得难以开发, 难以理解和阅读, 难以维护和升级……<br>对于一般复杂度的嵌入式软件, 使用协作式的操作系统是个不错的选择, 相对于抢占式的操作系统, 其缺点为响应时间较慢(但并非不可控制). 优点为系统代码和占用资源很小, 任务流程容易预测, 便于调试和开发.<br>抢占式操作系统的一个最大特点是: 任务随时随地都可能被优先级更高的任务剥夺运行权, 因此也就需要程序员充分考虑任务的原子性要求, 但这是需要培训和经验积累的.<br>问题的严重性更在于, 此类问题很难跟踪调试, 容易让产品是不稳定的. 因此使用协作式的操作系统, 对程序员的要求较低, 也更易于开发出稳定可靠的产品.</p>
+<h2 id="ezos的任务数据"><a href="#ezos的任务数据" class="headerlink" title="ezos的任务数据"></a>ezos的任务数据</h2><p>ezos的任务数据存放在 ezos_task_t task_link[__EZOS_TASK_NUM];<br>ezos内置一个idle任务数据, 取名idle, 优先级最低, 为255. 可以简单理解为它是任务数据的表头.<br>当调用ezos_add(), ezos_delete()时, 会自行分配或释放此数据空间.</p>
+<h2 id="任务链表和回收链表"><a href="#任务链表和回收链表" class="headerlink" title="任务链表和回收链表"></a>任务链表和回收链表</h2><p>ezos核心思想是两组单向链表: <code>任务链表</code> 和 <code>回收链表</code></p>
+<ul>
+<li><code>任务链表</code>为单向循环链表, 链表起始节点存放着系统空闲任务.<br>后面的节点按照任务优先级的先后顺序进行排序.<br>对于同优先级的任务, 任务添加或任务改变自身状态时, 会将该任务节点放到同优先级链表节点的末尾.<br>因此, 任务链表从idle往后, 一定是按照优先级顺序排列好的!</li>
+</ul>
+<p>举例来说, 任务列表如下: 优先级1 -&gt; 优先级3 -&gt; 优先级3 -&gt; 优先级10 -&gt; 优先级11 -&gt; idle(255)<br>则ezos 会按照顺序依次查询任务列表中任务的状态. 更根据状态确定是执行任务还是跳过任务.<br>上表中, 如果新增一个优先级为2的任务, 则此任务会被放在优先级1和优先级3之间.<br>如果新增一个优先级为3的任务, 则此任务会被放在优先级10之前.<br>另外, 如果第一个优先级3的任务运行过后, 也会被放在优先级10之前, 以便让同优先级的其它任务运行.</p>
+<ul>
+<li><code>回收链表</code>为单向非循环链表, 被删除的任务节点放到到回收链表中.<br>而被添加的任务节点从回收链表取出并分配到任务链表中.</li>
+</ul>
+<h2 id="ezos的任务状态"><a href="#ezos的任务状态" class="headerlink" title="ezos的任务状态:"></a>ezos的任务状态:</h2><p>源码见 <a target="_blank" rel="noopener" href="https://github.com/draapho/ezos">github-ezos</a></p>
+<ol>
+<li>任务删除状态(EZOS_DELETE), 即终止状态. 任务不在任务链表中, 不会运行.</li>
+<li>任务阻塞状态(EZOS_SUSPEND), 任务已在任务链表中, 但被阻塞, 不会被运行. 任务延时也属于阻塞状态.</li>
+<li>任务就绪状态(EZOS_READY), 任务已在任务队列中, 可以运行, 但未必正在运行.</li>
+<li>任务运行状态(EZOS_RUNNING), 任务已在任务列表中, 并正在运行.</li>
+</ol>
+<h2 id="ezos任务调度"><a href="#ezos任务调度" class="headerlink" title="ezos任务调度"></a>ezos任务调度</h2><p>借助于ezos任务链表的良好设计, ezos任务调度非常简单, 每次都是从头开始寻找处于就绪态的任务,运行完某个任务后就从头重新开始搜寻.<br>由于任务链表是按照优先级顺序排序的,这样就实现了高优先级任务的快速响应. 而同优先级任务则是轮询处理的.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ezos_schedule</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        task = idle.next;</span><br><span class="line"><span class="comment">// 寻找就绪的任务</span></span><br><span class="line">        <span class="keyword">while</span> (task-&gt;status != EZOS_READY)  task = task-&gt;next;</span><br><span class="line">        run = task;</span><br><span class="line">        run-&gt;status = EZOS_RUNNING;</span><br><span class="line">        ezos_enable_int(mask);</span><br><span class="line"><span class="comment">// 运行任务函数</span></span><br><span class="line">        task-&gt;pfun(&amp;task-&gt;state, &amp;task-&gt;para);</span><br><span class="line">        mask = ezos_disable_int();</span><br><span class="line"><span class="comment">// 自动删除任务</span></span><br><span class="line">        <span class="keyword">if</span> (run-&gt;status == EZOS_RUNNING) ezos_delete_cur();</span><br><span class="line">        run = &amp;idle;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="任务的重载"><a href="#任务的重载" class="headerlink" title="任务的重载"></a>任务的重载</h1><p>由于加入了任务的命名体系, 对于可重载的函数就可以添加多个任务了. 而所有的任务操作依据就是任务的名称.<br>任务的名称是不可重复的.对于静态任务函数, 一般将其函数名命名为任务名称即可,<br>方便又好记.对于可重载函数的多个任务, 建议使用 <code>函数名+0</code>, <code>函数名+1</code> 的方式来命名任务名称.</p>
+<h1 id="ezos-使用方法"><a href="#ezos-使用方法" class="headerlink" title="ezos 使用方法"></a>ezos 使用方法</h1><h2 id="ezos-基础函数"><a href="#ezos-基础函数" class="headerlink" title="ezos 基础函数"></a>ezos 基础函数</h2><p>为了让ezos工作起来, 相关的基础函数有3个.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">ezos_init();        <span class="comment">// ezos初始化函数, main函数尽早调用</span></span><br><span class="line">ezos_scan_1ms();    <span class="comment">// 1ms定时函数, 1ms定时中断调用</span></span><br><span class="line">ezos_schedule();    <span class="comment">// ezos调度函数, 为死循环. main函数最后调用</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="ezos调试函数"><a href="#ezos调试函数" class="headerlink" title="ezos调试函数"></a>ezos调试函数</h2><p>主要有两个调试函数.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">ezos_trash_num_min_get();   <span class="comment">// 获取系统最小的剩余任务空间</span></span><br><span class="line">ezos_idle_tick_max_get();   <span class="comment">// 获取idle任务运行间隔最大时间</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>ezos_trash_num_min_get</code> 获取系统最小的剩余任务空间.<br>可用来判断设置的任务数量是否合适, 太小会让任务添加失败, 太大会造成RAM的浪费(但不会造成运算效率的浪费).<br>在稳定运行系统一定的时间后, 根据观察结构, 调整 <code>__EZOS_TASK_NUM</code> 值即可, 建议根据结果, 再预留2-5个任务较为合理</p>
+</li>
+<li><p><code>ezos_idle_tick_max_get</code> 获取idle任务运行间隔最大时间.<br>可用来判断CPU是否任务过重, 以及任务切换最慢响应时间(最低优先级任务的最差情况).</p>
+</li>
+<li><p>而最高优先级任务的最差情况. 根据协作式的特点分析可知:<br>最高优先级任务的响应时间 = 某个独占CPU时间最长的ezos任务<br>因此, 在ezos任务中, 不要使用独占CPU的长延时!!! 如果任务过重, 可手动拆分成多个小任务, 完成一次小任务就主动放弃一次CPU的控制权.</p>
+</li>
+</ul>
+<h2 id="常用的任务函数"><a href="#常用的任务函数" class="headerlink" title="常用的任务函数"></a>常用的任务函数</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">ezos_t</span> <span class="title">ezos_add</span><span class="params">(<span class="keyword">void</span> *name,                 <span class="comment">// 任务名称(ID), 该任务的唯一标识</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span> (*pfun)(<span class="keyword">ezos_s_t</span>*, <span class="keyword">ezos_p_t</span>*),     <span class="comment">// 任务函数</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">ezos_p_t</span> para,                          <span class="comment">// 任务初始参数</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int32_t</span> delay_time,                     <span class="comment">// 任务延时时间</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">uint8_t</span> priority)</span></span>;                      <span class="comment">// 任务优先级</span></span><br><span class="line"></span><br><span class="line">quick_add();                <span class="comment">// 快速添加任务, 用的较多, 输入参数只需pfun和priority.</span></span><br><span class="line">force_add();                <span class="comment">// 强制添加任务, 会先删除该任务, 再重新添加</span></span><br><span class="line"></span><br><span class="line">ezos_delay(<span class="keyword">int32_t</span> time);   <span class="comment">// 任务延时函数</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ezos编程范例"><a href="#ezos编程范例" class="headerlink" title="ezos编程范例"></a>ezos编程范例</h2><p>源码见 <a target="_blank" rel="noopener" href="https://github.com/draapho/ezos">github-ezos</a></p>
+<ol>
+<li> 单次任务, 见范例 <code>app_lcd</code> 之 <code>task_lcd</code></li>
+<li> 循环任务, 见范例 <code>app_rtc</code> 之 <code>task_rtc_1s</code></li>
+<li> 状态机任务, 见范例 <code>app_race_led</code> 之 <code>task_race_led</code></li>
+<li> 复杂任务, 见范例 <code>app_bell</code> 之 <code>task_bell_1s</code></li>
+<li> 可重入任务, 见范例 <code>app_sem</code> 之 <code>task_led</code></li>
+<li> 任务的拆分, 见范例 <code>ITT100 dv_pic</code> 之 <code>SavePIPtoSPI</code></li>
+</ol>
+<p> </p>
+<h1 id="ezos之任务通讯"><a href="#ezos之任务通讯" class="headerlink" title="ezos之任务通讯"></a>ezos之任务通讯</h1><p>ezos的任务通讯相关函数统一放在 <code>ezos_ipc.c</code> 文件下.<br>ezos会将所有的添加的ipc串成一个链表. 其数据结构如下:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> __<span class="title">ezos_ipc</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">void</span> *next;         <span class="comment">// 下个IPC指针</span></span><br><span class="line">    <span class="keyword">void</span> *name;         <span class="comment">// 当前IPC指针</span></span><br><span class="line">    <span class="keyword">ezos_t</span> type;        <span class="comment">// IPC类型</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> __<span class="title">ezos_ipc</span>   <span class="title">ezos_ipc_t</span>;</span></span><br></pre></td></tr></table></figure>
+
+<p>此数据结构相当于ipc的父类, 基于此父类, 下面会衍生出各个IPC子类,<br>如信号量:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">ezos_ipc_t</span> ipc; <span class="comment">// IPC父类</span></span><br><span class="line">    <span class="keyword">uint8_t</span> value;  <span class="comment">// 信号量值</span></span><br><span class="line">&#125; <span class="keyword">ezos_sem_t</span>;</span><br></pre></td></tr></table></figure>
+
+<p>所有IPC的添加与删除都是对此链表的操作, 使用函数为:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">ezos_t</span> <span class="title">ezos_ipc_add</span><span class="params">(<span class="keyword">void</span> *name, <span class="keyword">ezos_t</span> type)</span></span></span><br><span class="line"><span class="function"><span class="keyword">ezos_t</span> <span class="title">ezos_ipc_delete</span><span class="params">(<span class="keyword">void</span> *name)</span></span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="IPC的使用"><a href="#IPC的使用" class="headerlink" title="IPC的使用"></a>IPC的使用</h2><p>IPC的释放/发送较简单, IPC的获取/接收使用稍有复杂, 主要是需要判断IPC的返回值, 并进行相关操作.此处已信号量(sem)为例.<br>原函数见:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">ezos_t</span> <span class="title">ezos_sem_release</span><span class="params">(<span class="keyword">ezos_sem_t</span> *sem)</span></span></span><br><span class="line"><span class="function"><span class="keyword">ezos_t</span> <span class="title">ezos_sem_take</span><span class="params">(<span class="keyword">ezos_sem_t</span> *sem, <span class="keyword">int32_t</span> timeout)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>对于 ezos_sem_take, 返回值种类有4种! 依次为:</p>
+<ol>
+<li><code>EZOS_OK</code>,      获取信号量成功</li>
+<li><code>EZOS_WAIT</code>,    需要等待信号量, 返回此值后, 原函数需要return</li>
+<li><code>EZOS_TIMEOUT</code>, 信号量等待超时</li>
+<li><code>EZOS_ERROR</code>,   指定信号量有错误, 说明代码有误</li>
+</ol>
+<p>使用信号量时, 基本格式为:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">EZOS_TASK(task_sem)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">ezos_t</span> val;</span><br><span class="line">    val = ezos_sem_take(lock, <span class="number">10</span>);</span><br><span class="line">    <span class="keyword">if</span> (val == EZOS_WAIT) <span class="keyword">return</span>;                       <span class="comment">// 直接返回等待</span></span><br><span class="line">    <span class="keyword">if</span> (val == EZOS_OK)           &#123;do_something();&#125;     <span class="comment">// 成功获取信号量</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (val == EZOS_TIMEOUT) &#123;do_something();&#125;     <span class="comment">// 信号量超时处理</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (val == EZOS_ERROR)   &#123;exception();&#125;        <span class="comment">// 异常处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="IPC编程范例"><a href="#IPC编程范例" class="headerlink" title="IPC编程范例"></a>IPC编程范例</h2><ol>
+<li> 信号量(sem), 见范例 <code>app_sem</code></li>
+<li> 互斥量(mutex) 及 事件(event) 与 信号量类型, 略</li>
+<li> 邮箱(mailbox),  见范例 <code>app_mail</code></li>
+<li> 消息队列(message),  见范例 <code>app_message</code></li>
+</ol>
+<h1 id="ezos-源码"><a href="#ezos-源码" class="headerlink" title="ezos 源码"></a>ezos 源码</h1><p>已将源码放在了 <a target="_blank" rel="noopener" href="https://github.com/draapho/ezos">github-ezos</a><br>该源码是一个针对stm32f1xx系列的工程模板文件.<br>分层非常清楚, 整个代码结构框架如下:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">         --------------- 最高层 ----------------</span><br><span class="line">        |                                       |</span><br><span class="line">层一    |        applications (应用层)          |</span><br><span class="line">        |                                       |</span><br><span class="line">         ---------------------------------------</span><br><span class="line">        |                                       |</span><br><span class="line">层二    |          components (组件层)          |</span><br><span class="line">        |                                       |</span><br><span class="line"> --------------------------------------------------------</span><br><span class="line">|                  API (应用程序编程接口)                |</span><br><span class="line"> --------------------------------------------------------</span><br><span class="line">        |                                       |</span><br><span class="line">层三    |             OS (操作系统)             |</span><br><span class="line">        |                                       |</span><br><span class="line">         ---------------------------------------</span><br><span class="line">        |                                       |</span><br><span class="line">层四    |            drivers (驱动层)           |</span><br><span class="line">        |                                       |</span><br><span class="line"> --------------------------------------------------------</span><br><span class="line">|                CMSIS （Cortex软件标准接口）            |</span><br><span class="line"> --------------------------------------------------------</span><br><span class="line">        |                                       |</span><br><span class="line">层五    |           libraries (芯片库)          |</span><br><span class="line">        |                                       |</span><br><span class="line">         --------------- 最低层 ----------------</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>applications：应用层</p>
+<ul>
+<li>包含了main文件, 中断处理文件, 系统配置文件</li>
+<li>不建议直接调用最底层 Libraries</li>
+<li>放在bsp中, 有利于使用不同的开发板开发应用</li>
+</ul>
+</li>
+<li><p>components：组件层</p>
+<ul>
+<li>按大功能划分的软件组件。如音频组件、UI组件</li>
+<li>不建议直接调用最底层 Libraries</li>
+<li>用户可在此处添加特定工程的组件层</li>
+<li>用户可在此处添加常用的组件层(完善模板)</li>
+</ul>
+</li>
+<li><p>OS：操作系统</p>
+<ul>
+<li>有些操作系统需要提供标准接口函数, 比drivers层高.</li>
+<li>ezos操作系统与drivers同层，相互不得调用</li>
+</ul>
+</li>
+<li><p>drivers：PCB板级驱动</p>
+<ul>
+<li>如按键、EEPROM、模拟I2C等等</li>
+<li>该层要能对上屏蔽掉最底层 Libraries<br>这样起到承上启下的作用,方便跨平台移植</li>
+<li>用户可在此处添加特定的驱动</li>
+<li>用户可在此处添加常用的驱动(完善模板)</li>
+</ul>
+</li>
+<li><p>libraries：MCU外设库</p>
+<ul>
+<li>此部分由芯片厂商提供，是标准库</li>
+<li>用户不得修改此层</li>
+</ul>
+</li>
+<li><p>bsp：板级支持包</p>
+<ul>
+<li>applications应用层放在此包中</li>
+<li>components特定工程组件层放在此包中</li>
+<li>提供开发板工程模板</li>
+</ul>
+</li>
+<li><p>documents：文档说明</p>
+<ul>
+<li>提供 doxygen 注释风格的模板，说明，软件</li>
+<li>STM32工程模板说明</li>
+<li>用户可在此处添加其它说明性文件</li>
+</ul>
+</li>
+<li><p>API：Application Programming Interface，应用程序编程接口</p>
+<ul>
+<li>API旨在提供软件抽象层，加快项目的开发和移植速度</li>
+<li>层一、层二的应用都应该基于API函数来使用</li>
+<li>API函数由 Drivers 和 OS 提供, Libraries不得提供函数到应用接口</li>
+<li>API函数必须使用标准C书写，与软件平台和硬件完全无关</li>
+</ul>
+</li>
+<li><p>CMSIS：Cortex Microcontroller Software Interface Standard，Cortex软件标准接口</p>
+<ul>
+<li>CMSIS是ARM公司发布的一个标准接口，旨在提供Cortex-M处理器系列硬件抽象层</li>
+<li>仅 Drivers 和 OS 可直接调用 CMSIS 的函数</li>
+<li>目前仅提供了芯片核心部分的CMSIS，芯片外设标准库仍是由ST官方书写的</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded/" rel="tag"># embedded</a>
+              <a href="/tags/ezos/" rel="tag"># ezos</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/04/05/1710-jz2440-led/" rel="prev" title="jz2440 裸板程序的开发">
+                  <i class="fa fa-chevron-left"></i> jz2440 裸板程序的开发
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/04/10/1711-web-spider/" rel="next" title="使用网络爬虫抓取商品价格并分析">
+                  使用网络爬虫抓取商品价格并分析 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

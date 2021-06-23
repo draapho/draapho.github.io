@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker 初学笔记">
+<meta property="og:url" content="https://draapho.github.io/2017/02/23/1708-docker/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1708/docker-aufs.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1708/docker-structure.jpg">
+<meta property="article:published_time" content="2017-02-22T13:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.729Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1708/docker-aufs.jpg">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/02/23/1708-docker/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Docker 初学笔记 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">Docker 总览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">几个重要概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker%E7%9A%84%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">docker的技术架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E6%AD%A5%E8%AF%84%E4%BC%B0%E7%BB%93%E8%AE%BA"><span class="nav-number">1.3.</span> <span class="nav-text">初步评估结论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">Docker 的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-10-64bit-%E7%9B%B4%E6%8E%A5%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">Windows 10 64bit 直接安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ToolBox-%E5%9F%BA%E4%BA%8E%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">ToolBox 基于虚拟机的安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">Docker 常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E6%8C%87%E4%BB%A4"><span class="nav-number">3.1.</span> <span class="nav-text">镜像指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">容器指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E5%AE%83%E6%8C%87%E4%BB%A4%E5%92%8C%E5%8A%9F%E8%83%BD"><span class="nav-number">3.3.</span> <span class="nav-text">其它指令和功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%84%E6%96%99%E5%92%8C%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">资料和参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/02/23/1708-docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker 初学笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-02-23 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-23T00:00:00+11:00">2017-02-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Docker-总览"><a href="#Docker-总览" class="headerlink" title="Docker 总览"></a>Docker 总览</h1><h2 id="几个重要概念"><a href="#几个重要概念" class="headerlink" title="几个重要概念"></a>几个重要概念</h2><ul>
+<li>Docker: 是一种容器技术, 可以提供虚拟服务. 物理上共享主机的硬件和网络资源.<br>相比于虚拟机技术, 它轻巧, 快速, 便捷, 跨平台, 易于分配发布. 又同时拥有虚拟机的优点!<br>由于以上特点, 目前docker的容器有蚕食传统软件的趋势: 提供服务时, 给的是docker镜像或容器而非传统的安装软件!<br>譬如, 我学习docker的初衷就是: <strong>一劳永逸的制作一个用于开发2440系列编译环境的pc linux系统</strong><br>可以看出, 我需求就是提供编译服务. 传统的安装软件无法简单的实现, 但docker可以! (目前用的vm, 太重太麻烦)</li>
+<li>Union FS (分层存储): 本质是增量管理. 基于原有的运行系统, 执行某些命令后, 把新产生的文件作为增量新建一层文件.<br>直观感受一下, 是这样的:<br><img src="https://draapho.github.io/images/1708/docker-aufs.jpg" alt="docker-aufs"></li>
+<li><strong>images (镜像)</strong>: docker 以镜像为基础. 镜像是只读的, 不包含任何动态数据, 内容不可更改!<br>基于基础镜像, 可以在加入自己需要的app和服务后, 打包成自己的具有特殊功能的镜像.</li>
+<li><strong>container (容器)</strong>: 容器就是镜像运行时的实体 (类似于类和实例的关系).<br>容器必须基于镜像运行. 可以基于同一个镜像创建多个容器, 来实现不同的功能或服务.<br>容器可以被创建, 启动, 停止, 删除, 暂停等等<br>容器的本质就是进程, 运行时实现某种功能, 只是这个进程的上下文用的是虚拟化的镜像环境.</li>
+<li><strong>Docker Registry (仓库)</strong>: 用于存储, 分发镜像的仓库.<br>其中 <a target="_blank" rel="noopener" href="https://hub.docker.com/">Docker Hub</a> 就是官方的镜像仓储服务.<br>其运行模式和 <a target="_blank" rel="noopener" href="https://github.com/">github</a> 一样, 公开资料免费, 私有资料收费<br>当然, 也可以建立自己的私有 Docker Registry</li>
+<li><strong>Docker Volume</strong>, Docker的数据服务.<br>docker 体系要让自己表现更像应用程序, 就离不开对数据的存储和隔离.<br>而docker容器是非持久化的, 可以随时创建和删除, 无法满足数据存储的基本要求.<br>因此提供了Docker Volume. 包括 data volume 和 data volume container</li>
+</ul>
+<h2 id="docker的技术架构"><a href="#docker的技术架构" class="headerlink" title="docker的技术架构"></a>docker的技术架构</h2><p><img src="https://draapho.github.io/images/1708/docker-structure.jpg" alt="docker-structure"></p>
+<ul>
+<li>Docker Client / Docker Daemon: 用户和Docker的交互使用的是C/S模式.<br>用户作为客户端使用 http 服务和 Docker Daemon 进行交互</li>
+<li>Engine 和 Job: Job本质就是进程. 基于容器, 运行任务.<br>譬如, 对 Docker Registry 的操作就是作为一个job任务实现的.</li>
+<li>Docker Registry: 用于存储, 分发镜像的仓库</li>
+<li>Graph: Graph对已下载Docker镜像进行保管, 并对已下载容器镜像之间关系进行记录.<br>Graph不但要存储本地具有版本信息的文件系统镜像,<br>而且还要通过GraphDB记录所有文件系统镜像彼此之间的关系</li>
+<li>Driver: 驱动模块. Driver驱动主要作用是实现对Docker容器进行环境的定制</li>
+<li>Docker container: Docker容器是Docker架构中服务交付的最终体现形式<br>Docker按照业务的需求, 依赖关系和配置文件打包相应的Docker容器</li>
+</ul>
+<h2 id="初步评估结论"><a href="#初步评估结论" class="headerlink" title="初步评估结论"></a>初步评估结论</h2><ul>
+<li>感觉docker 的野心和潜力都很大. 如镜像管理, 跨平台, 容器应用化, 功能化, 服务化.</li>
+<li>可以看出主要发展方向是网络和云方面的 (新的项目都是针对网络集群的).</li>
+<li>基本已经可以跨平台使用(Docker machine).</li>
+<li>我的初衷就是: <strong>一劳永逸的制作一个用于开发2440系列编译环境的pc linux系统</strong><br>就此而言, docker可用, 但初始配置并不轻松.<br>因此暂不急于使用docker来配置这么一个主机编译环境.</li>
+</ul>
+<h1 id="Docker-的安装"><a href="#Docker-的安装" class="headerlink" title="Docker 的安装"></a>Docker 的安装</h1><p>全程参考官网<br><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/getstarted/">Get started with Docker</a></p>
+<h2 id="Windows-10-64bit-直接安装"><a href="#Windows-10-64bit-直接安装" class="headerlink" title="Windows 10 64bit 直接安装"></a>Windows 10 64bit 直接安装</h2><p>可直接下载安装 docker, 无需安装在虚拟机下面. 家中的win10是家庭版, 但也能正常安装运行docker.</p>
+<p>使用默认设置就能运行, 说一下文件共享. 譬如勾选 <code>E</code> 盘共享后, shell 应该这样用:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># docker下, 显示E盘全部内容</span></span><br><span class="line">docker run -v e:/:/data alpine ls /data</span><br><span class="line"><span class="comment"># e:/       表示使能的windows e盘.</span></span><br><span class="line"><span class="comment"># :/data    docker容器下, 加载为 /data 目录</span></span><br><span class="line"><span class="comment"># alpine    一个小巧的linux内核, 基于此内核运行指令. 改为ubuntu效果也是一样的</span></span><br><span class="line"><span class="comment"># ls /data  在屏幕上列出 /data (就是e盘) 的内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 因此, 官网范例表示, 显示 c:/Users 下的内容</span></span><br><span class="line">docker run -v c:/Users:/data alpine ls /data</span><br></pre></td></tr></table></figure>
+
+<h2 id="ToolBox-基于虚拟机的安装"><a href="#ToolBox-基于虚拟机的安装" class="headerlink" title="ToolBox 基于虚拟机的安装"></a>ToolBox 基于虚拟机的安装</h2><p>参考<a target="_blank" rel="noopener" href="https://docs.docker.com/toolbox/toolbox_install_windows/">Install Docker Toolbox on Windows</a></p>
+<ul>
+<li>机器要求: 64bit 操作系统, 支持并使能IVT虚拟技术</li>
+<li>Windows Vista 及以上版本, 安装默认的 NDIS6 driver 即可.</li>
+<li>Windows 7 和 Windows XP, 安装时勾选 <strong>NDIS5 driver</strong></li>
+<li>里面也提到了卸载ToolBox时, 如何先删除虚拟机里的 dock-machine</li>
+</ul>
+<p>使用虚拟机后的文件共享很简单, 在 <code>VirtualBox</code>-&gt;<code>Settings</code>-&gt;<code>Shared Folders</code> 直接修改好就行了.</p>
+<p>使用 putty 登录docker虚拟机</p>
+<ul>
+<li>不太喜欢 Docker Quickstart Terminal 提供的终端, 用起来不顺手(不能用鼠标, 不能复制黏贴)<br>不过只有在这个终端里, 能直接使用 <code>docker-machine</code> 相关的指令</li>
+<li>自己使用ConEmu统一了终端, 里面集成好putty. 因此需要使用ssh.</li>
+<li>获取 boot2docker 的IP地址.<br>运行 Docker Quickstart Terminal 成功后, 终端上可以找到这样一句话<br><code>docker is configured to use the default machine with IP 10.0.0.100</code><br>或者, 输入 <code>docker-machine ls</code>, 找到其IP地址. 譬如 <code>tcp://10.0.0.100:2376</code><br>或者, 直接登录boot2docker虚拟机, 输入指令 <code>ifconfig</code> 查看IP地址.<code>10.0.0.100</code></li>
+<li>boot2docker的登录名默认就是 <code>docker</code>. 如果需要密码的话, 应该是 <code>tcuser</code></li>
+<li>运行过 Docker Quickstart Terminal 后, docker自动生成了ssh密钥.<br>一般存储在 <code>C:\Users\my_name\.docker\machine\machines\default\ </code> 或者 <code>%HOMEPATH%\.ssh</code>下面<br><code>id_rsa</code> 是私钥, <code>id_rsa.pub</code> 是公钥</li>
+<li>打开 <code>puttygen.exe</code>-&gt;<code>Load an existing private key file</code>-&gt;<code>Load</code>-&gt;选择文件格式为 <code>All Files (*.*)</code>-&gt;选择<code>id_rsa</code>-&gt;弹出框 <code>OK</code><br>接着 <code>puttygen.exe</code> 主界面下-&gt;<code>Save private key</code>-&gt;保存为<code>id_rsa.ppk</code></li>
+<li>打开 <code>putty.exe</code>-&gt;左边<code>Connection</code>-&gt;<code>SSH</code>-&gt;<code>Auth</code>-&gt;右边<code>Private key file for authentication</code>-&gt;<code>Browse...</code>-&gt;选择<code>id_rsa.ppk</code><br>接着 <code>putty.exe</code>-&gt;左边<code>Session</code>-&gt;右边<code>Connection type:</code>点选<code>SSH</code>-&gt;<code>Host Name (or IP address)</code>填如<code>docker@10.0.0.100</code>-&gt;<code>Port</code>填入<code>22</code><br>最后 <code>Saved Sessions</code> 填入期望的名称如 <code>boot2docker</code>-&gt;<code>Save</code>-&gt;<code>Open</code>-&gt;连接成功!</li>
+</ul>
+<h1 id="Docker-常用指令"><a href="#Docker-常用指令" class="headerlink" title="Docker 常用指令"></a>Docker 常用指令</h1><p>可参考:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.dockerinfo.net/341.html">Docker命令指令详情-持续更新</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/install/ubuntu.html">Docker — 从入门到实践</a></li>
+</ul>
+<h2 id="镜像指令"><a href="#镜像指令" class="headerlink" title="镜像指令"></a>镜像指令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 从 Docker Hub 获取 ubuntu 16.04 的镜像</span></span><br><span class="line">docker pull ubuntu:16.04</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有镜像</span></span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 ubuntu</span></span><br><span class="line">docker run -it --rm ubuntu:16.04 bash</span><br><span class="line"><span class="comment"># -it： -i, 交互式操作; -t, 显示终端</span></span><br><span class="line"><span class="comment"># --rm： 容器退出后随之将其删除 (不建议)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在容器里输入一些指令后, 查看容器的变化</span></span><br><span class="line">docker diff ubuntu:16.04</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用commit制作的进行成为黑箱镜像, 如果开源发布, 人们会有安全性的担忧(无法知道到底做了什么)</span></span><br><span class="line"><span class="comment"># 将当前容器制作为镜像 (会把容器内的变动新增一层文件)</span></span><br><span class="line">docker commit --message <span class="string">&quot;2440 compiler&quot;</span> container_ID_or_name ubuntu:2440</span><br><span class="line"><span class="comment"># --message: 可省, 记录本次修改的内容</span></span><br><span class="line"><span class="comment"># contain_ID_or_name: 使用 &#x27;docker ps -a&#x27; 可查看所有容器信息</span></span><br><span class="line"><span class="comment"># ubuntu:2440 目标镜像:标签</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看镜像历史记录</span></span><br><span class="line">docker <span class="built_in">history</span> ubuntu:2440</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存镜像 (本地文件)</span></span><br><span class="line">docker save ubuntu:2440 | gzip &gt; ubuntu-2440.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载镜像 (本地文件)</span></span><br><span class="line">docker load -i ubuntu-2440.tar.gz</span><br><span class="line"><span class="comment"># 相比后面的 &#x27;docker import&#x27;, 镜像存储文件保存完整记录, 体积要大.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除镜像</span></span><br><span class="line">docker rmi ubuntu:2440</span><br><span class="line"><span class="comment"># ubuntu:2440 目标镜像:标签. 这里也可以用镜像ID代替(短ID也行)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除所有在 &#x27;mongo:3.2&#x27; 之前的镜像 (windows下不可用)</span></span><br><span class="line">docker rmi $(docker images -q -f before=mongo:3.2)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="容器指令"><a href="#容器指令" class="headerlink" title="容器指令"></a>容器指令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输出 &quot;hello world&quot;</span></span><br><span class="line">docker run ubuntu <span class="built_in">echo</span> <span class="string">&#x27;Hello world&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 ubuntu</span></span><br><span class="line">docker run -it ubuntu:16.04 bash</span><br><span class="line"><span class="comment"># -it： -i, 交互式操作; -t, 显示终端</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台运行</span></span><br><span class="line">docker run -d ubuntu sh -c <span class="string">&quot;while true; do echo hello world; sleep 1; done&quot;</span></span><br><span class="line"><span class="comment"># 会返回container的ID号</span></span><br><span class="line"><span class="comment"># -d: 后台运行, 不输出结果到主机界面上</span></span><br><span class="line"><span class="comment"># sh -c: 作为sh文件执行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取容器的输出信息</span></span><br><span class="line">docker logs container_ID_or_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看容器信息 (print server)</span></span><br><span class="line">docker ps -a</span><br><span class="line"><span class="comment"># -a 表示显示所有容器状态(包括终止状态)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 容器的终止,启动和重启</span></span><br><span class="line">docker stop container_ID_or_name</span><br><span class="line">docker start container_ID_or_name</span><br><span class="line">docker restart container_ID_or_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入指定容器</span></span><br><span class="line">docker attach container_ID_or_name</span><br><span class="line"><span class="comment"># attach 在多窗口时很不方便. 参考资料推荐的是nsenter (windows下不可用)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导出容器</span></span><br><span class="line">docker <span class="built_in">export</span> container_ID_or_name &gt; ubuntu.tar</span><br><span class="line"><span class="comment"># 导入容器快照到本地镜像库</span></span><br><span class="line">cat ubuntu.tar | docker import - <span class="built_in">test</span>/ubuntu:v1.0</span><br><span class="line"><span class="comment"># 相比前面的 &#x27;docker load&#x27;, 容器快照将丢弃历史记录. 另外, 可以重新指定标签.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line">docker rm container_ID_or_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除所有容器 (windows下不可用)</span></span><br><span class="line">docker rm $(docker ps -qa)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取某个容器的PID信息 (windows下不可用)</span></span><br><span class="line">docker inspect --format <span class="string">&#x27;&#123;&#123; .State.Pid &#125;&#125;&#x27;</span> container_ID_or_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取某个容器的 IP 地址 (windows下不可用)</span></span><br><span class="line">docker inspect --format <span class="string">&#x27;&#123;&#123; .NetworkSettings.IPAddress &#125;&#125;&#x27;</span> container_ID_or_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目前 Docker 并没有提供直接的对容器 IP 地址的管理支持</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="其它指令和功能"><a href="#其它指令和功能" class="headerlink" title="其它指令和功能"></a>其它指令和功能</h2><p><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/install/ubuntu.html">Docker — 从入门到实践</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/image/build.html">使用 Dockerfile 定制镜像</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/image/dockerfile/">Dockerfile 指令详解</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/repository/dockerhub.html">Docker Hub 基本操作及自动创建</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/repository/local_repo.html">Docker Registry 构建私有仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/data_management/volume.html">Docker Volumn 数据卷的操作</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/data_management/container.html">Docker Volumn Container 数据卷容器的操作</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/network/port_mapping.html">使用网络-外部访问容器</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/network/linking.html">使用网络-容器互联</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/advanced_network/">高级网络配置</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/advanced_network/quick_guide.html">高级网络配置-网络相关命令列表</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/appendix/faq/">常见问题总结</a></li>
+</ul>
+<h1 id="资料和参考"><a href="#资料和参考" class="headerlink" title="资料和参考"></a>资料和参考</h1><p><a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/content/install/ubuntu.html">Docker — 从入门到实践</a><br><a target="_blank" rel="noopener" href="http://www.dockerinfo.net/2117.html">Docker技术架构详细分析 Docker模块分析</a><br><a target="_blank" rel="noopener" href="http://wiki.jikexueyuan.com/project/docker/installation/windows.html">Microsoft Windows 安装docker</a><br><a target="_blank" rel="noopener" href="http://www.dockerinfo.net/341.html">Docker命令指令详情-持续更新</a></p>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/docker/" rel="tag"># docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/02/21/1707-jz2440-env/" rel="prev" title="嵌入式linux环境搭建-jz2440开发板">
+                  <i class="fa fa-chevron-left"></i> 嵌入式linux环境搭建-jz2440开发板
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/04/04/1709-linux-makefile/" rel="next" title="快速读懂 makefile">
+                  快速读懂 makefile <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

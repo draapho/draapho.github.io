@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fs之创建文件系统">
+<meta property="og:url" content="https://draapho.github.io/2017/11/03/1731-fs-build/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-11-02T13:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:42:13.744Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="fs">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/11/03/1731-fs-build/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>fs之创建文件系统 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A6%81%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%9C%80%E5%B0%8F%E7%9A%84linux%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">要构建一个最小的linux根文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-dev-console-dev-null-%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">创建 dev&#x2F;console dev&#x2F;null 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-etc-inittab-%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">创建 etc&#x2F;inittab 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85C%E5%BA%93"><span class="nav-number">2.3.</span> <span class="nav-text">安装C库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E5%B9%B6%E7%83%A7%E5%BD%95yaffs2%E6%98%A0%E5%83%8F%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">制作并烧录yaffs2映像文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#flash%E5%92%8C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%AF%94%E8%BE%83"><span class="nav-number">3.1.</span> <span class="nav-text">flash和文件系统比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9Cyaffs2%E6%98%A0%E5%83%8F%E6%96%87%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">制作yaffs2映像文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%83%A7%E5%BD%95yaffs2%E6%98%A0%E5%83%8F%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">烧录yaffs2映像文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%AE%8C%E5%96%84linux%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.</span> <span class="nav-text">进一步完善linux根文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-proc-%E6%96%87%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">创建 proc 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%9D%BF%E4%BA%BA%E5%B7%A5%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.1.1.</span> <span class="nav-text">开发板人工实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%88%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-%E7%9B%B4%E6%8E%A5-mount"><span class="nav-number">4.1.2.</span> <span class="nav-text">~~集成到文件系统, 直接 mount ~~</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%88%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-%E4%BD%BF%E7%94%A8-mount-a"><span class="nav-number">4.1.3.</span> <span class="nav-text">集成到文件系统, 使用 mount -a</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fstab%E6%96%87%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E"><span class="nav-number">4.1.4.</span> <span class="nav-text">fstab文件的简单说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-mdev-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%96%87%E4%BB%B6"><span class="nav-number">4.2.</span> <span class="nav-text">使用 mdev 自动生成文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C-jffs2-%E6%98%A0%E5%83%8F%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">制作 jffs2 映像文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90-jffs2-%E5%B7%A5%E5%85%B7"><span class="nav-number">5.1.</span> <span class="nav-text">生成 jffs2 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C-jffs2-%E6%98%A0%E5%83%8F%E6%96%87%E4%BB%B6-1"><span class="nav-number">5.2.</span> <span class="nav-text">制作 jffs2 映像文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%83%A7%E5%BD%95-jffs2-%E6%98%A0%E5%83%8F%E6%96%87%E4%BB%B6"><span class="nav-number">5.3.</span> <span class="nav-text">烧录 jffs2 映像文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/11/03/1731-fs-build/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          fs之创建文件系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-11-03 00:00:00" itemprop="dateCreated datePublished" datetime="2017-11-03T00:00:00+11:00">2017-11-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded-linux/" itemprop="url" rel="index"><span itemprop="name">embedded linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/11/02/1730-fs-busybox/">fs之Busybox的编译与使用</a></li>
+<li><a href="https://draapho.github.io/2017/11/03/1731-fs-build/">fs之创建文件系统</a></li>
+</ul>
+<p>本文使用 linux-2.6.22.6 内核, 使用jz2440开发板.</p>
+<h1 id="要构建一个最小的linux根文件系统"><a href="#要构建一个最小的linux根文件系统" class="headerlink" title="要构建一个最小的linux根文件系统"></a>要构建一个最小的linux根文件系统</h1><ul>
+<li><code>dev/console</code>, linux内核的标准IO接口</li>
+<li><code>dev/null</code>, 相当于一个NULL文件</li>
+<li>init进程, 即 <code>bin/busybox</code></li>
+<li><code>etc/inittab</code> 配置文件, (可以省略, busybox会调用其默认值)</li>
+<li>配置文件里指定的应用程序或脚本, 如 <code>/etc/init.d/rcS</code> <code>bin/sh</code></li>
+<li>C语言库 <code>lib/</code></li>
+</ul>
+<p>在 <a href="https://draapho.github.io/2017/11/02/1730-fs-busybox/">fs之Busybox的编译与使用</a> 一文中,<br>已经将busybox安装到指定目录 <code>~/jz2440/fs_first/</code>,<br>接下来, 基于此目录, 继续完善嵌入式linux的最小文件系统</p>
+<h2 id="创建-dev-console-dev-null-文件"><a href="#创建-dev-console-dev-null-文件" class="headerlink" title="创建 dev/console dev/null 文件"></a>创建 <code>dev/console</code> <code>dev/null</code> 文件</h2><p><code>dev/console</code> 用于标准输入输出<br><code>dev/null</code> 空设备, 用于丢弃不需要的输出流, 或提供空输入.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pwd = ~/jz2440/fs_first/</span></span><br><span class="line"></span><br><span class="line">$ ll /dev/console /dev/null</span><br><span class="line"><span class="comment"># 查看现有系统的这两个文件的详情</span></span><br><span class="line">crw------- 1 root root 5, 1 Sep  5 00:01 /dev/console</span><br><span class="line"><span class="comment"># c表示字符设备, 5为主设备号, 1为次设备号</span></span><br><span class="line">crw-rw-rw- 1 root root 1, 3 Sep  5 00:01 /dev/null</span><br><span class="line"><span class="comment"># c表示字符设备, 1为主设备号, 3为次设备号</span></span><br><span class="line"></span><br><span class="line">$ mkdir dev</span><br><span class="line">$ <span class="built_in">cd</span> dev        <span class="comment"># 进入 ~/jz2440/fs_first/dev/ 目录</span></span><br><span class="line"></span><br><span class="line">$ sudo mknod console c 5 1</span><br><span class="line">$ sudo mknod null c 1 3</span><br><span class="line"><span class="comment"># 仿照现有的文件系统内容, 创建 console 和 null 两个节点文件</span></span><br><span class="line"></span><br><span class="line">$ ll            <span class="comment"># pwd=~/jz2440/fs_first/dev/</span></span><br><span class="line">drwxrwxr-x 2 draapho draapho 4096 Nov  3 11:01 ./</span><br><span class="line">drwxrwxr-x 6 draapho draapho 4096 Nov  3 11:00 ../</span><br><span class="line">crw-r--r-- 1 root    root    5, 1 Nov  3 11:00 console</span><br><span class="line">crw-r--r-- 1 root    root    1, 3 Nov  3 11:01 null</span><br><span class="line"></span><br><span class="line"><span class="comment"># 至此, 创建 /dev/console 以及 /dev/null 完成.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建-etc-inittab-文件"><a href="#创建-etc-inittab-文件" class="headerlink" title="创建 etc/inittab 文件"></a>创建 <code>etc/inittab</code> 文件</h2><p><code>etc/inittab</code> 供busybox初始化时调用的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pwd = ~/jz2440/fs_first/</span></span><br><span class="line"></span><br><span class="line">$ mkdir etc</span><br><span class="line">$ vim etc/inittab</span><br><span class="line"><span class="comment"># 输入 &quot;console::askfirst:-/bin/sh&quot;, 保存退出</span></span><br><span class="line">$ cat etc/inittab</span><br><span class="line">console::askfirst:-/bin/sh</span><br><span class="line"><span class="comment"># &quot;-/bin/sh&quot; 前面的-, 提示让busybox开启一个账户登陆终端.</span></span><br><span class="line"><span class="comment"># 由源码函数 ash_main() 代码可知当检测到 - 时, 赋值isloginsh = 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 至此, 创建 etc/inittab 完成.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装C库"><a href="#安装C库" class="headerlink" title="安装C库"></a>安装C库</h2><p>务必使用 <code>gcc-3.4.5-glibc-2.3.6</code> 这个版本的C库<br>在 <a href="https://draapho.github.io/2017/02/20/1706-linux-ubuntu16/">嵌入式linux环境搭建3-Ubuntu16.04</a> 中,<br>已经将这个库安装到了 <code>/usr/local/</code> 目录下.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/gcc-3.4.5-glibc-2.3.6/arm-linux/lib</span><br><span class="line">$ ll</span><br><span class="line"><span class="comment"># 查看解压后的库文件, 针对 arm-linux的库</span></span><br><span class="line">...</span><br><span class="line">-rwxr-xr-x  1 draapho draapho  112886 Jan 22  2008 ld-2.3.6.so*</span><br><span class="line">lrwxrwxrwx  1 draapho draapho      11 Jan 22  2008 ld-linux.so.2 -&gt; ld-2.3.6.so*</span><br><span class="line">drwxr-xr-x  2 draapho draapho    4096 Jan 22  2008 ldscripts/</span><br><span class="line">-rwxr-xr-x  1 draapho draapho   17586 Jan 22  2008 libanl-2.3.6.so*</span><br><span class="line">-rw-r--r--  1 draapho draapho   13094 Jan 22  2008 libanl.a</span><br><span class="line">lrwxrwxrwx  1 draapho draapho      11 Jan 22  2008 libanl.so -&gt; libanl.so.1*</span><br><span class="line">lrwxrwxrwx  1 draapho draapho      15 Jan 22  2008 libanl.so.1 -&gt; libanl-2.3.6.so*</span><br><span class="line">...</span><br><span class="line"><span class="comment"># &quot;.a&quot; 表示静态库, &quot;.so&quot;表示动态库, 还有很多动态库的软连接.</span></span><br><span class="line"><span class="comment"># 我们只需要拷贝动态库和动态库的软连接即可.</span></span><br><span class="line"></span><br><span class="line">$ mkdir ~/jz2440/fs_first/lib</span><br><span class="line">$ cp *.so* ~/jz2440/fs_first/lib/ -d</span><br><span class="line"><span class="comment"># 拷贝动态库到最小文件系统下面. &quot;-d&quot; 表示只需要拷贝连接. cp指令默认会拷贝连接到的内容.</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cd</span> ~/jz2440/fs_first/</span><br><span class="line">$ ll lib</span><br><span class="line"><span class="comment"># 查看一下拷贝结果.</span></span><br><span class="line"><span class="comment"># 至此, 创建 lib/ C库完成.</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="制作并烧录yaffs2映像文件"><a href="#制作并烧录yaffs2映像文件" class="headerlink" title="制作并烧录yaffs2映像文件"></a>制作并烧录yaffs2映像文件</h1><p>直接说结论, 一般文件系统都会放到 nand flash 里,<br>所以会使用 mkyaffs2image 工具将目录文件生成为 yaffs2 格式文件系统,<br>最后烧录进 nand flash 的 root 分区即可.</p>
+<p>linux下的大多数工具都需要下载源码再自己编译, 譬如这里的 mkyaffs2image.<br>对于这类软件的安装, 我一般归到环境搭建里面去.<br>可以参考 <a href="https://draapho.github.io/2017/02/20/1706-linux-ubuntu16/">嵌嵌入式linux环境搭建3-Ubuntu16.04</a></p>
+<h2 id="flash和文件系统比较"><a href="#flash和文件系统比较" class="headerlink" title="flash和文件系统比较"></a>flash和文件系统比较</h2><ul>
+<li>jffs2: Journalling Flash FileSystem V2<ul>
+<li>主要用于<strong>NOR FLASH</strong>, 基于MTD驱动层.</li>
+<li>缺点是当文件系统已满或接近满时，因为垃圾收集的关系而使jffs2的运行速度大大放慢</li>
+<li>jffs不适合用于NAND闪存</li>
+</ul>
+</li>
+<li>yaffs： Yet Another Flash File System<ul>
+<li>针对<strong>NAND FLASH</strong>而设计的一种日志型文件系统. 直接提供了API对FLASH进行操作.</li>
+<li>与jffs2相比, 减少了数据压缩等功能, 所以速度更快, 挂载时间更短, 内存占用较小.</li>
+<li>yaffs 仅支持小页(512 Bytes), yaffs2 可支持大页(2KB)的NAND闪存. yaffs2也优化了性能.</li>
+<li>大多数情况, 嵌入式系统推荐使用 yaffs2</li>
+</ul>
+</li>
+<li>Cramfs: Compressed ROM File System<ul>
+<li>一种<strong>只读</strong>的压缩文件系统。它也基于MTD驱动程序.</li>
+<li>按页单独压缩, 可以随机页访问. 高压缩比, 可节省Flash空间.</li>
+<li>速度快，效率高，其只读的特点有利于保护文件系统免受破坏，提高了系统的可靠性.</li>
+</ul>
+</li>
+<li>NOR FLASH vs NAND FLASH</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>NOR FLASH</th>
+<th>NAND FLASH</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>接口时序同SRAM,易使用</td>
+<td>地址/数据线复用，数据位较窄</td>
+</tr>
+<tr>
+<td>读取速度较快</td>
+<td>读取速度较慢</td>
+</tr>
+<tr>
+<td>擦除速度慢，以64-128KB的块为单位</td>
+<td>擦除速度快，以8－32KB的块为单位</td>
+</tr>
+<tr>
+<td>写入速度慢</td>
+<td>写入速度快</td>
+</tr>
+<tr>
+<td>随机存取速度较快，支持XIP(eXecute In Place，芯片内执行)，适用于代码存储。在嵌入式系统中，常用于存放引导程序、根文件系统等。</td>
+<td>顺序读取速度较快，随机存取速度慢，适用于数据存储(如大容量的多媒体应用)。在嵌入式系统中，常用于存放用户文件系统等。</td>
+</tr>
+<tr>
+<td>单片容量较小，1-32MB</td>
+<td>单片容量较大，8-128MB，提高了单元密度</td>
+</tr>
+<tr>
+<td>最大擦写次数10万次</td>
+<td>最大擦写次数100万次</td>
+</tr>
+</tbody></table>
+<h2 id="制作yaffs2映像文件"><a href="#制作yaffs2映像文件" class="headerlink" title="制作yaffs2映像文件"></a>制作yaffs2映像文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/jz2440/</span><br><span class="line">$ mkyaffs2image fs_first fs_first.yaffs2</span><br><span class="line"><span class="comment"># 进入文件系统所在的上级目录, 然后制作镜像</span></span><br><span class="line"></span><br><span class="line">$ ll</span><br><span class="line">-rw------- 1 draapho draapho 8750016 Nov  3 12:23 fs_first.yaffs2</span><br><span class="line"><span class="comment"># 查看制作结果</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="烧录yaffs2映像文件"><a href="#烧录yaffs2映像文件" class="headerlink" title="烧录yaffs2映像文件"></a>烧录yaffs2映像文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 打开 jz2440 开发板串口终端, 启动时输入空格键, 进入如下菜单</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">...</span><br><span class="line">[y] Download root_yaffs image</span><br><span class="line">...</span><br><span class="line">Enter your selection: y                     <span class="comment"># 输入k, 烧录 root_yaffs</span></span><br><span class="line">USB host is connected. Waiting a download.  <span class="comment"># 提示连接成功</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到 Ubuntu 终端, 输入</span></span><br><span class="line"><span class="built_in">cd</span> ~/jz2440/</span><br><span class="line">sudo dnw fs_first.yaffs2                    <span class="comment"># 输入dnw指令, 指明烧录文件</span></span><br><span class="line"><span class="comment"># DNW usb device found!                     # 开始烧录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开发板重启后, 就能启动终端输入指令操作了.</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="进一步完善linux根文件系统"><a href="#进一步完善linux根文件系统" class="headerlink" title="进一步完善linux根文件系统"></a>进一步完善linux根文件系统</h1><p>上面只是完成了linux文件系统的基础功能.<br>要实现更高级的功能, 我们需要更为复杂全面的文件系统.</p>
+<h2 id="创建-proc-文件"><a href="#创建-proc-文件" class="headerlink" title="创建 proc 文件"></a>创建 <code>proc</code> 文件</h2><p>proc目录即process的简写, 可以让ps指令查看linux的进程.<br>知道 <code>/proc</code> 的基本作用和使用方法以后, 我们需要把这些功能整合到文件系统里面.<br>为了循序渐进的说明, 下面展示了三种方法, 常用的就是第三种.</p>
+<h3 id="开发板人工实现"><a href="#开发板人工实现" class="headerlink" title="开发板人工实现"></a><del>开发板人工实现</del></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板终端</span></span><br><span class="line"></span><br><span class="line">$ ps</span><br><span class="line">PID  Uid        VSZ Stat Command</span><br><span class="line">ps: can<span class="string">&#x27;t open &#x27;</span>/proc<span class="string">&#x27;: No such file or directory</span></span><br><span class="line"><span class="string"># 譬如执行ps指令, 就会提示没有找到 /proc 目录</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 我们先手工实现一下</span></span><br><span class="line"><span class="string"># pwd=/</span></span><br><span class="line"><span class="string">$ mkdir proc</span></span><br><span class="line"><span class="string">$ mount -t proc none /proc</span></span><br><span class="line"><span class="string"># 创建 proc 目录, 并挂载到此目录. -t 为指定挂载类型为 proc.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">$ ps</span></span><br><span class="line"><span class="string">  PID  Uid        VSZ Stat Command</span></span><br><span class="line"><span class="string">    1 0          3088 S   init</span></span><br><span class="line"><span class="string">  ...</span></span><br><span class="line"><span class="string"># 这样, ps指令就能看到进程了.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">$ cd /proc</span></span><br><span class="line"><span class="string">$ ls</span></span><br><span class="line"><span class="string">1              745            diskstats      locks          sys</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">$ cd 1          # 进入目录1</span></span><br><span class="line"><span class="string">$ ls -l fd      # 查看目录fd (file descriptor)</span></span><br><span class="line"><span class="string">lrwx------    1 0        0              64 Jan  1 00:10 0 -&gt; /dev/console</span></span><br><span class="line"><span class="string">lrwx------    1 0        0              64 Jan  1 00:10 1 -&gt; /dev/console</span></span><br><span class="line"><span class="string">lrwx------    1 0        0              64 Jan  1 00:10 2 -&gt; /dev/console</span></span><br><span class="line"><span class="string"># 可以看到init进程的三个文件描述符, 分别对应了 标准输入, 标准输出, 标准错误.</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="集成到文件系统-直接-mount"><a href="#集成到文件系统-直接-mount" class="headerlink" title="~~集成到文件系统, 直接 mount ~~"></a>~~集成到文件系统, 直接 mount ~~</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Linux主机, Ubuntu终端</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 proc 文件</span></span><br><span class="line">$ <span class="built_in">cd</span> ~/jz2440/fs_first/</span><br><span class="line">$ mkdir proc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加初始化脚本</span></span><br><span class="line">$ vim etc/inittab</span><br><span class="line"><span class="comment"># 新增一行 &quot;::sysinit:/etc/init.d/rcS&quot; 用作运行脚本</span></span><br><span class="line">$ cat etc/inittab</span><br><span class="line">console::askfirst:-/bin/sh</span><br><span class="line">::sysinit:/etc/init.d/rcS</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建脚本, 执行挂载指令</span></span><br><span class="line">$ mkdir etc/init.d</span><br><span class="line">$ vim etc/init.d/rcS</span><br><span class="line"><span class="comment"># 加入脚本语句 &quot;mount -t proc none /proc&quot; 挂载proc目录</span></span><br><span class="line">$ cat etc/init.d/rcS</span><br><span class="line">mount -t proc none /proc</span><br><span class="line">$ chmod +x etc/init.d/rcS</span><br><span class="line"><span class="comment"># 加上可执行的权限</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这样, 嵌入式linux完成启动后, 会运行init进程.</span></span><br><span class="line"><span class="comment"># - init进程运行 /etc/inittab 内的指令</span></span><br><span class="line"><span class="comment"># - 就会运行 /etc/init.d/rcS 脚本</span></span><br><span class="line"><span class="comment"># - 最终运行 mount -t proc none /proc 指令</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="集成到文件系统-使用-mount-a"><a href="#集成到文件系统-使用-mount-a" class="headerlink" title="集成到文件系统, 使用 mount -a"></a>集成到文件系统, 使用 <code>mount -a</code></h3><p>一般的, linux需要mount多个文件, 因此使用更为通用的 <code>mount -a</code> 指令,<br>然后去读取 <code>/etc/fstab</code> 文件内的配置项.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Linux主机, Ubuntu终端</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 proc 文件, tmp 文件</span></span><br><span class="line">$ <span class="built_in">cd</span> ~/jz2440/fs_first/</span><br><span class="line">$ mkdir proc</span><br><span class="line">$ mkdir tmp         <span class="comment"># 临时文件目录, 顺便一起做掉</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加初始化脚本</span></span><br><span class="line">$ vim etc/inittab</span><br><span class="line"><span class="comment"># 新增一行 &quot;::sysinit:/etc/init.d/rcS&quot; 用作运行脚本</span></span><br><span class="line">$ cat etc/inittab</span><br><span class="line">console::askfirst:-/bin/sh</span><br><span class="line">::sysinit:/etc/init.d/rcS</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建脚本, 执行挂载指令</span></span><br><span class="line">$ mkdir etc/init.d</span><br><span class="line">$ vim etc/init.d/rcS</span><br><span class="line"><span class="comment"># 加入脚本语句 &quot;mount -a&quot; 挂载proc目录</span></span><br><span class="line">$ cat etc/init.d/rcS</span><br><span class="line">mount -a</span><br><span class="line">$ chmod +x etc/init.d/rcS</span><br><span class="line"><span class="comment"># 加上可执行的权限</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建挂载指令的配置文件</span></span><br><span class="line">$ vim etc/fstab</span><br><span class="line"><span class="comment"># 创建 fstab 配置文件, 输入必要的内容, 见cat的结果</span></span><br><span class="line">$ cat etc/fstab</span><br><span class="line"><span class="comment">#dev    dir     type    options         dump    fsck</span></span><br><span class="line">proc    /proc   proc    defaults        0       0</span><br><span class="line">tmpfs   /tmp    tmpfs   defaults        0       0</span><br><span class="line"><span class="comment"># 这里加载proc, 顺便把临时文件的加载也做了</span></span><br></pre></td></tr></table></figure>
+
+<p>此时. 可以使用 mkyaffs2image 生成镜像文件并烧录, 测试一下.</p>
+<h3 id="fstab文件的简单说明"><a href="#fstab文件的简单说明" class="headerlink" title="fstab文件的简单说明"></a>fstab文件的简单说明</h3><ul>
+<li>dev, 要挂接的设备<ul>
+<li>譬如: <code>/dev/hd2</code> <code>/dev/mtdblock1</code></li>
+<li>对于 proc, 直接忽略此字段. 可以是任意值</li>
+<li>对于NFS文件系统, 此字段为 <code>&lt;host&gt;:&lt;dir&gt;</code></li>
+</ul>
+</li>
+<li>mount-point, 挂载点, 即一个目录文件</li>
+<li>type, 文件系统类型<ul>
+<li>如 jffs, yaffs, ext2, nfs</li>
+<li>也可以是auto, 对DVD, usb等设备会非常有用</li>
+<li>proc, tmpfs 等是特殊的文件类型, 都有特定功能.</li>
+</ul>
+</li>
+<li>options, 挂接参数.<ul>
+<li>一般用 defaults 就行</li>
+<li>参考<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Fstab_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">fstab (简体中文)</a></li>
+</ul>
+</li>
+<li>dump和fsck, 文件系统的备份和检查<ul>
+<li>嵌入式系统一般都禁用, 设置为0</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用-mdev-自动生成文件"><a href="#使用-mdev-自动生成文件" class="headerlink" title="使用 mdev 自动生成文件"></a>使用 mdev 自动生成文件</h2><p>udev是Linux的设备管理器。它主要的功能是管理/dev目录底下的设备节点<br>busybox提供了udev的简化版本mdev, 其作用是在系统启动或动态加载驱动时, 自动生成节点文件.</p>
+<p>在busybox源码里, 可以找到 <code>busybox-1.7.0\docs\mdev.txt</code>. 关键步骤如下:</p>
+<ul>
+<li><code>mount -t sysfs sysfs /sys</code></li>
+<li><code>echo /bin/mdev &gt; /proc/sys/kernel/hotplug</code></li>
+<li><code>mdev -s</code></li>
+<li><code>mount -t tmpfs mdev /dev</code></li>
+<li><code>mkdir /dev/pts</code></li>
+<li><code>mount -t devpts devpts /dev/pts</code></li>
+</ul>
+<p>由于我们使用的是 <code>mount -a</code>, 因此具体步骤稍有修改</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Linux主机, Ubuntu终端</span></span><br><span class="line"><span class="comment"># pwd = ~/jz2440/fs_first/</span></span><br><span class="line"></span><br><span class="line">$ mkdir sys</span><br><span class="line">$ vim etc/fstab</span><br><span class="line"><span class="comment"># 修改fstab, 按要求增加 /sys /dev.</span></span><br><span class="line">$ cat etc/fstab</span><br><span class="line"><span class="comment">#dev    dir     type    options         dump    fsck</span></span><br><span class="line">proc    /proc   proc    defaults        0       0</span><br><span class="line">tmpfs   /tmp    tmpfs   defaults        0       0</span><br><span class="line">sysfs   /sys    sysfs   defaults        0       0</span><br><span class="line">tmpfs   /dev    tmpfs   defaults        0       0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加初始化指令到 etc/init.d/rcS</span></span><br><span class="line">$ vim etc/init.d/rcS</span><br><span class="line"><span class="comment"># 修改rcS, mdev的要求增加指令</span></span><br><span class="line">$ cat etc/init.d/rcS</span><br><span class="line">mount -a</span><br><span class="line">mkdir /dev/pts</span><br><span class="line">mount -t devpts devpts /dev/pts</span><br><span class="line"><span class="built_in">echo</span> /sbin/mdev &gt; /proc/sys/kernel/hotplug</span><br><span class="line">mdev -s</span><br><span class="line"><span class="comment"># 不存在 /bin/mdev, busybox实际把它放在了 /sbin/mdev 下面.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这样, 嵌入式linux完成启动后, 会运行init进程.</span></span><br><span class="line"><span class="comment"># - init进程运行 /etc/inittab 内的指令</span></span><br><span class="line"><span class="comment"># - 然后调用 /etc/init.d/rcS 脚本</span></span><br><span class="line"><span class="comment"># - 依次执行rcS脚本内的指令,</span></span><br><span class="line"><span class="comment"># - 执行&quot;mount -a&quot;时, 会根据 /etc/fstab 的配置挂载文件系统.</span></span><br></pre></td></tr></table></figure>
+
+<p>完成烧录后, 使用 <code>ls /dev</code>, 就会看到自动生成了非常多的设备文件.<br>至此, 一个最小linux文件系统制作完成了.</p>
+<h1 id="制作-jffs2-映像文件"><a href="#制作-jffs2-映像文件" class="headerlink" title="制作 jffs2 映像文件"></a>制作 jffs2 映像文件</h1><p>jffs2 是一个压缩的文件系统, 所以体积几乎比yaffs2小一半.<br>多用于 NOR FLASH</p>
+<h2 id="生成-jffs2-工具"><a href="#生成-jffs2-工具" class="headerlink" title="生成 jffs2 工具"></a>生成 jffs2 工具</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mtd-utils-05.07.23.tar.bz2 可生成jffs2工具</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 首先需要压缩库zlib-1.2.3的支持</span></span><br><span class="line">$ tar xzf zlib-1.2.3.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> zlib-1.2.3</span><br><span class="line">$ ./configure --shared --prefix=/usr</span><br><span class="line"><span class="comment"># 配置为动态库, 放入/usr目录下</span></span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后编译 mkfs.jffs2</span></span><br><span class="line">$ tar xjf mtd-utils-05.07.23.tar.bz2</span><br><span class="line">$ <span class="built_in">cd</span> mtd-utils-05.07.23/util</span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试一下是否装好了</span></span><br><span class="line">$ mkfs.jffs</span><br></pre></td></tr></table></figure>
+
+<h2 id="制作-jffs2-映像文件-1"><a href="#制作-jffs2-映像文件-1" class="headerlink" title="制作 jffs2 映像文件"></a>制作 jffs2 映像文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/jz2440/</span><br><span class="line">$ mkfs.jffs -n -s 2048 -e 128KiB -d fs_first -o fs_first.jffs2</span><br><span class="line"><span class="comment"># -n            不要再每个擦除块上都加上清除标记</span></span><br><span class="line"><span class="comment"># -s 2048       指定Flash页大小</span></span><br><span class="line"><span class="comment"># -e 128KiB     指定Flash块大小(最小擦除单位)</span></span><br><span class="line"><span class="comment"># -d fs_first   文件系统目录</span></span><br><span class="line"><span class="comment"># -0 fs_first.jffs2 目标文件</span></span><br></pre></td></tr></table></figure>
+
+<p>至此, jffs2 格式的映像文件制作完成.</p>
+<h2 id="烧录-jffs2-映像文件"><a href="#烧录-jffs2-映像文件" class="headerlink" title="烧录 jffs2 映像文件"></a>烧录 jffs2 映像文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 打开 jz2440 开发板串口终端, 启动时输入空格键, 进入如下菜单</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">...</span><br><span class="line">[j] Download root_jffs2 image</span><br><span class="line">...</span><br><span class="line">Enter your selection: j                     <span class="comment"># 输入k, 烧录 root_jffs2</span></span><br><span class="line">USB host is connected. Waiting a download.  <span class="comment"># 提示连接成功</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到 Ubuntu 终端, 输入</span></span><br><span class="line"><span class="built_in">cd</span> ~/jz2440/</span><br><span class="line">sudo dnw fs_first.yaffs2                    <span class="comment"># 输入dnw指令, 指明烧录文件</span></span><br><span class="line"><span class="comment"># DNW usb device found!                     # 开始烧录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到, 开发板 uboot, q退出菜单进入命令行模式</span></span><br><span class="line"><span class="comment"># 由于linux会自动识别为yaffs2格式, 因此还需要设置一下uboot环境变量, 指定文件系统的类型.</span></span><br><span class="line">$ <span class="built_in">set</span> bootargs noinitrd console=ttySAC0 root=/dev/mtdblock3 rootfstype=jffs2 init=/linuxrc</span><br><span class="line">$ saveenv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开发板重启后, 就能启动终端输入指令操作了.</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/zelos/archive/2011/03/27/1996766.html">嵌入式系统文件系统比较 jffs2, yaffs, cramfs, romfs, ramdisk, ramfs/tmpfs （转）</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/daofengdeba/article/details/7721340">Cramfs、JFFS2、YAFFS2的全面对比</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Fstab_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">fstab (简体中文)</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+              <a href="/tags/fs/" rel="tag"># fs</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/11/02/1730-fs-busybox/" rel="prev" title="fs之BusyBox的使用与编译">
+                  <i class="fa fa-chevron-left"></i> fs之BusyBox的使用与编译
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/11/13/1732-python-pip/" rel="next" title="Python2和Python3共存时, pip的使用">
+                  Python2和Python3共存时, pip的使用 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
