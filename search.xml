@@ -21173,4 +21173,96 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <tag>thoughts</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PyCharm 设置虚拟开发环境</title>
+    <url>/2022/06/08/2201-pycharm-venv/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>介绍了python的虚拟开发环境的建立和配置.<br>用于独立各个项目的依赖库, 便于后续维护和更新, 并能最小化可执行文件的大小.</p>
+<h1 id="PyCharm-新建工程"><a href="#PyCharm-新建工程" class="headerlink" title="PyCharm 新建工程"></a>PyCharm 新建工程</h1><p>新建工程界面: PyCharm内, <code>File-&gt;New Project...</code>, 打开后如下图:<br>    - 下图红色1处为工程目录, 指定为 <code>XXX\code</code><br>    - 下图红色2处为虚拟环境目录, 指定为 <code>XXX\venv</code></p>
+<p><img src="https://draapho.github.io/images/2201/create.png" alt="Create Project"></p>
+<p>这样, 会在项目的<code>XXX</code>根目录下, 自动生成 <code>code</code> 和 <code>venv</code> 两个文件夹.<br>再手动放入 <code>.gitignore</code>, 并新建一下 <code>exe</code> 文件夹.<br>目录结构为:</p>
+<ul>
+<li><code>XXX</code>   项目根目录<ul>
+<li><code>code</code>   python 代码</li>
+<li><code>exe</code>    可执行文件, 历史release版本</li>
+<li><code>venv</code>   该项目的虚拟环境</li>
+<li><code>.gitignore</code>  git版本管理使用, 建议加入 <code>exe/</code>, 去除exe文件夹的同步.</li>
+</ul>
+</li>
+</ul>
+<h1 id="命令行建立venv环境"><a href="#命令行建立venv环境" class="headerlink" title="命令行建立venv环境"></a><del>命令行建立venv环境</del></h1><p>PyCharm新建工程可以直接建立python的虚拟工作环境, 因此<strong>可以跳过此步骤.</strong><br>写在这里仅供不时之需.</p>
+<ul>
+<li>在工程根目录<code>XXX</code>下, 打开终端</li>
+<li><code>python -m venv .\venv</code> 在venv文件夹下, 创建虚拟环境.<ul>
+<li>多版本python的话, 建议用指定路径, 如 <code>D:\Program\Python\Python38-32\python -m venv .\venv</code></li>
+<li>若使用改了名的python指令, 会报错: <code>Error: [WinError 2] The system cannot find the file specified</code></li>
+<li>如 <code>python2 -m venv .\venv</code> 或 <code>python3 -m venv .\venv</code> 则报上述错.</li>
+</ul>
+</li>
+<li>自动建立的venv\Scripts下 会有activate.bat, pip.exe, python.exe 几个常用指令</li>
+<li>测试虚拟环境<ul>
+<li><code>.\venv\Scripts\activate</code>  启用虚拟环境, 命令行之前会有(venv) 字样表示成功.</li>
+<li><code>python --version</code>   检查虚拟环境使用的python版本.</li>
+<li><code>pip list</code>  查看虚拟环境中的库.</li>
+</ul>
+</li>
+</ul>
+<h1 id="PyCharm-在指定的venv下安装库"><a href="#PyCharm-在指定的venv下安装库" class="headerlink" title="PyCharm 在指定的venv下安装库"></a>PyCharm 在指定的venv下安装库</h1><ul>
+<li>PyCharm内, <code>File-&gt;Settings</code>, 弹出Settings界面. 左边选择<code>Project:code-&gt;Python Interpreter</code></li>
+<li>PyCharm内, 重命名虚拟环境.<ul>
+<li>下图红色1处, 点击后, 选择<code>Show All...</code>, 会打开虚拟环境管理界面.</li>
+<li>下图红色3处, 先选中这次创建的虚拟环境, 默认名称就是 <code>Python 3.x (venv)</code>, 然后点击修改按钮.</li>
+<li>建议将 <code>Python 3.x (venv)</code> 改名为 <code>Python 3.x (XXX)</code>, XXX为工程名, 即根目录名.</li>
+<li>这样可以避免下次使用PyCharm建立虚拟环境时重名.</li>
+</ul>
+</li>
+<li>以pyinstaller为例, 添加库.<ul>
+<li>下图红色2, 加号. 弹出库管理界面.</li>
+<li>下图红色4处, 输入关键字 <code>pyinstaller</code>, 然后选中需要安装的库</li>
+<li>下图红色5处, 勾选指定版本, 譬如 <code>4.7</code></li>
+<li>下方点击 <code>Install Package</code>, 等待完成即可.</li>
+</ul>
+</li>
+<li>这样, 安装其它库类推, 需要特殊版本的依赖也很容易修改, 且不会影响其它项目.</li>
+</ul>
+<p><img src="https://draapho.github.io/images/2201/setting.png" alt="setting"></p>
+<p><img src="https://draapho.github.io/images/2201/change.png" alt="change name"></p>
+<p><img src="https://draapho.github.io/images/2201/add.png" alt="add package"></p>
+<h1 id="使用-pyinstaller-进行编译"><a href="#使用-pyinstaller-进行编译" class="headerlink" title="使用 pyinstaller 进行编译"></a>使用 pyinstaller 进行编译</h1><ul>
+<li>在 <code>XXX\code</code> 文件下准备好编译时要用的 <code>xxx.ico</code> 和 <code>version.txt</code> 文件.</li>
+<li>基于 <code>XXX\code</code> 文件夹, 打开终端.</li>
+<li>启用python虚拟环境<ul>
+<li><code>..\venv\Scripts\activate</code></li>
+<li>成功后, 命令行目录的最前面会增加 (venv)字样</li>
+</ul>
+</li>
+<li>检查pyinstaller 版本<ul>
+<li><code>..\venv\Scripts\python.exe ..\venv\Scripts\pyinstaller.exe -v</code></li>
+<li>安装的是4.7,  所以返回值应该是4.7</li>
+</ul>
+</li>
+<li>执行编译<ul>
+<li><code>..\venv\Scripts\python.exe ..\venv\Scripts\pyinstaller.exe --icon=xxx.ico --version-file=version.txt --name XXX main.py</code></li>
+<li>如有需要, 可以加入 <code>--windowed</code> 和 <code>--onefile</code>. 前者表示有UI界面, 后者表示生成为单一的可执行文件.</li>
+</ul>
+</li>
+<li>debug purpose, 查看详细的编译信息, 用于排查<ul>
+<li><code>..\venv\Scripts\python.exe ..\venv\Scripts\pyinstaller.exe -d all --clean main.py</code></li>
+</ul>
+</li>
+<li>参考资料:<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/354609842">pyinstaller踩坑记，缺少依赖、打包错误或运行无效排查过程备忘</a></li>
+<li><a href="https://blog.csdn.net/weixin_42052836/article/details/82315118">Pyinstaller 打包发布经验总结</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
 </search>
