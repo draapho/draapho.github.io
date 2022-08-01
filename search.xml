@@ -21265,4 +21265,357 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <tag>python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>HTML和CSS基础</title>
+    <url>/2022/08/01/2202-html-ccs/</url>
+    <content><![CDATA[<h1 id="HTML-参考资料"><a href="#HTML-参考资料" class="headerlink" title="HTML 参考资料"></a>HTML 参考资料</h1><ul>
+<li><a href="http://c.biancheng.net/html/">HTML 教程</a></li>
+<li><a href="https://www.runoob.com/tags/html-reference.html">HTML 参考手册</a></li>
+</ul>
+<h1 id="HTML-范例"><a href="#HTML-范例" class="headerlink" title="HTML 范例"></a>HTML 范例</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是注释 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>		<span class="comment">&lt;!-- 当前文档采用UTF-8编码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML网页布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">&quot;color:blue;text-align:center;&quot;</span>&gt;</span>This is a heading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;style.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper clearfix&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/&quot;</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/html/&quot;</span>&gt;</span>HTML教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/css3/&quot;</span>&gt;</span>CSS教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/js/&quot;</span>&gt;</span>JS教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h2</span>&gt;</span>网站简介<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>introduce yourself. welcome to <span class="tag">&lt;<span class="name">b</span>&gt;</span>NOWHERE<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>draapho.github.io<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="CSS-参考资料"><a href="#CSS-参考资料" class="headerlink" title="CSS 参考资料"></a>CSS 参考资料</h1><ul>
+<li><a href="http://c.biancheng.net/css3/">CSS 教程</a></li>
+<li><a href="https://www.runoob.com/cssref/css-reference.html">CSS 参考手册</a></li>
+</ul>
+<h1 id="CSS-范例"><a href="#CSS-范例" class="headerlink" title="CSS 范例"></a>CSS 范例</h1><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 范例, 这条是注释 */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;                    <span class="comment">/* h1 是选择器 */</span></span><br><span class="line">    <span class="attribute">color</span>: blue;        <span class="comment">/* color 是属性, blue是值 */</span></span><br><span class="line">    <span class="attribute">text-align</span>: center; <span class="comment">/* text-align 是属性, center */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="CSS-选择器简要说明"><a href="#CSS-选择器简要说明" class="headerlink" title="CSS 选择器简要说明"></a>CSS 选择器简要说明</h1><ul>
+<li>CSS 选择器用于快速选定HTML页面中的元素, 然后对这些元素进行设置/渲染.</li>
+<li>选择器分类:<ul>
+<li>通用选择器: <code>* &#123;&#125;</code> ,匹配HTML的所有元素</li>
+<li>标签选择器: <code>h1 &#123;&#125;</code> ,对应html标签. 后面可以紧跟其它类型的选择器, 譬如 <code>h1.info &#123;&#125;</code></li>
+<li>分组选择器 <code>,</code> ,减少重复样式的定义. 如 <code>h1,h2,h3 &#123;&#125;</code></li>
+<li>ID选择器: <code>#idName &#123;&#125;</code> ,对应 html id</li>
+<li>类选择器: <code>.className &#123;&#125;</code> ,对应 html class</li>
+<li>多类选择器: <code>.name1.name2 &#123;&#125;</code> ,即选中多个 html class, 无需空格.</li>
+<li>后代选择器: <code>h1 a &#123;&#125;</code>, 标签中间留一个空格即可, 对应 html 嵌套关系</li>
+<li>子选择器: <code>&gt;</code> ,标签必须是直接后代, 只有一层嵌套关系</li>
+<li>相邻兄弟选择器: <code>+</code> ,标签必须是相邻的兄弟关系, 即老二和老三, 但不能是老大和老三</li>
+<li>通用兄弟选择器: <code>~</code> ,标签必须是兄弟关系</li>
+<li>属性选择器: <code>[]</code> ,匹配特定属性的元素. 譬如 <code>input[lang|=en]</code></li>
+<li><a href="http://c.biancheng.net/css3/pseudo-class.html">伪类选择器</a>: <code>:</code> ,匹配元素的特殊状态. 譬如 <code>li:first-child &#123;&#125;</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>网页开发</category>
+      </categories>
+      <tags>
+        <tag>网页开发</tag>
+        <tag>HTML</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript 基础</title>
+    <url>/2022/08/02/2203-javascript/</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://www.runoob.com/jsref/jsref-tutorial.html">JavaScript 和 HTML DOM 参考手册</a></li>
+<li><a href="http://c.biancheng.net/js/">JavaScript 学习指南</a></li>
+<li><a href="https://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li>
+</ul>
+<h1 id="JavaScript-的特点和运行环境"><a href="#JavaScript-的特点和运行环境" class="headerlink" title="JavaScript 的特点和运行环境"></a>JavaScript 的特点和运行环境</h1><ul>
+<li>JavaScript 的特点:<ul>
+<li>解释型脚本语言</li>
+<li>弱类型. 可随时改变变量的类型</li>
+<li>面向对象 / 动态型 / 跨平台</li>
+<li>最早只能运行在浏览器中, 现在Node.js提供了独立的运行环境</li>
+</ul>
+</li>
+<li>JavaScript 开发所依赖的组件:<ul>
+<li>解释器. 作用是将JavaScript边编译边运行.</li>
+<li>标准库. 提供 JavaScript 的常用函数和功能</li>
+<li>本地模块. 如 Cookie, Ajax, HTML DOM</li>
+</ul>
+</li>
+<li>Node.js 包含了上述所有组件, 因而JavaScript可以独立运行于Node.js中<ul>
+<li>解释器: 使用的是V8引擎.</li>
+<li>常见的开源库<ul>
+<li>libuv: 基于事件驱动的异步I/O库. 还提供了进程管理, 线程池, 信号处理, 定时器等功能</li>
+<li>nmp: 包管理器</li>
+<li>http_parser: 轻量级HTTP解析器</li>
+<li>zlib: 提供压缩解压功能</li>
+<li>Open SSL: 提供加密机密功能</li>
+<li>c-ares: 异步DNS查询和解析库</li>
+</ul>
+</li>
+<li>最大的特点: 采用了基于事件的、单线程的异步 I/O 架构. 这种能力是依赖Libuv库而实现的.</li>
+</ul>
+</li>
+<li>JS严格模式: use strict<ul>
+<li>最直观是会通过<strong>抛出错误</strong>来消除一些原有<strong>静默错误</strong></li>
+<li>使用方法: 脚本文件开头, 或函数内第一行, 写为 <code>&quot;use strict&quot;;</code> 就在相关作用域内启用了严格模式</li>
+<li>当代码写在 <code>class</code> 和 <code>module</code> 中时，默认就是严格模式, 所以可以省略该行语句.</li>
+<li>推荐使用严格模式, 因而语法的介绍上, 会忽略掉一些普通模式才有的特点, 如隐式全局变量</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 在 HTML 文档中嵌入 JavaScript 代码示例: --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>第一个JavaScript程序<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// javascript 通过script标签嵌入到html中</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.write(<span class="string">&quot;Welcome to&quot;</span>);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// type 可以省掉, javascript 已经成为script的默认类型</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.write(<span class="string">&quot;&lt;h1&gt;https://draapho.github.io/&lt;/h1&gt;&quot;</span>);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="JavaScript-基础语法"><a href="#JavaScript-基础语法" class="headerlink" title="JavaScript 基础语法"></a>JavaScript 基础语法</h1><h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><ul>
+<li><code>var</code> ,常用的变量声明关键字. 由于过于灵活, 也产生了相关问题.    <ul>
+<li>变量提升问题. 声明可以写在最后, 但作用域为整个文件或函数.</li>
+<li>允许重复声明相同名称的变量.</li>
+<li>作用域不够规范, 在函数中的var声明, 其作用域是函数体的全部.</li>
+</ul>
+</li>
+<li><code>let</code> ,更安全的变量声明关键字. 于ES6推出<ul>
+<li>没有变量提升问题. 会直接报错.</li>
+<li>let 声明的变量作用域更小更明确, 拥有块级作用域.</li>
+<li>let 禁止在同一作用域内, 重复声明变量.</li>
+</ul>
+</li>
+<li><code>const</code> ,就是用来定义常量的.</li>
+<li>JS是弱类型变量. 可随时改变变量的类型. 变量类型由赋值决定.</li>
+</ul>
+<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
+<li>判断数据类型: <ul>
+<li><code>typeof(x)</code> 或 <code>typeof x</code>, 仅可获得 <code>number</code>, <code>boolean</code>, <code>string</code>, <code>function</code>, <code>object</code>, <code>undefined</code></li>
+<li><code>x instanceof Array</code>, 返回 boolean 值. 多用来判断变量是否为 <code>Array</code> 数组</li>
+<li><code>instanceof</code> 只能用来判断对象和函数, <strong>不能用来判断字符串和数字(会直接返回 false)</strong>.</li>
+<li>即 <code>var b = &#39;abc&#39;; console.log(typeof b, b instanceof String);</code>, 返回string, false. </li>
+<li>即 <code>var b = new String(&quot;123&quot;); console.log(typeof b, b instanceof String);</code>, 返回object, true. </li>
+</ul>
+</li>
+<li>基本数据类型<ul>
+<li>string, 字符串. 使用单引号或双引号.<ul>
+<li>切片(位置)操作: <code>.slice()</code>, <code>.substr()</code>, <code>.substring()</code>, <code>.charAt()</code>, <code>.charCodeAt()</code></li>
+<li>根据内容的操作: <code>.trim()</code>, <code>.split()</code>, <code>.match()</code>, <code>.replace()</code>, <code>.concat()</code></li>
+<li>获取位置: <code>.indexOf()</code>, <code>.lastIndexOf()</code>, <code>.search()</code></li>
+<li>获取长度: <code>.length</code>; 从编码生成字符串: <code>.fromCharCode()</code></li>
+<li>生成HTML代码: <code>.anchor()</code>, <code>.big()</code>, <code>.blink()</code>, <code>.bold()</code>, <code>.fixed()</code>, <code>.fontcolor()</code>, </li>
+<li><code>fontsize()</code>, <code>.italics()</code>, <code>.link()</code>, <code>small()</code>, <code>.strike()</code>, <code>.sub()</code>, <code>.sup()</code></li>
+</ul>
+</li>
+<li>number, 数值. 范围: -(2^53 - 1) 到 (2^53 -1), 以及:<ul>
+<li><code>Infinity</code>: 用来表示正无穷大的数值，一般指大于 1.7976931348623157e+308 的数；</li>
+<li><code>-Infinity</code>: 用来表示负无穷大的数值，一般指小于 5e-324 的数；</li>
+<li><code>NaN</code>: 即非数值（Not a Number 的缩写）, 数据类型是 number</li>
+</ul>
+</li>
+<li>boolean: ture 和 false, 全部小写.  </li>
+<li>undefined: 用var声明变量时, 自动初始化为 <code>undefined</code></li>
+<li>symbol: 转为独一无二的值. 多用于对象的属性<ul>
+<li>赋值方法 <code>symValue = Symbol(attr)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>引用数据类型:<ul>
+<li>object, 对象类型, <code>&#123;&#125;</code>, 用法和概念类似于python的字典 dict<ul>
+<li>Null: 类型上属于 object, 空指针.</li>
+<li>Array, 类型上属于 object.</li>
+<li>date, 类型也属于 object.</li>
+<li>new关键字, 创建一个对象或函数的实例.</li>
+</ul>
+</li>
+<li>array, 数组类型, <code>[]</code>, 类型上属于 object. 用法和概念类似于python的列表 list.<ul>
+<li>数组转字符串: <code>.toString()</code>, <code>.toLocaleString()</code>, <code>.join()</code></li>
+<li>栈与队列: <code>.push()</code>, <code>.pop()</code>, <code>.shift()</code>, <code>unshift()</code>, <code>reverse()</code></li>
+<li>拼接与拆分: <code>.concat()</code>, <code>.slice()</code>, <code>.splice()</code>, <code>.fill()</code>, <code>[...str]</code></li>
+<li>位置查找: <code>.indexOf()</code>, <code>.lastIndexOf()</code>, <code>.find()</code>, <code>.findIndex()</code></li>
+<li>条件判断: <code>.includes()</code>, <code>.every()</code>, <code>.some()</code></li>
+<li>遍历迭代: <code>.filter()</code>, <code>.map()</code>, <code>.forEach()</code>, <code>.reduce()</code></li>
+<li>for遍历: <code>.entries()</code>, <code>.keys()</code>, <code>.values()</code></li>
+<li>object转为array, <code>.from()</code>; 排序 <code>.sort()</code></li>
+</ul>
+</li>
+<li>function 函数类型. <ul>
+<li>基本形式: <code>function fun_name(input=defaultValue) &#123;...&#125;</code> 不需要声明输入输出类型. </li>
+<li>变量形式: <code>var fun_name = function(input=defaultValue) &#123;...&#125;;</code> 注意最后的分号. </li>
+<li>匿名函数: <code>var person = &#123;name: &#39;draapho&#39;, display: function() &#123;console.log(this.name);&#125;&#125;</code></li>
+<li>箭头函数: <code>elements.map((element) =&gt; &#123;return element.length;&#125;);</code>, <code>()</code>为输入参数, <code>&#123;&#125;</code>为函数体.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JSON 格式<ul>
+<li>object 与 JSON 格式尽管看起来很相似, 但它们是不同的数据类型. </li>
+<li>JSON中, 所有的属性名必须用双引号; JS的object属性名可以用单引号或双引号.</li>
+<li><code>JSON.parse()</code>, 解析json语句, 将json转换为object类型</li>
+<li><code>JSON.stringify()</code>, 将 JavaScript 值转换为 JSON 格式</li>
+</ul>
+</li>
+<li>String 对象中的属性<ul>
+<li><code>constructor</code>: 获取创建此对象的 String() 函数的引用</li>
+<li><code>length</code>:    获取字符串的长度</li>
+<li><code>prototype</code>: 通过该属性可以向对象中添加自定义属性和方法</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用 prototype 属性</span></span><br><span class="line"><span class="built_in">String</span>.prototype.name = <span class="literal">null</span>;   <span class="comment">// 新增name属性到prototype中</span></span><br><span class="line">str.name = <span class="string">&quot;名称&quot;</span>;              <span class="comment">// 赋值</span></span><br><span class="line"><span class="built_in">document</span>.write(str.name);       <span class="comment">// 输出：名称</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JS运算符"><a href="#JS运算符" class="headerlink" title="JS运算符"></a>JS运算符</h2><ul>
+<li>算术运算符<ul>
+<li>和c语言非常相似. 区别在于: <code>/</code>是除法, 整除需要用函数<code>parseInt</code>来实现,  <code>&gt;&gt;&gt;</code> 无符号右移位运算并赋值</li>
+<li>支持连续赋值, 但个人不建议养成这个习惯. 譬如 python 用连续赋值就完全是另外一种含义.</li>
+</ul>
+</li>
+<li>字符串运算符<ul>
+<li><code>+</code> <code>+=</code> 字符串拼接. Number + String 类型, 会自动将Number转化为String然后拼接</li>
+</ul>
+</li>
+<li>数字和字符串混合运算时的隐式转换:<ul>
+<li><code>加号 +</code> 数字转为字符串. (字符串有 <code>+</code> 运算)</li>
+<li><code>减号 -</code> 字符串转为数字, 转换失败则赋值为 <code>NaN</code>. (字符串没有 <code>-</code> 运算)</li>
+<li><code>乘, 除运算</code> 也会先将字符串转换为数字. (字符串没有乘除运算)</li>
+</ul>
+</li>
+<li>比较运算符<ul>
+<li><code>==</code> 仅比较数值, 如 24 == ‘24’ 为真. </li>
+<li><code>===</code> 比较数值和类型, 两者都相同才为真</li>
+<li><code>!=</code> 仅比较数值 <code>!==</code> 比较数值和类型.</li>
+</ul>
+</li>
+<li>数据类型的强制转换:<ul>
+<li><code>parseInt()</code></li>
+<li><code>parseFloat()</code></li>
+<li><code>Number()</code></li>
+<li><code>Boolean()</code></li>
+<li><code>String()</code> , <code>num.toString()</code></li>
+<li><code>num.toExponential()</code> , <code>num.toFixed()</code> , <code>num.toPrecision()</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="JS语句"><a href="#JS语句" class="headerlink" title="JS语句"></a>JS语句</h2><ul>
+<li>JS 输出语句汇总<ul>
+<li><code>alert()</code> 或 <code>window.alert()</code> 只能输出文本内容, 弹窗显示一个提醒.</li>
+<li><code>confirm()</code> 带返回值的弹窗. 确定返回true, 取消返回false</li>
+<li><code>console.log()</code> 在浏览器控制台输出信息, 多用于调试. (Chrome 按F12 选Console)</li>
+<li><code>document.write()</code> 向所在的HTML文档写入文本.</li>
+</ul>
+</li>
+<li>条件判断, 循环语句. 和c, python类似<ul>
+<li><code>for (variable in object) &#123;&#125;</code> 遍历对象</li>
+<li><code>for (variable of iterable) &#123;&#125;</code> 遍历数组, 字符串等.</li>
+</ul>
+</li>
+<li>跳转语句<ul>
+<li><code>break;</code> 普通跳转.</li>
+<li><code>break label;</code>  跳转到label, 相当于 goto</li>
+</ul>
+</li>
+<li>异常处理<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> rtn = tgrue;                     <span class="comment">// 故意拼写错误为 ture 时, 就会抛出异常</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;主动抛出的异常&quot;</span>);  <span class="comment">// 主动抛出异常</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="comment">// 错误处理</span></span><br><span class="line">    rtn = <span class="literal">false</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(, e)                    <span class="comment">// 打印错误信息, 供调试使用</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">// 无论出错与否, 都会运行此部分</span></span><br><span class="line">    <span class="built_in">console</span>.log(rtn)                    <span class="comment">// 打印最终结果</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="JS闭包"><a href="#JS闭包" class="headerlink" title="JS闭包"></a>JS闭包</h2><p>当一个函数包含着一个内部函数, 且这两个函数彼此嵌套, 内部的函数就是闭包.<br>闭包的主要作用是为了防止对象被回收, 保证一直保存在内存中.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一个闭包的实例.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">funOutside</span>(<span class="params">i</span>)</span>&#123;         <span class="comment">// i 在funOutside中</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">funInside</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;数字：&#x27;</span> + i);  <span class="comment">// funInside 调用了funOutside中的i</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> funInside;           <span class="comment">// funOutside 调用了 funInside, 完成闭包</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fa = funOutside(<span class="number">110</span>);       <span class="comment">// 创建多个闭包函数</span></span><br><span class="line"><span class="keyword">var</span> fb = funOutside(<span class="number">111</span>);</span><br><span class="line">fa();                           <span class="comment">// 输出：数字：110</span></span><br><span class="line">fb();                           <span class="comment">// 输出：数字：111</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际应用, 将闭包与匿名函数结合使用</span></span><br><span class="line"><span class="keyword">var</span> funAdd = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">0</span>;            <span class="comment">// num 在funAdd中</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;      <span class="comment">// funAdd引用了匿名funciton, 即renturn, 完成闭包</span></span><br><span class="line">        num++;              <span class="comment">// 匿名funciton引用了funAdd中的num</span></span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();                       <span class="comment">// 注意最后的 (), 让funAdd指向了内部的 &quot;return function&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(funAdd());      <span class="comment">// 输出：1</span></span><br><span class="line"><span class="built_in">console</span>.log(funAdd());      <span class="comment">// 输出：2</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="JavaScript-常用对象说明"><a href="#JavaScript-常用对象说明" class="headerlink" title="JavaScript 常用对象说明"></a>JavaScript 常用对象说明</h1><ul>
+<li><a href="http://c.biancheng.net/view/9358.html">Math 对象</a></li>
+<li><a href="http://c.biancheng.net/view/9359.html">RegExp 对象</a>, 正则表达式的两种创建方法<ul>
+<li><code>var patt = new RegExp(pattern, modifiers);</code></li>
+<li><code>var patt = /pattern/modifiers;</code></li>
+</ul>
+</li>
+<li><a href="http://c.biancheng.net/view/9360.html">JS DOM 对象</a>, 文档对象模型. <ul>
+<li>当浏览器加载HTML网页时, 会自动将HTML信息组织成一个逻辑树结构供JS使用.<ul>
+<li>该结构树的根节点就是document, 使用方法: <code>document.attr</code> 和 <code>document.fun()</code> </li>
+<li><code>xxx.innerHTML</code> 表示获取或设置xxx标签的内容 / 值</li>
+</ul>
+</li>
+<li><a href="http://c.biancheng.net/view/9361.html">Element 对象</a>, 元素对象<ul>
+<li>使用JS DOM对象可以获取HTML中的特定Element对象.</li>
+<li>这些元素对象有一系列的属性和方法.</li>
+</ul>
+</li>
+<li><a href="http://c.biancheng.net/view/9362.html">attributes 对象</a>, 元素属性对象.<ul>
+<li>主要属性: <code>.isId</code>, <code>.name</code>, <code>.value</code>, <code>.specified</code>, <code>.length</code></li>
+<li>主要方法: <code>item()</code>, <code>.getNamedItem()</code>, <code>.removeNamedItem()</code>, <code>.setNamedItem()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="http://c.biancheng.net/view/9363.html">JS BOM 对象</a>, Browser Object Model 的缩写, 浏览器对象模型.<ul>
+<li>window, 即显示HTML的浏览器界面. 里面都是一些GUI方面的属性和方法. 如窗口大小, 像素移动移动等等.<ul>
+<li>一个HTML文档就会创建一个window对象. 这个window是一个全局对象. </li>
+<li>如果文档中包含<code>&lt;frame&gt;</code>或<code>&lt;iframe&gt;</code>, 则会为每个frame创建一个独立的window对象</li>
+<li>BOM属性的调用 <code>window.xxx</code>; BOM方法可省去window, 直接用函数名, 如 <code>alert()</code></li>
+</ul>
+</li>
+<li><a href="http://c.biancheng.net/view/9364.html">Navigator 对象</a>, 获取浏览器信息<ul>
+<li>navigator 来自于<code>window.navigator</code>, 调用时经常省掉window, 直接使用 <code>navigator</code></li>
+<li>可获取浏览器的名称, 版本, 操作系统, 是否启用了cookie, 是否支持java.</li>
+</ul>
+</li>
+<li><a href="http://c.biancheng.net/view/9366.html">Screen 对象</a>, 获取屏幕信息, 如宽度高度, 分辨率, 色深等等.</li>
+<li><a href="http://c.biancheng.net/view/9366.html">Location 对象</a>, 获取HTML的URL信息</li>
+<li><a href="http://c.biancheng.net/view/9367.html">History 对象</a>, 获取浏览历史信息</li>
+</ul>
+</li>
+<li>[JS 定时器](<a href="http://c.biancheng.net/view/9368.html">http://c.biancheng.net/view/9368.html</a><ul>
+<li><code>setTimeout(fun, delay, arg1, arg2, ...)</code>, 延时指定毫秒后, 调用fun函数. 只会执行一次</li>
+<li><code>clearTimeout()</code>, 关闭setTimeout的定时器.</li>
+<li><code>setInterval(fun, delay, arg1, arg2, ...)</code>, 按照指定的毫秒周期, 重复调用fun函数. 不会自动停止.</li>
+<li><code>clearInterval()</code>, 关闭setInterval的定时器.</li>
+</ul>
+</li>
+</ul>
+<h1 id="JavaScript-交互示例"><a href="#JavaScript-交互示例" class="headerlink" title="JavaScript 交互示例"></a>JavaScript 交互示例</h1><h2 id="js-event-事件处理"><a href="#js-event-事件处理" class="headerlink" title="js event 事件处理"></a>js event 事件处理</h2><ul>
+<li>主要分为四类. <ul>
+<li>鼠标事件: <code>onclick</code>, <code>ondbclick</code>, <code>onmousedown</code>, <code>onmouseup</code>, …</li>
+<li>键盘事件: <code>onkeypress</code>, <code>onkeydown</code>, <code>onkeyup</code></li>
+<li>表单事件: <code>onblur</code>, <code>onchange</code>, <code>onfocus</code>, <code>onreset</code>, <code>onsubmit</code></li>
+<li>窗口事件: <code>onload</code>, <code>onmove</code>, <code>onresize</code>, <code>onscroll</code>, <code>onstop</code>, …</li>
+</ul>
+</li>
+<li>这是比较标准化的UI操作接口. 有两种绑定方式:</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;clickBtn()&quot;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span>  <span class="comment">&lt;!-- HTML内 onclick 事件绑定函数 clickBtn --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">id</span>=<span class="string">&quot;idBtn&quot;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span>            <span class="comment">&lt;!-- 此处不绑定, 只是定义一个 idBtn --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">clickBtn</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">&quot;onclick HTML绑定&quot;</span>);</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">&#x27;Hello World!&#x27;</span>);</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&quot;idBtn&quot;</span>).onclick = sayHello;   <span class="comment">// js 代码内 onclick 事件绑定函数 clickBtn</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JS表单验证和动画效果示例"><a href="#JS表单验证和动画效果示例" class="headerlink" title="JS表单验证和动画效果示例"></a>JS表单验证和动画效果示例</h2><ul>
+<li><a href="http://c.biancheng.net/view/9370.html">JS表单验证(附带示例)</a><ul>
+<li>表单验证通常由两个部分组成:</li>
+<li>必填字段验证: 确保必填的字段都被填写</li>
+<li>数据格式验证: 确保所填内容的类型和格式是正确, 有效的.</li>
+</ul>
+</li>
+<li><a href="http://c.biancheng.net/view/9371.html">JS动画效果的实现(附带示例)</a><ul>
+<li>JavaScript 主要通过代码修改 DOM 元素来实现动画的, 并且配合定时器来实现循环播放</li>
+<li>大多数显示器的刷新率为 60HZ, 为了实现更加平滑的动画效果, 使用定时器的最佳循环间隔约为 17ms</li>
+</ul>
+</li>
+</ul>
+<h2 id="JS-对cookie的操作"><a href="#JS-对cookie的操作" class="headerlink" title="JS 对cookie的操作"></a>JS 对cookie的操作</h2><ul>
+<li>Cookie 由若干个键/值对组成, 一个 Cookie 最大可以存储 4kb 的数据, 超过长度的 Cookie 将被忽略.<ul>
+<li>形式为 <code>key1=value1;key2=value2;...</code></li>
+</ul>
+</li>
+<li>Cookie 数据中不能包含分号, 逗号或空格</li>
+<li>Cookie 没有所谓的修改, 更新, 删除. 唯一能做的就是对同名 Cookie再赋值</li>
+<li>通过<code>document.cookie</code> 属性对 Cookie 赋值</li>
+<li>使用内置的 <code>encodeURIComponent()</code> 函数对 cookie 数据进行编码</li>
+<li>在读取 Cookie 时, 使用对应的 <code>decodeURIComponent()</code> 函数来解析</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 添加 Cookie 函数</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;[string]&#125;</span> </span>name       [Cookie 的名称]</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;[string]&#125;</span> </span>value      [Cookie 的值]</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;[number]&#125;</span> </span>daysToLive [Cookie 的过期时间]</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name, value, daysToLive</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 对 cookie 值进行编码以转义其中的分号, 逗号和空格</span></span><br><span class="line">    <span class="keyword">var</span> cookie = name + <span class="string">&quot;=&quot;</span> + <span class="built_in">encodeURIComponent</span>(value);</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> daysToLive === <span class="string">&quot;number&quot;</span>) &#123;</span><br><span class="line">        <span class="comment">/* 设置 max-age 属性 */</span></span><br><span class="line">        cookie += <span class="string">&quot;; max-age=&quot;</span> + (daysToLive*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">document</span>.cookie = cookie;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 拆分 cookie 字符串</span></span><br><span class="line">    <span class="keyword">var</span> cookieArr = <span class="built_in">document</span>.cookie.split(<span class="string">&quot;;&quot;</span>);</span><br><span class="line">   </span><br><span class="line">    <span class="comment">// 循环遍历数组元素</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; cookieArr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> cookiePair = cookieArr[i].split(<span class="string">&quot;=&quot;</span>);</span><br><span class="line">       </span><br><span class="line">        <span class="comment">/* 删除 cookie 名称开头的空白并将其与给定字符串进行比较 */</span></span><br><span class="line">        <span class="keyword">if</span>(name == cookiePair[<span class="number">0</span>].trim()) &#123;</span><br><span class="line">            <span class="comment">// 解码cookie值并返回</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(cookiePair[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果未找到，则返回null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="JS-Ajax请求"><a href="#JS-Ajax请求" class="headerlink" title="JS Ajax请求"></a>JS Ajax请求</h2><ul>
+<li>Ajax 全称“Asynchronous JavaScript and XML”, 异步从服务器请求数据并将数据更新到网页中, 避免重载整个网页.</li>
+<li>主要流程如下:</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">loadXMLDoc</span>(<span class="params"></span>)</span></span></span><br><span class="line">    &#123;</span><br><span class="line"><span class="javascript">        <span class="comment">// 1. 创建 XMLHttpRequest 对象</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 2. 监听 readyState 的变化</span></span></span><br><span class="line"><span class="javascript">        request.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span></span><br><span class="line">        &#123;</span><br><span class="line">            if (request.readyState==4 &amp;&amp; request.status==200)</span><br><span class="line">            &#123;</span><br><span class="line"><span class="javascript">                <span class="comment">// 3. 将来自服务器的响应插入当前页面</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">document</span>.getElementById(<span class="string">&quot;myDiv&quot;</span>).innerHTML=request.responseText;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="comment">// 4. 实例化请求对象, 调用网络数据库或文件, 此处略.</span></span></span><br><span class="line"><span class="javascript">        request.open(<span class="string">&quot;GET&quot;</span>,<span class="string">&quot;https://draapho.github.io/images/2203/ajax_test.txt&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 5. 将请求发送到服务器</span></span></span><br><span class="line">        request.send();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myDiv&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span>使用 AJAX 修改该文本内容<span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;loadXMLDoc()&quot;</span>&gt;</span>修改内容<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="事件冒泡和捕获"><a href="#事件冒泡和捕获" class="headerlink" title="事件冒泡和捕获"></a>事件冒泡和捕获</h2><p>事件冒泡, 事件捕获, 阻止事件捕获与冒泡, 阻止默认操作, 事件委托<br>//////////////////////////////</p>
+<h1 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="http://c.biancheng.net/js/">JavaScript 学习指南</a></li>
+<li><a href="https://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li>
+<li><a href="https://www.runoob.com/jsref/jsref-tutorial.html">JavaScript 和 HTML DOM 参考手册</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>网页开发</category>
+      </categories>
+      <tags>
+        <tag>网页开发</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
 </search>
