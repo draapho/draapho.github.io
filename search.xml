@@ -21298,6 +21298,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 </ul>
+<h1 id="scss"><a href="#scss" class="headerlink" title="scss"></a>scss</h1><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增的单行注释</span></span><br><span class="line"><span class="comment">// 简单说 scss是css的超集, 但增加了很多编程特性.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 1. $ 符号来标识变量 */</span> </span><br><span class="line"><span class="variable">$nav-color</span>: <span class="number">#F90</span>;               <span class="comment">// 作用域: 当前样式表都可以使用</span></span><br><span class="line">    <span class="selector-tag">nav</span> &#123;</span><br><span class="line">        <span class="variable">$width</span>: <span class="number">100px</span>;          <span class="comment">// 作用域: 只有nav&#123;&#125;里面才可以使用.</span></span><br><span class="line">        <span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">        <span class="attribute">color</span>: <span class="variable">$nav_color</span>;      <span class="comment">// 中划线和下划线等价，包括对混合器和Sass函数的命名</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译后, 等同于如下css </span></span><br><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#F90</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 2. 选择器嵌套 */</span></span><br><span class="line"><span class="selector-id">#content</span> &#123;                 </span><br><span class="line">    <span class="selector-tag">article</span> &#123;</span><br><span class="line">        <span class="selector-tag">h1</span> &#123; <span class="attribute">color</span>: <span class="number">#333</span> &#125;</span><br><span class="line">        p &#123; margin-bottom: <span class="number">1.4em</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    aside &#123; background-color: <span class="number">#EEE</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 编译后, 等同于如下css </span><br><span class="line">#content article h1 &#123; color: <span class="number">#333</span> &#125;</span><br><span class="line">#content article p &#123; margin-bottom: <span class="number">1.4em</span> &#125;</span><br><span class="line">#content aside &#123; background-color: <span class="number">#EEE</span> &#125;</span><br><span class="line"></span><br><span class="line">/* <span class="number">3</span>. @extend 支持继承 */</span><br><span class="line">/* <span class="number">4</span>. @mixin 混合器, 类似于函数调用概念 */</span><br><span class="line">/* <span class="number">5</span>. @import 导入其它css, scss文件 */</span><br><span class="line">/* <span class="number">6</span>. 还增加了控制指令, 条件语句, 循环语句, 自定义函数等等, 此处略 */</span><br></pre></td></tr></table></figure>
+
 <hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
@@ -21676,6 +21678,243 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
       <tags>
         <tag>网页开发</tag>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Visual Studio Code 环境配置</title>
+    <url>/2022/08/03/2204-Visual-Studio-Code/</url>
+    <content><![CDATA[<h1 id="IDE-的选择"><a href="#IDE-的选择" class="headerlink" title="IDE 的选择"></a>IDE 的选择</h1><ul>
+<li>不太好的Atom使用经验<ul>
+<li>之前有过 atom 的使用和配置经验.</li>
+<li>结论是看上去啥都能支持, 结果啥都支持不好.</li>
+<li>各种插件的升级维护本身就会消耗很多精力, 而且越用越慢.</li>
+<li>之后, 自己就全面转向一站式的专用IDE. 如 pycharm.</li>
+</ul>
+</li>
+<li>还是选了 Visual Studio Code<ul>
+<li>网页开发入门初学, 没有大项目需求, 用着顺手就行.</li>
+<li>主要原因还是免费. WebStorm 和 PHPStorm 都是收费软件.</li>
+<li>仅仅作为编辑器使用, 也非常舒服, 且自带git版本管理.</li>
+</ul>
+</li>
+<li>需求确定<ul>
+<li>将 VS Code 定位为网页开发和远程开发主力IDE. 并兼容运行单文件其它语言.</li>
+<li>支持 markdown 的编辑和打印</li>
+<li>支持远程开发, 如 putty 连接远程服务器</li>
+<li>支持运行调试: JavaScript, PHP, Vue</li>
+<li>支持直接运行 c/c++, java, python 等单文件, 直接看结果.</li>
+<li>尽量用默认配置, 并尽可能少的使用插件.</li>
+</ul>
+</li>
+<li>清空旧有版本<ul>
+<li>卸载vscode</li>
+<li>删除 <code>C:\Users\xxx\.vscode</code> 文件夹</li>
+<li>删除 <code>C:\Users\xxx\AppData\Roaming\code</code> 文件夹</li>
+<li>即可准备全新安装.</li>
+</ul>
+</li>
+</ul>
+<h1 id="VS-Code-及其扩展的安装"><a href="#VS-Code-及其扩展的安装" class="headerlink" title="VS Code 及其扩展的安装"></a>VS Code 及其扩展的安装</h1><h2 id="VS-Code-的安装"><a href="#VS-Code-的安装" class="headerlink" title="VS Code 的安装"></a>VS Code 的安装</h2><ul>
+<li><a href="https://code.visualstudio.com/">官网下载</a> 安装, 没什么好说的.</li>
+<li>打开后, 选一个喜欢的主题, 我会选暗色主题.<ul>
+<li>右下的账号按钮, 建议开启同步功能.</li>
+<li>右下的设置按钮, 建议添加好常用的工作目录作为信任文件夹.</li>
+<li>右侧活动栏, 对项目按需显隐和排序.</li>
+</ul>
+</li>
+<li>解决 VS Code 在此系统上<strong>禁止运行脚本的报错</strong><ul>
+<li>管理员身份运行 window.powershell</li>
+<li>执行：<code>get-ExecutionPolicy</code>，显示 Restrict，表示状态是禁止的；</li>
+<li>执行：<code>set-ExecutionPolicy</code>；</li>
+<li>提示输入参数，输入：<code>RemoteSigned</code>；</li>
+<li>提示进行选择，输入：<code>Y</code>；</li>
+<li>检查：执行<code>get-ExecutionPolicy</code>,显示 RemoteSigned。</li>
+</ul>
+</li>
+</ul>
+<h2 id="VS-Code-扩展-插件-的选择"><a href="#VS-Code-扩展-插件-的选择" class="headerlink" title="VS Code 扩展(插件)的选择"></a>VS Code 扩展(插件)的选择</h2><ul>
+<li>快捷键<ul>
+<li><code>Eclipse Keymap</code>, 自己统一使用eclipse模式快捷键</li>
+<li><code>Ctrl+Shift+P</code>, 打开命令面板</li>
+</ul>
+</li>
+<li>MarkDown:<ul>
+<li><code>Markdown PDF</code></li>
+<li><code>Markdown Preview Enhanced</code></li>
+<li><code>Markdown Table Prettifier</code></li>
+</ul>
+</li>
+<li>git:<ul>
+<li><code>gitLens</code></li>
+<li><code>Git History</code></li>
+<li><code>gitignore</code><ul>
+<li>命令面板输入 <code>add gitignore</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>XML和CSV文件:<ul>
+<li><code>XML Tools</code></li>
+<li><code>Rainbow CSV</code></li>
+<li><code>Auto Close Tag</code></li>
+<li><code>Auto Rename Tag</code>, 偷懒装此扩展(VSCode可配置)</li>
+</ul>
+</li>
+<li>PHP 语言:<ul>
+<li><code>PHP Debug</code></li>
+<li><code>PHP Intelephense</code></li>
+</ul>
+</li>
+<li>Node.js, 按需选择<ul>
+<li><code>ESLint</code></li>
+<li><code>Search node_modules</code>, 扩展设置中可指定搜索路径</li>
+<li><code>JavaScript (ES6) Snippets</code></li>
+<li><code>NPM IntelliSense</code></li>
+<li><code>Path IntelliSense</code></li>
+<li><code>open in browser</code></li>
+<li><code>Auto Import</code></li>
+<li><code>File Peek</code>, 快速跳转到工程内文件.</li>
+<li><code>CSS Peek</code></li>
+<li><code>Sass</code></li>
+</ul>
+</li>
+<li>Vue.js, 按需选择<ul>
+<li>Node.js 的扩展</li>
+<li><code>Vue Language Features (Volar)</code></li>
+<li><code>Vue 3 Snippets</code></li>
+<li><code>Vite</code>, VS Code for Vite</li>
+<li>配置请参考: <a href="https://v3.cn.vuejs.org/guide/installation.html">Vue.js 官方安装文档</a></li>
+</ul>
+</li>
+<li>uniapp, 按需选择<ul>
+<li>Node.js 的扩展</li>
+<li><code>uni-helper</code></li>
+<li><code>uni-create-view</code></li>
+<li>自己多测试吧, 相关扩展都不太成熟.</li>
+<li>uniapp项目建议用 <a href="https://www.dcloud.io/hbuilderx.html">HBuilderX</a> 编译调试.</li>
+</ul>
+</li>
+<li>远程开发<ul>
+<li><code>Remote - SSH</code><ul>
+<li>本地需要ssh客户端支持, 譬如安装git.</li>
+<li>命令格式: <code>ssh name@ip_address</code>, 然后登录输入密码.</li>
+</ul>
+</li>
+<li><code>Remote - SSH: Editing Configuration Files</code></li>
+<li><code>Remote - WSL</code>, 在windows下提供近似的Linux的环境.</li>
+<li><del><code>Remote - Containers</code></del></li>
+</ul>
+</li>
+<li>其它语言, 按需选择:<ul>
+<li><code>C/C++</code>, <ul>
+<li>打开 <code>Settings</code> 或者 <code>Extension Settings</code></li>
+<li>搜索 <code>@ext:ms-vscode.cpptools C_Cpp.clang_format_fallbackStyle:</code></li>
+<li>将值改为: <code>&#123;BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0&#125;</code></li>
+</ul>
+</li>
+<li><code>REST Client</code><ul>
+<li>仅识别<code>.http</code>和<code>.rest</code>文件, 点击<code>Send Request</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>辅助工具<ul>
+<li><code>Todo Tree</code><ul>
+<li>勾选 <code>Highlights:Use Colour Scheme</code></li>
+<li><code>General:Tags</code> 大写改为小写</li>
+</ul>
+</li>
+<li><code>Code Runner</code><ul>
+<li>打开 <code>Settings</code> 或者 <code>Extension Settings</code></li>
+<li>搜索 <code>@ext:formulahendry.code-runner Code-runner: Run In Terminal</code></li>
+<li>勾选 <code>Whether to run code in Integrated Terminal.</code></li>
+<li>需要配置各语言的运行环境</li>
+</ul>
+</li>
+<li><del>IntelliCode</del></li>
+</ul>
+</li>
+</ul>
+<h1 id="VS-Code-的配置"><a href="#VS-Code-的配置" class="headerlink" title="VS Code 的配置"></a>VS Code 的配置</h1><h2 id="VS-Code-扩展-插件-的配置"><a href="#VS-Code-扩展-插件-的配置" class="headerlink" title="VS Code 扩展(插件)的配置"></a>VS Code 扩展(插件)的配置</h2><ul>
+<li>PHP 运行环境:<ul>
+<li>PHP官网解压安装 <a href="https://windows.php.net/download/">VS16 x64 Thread Safe</a> PHP, 然后配置好环境变量.</li>
+<li>如果要全套本地开发环境, 官网推荐安装包: <a href="https://www.apachefriends.org/index.html">XAMPP建站集成软件包</a>.</li>
+<li>终端输入 <code>php --version</code> 测试. 返回版本号即配置完成</li>
+<li>就能顺利使用 <code>Code Runner</code> 运行php文件了</li>
+</ul>
+</li>
+<li>JavaScript 运行环境: <code>Node.js</code><ul>
+<li><a href="https://nodejs.org/zh-cn/download/">Node.js 官网下载</a> 并安装</li>
+<li>终端输入 <code>node --version</code> 和 <code>npm --version</code> 测试, 返回版本号即配置完成</li>
+<li>就能顺利使用 <code>Code Runner</code> 运行js文件了</li>
+</ul>
+</li>
+<li>TypeScript 运行环境:<ul>
+<li>先搭建好 JavaScript 的运行环境</li>
+<li>终端运行 <code>npm install -g typescript</code></li>
+<li>终端运行 <code>npm install -g ts-node</code></li>
+<li>终端输入 <code>ts-node --version</code> 测试, 返回版本号即配置完成</li>
+<li>就能顺利使用 <code>Code Runner</code> 运行ts文件了</li>
+</ul>
+</li>
+<li>python 运行环境:<ul>
+<li><a href="https://www.python.org/downloads/">Python 官网</a> 下载安装, 然后配置好环境变量.</li>
+<li>终端输入 <code>python --version</code> 测试, 返回版本号即配置完成</li>
+<li>就能顺利使用 <code>Code Runner</code> 运行py文件了</li>
+</ul>
+</li>
+<li>C/C++ 运行环境:<ul>
+<li>下载安装 <a href="https://sourceforge.net/projects/mingw/">MinGW for Windows</a>, 然后配置好环境变量</li>
+<li>终端输入 <code>gcc --version</code> 测试, 返回版本号即配置完成</li>
+<li>就能顺利使用 <code>Code Runner</code> 运行c/c++文件了</li>
+</ul>
+</li>
+<li><code>REST Client</code>, 保存为<code>.http</code>或<code>.rest</code>.<ul>
+<li>点击 Send Request 即可. 或右键选择.</li>
+<li>支持转换为curl命令和代码, 支持变量.</li>
+<li>更多配置移步: <a href="https://github.com/Huachao/vscode-restclient">详细说明和文档</a></li>
+<li>简单的参考文件模板如下:<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">https://draapho.github.io/</span><br><span class="line"></span><br><span class="line">###</span><br><span class="line">GET https://draapho.github.io/</span><br><span class="line"></span><br><span class="line">###</span><br><span class="line">POST https://reqbin.com/echo/post/json HTTP/1.1</span><br><span class="line">content-type: application/json; charset=utf-8</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;Id&quot;</span>: <span class="number">78912</span>,</span><br><span class="line">    <span class="attr">&quot;Customer&quot;</span>: <span class="string">&quot;Jason Sweet&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="远程开发配置的参考资料"><a href="#远程开发配置的参考资料" class="headerlink" title="远程开发配置的参考资料"></a>远程开发配置的参考资料</h2><ul>
+<li>官方资料: <a href="https://code.visualstudio.com/docs/remote/remote-overview">VS Code Remote Development</a></li>
+<li><code>Remote - SSH</code><ul>
+<li><a href="https://towardsdatascience.com/5-steps-setup-vs-code-for-remote-development-via-ssh-from-windows-to-linux-b9bae9e8f904">5 Steps: Setup VS Code for Remote Development via SSH from Windows to Linux system</a></li>
+<li><a href="https://www.vsc.cc/article/100000.html">Visual Studio Code远程开发初体验——Remote-SSH环境搭建</a></li>
+<li><a href="http://www.getone.run/2022/02/06/VS-Code-Remote-SSH%E9%85%8D%E7%BD%AE/">VS Code Remote SSH配置</a></li>
+<li><a href="https://blog.csdn.net/qq_18145605/article/details/122106109">ssh配置vscode实现一台电脑连接多台服务器进行开发</a></li>
+</ul>
+</li>
+<li><code>Remote - WSL</code><ul>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode">Get started using Visual Studio Code with Windows Subsystem for Linux</a></li>
+<li><a href="https://reeeeeeeeeein.github.io/2020/02/28/%E5%9C%A8WSL%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEVSCode/">在WSL安装并配置VSCode</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/57882542">Win10+WSL+VS Code搭建Ubuntu开发环境</a></li>
+<li><a href="https://www.luogu.com.cn/blog/Quank-The-OI-er/VSCode-On-Windows-10">优雅地使用VSCode与WSL在Windows 10下开发</a></li>
+</ul>
+</li>
+<li><del><code>Remote - Containers</code></del> 暂时没有这个需求, 直接放弃.<ul>
+<li><a href="https://abxy.fun/post/vscode-remote-container/">VSCode Remote-Containers 配置记录</a></li>
+<li><a href="https://juejin.cn/post/7109154039434067982">VSCode之容器开发环境搭建 (Remote-Containers)</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="根据使用环境切换配置文件"><a href="#根据使用环境切换配置文件" class="headerlink" title="根据使用环境切换配置文件"></a>根据使用环境切换配置文件</h2><ul>
+<li>需求: 根据不同的语言/工作目录方便地切换配置文件, 实现尽可能少的加载扩展便于快速启动, 减少可能的冲突.</li>
+<li>写此文时, 安装版本 1.70.0. 官方尚在开发此功能. 相信很快就会发布到稳定版.</li>
+<li>请参考官方资料: <a href="https://code.visualstudio.com/updates/v1_69#_settings-profiles">Updates: Settings Profiles</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>网页开发</category>
+      </categories>
+      <tags>
+        <tag>网页开发</tag>
+        <tag>JavaScript</tag>
+        <tag>环境配置</tag>
+        <tag>PHP</tag>
       </tags>
   </entry>
 </search>
