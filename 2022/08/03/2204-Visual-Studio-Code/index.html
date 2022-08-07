@@ -30,7 +30,7 @@
 <meta property="og:description" content="安装配置 Visual Studio Code">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-02T14:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-07T09:32:21.854Z">
+<meta property="article:modified_time" content="2022-08-07T11:02:26.617Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="windows">
 <meta property="article:tag" content="JavaScript">
@@ -287,7 +287,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-08-07 19:32:21" itemprop="dateModified" datetime="2022-08-07T19:32:21+10:00">2022-08-07</time>
+        <time title="Modified: 2022-08-07 21:02:26" itemprop="dateModified" datetime="2022-08-07T21:02:26+10:00">2022-08-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -328,9 +328,9 @@
 <li>将 VS Code 定位为网页开发和远程开发主力IDE. 并兼容运行单文件其它语言.</li>
 <li>支持 markdown 的编辑和打印</li>
 <li>支持远程开发, 如 putty 连接远程服务器</li>
-<li>支持运行调试: JavaScript, PHP, Vue</li>
+<li>支持运行调试: PHP, Go, JavaScript, Vue</li>
 <li>支持直接运行 c/c++, python 等单文件, 直接看结果.</li>
-<li>尽量用默认配置, 并尽可能少的使用插件.</li>
+<li>尽量用默认配置, 仅使用必要的官方插件/高下载高评价插件.</li>
 </ul>
 </li>
 <li>清空旧有版本<ul>
@@ -375,21 +375,25 @@
 <li><code>gitLens</code></li>
 <li><code>Git History</code></li>
 <li><code>gitignore</code><ul>
-<li>使用: 命令面板输入 <code>add gitignore</code></li>
+<li>使用: 命令面板(<code>Ctrl+Shift+p</code>)输入 <code>add gitignore</code></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>XML和CSV文件:<ul>
+<li>XML和CSV:<ul>
 <li><code>XML Tools</code></li>
 <li><code>Rainbow CSV</code></li>
 <li><code>Auto Close Tag</code></li>
 <li><code>Auto Rename Tag</code>, 偷懒装此扩展(VSCode可修改配置实现)</li>
 </ul>
 </li>
-<li>PHP 语言:<ul>
+<li>PHP:<ul>
 <li><code>PHP Debug</code></li>
 <li><code>PHP Intelephense</code></li>
+</ul>
+</li>
+<li>Golang:<ul>
+<li><code>Go</code></li>
 </ul>
 </li>
 <li>Node.js, 按需选择<ul>
@@ -468,6 +472,14 @@
 <li>如果要全套本地开发环境, 官网推荐安装包: <a target="_blank" rel="noopener" href="https://www.apachefriends.org/index.html">XAMPP建站集成软件包</a>.</li>
 <li>终端输入 <code>php --version</code> 测试. 返回版本号即配置完成</li>
 <li>就能顺利使用 <code>Code Runner</code> 运行php文件了</li>
+</ul>
+</li>
+<li>Golang 运行环境:<ul>
+<li><a target="_blank" rel="noopener" href="https://go.dev/dl/">Golang官网</a> 下载并安装.</li>
+<li>终端输入 <code>go version</code> 测试. 返回版本号即配置完成</li>
+<li>更新Go工具: 命令面板(<code>Ctrl+Shift+p</code>)输入<code>go tool</code>, 点击运行 <code>Go: Install/Update tools</code>. </li>
+<li>然后选择所有Go工具, 并等待安装或更新.</li>
+<li>参考: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code">配置 Visual Studio Code for Go 开发</a></li>
 </ul>
 </li>
 <li>JavaScript 运行环境: <code>Node.js</code><ul>
