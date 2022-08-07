@@ -17447,7 +17447,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <hr>
 ]]></content>
       <categories>
-        <category>灵天赐</category>
+        <category>thoughts</category>
       </categories>
       <tags>
         <tag>thoughts</tag>
@@ -21304,12 +21304,13 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
       <categories>
-        <category>网页开发</category>
+        <category>web</category>
       </categories>
       <tags>
-        <tag>网页开发</tag>
         <tag>HTML</tag>
         <tag>CSS</tag>
+        <tag>web</tag>
+        <tag>scss</tag>
       </tags>
   </entry>
   <entry>
@@ -21673,11 +21674,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
       <categories>
-        <category>网页开发</category>
+        <category>web</category>
       </categories>
       <tags>
-        <tag>网页开发</tag>
         <tag>JavaScript</tag>
+        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -21908,13 +21909,14 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
       <categories>
-        <category>网页开发</category>
+        <category>windows</category>
       </categories>
       <tags>
-        <tag>网页开发</tag>
+        <tag>windows</tag>
         <tag>JavaScript</tag>
         <tag>环境配置</tag>
         <tag>PHP</tag>
+        <tag>远程开发</tag>
       </tags>
   </entry>
 </search>
