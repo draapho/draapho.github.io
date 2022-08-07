@@ -21702,7 +21702,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>支持 markdown 的编辑和打印</li>
 <li>支持远程开发, 如 putty 连接远程服务器</li>
 <li>支持运行调试: JavaScript, PHP, Vue</li>
-<li>支持直接运行 c/c++, java, python 等单文件, 直接看结果.</li>
+<li>支持直接运行 c/c++, python 等单文件, 直接看结果.</li>
 <li>尽量用默认配置, 并尽可能少的使用插件.</li>
 </ul>
 </li>
@@ -21748,7 +21748,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><code>gitLens</code></li>
 <li><code>Git History</code></li>
 <li><code>gitignore</code><ul>
-<li>命令面板输入 <code>add gitignore</code></li>
+<li>使用: 命令面板输入 <code>add gitignore</code></li>
 </ul>
 </li>
 </ul>
@@ -21757,7 +21757,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><code>XML Tools</code></li>
 <li><code>Rainbow CSV</code></li>
 <li><code>Auto Close Tag</code></li>
-<li><code>Auto Rename Tag</code>, 偷懒装此扩展(VSCode可配置)</li>
+<li><code>Auto Rename Tag</code>, 偷懒装此扩展(VSCode可修改配置实现)</li>
 </ul>
 </li>
 <li>PHP 语言:<ul>
@@ -21820,7 +21820,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li>辅助工具<ul>
 <li><code>Todo Tree</code><ul>
-<li>勾选 <code>Highlights:Use Colour Scheme</code></li>
+<li>扩展设置内勾选 <code>Highlights:Use Colour Scheme</code></li>
 <li><code>General:Tags</code> 大写改为小写</li>
 </ul>
 </li>
@@ -21835,7 +21835,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 </ul>
-<h1 id="VS-Code-的配置"><a href="#VS-Code-的配置" class="headerlink" title="VS Code 的配置"></a>VS Code 的配置</h1><h2 id="VS-Code-扩展-插件-的配置"><a href="#VS-Code-扩展-插件-的配置" class="headerlink" title="VS Code 扩展(插件)的配置"></a>VS Code 扩展(插件)的配置</h2><ul>
+<h1 id="VS-Code-的配置"><a href="#VS-Code-的配置" class="headerlink" title="VS Code 的配置"></a>VS Code 的配置</h1><h2 id="VS-Code-扩展运行环境的配置"><a href="#VS-Code-扩展运行环境的配置" class="headerlink" title="VS Code 扩展运行环境的配置"></a>VS Code 扩展运行环境的配置</h2><ul>
 <li>PHP 运行环境:<ul>
 <li>PHP官网解压安装 <a href="https://windows.php.net/download/">VS16 x64 Thread Safe</a> PHP, 然后配置好环境变量.</li>
 <li>如果要全套本地开发环境, 官网推荐安装包: <a href="https://www.apachefriends.org/index.html">XAMPP建站集成软件包</a>.</li>
@@ -21893,7 +21893,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://www.luogu.com.cn/blog/Quank-The-OI-er/VSCode-On-Windows-10">优雅地使用VSCode与WSL在Windows 10下开发</a></li>
 </ul>
 </li>
-<li><del><code>Remote - Containers</code></del> 暂时没有这个需求, 直接放弃.<ul>
+<li><del><code>Remote - Containers</code></del> 配置复杂, 暂时没有这个需求, 直接放弃.<ul>
 <li><a href="https://abxy.fun/post/vscode-remote-container/">VSCode Remote-Containers 配置记录</a></li>
 <li><a href="https://juejin.cn/post/7109154039434067982">VSCode之容器开发环境搭建 (Remote-Containers)</a></li>
 </ul>
