@@ -21702,7 +21702,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>将 VS Code 定位为网页开发和远程开发主力IDE. 并兼容运行单文件其它语言.</li>
 <li>支持 markdown 的编辑和打印</li>
 <li>支持远程开发, 如 putty 连接远程服务器</li>
-<li>支持运行调试: PHP, Go, JavaScript, Vue</li>
+<li>支持运行调试: PHP, Go, JavaScript, React, Vue</li>
 <li>支持直接运行 c/c++, python 等单文件, 直接看结果.</li>
 <li>尽量用默认配置, 仅使用必要的官方插件/高下载高评价插件.</li>
 </ul>
@@ -21781,6 +21781,15 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><code>File Peek</code>, 快速跳转到工程内文件.</li>
 <li><code>CSS Peek</code></li>
 <li><code>Sass</code></li>
+</ul>
+</li>
+<li>React, 按需选择<ul>
+<li>Node.js 的扩展</li>
+<li><code>ES7+ React/Redux/React-Native snippets</code></li>
+<li>参考 <a href="https://code.visualstudio.com/docs/nodejs/reactjs-tutorial">Using React in Visual Studio Code</a></li>
+<li>终端运行 <code>npx create-react-app my-app</code> 创建项目, 第一次执行会询问是否安装 create-react-app.</li>
+<li>终端按照提示, 依次输入 <code>cd my-app</code>, <code>npm start</code></li>
+<li>浏览器打开 <a href="http://localhost:3000/">http://localhost:3000/</a> 会显示 React 图标. 创建项目成功.</li>
 </ul>
 </li>
 <li>Vue.js, 按需选择<ul>
@@ -21906,7 +21915,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://www.luogu.com.cn/blog/Quank-The-OI-er/VSCode-On-Windows-10">优雅地使用VSCode与WSL在Windows 10下开发</a></li>
 </ul>
 </li>
-<li><del><code>Remote - Containers</code></del> 配置复杂, 暂时没有这个需求, 直接放弃.<ul>
+<li><del><code>Remote - Containers</code></del> 暂时没有这个需求, 直接放弃.<ul>
 <li><a href="https://abxy.fun/post/vscode-remote-container/">VSCode Remote-Containers 配置记录</a></li>
 <li><a href="https://juejin.cn/post/7109154039434067982">VSCode之容器开发环境搭建 (Remote-Containers)</a></li>
 </ul>
