@@ -197,7 +197,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">139</span>
+          <span class="site-state-item-count">140</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -209,7 +209,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-count">90</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -238,6 +238,259 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2022/08/08/2205-solution-selection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/08/2205-solution-selection/" class="post-title-link" itemprop="url">项目开发方案评选</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-08 00:00:00" itemprop="dateCreated datePublished" datetime="2022-08-08T00:00:00+10:00">2022-08-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-08-09 14:33:16" itemprop="dateModified" datetime="2022-08-09T14:33:16+10:00">2022-08-09</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="背景和需求"><a href="#背景和需求" class="headerlink" title="背景和需求"></a>背景和需求</h1><ul>
+<li>项目背景<ul>
+<li>智能门锁猫眼项目, 需要支持远程与手机端音视频对讲.</li>
+<li>需要支持主流手机, Android 和 iOS. 最好也支持微信小程序.</li>
+<li>主要用户范围在中国, 但也需要考虑外国用户. </li>
+</ul>
+</li>
+<li>项目需求<ul>
+<li>预算有限, 主要部分须自研. </li>
+<li>终端产品的软硬件开发: 成熟的嵌入式linux方案, 掠过不表.</li>
+<li>手机端: 需要一个低成本方案的APP开发方案, 并便于后期的维护和升级.</li>
+<li>云端: 自主进行业务端的开发, 核心数据的收集, 迁移和维护. 为以后可能的增值服务做准备.</li>
+<li>云端非常重要但希望外包的: 灾备, 网络安全, 服务器运维.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Web-开发技术的概览和评估"><a href="#Web-开发技术的概览和评估" class="headerlink" title="Web 开发技术的概览和评估"></a>Web 开发技术的概览和评估</h1><h2 id="Web-开发者学习路线图"><a href="#Web-开发者学习路线图" class="headerlink" title="Web 开发者学习路线图"></a>Web 开发者学习路线图</h2><ul>
+<li>图很长, 因此不放原图, 只给链接. 有助于快速了解 Web 开发所涉及的技术.<ul>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/web-developer-learn-path.html">Web 开发者学习路线图</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000037614292">全球最火的WEB开发学习路线</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/liyupi/code-roadmap/blob/main/docs/roadmap/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.md">前端学习路线</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="JavaScript-框架"><a href="#JavaScript-框架" class="headerlink" title="JavaScript 框架"></a>JavaScript 框架</h2><ul>
+<li>React 和 Vue. 根据国内外的招聘信息, React更流行一些.</li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000040676696">前端两大框架React与Vue对比总结</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903974437388295">前端框架用vue还是react？清晰对比两者差异</a></li>
+<li><a target="_blank" rel="noopener" href="https://markdowner.net/article/79319258450055168">Vue 和 React 深度对比</a>, 此文被转载的到处都是, 找不到原作者.</li>
+<li><a target="_blank" rel="noopener" href="https://brocoders.com/blog/react-vs-vue-comparison-2021/">Vue vs. React — Which One To Choose in 2022? [Update May-June]</a></li>
+</ul>
+<h2 id="大前端开发"><a href="#大前端开发" class="headerlink" title="大前端开发"></a>大前端开发</h2><ul>
+<li>大多数中小企业的痛点: 终端展示问题.<ul>
+<li>随着移动端互联网的高速发展, 手机作为用户展示终端的需求居高不下.</li>
+<li>于是, 直接面临着需要用三种不同的技术去实现同一个需求的尴尬局面: 网页端, 安卓端和苹果端.</li>
+<li>大前端的概念就是利用web前端技术, 进行跨平台开发, 实现一次开发, 多平台发布. 减少开发成本和维护成本.</li>
+<li>这不仅仅是一个技术问题, 更是一个商务问题. 只要低成本方案的用户体验较好, 就会有爆发式的需求涌现出来.</li>
+</ul>
+</li>
+<li>跨平台开发框架<ul>
+<li><a target="_blank" rel="noopener" href="https://zh.uniapp.dcloud.io/">uni-app</a>, <a target="_blank" rel="noopener" href="https://www.dcloud.io/">Dcloud</a> 使用Vue框架, 基于跨平台封装API的一套跨端开发框架.<ul>
+<li>至少在中国, 此方案是技术和市场较好的一个平衡点, 有助于帮助中小型企业快速解决自己的痛点.</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://docs.taro.zone/docs">Taro</a>, Taro 是京东凹凸实验室出品的开放式跨端跨框架解决方案，支持使用 React/Vue/Nerv 等框架来跨端开发H5和各种小程序. 手机APP开发则稍显繁琐.<ul>
+<li>需要具备一定的 react, 原生开发能力. 对复杂项目的支持度高于 uni-app.</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://flutter.dev/">Flutter</a>, Flutter是谷歌的移动UI框架，可以快速在iOS和Android上构建高质量的原生用户界面.<ul>
+<li>Flutter 定位仅局限于手机端App, 并不支持中国的小程序. 可能不太适合国内的行情.</li>
+<li>入门门槛高, 需要学习Dart语言, UI性能最好, 可以比肩原生.</li>
+</ul>
+</li>
+<li>参考资料:<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/103409129">5万字全面总结编程那些年经历的跨平台开发工具框架演变历史</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19924321/article/details/109360982">几个跨平台移动App开发方案框架比较</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35430000/article/details/119346964">uni-app、taro、flutter、kbone 跨端、小程序选型对比、区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6974584590841167879">小程序框架对比（Taro VS uni-app）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.agora.io/cn/community/blog-126-category-20869">带你全面了解 Flutter，它好在哪里？它的坑在哪里？ 应该怎么学？</a></li>
+</ul>
+</li>
+<li>总结: <ul>
+<li>前端高频UI交互, 建议根据自身需求和实力选择合适的跨端框架. </li>
+<li>后台管理系统, 并非用户的高频需求, 建议使用Web框架来实现.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="后端技术"><a href="#后端技术" class="headerlink" title="后端技术"></a>后端技术</h2><ul>
+<li><p>云服务模型:</p>
+<ul>
+<li>IaaS: Infrastructure as a Service. 基础设施即服务<ul>
+<li><strong>云服务商仅提供硬件. 包括服务器, 网络和存储.</strong></li>
+<li>服务对象需要管理所有层面的软件安装, 开发和维护工作.</li>
+<li>云服务商: AWS, 阿里云 等等.</li>
+</ul>
+</li>
+<li>PaaS: Platform as a Service. 平台即服务<ul>
+<li><strong>PaaS = IaaS + 部署 + 管理 + 扩展.</strong></li>
+<li>云服务商额外提供可扩展的操作系统和数据库方案. </li>
+<li>这样相当于有了一个基本的软件开发平台.</li>
+<li>譬如 AWS Elastic Beanstalk.</li>
+<li>平台能提供的是一套标准的工作环境和接口, 服务对象按照标准进行接入.</li>
+<li>平台的概念是多层次的. 譬如:<ul>
+<li>Linux系统是软件开发者的一个工作平台</li>
+<li>淘宝对卖家而言是一个销售平台</li>
+<li>物联网云平台, 则提供了 IoT设备的接入, 数据收集和展示, 以及管理等功能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SaaS: Software as a Service. 软件即服务<ul>
+<li>更传统的含义是: 软件即产品, 产品即服务.</li>
+<li>最终用户购买某一款软件产品, 并使用其中的功能获得服务.</li>
+<li>或者最终用户免费获得软件, 按包月/包年/广告的方式获得服务.</li>
+</ul>
+</li>
+<li>CaaS: Containers as a Service. 容器即服务<ul>
+<li>容器是一种技术, 使用者是组织架构内部的软件开发人员. </li>
+<li>商务角度而言是一种工具, 不存在服务一说.</li>
+</ul>
+</li>
+<li>BaaS: Backend as a Service. 后端即服务<ul>
+<li><strong>BAAS = PAAS + 构建后端特性</strong></li>
+<li>云服务商提供自动化后端开发和维护云基础设施的平台. </li>
+<li>服务接口是组织结构外部的前端开发人员. 相当于将服务器运行和维护工作外包.</li>
+</ul>
+</li>
+<li>FaaS: Function as a Service. 功能即服务<ul>
+<li>云服务商管理整个应用程序和所需的软硬件平台.</li>
+<li>服务对象专注于功能的实现和数据的管理(前端和业务相关的后端).</li>
+</ul>
+</li>
+<li>微服务: <ul>
+<li>核心是服务治理, 而服务治理的关键是服务划分. </li>
+<li>故微服务架构的本质就是对码农的分化和治理. </li>
+<li>依托的技术是 CaaS, 即容器技术的成熟.</li>
+<li>因而微服务的对象是组织内部, 商务角度而言不是一种服务.</li>
+</ul>
+</li>
+<li>无服务:<ul>
+<li>核心是使用 BaaS 的技术, 为服务对象提供功能, 即FaaS.</li>
+<li>所谓的无服务器, 是指对服务对象而言, 整个服务器的配置管理和运维都被隐藏起来了.</li>
+<li>注意: 由于需求端的复杂性和多样性, 云服务商是没办法像水电煤公司一样来提供标准化服务的.</li>
+<li>潜在的问题:<ul>
+<li>所需的服务需要是无状态的, 或者对时效性不那么敏感. (需要利用存储服务来保存和读取状态)</li>
+<li>难以复制的开发环境, 意味着很难进行本地测试.</li>
+<li>冷启动时的响应时间.</li>
+<li>标准不统一, 容易出现厂商锁定. (即迁移成本可能非常高)</li>
+<li>真正上线使用之前, 很难评估使用成本.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>参考资料:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bakari/p/11156091.html">初识云计算：历史、服务、架构</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/cloud-computing/as-a-service.html">IaaS vs. PaaS vs. SaaS: Cloud Service Model Overview</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20387284">怎么理解 IaaS、SaaS 和 PaaS 的区别？</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/386138038">微服务器架构</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/65502802">微服务架构是什么？</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/372168320">无服务器架构是应用软件架构的未来吗？</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="个人的认知和选择"><a href="#个人的认知和选择" class="headerlink" title="个人的认知和选择:"></a>个人的认知和选择:</h1><ul>
+<li>互联网的生命周期依旧处于发展期, 才会有各种各样的新概念新名词层出不求.<ul>
+<li>存在于二元对立的世界, 对于所有的观念, 必须问清楚”主体”是谁, “客体”是谁, 再看两者间的”关系”. </li>
+<li>只有清楚的知道”我是谁”, 才能知道自己的切实需求, 才不会被概念和名词所迷惑.</li>
+</ul>
+</li>
+<li>面向过程和面向对象的两种思维, 体现的是站位不同导致的思维不同.<ul>
+<li>面向过程: 是结果导向的, 是用来解决具体问题的. 越是面临具体问题的人, 越倾向于面向过程的思路. </li>
+<li>譬如UI界面中的事件驱动/消息驱动机制, FaaS概念的提出.</li>
+<li>面向对象: 是对事物的抽象能力, 可用来归纳总结已有的认知, 还便于创世.</li>
+<li>譬如科学界各种各样的分类法; 软件框架和开发模式的总结; 女娲造人; 神就照着自己的形像造男造女.</li>
+</ul>
+</li>
+<li>对于物联网, 吹牛的人不少, 做实事的也不少. 但都没跟上互联网的思维和脚步:<ul>
+<li>从理念层面, 需要提出:  <code>TaaS: Things as a Service</code>. </li>
+<li>从技术层面, 需要大幅度降低嵌入式设备开发的难度和入网成本, 将嵌入式设备抽象为大前端的一个API, 函数或功能.</li>
+</ul>
+</li>
+<li>根据项目所处的环境, 考虑到人员/资金/开发周期等综合因素, 初步的选择:<ul>
+<li>评估 <code>uni-app</code> 在手机端双向语音视频的性能, 如果可接受就选用 <code>uni-app</code> 进行跨端开发.</li>
+<li>无服务技术的概念和方向没有问题, 但尚有待发展完善. 暂不予考虑. 因而采用 <code>PaaS</code> 方案.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1000,93 +1253,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/18/2108-tuibeitu2/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="draapho">
-      <meta itemprop="description" content="explore">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DRA&PHO">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/05/2107-tuibeitu1/" class="post-title-link" itemprop="url">万年歌, 马前课, 梅花诗, 推背图 (上)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-05T00:00:00+11:00">2021-03-05</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-12-03 00:33:22" itemprop="dateModified" datetime="2021-12-03T00:33:22+11:00">2021-12-03</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/thoughts/" itemprop="url" rel="index"><span itemprop="name">thoughts</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>著名的四种中国预言, 分析和预判.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/05/2107-tuibeitu1/">
                 Read more &raquo;
               </a>
             </div>
