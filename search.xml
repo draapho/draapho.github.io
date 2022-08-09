@@ -22088,6 +22088,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://zhuanlan.zhihu.com/p/386138038">微服务器架构</a></li>
 <li><a href="https://www.zhihu.com/question/65502802">微服务架构是什么？</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/372168320">无服务器架构是应用软件架构的未来吗？</a></li>
+<li><a href="https://bbs.huaweicloud.com/blogs/247064">serverless 开源框架对比</a></li>
 </ul>
 </li>
 </ul>
@@ -22111,7 +22112,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li>根据项目所处的环境, 考虑到人员/资金/开发周期等综合因素, 初步的选择:<ul>
 <li>评估 <code>uni-app</code> 在手机端双向语音视频的性能, 如果可接受就选用 <code>uni-app</code> 进行跨端开发.</li>
-<li>无服务技术的概念和方向没有问题, 但尚有待发展完善. 暂不予考虑. 因而采用 <code>PaaS</code> 方案.</li>
+<li>无服务技术的概念和方向没有问题, 但尚有待发展完善, 需要积极测试跟进.</li>
+<li>保守起见, 此项目暂不予考虑无服务技术, 故而采用 <code>PaaS</code> 方案.</li>
 </ul>
 </li>
 </ul>
