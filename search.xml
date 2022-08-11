@@ -22310,7 +22310,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <tr>
 <td>依赖</td>
 <td>A - - - - - - - -&gt;B</td>
-<td>B 作为 A 某个方法的参数.</td>
+<td>B 作为 A 某个方法的参数. 两者强关联.</td>
 </tr>
 <tr>
 <td></td>
@@ -22320,7 +22320,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <tr>
 <td>关联</td>
 <td>A ——————&gt;B</td>
-<td>B 作为 A 的某种属性存在, 两者关系为弱 <strong>关联</strong></td>
+<td>B 作为 A 的某种属性存在, 两者弱 <strong>关联</strong></td>
 </tr>
 <tr>
 <td></td>
