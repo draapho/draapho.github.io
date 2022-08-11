@@ -30,7 +30,7 @@
 <meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-05-16T14:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-27T11:42:13.734Z">
+<meta property="article:modified_time" content="2022-08-11T10:10:30.650Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="c">
 <meta name="twitter:card" content="summary">
@@ -185,7 +185,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E6%95%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">常数的数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">2.</span> <span class="nav-text">字符和字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">3.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">4.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="nav-number">5.</span> <span class="nav-text">宏定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#typedef-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">typedef 的用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-number">7.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E4%BD%8D%E5%9F%9F"><span class="nav-number">8.</span> <span class="nav-text">结构体和位域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#printf-%E5%8F%8A-scanf"><span class="nav-number">9.</span> <span class="nav-text">printf 及 scanf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">10.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E6%95%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">常数的数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.</span> <span class="nav-text">字符和字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">4.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">5.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="nav-number">6.</span> <span class="nav-text">宏定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#typedef-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">7.</span> <span class="nav-text">typedef 的用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-number">8.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E4%BD%8D%E5%9F%9F"><span class="nav-number">9.</span> <span class="nav-text">结构体和位域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#printf-%E5%8F%8A-scanf"><span class="nav-number">10.</span> <span class="nav-text">printf 及 scanf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">11.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -201,7 +201,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">140</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,7 +213,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">90</span>
+        <span class="site-state-item-count">91</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -283,7 +283,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+        <time title="Modified: 2022-08-11 20:10:30" itemprop="dateModified" datetime="2022-08-11T20:10:30+10:00">2022-08-11</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -306,7 +306,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="常数的数据类型"><a href="#常数的数据类型" class="headerlink" title="常数的数据类型"></a>常数的数据类型</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1234            <span class="comment">// default type, int</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123456l         <span class="comment">// long</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1234u           <span class="comment">// unsigned int</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123456ul        <span class="comment">// unsigned long</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123.4f          <span class="comment">// float</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1e-2f           <span class="comment">// float</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123.4           <span class="comment">// default type, double</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1e-2            <span class="comment">// default type, double</span></span></span><br></pre></td></tr></table></figure>
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/05/04/1714-expression/">逻辑|这样表达，事半功倍</a></li>
+<li><a href="https://draapho.github.io/2018/01/10/1805-interview-general/">面试之常规问题</a></li>
+<li><a href="https://draapho.github.io/2018/05/07/1816-interview-c/">面试之嵌入式C语言</a></li>
+<li><a href="https://draapho.github.io/2017/05/17/1715-c/">C语言知识巩固</a></li>
+<li><a href="https://draapho.github.io/2018/05/08/1817-interview-linux/">面试之嵌入式Linux</a></li>
+<li><a href="https://draapho.github.io/2022/08/10/2206-interview-oop/">面试之面向对象</a></li>
+</ul>
+<h1 id="常数的数据类型"><a href="#常数的数据类型" class="headerlink" title="常数的数据类型"></a>常数的数据类型</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1234            <span class="comment">// default type, int</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123456l         <span class="comment">// long</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1234u           <span class="comment">// unsigned int</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123456ul        <span class="comment">// unsigned long</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123.4f          <span class="comment">// float</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1e-2f           <span class="comment">// float</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123.4           <span class="comment">// default type, double</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1e-2            <span class="comment">// default type, double</span></span></span><br></pre></td></tr></table></figure>
 
 
 <h1 id="字符和字符串"><a href="#字符和字符串" class="headerlink" title="字符和字符串"></a>字符和字符串</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> X    <span class="meta-string">&#x27;x&#x27;</span>        <span class="comment">// 直接使用字母, 会自动转换为ASCII编码</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CR   <span class="meta-string">&#x27;\015&#x27;</span>     <span class="comment">// 八进制表示CR, 以\0开头</span></span></span><br><span class="line">#define CR   &#x27;\13&#x27;      // 十进制表示CR, 以\开头</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CR   <span class="meta-string">&#x27;\x0D&#x27;</span>     <span class="comment">// 十六进制表示CR, 以\x开头</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CR   <span class="meta-string">&#x27;\r&#x27;</span>       <span class="comment">// 特殊表示法</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串, 独立使用多个双引号, 也表示一串字符串</span></span><br><span class="line"><span class="keyword">char</span> short_str[] = <span class="string">&quot;hello,&quot;</span> <span class="string">&quot; world&quot;</span> <span class="string">&quot;!&quot;</span>;</span><br><span class="line"><span class="keyword">char</span> long_str[] = <span class="string">&quot;this is a very very long string,&quot;</span></span><br><span class="line">                  <span class="string">&quot;so you can set it in multi lines &quot;</span></span><br><span class="line">                  <span class="string">&quot;by this way&quot;</span></span><br></pre></td></tr></table></figure>
@@ -331,163 +339,13 @@
 <td>自增++ 自减–</td>
 <td>左到右</td>
 </tr>
-<tr>
-<td></td>
-<td><code>[]</code></td>
-<td>数组下标</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>()</code></td>
-<td>（表达式）/函数名(形参表)</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>.</code></td>
-<td>对象.成员名</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>-&gt;</code></td>
-<td>对象指针-&gt;成员名</td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td><code>-</code></td>
-<td>负号</td>
-<td>右到左</td>
-</tr>
-<tr>
-<td></td>
-<td><code>(类型)</code></td>
-<td>强制类型转换</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>++</code> <code>--</code> 前置</td>
-<td>++自增 –自减</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>*</code></td>
-<td>*指针表达式</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>&amp;</code></td>
-<td>&amp;左值表达式</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>!</code></td>
-<td>!表达式</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>~</code></td>
-<td>~表达式</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>sizeof</code></td>
-<td>sizeof 表达式/sizeof(类型)</td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td><code>*</code> <code>/</code> <code>%</code></td>
-<td>乘 除 取余</td>
-<td>左到右</td>
-</tr>
-<tr>
-<td>4</td>
-<td><code>+</code> <code>-</code></td>
-<td>加 减</td>
-<td>左到右</td>
-</tr>
-<tr>
-<td>5</td>
-<td><code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
-<td>左移 右移</td>
-<td>左到右</td>
-</tr>
-<tr>
-<td>6</td>
-<td><code>&gt;</code> <code>&gt;=</code> <code>&lt;</code> <code>&lt;=</code></td>
-<td>大于(等于) 小于(等于)</td>
-<td>左到右</td>
-</tr>
-<tr>
-<td>7</td>
-<td><code>==</code> <code>!=</code></td>
-<td>等于 不等于</td>
-<td>左到右</td>
-</tr>
-<tr>
-<td>8</td>
-<td><code>&amp;</code></td>
-<td>按位与</td>
-<td>左到右</td>
-</tr>
-<tr>
-<td>9</td>
-<td><code>^</code></td>
-<td>按位异或</td>
-<td>左到右</td>
-</tr>
-<tr>
-<td>10</td>
-<td><code>l</code> (竖杠)</td>
-<td>按位或</td>
-<td>左到右</td>
-</tr>
-<tr>
-<td>11</td>
-<td><code>&amp;&amp;</code></td>
-<td>逻辑与</td>
-<td>左到右</td>
-</tr>
-<tr>
-<td>12</td>
-<td><code>ll</code> (竖杠)</td>
-<td>逻辑或</td>
-<td>左到右</td>
-</tr>
-<tr>
-<td>13</td>
-<td><code>?:</code></td>
-<td>表达式1? 表达式2: 表达式3</td>
-<td>右到左</td>
-</tr>
-<tr>
-<td>14</td>
-<td><code>=</code> <code>/=</code> <code>*=</code> <code>%=</code> <code>+=</code> <code>-=</code></td>
-<td>赋值运算符</td>
-<td>右到左</td>
-</tr>
-<tr>
-<td></td>
-<td><code>&lt;&lt;=</code> <code>&gt;&gt;=</code> <code>&amp;=</code> <code>^=</code> <code>l=</code> (竖杠)</td>
-<td>位赋值运算符</td>
-<td></td>
-</tr>
-<tr>
-<td>15</td>
-<td><code>,</code></td>
-<td>表达式,表达式,…</td>
-<td>左到右</td>
-</tr>
 </tbody></table>
+<pre><code>   | `[]`                              | 数组下标                   |
+   | `()`                              | （表达式）/函数名(形参表)    |
+   | `.`                               | 对象.成员名                |
+   | `-&gt;`                              | 对象指针-&gt;成员名           |
+</code></pre>
+<p>2      | <code>-</code>                               | 负号                       | 右到左<br>       | <code>(类型)</code>                          | 强制类型转换               |<br>       | <code>++</code> <code>--</code> 前置                    | ++自增 –自减              |<br>       | <code>*</code>                               | *指针表达式                |<br>       | <code>&amp;</code>                               | &amp;左值表达式                |<br>       | <code>!</code>                               | !表达式                    |<br>       | <code>~</code>                               | ~表达式                    |<br>       | <code>sizeof</code>                          | sizeof 表达式/sizeof(类型) |<br>3      | <code>*</code> <code>/</code> <code>%</code>                       | 乘 除 取余                 | 左到右<br>4      | <code>+</code> <code>-</code>                           | 加 减                      | 左到右<br>5      | <code>&lt;&lt;</code> <code>&gt;&gt;</code>                         | 左移 右移                  | 左到右<br>6      | <code>&gt;</code> <code>&gt;=</code> <code>&lt;</code> <code>&lt;=</code>                 | 大于(等于) 小于(等于)      | 左到右<br>7      | <code>==</code> <code>!=</code>                         | 等于 不等于                | 左到右<br>8      | <code>&amp;</code>                               | 按位与                     | 左到右<br>9      | <code>^</code>                               | 按位异或                   | 左到右<br>10     | <code>l</code> (竖杠)                        | 按位或                     | 左到右<br>11     | <code>&amp;&amp;</code>                              | 逻辑与                     | 左到右<br>12     | <code>ll</code> (竖杠)                       | 逻辑或                     | 左到右<br>13     | <code>?:</code>                              | 表达式1? 表达式2: 表达式3  | 右到左<br>14     | <code>=</code> <code>/=</code> <code>*=</code> <code>%=</code> <code>+=</code> <code>-=</code>      | 赋值运算符                 | 右到左<br>       | <code>&lt;&lt;=</code> <code>&gt;&gt;=</code> <code>&amp;=</code> <code>^=</code> <code>l=</code> (竖杠) | 位赋值运算符               |<br>15     | <code>,</code>                               | 表达式,表达式,…            | 左到右</p>
 <h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以 const 为例, volitale是一样的.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>;          <span class="comment">// int是const</span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span>;          <span class="comment">// int是const</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>*;        <span class="comment">// char是const</span></span><br><span class="line"><span class="keyword">char</span> <span class="keyword">const</span>*;        <span class="comment">// char是const</span></span><br><span class="line"><span class="keyword">char</span>* <span class="keyword">const</span>;        <span class="comment">// *(指针)是const</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* <span class="keyword">const</span>;  <span class="comment">// char和*都是const</span></span><br><span class="line"><span class="keyword">char</span> <span class="keyword">const</span>* <span class="keyword">const</span>;  <span class="comment">//char和*都是const</span></span><br></pre></td></tr></table></figure>
 
 <ul>
