@@ -22300,47 +22300,52 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <tbody><tr>
 <td>泛化（继承）</td>
 <td>A ◁————— B</td>
-<td>B 类<strong>继承(is)</strong> A 类, 即B是A的子类.</td>
+<td>B <strong>继承(is)</strong> A, 即B是A的子类.</td>
 </tr>
 <tr>
 <td>实现</td>
 <td>A ◁- - - - - - - -B</td>
-<td>B 类<strong>实现(realizes)</strong> A 接口</td>
+<td>B <strong>实现(realizes)</strong> A 接口</td>
 </tr>
 <tr>
 <td>依赖</td>
 <td>A - - - - - - - -&gt;B</td>
-<td>B 类作为 A 类某个方法的参数.</td>
+<td>B 作为 A 某个方法的参数.</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>A<strong>依赖/需要</strong>B, 不然无法完成特定的事情.</td>
+<td>A <strong>依赖/需要</strong> B, 不然无法完成特定的事情.</td>
 </tr>
 <tr>
 <td>关联</td>
 <td>A ——————&gt;B</td>
-<td>B作为A的属性存在, 语义上A和B的地位或水平相等. 弱关联</td>
+<td>B 作为 A 的某种属性存在, 两者关系为弱 <strong>关联</strong></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>如 人(A) 住 房子(B). 但人和房子是没什么共性的独立事物</td>
 </tr>
 <tr>
 <td>聚合</td>
 <td>A ♢—————&gt;B</td>
-<td>B作为A的属性存在, 语义上B可作为A的一部分, 但B可以独立存在</td>
+<td>语义上 B 可作为 A 的一部分, 但 B 可以独立存在</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>是 A <strong>has</strong> B 的关系. 如房子(A), 桌子(B)</td>
+<td>A <strong>has</strong> B 的关系. 如房子(A), 桌子(B)</td>
 </tr>
 <tr>
 <td>组合</td>
 <td>A ♦—————&gt;B</td>
-<td>B作为A的属性存在, 语义上B是A的一部分, 但B无法独立存在.</td>
+<td>语义上 B 是 A 的一部分, 但 B 无法独立存在.</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>是 A <strong>owns</strong> B 的关系, 如人(A), 大脑(B)</td>
+<td>A <strong>owns</strong> B 的关系, 如人(A), 大脑(B)</td>
 </tr>
 <tr>
 <td>对应关系的数量</td>
