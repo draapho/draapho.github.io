@@ -22289,7 +22289,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td><del>Visitor 访问者</del></td>
 </tr>
 </tbody></table>
-<h1 id="UML关系图"><a href="#UML关系图" class="headerlink" title="UML关系图"></a>UML关系图</h1><table>
+<h1 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h1><table>
 <thead>
 <tr>
 <th>类型</th>
@@ -22304,12 +22304,12 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </tr>
 <tr>
 <td>实现</td>
-<td>A ◁——B</td>
+<td>A ◁- - - - - -B</td>
 <td>B 类<strong>实现(realizes)</strong> A 接口</td>
 </tr>
 <tr>
 <td>依赖</td>
-<td>A ——&gt;B</td>
+<td>A - - - - - -&gt;B</td>
 <td>B 类作为 A 类某个方法的参数.</td>
 </tr>
 <tr>
@@ -22357,6 +22357,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://www.runoob.com/design-pattern/design-pattern-intro.html">设计模式简介 - 菜鸟教程</a></li>
 <li><a href="http://dockone.io/article/2434385">图文详解 23 种设计模式</a></li>
 <li><a href="https://blog.csdn.net/huaishu/article/details/108343852">UML图标含义与图例</a></li>
+<li><a href="https://www.jianshu.com/p/fcb642ff3be5">设计模式前篇之：UML类图必会知识点</a></li>
 </ul>
 <hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
