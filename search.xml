@@ -22299,17 +22299,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </thead>
 <tbody><tr>
 <td>泛化（继承）</td>
-<td>A ◁——————B</td>
+<td>A ◁————— B</td>
 <td>B 类<strong>继承(is)</strong> A 类, 即B是A的子类.</td>
 </tr>
 <tr>
 <td>实现</td>
-<td>A ◁- - - - - -B</td>
+<td>A ◁- - - - - - - - -B</td>
 <td>B 类<strong>实现(realizes)</strong> A 接口</td>
 </tr>
 <tr>
 <td>依赖</td>
-<td>A - - - - - -&gt;B</td>
+<td>A - - - - - - - - -&gt;B</td>
 <td>B 类作为 A 类某个方法的参数.</td>
 </tr>
 <tr>
@@ -22319,7 +22319,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </tr>
 <tr>
 <td>关联</td>
-<td>A ——————&gt;B</td>
+<td>A —————&gt;B</td>
 <td>B作为A的属性存在, 语义上A和B的地位或水平相等. 实线属性弱关联</td>
 </tr>
 <tr>
