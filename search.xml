@@ -22309,7 +22309,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </tr>
 <tr>
 <td>依赖</td>
-<td>A - - - - - - - -&gt;B</td>
+<td>A - - - - - - - - &gt;B</td>
 <td>B 作为 A 某个方法的参数. 两者强关联.</td>
 </tr>
 <tr>
