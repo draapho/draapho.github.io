@@ -7497,7 +7497,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <url>/2017/05/04/1714-expression/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="http://www.jianshu.com/p/a2bcce138f48">逻辑|这样表达，事半功倍（附训练方法）</a></strong></em></p>
 <hr>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>﻿表达是生活工作中最重要的沟通方式。<br>正式场合的表达，我们称为“演讲”、“汇报”、“发言”等；<br>休闲场合的表达，我们称为“闲聊”、“侃大山”、“吹牛”等。<br>总而言之，表达是我们传递信息、交流感情的重要技能。<br>那怎样的表达，能事半功倍呢？</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>表达是生活工作中最重要的沟通方式。<br>正式场合的表达，我们称为“演讲”、“汇报”、“发言”等；<br>休闲场合的表达，我们称为“闲聊”、“侃大山”、“吹牛”等。<br>总而言之，表达是我们传递信息、交流感情的重要技能。<br>那怎样的表达，能事半功倍呢？</p>
 <h1 id="一段对话"><a href="#一段对话" class="headerlink" title="一段对话"></a>一段对话</h1><p>我们先来看这样的对话：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">老板：“年会准备得怎么样？”</span><br><span class="line">小美：“酒店我们定的XX大酒店，最近搞年会的多，只有那里时间价格都合适。</span><br><span class="line">我们让各个部门都出了节目，彩排了一次，删掉了几个唱歌的节目，剩下都是舞蹈、魔术、小品等。</span><br><span class="line">主持人还在筛选中，主持稿已经编好了。</span><br><span class="line">优秀员工的名单还没定好，有的部门经理还没交名单，不过奖品已经准备好了。</span><br><span class="line">会场的宣传品也买好了，因为是十周年，所以背景墙和装饰品都是十年为主。”</span><br></pre></td></tr></table></figure>
 
@@ -7617,6 +7617,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2017/05/17/1715-c/">C语言知识巩固</a></li>
 <li><a href="https://draapho.github.io/2018/05/08/1817-interview-linux/">面试之嵌入式Linux</a></li>
 <li><a href="https://draapho.github.io/2022/08/10/2206-interview-oop/">面试之面向对象</a></li>
+<li><a href="https://draapho.github.io/2022/08/11/2207-design-patterns/">设计模式概要</a></li>
 </ul>
 <h1 id="常数的数据类型"><a href="#常数的数据类型" class="headerlink" title="常数的数据类型"></a>常数的数据类型</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1234            <span class="comment">// default type, int</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123456l         <span class="comment">// long</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1234u           <span class="comment">// unsigned int</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123456ul        <span class="comment">// unsigned long</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123.4f          <span class="comment">// float</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1e-2f           <span class="comment">// float</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 123.4           <span class="comment">// default type, double</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 1e-2            <span class="comment">// default type, double</span></span></span><br></pre></td></tr></table></figure>
 
@@ -13884,6 +13885,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2017/05/17/1715-c/">C语言知识巩固</a></li>
 <li><a href="https://draapho.github.io/2018/05/08/1817-interview-linux/">面试之嵌入式Linux</a></li>
 <li><a href="https://draapho.github.io/2022/08/10/2206-interview-oop/">面试之面向对象</a></li>
+<li><a href="https://draapho.github.io/2022/08/11/2207-design-patterns/">设计模式概要</a></li>
 </ul>
 <p>我个人面试经验极少, 但这种能力都是需要培养的.<br>此系列总结一下面试中常见的技能要点. 侧重于技术面的准备.</p>
 <h1 id="中介面试"><a href="#中介面试" class="headerlink" title="中介面试"></a>中介面试</h1><p>中介面试, 更多的是对个人整体的一个考量. 特别是对你是否适合某雇主的评估.<br>一般而言, 中介是不懂技术的, 所以不用担心他问技术问题; 中介是八面玲珑的, 要小心自己的嘴巴<br>(<strong>有些中介是专门做技术人才的, 所以会问非常专业的问题</strong>, 这里只是说一般情况)<br>如果是电话面试 正常的语速, 有条理的回答, 适当的反问.<br>总之, 个人的看法是要从整体上让对方觉得你是一个思路清晰, 反应敏捷的专业人士.</p>
@@ -14454,6 +14456,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2017/05/17/1715-c/">C语言知识巩固</a></li>
 <li><a href="https://draapho.github.io/2018/05/08/1817-interview-linux/">面试之嵌入式Linux</a></li>
 <li><a href="https://draapho.github.io/2022/08/10/2206-interview-oop/">面试之面向对象</a></li>
+<li><a href="https://draapho.github.io/2022/08/11/2207-design-patterns/">设计模式概要</a></li>
 </ul>
 <p>我个人面试经验极少, 但这种能力都是需要培养的.<br>此系列总结一下面试中常见的技能要点. 侧重于技术面的准备.</p>
 <h1 id="Q1-define"><a href="#Q1-define" class="headerlink" title="Q1: #define"></a>Q1: #define</h1><p>Using the #define statement, how would you declare a manifest constant that returns the number of seconds in a year? Disregard leap years in your answer.</p>
@@ -14660,6 +14663,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2017/05/17/1715-c/">C语言知识巩固</a></li>
 <li><a href="https://draapho.github.io/2018/05/08/1817-interview-linux/">面试之嵌入式Linux</a></li>
 <li><a href="https://draapho.github.io/2022/08/10/2206-interview-oop/">面试之面向对象</a></li>
+<li><a href="https://draapho.github.io/2022/08/11/2207-design-patterns/">设计模式概要</a></li>
 </ul>
 <p>我个人面试经验极少, 但这种能力都是需要培养的. 此系列总结一下面试中常见的技能要点. 侧重于技术面的准备.</p>
 <h1 id="common"><a href="#common" class="headerlink" title="common"></a>common</h1><h2 id="Q-What-Is-The-Difference-Between-Microprocessor-And-Microcontroller"><a href="#Q-What-Is-The-Difference-Between-Microprocessor-And-Microcontroller" class="headerlink" title="Q: What Is The Difference Between Microprocessor And Microcontroller?"></a>Q: What Is The Difference Between Microprocessor And Microcontroller?</h2><p>Microcontroller is a self-contained system with peripherals, memory and a processor that can be used as embedded system.</p>
@@ -22001,6 +22005,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2017/05/17/1715-c/">C语言知识巩固</a></li>
 <li><a href="https://draapho.github.io/2018/05/08/1817-interview-linux/">面试之嵌入式Linux</a></li>
 <li><a href="https://draapho.github.io/2022/08/10/2206-interview-oop/">面试之面向对象</a></li>
+<li><a href="https://draapho.github.io/2022/08/11/2207-design-patterns/">设计模式概要</a></li>
 </ul>
 <h1 id="OOPs-的基本概念"><a href="#OOPs-的基本概念" class="headerlink" title="OOPs 的基本概念"></a>OOPs 的基本概念</h1><ul>
 <li>What is OOPs<ul>
@@ -22129,12 +22134,238 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://www.interviewbit.com/oops-interview-questions/">40+ OOPs Interview Questions</a></li>
 <li><a href="https://www.educative.io/blog/object-oriented-programming">What is object-oriented programming? OOP explained in depth</a></li>
 </ul>
+<hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
       <categories>
         <category>interview</category>
       </categories>
       <tags>
+        <tag>interview</tag>
+        <tag>OOP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式概要</title>
+    <url>/2022/08/11/2207-design-patterns/</url>
+    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/05/04/1714-expression/">逻辑|这样表达，事半功倍</a></li>
+<li><a href="https://draapho.github.io/2018/01/10/1805-interview-general/">面试之常规问题</a></li>
+<li><a href="https://draapho.github.io/2018/05/07/1816-interview-c/">面试之嵌入式C语言</a></li>
+<li><a href="https://draapho.github.io/2017/05/17/1715-c/">C语言知识巩固</a></li>
+<li><a href="https://draapho.github.io/2018/05/08/1817-interview-linux/">面试之嵌入式Linux</a></li>
+<li><a href="https://draapho.github.io/2022/08/10/2206-interview-oop/">面试之面向对象</a></li>
+<li><a href="https://draapho.github.io/2022/08/11/2207-design-patterns/">设计模式概要</a></li>
+</ul>
+<h1 id="OOPs-的设计原则"><a href="#OOPs-的设计原则" class="headerlink" title="OOPs 的设计原则"></a>OOPs 的设计原则</h1><ul>
+<li>单一职责原则, SRP原则 (Single responsibility principle)<ul>
+<li>高内聚, 低耦合. 自己能做的, 就不麻烦别人.</li>
+<li>每个类应该只有一个职责. 对外只能提供一种功能. 而引起类变化的原因应该只有一个.</li>
+</ul>
+</li>
+<li>开闭原则, ocp原则 (open closed principle)<ul>
+<li>一个对象对扩展开放, 对修改关闭</li>
+<li>对类的改动应该通过增加代码实现, 而不是修改现有的代码.</li>
+</ul>
+</li>
+<li>里氏替换原则, LSP原则 (Liskov Substitution principle)<ul>
+<li>在任何父类出现的地方都可以用它的子类来替代</li>
+<li>即: 同一个继承体系中的对象, 应该有共同的行为特征</li>
+</ul>
+</li>
+<li>依赖注入原则, DI原则 (Dependency Injection)<ul>
+<li>要依赖于抽象, 不要依赖于具体的实现</li>
+<li>要求我们在编程的时候针对抽象类或者接口编程, 而不是针对具体的实现编程</li>
+</ul>
+</li>
+<li>接口分离原则, ISP原则 (Interface Segregation Principle)<ul>
+<li>不应该强迫程序依赖他们不需要的方法. </li>
+<li>即: 一个接口应该只提供一种对外的功能. 不应该把所有的操作都封装到一个接口中</li>
+</ul>
+</li>
+<li>迪米特原则 (Law of Demeter)<ul>
+<li>最少知识原则. 一个类对于其他类知道的越少越好.</li>
+<li>类比: 只和朋友通信, 不和陌生人说话</li>
+<li>降低个个对象间的耦合, 提高系统的可维护性.</li>
+</ul>
+</li>
+<li>总结: <strong>高内聚, 低耦合, 可复用</strong></li>
+</ul>
+<h1 id="设计模式简介"><a href="#设计模式简介" class="headerlink" title="设计模式简介"></a>设计模式简介</h1><ul>
+<li>创建型模式 Creational Pattern<ul>
+<li>对类的实例化过程进行了抽象, 能够将软件模块中对象的创建和对象的使用分离.</li>
+<li>5种: <strong>工厂模式、抽象工厂模式、单例模式、建造者模式</strong>、原型模式</li>
+<li>记忆口诀: 创工原单建抽 (创公园, 但见愁)</li>
+</ul>
+</li>
+<li>结构型模式 Structural Pattern<ul>
+<li>关注于对象的组成以及对象之间的依赖关系, 描述如何将类或者对象结合在一起形成更大的结构.</li>
+<li>就像搭积木, 可以通过简单积木的组合形成复杂的, 功能更为强大的结构.</li>
+<li>7种: <strong>适配器模式、装饰者模式、代理模式</strong>、外观模式、<strong>桥接模式</strong>、组合模式、享元模式</li>
+<li>记忆口诀: 结享外组适代装桥 (姐想外租, 世代装桥)</li>
+</ul>
+</li>
+<li>行为型模式 Behavioral Pattern<ul>
+<li>关注于对象的行为问题, 是对在不同的对象之间划分责任和算法的抽象化</li>
+<li>不仅仅关注类和对象的结构, 而且重点关注它们之间的相互作用.</li>
+<li>11种: <strong>策略模式、模板方法模式、观察者模式、迭代器模式、责任链模式</strong>、命令模式、备忘录模式、<strong>状态模式</strong>、访问者模式、中介者模式、解释器模式</li>
+<li>记忆口诀: 行状责中模访解备观策命迭 (形状折中模仿, 戒备观测鸣笛)</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Creational 创建型</th>
+<th>Structural 结构型</th>
+<th>Behavioral 行为型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Class</td>
+<td>Factory Method 工厂方法</td>
+<td>Adapter (class) 适配器</td>
+<td><del>Interpreter 解释器</del></td>
+</tr>
+<tr>
+<td>Class</td>
+<td></td>
+<td></td>
+<td>Template Method 模板方法</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>Abstract Factory 抽象工厂</td>
+<td>Adapter (object) 适配器</td>
+<td>Chain of Responsibility 责任链</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>Builder 建造者</td>
+<td>Bridge 桥接</td>
+<td><del>Command 命令</del></td>
+</tr>
+<tr>
+<td>Object</td>
+<td><del>Prototype 原型</del></td>
+<td><del>Composite 组合</del></td>
+<td>Iterator 迭代器</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>Singleton 单例</td>
+<td>Decorator 装饰器</td>
+<td><del>Mediator 中介者</del></td>
+</tr>
+<tr>
+<td>Object</td>
+<td></td>
+<td><del>Facade 外观</del></td>
+<td><del>Memento 备忘录</del></td>
+</tr>
+<tr>
+<td>Object</td>
+<td></td>
+<td><del>Flyweight 享元/共享</del></td>
+<td>Observer 观察者</td>
+</tr>
+<tr>
+<td>Object</td>
+<td></td>
+<td>Proxy 代理</td>
+<td>State 状态</td>
+</tr>
+<tr>
+<td>Object</td>
+<td></td>
+<td></td>
+<td>Strategy 策略</td>
+</tr>
+<tr>
+<td>Object</td>
+<td></td>
+<td></td>
+<td><del>Visitor 访问者</del></td>
+</tr>
+</tbody></table>
+<h1 id="UML关系图"><a href="#UML关系图" class="headerlink" title="UML关系图"></a>UML关系图</h1><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>图标</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>泛化（继承）</td>
+<td>A ◁——————B</td>
+<td>B 类<strong>继承(is)</strong> A 类, 即B是A的子类.</td>
+</tr>
+<tr>
+<td>实现</td>
+<td>A ◁——B</td>
+<td>B 类<strong>实现(realizes)</strong> A 接口</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>A ——&gt;B</td>
+<td>B 类作为 A 类某个方法的参数.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>A<strong>依赖</strong>B, 不然无法完成特定的事情.</td>
+</tr>
+<tr>
+<td>关联</td>
+<td>A ——————&gt;B</td>
+<td>B作为A的属性存在, 语义上A和B的地位或水平相等. 实线属性弱关联</td>
+</tr>
+<tr>
+<td>聚合</td>
+<td>A ♢—————&gt;B</td>
+<td>B作为A的属性存在, 语义上B可作为A的一部分, 但B可以独立存在</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>是 A <strong>has</strong> B 的关系. 如房子(A), 桌子(B)</td>
+</tr>
+<tr>
+<td>组合</td>
+<td>A ♦—————&gt;B</td>
+<td>B作为A的属性存在, 语义上B是A的一部分, 但B无法独立存在.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>是 A <strong>owns</strong> B 的关系, 如人(A), 大脑(B)</td>
+</tr>
+<tr>
+<td>对应关系的数量</td>
+<td>A m..n B</td>
+<td>B最多和m个数量的A有关系, A最多和n个数量的B有关系</td>
+</tr>
+</tbody></table>
+<p><img src="https://draapho.github.io/images/2207/uml.png" alt="uml_example"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://cs.lmu.edu/~ray/notes/designpatterns/">Design Patterns</a>, 简单的归纳总结.</li>
+<li><a href="https://www.netsolutions.com/insights/software-design-pattern/">What’s a Software Design Pattern? (+7 Most Popular Patterns)</a>, 介绍了7种最常用的设计模式. 并介绍了软件架构(MVC, MVP, MVVM)</li>
+<li><a href="https://www.oodesign.com/">Design Patterns</a>, 详细地介绍了所有23种设计模式.</li>
+<li><a href="https://zhuanlan.zhihu.com/p/128145128">快速记忆23种设计模式</a></li>
+<li><a href="https://www.runoob.com/design-pattern/design-pattern-intro.html">设计模式简介 - 菜鸟教程</a></li>
+<li><a href="http://dockone.io/article/2434385">图文详解 23 种设计模式</a></li>
+<li><a href="https://blog.csdn.net/huaishu/article/details/108343852">UML图标含义与图例</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>software</category>
+      </categories>
+      <tags>
+        <tag>software</tag>
         <tag>interview</tag>
         <tag>OOP</tag>
       </tags>
