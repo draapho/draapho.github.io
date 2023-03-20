@@ -21711,6 +21711,13 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 <li><del>IntelliCode</del></li>
+<li>Code GPT (2023年3月20日更新)<ul>
+<li>打开 <a href="https://platform.openai.com/account/api-keys">Open AI 账户</a>, 生成一个密钥.</li>
+<li>VS Code 中按 <code>command+shift+p</code>打开面板</li>
+<li>搜索并选择 <code>CodeGPT: set API key</code></li>
+<li>在弹出框中填入密钥, 然后回车</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
