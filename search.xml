@@ -22414,4 +22414,121 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <tag>ai</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Zephyr Project ��������</title>
+    <url>/2023/04/25/2302-zephyr-start/</url>
+    <content><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><p>Zephyr Project ��һ������չ��ʵʱ����ϵͳ, Ϊ��Դ���޵��豸�ṩ֧��. �� Linux ������й�.<br>�������Ŀ����Linux�ص�: ����ǿ��, ѧϰ���߶���, ��������. ��Ҫʹ�������и�ʽ, ������Unixϵͳ���ԱȽϳ��, Window��������������Ī��������.<br>����Ŀ�ճ�����ʱ��, Ҳ��ע��, ������ָ���ֲ�, ��windows�¾�û�����óɹ�. �����п�������һ��, ������windows������, �ɹ�������л���, ���ѷ�����������.</p>
+<h1 id="1-��װ-Chocolatey"><a href="#1-��װ-Chocolatey" class="headerlink" title="1. ��װ Chocolatey"></a>1. ��װ Chocolatey</h1><p>���ȣ���Ҫ��װ Chocolatey ��������������� <a href="https://chocolatey.org/install">Chocolatey ��װҳ��</a> ��ȡ��ϸ��Ϣ��</p>
+<p>ʹ�� PowerShell ��<strong>����Ա����</strong>�����������</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> AllSigned</span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; [<span class="type">System.Net.ServicePointManager</span>]::SecurityProtocol = [<span class="type">System.Net.ServicePointManager</span>]::SecurityProtocol <span class="operator">-bor</span> <span class="number">3072</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://community.chocolatey.org/install.ps1&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>���� Chocolatey��</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">choco upgrade chocolatey</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="2-��װ����"><a href="#2-��װ����" class="headerlink" title="2. ��װ����"></a>2. ��װ����</h1><p>��<strong>����Ա����</strong>��������ʾ��, ����������������԰�װ cmake, ninja, gperf, python, git, dtc-msys2, wget, unzip ���������ߡ�����Ѿ���װ������ȷ�����������°汾��</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">choco feature enable -n allowGlobalConfirmation</span><br><span class="line">choco install cmake --installargs &#x27;ADD_CMAKE_TO_PATH=System&#x27;</span><br><span class="line">choco install ninja gperf python git dtc-msys2 wget unzip</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="3-��װ-West-����"><a href="#3-��װ-West-����" class="headerlink" title="3. ��װ West ����"></a>3. ��װ West ����</h1><p>ʹ�� Python ��װ West ���ߡ�West ר�����ڹ��� Zephyr ��Ŀ�����������ز�������Ŀ��</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">pip3 install -U west</span><br><span class="line"><span class="built_in">cd</span> <span class="variable">%HOMEPATH%</span></span><br><span class="line">west init zephyrproject</span><br><span class="line"><span class="built_in">cd</span> zephyrproject</span><br><span class="line">west update</span><br><span class="line"></span><br><span class="line">west zephyr-export</span><br><span class="line">pip3 install -r <span class="variable">%HOMEPATH%</span>\zephyrproject\zephyr\scripts\requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-��װ-Zephyr-SDK"><a href="#4-��װ-Zephyr-SDK" class="headerlink" title="4. ��װ Zephyr SDK"></a>4. ��װ Zephyr SDK</h1><p>��װ Zephyr SDK ʱ����� <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">Zephyr SDK �� GitHub ҳ��</a> �������°汾�������ǹٷ��ĵ���, ��������İ汾 (�ٷ��ĵ����²���ʱ, �������ʱ����ʾ�汾����)��</p>
+<p>���磬��ǰ���°汾Ϊ Zephyr SDK 0.16.0������ Windows �� FULL �汾��<a href="https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.0/zephyr-sdk-0.16.0_windows-x86_64.7z">��������</a>����Ȼ�����ֶ���ѹ���ʵ���Ŀ¼��</p>
+<p>�ڽ�ѹ���� <code>zephyr-sdk-0.16.0</code> Ŀ¼�£�˫������ <code>setup.cmd</code>��<br>��ʱ�����ʾ <code>Zephyr SDK setup requires &#39;7z&#39; to be installed and available in the PATH.</code> ����Ҫ��7z��bin���뵽��������PATH��.<br>һ���򵥵ķ��������Խ� 7z.exe �� 7z.dll ���Ƶ� <code>zephyr-sdk-0.16.0</code> Ŀ¼�£�Ȼ������ <code>setup.cmd</code>��<br>ע��: <code>setup.cmd</code>, ֻ��Ҫִ��һ��, ��Ҫ���ִ��.</p>
+<h1 id="5-������L"><a href="#5-������L" class="headerlink" title="5. ������Ŀ"></a>5. ������Ŀ</h1><p>Ҫ�鿴֧�ֵĿ������б�������ʣ�<a href="https://docs.zephyrproject.org/3.1.0/boards/index.html#boards">�ٷ�֧�ֵĿ������б�</a>��</p>
+<p>����ͷ�� ST Nucleo L152RE ������. ���Դ�Ϊ���������������</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">%HOMEPATH%</span>\zephyrproject\zephyr</span><br><span class="line">west build -p always -b nucleo_l152re samples/basic/blinky</span><br><span class="line"><span class="comment">REM -p always ��ָ����ǰ, ǿ����������Ŀ¼. auto ���Զ�ʶ��</span></span><br><span class="line"></span><br><span class="line"><span class="comment">REM west build -p auto -b nucleo_l152re samples/basic/blinky</span></span><br><span class="line"><span class="comment">REM west build -p auto -b nucleo_f031k6 samples/basic/blinky</span></span><br></pre></td></tr></table></figure>
+
+<p>ע�⣺</p>
+<ul>
+<li>����Ǵ������ط����Ƶ� zephyrproject �ļ��У�build ���ܻ��������ʱ��ɾ�� zephyr Ŀ¼�µ� build �ļ���, ����ʹ�� <code>west build -p always ...</code></li>
+<li>����ڱ�������г��ִ�������ϸ����������ߵ���Ͱ汾Ҫ��Ȼ���������⡣</li>
+</ul>
+<p>������: L152RE ���� 14K�� flash, 4K�� RAM…</p>
+<table>
+<thead>
+<tr>
+<th>Memory region</th>
+<th>Used Size</th>
+<th>Region Size</th>
+<th>%age Used</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FLASH:</td>
+<td>14200 B</td>
+<td>512 KB</td>
+<td>2.71%</td>
+</tr>
+<tr>
+<td>RAM:</td>
+<td>4224 B</td>
+<td>80 KB</td>
+<td>5.16%</td>
+</tr>
+<tr>
+<td>IDT_LIST:</td>
+<td>0 GB</td>
+<td>2 KB</td>
+<td>0.00%</td>
+</tr>
+</tbody></table>
+<p>��f031K�����忴�±�����: 13K��flash, 2K��RAM</p>
+<table>
+<thead>
+<tr>
+<th>Memory region</th>
+<th>Used Size</th>
+<th>Region Size</th>
+<th>%age Used</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FLASH:</td>
+<td>12770 B</td>
+<td>32 KB</td>
+<td>38.97%</td>
+</tr>
+<tr>
+<td>RAM:</td>
+<td>1784 B</td>
+<td>4 KB</td>
+<td>43.55%</td>
+</tr>
+<tr>
+<td>IDT_LIST:</td>
+<td>0 GB</td>
+<td>2 KB</td>
+<td>0.00%</td>
+</tr>
+</tbody></table>
+<p><strong>�򵥵Ľ���</strong>: ����ĳЩ�ɱ�����, �г��ͳɱ������Ӧ��, Zephyr ����̫����Դ��. ֱ�۸о�, �ʺ�ʹ�� Zephyr ����Ŀ, �� RT-thread ��Ŀ������, ���������������Ƕ��ʽӦ��, ��ֱ��ʹ�õ���������ģ��򷽰�, �����ϱ�֤�˿ɿ��Ժ��ȶ���, ������Ŀ�Ŀ�������.</p>
+<h1 id="6-��¼"><a href="#6-��¼" class="headerlink" title="6. ��¼"></a>6. ��¼</h1><p>ʹ���������������¼��</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">west flash</span><br></pre></td></tr></table></figure>
+
+<p>��ʱ, ����ʾδ��װ openocd ��δ��ȷ���� openocd �Ļ�������.<br>����� <a href="https://openocd.org/pages/getting-openocd.html">OpenOCD ����</a> ����Դ���룬<br>windows��װ�汾�� <a href="https://github.com/openocd-org/openocd/releases/tag/v0.12.0">OpenOCD �� GitHub ҳ��</a> �������ص���Ӧ�汾��<br>����:  <a href="https://github.com/openocd-org/openocd/releases/download/v0.12.0/openocd-v0.12.0-i686-w64-mingw32.tar.gz">Windows �汾�� OpenOCD</a>��<br>���ز���ѹ�󣬽��� bin Ŀ¼���ӵ��������� PATH �С�</p>
+<p>����������������µ�������ʾ���������������������Բ��ԣ�</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">openocd</span><br><span class="line"><span class="comment">REM ������� Open On-Chip Debugger ... �� openocd ��װ�ɹ�</span></span><br></pre></td></tr></table></figure>
+
+<p>Ȼ���ٴγ�����¼�͵��ԣ�</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">west flash</span><br><span class="line">west debug   </span><br><span class="line"><span class="comment">REM ���� (gdb) ����ģʽ</span></span><br></pre></td></tr></table></figure>
+
+<p>�����Ȼ�������⣬�������ʾ��Ϣ��ϸ���Ӳ�����Ӻ�ϵͳ���á����磬���ȼ����¼����Ȼ��鿴��⵽��Ӳ����ѹ�ȡ����������Ӳ�����죬�޷�һһ������</p>
+<h1 id="7-�-Zephyr-��IDE"><a href="#7-�-Zephyr-��IDE" class="headerlink" title="7. � Zephyr ��IDE"></a>7. � Zephyr ��IDE</h1><p>�ο� <a href="https://docs.zephyrproject.org/3.2.0/develop/tools/coccinelle.html">Coccinelle</a><br>�ο� <a href="https://docs.zephyrproject.org/3.2.0/develop/tools/platformio/index.html">Using with PlatformIO</a><br>�ο� <a href="https://github.com/zephyrproject-rtos/eclipse-plugin"> Zephyr Eclipse ���</a><br>������������, �Ƿ����, �Ƿ�����ʹ��, ����.</p>
+<h1 id="�ο�����"><a href="#�ο�����" class="headerlink" title="�ο�����"></a>�ο�����</h1><ul>
+<li><a href="https://docs.zephyrproject.org/3.1.0/develop/getting_started/index.html">Zephyr Getting Started Guide</a></li>
+<li><a href="https://chat.openai.com/">ChatGPT - Zephyr Project �п��ӻ���IDE��</a></li>
+</ul>
+<hr>
+<p><em><strong>ԭ���� <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>embedded</category>
+      </categories>
+      <tags>
+        <tag>embedded</tag>
+        <tag>zephyr</tag>
+      </tags>
+  </entry>
 </search>
