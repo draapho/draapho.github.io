@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://draapho.github.io/images/1611/pycharm1.png">
 <meta property="og:image" content="https://draapho.github.io/images/1611/pycharm2.png">
 <meta property="article:published_time" content="2016-10-15T13:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-27T11:42:13.709Z">
+<meta property="article:modified_time" content="2023-06-09T08:33:36.584Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="windows">
 <meta property="article:tag" content="eclipse">
@@ -289,7 +289,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-27 21:42:13" itemprop="dateModified" datetime="2021-05-27T21:42:13+10:00">2021-05-27</time>
+        <time title="Modified: 2023-06-09 18:33:36" itemprop="dateModified" datetime="2023-06-09T18:33:36+10:00">2023-06-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -443,7 +443,7 @@
 <li>Group: <code>PyQt-cmd</code>. 用默认值 <code>External Tools</code> 也行. Group名称会出现在右键菜单里, 故单独分了个组.</li>
 <li>Description: 爱填不填.</li>
 <li>Program, 这是重点! 填入designer.exe的绝对路径. <code>xxx\Python38-32\Lib\site-packages\qt5_applications\Qt\bin\designer.exe</code></li>
-<li>Working directory: <code>$FileDir</code>, 工作路径设置为文件所在为止</li>
+<li>Working directory: <code>$FileDir$</code>, 工作路径设置为文件所在为止</li>
 <li><code>OK</code> 保存配置. 点击第5步的加号, 继续增加配置.</li>
 </ul>
 </li>
@@ -451,8 +451,8 @@
 <li>依样画葫芦, 填写 Name, Group, Description. 以下配置才是重点:</li>
 <li>Program: 填入python.exe的绝对路径 <code>xxx\Python38-32\python.exe</code>, 其实直接填入 <code>python3.exe</code> 也可以, 因为已经加入环境变量了.</li>
 <li>Arguments: <code>-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</code></li>
-<li>Working directory: <code>$FileDir</code>, 工作路径设置为文件所在为止</li>
-<li><code>OK</code>保持. 整个配置的意思就是在<code>$FileDir</code>目录下, 运行指令 <code>python -m PyQt5.uic.pyuic gui_file.ui -o gui.file.py</code></li>
+<li>Working directory: <code>$FileDir$</code>, 工作路径设置为文件所在为止</li>
+<li><code>OK</code>保持. 整个配置的意思就是在<code>$FileDir$</code>目录下, 运行指令 <code>python -m PyQt5.uic.pyuic gui_file.ui -o gui.file.py</code></li>
 </ul>
 </li>
 <li>一套简易的环境就搭好了, 但PyCharm这边还需要配置 <code>Python Interpreter</code>, 这是用来维护不同项目的Python虚拟环境用的.</li>

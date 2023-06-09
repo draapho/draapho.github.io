@@ -2374,7 +2374,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>Group: <code>PyQt-cmd</code>. 用默认值 <code>External Tools</code> 也行. Group名称会出现在右键菜单里, 故单独分了个组.</li>
 <li>Description: 爱填不填.</li>
 <li>Program, 这是重点! 填入designer.exe的绝对路径. <code>xxx\Python38-32\Lib\site-packages\qt5_applications\Qt\bin\designer.exe</code></li>
-<li>Working directory: <code>$FileDir</code>, 工作路径设置为文件所在为止</li>
+<li>Working directory: <code>$FileDir$</code>, 工作路径设置为文件所在为止</li>
 <li><code>OK</code> 保存配置. 点击第5步的加号, 继续增加配置.</li>
 </ul>
 </li>
@@ -2382,8 +2382,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>依样画葫芦, 填写 Name, Group, Description. 以下配置才是重点:</li>
 <li>Program: 填入python.exe的绝对路径 <code>xxx\Python38-32\python.exe</code>, 其实直接填入 <code>python3.exe</code> 也可以, 因为已经加入环境变量了.</li>
 <li>Arguments: <code>-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</code></li>
-<li>Working directory: <code>$FileDir</code>, 工作路径设置为文件所在为止</li>
-<li><code>OK</code>保持. 整个配置的意思就是在<code>$FileDir</code>目录下, 运行指令 <code>python -m PyQt5.uic.pyuic gui_file.ui -o gui.file.py</code></li>
+<li>Working directory: <code>$FileDir$</code>, 工作路径设置为文件所在为止</li>
+<li><code>OK</code>保持. 整个配置的意思就是在<code>$FileDir$</code>目录下, 运行指令 <code>python -m PyQt5.uic.pyuic gui_file.ui -o gui.file.py</code></li>
 </ul>
 </li>
 <li>一套简易的环境就搭好了, 但PyCharm这边还需要配置 <code>Python Interpreter</code>, 这是用来维护不同项目的Python虚拟环境用的.</li>
@@ -12306,7 +12306,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li><a href="https://getquicker.net/Sharedaction?code=dd54f738-eda1-4a28-5cb2-08d8bb6e7688">72. EVER批图</a></li>
 <li><a href="https://getquicker.net/Sharedaction?code=19fe14e5-ff6d-46fb-efcb-08d72c3bd710">73. EVER重命名</a></li>
-<li><a href="https://getquicker.net/Sharedaction?code=3eb7c0ca-9f91-4be5-623b-08d795644eb1">74. 输入纠正</a><ul>
+<li><a href="https://getquicker.net/Sharedaction?code=d3f2c98f-a37f-4c67-aa72-08db66a6be43">74. 输入纠正</a><ul>
 <li>配置快捷键 <code>Alt+回车</code></li>
 </ul>
 </li>
