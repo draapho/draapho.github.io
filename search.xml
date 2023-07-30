@@ -11916,9 +11916,9 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <url>/2019/06/03/1906-rubik/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>此文目标: 用最少的情况分类和记忆公式, 慢慢的还原三阶魔方.<br>底层为白色, 顶层为黄色. 四个面的中心点颜色是相对固定的,是重要的参考点.</p>
 <p>速记符和手法:<br><img src="https://draapho.github.io/images/1906/0_1.png" alt="手法"></p>
-<h1 id="一-底层十字"><a href="#一-底层十字" class="headerlink" title="一:底层十字"></a>一:底层十字</h1><p>方法: 现在顶部黄色弄出白色十字小白花, 然后第二层中心颜色对齐</p>
+<h1 id="一-底棱归位"><a href="#一-底棱归位" class="headerlink" title="一:底棱归位"></a>一:底棱归位</h1><p>方法: 先在顶部黄色弄出白色十字小白花, 然后转动顶层对齐侧面中心色, 再将白色翻转到底部. 重复每个侧面, 即可完成底棱归位, 底部为白色十字.</p>
 <p><img src="https://draapho.github.io/images/1906/1_1.png" alt="步骤一"></p>
-<h1 id="二-底角归位"><a href="#二-底角归位" class="headerlink" title="二:底角归位"></a>二:底角归位</h1><p>方法: 底角三色放到右侧顶角处, 反复一次或多次<code>RUR’</code>即可</p>
+<h1 id="二-底角归位"><a href="#二-底角归位" class="headerlink" title="二:底角归位"></a>二:底角归位</h1><p>方法1: 右侧顶角处尽量放置<code>右面白色</code>的方块. 反复一次或多次<code>RUR’</code>即可.<br>方法2: 左侧顶角处尽量放置<code>左面白色</code>的方块. 反复一次或多次<code>L’U’L</code>即可.<br>两者可以灵活搭配使用.</p>
 <p><img src="https://draapho.github.io/images/1906/2_1.png" alt="步骤二"></p>
 <h1 id="三-中棱归位"><a href="#三-中棱归位" class="headerlink" title="三:中棱归位"></a>三:中棱归位</h1><p>方法: 右侧同色倒T字, <code>右上交替, 顶到前, 五逆四顺; 顶到后, 五顺四逆</code>.</p>
 <p><img src="https://draapho.github.io/images/1906/3_1.png" alt="步骤三"></p>
@@ -11939,10 +11939,14 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <h1 id="六-顶角归位"><a href="#六-顶角归位" class="headerlink" title="六:顶角归位"></a>六:顶角归位</h1><p>起点: 左侧图形, 左上同前色; 前面图形, 左上异色, 左中最好同色.</p>
 <p><img src="https://draapho.github.io/images/1906/6_1.png" alt="步骤六1"></p>
 <p>方法: <code>LF’LB2 L’FLB2 L2</code></p>
+<p>或者, 找到位置后, 将左侧转到前面.<br>方法变为: <code>FR’FL2 F’RFL2 F2</code></p>
 <p><img src="https://draapho.github.io/images/1906/6_2.png" alt="步骤六2"></p>
 <h1 id="七-顶棱归位"><a href="#七-顶棱归位" class="headerlink" title="七:顶棱归位"></a>七:顶棱归位</h1><p>起点: 背面同色.<br>方法: <code>RU’ RURU RU’ R’U’R2</code> 顶层的三个中棱顺时针旋转, 重复到三色归位.</p>
 <p><img src="https://draapho.github.io/images/1906/7_1.png" alt="步骤七"></p>
 <h1 id="速记符"><a href="#速记符" class="headerlink" title="速记符"></a>速记符</h1><p><img src="https://draapho.github.io/images/1906/0_1.png" alt="手法"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料:"></a>参考资料:</h1><ul>
+<li><a href="http://www.mf100.org/beginner.htm">三阶魔方入门教程</a></li>
+</ul>
 <hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
