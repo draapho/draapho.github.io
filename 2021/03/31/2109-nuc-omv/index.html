@@ -29,12 +29,14 @@
 <meta property="og:site_name" content="DRA&amp;PHO">
 <meta property="og:description" content="基于淘汰了的NUC5i5, 搭建家庭NAS">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/2109/zerotier.png">
 <meta property="article:published_time" content="2021-03-30T13:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:modified_time" content="2024-07-03T08:58:51.456Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="OMV">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/2109/zerotier.png">
 
 
 <link rel="canonical" href="https://draapho.github.io/2021/03/31/2109-nuc-omv/">
@@ -284,7 +286,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-08-04 01:25:26" itemprop="dateModified" datetime="2023-08-04T01:25:26+10:00">2023-08-04</time>
+        <time title="Modified: 2024-07-03 18:58:51" itemprop="dateModified" datetime="2024-07-03T18:58:51+10:00">2024-07-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -481,9 +483,12 @@
 </li>
 </ul>
 <h2 id="zerotier-外网访问"><a href="#zerotier-外网访问" class="headerlink" title="zerotier 外网访问"></a>zerotier 外网访问</h2><ul>
-<li>zerotier 建议直接在NAS主机运行, 不要用docker.</li>
-<li>图文教程, 参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/RadiantJeral/article/details/104150070">ZeroTier 的安装与使用</a>.</li>
-<li>安装指南参考<a target="_blank" rel="noopener" href="https://www.zerotier.com/download/#downloadLinux">zerotier官网</a><ul>
+<li><p>zerotier 建议直接在NAS主机运行, 不要用docker.</p>
+</li>
+<li><p>图文教程, 参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/RadiantJeral/article/details/104150070">ZeroTier 的安装与使用</a>.</p>
+</li>
+<li><p>安装指南参考<a target="_blank" rel="noopener" href="https://www.zerotier.com/download/#downloadLinux">zerotier官网</a></p>
+<ul>
 <li>先zerotier官网创建一个账号, <code>Create A Network</code>, 获取<code>Network ID</code></li>
 <li>安装curl <code>sudo apt install curl</code></li>
 <li>安装zerotier <code>curl -s https://install.zerotier.com | sudo bash</code><ul>
@@ -507,10 +512,25 @@
 <li>安装完成.</li>
 </ul>
 </li>
-<li>我这边, 一共试了三到四次, 总是失败. 最后发现是路由器的问题.<ul>
+<li><p>我这边, 一共试了三到四次, 总是失败. 最后发现是路由器的问题.</p>
+<ul>
 <li><code>Amplifi</code>需要关闭<code>硬件NAT</code>功能, 有线连接的设备才能正常使用第三方VPN.</li>
 <li>参考资料 <a target="_blank" rel="noopener" href="https://community.amplifi.com/topic/3916/unable-to-connect-to-my-work-vpn">UNABLE TO CONNECT TO MY WORK VPN</a></li>
 <li>把折腾过程也记录一下, 仅供参考.</li>
+</ul>
+</li>
+<li><p>其他用法见下图, 并参考官网说明</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://docs.zerotier.com/route-between-phys-and-virt/">Route between ZeroTier and Physical Networks</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.zerotier.com/integrating-physical-networks/">Integrating with Physical Networks</a></p>
+</li>
+<li><p>支持openWRT的路由器可以按照 zerotier, 是最灵活的使用方式.</p>
+</li>
+<li><p>zerotier客户端 allowDefault=1, 允许覆写默认路由; allowGlobal=1, 允许全球IP转发.</p>
+</li>
+<li><p><img src="https://draapho.github.io/images/2109/zerotier.png" alt="zerotier"></p>
+</li>
 </ul>
 </li>
 </ul>
