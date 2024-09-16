@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="波浪理论资料整理.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="波浪理论简述">
+<meta property="og:url" content="https://draapho.github.io/2019/04/26/1903-wave-principle/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="波浪理论资料整理.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1903/2-14.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/2-15.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/3-14.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-5.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-8.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/2-10.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-11.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-15.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/2-6.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/4-1.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/4-6.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/4-3.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-23.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-26.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-30.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-42.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-44.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-47.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/1-48.png">
+<meta property="og:image" content="https://draapho.github.io/images/1903/4-12.png">
+<meta property="article:published_time" content="2019-04-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="market">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1903/2-14.png">
+
+
+<link rel="canonical" href="https://draapho.github.io/2019/04/26/1903-wave-principle/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>波浪理论简述 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A2%E6%B5%AA%E7%90%86%E8%AE%BA%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">波浪理论特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A2%E6%B5%AA%E4%B8%AA%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">波浪个性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A2%E6%B5%AA%E5%88%86%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">波浪分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A9%B1%E5%8A%A8%E6%B5%AA%E7%89%B9%E6%80%A7"><span class="nav-number">4.1.</span> <span class="nav-text">驱动浪特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E6%B5%AA%E7%89%B9%E6%80%A7"><span class="nav-number">4.2.</span> <span class="nav-text">调整浪特性</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2019/04/26/1903-wave-principle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          波浪理论简述
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-26T00:00:00+08:00">2019-04-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/market/" itemprop="url" rel="index"><span itemprop="name">market</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">波浪理论资料整理.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2019/03/26/1902-trading-rule/">交易市场思考</a></li>
+<li><a href="https://draapho.github.io/2019/04/26/1903-wave-principle/">波浪理论简述</a></li>
+<li><a href="https://draapho.github.io/2019/06/25/1907-investor/">你将不会成为一个伟大的投资人</a></li>
+<li><a href="https://draapho.github.io/2020/02/09/2001-exploration/">交易市场阶段性探索心得</a></li>
+<li><a href="https://draapho.github.io/2020/08/06/2005-wave-mnemonic/">波浪理论口诀</a></li>
+<li><a href="https://draapho.github.io/2020/08/07/2006-wave-thinking/">波浪理论感悟</a></li>
+<li><a href="https://draapho.github.io/2021/02/03/2102-share-skill/">交易市场思路</a></li>
+</ul>
+<h1 id="波浪理论特性"><a href="#波浪理论特性" class="headerlink" title="波浪理论特性"></a>波浪理论特性</h1><ul>
+<li>价格和速度构成的形态为主, 结合价格比例关系, 时间为辅的技术分析理论.</li>
+<li>将数理引入了股市技术分析, 即斐波那契数列和黄金比率φ.</li>
+<li><strong>对波浪形态进行了全分类, 并将不同波浪的特性进行了定性描述.</strong></li>
+<li><strong>缺点1: 浓重的主观预测思维, 容易去做抄底逃顶操作, 而非随势而动</strong></li>
+<li><strong>缺点2: 延长浪概念以及时间跨度的随意性, 导致级别混乱, 千人千浪.</strong></li>
+<li>因为千人千浪, 此理论才可能延续至今.</li>
+</ul>
+<h1 id="波浪个性"><a href="#波浪个性" class="headerlink" title="波浪个性"></a>波浪个性</h1><ul>
+<li>波浪个性的作用<ul>
+<li>波浪个性可以预先告诉分析人员下一个波浪类型.</li>
+<li>波浪个性有时可以帮助判定市场目前所处的位置.</li>
+<li>大级别K线图中, 如果有几种可行的数浪结果。那么波浪个性可以辅助判定优选数浪方式.</li>
+</ul>
+</li>
+<li><strong>第一浪</strong><ul>
+<li>一半的第一浪是打底的过程, 常常被浪2大幅调整<ul>
+<li>与熊市反弹相比, 技术上结构特征更明显 (子波五浪特征, 引导倾斜三角形)</li>
+<li>成交量和广泛性轻度增加.</li>
+</ul>
+</li>
+<li>另一半的第一浪会从先前调整浪形成的底部直接涨起来.<ul>
+<li>这样的一浪一定是推动浪结构, 随后的二浪回撤也很小</li>
+</ul>
+</li>
+<li>大多数人确信大趋势向下, 认为多了一次做空的反弹. 因此大量的卖空显而易见.</li>
+<li>常常伴随着突破缺口</li>
+</ul>
+</li>
+<li><strong>第二浪</strong><ul>
+<li>第二浪常常回撤掉第一浪的大部分.</li>
+<li>第二浪往往以成交量萎缩, 价格波幅减小结束, 表明卖压已经消失.</li>
+</ul>
+</li>
+<li><strong>第三浪</strong><ul>
+<li>第三浪令人惊心动魄, 走势强劲, 最强的广泛性. 必定是结构清晰的子波五浪推动.</li>
+<li>突破, 持续跳空, 成交量放大, 异常的广泛性, 趋势性的价格运动.</li>
+<li>常常是序列中最长的浪, 伴随着最强势的中继缺口.</li>
+<li>道氏理论趋势的相互印证</li>
+<li>第三浪以及B浪是最有价值的数浪线索</li>
+</ul>
+</li>
+<li><strong>第四浪</strong><ul>
+<li>第四浪的深度和形态是可预测的</li>
+<li>其形态一般与二浪不同, 多呈现横向走势(即二浪四浪交替原则)</li>
+<li>如果三浪5子波延长, 那么四浪陡直回撤可能性就大增(见5浪延长部分)</li>
+<li>表现不佳的股票在第四浪做头并开始下跌</li>
+</ul>
+</li>
+<li><strong>第五浪</strong><ul>
+<li>广泛性降低, 成交量减少.</li>
+<li>通常, 五浪的价格变化速度和幅度都比三浪要低, 多半伴随着衰竭缺口.</li>
+<li>尽管广泛性逐渐变窄, 投资者的乐观情绪却异常高涨.</li>
+<li>如果成交量和速度没有减弱, 可以考虑第五浪延长.</li>
+<li>股票市场, 从未再顶部达到最高加速度! 即便是五浪延长, 五浪5也必然存在速度衰竭现象.<br><img src="https://draapho.github.io/images/1903/2-14.png" alt="图2-14"></li>
+</ul>
+</li>
+<li><strong>A浪</strong><ul>
+<li>A浪的结构为整个调整浪下了调子</li>
+<li>五浪结构的A浪意味着锯齿型调整, B浪反弹不会太强势.</li>
+<li>三浪结构的A浪意味着平台型或三角型调整, B浪反弹可能创新高.</li>
+<li>大多数人认为这只是一次正常调整, 蜂拥买入</li>
+</ul>
+</li>
+<li><strong>B浪</strong><ul>
+<li>B浪是赝品, 假牛市. 情绪化的涨势</li>
+<li>技术上也极少是强势，而且注定要被浪C完全回撤。</li>
+<li>严重的分化, 走势曲折, 广泛性差, 只集中于少数股票, 指数之间无法相互印证</li>
+<li>小级别的B浪, 成交量通常逐渐萎缩.</li>
+<li><strong>超大级别的B浪, 特别是B浪c, 成交量会放大, 股票参与的广泛性也会增加, 会更像是牛市</strong></li>
+<li>X浪的性质和B浪相同.</li>
+</ul>
+</li>
+<li><strong>C浪</strong><ul>
+<li>摧毁性极强, 具有第三浪的大部分属性. 恐惧控制了一切.</li>
+<li>C浪持续时间长, 且广泛性强</li>
+<li><strong>大熊市中, 调整浪中的上升C浪强劲有力, 很容易被误认为新的涨势开始. 需要注意识别区分.</strong></li>
+</ul>
+</li>
+<li><strong>D浪</strong><ul>
+<li>往往伴随着成交量的放大, 性质和B浪类似, 是假牛市.</li>
+<li>参与上涨的股票范围很窄, 部分股票却大出风头, 市盈率高的离谱. 腾落指标早早做头.</li>
+</ul>
+</li>
+<li><strong>E浪</strong><ul>
+<li>E浪的参与心理同第五浪一样情绪化. 容易受到”消息面”的影响.</li>
+<li>这些消息连同<strong>E浪将要对三角型调整浪的边界线形成最后的假突破.</strong></li>
+<li>最后, 在大部分人的一致看空中迎来趋势的大反转.<br><img src="https://draapho.github.io/images/1903/2-15.png" alt="图2-15"></li>
+</ul>
+</li>
+</ul>
+<h1 id="波浪分类"><a href="#波浪分类" class="headerlink" title="波浪分类"></a>波浪分类</h1><p><img src="https://draapho.github.io/images/1903/3-14.png" alt="图3-14"></p>
+<ul>
+<li>驱动浪(motive):<ul>
+<li><strong>推动浪</strong>(impulse): 多数驱动浪以推动浪的形态出现.<ul>
+<li>小级别形态为五浪推动, 使用数字12345标注.</li>
+<li><strong>浪4最低点高于浪1最高点, 两者无重叠价位.</strong> (少数市场例外, 如期货市场)</li>
+<li><strong>浪3不是最短的子浪</strong>, 即要么浪1最短, 要么浪5最短.</li>
+<li><strong>浪1,3,5三者之一通常会产生延长浪.</strong>, 能事前判断的也就浪三延长.</li>
+<li><strong>浪2和浪4的简单/复杂形态几乎总是交替的.</strong> 一个调整浪属于锯齿型(简单), 另一个则为平台/三级/复合型(复杂)</li>
+<li>推动浪通常可用平行线划出通道. <strong>5浪经常对通道翻越/假突破后结束.</strong></li>
+</ul>
+</li>
+<li>延长浪:<ul>
+<li><strong>延长浪通常只作用于1,3,5中的一个</strong>, 为将来的各个波浪长度提供了一定的预测指南.</li>
+<li><strong>若1浪和3浪长度大致相等, 则5浪就可能成为一个延长的巨浪</strong></li>
+<li><strong>股市中, 最为常见的就是3浪延长, 此时5浪必然简单, 且与1浪类似.</strong></li>
+<li>另有一种几乎<strong>等长等速的九浪模式</strong>, 很难区分哪浪延长了.</li>
+</ul>
+</li>
+<li><strong>倾斜三角型</strong>(diagonal triangle): 少见的变体, 也属于驱动浪.<ul>
+<li>引导倾斜三角型, 5-3-5-3-5浪形, 主要出现在浪1和锯齿型调整浪的浪A.</li>
+<li>终结倾斜三角型, 3-3-3-3-3浪形, 主要出现在浪5, 偶见于浪C.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>调整浪</strong>(corrective): 三浪调整或其变体.<ul>
+<li><strong>与大级别趋势反向的最初5浪永远不是调整浪的结束, 而仅仅是调整浪的一部分.</strong></li>
+<li><strong>锯齿型</strong>(zigzag), 5-3-5浪形, 最为简单的调整浪, 使用ABC标注.<ul>
+<li>单锯齿型, 双锯齿型, 三锯齿型</li>
+</ul>
+</li>
+<li><strong>平台型</strong>(flat), 3-3-5浪形, 使用ABC标注.<ul>
+<li>普通平台型, 扩散平台型, 顺势平台型</li>
+</ul>
+</li>
+<li><strong>三角型</strong>(triangle), 3-3-3-3-3浪形, 使用ABCDE标示<ul>
+<li>三种收缩类型: 上升三角型, 下降三角型, 对称三角型.</li>
+<li>一种扩散类型: 反对称三角型.</li>
+</ul>
+</li>
+<li><strong>复合型</strong>(combination) 引入WXYXZ标示<ul>
+<li>双重三浪, 三重三浪.</li>
+</ul>
+</li>
+<li><strong>调整浪通常在同级别驱动浪的浪4范围内结束</strong></li>
+<li><strong>调整浪的陡直/横向, 简单/复杂形态几乎总是交替出现</strong>, 即大级别中2浪调整和4浪调整通常是陡/横, 简/繁交替的.</li>
+</ul>
+</li>
+<li>作用浪(action): 或顺势浪, 与大一级别波浪同向运动的波浪. 135ac属于作用浪<ul>
+<li>多数作用浪由小一级别的驱动浪构成, 即五浪.</li>
+<li>少数作用浪由小一级别的调整浪构成, 即三浪或其变体.</li>
+</ul>
+</li>
+<li>反作用浪(reaction): 或逆势浪, 与大一级别波浪反向运动的波浪. 24b属于反作用浪</li>
+</ul>
+<h2 id="驱动浪特性"><a href="#驱动浪特性" class="headerlink" title="驱动浪特性"></a>驱动浪特性</h2><ul>
+<li>重要规则如下:<ul>
+<li><strong>浪4不进入浪1领域</strong></li>
+<li><strong>1,3,5浪中, 浪3永远不是最短的一浪.</strong></li>
+<li><strong>1,3,5浪中的某一浪通常会延长, 另两浪在时间和幅度上趋向等同(其次是0.618倍关系)</strong></li>
+</ul>
+</li>
+<li>交替原则<ul>
+<li><strong>调整浪的简/繁, 陡/平交替.</strong></li>
+<li>倾斜三角型中的子浪2和4不会有交替性, 常见两者都是锯齿型调整浪.</li>
+<li><strong>若推动浪的3浪延长, 则5浪时简单浪形, 和1浪相似.</strong></li>
+<li><strong>若推动浪的1,3浪相似, 则5浪可能延长.</strong></li>
+</ul>
+</li>
+<li>成交量<ul>
+<li><strong>成交量的最低点常常与转折点同时发生</strong></li>
+<li><strong>上升过程中, 调整阶段后期成交量的萎缩通常表示卖压下降.</strong></li>
+<li>上升过程中, 第五浪的成交量与第三浪持平或放大, 且第一浪和第三浪长度基本相等, 那么可以预期五浪延长.</li>
+</ul>
+</li>
+<li>延长浪<ul>
+<li>浪3不是最短, 浪4不进入浪1领域 (图1-5, 图1-6)</li>
+<li>正确的数浪: 若1,2浪确定后, 走出的3浪过短或与2浪重叠, 那么多半意味着延长的3浪正在形成.</li>
+<li>去除延长浪后, 另两浪在时间和幅度上趋向等同(其次是0.618倍关系)<br><img src="https://draapho.github.io/images/1903/1-5.png" alt="图1-5"><br><img src="https://draapho.github.io/images/1903/1-8.png" alt="图1-8"></li>
+</ul>
+</li>
+<li>趋势的结束:<ul>
+<li><strong>5浪结束通常要包含小级别的推动子浪或终结倾斜三角型来确定.</strong></li>
+<li>5浪翻越<ul>
+<li>若成交量不足, 多半5浪无法翻越123浪构成的平行通道</li>
+<li>若成交量放大, 5浪容易突破平行通道</li>
+<li>若浪4或浪5中的第二浪跌破通道, 往往预示着浪5会翻越平行通道 (图2-10)<br><img src="https://draapho.github.io/images/1903/2-10.png" alt="图2-10"></li>
+</ul>
+</li>
+<li>5浪失败/衰竭: 第5浪未能超过3浪最高点的情况. (图1-11)<br><img src="https://draapho.github.io/images/1903/1-11.png" alt="图1-11"></li>
+<li>终结倾斜三角型 (图1-15)<ul>
+<li>终结倾斜三角型, 3-3-3-3-3浪形, 主要出现在浪5, 偶见于浪C.</li>
+<li><strong>形态为收敛的楔型, 其子浪5经常对趋势线有假突破(翻越)</strong><br><img src="https://draapho.github.io/images/1903/1-15.png" alt="图1-15"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>5浪延长<ul>
+<li><strong>5浪延长的判定</strong><ul>
+<li>在三浪进入全新的价格领域后, 更容易出现五浪延长的情况</li>
+<li>如果一三浪等长, 可以预测第五浪延长很可能发生.</li>
+<li>如果四浪呈现平台型, 而一三浪没有延长, 第五浪延长高概率发生.</li>
+<li>如果第五浪的成交量与第三浪持平或放大, 那么第五浪延长就有效.</li>
+<li>少数情况, 三浪五浪同时延长, 那么成交量是判断延长是否有效的关键.</li>
+</ul>
+</li>
+<li>5浪延长后的市场行为<ul>
+<li><strong>如果第五浪是延长浪, 那么继而发生的调整将非常剧烈, 并会在五浪2的最低点附近找到支撑.</strong><ul>
+<li>有时整个调整浪(ABC)会在五浪2处结束. 这种调整浪大多是5-3-5锯齿型.</li>
+<li>有时浪A就会直接打到五浪2处, 随后浪B强势反弹, 即双重回撤.</li>
+</ul>
+</li>
+<li><strong>5浪延长的双重回撤</strong> (图2-7)<ul>
+<li><strong>若第五浪延长, 调整浪A或ABC会极大概率地会回撤到延长五浪的子浪2底部.</strong></li>
+<li><strong>通常是浪A三波直接陡直下跌地下跌到位, 随后的调整浪B大概率还会反弹到五浪顶部区域甚至新高.</strong></li>
+<li>但也可能需要锯齿型五浪甚至双锯齿型ABC才能下跌到位. 那样B浪只能是一个弱反弹.</li>
+<li><strong>无论如何, 浪C必将形成迅速的5浪下杀, 很可能跌至先前牛市中的第5浪起点, 即第4浪区域.</strong></li>
+<li>整个ABC调整浪大多是扩散的3-3-5平台型.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>回撤深度<ul>
+<li>一般情况, 调整浪通常在同级别驱动浪的浪4范围内结束</li>
+<li><strong>若第一浪延长, 调整浪abc通常回撤到同级别驱动浪的浪2底部 (图2-6)</strong></li>
+<li><strong>若第五浪延长, 调整浪a通常陡直的回撤到延长五浪的浪2底部 (图2-7)</strong></li>
+<li><strong>平台型或三角型调整浪, 特别是跟在延长浪后面的, 通常只以微小的幅度跌入三浪4或一浪4的领域.</strong></li>
+<li><strong>当第二浪是之字型调整时, 有时会跌入到一浪2的区域. 双重底有时就是这样形成的.</strong><br><img src="https://draapho.github.io/images/1903/2-6.png" alt="图2-6"></li>
+<li>陡直调整浪经常回撤掉先前波浪的0.5或0.618 (图4-1)<ul>
+<li>多发生在浪二对浪一的回撤, 锯齿型浪B的回撤.</li>
+</ul>
+</li>
+<li>横向调整浪经常回撤掉先前波浪的0.382 (图4-2)<br><img src="https://draapho.github.io/images/1903/4-1.png" alt="图4-1"></li>
+</ul>
+</li>
+<li>驱动浪倍数关系<ul>
+<li>一浪:三浪 = 1:1.618 或 1:2.618</li>
+<li>浪四常常把整个趋势黄金分割, 这个点可以是浪四的起点, 终点或极限逆势点. (图4-6, 图4-7)<br><img src="https://draapho.github.io/images/1903/4-6.png" alt="图4-6"></li>
+<li>三浪延长时, 一浪:五浪 = 1:1 或 1:0.618 (图4-3)</li>
+<li>五浪延长时, 一+三浪:五浪 = 1:1.618 (图4-4)</li>
+<li>一浪延长时, 一浪:三+五浪 = 1:0.618 (图4-5)<br><img src="https://draapho.github.io/images/1903/4-3.png" alt="图4-3"></li>
+</ul>
+</li>
+</ul>
+<h2 id="调整浪特性"><a href="#调整浪特性" class="headerlink" title="调整浪特性"></a>调整浪特性</h2><ul>
+<li>重要规则如下:<ul>
+<li>调整浪不会是五浪, 只有驱动浪才会构成五浪. 因此与趋势反向运动的最初五浪不是调整浪的结束, 而仅是调整浪的一部分.</li>
+<li>各种调整过程呈现两种风格: 陡直(sharp)调整 和 横向(sideways)调整, 多交替出现.</li>
+</ul>
+</li>
+<li>锯齿型(5-3-5)<ul>
+<li>单锯齿型调整浪是一种简单的三浪模式,<ul>
+<li>标示为A-B-C, 内部子浪为5-3-5 (图1-23)<br><img src="https://draapho.github.io/images/1903/1-23.png" alt="图1-23"></li>
+</ul>
+</li>
+<li>双重/三重锯齿型调整浪: 由2-3个单锯齿型调整浪, 通过一个三浪结构连接的调整浪, 属于复合型.<ul>
+<li>双重标示为 W-X-Y, 内部子浪为(5-3-5)-3-(5-3-5), 呈现为4波下跌. 三重标示为 W-X-Y-X-Z. (图1-26)<br><img src="https://draapho.github.io/images/1903/1-26.png" alt="图1-26"></li>
+</ul>
+</li>
+<li>当第一个锯齿型调整浪没有达到正常目标时, 容易发生两次, 至多三次的锯齿型调整浪. <strong>用以补足幅度</strong></li>
+</ul>
+</li>
+<li>平台型(3-3-5)<ul>
+<li>标示为A-B-C, 内部子浪为3-3-5</li>
+<li>平台型往往出现在趋势强劲有力的时候, 多出现在第四浪. 内在趋势越强, 平台型调整浪就越短暂.</li>
+<li><strong>平台型的前面或后面大概率出现延长浪</strong><ul>
+<li>三浪延长, 则四浪大概率走平台型调整浪.</li>
+<li>如果一三浪没有延长, 四浪走出了平台型调整浪, 则五浪大概率延长.</li>
+<li>五浪延长后, 通常走平台型调整浪, 并产生双回撤现象.</li>
+</ul>
+</li>
+<li>规则平台型 (图1-30)<ul>
+<li>作用浪A, 由于缺乏足够的破坏力, 只走出了3浪.</li>
+<li>作用浪B, 同样缺乏足够的修复力, 3浪之后在浪A起点附近结束</li>
+<li>作用浪C, 通常只在略微超过浪A终点的位置结束.<br><img src="https://draapho.github.io/images/1903/1-30.png" alt="图1-30"></li>
+</ul>
+</li>
+<li>扩散平台型: B浪超过A浪起点, C浪超过远远超过A浪终点.</li>
+<li>顺势平台型: B浪超过A浪起点, C浪不能走完全程, 不及A浪终点.<ul>
+<li>形态上有点类似于推动浪的衰竭, 但本质是趋势推动力强劲!</li>
+<li>如果B浪走成了5浪, 那就不是顺势平台型, 很可能是大级别的第一个上升浪!</li>
+<li><strong>顺势平台型非常少见, 不建议提前标注这种类型!</strong> (顺势三角型较为常见)</li>
+</ul>
+</li>
+<li>双重平台型, 属于复合型.</li>
+</ul>
+</li>
+<li>三角型(3-3-3-3-3) (图1-42)<ul>
+<li>标示为A-B-C-D-E, 内部子浪为3-3-3-3-3.</li>
+<li>连接A,C终点, 以及B,D终点, 就会是一个三角型调整浪. <strong>浪E可能未达或超过A-C线.</strong><br><img src="https://draapho.github.io/images/1903/1-42.png" alt="图1-42"></li>
+<li>对称三角型: 上下边共同收缩</li>
+<li>下降三角型: 上边收缩快, 下边基本水平.</li>
+<li>上升三角型: 上边基本水平, 下边收缩快.</li>
+<li>顺势三角型: B浪超过A浪的起点, 即与主趋势方向一致. (形态上和终结倾斜三角型是类似的)</li>
+<li>扩散三角型: 上下边共同扩散. 和扩散平台型的主要区别在浪C(5浪/3浪)</li>
+<li><strong>三角型调整浪中, 大多数子浪是锯齿型调整浪, 但子浪中的一个浪会比其他子浪复杂</strong><ul>
+<li><strong>复杂子浪(通常是C浪)会呈现出: 规则平台型, 扩散平台型或多重锯齿型的样子.</strong></li>
+<li><strong>少数情况, E浪就是三角型调整, 从而构成一个九浪三角型. (图1-44)</strong><br><img src="https://draapho.github.io/images/1903/1-44.png" alt="图1-44"></li>
+</ul>
+</li>
+<li>三角型调整浪总是出现在最后一个作用浪之前, 即原趋势的最后一次调整的位置.<ul>
+<li><strong>即多出现在浪4浪B的位置, 意味着后面还会有一波推动浪:浪5或浪C</strong></li>
+<li><strong>多重锯齿型, 联合型中的最后一个浪X, 通常呈现为三角型调整浪</strong></li>
+<li>联合型调整浪中的最后一个作用模式出现.</li>
+<li><strong>如果浪2看起来是三角型调整浪, 通常意味着这个浪2是一个复杂调整浪, 三角型只是其中的一部分!</strong></li>
+</ul>
+</li>
+<li><strong>股市中, 浪4出现三角型调整, 那么浪5通常迅速敏捷, 大致运行浪4最宽部分的距离.</strong><ul>
+<li>在强劲市场中, 也有可能走出延伸5浪. 如果幅度超出浪4最宽部分, 可以考虑延长的5浪. (多出现在商品中)</li>
+<li>这种延长的5浪多半是推动浪, 但也可能走成终结倾斜三角型.</li>
+</ul>
+</li>
+<li><strong>时间: 收缩三角型趋势线相交之处, 往往是市场转折之时.</strong></li>
+</ul>
+</li>
+<li>复合型<ul>
+<li>双重三浪, 标示为 W-X-Y</li>
+<li>三重三浪, 标示为 W-X-Y-X-Z<ul>
+<li>双重三浪较为普遍, 三重三浪是极限, 也较为少见.</li>
+</ul>
+</li>
+<li><strong>内部子浪通常是平台型/锯齿型/三角型交替出现 (图1-47, 图1-48)</strong><ul>
+<li>常见模式是平台型+锯齿型, 锯齿型+平台型.</li>
+<li>平台型接上三角型是双重三浪的常见形式.</li>
+<li><strong>X可以是任何调整模式, 以锯齿型调整浪居多, 三角型调整浪很少见.</strong></li>
+<li><strong>内部最多只有一个三角型调整浪, 且只在最后一个子波之前出现.</strong></li>
+</ul>
+</li>
+<li><strong>内部细节从简单平滑变为复杂曲折.</strong><ul>
+<li>即第一个三浪往往容易辨别, 而最后一个三浪往往曲折复杂.</li>
+<li>基本不会出现从复杂演变为简单的情况.</li>
+</ul>
+</li>
+<li>双重或三重调整模式出现在价格到位后, 延长调整过程的持续时间.<br><img src="https://draapho.github.io/images/1903/1-47.png" alt="图1-47"><br><img src="https://draapho.github.io/images/1903/1-48.png" alt="图1-48"></li>
+</ul>
+</li>
+<li>调整浪的倍数关系<ul>
+<li>A浪和C浪通常时间和长度相等.</li>
+<li>另一种常见的长度比例, A浪:C浪 = 1:1.618 或 1:0.618.</li>
+<li>收敛三角型调整浪中至少有两个交替浪按0.618的比率减小波动幅度 (图4-12)<br><img src="https://draapho.github.io/images/1903/4-12.png" alt="图4-12"></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/market/" rel="tag"># market</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/03/26/1902-trading-rule/" rel="prev" title="交易市场思考">
+                  <i class="fa fa-chevron-left"></i> 交易市场思考
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/05/19/1904-python-error/" rel="next" title="Python 错误及解决方法">
+                  Python 错误及解决方法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

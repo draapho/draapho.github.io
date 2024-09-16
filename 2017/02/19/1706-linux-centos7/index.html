@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题. 折腾.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式linux环境搭建2-CentOS7">
+<meta property="og:url" content="https://draapho.github.io/2017/02/19/1706-linux-centos7/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题. 折腾.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-02-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="environment">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/02/19/1706-linux-centos7/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>嵌入式linux环境搭建2-CentOS7 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%8A%E7%BB%93%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">环境及结论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E7%9A%84%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">安装必要的软件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nfs%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">3.</span> <span class="nav-text">安装nfs客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-mkyaffs2image"><span class="nav-number">4.</span> <span class="nav-text">安装 mkyaffs2image</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7gcc"><span class="nav-number">5.</span> <span class="nav-text">安装及使用交叉编译工具gcc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-arm-linux-gcc-3-4-5"><span class="nav-number">5.1.</span> <span class="nav-text">安装 arm-linux-gcc-3.4.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98"><span class="nav-number">5.2.</span> <span class="nav-text">遇到问题</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/02/19/1706-linux-centos7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          嵌入式linux环境搭建2-CentOS7
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-02-19 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-19T00:00:00+08:00">2017-02-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded-linux/" itemprop="url" rel="index"><span itemprop="name">embedded linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题. 折腾.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="环境及结论"><a href="#环境及结论" class="headerlink" title="环境及结论"></a>环境及结论</h1><ul>
+<li>大环境的搭建思路可参考<a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a><ul>
+<li>gateway ip <code>10.0.0.138</code></li>
+<li>PC windows: win10 64bit, ip <code>10.0.0.98</code></li>
+<li>PC linux(最终版本): ubuntu server 16.04 32 bit, ip <code>10.0.0.100</code></li>
+<li>Embedded Linux: jz2440v3 ip <code>10.0.0.111</code></li>
+</ul>
+</li>
+<li>目的是尝试不同linux系统下的环境搭建</li>
+<li>使用环境: CentOS7 64bit (安装在win10的虚拟机内)</li>
+<li>kernel make 失败</li>
+<li>彻底死机一次</li>
+<li>没法直接安装 u-boot-tools</li>
+<li>彻底放弃! 转战Ubuntu</li>
+<li>不知是 centos 做 2440 的交叉编译兼容性不好, 还是64bit linux的兼容性不好. 或者两者皆有!</li>
+</ul>
+<h1 id="安装必要的软件"><a href="#安装必要的软件" class="headerlink" title="安装必要的软件"></a>安装必要的软件</h1><p>静态ip, 安装向导时, 就设置了.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install net-tools   <span class="comment"># to use ifconfig  or use ip addr</span></span><br><span class="line">yum install bzip2       <span class="comment"># bz2压缩格式</span></span><br><span class="line">yum install patch</span><br><span class="line">yum install gcc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 64位系统要安装了32位程序, 安装如下软件</span></span><br><span class="line">yum install glibc.i686</span><br><span class="line">yum install libstdc++.so.6</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装nfs客户端"><a href="#安装nfs客户端" class="headerlink" title="安装nfs客户端"></a>安装nfs客户端</h1><p>可以参考: <a target="_blank" rel="noopener" href="https://www.howtoforge.com/nfs-server-and-client-on-centos-7">NFS server and client installation on CentOS 7</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装nfs工具, 服务器和客户端都装这个</span></span><br><span class="line">yum install nfs-utils</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建用于mount的节点</span></span><br><span class="line">mkdir -p /mnt/nfs/study</span><br><span class="line">mkdir -p /mnt/nfs/work</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line">systemctl <span class="built_in">enable</span> rpcbind</span><br><span class="line">systemctl <span class="built_in">enable</span> nfs-server</span><br><span class="line">systemctl <span class="built_in">enable</span> nfs-lock       <span class="comment"># No such file or directory, 但没影响</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nfs-idmap      <span class="comment"># No such file or directory</span></span><br><span class="line">systemctl start rpcbind</span><br><span class="line">systemctl start nfs-server</span><br><span class="line">systemctl start nfs-lock</span><br><span class="line">systemctl start nfs-idmap</span><br><span class="line"></span><br><span class="line"><span class="comment"># 手动mount</span></span><br><span class="line">mount -t nfs 10.0.0.98:/study /mnt/nfs/study/</span><br><span class="line">mount -t nfs 10.0.0.98:/work /mnt/nfs/work/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 确认结果</span></span><br><span class="line">df -kh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置为开机自动加载</span></span><br><span class="line">vi /etc/fstab</span><br><span class="line">    <span class="comment"># ===== 文件内容, 加入如下两句 =====</span></span><br><span class="line">    10.0.0.98:/study   /mnt/nfs/study  nfs defaults 0 0</span><br><span class="line">    10.0.0.98:/work    /mnt/nfs/work   nfs defaults 0 0</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line"></span><br><span class="line">// 建立软连接(快捷方式)</span><br><span class="line"><span class="built_in">cd</span> /home/user/</span><br><span class="line">sudo ln -s /mnt/nfs/study study</span><br><span class="line">sudo ln -s /mnt/nfs/work work</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="安装-mkyaffs2image"><a href="#安装-mkyaffs2image" class="headerlink" title="安装 mkyaffs2image"></a>安装 mkyaffs2image</h1><p>该工具用于制作文件系统镜像文件<br>文件系统烧录到开发板flash时需要使用镜像文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp mkyaffs2image /bin/                         <span class="comment"># 拷贝到bin</span></span><br><span class="line">chmod +x /bin/mkyaffs2image                    <span class="comment"># 增加可执行权限</span></span><br><span class="line">mkyaffs2image                                       <span class="comment"># 测试是否可用</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="安装及使用交叉编译工具gcc"><a href="#安装及使用交叉编译工具gcc" class="headerlink" title="安装及使用交叉编译工具gcc"></a>安装及使用交叉编译工具gcc</h1><h2 id="安装-arm-linux-gcc-3-4-5"><a href="#安装-arm-linux-gcc-3-4-5" class="headerlink" title="安装 arm-linux-gcc-3.4.5"></a>安装 arm-linux-gcc-3.4.5</h2><p>使用指定的 <code>arm-linux-gcc-3.4.5-glibc-2.3.6</code>. 不要用新版本, 有坑.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 gcc</span></span><br><span class="line">mv arm-linux-gcc-3.4.5-glibc-2.3.6.tar.bz2 /usr/<span class="built_in">local</span>/arm/</span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/arm/</span><br><span class="line">tar -xjf arm-linux-gcc-3.4.5-glibc-2.3.6.tar.bz2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加路径到环境变量</span></span><br><span class="line">vi /etc/bashrc</span><br><span class="line">    <span class="comment"># ===== 文件内容, 末尾加入如下语句 =====</span></span><br><span class="line">    <span class="keyword">if</span> [ -d /usr/<span class="built_in">local</span>/arm/gcc-3.4.5-glibc-2.3.6 ] ; <span class="keyword">then</span></span><br><span class="line">        PATH=/usr/<span class="built_in">local</span>/arm/gcc-3.4.5-glibc-2.3.6/bin:<span class="string">&quot;<span class="variable">$&#123;PATH&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试安装结果</span></span><br><span class="line"><span class="built_in">source</span> /etc/bashrc                          <span class="comment"># 不重启更新PATH</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span>                                  <span class="comment"># 查看PATH</span></span><br><span class="line">arm-linux-gcc -v                            <span class="comment"># 测试是否安装成功</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>在centos下, 内核 make clean 会报错: Makefile‘混和的隐含和普通规则’<br>我想还是因为 2440 内核文件使用的makefile太老了. 和centos兼容性不好.<br>按下述方法改了一点后, 最后make还是失败了. 因而放弃 centos 系统.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修改根目录下的 Makefile</span></span><br><span class="line">/ %/: prepare scripts FORCE</span><br><span class="line">    $(Q)$(MAKE) KBUILD_MODULES=$(<span class="keyword">if</span> $(CONFIG_MODULES),1) \</span><br><span class="line">    $(build)=$(build-dir)</span><br><span class="line"><span class="comment"># 改成： -----&gt;</span></span><br><span class="line">/: prepare scripts FORCE</span><br><span class="line">    $(Q)$(MAKE) KBUILD_MODULES=$(<span class="keyword">if</span> $(CONFIG_MODULES),1) \</span><br><span class="line">    $(build)=$(build-dir)</span><br><span class="line">%/: prepare scripts FORCE</span><br><span class="line">    $(Q)$(MAKE) KBUILD_MODULES=$(<span class="keyword">if</span> $(CONFIG_MODULES),1) \</span><br><span class="line">    $(build)=$(build-dir)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把：</span></span><br><span class="line">config %config: scripts_basic outputmakefile FORCE</span><br><span class="line">    $(Q)mkdir -p include/linux include/config</span><br><span class="line">    $(Q)$(MAKE) $(build)=scripts/kconfig <span class="variable">$@</span></span><br><span class="line"><span class="comment"># 改成： -----&gt;</span></span><br><span class="line">config: scripts_basic outputmakefile FORCE</span><br><span class="line">    $(Q)mkdir -p include/linux include/config</span><br><span class="line">    $(Q)$(MAKE) $(build)=scripts/kconfig <span class="variable">$@</span></span><br><span class="line">%config: scripts_basic outputmakefile FORCE</span><br><span class="line">    $(Q)mkdir -p include/linux include/config</span><br><span class="line">    $(Q)$(MAKE) $(build)=scripts/kconfig <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+              <a href="/tags/environment/" rel="tag"># environment</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/02/18/1706-linux-ubuntu14/" rel="prev" title="嵌入式linux环境搭建1-Ubuntu14.04">
+                  <i class="fa fa-chevron-left"></i> 嵌入式linux环境搭建1-Ubuntu14.04
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/02/20/1706-linux-ubuntu16/" rel="next" title="嵌入式linux环境搭建3-Ubuntu16.04">
+                  嵌入式linux环境搭建3-Ubuntu16.04 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

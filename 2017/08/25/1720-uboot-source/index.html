@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uboot之源码分析">
+<meta property="og:url" content="https://draapho.github.io/2017/08/25/1720-uboot-source/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1720/uboot-start.png">
+<meta property="og:image" content="https://draapho.github.io/images/1720/uboot-ram.gif">
+<meta property="article:published_time" content="2017-08-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="uboot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1720/uboot-start.png">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/08/25/1720-uboot-source/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>uboot之源码分析 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u-boot%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">u-boot功能:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80%E5%88%86%E9%85%8D"><span class="nav-number">3.</span> <span class="nav-text">查看内存地址分配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E6%B1%87%E7%BC%96%E5%88%9D%E5%A7%8B%E5%8C%96-start-s"><span class="nav-number">4.</span> <span class="nav-text">一 汇编初始化, start.s</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E6%9D%BF%E7%BA%A7%E5%88%9D%E5%A7%8B%E5%8C%96-board-c"><span class="nav-number">5.</span> <span class="nav-text">二 板级初始化, board.c</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-%E8%AF%86%E5%88%AB%E7%BB%88%E7%AB%AF%E6%8C%87%E4%BB%A4-main-c"><span class="nav-number">6.</span> <span class="nav-text">三 识别终端指令, main.c</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-%E5%8A%A0%E8%BD%BD%E5%92%8C%E5%90%AF%E5%8A%A8linux"><span class="nav-number">7.</span> <span class="nav-text">四 加载和启动linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bootcmd-%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90"><span class="nav-number">7.1.</span> <span class="nav-text">bootcmd 指令分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flash-%E5%88%86%E5%8C%BA%E4%BF%A1%E6%81%AF"><span class="nav-number">7.2.</span> <span class="nav-text">flash 分区信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BDlinux%E5%86%85%E6%A0%B8"><span class="nav-number">7.3.</span> <span class="nav-text">加载linux内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8linux%E5%86%85%E6%A0%B8"><span class="nav-number">7.4.</span> <span class="nav-text">启动linux内核</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/08/25/1720-uboot-source/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          uboot之源码分析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-25 00:00:00" itemprop="dateCreated datePublished" datetime="2017-08-25T00:00:00+08:00">2017-08-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded-linux/" itemprop="url" rel="index"><span itemprop="name">embedded linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/11/24/1735-jz2440-basic/">jz2440分区及启动的基础概念</a></li>
+<li><a href="https://draapho.github.io/2017/07/07/1719-uboot-makefile/">uboot之makefile分析</a></li>
+<li><a href="https://draapho.github.io/2017/08/25/1720-uboot-source/">uboot之源码分析</a></li>
+<li><a href="https://draapho.github.io/2017/08/30/1721-uboot-modify/">uboot之定制指令</a></li>
+</ul>
+<p>本文基于 u-boot-1.1.6, 使用jz2440开发板. 若要使用最新的u-boot版本见: <a target="_blank" rel="noopener" href="http://www.denx.de/wiki/U-Boot/WebHome">u-boot官网</a>  <a href="ftp://ftp.denx.de/pub/u-boot/">u-boot下载</a></p>
+<h1 id="u-boot功能"><a href="#u-boot功能" class="headerlink" title="u-boot功能:"></a>u-boot功能:</h1><ul>
+<li>本质是单片机程序</li>
+<li>硬件相关初始化<ul>
+<li>关看门狗</li>
+<li>初始化时钟</li>
+<li>初始化SDRAM</li>
+<li>从Flash读取内核</li>
+</ul>
+</li>
+<li>最终目的: 启动内核</li>
+<li>为开发方便, 还支持:<ul>
+<li>烧写flash</li>
+<li>网卡</li>
+<li>USB</li>
+<li>串口</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://draapho.github.io/images/1720/uboot-start.png" alt="uboot-start"></p>
+<h1 id="查看内存地址分配"><a href="#查看内存地址分配" class="headerlink" title="查看内存地址分配"></a>查看内存地址分配</h1><p>可以使用指令 <code>readelf -s u-boot | grep _start</code> 查看uboot的内存地址分配</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ readelf -s u-boot|grep _start</span><br><span class="line">    63: 33f80118     0 NOTYPE  LOCAL  DEFAULT    1 _start_armboot</span><br><span class="line">   218: 33fb0798     4 OBJECT  LOCAL  DEFAULT   10 mem_malloc_start</span><br><span class="line">   906: 33fb5a0c     4 OBJECT  LOCAL  DEFAULT   10 bin_start_address</span><br><span class="line">  1303: 33f9f274    88 FUNC    LOCAL  DEFAULT    1 setup_start_tag</span><br><span class="line">  1507: 33f80000     0 NOTYPE  GLOBAL DEFAULT    1 _start   &#x2F;&#x2F; 等同于 config.mk 中的 TEXT_BASE值</span><br><span class="line">  1657: 33f80044     0 NOTYPE  GLOBAL DEFAULT    1 _armboot_start</span><br><span class="line">  1776: 33f80048     0 NOTYPE  GLOBAL DEFAULT    1 _bss_start</span><br><span class="line">  1869: 33fb06ac     0 NOTYPE  GLOBAL DEFAULT  ABS __bss_start</span><br><span class="line">  2038: 33fb016c     0 NOTYPE  GLOBAL DEFAULT  ABS __u_boot_cmd_start</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://draapho.github.io/images/1720/uboot-ram.gif" alt="uboot-ram"></p>
+<h1 id="一-汇编初始化-start-s"><a href="#一-汇编初始化-start-s" class="headerlink" title="一 汇编初始化, start.s"></a>一 汇编初始化, start.s</h1><p>由链接脚本 <code>./board/100ask24x0/u-boot.lds</code> 可知,<br>uboot启动后, 首先执行的就是 <code>cpu/arm920t/start.s</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">41 .globl _start                        &#x2F;&#x2F; 程序入口</span><br><span class="line">42 _start:  b       reset               &#x2F;&#x2F; 跳转到reset执行</span><br><span class="line"></span><br><span class="line">75 _TEXT_BASE:                          &#x2F;&#x2F; _TEXT_BASE值, 可知等同于 _start</span><br><span class="line">76      .word   TEXT_BASE               &#x2F;&#x2F; 赋值</span><br><span class="line">79 _armboot_start:                      &#x2F;&#x2F; _armboot_start 值等同于 TEXT_BASE</span><br><span class="line">80      .word _start                    &#x2F;&#x2F; 赋值 _start 给 _armboot_start</span><br><span class="line"></span><br><span class="line">122 reset:</span><br><span class="line">124 &#x2F;* set the cpu to SVC32 mode *&#x2F;     &#x2F;&#x2F; 1. 将CPU设置为SVC32管理模式</span><br><span class="line">131 &#x2F;* turn off the watchdog *&#x2F;         &#x2F;&#x2F; 2. 关闭看门狗</span><br><span class="line">150 &#x2F;* mask all IRQs ... - default *&#x2F;   &#x2F;&#x2F; 3. 关中断</span><br><span class="line"></span><br><span class="line">                                        &#x2F;&#x2F; 4. 初始化SDRAM</span><br><span class="line">174 #ifndef CONFIG_SKIP_LOWLEVEL_INIT     &#x2F;&#x2F; 一个宏定义开关</span><br><span class="line">175     adr r0, _start                    &#x2F;&#x2F; 读取当前地址, 如果是从nand flash启动, 这段代码被自动拷贝到片内4K RAM, 初始地址为0</span><br><span class="line">                                          &#x2F;&#x2F; 反之, 如果代码是直接复制到SDRAM中并运行(如调试器), 则_start和_TEXT_BASE值相等</span><br><span class="line">176     ldr r1, _TEXT_BASE                &#x2F;&#x2F; TEXT_BASE 由 &quot;.&#x2F;board&#x2F;100ask24x0&#x2F;config.mk&quot; 赋值为 0x33F80000</span><br><span class="line">                                          &#x2F;&#x2F; 可在linux用指令 &quot;grep -nr TEXT_BASE *&quot; 搜索</span><br><span class="line">177     cmp     r0, r1                    &#x2F;&#x2F; 比较两个值. 不等的话, 说明片外SDRAM还没有被初始化过</span><br><span class="line">178     blne    cpu_init_crit             &#x2F;&#x2F; 初始化片外SDRAM的控制 (关MMU, 初始化存储控制器)</span><br><span class="line">179 #endif</span><br><span class="line"></span><br><span class="line">182 stack_setup:                        &#x2F;&#x2F; 5. 设置栈指针, 栈指针向下递减, 推指针向上递增.</span><br><span class="line">183     ldr r0, _TEXT_BASE                &#x2F;&#x2F; 从 _TEXT_BASE 开始分配空间. _TEXT_BASE    上面是uboot代码段</span><br><span class="line">184     sub r0, r0, #CFG_MALLOC_LEN       &#x2F;&#x2F; uboot 自己用的 malloc 堆空间</span><br><span class="line">185     sub r0, r0, #CFG_GBL_DATA_SIZE    &#x2F;&#x2F; 全局变量, 保存uboot系统参数的预留空间</span><br><span class="line">187 #ifdef CONFIG_USE_IRQ</span><br><span class="line">188     sub r0, r0, #(CONFIG_STACKSIZE_IRQ+CONFIG_STACKSIZE_FIQ)    &#x2F;&#x2F; IRQ 以及 FIQ, 中断模式的栈</span><br><span class="line">189 #endif</span><br><span class="line">190     sub sp, r0, #12                 &#x2F;&#x2F; 再减去12字节后, 就是sp栈指针的起始位置</span><br><span class="line"></span><br><span class="line">193 bl clock_init                       &#x2F;&#x2F; 6. 初始化系统时钟, 设置为400MHz</span><br><span class="line"></span><br><span class="line">197 relocate:                           &#x2F;&#x2F; 7. 拷贝代码. 把uboot代码从nand&#x2F;nor flash拷贝到片外 SDRAM 中</span><br><span class="line"></span><br><span class="line">219 clear_bss:                          &#x2F;&#x2F; 8. 清bss. 将未初始化过的全局变量设为0. Block Started by Symbol</span><br><span class="line"></span><br><span class="line">261 _start_armboot: .word start_armboot &#x2F;&#x2F; 9. 调用 start_armboot, c语言函数.</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-板级初始化-board-c"><a href="#二-板级初始化-board-c" class="headerlink" title="二 板级初始化, board.c"></a>二 板级初始化, board.c</h1><p><code>grep -nwr start_armboot *</code>, 找出 <code>start_armboot</code> 源码文件和行号.<br>可知, 其位于 <code>./lib_arm/board.c</code> 的236行.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">216</span> <span class="keyword">init_fnc_t</span> *init_sequence[] = &#123;...&#125;;    <span class="comment">// 初始化函数组</span></span><br><span class="line"></span><br><span class="line"><span class="number">236</span> <span class="function"><span class="keyword">void</span> <span class="title">start_armboot</span> <span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line"><span class="number">248</span>     gd = (<span class="keyword">gd_t</span>*)(_armboot_start - CFG_MALLOC_LEN - <span class="keyword">sizeof</span>(<span class="keyword">gd_t</span>));</span><br><span class="line">        <span class="comment">// 实际指向的就是 CFG_GBL_DATA_SIZE 段, 下面是清零, 对应的结构体是 gd_t</span></span><br><span class="line"></span><br><span class="line"><span class="number">258</span>     <span class="keyword">for</span> (init_fnc_ptr = init_sequence; *init_fnc_ptr; ++init_fnc_ptr) &#123;&#125;</span><br><span class="line">        <span class="comment">// 依次调用初始化函数, 如果返回值为0, 则初始化失败, 系统出错!</span></span><br><span class="line">        <span class="comment">// 在init的过程中, 相关的函数对 gd_t 内容赋值.</span></span><br><span class="line"></span><br><span class="line"><span class="number">266</span>     size = flash_init ();               <span class="comment">// 初始化nor flash</span></span><br><span class="line"><span class="number">267</span>     display_flash_config (size);</span><br><span class="line"></span><br><span class="line"><span class="number">297</span>     mem_malloc_init (_armboot_start - CFG_MALLOC_LEN);  <span class="comment">// 堆地址的初始化</span></span><br><span class="line"></span><br><span class="line"><span class="number">301</span>     nand_init();                        <span class="comment">// 初始化 nand flash</span></span><br><span class="line"></span><br><span class="line"><span class="number">310</span>     env_relocate ();                    <span class="comment">// 加载uboot的环境变量</span></span><br><span class="line"></span><br><span class="line">...     <span class="comment">// 网卡, devices_init, 显示终端, 控制台, 其它驱动等等 初始化, 略过不表</span></span><br><span class="line"></span><br><span class="line"><span class="number">403</span>     main_loop ();                       <span class="comment">// 初始化结束, 跳转到 main.c 文件的 void main_loop(void)</span></span><br><span class="line"><span class="number">407</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三-识别终端指令-main-c"><a href="#三-识别终端指令-main-c" class="headerlink" title="三 识别终端指令, main.c"></a>三 识别终端指令, main.c</h1><p><code>grep -nr &quot;main_loop (void)&quot; *</code>, 可找到 <code>./common/main.c</code> 的301行 main_loop<br>整个文件的最核心指令就是 run_command(), 即识别和运行指令函数.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">301</span> <span class="function"><span class="keyword">void</span> <span class="title">main_loop</span> <span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="number">404</span>     s = getenv (<span class="string">&quot;bootdelay&quot;</span>);           <span class="comment">// 获取 bootdelay 环境变量</span></span><br><span class="line"><span class="number">405</span>     bootdelay = s ? (<span class="keyword">int</span>)simple_strtol(s, <span class="literal">NULL</span>, <span class="number">10</span>) : CONFIG_BOOTDELAY;</span><br><span class="line"></span><br><span class="line"><span class="number">432</span>     s = getenv (<span class="string">&quot;bootcmd&quot;</span>);             <span class="comment">// 加载 bootcmd 环境变量, 此变量为linux加载和启动指令</span></span><br><span class="line"><span class="number">436</span>     <span class="keyword">if</span> (bootdelay &gt;= <span class="number">0</span> &amp;&amp; s &amp;&amp; !abortboot (bootdelay)) &#123;    <span class="comment">// 倒计时结束, 自动加载linux</span></span><br><span class="line"><span class="number">443</span>         <span class="built_in">printf</span>(<span class="string">&quot;Booting Linux ...\n&quot;</span>);  <span class="comment">// 终端打印信息</span></span><br><span class="line"><span class="number">444</span>         run_command (s, <span class="number">0</span>);             <span class="comment">// 运行 bootcmd 的指令.</span></span><br><span class="line"><span class="number">454</span>     &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// abortboot 函数内会判断倒计时, 并获取按键操作, 只有 &#x27; &#x27; 空格才能跳出启动</span></span><br><span class="line">        <span class="comment">// 457-467行不会运行, 因为没有宏定义 CONFIG_MENUKEY</span></span><br><span class="line"><span class="number">478</span>     run_command(<span class="string">&quot;menu&quot;</span>, <span class="number">0</span>);             <span class="comment">// 执行 &quot;menu&quot; 指令, 打印jz2440定制的菜单信息</span></span><br><span class="line"></span><br><span class="line"><span class="number">488</span>     <span class="keyword">for</span> (;;) &#123;                          <span class="comment">// 死循环, 等待终端输入指令</span></span><br><span class="line"><span class="number">497</span>         len = readline (CFG_PROMPT);    <span class="comment">// 读取终端输入, 提示符为 &quot;OpenJTAG&gt; &quot;</span></span><br><span class="line"><span class="number">521</span>         rc = run_command (lastcommand, flag);   <span class="comment">// 执行输入的指令</span></span><br><span class="line"><span class="number">527</span>     &#125;</span><br><span class="line"><span class="number">529</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 指令数据结构被放在 __u_boot_cmd 段内, 对应的指令函数可以在 ./common/cmd_***.c 内找到</span></span><br><span class="line"><span class="number">1280</span>    <span class="function"><span class="keyword">int</span> <span class="title">run_command</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *cmd, <span class="keyword">int</span> flag)</span> </span>&#123;</span><br><span class="line"><span class="number">1361</span>        <span class="keyword">if</span> ((cmdtp = find_cmd(argv[<span class="number">0</span>])) == <span class="literal">NULL</span>) &#123;...&#125;      <span class="comment">// 查找指令是否存在</span></span><br><span class="line"><span class="number">1391</span>        <span class="keyword">if</span> ((cmdtp-&gt;cmd) (cmdtp, flag, argc, argv) != <span class="number">0</span>) &#123;&#125; <span class="comment">// 调用指令函数</span></span><br><span class="line"><span class="number">1403</span>    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四-加载和启动linux"><a href="#四-加载和启动linux" class="headerlink" title="四 加载和启动linux"></a>四 加载和启动linux</h1><h2 id="bootcmd-指令分析"><a href="#bootcmd-指令分析" class="headerlink" title="bootcmd 指令分析"></a>bootcmd 指令分析</h2><p>在uboot命令行下, 输入 <code>printenv</code> 可以查看uboot的环境变量<br>可以找到如下信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bootcmd&#x3D;nand read.jffs2 0x30007FC0 kernel; bootm 0x30007FC0</span><br><span class="line">    &#x2F;&#x2F; 启动指令分为了两条:</span><br><span class="line">    &#x2F;&#x2F; 1. nand read.jffs2 0x30007FC0 kernel</span><br><span class="line">        &#x2F;&#x2F; 从 nand flash 的 kernel 分区读取数据, 放到地址 0x30007FC0 处(SDRAM)</span><br><span class="line">    &#x2F;&#x2F; 2. bootm 0x30007FC0</span><br><span class="line">        &#x2F;&#x2F; 从 0x30007FC0 启动linux</span><br><span class="line"></span><br><span class="line">bootdelay&#x3D;2</span><br><span class="line">    &#x2F;&#x2F; 启动延时参数为2S</span><br><span class="line">    &#x2F;&#x2F; 因此uboot的环境变量可以是参数设置, 也可以是命令行, 命令行的本质是字符串</span><br></pre></td></tr></table></figure>
+
+<h2 id="flash-分区信息"><a href="#flash-分区信息" class="headerlink" title="flash 分区信息"></a>flash 分区信息</h2><p>可以通过 “./include/configs/100ask24x0.h” 中的 MTDPARTS_DEFAULT 来分析获得flash分区情况</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MTDPARTS_DEFAULT <span class="meta-string">&quot;mtdparts=nandflash0:256k@0(bootloader),&quot;</span> \</span></span><br><span class="line">                            <span class="string">&quot;128k(params),&quot;</span> \</span><br><span class="line">                            <span class="string">&quot;2m(kernel),&quot;</span> \</span><br><span class="line">                            <span class="string">&quot;-(root)&quot;</span></span><br><span class="line"><span class="comment">// nandflash0: 分区位于 nandflash 上</span></span><br><span class="line"><span class="comment">// 256k@0(bootloader), 第一个分区从0地址开始, 占用256k, 分区名称 bootloader</span></span><br><span class="line"><span class="comment">// 128k(params), 第二个分区紧邻第一个分区, 占用128K, 分区名称 params</span></span><br><span class="line"><span class="comment">// 2m(kernel), 第三个分区紧邻第二个分区, 占用2m字节, 分区名称 kernel</span></span><br><span class="line"><span class="comment">// -(root), 剩余的空间全部分配给第四个分区, 名称为 root</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以在uboot下, 使用 “mtdparts” 可以查看 flash 的分区情况</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">OpenJTAG&gt; mtdparts</span><br><span class="line"> <span class="comment">#: name                size            offset          mask_flags</span></span><br><span class="line"> 0: bootloader          0x00040000      0x00000000      0</span><br><span class="line"> 1: params              0x00020000      0x00040000      0</span><br><span class="line"> 2: kernel              0x00200000      0x00060000      0</span><br><span class="line"> 3: root                0x0fda0000      0x00260000      0</span><br></pre></td></tr></table></figure>
+
+<h2 id="加载linux内核"><a href="#加载linux内核" class="headerlink" title="加载linux内核"></a>加载linux内核</h2><p>执行 <code>nand read.jffs2 0x30007FC0 kernel</code> 指令, 源码在 <code>./common/cmd_nand.c</code> 的 do_nand 函数</p>
+<ul>
+<li>jffs2 是读取的格式, 但此处并非是指 kernel 是jffs2格式. jffs2方式无需块对齐和页对齐, 提高通用性.</li>
+<li>可知 kernel 分区大小为 0x200000 (2M), 起始地址为 0x60000</li>
+<li>所以整条指令等价于: nand read.jffs2 0x30007FC0(目标地址) 0x60000(源地址) 0x200000(字节大小)</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">    <span class="comment">// nand     read.jffs2  0x30007FC0  kernel</span></span><br><span class="line">    <span class="comment">// argv[0]  argv[1]     argv[2]     argv[3]</span></span><br><span class="line"></span><br><span class="line"><span class="number">166</span> <span class="function"><span class="keyword">int</span> <span class="title">do_nand</span><span class="params">(<span class="keyword">cmd_tbl_t</span> * cmdtp, <span class="keyword">int</span> flag, <span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="number">316</span>     <span class="keyword">if</span> (<span class="built_in">strncmp</span>(cmd, <span class="string">&quot;read&quot;</span>, <span class="number">4</span>) == <span class="number">0</span> || <span class="built_in">strncmp</span>(cmd, <span class="string">&quot;write&quot;</span>, <span class="number">5</span>) == <span class="number">0</span>) &#123;</span><br><span class="line"><span class="number">322</span>         addr = (ulong)simple_strtoul(argv[<span class="number">2</span>], <span class="literal">NULL</span>, <span class="number">16</span>);                    <span class="comment">// 目标地址 addr = 0x30007FC0</span></span><br><span class="line"><span class="number">326</span>         <span class="keyword">if</span> (arg_off_size(argc - <span class="number">3</span>, argv + <span class="number">3</span>, nand, &amp;off, &amp;size) != <span class="number">0</span>) &#123;...&#125; <span class="comment">// 获取源地址以及长度</span></span><br><span class="line">            <span class="comment">// arg_off_size 中, 如果发现导入的参数是分区名字, 就会调用 find_dev_and_part() 来获取改分区的地址和长度</span></span><br><span class="line">            <span class="comment">// 最终会将源地址以及长度放入 &amp;off, &amp;size 中</span></span><br><span class="line"><span class="number">336</span>         opts.buffer = (u_char*) addr;                                       <span class="comment">// sdram, 直接就是一片buffer</span></span><br><span class="line"><span class="number">337</span>         opts.length = size;</span><br><span class="line"><span class="number">338</span>         opts.offset = off;</span><br><span class="line"><span class="number">340</span>         ret = nand_read_opts(nand, &amp;opts);                                  <span class="comment">// 读取nand到buffer中</span></span><br><span class="line"><span class="number">416</span>     <span class="built_in">printf</span>(<span class="string">&quot; %d bytes %s: %s\n&quot;</span>, size, read ? <span class="string">&quot;read&quot;</span> : <span class="string">&quot;written&quot;</span>, ret ? <span class="string">&quot;ERROR&quot;</span> : <span class="string">&quot;OK&quot;</span>); <span class="comment">// 打印进度</span></span><br><span class="line"><span class="number">419</span>     <span class="keyword">return</span> ret == <span class="number">0</span> ? <span class="number">0</span> : <span class="number">1</span>;                        返回读取结果</span><br><span class="line"><span class="number">511</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动linux内核"><a href="#启动linux内核" class="headerlink" title="启动linux内核"></a>启动linux内核</h2><p>执行 <code>bootm 0x30007FC0</code> 指令, 源码在 <code>./common/cmd_bootm.c</code> 的 do_bootm 函数</p>
+<ul>
+<li>设置 0x30007FC0 这个奇怪的值, 是有原因的. 简而言之, 是为了避免拷贝内核两次, 加快启动速度</li>
+<li>kernel 最后编译时的指令是 <code>make uImage</code>, 因此其格式是 uImage</li>
+<li>相比于纯压缩文件 zImage 的内核文件, uImage 在 zImage之前加上了长度为 0x40 的头部信息 (image_header_t)</li>
+<li>0x30007FC0 + 0x40 = 0x30008000, 正好就是 uImage 头部信息要求的加载地址.</li>
+<li>而 0x30008000 这个地址, 是有linux源码在 <code>Makefile</code> 里写死的. 可搜索关键字 <code>zreladdr-y</code> 和 <code>ZRELADDR</code><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">149</span> <span class="keyword">image_header_t</span> header;              <span class="comment">// uImage的头部信息, 占用0x40字节</span></span><br><span class="line">        <span class="comment">// ih_load, Data Load Address,   加载地址, 如果发现加载地址不对, do_bootm会重新移动内核文件到此地址</span></span><br><span class="line">        <span class="comment">// ih_ep,   Entry Point Address, 入口地址, 跳转到此地址开始执行linux内核</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// bootm    0x30007FC0</span></span><br><span class="line">    <span class="comment">// argv[0]  argv[1]</span></span><br><span class="line"><span class="number">153</span> <span class="function"><span class="keyword">int</span> <span class="title">do_bootm</span> <span class="params">(<span class="keyword">cmd_tbl_t</span> *cmdtp, <span class="keyword">int</span> flag, <span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="number">163</span>     <span class="keyword">image_header_t</span> *hdr = &amp;header;                              <span class="comment">// 指针 hdr 指向头部信息</span></span><br><span class="line"><span class="number">171</span>     addr = simple_strtoul(argv[<span class="number">1</span>], <span class="literal">NULL</span>, <span class="number">16</span>);                   <span class="comment">// 获取地址, 0x30007FC0</span></span><br><span class="line"><span class="number">183</span>     memmove (&amp;header, (<span class="keyword">char</span> *)addr, <span class="keyword">sizeof</span>(<span class="keyword">image_header_t</span>));    <span class="comment">// 读取头部信息</span></span><br><span class="line"><span class="number">229</span>     data = addr + <span class="keyword">sizeof</span>(<span class="keyword">image_header_t</span>);                       <span class="comment">// data为linux内核起始地址</span></span><br><span class="line"><span class="number">321</span>     <span class="keyword">if</span>(ntohl(hdr-&gt;ih_load) == data) &#123;</span><br><span class="line"><span class="number">322</span>         <span class="built_in">printf</span> (<span class="string">&quot;   XIP %s ... &quot;</span>, name);                        <span class="comment">// 一致, 不用移动了</span></span><br><span class="line"><span class="number">323</span>     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="number">340</span>         memmove ((<span class="keyword">void</span> *) ntohl(hdr-&gt;ih_load), (uchar *)data, len);     <span class="comment">// 否则, 把内核移动到加载地址</span></span><br><span class="line"><span class="number">342</span>     &#125;</span><br><span class="line"><span class="number">418</span>     do_bootm_linux  (cmdtp, flag, argc, argv, addr, len_ptr, verify);   <span class="comment">// 启动linux</span></span><br><span class="line"><span class="number">477</span> &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><code>do_bootm_linux</code> 函数位于 <code>./lib_arm/armlinux.c</code>,<br><strong>注意</strong>, cmd_bootm.c文件内的那个do_bootm_linux不会被调用, 因为没有宏定义 CONFIG_PPC</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">79</span>  <span class="function"><span class="keyword">void</span> <span class="title">do_bootm_linux</span> <span class="params">(...)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 此函数主要做两件事情:</span></span><br><span class="line">    <span class="comment">// 1. uboot 需要告诉内核一些系统参数 (内存大小, 终端波特率等等)</span></span><br><span class="line">    <span class="comment">// 2. 跳转到入口地址, 启动内核</span></span><br><span class="line"><span class="number">85</span>      <span class="keyword">void</span> (*theKernel)(<span class="keyword">int</span> zero, <span class="keyword">int</span> arch, uint params);         <span class="comment">// linux启动函数</span></span><br><span class="line"><span class="number">86</span>      <span class="keyword">image_header_t</span> *hdr = &amp;header;                              <span class="comment">// uImage 头部信息</span></span><br><span class="line"><span class="number">87</span>      <span class="keyword">bd_t</span> *bd = gd-&gt;bd;                                          <span class="comment">// 处于 CFG_GBL_DATA_SIZE 段内</span></span><br><span class="line"><span class="number">90</span>      <span class="keyword">char</span> *commandline = getenv (<span class="string">&quot;bootargs&quot;</span>);                    <span class="comment">// 获取 bootargs 参数</span></span><br><span class="line"></span><br><span class="line"><span class="number">93</span>      theKernel = (<span class="keyword">void</span> (*)(<span class="keyword">int</span>, <span class="keyword">int</span>, uint))ntohl(hdr-&gt;ih_ep);    <span class="comment">// ih_ep, 即linux入口地址</span></span><br><span class="line"></span><br><span class="line"><span class="number">235</span>     setup_start_tag (bd);                                       <span class="comment">// 一系列的TAG参数设置, 准备传递给linux</span></span><br><span class="line">        <span class="comment">// 对jz2440, TAG地址是 0x30000100.</span></span><br><span class="line">        <span class="comment">// 在 &quot;./board/100ask24x0/100ask24x0.c&quot; 中, gd-&gt;bd-&gt;bi_boot_params = 0x30000100;</span></span><br><span class="line"><span class="number">237</span>     setup_serial_tag (&amp;params);</span><br><span class="line"><span class="number">240</span>     setup_revision_tag (&amp;params);</span><br><span class="line"><span class="number">243</span>     setup_memory_tags (bd);</span><br><span class="line"><span class="number">246</span>     setup_commandline_tag (bd, commandline);                    <span class="comment">// 告知linux文件系统的位置</span></span><br><span class="line"><span class="number">250</span>     setup_initrd_tag (bd, initrd_start, initrd_end);</span><br><span class="line"><span class="number">253</span>     setup_videolfb_tag ((<span class="keyword">gd_t</span> *) gd);</span><br><span class="line"><span class="number">255</span>     setup_end_tag (bd);                                         <span class="comment">// 参数设置结束</span></span><br><span class="line"></span><br><span class="line"><span class="number">259</span>     <span class="built_in">printf</span> (<span class="string">&quot;\nStarting kernel ...\n\n&quot;</span>);</span><br><span class="line"><span class="number">270</span>     theKernel (<span class="number">0</span>, bd-&gt;bi_arch_number, bd-&gt;bi_boot_params);      <span class="comment">// 调用入口地址, 传入参数, 启动linux</span></span><br><span class="line"><span class="number">271</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+              <a href="/tags/uboot/" rel="tag"># uboot</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/07/07/1719-uboot-makefile/" rel="prev" title="uboot之makefile分析">
+                  <i class="fa fa-chevron-left"></i> uboot之makefile分析
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/08/30/1721-uboot-modify/" rel="next" title="uboot之定制指令">
+                  uboot之定制指令 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

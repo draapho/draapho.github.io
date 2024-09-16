@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="驱动之I2C驱动">
+<meta property="og:url" content="https://draapho.github.io/2018/02/09/1815-drv-i2c/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1815/layer.png">
+<meta property="og:image" content="https://draapho.github.io/images/1815/function.png">
+<meta property="article:published_time" content="2018-02-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="driver">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1815/layer.png">
+
+
+<link rel="canonical" href="https://draapho.github.io/2018/02/09/1815-drv-i2c/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>驱动之I2C驱动 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I2C%E9%A9%B1%E5%8A%A8%E6%A1%86%E6%9E%B6%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">I2C驱动框架分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">相关文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-number">2.3.</span> <span class="nav-text">源码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E5%86%99I2C%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">编写I2C设备驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#at24cxx-c"><span class="nav-number">3.1.</span> <span class="nav-text">at24cxx.c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Makefile"><span class="nav-number">3.2.</span> <span class="nav-text">Makefile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#i2c-test-c"><span class="nav-number">3.3.</span> <span class="nav-text">i2c_test.c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2018/02/09/1815-drv-i2c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          驱动之I2C驱动
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-02-09 00:00:00" itemprop="dateCreated datePublished" datetime="2018-02-09T00:00:00+08:00">2018-02-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded-linux/" itemprop="url" rel="index"><span itemprop="name">embedded linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2018/02/09/1815-drv-i2c/">驱动之I2C驱动</a></li>
+</ul>
+<p>本文使用 linux-2.6.22.6 内核, 由于jz2440开发板没有板载I2C设备, 因此源码部分无法实际测试.</p>
+<h1 id="I2C驱动框架分析"><a href="#I2C驱动框架分析" class="headerlink" title="I2C驱动框架分析"></a>I2C驱动框架分析</h1><p>I2C协议本身不是太复杂, 但Linux内核为了通用化, 搞了一套复杂的总线系统.</p>
+<p><img src="https://draapho.github.io/images/1815/layer.png" alt="layer.png"></p>
+<p><strong>最要理解i2c框架, 尝试理解 <code>i2c_add_adapter</code> 和 <code>i2c_add_driver</code> 就行了.</strong></p>
+<ul>
+<li><code>i2c_adapter</code> 对i2c主机的抽象概念, 与 <code>i2c_add_adapter</code> 相关<ul>
+<li>这部分的架构都是已经搭好的, 由CPU厂商完成.</li>
+<li>针对特定的开发板, 一般情况只会有一个 <code>i2c_adapter</code>. 会在<code>/drivers/i2c/busses</code>下选取一个</li>
+<li>但特殊情况, 如果需要用不同的数据预处理方式, 如 <code>i2c-algo-bit</code>, 那么也可以抽象出多个 <code>i2c_adapter</code></li>
+</ul>
+</li>
+<li><code>i2c_driver</code>  对i2c从机的抽象概念, 与 <code>i2c_add_driver</code> 相关<ul>
+<li>Linux内核给了很多i2c芯片的驱动范例. 我们所说的开发i2c驱动, 是位于这一端的.</li>
+<li>一个真实的i2c从机设备并非对应唯一的 <code>i2c_driver</code>.</li>
+<li>譬如i2c芯片24cXX. 可以对APP端抽象出多种概念:<ul>
+<li>linux内核为了让APP端能直接操作i2c, 通过 <code>i2c-dev.c</code> 实现了一个 <code>i2c_driver</code></li>
+<li>系统里的<code>eeprom.c</code>, 帮我们实现了通用eeprom的操作. 就是另一个 <code>i2c_driver</code></li>
+<li>我们自己也可以写一个驱动, 将24cXX认为是一块加密芯片. 就是第三个 <code>i2c_driver</code></li>
+<li>这样, i2c从机端的底层都是一样的, 但上层的抽象概念是不同的. 或许, 这也是将主机端取名为 <code>i2c_adapter</code> 的原因, 它只是一个通讯适配器. 将APP层的不同抽象概念适配到一个个具体的i2c芯片上.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>i2c_adapter</code> 和 <code>i2c_driver</code> 的关联方式<ul>
+<li>就是 platform 总线架构, 两个链表有新加内容后, 循环查找匹配.</li>
+<li>是否匹配有两个要点:<ul>
+<li>一是 <code>i2c_adapter.nr</code> 和 <code>i2c_client_address_data</code> 里的设置是否一样</li>
+<li>这里基本都不用这个值去匹配的. 总线驱动也没去设置 <code>i2c_adapter.nr</code>. 设备端驱动直接设置为 <code>ANY_I2C_BUS</code> 即可.</li>
+<li>二是 i2c 的物理地址, 根据物理地址实际通讯一下, 来进行匹配.</li>
+<li>如果用了 <code>i2c_client_address_data.force</code>, 那么物理地址的检测过程也将被忽略.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><ul>
+<li><code>./drivers/i2c/i2c-core.c</code> 这个文件实现了I2C核心的功能以及/proc/bus/i2c*接口。<ul>
+<li>此文件就是 <code>i2c核心层</code> 作用是承上启下:</li>
+<li>对上, 提供统一的调用接口, 屏蔽硬件差异. 如提供 <code>read</code> <code>write</code> 函数.</li>
+<li>对下, 抽象出i2c操作通用的部分, 简化i2c的硬件驱动开发.</li>
+</ul>
+</li>
+<li>　<code>./drivers/i2c/busses</code> 包含了各个芯片厂商的I2C总线的驱动<ul>
+<li>如 <code>i2c-s3c2410.c</code> 针对S3C系列处理器的I2C控制器驱动.</li>
+</ul>
+</li>
+<li><code>./drivers/i2c/i2c-dev.c</code> 实现了I2C适配器设备文件的功能，每一个I2C适配器都被分配一个设备.<ul>
+<li>把这个文件理解为系统提供的一个i2c设备驱动程序即可. 需要手动加载.</li>
+<li>此文件会调用 <code>i2c_add_driver</code>, 系统默认注册的一个i2c设备, 可供app端直接调用.</li>
+<li>i2c芯片另外需要自己的驱动程序, 去调用 <code>i2c_add_driver</code>, 并注册设备.</li>
+</ul>
+</li>
+<li><del><code>./drivers/i2c/algos</code>　文件夹实现了一些I2C总线适配器的algorithm.</del><ul>
+<li>algorithm 这个词让人容易误解. 我的理解是数据预处理方式的不同.</li>
+<li><code>i2c-algo-pca.c</code>. 可参考 <a target="_blank" rel="noopener" href="https://www.nxp.com/docs/en/data-sheet/PCF8584.pdf">PCF8584 I2C-bus controller</a></li>
+<li><code>i2c-algo-pcf.c</code>. 可参考 <a target="_blank" rel="noopener" href="https://www.nxp.com/docs/en/data-sheet/PCA9564.pdf">PCA9564 Parallel bus to I2C-bus controller</a></li>
+<li><code>i2c-algo-sgi.c</code>. 应该针对给2款早已过时的PC机用的.</li>
+<li><code>I2C_ALGO_XXX</code> 的宏定义可以在 <code>./include/linux/i2c-id.h</code> 下找到</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ul>
+<li><code>struct i2c_driver</code> 提供 <code>probe</code> <code>remove</code> 等函数接口. i2c从机设备驱动使用<ul>
+<li><code>i2c_add_driver</code> 函数使用. 与 <code>i2c_adapter</code> 对应, 两者需要匹配.</li>
+</ul>
+</li>
+<li><code>struct i2c_adapter</code> 适配器. 就是将多种多样的底层I2C硬件需求(不同地址, 不同通讯方法)给一个统一的方法接入到I2C核心层.<ul>
+<li>指定通讯方式(i2c_algorithm)</li>
+<li>指定i2c设备(i2c_client)</li>
+<li><code>i2c_add_adapter</code> 函数使用. 与 <code>i2c_driver</code> 对应, 两者需要匹配.</li>
+</ul>
+</li>
+<li><code>struct i2c_client</code> 描述了真实设备的所有必要信息, 如 i2c addr, 设备名称, 中断号等等.<ul>
+<li>除了提供给 <code>i2c_adapter</code> 外, 还直接和 <code>i2c_driver</code> 想关联.</li>
+<li>原因应该是内核层和应用层都需要方便的读取真实i2c设备的必要信息</li>
+</ul>
+</li>
+<li><code>struct i2c_algorithm</code> 通讯方法. 其中两个函数指针是由底层硬件实现的. 相当于 i2c核心层和底层的接口<ul>
+<li>algorithm 这个词让人容易误解. 我的理解是数据预处理方式的不同.</li>
+<li>只和 <code>i2c_adapter</code> 相关, 给i2c主机提供收发功能</li>
+<li><code>.master_xfer</code> 发送函数, 需要底层实现.</li>
+<li><code>struct i2c_msg</code> 用于存放通讯时的地址, 数据buf, 长度等信息</li>
+<li><code>.functionality</code> 驱动支持的功能, 需要底层明确.</li>
+<li>底层没有接收函数. 因为i2c通讯必须由主机发起并提供时钟, 发送的同时就会接收数据.</li>
+</ul>
+</li>
+</ul>
+<h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><p><img src="https://draapho.github.io/images/1815/function.png" alt="function.png"></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// =========== 从 i2c_add_driver 看 ==========</span></span><br><span class="line">i2c_add_driver                                              <span class="comment">// I2C 设备驱动会调用, 如自己写的驱动</span></span><br><span class="line">    i2c_register_driver</span><br><span class="line">        driver-&gt;driver.bus = &amp;i2c_bus_type;</span><br><span class="line">        driver_register(&amp;driver-&gt;driver);</span><br><span class="line">        list_add_tail(&amp;driver-&gt;<span class="built_in">list</span>,&amp;drivers);              <span class="comment">// 将 i2c_driver 放到链表尾部</span></span><br><span class="line"></span><br><span class="line">        list_for_each_entry(adapter, &amp;adapters, <span class="built_in">list</span>) &#123;</span><br><span class="line">            driver-&gt;attach_adapter(adapter);                <span class="comment">// 尝试匹配 i2c_adapter</span></span><br><span class="line">            <span class="comment">// driver-&gt;attach_adapter 就会去调用驱动里指定的 attach_adapter 函数.</span></span><br><span class="line">            <span class="comment">// 一般的, 就是直接调用 i2c_probe. &quot;i2c-dev.c&quot; 除外, 它关联所有的 &quot;i2c_adapter&quot;.</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">i2c_probe(adapter, &amp;addr_data, eeprom_detect);              <span class="comment">// adapter 是系统传过来的</span></span><br><span class="line">    adap_id = i2c_adapter_id(adapter)                       <span class="comment">// i2c_adapter.nr 作为判断.</span></span><br><span class="line">    <span class="comment">// 判断 address_data 里是否有 forces.类型匹配即可. 强制类型不会检查I2C从设备是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (address_data-&gt;forces) &#123;</span><br><span class="line">        <span class="comment">// force里的类型与 i2c_adapter.nr 一致, 或者是 ANY_I2C_BUS</span></span><br><span class="line">        <span class="keyword">if</span> (forces[kind][i] == adap_id || forces[kind][i] == ANY_I2C_BUS) &#123;</span><br><span class="line">            i2c_probe_address();                            <span class="comment">// 调用 i2c_probe_address</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// address_data.probe 里的地址和类型不受ignore影响.</span></span><br><span class="line">    <span class="comment">// probe 的数据格式也必须是 &#123;I2C_BUS_ID, ADDR, I2C_BUS_ID, ADDR, I2C_CLIENT_END&#125;</span></span><br><span class="line">    <span class="keyword">if</span> (address_data-&gt;probe[i] == adap_id || address_data-&gt;probe[i] == ANY_I2C_BUS) &#123;</span><br><span class="line">            i2c_probe_address();                            <span class="comment">// 调用 i2c_probe_address</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// address_data.normal_i2c, 就是排除 .ignore 后, 进行 i2c_probe_address</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">i2c_probe_address                                           <span class="comment">// 发出S信号,发出设备地址(来自addr_data)</span></span><br><span class="line">    i2c_smbus_xfer</span><br><span class="line">        i2c_smbus_xfer_emulated</span><br><span class="line">            i2c_transfer</span><br><span class="line">                adap-&gt;algo-&gt;master_xfer                     <span class="comment">// 就是调用 s3c24xx_i2c_xfer</span></span><br><span class="line">    found_proc(adapter, addr, kind);</span><br><span class="line">    <span class="comment">// 回调用户设置的的 detection 函数, 告知匹配成功. 可以做一些收发数据的初始化准备.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// =========== 从 i2c_add_adapter 看 ==========</span></span><br><span class="line">i2c_add_adapter                                             <span class="comment">// I2C 总线驱动会调用, 如 &quot;i2c-s3c2410.c&quot;</span></span><br><span class="line">    i2c_register_adapter</span><br><span class="line">        device_register(&amp;adap-&gt;dev);                        <span class="comment">// 在 i2c-adapter 下注册 i2c-X</span></span><br><span class="line">        list_for_each(item,&amp;drivers) &#123;</span><br><span class="line">            driver = list_entry(item, struct i2c_driver, <span class="built_in">list</span>);</span><br><span class="line">            driver-&gt;attach_adapter(adap);                   <span class="comment">// 尝试匹配 i2c_adapter</span></span><br><span class="line">            <span class="comment">// driver-&gt;attach_adapter 就会去调用i2c设备驱动里指定的 attach_adapter 函数.</span></span><br><span class="line">            <span class="comment">// 后续过程和后面的 i2c_add_driver 一样, 略过不表</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关于 i2c_adapter.nr 应该是由这里的驱动在设定, 作为对接的依据之一.</span></span><br><span class="line"><span class="comment">// 但实际上, 大多数CPU厂商都没有用这个 i2c_adapter.nr 去作为 I2C_BUS 的ID. 默认值应该是0</span></span><br><span class="line"><span class="comment">// 所以最终是否能匹配就变成了根据 I2C 的地址, 实际检测一下设备是否存在...</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="编写I2C设备驱动"><a href="#编写I2C设备驱动" class="headerlink" title="编写I2C设备驱动"></a>编写I2C设备驱动</h1><p>一般的, I2C总线驱动也由芯片公司完成了.<br>因此, 当外接了某个i2c设备时, 只需要编写一下设备驱动就可以了.<br>linux内核还包含了常用的 i2c 设备如eeprom. 可以在 <code>./drivers/i2c/chips</code> 下看看.</p>
+<p>核心步骤如下:</p>
+<ul>
+<li>分配一个i2c_driver结构体</li>
+<li>设置:<pre><code>- `attach_adapter`, 它直接调用 i2c_probe (adap, 设备地址, 发现这个设备后要调用的函数)
+- `detach_client`,  卸载这个驱动后,如果之前发现能够支持的设备,则调用它来清理
+</code></pre>
+</li>
+<li>注册： <code>i2c_add_driver</code></li>
+<li>注册为<code>字符设备</code>或其它. 如 <code>input系统</code> <code>块设备</code>, 并实现对应的操作函数.</li>
+</ul>
+<h2 id="at24cxx-c"><a href="#at24cxx-c" class="headerlink" title="at24cxx.c"></a>at24cxx.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/kernel.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/init.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/slab.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/jiffies.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/i2c.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/mutex.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/fs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/uaccess.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">&quot;GPL&quot;</span>);</span><br><span class="line">MODULE_AUTHOR(<span class="string">&quot;DRAAPHO&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> ignore[]      = &#123; I2C_CLIENT_END &#125;;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> normal_addr[] = &#123; <span class="number">0x50</span>, I2C_CLIENT_END &#125;;     <span class="comment">// 地址值是7位</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ignore 数组范例</span></span><br><span class="line"><span class="comment">// static unsigned short ignore[]      = &#123; ANY_I2C_BUS, 0x60, I2C_CLIENT_END &#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// probe 数组范例</span></span><br><span class="line"><span class="comment">// static unsigned short probe[]       = &#123; ANY_I2C_BUS, 0x60, I2C_CLIENT_END &#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// force 数组范例</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> force_addr[] = &#123;ANY_I2C_BUS, <span class="number">0x60</span>, I2C_CLIENT_END&#125;;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> *forces[] = &#123;force_addr, <span class="literal">NULL</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">i2c_client_address_data</span> <span class="title">addr_data</span> =</span> &#123;</span><br><span class="line">    .normal_i2c = normal_addr,              <span class="comment">// 要发出S信号和设备地址并得到ACK信号, 才确认设备存在</span></span><br><span class="line">    .probe      = ignore,</span><br><span class="line">    .ignore     = ignore,</span><br><span class="line">    <span class="comment">// 一般不用 .forces 的. 由于jz2440没有i2c从设备, 因此这里用一下.</span></span><br><span class="line">    .forces     = forces,                   <span class="comment">// 强制认为存在这个设备</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> major;</span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="keyword">class</span> *<span class="title">cls</span>;</span></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">i2c_driver</span> <span class="title">at24cxx_driver</span>;</span>    <span class="comment">// i2c_driver 结构体, 初始化在后面</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">i2c_client</span> *<span class="title">at24cxx_client</span>;</span>          <span class="comment">// i2c_client 结构体</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">ssize_t</span> <span class="title">at24cxx_read</span><span class="params">(struct file *file, <span class="keyword">char</span> __user *buf, <span class="keyword">size_t</span> size, <span class="keyword">loff_t</span> * offset)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> address;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">msg</span>[2];</span>                  <span class="comment">// i2c_msg 结构体</span></span><br><span class="line">    <span class="keyword">int</span> ret;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (size != <span class="number">1</span>)                          <span class="comment">// 只接受1个参数, 表地址.</span></span><br><span class="line">        <span class="keyword">return</span> -EINVAL;</span><br><span class="line">    copy_from_user(&amp;address, buf, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读AT24CXX时,要先把要读的存储空间的地址发给它</span></span><br><span class="line">    msg[<span class="number">0</span>].addr  = at24cxx_client-&gt;addr;    <span class="comment">// 目的</span></span><br><span class="line">    msg[<span class="number">0</span>].buf   = &amp;address;                <span class="comment">// 源</span></span><br><span class="line">    msg[<span class="number">0</span>].len   = <span class="number">1</span>;                       <span class="comment">// 地址=1 byte</span></span><br><span class="line">    msg[<span class="number">0</span>].flags = <span class="number">0</span>;                       <span class="comment">// 表示写</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 然后启动读操作</span></span><br><span class="line">    msg[<span class="number">1</span>].addr  = at24cxx_client-&gt;addr;    <span class="comment">// 源</span></span><br><span class="line">    msg[<span class="number">1</span>].buf   = &amp;data;                   <span class="comment">// 目的</span></span><br><span class="line">    msg[<span class="number">1</span>].len   = <span class="number">1</span>;                       <span class="comment">// 数据=1 byte</span></span><br><span class="line">    msg[<span class="number">1</span>].flags = I2C_M_RD;                <span class="comment">// 表示读</span></span><br><span class="line"></span><br><span class="line">    ret = i2c_transfer(at24cxx_client-&gt;adapter, msg, <span class="number">2</span>);    <span class="comment">// 发送+接受</span></span><br><span class="line">    <span class="keyword">if</span> (ret == <span class="number">2</span>) &#123;</span><br><span class="line">        copy_to_user(buf, &amp;data, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -EIO;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">ssize_t</span> <span class="title">at24cxx_write</span><span class="params">(struct file *file, <span class="keyword">const</span> <span class="keyword">char</span> __user *buf, <span class="keyword">size_t</span> size, <span class="keyword">loff_t</span> *offset)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> val[<span class="number">2</span>];</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">msg</span>[1];</span></span><br><span class="line">    <span class="keyword">int</span> ret;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (size != <span class="number">2</span>)                          <span class="comment">// 只接受2个参数, 表地址和数据.</span></span><br><span class="line">        <span class="keyword">return</span> -EINVAL;</span><br><span class="line">    copy_from_user(val, buf, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    msg[<span class="number">0</span>].addr  = at24cxx_client-&gt;addr;    <span class="comment">// 目的</span></span><br><span class="line">    msg[<span class="number">0</span>].buf   = val;                     <span class="comment">// 源</span></span><br><span class="line">    msg[<span class="number">0</span>].len   = <span class="number">2</span>;                       <span class="comment">// 地址+数据=2 byte</span></span><br><span class="line">    msg[<span class="number">0</span>].flags = <span class="number">0</span>;                       <span class="comment">// 表示写</span></span><br><span class="line"></span><br><span class="line">    ret = i2c_transfer(at24cxx_client-&gt;adapter, msg, <span class="number">1</span>);    <span class="comment">// 发送</span></span><br><span class="line">    <span class="keyword">if</span> (ret == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> -EIO;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">file_operations</span> <span class="title">at24cxx_fops</span> =</span> &#123;</span><br><span class="line">    .owner = THIS_MODULE,</span><br><span class="line">    .read  = at24cxx_read,</span><br><span class="line">    .write = at24cxx_write,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">at24cxx_detect</span><span class="params">(struct i2c_adapter *adapter, <span class="keyword">int</span> address, <span class="keyword">int</span> kind)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    printk(<span class="string">&quot;at24cxx_detect\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一个i2c_client结构体: 收发数据时会用到它</span></span><br><span class="line">    at24cxx_client = kzalloc(<span class="keyword">sizeof</span>(struct i2c_client), GFP_KERNEL);</span><br><span class="line">    at24cxx_client-&gt;addr    = address;</span><br><span class="line">    at24cxx_client-&gt;adapter = adapter;</span><br><span class="line">    at24cxx_client-&gt;driver  = &amp;at24cxx_driver;</span><br><span class="line">    <span class="built_in">strcpy</span>(at24cxx_client-&gt;name, <span class="string">&quot;at24cxx&quot;</span>);</span><br><span class="line">    i2c_attach_client(at24cxx_client);      <span class="comment">// 关联到 i2c_driver 和 i2c_adapter</span></span><br><span class="line"></span><br><span class="line">    major = register_chrdev(<span class="number">0</span>, <span class="string">&quot;at24cxx&quot;</span>, &amp;at24cxx_fops);</span><br><span class="line"></span><br><span class="line">    cls = class_create(THIS_MODULE, <span class="string">&quot;at24cxx&quot;</span>);</span><br><span class="line">    class_device_create(cls, <span class="literal">NULL</span>, MKDEV(major, <span class="number">0</span>), <span class="literal">NULL</span>, <span class="string">&quot;at24cxx&quot;</span>);           <span class="comment">// /dev/at24cxx</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">at24cxx_attach</span><span class="params">(struct i2c_adapter *adapter)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 主动调用 probe 函数, 符合要求后, 会调用 at24cxx_detect</span></span><br><span class="line">    <span class="keyword">return</span> i2c_probe(adapter, &amp;addr_data, at24cxx_detect);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">at24cxx_detach</span><span class="params">(struct i2c_client *client)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    printk(<span class="string">&quot;at24cxx_detach\n&quot;</span>);</span><br><span class="line">    class_device_destroy(cls, MKDEV(major, <span class="number">0</span>));</span><br><span class="line">    class_destroy(cls);</span><br><span class="line">    unregister_chrdev(major, <span class="string">&quot;at24cxx&quot;</span>);</span><br><span class="line"></span><br><span class="line">    i2c_detach_client(client);</span><br><span class="line">    kfree(i2c_get_clientdata(client));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">i2c_driver</span> <span class="title">at24cxx_driver</span> =</span> &#123; <span class="comment">// i2c_driver 结构体</span></span><br><span class="line">    .driver = &#123;</span><br><span class="line">        .name   = <span class="string">&quot;at24cxx&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    .attach_adapter = at24cxx_attach,</span><br><span class="line">    .detach_client  = at24cxx_detach,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">at24cxx_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    i2c_add_driver(&amp;at24cxx_driver);        <span class="comment">// i2c_add_driver, 会自动去匹配 i2c_add_adapter</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">at24cxx_exit</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    i2c_del_driver(&amp;at24cxx_driver);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module_init(at24cxx_init);</span><br><span class="line">module_exit(at24cxx_exit);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">TEST_FILE   := i2c_test</span><br><span class="line"></span><br><span class="line">obj-m       := at24cxx.o</span><br><span class="line">KERN_SRC    := /home/draapho/share/jz2440/kernel/linux-2.6.22.6/</span><br><span class="line">PWD         := <span class="variable">$(<span class="built_in">shell</span> pwd)</span></span><br><span class="line"></span><br><span class="line"><span class="section">modules:</span></span><br><span class="line">    make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> modules</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    make -C <span class="variable">$(KERN_SRC)</span> M=<span class="variable">$(PWD)</span> clean</span><br><span class="line">    rm -f <span class="variable">$(TEST_FILE)</span></span><br><span class="line"></span><br><span class="line"><span class="section">test:</span></span><br><span class="line">    arm-linux-gcc <span class="variable">$(TEST_FILE)</span>.c -o <span class="variable">$(TEST_FILE)</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="i2c-test-c"><a href="#i2c-test-c" class="headerlink" title="i2c_test.c"></a>i2c_test.c</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* i2c_test r addr</span></span><br><span class="line"><span class="comment"> * i2c_test w addr val</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_usage</span><span class="params">(<span class="keyword">char</span> *file)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s r addr\n&quot;</span>, file);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s w addr val\n&quot;</span>, file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> buf[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((argc != <span class="number">3</span>) &amp;&amp; (argc != <span class="number">4</span>)) &#123;</span><br><span class="line">        print_usage(argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fd = open(<span class="string">&quot;/dev/at24cxx&quot;</span>, O_RDWR);</span><br><span class="line">    <span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;can&#x27;t open /dev/at24cxx\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strcmp</span>(argv[<span class="number">1</span>], <span class="string">&quot;r&quot;</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">        buf[<span class="number">0</span>] = strtoul(argv[<span class="number">2</span>], <span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">        read(fd, buf, <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;data: %c, %d, 0x%2x\n&quot;</span>, buf[<span class="number">0</span>], buf[<span class="number">0</span>], buf[<span class="number">0</span>]);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">strcmp</span>(argv[<span class="number">1</span>], <span class="string">&quot;w&quot;</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">        buf[<span class="number">0</span>] = strtoul(argv[<span class="number">2</span>], <span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">        buf[<span class="number">1</span>] = strtoul(argv[<span class="number">3</span>], <span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">        write(fd, buf, <span class="number">2</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        print_usage(argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu 主机端</span></span><br><span class="line"><span class="comment"># pwd = ~/share/jz2440/drivers/i2c/             # i2c驱动目录</span></span><br><span class="line">$ make modules</span><br><span class="line">$ make <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开发板端, 开始测试</span></span><br><span class="line">$ cat /proc/devices                             <span class="comment"># 注册的驱动, 如调用 &quot;register_chrdev&quot;</span></span><br><span class="line">$ ls /sys/class/                                <span class="comment"># 注册的类, 如调用 &quot;class_create&quot;</span></span><br><span class="line">i2c-adapter                                     <span class="comment"># 由 i2c-core.c 生成</span></span><br><span class="line"><span class="comment"># 里面有个 i2c-0 设备, 是i2c主机端概念,</span></span><br><span class="line"><span class="comment"># 由 i2c_add_adapter 生成. 就是 s3c2440-i2c.</span></span><br><span class="line"></span><br><span class="line">$ ls /sys/class/class_name                      <span class="comment"># 注册的设备, 如调用 &quot;device_create&quot;</span></span><br><span class="line">$ ls /dev/                                      <span class="comment"># mdev根据注册的设备, 使用mknod生成的设备节点</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># pwd = ~/share/jz2440//kernel/linux-2.6.22.6/drivers/i2c   # i2c驱动目录, nfs</span></span><br><span class="line">$ insmod i2c-dev.ko                             <span class="comment"># 加载系统自带的i2c</span></span><br><span class="line"><span class="comment"># 源码里会调用 i2c_add_driver 表示一个从机设备, 供APP端直接操作此i2c设备</span></span><br><span class="line"></span><br><span class="line">$ cat /proc/devices</span><br><span class="line"> 89 i2c                                         <span class="comment"># 固定的主设备号89, i2c 从设备</span></span><br><span class="line">$ ls /sys/class/</span><br><span class="line">i2c-dev                                         <span class="comment"># 找到了 i2c-dev 类</span></span><br><span class="line">$ ls /sys/class/i2c-dev</span><br><span class="line">i2c-0                                           <span class="comment"># 这个i2c0是从机端概念, 由 i2c_add_driver 生成</span></span><br><span class="line"><span class="comment"># ls /dev/i2c*</span></span><br><span class="line">/dev/i2c-0                                      <span class="comment"># 是 i2c-dev 的 i2c-0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 继续做实验</span></span><br><span class="line"><span class="comment"># pwd = ~/share/jz2440/drivers/i2c/             # i2c驱动目录, nfs</span></span><br><span class="line">$ insmod at24cxx.ko                             <span class="comment"># 加载驱动</span></span><br><span class="line">at24cxx_detect                                  <span class="comment"># 使用的强制加载, 因此没有外设也说检测到了</span></span><br><span class="line"></span><br><span class="line">$ cat /proc/devices</span><br><span class="line"> 89 i2c                                         <span class="comment"># APP可以通过这里操作i2c底层</span></span><br><span class="line">252 at24cxx                                     <span class="comment"># APP可以通过这里认为只是在读写eeprom, 虽然底层实现是i2c通讯</span></span><br><span class="line">$ ls /sys/class/</span><br><span class="line">at24cxx                                         <span class="comment"># 由自己的i2c驱动代码生成, 与 i2c_add_driver 相关</span></span><br><span class="line">i2c-adapter                                     <span class="comment"># 由 i2c-core 生成, 与 i2c_add_adapter 相关</span></span><br><span class="line">i2c-dev                                         <span class="comment"># 由 i2c-dev 生成, 与 i2c_add_driver 相关</span></span><br><span class="line">$ ls /dev/at* /dev/i2c*</span><br><span class="line">/dev/at24cxx  /dev/i2c-0                        <span class="comment"># 两个设备节点.</span></span><br><span class="line"><span class="comment"># i2c-adapter 是不会出现在这里的. 因为只会对i2c从机进行读写操作, 是不会对i2c主机做什么操作的.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># at24c芯片操作.</span></span><br><span class="line"><span class="comment"># pwd = ~/share/jz2440/drivers/i2c/             # i2c驱动目录, nfs</span></span><br><span class="line">$ ./i2c_test r 0</span><br><span class="line">$ ./i2c_test w 0 0x59</span><br><span class="line">$ ./i2c_test r 0                                <span class="comment"># 回读应该也是 0x59 才对.</span></span><br><span class="line"><span class="comment"># 断电后再读也应该是0x59. eeprom是非易失性存储器</span></span><br><span class="line"><span class="comment"># 对jz2440肯定是失败的, 因为没有这个外设.</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/lcw/p/3297889.html">【驱动】linux下I2C驱动架构全面分析</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/hanmengaidudu/article/details/10159787">用户空间使用i2c-dev.c</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+              <a href="/tags/driver/" rel="tag"># driver</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/02/08/1814-drv-rtc/" rel="prev" title="驱动之RTC分析">
+                  <i class="fa fa-chevron-left"></i> 驱动之RTC分析
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/04/12/1815-suspend/" rel="next" title="博客暂停更新">
+                  博客暂停更新 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

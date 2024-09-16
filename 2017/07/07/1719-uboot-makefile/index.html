@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uboot之makefile分析">
+<meta property="og:url" content="https://draapho.github.io/2017/07/07/1719-uboot-makefile/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-07-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="jz2440">
+<meta property="article:tag" content="uboot">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/07/07/1719-uboot-makefile/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>uboot之makefile分析 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u-boot-%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">u-boot 编译过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u-boot%E5%8A%9F%E8%83%BD"><span class="nav-number">3.</span> <span class="nav-text">u-boot功能:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u-boot%E7%9A%84README"><span class="nav-number">4.</span> <span class="nav-text">u-boot的README</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u-boot%E7%9A%84Makefile"><span class="nav-number">5.</span> <span class="nav-text">u-boot的Makefile</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%98make-100ask24x0-config%E2%80%99-%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90"><span class="nav-number">5.1.</span> <span class="nav-text">‘make 100ask24x0_config’ 指令分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%98make%E2%80%99-%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90"><span class="nav-number">5.2.</span> <span class="nav-text">‘make’ 指令分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%98u-boot-lds%E2%80%99-%E9%93%BE%E6%8E%A5%E8%84%9A%E6%9C%AC%E5%88%86%E6%9E%90"><span class="nav-number">5.3.</span> <span class="nav-text">‘u-boot.lds’ 链接脚本分析</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/07/07/1719-uboot-makefile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          uboot之makefile分析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-07-07 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-07T00:00:00+08:00">2017-07-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded-linux/" itemprop="url" rel="index"><span itemprop="name">embedded linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/11/24/1735-jz2440-basic/">jz2440分区及启动的基础概念</a></li>
+<li><a href="https://draapho.github.io/2017/07/07/1719-uboot-makefile/">uboot之makefile分析</a></li>
+<li><a href="https://draapho.github.io/2017/08/25/1720-uboot-source/">uboot之源码分析</a></li>
+<li><a href="https://draapho.github.io/2017/08/30/1721-uboot-modify/">uboot之定制指令</a></li>
+</ul>
+<p>本文基于 u-boot-1.1.6, 使用jz2440开发板. 若要使用最新的u-boot版本见: <a target="_blank" rel="noopener" href="http://www.denx.de/wiki/U-Boot/WebHome">u-boot官网</a>  <a href="ftp://ftp.denx.de/pub/u-boot/">u-boot下载</a></p>
+<h1 id="u-boot-编译过程"><a href="#u-boot-编译过程" class="headerlink" title="u-boot 编译过程"></a>u-boot 编译过程</h1><ol>
+<li>解压缩 u-boot-1.1.6</li>
+<li>打补丁 针对特定开发板发布的补丁. 打补丁方法<br><code>uboot目录下$ patch -p1 &lt; ../补丁文件</code>  p1表示忽略补丁目标目录的第一层</li>
+<li>配置 <code>make 100ask24x0_config</code></li>
+<li>编译: <code>make</code>, 获取 <code>u-boot.bin</code> 文件</li>
+<li>烧录, 多种方式, 可以用jlink烧录到 NOR Flash 中</li>
+</ol>
+<h1 id="u-boot功能"><a href="#u-boot功能" class="headerlink" title="u-boot功能:"></a>u-boot功能:</h1><ul>
+<li>本质是单片机程序</li>
+<li>硬件相关初始化<ul>
+<li>关看门狗</li>
+<li>初始化时钟</li>
+<li>初始化SDRAM</li>
+<li>从Flash读取内核</li>
+</ul>
+</li>
+<li>最终目的: 启动内核</li>
+<li>为开发方便, 还支持:<ul>
+<li>烧写flash</li>
+<li>网卡</li>
+<li>USB</li>
+<li>串口</li>
+</ul>
+</li>
+</ul>
+<h1 id="u-boot的README"><a href="#u-boot的README" class="headerlink" title="u-boot的README"></a>u-boot的README</h1><p>要了解 u-boot 的架构和设计思路, 建议先看自带的 <code>README</code> 文件. 重要信息如下:</p>
+<ul>
+<li><code>include/configs/&lt;board_name&gt;.h</code>  板级配置头文件</li>
+<li><code>make NAME_config</code>                加载配置, 准备编译</li>
+<li><code>make</code> or <code>make all</code>              编译生成bin文件</li>
+<li><code>Monitor Commands - Overview:</code>    u-boot 指令概览</li>
+<li><code>Environment Variables:</code>          u-boot 环境变量</li>
+<li><code>Linux HOWTO:</code>                    编译linux uImage</li>
+<li><code>Boot Linux:</code>                     u-boot 启动Linux相关设置</li>
+</ul>
+<p>自己设置板级配置的步骤: (位于 README line 2375)</p>
+<ol>
+<li>Add a new configuration option for your board to the toplevel<br> “Makefile” and to the “MAKEALL” script, using the existing<br> entries as examples. Note that here and at many other places<br> boards and other names are listed in alphabetical sort order. Please<br> keep this order.</li>
+<li>Create a new directory to hold your board specific code. Add any<br> files you need. In your board directory, you will need at least<br> the “Makefile”, a “<board>.c”, “flash.c” and “u-boot.lds”.</li>
+<li>Create a new configuration file “include/configs/<board>.h” for<br> your board</li>
+<li>If you’re porting U-Boot to a new CPU, then also create a new<br> directory to hold your CPU specific code. Add any files you need.</li>
+<li> Run “make <board>_config” with your new name.</li>
+<li>Type “make”, and you should get a working “u-boot.srec” file<br> to be installed on your target system.</li>
+<li> Debug and solve any problems that might arise.</li>
+</ol>
+<h1 id="u-boot的Makefile"><a href="#u-boot的Makefile" class="headerlink" title="u-boot的Makefile"></a>u-boot的Makefile</h1><p>分析 <code>100ask24x0</code> 即jz2440板子的Makefile实现. Linux下可以使用grep搜索.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pwd = u-boot-1.1.6 文件夹下</span></span><br><span class="line">grep -n 100ask24x0 ./Makefile       <span class="comment"># 在Makefile文件下查找 100ask24x0, 并显示行号</span></span><br><span class="line">grep -nr 100ask24x0 *               <span class="comment"># 当前目录递归查找 100ask24x0</span></span><br><span class="line">grep -nwr 100ask24x0 *              <span class="comment"># w=word, 100ask24x0 作为一个单词查找</span></span><br><span class="line">grep -nd skip 100ask24x0 *          <span class="comment"># 仅在当前目录查找, 不显示子目录信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 特别强大的一条指令, 可针对指定文件搜索指定关键字!</span></span><br><span class="line"><span class="comment"># 先用find找出所有的Makefile文件, 然后在Makefile文件内查找 uImage 关键字.</span></span><br><span class="line">find ./ -name <span class="string">&quot;Makefile&quot;</span> | xargs grep -nw --color <span class="string">&quot;uboot&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="‘make-100ask24x0-config’-指令分析"><a href="#‘make-100ask24x0-config’-指令分析" class="headerlink" title="‘make 100ask24x0_config’ 指令分析"></a>‘make 100ask24x0_config’ 指令分析</h2><p><code>make 100ask24x0_config</code> 其指令结构和 <code>make clean</code> 是一样的.<br>因此在 Makefile 里找到 <code>100ask24x0_config</code> 为目标的行即可:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1886    100ask24x0_config   :   unconfig</span><br><span class="line">1887        @$(MKCONFIG) $(@:_config=) arm arm920t 100ask24x0 NULL s3c24x0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目标为 100ask24x0_config, 没有依赖</span></span><br><span class="line"><span class="comment"># 执行 make 100ask24x0_config 后, 实际运行的就是第二行的指令</span></span><br><span class="line"><span class="comment"># 找到并替换里面的变量:</span></span><br><span class="line"><span class="comment">#   MKCONFIG    := $(SRCTREE)/mkconfig</span></span><br><span class="line"><span class="comment">#   SRCTREE     := $(CURDIR)</span></span><br><span class="line"><span class="comment">#   $(@:_config=) 其中 $(@) 表示目标, 即 `100ask24x0_config:_config=空`, 最终得到 `100ask24x0`</span></span><br><span class="line"><span class="comment"># 整句替换下来的指令就变成了:</span></span><br><span class="line">    ./mkconfig 100ask24x0 arm arm920t 100ask24x0 NULL s3c24x0</span><br></pre></td></tr></table></figure>
+
+<p>因此, 我们需要去当前文件夹下查找 <code>mkconfig</code> 这个脚本文件.<br>下面直接删减成最终执行的样子, 前面加上原来的行号便于学习比较</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入为: ./mkconfig 100ask24x0 arm arm920t 100ask24x0 NULL s3c24x0</span></span><br><span class="line"><span class="comment"># 对应的变量:  $0        $1      $2   $3       $4        $5    $6</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印信息</span></span><br><span class="line">23  BOARD_NAME=<span class="string">&quot;<span class="variable">$1</span>&quot;</span>                             <span class="comment"># BOARD_NAME=100ask24x0</span></span><br><span class="line">28  <span class="string">&quot;Configuring for <span class="variable">$&#123;BOARD_NAME&#125;</span> board...&quot;</span>    <span class="comment"># Configuring for 100ask24x0 board...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新创建一系列的软链接:</span></span><br><span class="line">46  <span class="built_in">cd</span> ./include</span><br><span class="line">47  rm -f asm</span><br><span class="line">48  ln -s asm-<span class="variable">$2</span> asm                            <span class="comment"># asm-&gt;asm-arm, 建立一个软连接, 使用asm-arm</span></span><br><span class="line">51  rm -f asm-<span class="variable">$2</span>/arch                           <span class="comment"># asm-arm/arch</span></span><br><span class="line">56  ln -s <span class="variable">$&#123;LNPREFIX&#125;</span>arch-<span class="variable">$6</span> asm-<span class="variable">$2</span>/arch        <span class="comment"># LNPREFIX. 因此 asm-arm/arch-&gt;arch-s3c24x0</span></span><br><span class="line">60  rm -f asm-<span class="variable">$2</span>/proc</span><br><span class="line">61  ln -s <span class="variable">$&#123;LNPREFIX&#125;</span>proc-armv asm-<span class="variable">$2</span>/proc      <span class="comment"># asm-arm/proc-&gt;proc-armv,</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 config.mk 文件</span></span><br><span class="line">67  <span class="built_in">echo</span> <span class="string">&quot;ARCH   = <span class="variable">$2</span>&quot;</span> &gt;  config.mk             <span class="comment"># &gt;  新建, &quot;ARCH   = arm&quot;</span></span><br><span class="line">68  <span class="built_in">echo</span> <span class="string">&quot;CPU    = <span class="variable">$3</span>&quot;</span> &gt;&gt; config.mk             <span class="comment"># &gt;&gt; 追加, &quot;CPU    = arm920t&quot;</span></span><br><span class="line">69  <span class="built_in">echo</span> <span class="string">&quot;BOARD  = <span class="variable">$4</span>&quot;</span> &gt;&gt; config.mk             <span class="comment"># &gt;&gt; 追加, &quot;BOARD  = 100ask24x0&quot;</span></span><br><span class="line">71  [ <span class="string">&quot;<span class="variable">$5</span>&quot;</span> ] &amp;&amp; [ <span class="string">&quot;<span class="variable">$5</span>&quot;</span> != <span class="string">&quot;NULL&quot;</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;VENDOR = <span class="variable">$5</span>&quot;</span> &gt;&gt; config.mk   <span class="comment"># $5 = NULL, 不写VENDOR字段</span></span><br><span class="line">73  [ <span class="string">&quot;<span class="variable">$6</span>&quot;</span> ] &amp;&amp; [ <span class="string">&quot;<span class="variable">$6</span>&quot;</span> != <span class="string">&quot;NULL&quot;</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;SOC    = <span class="variable">$6</span>&quot;</span> &gt;&gt; config.mk   <span class="comment"># &quot;SOC = s3c24x0&quot;</span></span><br><span class="line"><span class="comment"># 可以使用 `cat ./include/config.mk` 查看该文件的内容.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 config.h 文件. 为了 `#include &lt;configs/100ask24x0.h&gt;`</span></span><br><span class="line">82  &gt; config.h                                                      <span class="comment"># &gt;  新建 config.h</span></span><br><span class="line">84  <span class="built_in">echo</span> <span class="string">&quot;/* Automatically generated - do not edit */&quot;</span> &gt;&gt;config.h   <span class="comment"># &gt;&gt; 追加写入</span></span><br><span class="line">85  <span class="built_in">echo</span> <span class="string">&quot;#include &lt;configs/<span class="variable">$1</span>.h&gt;&quot;</span> &gt;&gt;config.h                       <span class="comment"># &gt;&gt; 追加写入, $1=100ask24x0</span></span><br><span class="line"><span class="comment"># 可以使用 `cat ./include/config.h` 查看该文件的内容.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="‘make’-指令分析"><a href="#‘make’-指令分析" class="headerlink" title="‘make’ 指令分析"></a>‘make’ 指令分析</h2><p><code>make</code> 实际上执行的是 <code>make all</code>, Makefile 中比较重要的几行为:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">116 # load ARCH, BOARD, and CPU configuration</span><br><span class="line">117 include $(OBJTREE)&#x2F;include&#x2F;config.mk</span><br><span class="line">118 export  ARCH CPU BOARD VENDOR SOC</span><br><span class="line"># .&#x2F;include&#x2F;config.mk 这个文件由 &#96;make 100ask24x0_config&#96; 指令生成, 可获得如下变量</span><br><span class="line"># ARCH   &#x3D; arm</span><br><span class="line"># CPU    &#x3D; arm920t</span><br><span class="line"># BOARD  &#x3D; 100ask24x0</span><br><span class="line"># SOC    &#x3D; s3c24x0</span><br><span class="line"></span><br><span class="line">164 include $(TOPDIR)&#x2F;config.mk</span><br><span class="line"># u-boot-1.1.6 根目录下的配置文件, 里面有一些变量的定义</span><br><span class="line"></span><br><span class="line">169 OBJS  &#x3D; cpu&#x2F;$(CPU)&#x2F;start.o</span><br><span class="line">193 LIBS  &#x3D; lib_generic&#x2F;libgeneric.a</span><br><span class="line">194 LIBS +&#x3D; board&#x2F;$(BOARDDIR)&#x2F;lib$(BOARD).a</span><br><span class="line">195 LIBS +&#x3D; cpu&#x2F;$(CPU)&#x2F;lib$(CPU).a</span><br><span class="line">197 LIBS +&#x3D; cpu&#x2F;$(CPU)&#x2F;$(SOC)&#x2F;lib$(SOC).a</span><br><span class="line">199 LIBS +&#x3D; lib_$(ARCH)&#x2F;lib$(ARCH).a</span><br><span class="line"># 加载几个板级参数相关的变量值. 特别注意 start.o 这个文件, 是整个u-boot最先运行的文件</span><br><span class="line"></span><br><span class="line">239 ALL &#x3D; $(obj)u-boot.srec $(obj)u-boot.bin $(obj)System.map $(U_BOOT_NAND)</span><br><span class="line">241 all:        $(ALL)</span><br><span class="line"># &#96;make&#96; 指令的入口就在这里. 可以根据 ALL 目标后面的依赖开始看这个 make 的过程</span><br><span class="line"></span><br><span class="line">262 $(obj)u-boot:       depend version $(SUBDIRS) $(OBJS) $(LIBS) $(LDSCRIPT)</span><br><span class="line">263         UNDEF_SYM&#x3D;&#96;$(OBJDUMP) -x $(LIBS) |sed  -n -e &#39;s&#x2F;.*\(__u_boot_cmd_.*\)&#x2F;-u\1&#x2F;p&#39;|sort|uniq&#96;;\</span><br><span class="line">264         cd $(LNDIR) &amp;&amp; $(LD) $(LDFLAGS) $$UNDEF_SYM $(__OBJS) \</span><br><span class="line">265             --start-group $(__LIBS) --end-group $(PLATFORM_LIBS) \</span><br><span class="line">266             -Map u-boot.map -o u-boot</span><br><span class="line"># 比较重要的一个指令. 可以运行 &#96;make&#96;, 在最后会看到这条指令的展开式, 用这种倒推的方式比较方便. 其展开如下:</span><br><span class="line"></span><br><span class="line">make[1]: Leaving directory &#39;&#x2F;home&#x2F;draapho&#x2F;jz2440&#x2F;uboot&#x2F;u-boot-1.1.6&#x2F;common&#39;</span><br><span class="line"># 这句不重要, 但这句的位置很明显, 所以写在这里了.</span><br><span class="line"></span><br><span class="line">UNDEF_SYM&#x3D;&#96;arm-linux-objdump -x lib_generic&#x2F;libgeneric.a board&#x2F;100ask24x0&#x2F;lib100ask24x0.a cpu&#x2F;arm920t&#x2F;libarm920t.a cpu&#x2F;arm920t&#x2F;s3c24x0&#x2F;libs3c24x0.a lib_arm&#x2F;libarm.a fs&#x2F;cramfs&#x2F;libcramfs.a fs&#x2F;fat&#x2F;libfat.a fs&#x2F;fdos&#x2F;libfdos.a fs&#x2F;jffs2&#x2F;libjffs2.a fs&#x2F;reiserfs&#x2F;libreiserfs.a fs&#x2F;ext2&#x2F;libext2fs.a net&#x2F;libnet.a disk&#x2F;libdisk.a rtc&#x2F;librtc.a dtt&#x2F;libdtt.a drivers&#x2F;libdrivers.a drivers&#x2F;nand&#x2F;libnand.a drivers&#x2F;nand_legacy&#x2F;libnand_legacy.a drivers&#x2F;usb&#x2F;libusb.a drivers&#x2F;sk98lin&#x2F;libsk98lin.a common&#x2F;libcommon.a |sed  -n -e &#39;s&#x2F;.*\(__u_boot_cmd_.*\)&#x2F;-u\1&#x2F;p&#39;|sort|uniq&#96;;\</span><br><span class="line"># 整个语句有点复杂, 用了一系列管道指令, 将最终结果赋值给 UNDEF_SYM 这么一个变量</span><br><span class="line"># 对 &quot;UNDEF_SYM&#x3D;&#96;$(OBJDUMP) -x $(LIBS) |sed  -n -e &#39;s&#x2F;.*\(__u_boot_cmd_.*\)&#x2F;-u\1&#x2F;p&#39;|sort|uniq&#96;;\&quot; 的展开</span><br><span class="line"># 其中 &quot;board&#x2F;100ask24x0&#x2F;lib100ask24x0.a cpu&#x2F;arm920t&#x2F;libarm920t.a cpu&#x2F;arm920t&#x2F;s3c24x0&#x2F;libs3c24x0.a lib_arm&#x2F;libarm.a&quot; 就是对 $(LIBS) 的展开</span><br><span class="line"></span><br><span class="line">cd &#x2F;home&#x2F;draapho&#x2F;jz2440&#x2F;uboot&#x2F;u-boot-1.1.6 &amp;&amp;</span><br><span class="line"># &quot;cd $(LNDIR) &amp;&amp;&quot; 的展开, 进入 u-boot-1.1.6 目录.</span><br><span class="line"></span><br><span class="line">arm-linux-ld -Bstatic -T &#x2F;home&#x2F;draapho&#x2F;jz2440&#x2F;uboot&#x2F;u-boot-1.1.6&#x2F;board&#x2F;100ask24x0&#x2F;u-boot.lds -Ttext 0x33F80000  $UNDEF_SYM cpu&#x2F;arm920t&#x2F;start.o \</span><br><span class="line"># &quot;$(LD) $(LDFLAGS) $$UNDEF_SYM $(__OBJS) \&quot; 的展开</span><br><span class="line"># $(LD) 就是 arm-linux-ld 链接指令. 其中 &quot;LD    &#x3D; $(CROSS_COMPILE)ld&quot;, 定义在 &quot;.&#x2F;config.mk&quot;, $(CROSS_COMPILE) 在 Makefile 下面.</span><br><span class="line"># $(LDFLAGS) 给出了链接指令的参数, 定义在 &quot;.&#x2F;config.mk&quot;, 形式为 &quot;LDFLAGS +&#x3D; -Bstatic -T $(LDSCRIPT) -Ttext $(TEXT_BASE) $(PLATFORM_LDFLAGS)&quot;</span><br><span class="line"># 根据 &quot;cpu&#x2F;arm920t&#x2F;start.o&quot;, 可以知道 start.s 的文件位置, 便于以后查看. (由u-boot.lds可知, 这是u-boot第一个运行的代码段)</span><br><span class="line"># !!! 其中 $(LDSCRIPT) 和 $(TEXT_BASE) 很重要 !!!</span><br><span class="line">    # &quot;LDSCRIPT :&#x3D; $(TOPDIR)&#x2F;board&#x2F;$(BOARDDIR)&#x2F;u-boot.lds&quot;, 定义在 &quot;.&#x2F;config.mk&quot;. 可以查看链接脚本</span><br><span class="line">    # &quot;TEXT_BASE &#x3D; 0x33F80000&quot;, 定义在 &quot;.&#x2F;board&#x2F;100ask24x0&#x2F;config.mk&quot;. 这个参数明显是板级相关的. 也可以使用 0x33F80000 来搜索.</span><br><span class="line"></span><br><span class="line">                --start-group lib_generic&#x2F;libgeneric.a board&#x2F;100ask24x0&#x2F;lib100ask24x0.a cpu&#x2F;arm920t&#x2F;libarm920t.a cpu&#x2F;arm920t&#x2F;s3c24x0&#x2F;libs3c24x0.a lib_arm&#x2F;libarm.a fs&#x2F;cramfs&#x2F;libcramfs.a fs&#x2F;fat&#x2F;libfat.a fs&#x2F;fdos&#x2F;libfdos.a fs&#x2F;jffs2&#x2F;libjffs2.a fs&#x2F;reiserfs&#x2F;libreiserfs.a fs&#x2F;ext2&#x2F;libext2fs.a net&#x2F;libnet.a disk&#x2F;libdisk.a rtc&#x2F;librtc.a dtt&#x2F;libdtt.a drivers&#x2F;libdrivers.a drivers&#x2F;nand&#x2F;libnand.a drivers&#x2F;nand_legacy&#x2F;libnand_legacy.a drivers&#x2F;usb&#x2F;libusb.a drivers&#x2F;sk98lin&#x2F;libsk98lin.a common&#x2F;libcommon.a --end-group -L &#x2F;usr&#x2F;local&#x2F;gcc-3.4.5-glibc-2.3.6&#x2F;bin&#x2F;..&#x2F;lib&#x2F;gcc&#x2F;arm-linux&#x2F;3.4.5 -lgcc \</span><br><span class="line">                -Map u-boot.map -o u-boot</span><br><span class="line"># 依旧属于 arm-linux-ld 的指令, 这里就是对 &quot;$(__LIBS)&quot; 和 &quot;$(PLATFORM_LIBS)&quot; 的展开, 忽略这一段, 对理解没有影响.</span><br></pre></td></tr></table></figure>
+
+<h2 id="‘u-boot-lds’-链接脚本分析"><a href="#‘u-boot-lds’-链接脚本分析" class="headerlink" title="‘u-boot.lds’ 链接脚本分析"></a>‘u-boot.lds’ 链接脚本分析</h2><p>根据对 Makefile 的分析, 可以知道uboot代码的偏移地址被设置成了 <code>-Ttext 0x33F80000</code> 这么一个值.<br>其含义就是, <strong>给u-boot的代码段分配的空间位于SDRAM最顶部的512K.</strong><br>jz2440使用的SDRAM大小为 64M, 即 0x400_0000, 预留512K (0x8_0000)给u-boot代码, 得到地址 0x3F8_0000.<br>因为 s3c24x0 给SDRAM分配的地址是从 0x3000_0000 开始的, 所以有了 0x33F8_0000 这么一个值.</p>
+<p>链接脚本 <code>./board/100ask24x0/u-boot.lds</code> 也很重要. 从中可以知道u-boot整个代码段的分配情况. 下面来分析一下:<br>链接脚本的作用就是安排目标文件在可执行文件中的顺序, 便于链接器生成最终的可执行文件.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">OUTPUT_FORMAT(&quot;elf32-littlearm&quot;, &quot;elf32-littlearm&quot;, &quot;elf32-littlearm&quot;)</span><br><span class="line">&#x2F;*OUTPUT_FORMAT(&quot;elf32-arm&quot;, &quot;elf32-arm&quot;, &quot;elf32-arm&quot;)*&#x2F;</span><br><span class="line">OUTPUT_ARCH(arm)</span><br><span class="line">ENTRY(_start)</span><br><span class="line">SECTIONS</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; . 表示当前位置, 设置当前位置为 0. 实际物理地址需要加上偏移量 0x33F80000</span><br><span class="line">    . &#x3D; 0x00000000;</span><br><span class="line"></span><br><span class="line">    . &#x3D; ALIGN(4);                   &#x2F;&#x2F; 4字节对齐</span><br><span class="line">    .text      :                    &#x2F;&#x2F; 代码段</span><br><span class="line">    &#123;</span><br><span class="line">      cpu&#x2F;arm920t&#x2F;start.o   (.text) &#x2F;&#x2F; 第一段代码放 start.s</span><br><span class="line">      board&#x2F;100ask24x0&#x2F;boot_init.o (.text)  &#x2F;&#x2F; 第二段代码放 boot_init.c (非必须)</span><br><span class="line">      *(.text)                      &#x2F;&#x2F; 其它的代码段</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    . &#x3D; ALIGN(4);</span><br><span class="line">    .rodata : &#123; *(.rodata) &#125;        &#x2F;&#x2F; 只读数据段, RO段</span><br><span class="line"></span><br><span class="line">    . &#x3D; ALIGN(4);</span><br><span class="line">    .data : &#123; *(.data) &#125;            &#x2F;&#x2F; 数据段, RW段</span><br><span class="line"></span><br><span class="line">    . &#x3D; ALIGN(4);</span><br><span class="line">    .got : &#123; *(.got) &#125;              &#x2F;&#x2F; uboot自定义, 非标准段</span><br><span class="line"></span><br><span class="line">    . &#x3D; .;</span><br><span class="line">    __u_boot_cmd_start &#x3D; .;         &#x2F;&#x2F; 赋值 __u_boot_cmd_start, 命令段起始位置</span><br><span class="line">    .u_boot_cmd : &#123; *(.u_boot_cmd) &#125;&#x2F;&#x2F; uboot 命令段, uboot通过宏定义, 将命令放在该段</span><br><span class="line">    __u_boot_cmd_end &#x3D; .;           &#x2F;&#x2F; 赋值 __u_boot_cmd_end, 命令段结束位置</span><br><span class="line"></span><br><span class="line">    . &#x3D; ALIGN(4);</span><br><span class="line">    __bss_start &#x3D; .;                &#x2F;&#x2F; 赋值 __bss_start</span><br><span class="line">    .bss : &#123; *(.bss) &#125;              &#x2F;&#x2F; bss 段</span><br><span class="line">    _end &#x3D; .;                       &#x2F;&#x2F; 赋值 _end</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+              <a href="/tags/jz2440/" rel="tag"># jz2440</a>
+              <a href="/tags/uboot/" rel="tag"># uboot</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/07/06/1718-linux-samba/" rel="prev" title="Ubuntu下配置支持Windows访问的samba共享">
+                  <i class="fa fa-chevron-left"></i> Ubuntu下配置支持Windows访问的samba共享
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/08/25/1720-uboot-source/" rel="next" title="uboot之源码分析">
+                  uboot之源码分析 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
