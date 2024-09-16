@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="感触就是, 太TM折腾人了...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Embedded Linux 入门有感">
+<meta property="og:url" content="https://draapho.github.io/2017/01/17/1702-linux-hard/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="感触就是, 太TM折腾人了...">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-01-17T13:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/01/17/1702-linux-hard/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Embedded Linux 入门有感 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BD%95%E5%9B%B0%E9%9A%BE"><span class="nav-number">2.</span> <span class="nav-text">为何困难</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E4%B8%8A%E6%89%8B%E5%9B%B0%E9%9A%BE"><span class="nav-number">2.1.</span> <span class="nav-text">linux上手困难</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E4%B9%8F%E5%90%88%E9%80%82%E7%9A%84%E5%85%A5%E9%97%A8%E4%B9%A6%E7%B1%8D"><span class="nav-number">2.2.</span> <span class="nav-text">缺乏合适的入门书籍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E4%B9%8F%E7%A1%AC%E6%80%A7%E7%9B%AE%E6%A0%87"><span class="nav-number">2.3.</span> <span class="nav-text">缺乏硬性目标:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%B9%8B%E9%81%93"><span class="nav-number">3.</span> <span class="nav-text">解决之道</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E8%A6%81%E6%B1%82"><span class="nav-number">4.</span> <span class="nav-text">自我要求</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/01/17/1702-linux-hard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Embedded Linux 入门有感
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-01-17 21:00:00" itemprop="dateCreated datePublished" datetime="2017-01-17T21:00:00+08:00">2017-01-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded-linux/" itemprop="url" rel="index"><span itemprop="name">embedded linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">感触就是, 太TM折腾人了...</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Embedded Linux 是自我学习过程中, 走的最不顺的一条路.<br>而学习android和python时, 基本自学一个月左右, 就能开始独立做项目了.<br>应该说, Embedded Linux的入门确实比较困难一点.</p>
+<p>自己是从底层往上走的, 系统的学过硬件, 嵌入式, 操作系统,<br>但在没有具体项目要求的情况下, 学习Embedded Linux的过程充满了痛苦和不解, 始终没有坚持下来.</p>
+<p>如今, 打算再次开始系统的学习Embedded Linux, 因而在此记录一下之前的学习感受, 分析一下困难之所在, 并制定好学习规则和方式.</p>
+<h1 id="为何困难"><a href="#为何困难" class="headerlink" title="为何困难"></a>为何困难</h1><h2 id="linux上手困难"><a href="#linux上手困难" class="headerlink" title="linux上手困难"></a>linux上手困难</h2><p>对新手而言, linux的学习曲线很陡峭. 相信刚上手的话, 如何安装软件, 如何使用编辑器都是问题!</p>
+<p>一个, 二个问题或者一层二层问题, 还能较为容易的解决. 但面对蜂拥而至的疑问和困惑, 能坚持下去就很不容易了, 何况途中还充满了陷阱和争论.</p>
+<p>随便举几个例子:</p>
+<ol>
+<li><p>用哪个版本的linux好? Ubuntu? Feroda? Redhat? CentOS? 服务器版? 桌面版? 然后图形界面居然还分 KDE/Gnome…<br>为了弄清上面这个问题, 看看文章, 翻翻论坛, 结果就是更迷糊了… 甚至忘了初衷是要奔着 <code>Embedded Linux</code> 去的啊!</p>
+</li>
+<li><p>我的硬盘分区呢? 去哪里找文件呢? 文件权限的概念等等. (linux下一切皆文件!)</p>
+</li>
+<li><p>用哪个文本编辑器好? 大家都会说Vim, 然后和vim斗就能斗你一个月, 结果还是自己败下阵来, 回归熟悉的文本编辑器!</p>
+</li>
+<li><p><code>bash shell</code> 是精华啊, 不能不学! 得, 捧着鸟哥的私房菜, 随便翻翻也得几星期才知道个大概吧…<br>(学习指令时, 需要有<code>工作路径</code>这么一个概念. 知道这个指令现在在哪里工作, 是非常重要的一个概念!)</p>
+</li>
+<li><p>唉呀妈呀, 好不容易装好了虚拟机, 装好了精挑细选的linux版本. 尝试装软件了! 一阵搜索, 还算顺利. 突然出了个依赖关系错误…<br>耐着性子google, 百度, 似乎略微看懂了一二, 就是在装这个软件之前, 需要另外一个软件的特定版本么.<br>尝试用安装指令装另外一个软件, 居然这个软件不存在了!!! 继续? 还是放弃?<br>我继续过, 翻墙, 找到软件源码. 还要自己编译? 编译还要装编译软件… 彻底放弃…</p>
+</li>
+</ol>
+<h2 id="缺乏合适的入门书籍"><a href="#缺乏合适的入门书籍" class="headerlink" title="缺乏合适的入门书籍"></a>缺乏合适的入门书籍</h2><p>市面上大多数的Embedded Linux入门教程只讲应该如何做, 不说基础知识, 不讲前因后果.<br>读起来枯燥无味, 索然无趣. 学起来一头雾水, 不知其所以然.</p>
+<p>譬如很多教程会详细的写出, 第一步, 第二步, 第三步… 但经常的, 只要系统环境稍微变化一点点(如linux版本不同, 软件版本不同), 上述的步骤就会失效.<br>喜欢刨根问底的我就开始纠结这些第一步, 第二步, 第三步到底再干吗? 为什么按照自己的理解在新的环境下就不工作了?<br>而遇到这些具体的困难时, 如何解决困难真的是一头雾水. 教程书籍类基本不会讲你可能遇到的问题! 基本只能到网络上去找解决办法…然后就是进一步的困惑…</p>
+<p>而更专业的书籍根本不适合入门者去阅读, 那都是对特定领域进行深入分析学习的! 过早的接触自己完全不懂的东西, 只会打击学习的积极性.<br>譬如推崇度很高的鸟哥的私房菜, 实际是一本很好的运维方面的书籍, 用它来初学<code>bash shell</code>就太重了.<br>可以看一下鸟哥自己的经历, 就能明白了 <a target="_blank" rel="noopener" href="http://linux.vbird.org/new_linux.php">Linux 的學習曲線，一個老人家的建議！</a><br>体验最深的就是这句了: <strong>只要一出现问题, 自己完全无法解决时, 只好重新安装, 选择设定与书本教的内容完全一模一样, 不过即使如此, 很多时候仍然会遇到问题</strong></p>
+<p>因此, 建议自己通过网络和书籍总结归纳一下最基本的指令和用法, 加之自己的理解, 做成笔记. 一来帮助记忆, 二来便于日后查阅.<br>但不用刻意的去背这些东西, 要用的时候知道去哪里查阅就可以了, 用多了既然就记住了.<br>在真正深入学习后, 觉得有需要自然会更有针对性的选择专业书籍来看!</p>
+<p>这样, 才能避免淹死在知识的海洋里!</p>
+<h2 id="缺乏硬性目标"><a href="#缺乏硬性目标" class="headerlink" title="缺乏硬性目标:"></a>缺乏硬性目标:</h2><p>之前都是跟着教程的自学, 属于漫无目的的囫囵吞枣, 学到哪忘到哪.<br>然后, <strong>缺乏硬性目标最大的问题就是: 容易放弃!</strong><br>因为遇到的困难太多了, 在没有硬性目标的情况下, 不断的打击最终导致的就是放弃!</p>
+<p>如果能定一个最终目标, 譬如基于开发板做一款视频识别系统, 那在学习过程中就会有侧重点.<br>这样对问题的处理就能起到抓大放小, 不纠结于所有的细节. 在解决实际问题的过程中, 逐步深入学习linux.</p>
+<h1 id="解决之道"><a href="#解决之道" class="headerlink" title="解决之道"></a>解决之道</h1><p>个人认为, 学习linux, embedded linux的终极解决之道就是定下一个<strong>硬性目标</strong>, 有这么一个压力在的话, 在学习过程中不断试错, 一知半解都不是问题!</p>
+<p>正所谓有压力才有动力! 回到鸟哥的个人经历, 见<a target="_blank" rel="noopener" href="http://linux.vbird.org/new_linux.php">Linux 的學習曲線，一個老人家的建議！</a>.<br>正是有项目压力的情况下, 才能忍受无数次的重装系统, 才能忍无可忍痛下决心系统的学习linux(此时已经不是初学者了, 知道了很多基础, 也知道自己想解决什么问题!)<br>在此压力下, 搭建环境的过程就不会过于纠结我到底在干吗? 为什么要这么做?的困惑; 使用编辑器时, 也会直接挑个最顺手的用着再说; shell的使用也会因为时间压力只学最基本的.</p>
+<p>初期, 在一定要完成这个硬性目标, 在不求甚解, 能用就好的心态下, 至少能帮助自己摸一遍linux, 知道一个大概的流程和遇到的问题.<br>这样也能很大程度上避免自己陷入到底用哪个linux版本好, 用哪个桌面系统好, 用哪种编辑好的争论中! 在不知道具体需求的情况下, 这些都是无意义之事!<br>这个时期, 坚持学下来, 用下来, 就是胜利! 工具的选择上, 顺手的, 上手快的就是好的!</p>
+<p>然后, 在完成一二个项目后, 虽然心中的疑惑越积越多, 但潜移默化中, 已经对linux有了相当程度的理解, 常用指令也都会用了!<br>此时, 再根据自己的具体疑惑去查阅更专业的书籍, 更系统的学习, 其效果会远好于上来就拿着本专业书籍看!</p>
+<h1 id="自我要求"><a href="#自我要求" class="headerlink" title="自我要求"></a>自我要求</h1><p>我目前的情况也不能算linux初学者, 但也确实没有在embedded linux下开发的经验.<br>自己的感觉是, 虽然对某些方面还一知半解, 但背景知识的储备已经够了, 是时候定个小目标, 完成系统的学习了!<br>毕业已10年, 我学习linux的初学期和倦怠期也着实太长了一点… 好在, 任何时候开始都不晚么.</p>
+<p>陆续了解过的背景知识有: linux基础概念, ubuntu的基础使用, bash shell, 硬件原理图, 嵌入式C开发, 操作系统原理, 阅读linux0.11源码.<br>总的来说, 感觉自己就差临门一脚… 能坚持做一二个项目后, 自己就有能力做嵌入式linux开发了.</p>
+<ul>
+<li>定个小目标: 跟着教程, 在2440开发板上, 完成音视频对讲功能. 细分为实现摄像头功能, 搭建服务器, 实现可视对讲功能.</li>
+<li>开发环境搭建: 最困难的就是环境搭建, 走了很多弯路, 不过目前已经走通了.</li>
+<li>不求甚解: 学习过程中, 注意连续性, 有些专业知识先不求甚解, 有个基础概念, 简单做下笔记即可. 如makefile的书写, 编译器原理等等.</li>
+<li>勤做笔记: 好记性不如烂笔头. 我相信即便linux高度使用者, 能记住的也就几条常用指令. 自己做好笔记就便于日后查阅, 做笔记的同时也加深了印象!</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/01/02/1701-python-list-dict/" rel="prev" title="Python 列表和字典的常见操作">
+                  <i class="fa fa-chevron-left"></i> Python 列表和字典的常见操作
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/01/18/1703-linux-command/" rel="next" title="Unix/Linux 命令参考">
+                  Unix/Linux 命令参考 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

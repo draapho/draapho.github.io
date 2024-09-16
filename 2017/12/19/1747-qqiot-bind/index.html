@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QQ物联绑定分析">
+<meta property="og:url" content="https://draapho.github.io/2017/12/19/1747-qqiot-bind/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-12-19T13:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="qqiot">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/12/19/1747-qqiot-bind/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>QQ物联绑定分析 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#demo-bind-c-%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E6%B5%8B%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">demo_bind.c 的分析与测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-number">2.2.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">2.3.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/12/19/1747-qqiot-bind/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          QQ物联绑定分析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-19 21:00:00" itemprop="dateCreated datePublished" datetime="2017-12-19T21:00:00+08:00">2017-12-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/qqiot/" itemprop="url" rel="index"><span itemprop="name">qqiot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/12/18/1746-qqiot-env/">嵌入式linux环境搭建-QQ物联</a></li>
+<li><a href="https://draapho.github.io/2017/12/22/1748-qqiot-procedure/">QQ物联开发步骤简介</a></li>
+<li><a href="https://draapho.github.io/2017/12/20/1747-qqiot-bind/">QQ物联绑定分析</a></li>
+<li><a href="https://draapho.github.io/2017/12/23/1749-qqiot-demo/">QQ物联演示项目</a></li>
+</ul>
+<p>本文使用 linux-3.4.2 内核, 使用jz2440开发板.</p>
+<h1 id="demo-bind-c-的分析与测试"><a href="#demo-bind-c-的分析与测试" class="headerlink" title="demo_bind.c 的分析与测试"></a>demo_bind.c 的分析与测试</h1><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>打开demo_bind.c, 说明很详细, 主要流程如下</p>
+<ul>
+<li>调用 <code>tx_init_device</code> 初始化设备信息. 可理解为将设备在QQ服务器上注册一下</li>
+<li>打开QQ, 保证和设备连在同一个路由器上且能上网.</li>
+<li>然后就可以在QQ我的设备中, 点击搜索新设备.</li>
+<li>扫描设备并绑定成功后, 即触发设备的登录逻辑. 调用指定的回调函数.</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">initDevice</span><span class="params">()</span> </span>&#123;                 <span class="comment">// bind的核心函数, 初始化设备</span></span><br><span class="line">    <span class="comment">// 先读取三个重要文件</span></span><br><span class="line">    <span class="comment">// license, 认证文件. 文件名 ./licence.sign.file.txt</span></span><br><span class="line">    <span class="comment">// guid, 即SN设备序列号. 文件名 ./GUID_file.txt</span></span><br><span class="line">    <span class="comment">// svrPubkey变量中, 公钥. 文件名 ./1000000004.pem</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置设备的基本信息</span></span><br><span class="line">    tx_device_info info = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    info.os_platform            = <span class="string">&quot;Linux&quot;</span>;              <span class="comment">// os平台</span></span><br><span class="line"></span><br><span class="line">    info.device_name            = <span class="string">&quot;demo1&quot;</span>;              <span class="comment">// 设备名称</span></span><br><span class="line">    info.device_serial_number   = guid;                 <span class="comment">// 设备SN</span></span><br><span class="line">    info.device_license         = license;              <span class="comment">// 由SN生成的LICENSE</span></span><br><span class="line">    info.product_version        = <span class="number">1</span>;</span><br><span class="line">    info.network_type           = network_type_wifi;    <span class="comment">// 入网方式</span></span><br><span class="line">    info.product_id             = <span class="number">1000000004</span>;           <span class="comment">// PID, QQ分配</span></span><br><span class="line">    info.server_pub_key         = svrPubkey;            <span class="comment">// 公钥</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置回调函数</span></span><br><span class="line">    tx_device_notify notify      = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    notify.on_login_complete     = on_login_complete;   <span class="comment">// 登录完成</span></span><br><span class="line">    notify.on_online_status      = on_online_status;    <span class="comment">// 状态改变</span></span><br><span class="line">    notify.on_binder_list_change = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置目录和文件大小</span></span><br><span class="line">    tx_init_path init_path = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 核心语句, 向QQ服务器注册此设备.</span></span><br><span class="line">    <span class="keyword">int</span> ret = tx_init_device(&amp;info, &amp;notify, &amp;init_path);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><p>示例里面的 <code>readBufferFromFile</code> 已经对license和SN进行文件化管理了.<br>为了以后的批量生产, 这里将必要的配置信息再打包一层, 统一放入一个配置文件.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu端</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立一个分支, 用来修改和测试bind</span></span><br><span class="line">sudo cp -rf Tencent_iot_SDK/ bind_test/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压获得的QQ物联相关文件, 包括 licence, sn和公钥</span></span><br><span class="line">sudo tar xzf 1700003137001488.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 改名后放到测试目录</span></span><br><span class="line">sudo mv 1700003137001488/ conf/</span><br><span class="line">sudo mv conf/ bind_test/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 改下权限</span></span><br><span class="line">sudo chmod -R 777 bind_test/</span><br></pre></td></tr></table></figure>
+
+<p>然后打开 <code>./bind_test/demo_bind.c</code> 文件, 仿照readBufferFromFile进行修改</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增如下内容</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">conf_info</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span>  pid;</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">128</span>];</span><br><span class="line">    <span class="keyword">char</span> pubkey_file[<span class="number">128</span>];</span><br><span class="line">    <span class="keyword">char</span> guid_file[<span class="number">128</span>];</span><br><span class="line">    <span class="keyword">char</span> license_file[<span class="number">128</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">conf_info</span> <span class="title">configInfo</span> =</span> &#123;<span class="number">0</span>, &#123;<span class="number">0</span>&#125;, &#123;<span class="number">0</span>&#125;, &#123;<span class="number">0</span>&#125;, &#123;<span class="number">0</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">readConfigFromFile</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">128</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">char</span> *line = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">size_t</span> len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">ssize_t</span> read;</span><br><span class="line">    <span class="keyword">bool</span> ret = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">char</span> *pconf[] = &#123;configInfo.pubkey_file, configInfo.guid_file,  configInfo.license_file&#125;;</span><br><span class="line">    <span class="comment">// 尝试打开目录下的配置文件</span></span><br><span class="line">    FILE * file = fopen(<span class="string">&quot;./conf/config&quot;</span>, <span class="string">&quot;rb&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!file) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;open ./conf/config failed...\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 读取第一行的数据, PID信息</span></span><br><span class="line">    read = getline(&amp;line, &amp;len, file);</span><br><span class="line">    <span class="keyword">if</span> (read &gt; <span class="keyword">sizeof</span>(buf)) &#123;</span><br><span class="line">        ret = <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;read PID failed...\n&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">strncpy</span>(buf,line,read<span class="number">-1</span>);</span><br><span class="line">        buf[read]=<span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        configInfo.pid = atoi(buf);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;PID=%d\n&quot;</span>,configInfo.pid);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 读取第二行的数据, Name信息</span></span><br><span class="line">    read = getline(&amp;line, &amp;len, file);</span><br><span class="line">    <span class="keyword">if</span> (read &gt; <span class="keyword">sizeof</span>(buf)) &#123;</span><br><span class="line">        ret = <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;read Name failed...\n&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">strncpy</span>(buf,line,read<span class="number">-1</span>);</span><br><span class="line">        buf[read]=<span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        <span class="built_in">sprintf</span>(configInfo.name, buf);</span><br><span class="line">        <span class="comment">// printf(&quot;Name=%s\n&quot;,configInfo.name);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 读取剩下的行, 都是文件数据</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;<span class="keyword">sizeof</span>(pconf)/<span class="keyword">sizeof</span>(<span class="keyword">char</span> *); i++) &#123;</span><br><span class="line">        read = getline(&amp;line, &amp;len, file);</span><br><span class="line">        <span class="keyword">if</span> (read &gt; <span class="keyword">sizeof</span>(buf)) &#123;</span><br><span class="line">            ret = <span class="literal">false</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;read line%d failed...\n&quot;</span>, i+<span class="number">2</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">strncpy</span>(buf,line,read<span class="number">-1</span>);</span><br><span class="line">            buf[read]=<span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span> (access(buf, R_OK)) &#123;</span><br><span class="line">                ret = <span class="literal">false</span>;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;fail to read %s\n&quot;</span>,buf);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">sprintf</span>(pconf[i], buf);</span><br><span class="line">                <span class="comment">// printf(&quot;line%d: %s\n&quot;, i+2, pconf[i]);</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (ret) &#123;                                  <span class="comment">// 调试检查</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;NAME=%s\n&quot;</span>,configInfo.name);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;PEM =%s\n&quot;</span>,configInfo.pubkey_file);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;GUID=%s\n&quot;</span>,configInfo.guid_file);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;LICENSE=%s\n&quot;</span>,configInfo.license_file);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (line) <span class="built_in">free</span>(line);</span><br><span class="line">    fclose(file);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改如下内容, -为原内容, +为修改后的内容</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">initDevice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">+   <span class="keyword">if</span>(readConfigFromFile() == <span class="literal">false</span>)&#123;</span><br><span class="line">+       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">+   &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读取 license</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> license[<span class="number">256</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> nLicenseSize = <span class="number">0</span>;</span><br><span class="line">-   <span class="keyword">if</span> (!readBufferFromFile(<span class="string">&quot;./licence.sign.file.txt&quot;</span>, license, <span class="keyword">sizeof</span>(license), &amp;nLicenseSize)) &#123;</span><br><span class="line">+   <span class="keyword">if</span> (!readBufferFromFile(configInfo.license_file, license, <span class="keyword">sizeof</span>(license), &amp;nLicenseSize)) &#123;</span><br><span class="line"></span><br><span class="line">-   <span class="keyword">if</span>(!readBufferFromFile(<span class="string">&quot;./GUID_file.txt&quot;</span>, guid, <span class="keyword">sizeof</span>(guid), &amp;nGUIDSize)) &#123;</span><br><span class="line">+   <span class="keyword">if</span> (!readBufferFromFile(configInfo.guid_file, guid, <span class="keyword">sizeof</span>(guid), &amp;nGUIDSize)) &#123;</span><br><span class="line"></span><br><span class="line">-   <span class="keyword">if</span> (!readBufferFromFile(<span class="string">&quot;./1000000004.pem&quot;</span>, svrPubkey, <span class="keyword">sizeof</span>(svrPubkey), &amp;nPubkeySize))</span><br><span class="line">+   <span class="keyword">if</span> (!readBufferFromFile(configInfo.pubkey_file, svrPubkey, <span class="keyword">sizeof</span>(svrPubkey), &amp;nPubkeySize))</span><br><span class="line"></span><br><span class="line">-   info.device_name            = <span class="string">&quot;demo1&quot;</span>;</span><br><span class="line">+   info.device_name            = configInfo.name;</span><br><span class="line">    info.device_serial_number   = guid;</span><br><span class="line">    info.device_license         = license;</span><br><span class="line">    info.product_version        = <span class="number">1</span>;</span><br><span class="line">    info.network_type           = network_type_wifi;</span><br><span class="line">-   info.product_id             = <span class="number">1000000004</span>;</span><br><span class="line">+   info.product_id             = configInfo.pid;</span><br><span class="line">    info.server_pub_key         = svrPubkey;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后, 需要修改makefile文件, 用的交叉编译. (注意空格改为TAB)</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 改为交叉编译!</span></span><br><span class="line">CROSS_COMPILE = arm-linux-</span><br><span class="line">CC  = <span class="variable">$(CROSS_COMPILE)</span>gcc</span><br><span class="line"></span><br><span class="line"><span class="section">all:app1</span></span><br><span class="line">    @echo build complete</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    -rm SDKDemo_bind</span><br><span class="line"></span><br><span class="line"><span class="section">app1:demo_bind.c</span></span><br><span class="line">    <span class="variable">$(CC)</span> demo_bind.c -o SDKDemo_bind -O0 -g3 -I<span class="string">&quot;./include&quot;</span> -L<span class="string">&quot;./lib&quot;</span> -ltxdevicesdk -lpthread -ldl -lstdc++</span><br></pre></td></tr></table></figure>
+
+
+<p>最后, 设置conf文件.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1700003137</span><br><span class="line">jz2440_bind_demo</span><br><span class="line">.&#x2F;conf&#x2F;1700003137.pem</span><br><span class="line">.&#x2F;conf&#x2F;GUID_file[1700003137001488].txt</span><br><span class="line">.&#x2F;conf&#x2F;licence.sign.file[1700003137001488].txt</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu端</span></span><br><span class="line"><span class="comment"># pwd = share/.../bind_test         # 共享文件夹下的bind_test目录</span></span><br><span class="line">$ make                              <span class="comment"># 编译</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># jz2440端</span></span><br><span class="line"><span class="comment"># pwd = mnt/share/.../bind_test     # 共享文件夹下的bind_test目录</span></span><br><span class="line">$ cp ./lib/libtxdevicesdk.so /lib   <span class="comment"># 拷贝动态库到开发板本地lib</span></span><br><span class="line">$ ls -l /lib/libtxdevicesdk.so      <span class="comment"># 检查一下</span></span><br><span class="line"></span><br><span class="line">$ mkdir /qqiot</span><br><span class="line">$ cp SDKDemo_bind /qqiot            <span class="comment"># 拷贝执行文件</span></span><br><span class="line">$ cp -rf conf/ /qqiot               <span class="comment"># 拷贝配置文件</span></span><br><span class="line">$ <span class="built_in">cd</span> /qqiot                         <span class="comment"># 切换目录</span></span><br><span class="line">$ ls                                <span class="comment"># 查看结果</span></span><br><span class="line"></span><br><span class="line">$ ./SDKDemo_bind                    <span class="comment"># 运行范例</span></span><br><span class="line"><span class="comment"># 会打印很多信息. 查看是否有如下类似信息</span></span><br><span class="line">WLAN connection with tencent iot server ... is setting up</span><br><span class="line">xpnet_gethostbyname: Begin gethostbyname device msf.3g.qq.com</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>:<br>必须正确设置开发板的网络. 我已设置开发板为dhcp, 因此没有遇到网络方面的问题.<br>如果使用的是静态IP, 记得设置一下网关等信息.<br>可以用 <code>route</code> 指令查看网络路由表</p>
+<p>然后, 打开手机端QQ, 保证手机和开发板在同一局域网下.<br>联系人-&gt;设备-&gt;发现新设备-&gt;绑定设备…就能看到jz2440_demo设备的界面了.</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://iot.open.qq.com/wiki/index.html">QQ物联资料库</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+              <a href="/tags/qqiot/" rel="tag"># qqiot</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/12/17/1746-qqiot-env/" rel="prev" title="嵌入式linux环境搭建-QQ物联">
+                  <i class="fa fa-chevron-left"></i> 嵌入式linux环境搭建-QQ物联
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/12/21/1748-qqiot-procedure/" rel="next" title="QQ物联开发步骤简介">
+                  QQ物联开发步骤简介 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

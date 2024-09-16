@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式linux环境搭建-jz2440开发板">
+<meta property="og:url" content="https://draapho.github.io/2017/02/20/1707-jz2440-env/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-02-20T13:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="environment">
+<meta property="article:tag" content="jz2440">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/02/20/1707-jz2440-env/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>嵌入式linux环境搭建-jz2440开发板 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%8A%E7%BB%93%E8%AE%BA"><span class="nav-number">2.</span> <span class="nav-text">环境及结论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip"><span class="nav-number">3.</span> <span class="nav-text">设置静态ip</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#uboot-%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip"><span class="nav-number">3.1.</span> <span class="nav-text">uboot 设置静态ip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8Flinux%E4%B8%8B%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip"><span class="nav-number">3.2.</span> <span class="nav-text">嵌入式linux下设置静态ip</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#uboot-%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E7%83%A7%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">uboot 的编译和烧录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#uboot-%E6%89%93%E8%A1%A5%E4%B8%81%E5%92%8C%E7%BC%96%E8%AF%91"><span class="nav-number">4.1.</span> <span class="nav-text">uboot 打补丁和编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uboot-%E7%9A%84%E7%83%A7%E5%BD%95%E5%92%8C%E5%8D%87%E7%BA%A7"><span class="nav-number">4.2.</span> <span class="nav-text">uboot 的烧录和升级</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kernel-%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E7%83%A7%E5%BD%95"><span class="nav-number">5.</span> <span class="nav-text">kernel 的编译和烧录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#kernel-%E6%89%93%E8%A1%A5%E4%B8%81%E5%92%8C%E7%BC%96%E8%AF%91"><span class="nav-number">5.1.</span> <span class="nav-text">kernel 打补丁和编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-dnw-%E7%83%A7%E5%BD%95-kernel"><span class="nav-number">5.2.</span> <span class="nav-text">使用 dnw 烧录 kernel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-nfs-%E7%83%A7%E5%BD%95-kernel"><span class="nav-number">5.3.</span> <span class="nav-text">使用 nfs 烧录 kernel</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD-filesystem"><span class="nav-number">6.</span> <span class="nav-text">加载 filesystem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C-filesystem"><span class="nav-number">6.1.</span> <span class="nav-text">制作 filesystem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-dnw-%E7%83%A7%E5%BD%95-filesystem"><span class="nav-number">6.2.</span> <span class="nav-text">使用 dnw 烧录 filesystem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-nfs-%E7%83%A7%E5%BD%95-filesystem"><span class="nav-number">6.3.</span> <span class="nav-text">使用 nfs 烧录 filesystem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%8A%A0%E8%BD%BD-nfs-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">6.4.</span> <span class="nav-text">直接加载 nfs 文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E5%85%B6%E5%AE%83nfs%E6%96%87%E4%BB%B6"><span class="nav-number">6.5.</span> <span class="nav-text">加载其它nfs文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-fs-mini-mdev-%E5%88%B6%E4%BD%9C-qt"><span class="nav-number">6.6.</span> <span class="nav-text">基于 fs_mini_mdev 制作 qt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91qt%E4%BE%9D%E8%B5%96%E7%9A%84%E5%BA%93%E6%96%87%E4%BB%B6"><span class="nav-number">6.6.1.</span> <span class="nav-text">编译qt依赖的库文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B6%E4%BD%9CQT%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">6.6.2.</span> <span class="nav-text">制作QT文件系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="nav-number">7.</span> <span class="nav-text">编译驱动程序</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/02/20/1707-jz2440-env/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          嵌入式linux环境搭建-jz2440开发板
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-02-20 21:00:00" itemprop="dateCreated datePublished" datetime="2017-02-20T21:00:00+08:00">2017-02-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/embedded-linux/" itemprop="url" rel="index"><span itemprop="name">embedded linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a></li>
+<li><a href="https://draapho.github.io/2017/02/21/1707-jz2440-env/">嵌入式linux环境搭建-jz2440开发板</a></li>
+<li><a href="https://draapho.github.io/2017/11/28/1738-dhcp-env/">基于DHCP建立嵌入式Linux开发环境</a></li>
+</ul>
+<h1 id="环境及结论"><a href="#环境及结论" class="headerlink" title="环境及结论"></a>环境及结论</h1><ul>
+<li><p>大环境的搭建思路如下:</p>
+<ul>
+<li>gateway ip <code>10.0.0.138</code></li>
+<li>PC windows: win10 64bit, ip <code>10.0.0.98</code></li>
+<li>PC linux(最终版本): ubuntu desktop 16.04 32 bit, ip <code>10.0.0.100</code></li>
+<li>Embedded Linux: jz2440v3 ip <code>10.0.0.111</code></li>
+</ul>
+</li>
+<li><p>用 jLink 或 openJtag 烧录 uboot</p>
+</li>
+<li><p>基于nfs服务烧录kernal</p>
+</li>
+<li><p>使用nfs加载文件系统</p>
+</li>
+<li><p>编译一个驱动模块并运行</p>
+</li>
+<li><p>以上, 完成jz2440的环境搭建</p>
+</li>
+<li><p><strong>最新补充(2017-09-30). 根据实践, 建议的方式如下:</strong></p>
+<ul>
+<li>linux下使用samba实现文件共享, Ubuntu下配置支持Windows访问的samba共享</li>
+<li>linux下安装NFS服务器, 便于让开发板linux通过网络加载文件系统. Ubuntu 16.04安装配置NFS</li>
+<li>如果开发板联网不方便, 则建议使用 uboot+dnw(linux下) 的方式进行烧录, 也非常方便.</li>
+</ul>
+</li>
+</ul>
+<p><strong>PC linux 建议使用Ubuntu 32bit, 交叉编译工具必须使用 <code>arm-linux-gcc-3.4.5-glibc-2.3.6</code></strong></p>
+<h1 id="设置静态ip"><a href="#设置静态ip" class="headerlink" title="设置静态ip"></a>设置静态ip</h1><h2 id="uboot-设置静态ip"><a href="#uboot-设置静态ip" class="headerlink" title="uboot 设置静态ip"></a>uboot 设置静态ip</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置ip地址, 在OpenJTAG&gt; 提示符下</span></span><br><span class="line"><span class="built_in">set</span> ipaddr 10.0.0.111           <span class="comment"># 设置开发板的ip地址</span></span><br><span class="line"><span class="built_in">set</span> serverip 10.0.0.138</span><br><span class="line">save                            <span class="comment"># 保存</span></span><br><span class="line">printenv                        <span class="comment"># 打印环境变量, 查看设置结果</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="嵌入式linux下设置静态ip"><a href="#嵌入式linux下设置静态ip" class="headerlink" title="嵌入式linux下设置静态ip"></a>嵌入式linux下设置静态ip</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 shell</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 手工修改ip地址</span></span><br><span class="line">ifconfig eth0 10.0.0.111 netmask 255.255.255.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 永久修改IP地址</span></span><br><span class="line">vi /etc/init.d/rcS              <span class="comment"># 可以在windows下直接改</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 添加如下内容: =====</span></span><br><span class="line">    ifconfig eth0 10.0.0.111</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vi =====</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="uboot-的编译和烧录"><a href="#uboot-的编译和烧录" class="headerlink" title="uboot 的编译和烧录"></a>uboot 的编译和烧录</h1><h2 id="uboot-打补丁和编译"><a href="#uboot-打补丁和编译" class="headerlink" title="uboot 打补丁和编译"></a>uboot 打补丁和编译</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line"></span><br><span class="line">tar xjvf u-boot-1.1.6.tar.bz2               <span class="comment"># 解压uboot源码</span></span><br><span class="line"><span class="built_in">cd</span> u-boot-1.1.6                             <span class="comment"># 进入uboot源码目录</span></span><br><span class="line">patch -p1 &lt; ../u-boot-1.1.6_jz2440.patch    <span class="comment"># 打补丁文件, p1表忽略patch文件内的1层目录</span></span><br><span class="line"><span class="comment"># tar cjvf u-boot-1.1.6-patched.tar.bz2 dir # 可选, 压缩备份一下</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pwd = u-boot-1.1.6</span></span><br><span class="line">make clean</span><br><span class="line">make 100ask24x0_config                      <span class="comment"># uboot config文件</span></span><br><span class="line">make                                        <span class="comment"># uboot 编译, 得到u-boot.bin文件</span></span><br><span class="line"><span class="comment"># 不能用sudo make, 否则就是报错</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="uboot-的烧录和升级"><a href="#uboot-的烧录和升级" class="headerlink" title="uboot 的烧录和升级"></a>uboot 的烧录和升级</h2><p>一般而言, 开发板出厂时已经烧录好可用的uboot.<br>只要烧录好了uboot, 就不再需要 jLink 或 openJtag 这类烧录工具了!<br>若要烧录uboot, 可用 jLink 或 openJtag 烧录到norflash中, 略过不表.</p>
+<p>基于dnw升级uboot:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开 jz2440 开发板串口终端, 启动时输入空格键, 进入如下菜单</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[n] Download u-boot to Nand Flash</span><br><span class="line">...</span><br><span class="line">Enter your selection: n                     <span class="comment"># 输入n, 烧录uboot</span></span><br><span class="line">USB host is connected. Waiting a download.  <span class="comment"># 提示连接成功</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到 Ubuntu 终端, 输入</span></span><br><span class="line"><span class="comment"># pwd = ./u-boot-1.1.6                      # 确保在 uboot 源码路径下</span></span><br><span class="line">sudo dnw u-boot.bin                         <span class="comment"># 使用dnw烧录uboot</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 要烧录其它如 kernel, filesystem 整个流程和 dnw 指令都是一样的. 譬如:</span></span><br><span class="line">sudo dnw ./arch/arm/boot/uImage             <span class="comment"># 先输入k, 烧录kernel</span></span><br><span class="line">sudo dnw fs_qtopia_ts.yaffs2                <span class="comment"># 先输入y, 烧录文件系统</span></span><br><span class="line">sudo dnw leds_0x31000000.bin 0x31000000     <span class="comment"># 先输入d, 烧录代码到SDRAM并运行</span></span><br></pre></td></tr></table></figure>
+
+<p>或者基于nfs服务升级uboot, 指令较为复杂(dnw方式只是自动化运行这些指令了.):</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 要使用nfs功能, 必须正确设置uboot的ip地址</span></span><br><span class="line"><span class="comment"># 将 .../u-boot-1.1.6/u-boot.bin 拷贝到 /jz2440/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># uboot烧录: 用 jLink 烧录成功到nor flash后, 就可以用nfs进行升级或再烧录到nand flash中.</span></span><br><span class="line"><span class="comment"># uboot升级: 在OpenJTAG&gt; 提示符下</span></span><br><span class="line">nfs 30000000 10.0.0.98:/jz2440/u-boot.bin   <span class="comment"># nfs 加载 uboot 固件到ram中 (0x30000000是sdram的地址)</span></span><br><span class="line">nand erase bootloader                       <span class="comment"># 擦除 falsh 的 bootloader 区</span></span><br><span class="line">nand write.jffs2 30000000 bootloader        <span class="comment"># 烧录 uboot (ram-&gt;flash)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># uboot 运行时, 已经被加载到ram中, 因此可以用uboot的nfs功能来擦除和升级flash中的uboot</span></span><br><span class="line"><span class="comment"># 看上去实在自己运行自己, 本质上是ram中的uboot读写flash内容.</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="kernel-的编译和烧录"><a href="#kernel-的编译和烧录" class="headerlink" title="kernel 的编译和烧录"></a>kernel 的编译和烧录</h1><h2 id="kernel-打补丁和编译"><a href="#kernel-打补丁和编译" class="headerlink" title="kernel 打补丁和编译"></a>kernel 打补丁和编译</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line"></span><br><span class="line">tar xjvf linux-2.6.22.6.tar.bz2             <span class="comment"># 解压kernel源码</span></span><br><span class="line"><span class="built_in">cd</span> linux-2.6.22.6                           <span class="comment"># 进入kernel源码目录</span></span><br><span class="line">patch -p1 &lt; ../linux-2.6.22.6_jz2440.patch  <span class="comment"># 打补丁文件, p1表忽略patch文件内的1层目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pwd = linux-2.6.22.6</span></span><br><span class="line">cp ../4.3寸LCD_mach-smdk2440.c arch/arm/mach-s3c2440/mach-smdk2440.c    <span class="comment"># 替换为4.3寸屏源码</span></span><br><span class="line">make clean                                  <span class="comment"># 清空 (先清空再在SI内查看)</span></span><br><span class="line">cp config_ok .config                        <span class="comment"># 设置config文件</span></span><br><span class="line">make uImage                                 <span class="comment"># 编译获得内核image</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可能在make时, 提示如下错误信息. 原因是新版的make对老的Makefile规则不兼容</span></span><br><span class="line">Makefile:1449: *** mixed implicit and normal rules.  Stop.</span><br><span class="line"></span><br><span class="line">vim Makefile</span><br><span class="line">    <span class="comment"># 416行      config %config: scripts_basic outputmakefile FORCE</span></span><br><span class="line">    <span class="comment">#   改为 -&gt;  %config: scripts_basic outputmakefile FORCE</span></span><br><span class="line">    <span class="comment"># 1449行     / %/: prepare scripts FORCE</span></span><br><span class="line">    <span class="comment">#   改为 -&gt;  %/: prepare scripts FORCE</span></span><br><span class="line">    <span class="comment"># 保存后重新编译即可.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-dnw-烧录-kernel"><a href="#使用-dnw-烧录-kernel" class="headerlink" title="使用 dnw 烧录 kernel"></a>使用 dnw 烧录 kernel</h2><p>网路配置比较繁琐和复杂, windows的dnw需要安装驱动, 而且会有问题!<br>因此最便捷的方式就是基于uboot, 使用 linux 的 dnw.<br><strong>确保链接了开发板的串口和usb口, 并把usb口关联到Ubuntu上.</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开 jz2440 开发板串口终端, 启动时输入空格键, 进入如下菜单</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[n] Download u-boot to Nand Flash</span><br><span class="line">[o] Download u-boot to Nor Flash            <span class="comment"># 如果是Nand Flash启动的话，这个菜单项没有</span></span><br><span class="line">[k] Download Linux kernel uImage</span><br><span class="line">[j] Download root_jffs2 image</span><br><span class="line">[y] Download root_yaffs image</span><br><span class="line">[d] Download to SDRAM &amp; Run</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Enter your selection: k                     <span class="comment"># 输入k, 烧录 kernel</span></span><br><span class="line">USB host is connected. Waiting a download.  <span class="comment"># 提示连接成功</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到 Ubuntu 终端, 输入</span></span><br><span class="line"><span class="comment"># pwd = ./linux-2.6.22.6                    # 确保在 kernel 源码路径下</span></span><br><span class="line">sudo dnw ./arch/arm/boot/uImage             <span class="comment"># 输入dnw指令, 指明烧录文件</span></span><br><span class="line"><span class="comment"># DNW usb device found!                     # 开始烧录</span></span><br><span class="line"><span class="comment"># 这样就成功把 kernel 烧录到 jz2440 开发板中了.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 要烧录其它如 uboot, filesystem, 整个流程和 dnw 指令都是一样的. 譬如:</span></span><br><span class="line">sudo dnw u-boot.bin                         <span class="comment"># 先输入n, 烧录uboot</span></span><br><span class="line">sudo dnw fs_qtopia_ts.yaffs2                <span class="comment"># 先输入y, 烧录文件系统</span></span><br><span class="line">sudo dnw leds_0x31000000.bin 0x31000000     <span class="comment"># 先输入d, 烧录代码到SDRAM并运行</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-nfs-烧录-kernel"><a href="#使用-nfs-烧录-kernel" class="headerlink" title="使用 nfs 烧录 kernel"></a>使用 nfs 烧录 kernel</h2><p>如果配置好网路, 建议使用 nfs 进行烧录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 要使用nfs功能, 必须正确设置uboot的ip地址</span></span><br><span class="line"><span class="comment"># 将 .../linux-2.6.22.6/arch/arm/boot/uImage 拷贝到 /jz2440/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># kernel: 在OpenJTAG&gt; 提示符下</span></span><br><span class="line">nfs 30000000 10.0.0.98:/jz2440/uImage       <span class="comment"># nfs 加载 kernel 固件到ram中 (0x30000000是sdram的地址)</span></span><br><span class="line">nand erase kernel                           <span class="comment"># 擦除 falsh 的 kernel 区</span></span><br><span class="line">nand write.jffs2 30000000 kernel            <span class="comment"># 烧录 kernel (ram-&gt;flash)</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="加载-filesystem"><a href="#加载-filesystem" class="headerlink" title="加载 filesystem"></a>加载 filesystem</h1><p>提供了如下几个文件系统</p>
+<ol>
+<li>fs_mini.tar.bz2      是最小的根文件系统. 不推荐, 需要手工建立设备节点</li>
+<li>fs_mini_mdev.tar.bz2 是最小的根文件系统. 推荐, 启动后使用mdev自动建立设备节点</li>
+<li>fs_qtopia.tar.bz2    是JZ2440使用的支持触摸屏的根文件系统</li>
+<li>fs_xwindow.tar.bz2   是基于X的根文件系统</li>
+</ol>
+<p>这里以 fs_mini_mdev.tar.bz2 为例进行开发. 无UI, shell操作.</p>
+<h2 id="制作-filesystem"><a href="#制作-filesystem" class="headerlink" title="制作 filesystem"></a>制作 filesystem</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line"></span><br><span class="line">sudo tar xjf fs_mini_mdev.tar.bz2             <span class="comment"># 解压缩, 必须加sudo</span></span><br><span class="line">mkyaffs2image fs_mini_mdev fs_mini_mdev.yaffs <span class="comment"># 生成文件系统 fs_mini_mdev.yaffs</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-dnw-烧录-filesystem"><a href="#使用-dnw-烧录-filesystem" class="headerlink" title="使用 dnw 烧录 filesystem"></a>使用 dnw 烧录 filesystem</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开 jz2440 开发板串口终端, 启动时输入空格键, 进入如下菜单</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[n] Download u-boot to Nand Flash</span><br><span class="line">[o] Download u-boot to Nor Flash            <span class="comment"># 如果是Nand Flash启动的话，这个菜单项没有</span></span><br><span class="line">[k] Download Linux kernel uImage</span><br><span class="line">[j] Download root_jffs2 image</span><br><span class="line">[y] Download root_yaffs image</span><br><span class="line">[d] Download to SDRAM &amp; Run</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Enter your selection: y                     <span class="comment"># 输入k, 烧录 root_yaffs</span></span><br><span class="line">USB host is connected. Waiting a download.  <span class="comment"># 提示连接成功</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到 Ubuntu 终端, 输入</span></span><br><span class="line">sudo dnw fs_mini_mdev.yaffs2                <span class="comment"># 输入dnw指令, 指明烧录文件</span></span><br><span class="line"><span class="comment"># DNW usb device found!                     # 开始烧录</span></span><br><span class="line"><span class="comment"># 这样就成功把文件系统烧录到 jz2440 开发板中了.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 要烧录其它如 uboot, kernel, 整个流程和 dnw 指令都是一样的. 譬如:</span></span><br><span class="line">sudo dnw u-boot.bin                         <span class="comment"># 先输入n, 烧录uboot</span></span><br><span class="line">sudo dnw ./arch/arm/boot/uImage             <span class="comment"># 先输入k, 烧录kernel</span></span><br><span class="line">sudo dnw leds_0x31000000.bin 0x31000000     <span class="comment"># 先输入d, 烧录代码到SDRAM并运行</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用-nfs-烧录-filesystem"><a href="#使用-nfs-烧录-filesystem" class="headerlink" title="使用 nfs 烧录 filesystem"></a><del>使用 nfs 烧录 filesystem</del></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 要使用nfs功能, 必须正确设置uboot的ip地址</span></span><br><span class="line"><span class="comment"># 将 .../fs_mini_mdev.yaffs 拷贝到 /jz2440/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># fs: 在OpenJTAG&gt; 提示符下 (实际不用, 用nfs加载fs)</span></span><br><span class="line">nfs 30000000 10.0.0.98:/jz2440/fs_mini_mdev.yaffs2</span><br><span class="line">nand erase root</span><br><span class="line">nand write.yaffs 30000000 260000 ‭88AC40‬       <span class="comment"># 要算文件大小, 很麻烦.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置为从flash启动 file system. 在OpenJTAG&gt; 提示符下</span></span><br><span class="line"><span class="built_in">set</span> bootargs noinitrd root=/dev/mtdblock3 init=/linuxrc console=ttySAC0</span><br><span class="line">save</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+
+<h2 id="直接加载-nfs-文件系统"><a href="#直接加载-nfs-文件系统" class="headerlink" title="直接加载 nfs 文件系统"></a>直接加载 nfs 文件系统</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 要使用nfs功能, 必须正确设置uboot的ip地址</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># uboot, 从NFS加载文件系统. 在OpenJTAG&gt; 提示符下</span></span><br><span class="line"><span class="built_in">set</span> bootargs noinitrd root=/dev/nfs nfsroot=10.0.0.98:/fs ip=10.0.0.111:10.0.0.98:10.0.0.138:255.255.255.0::eth0:off init=/linuxrc console=ttySAC0</span><br><span class="line"><span class="comment"># (简化ip: &#x27;set bootargs noinitrd root=/dev/nfs nfsroot=10.0.0.98:/fs ip=10.0.0.111 init=/linuxrc console=ttySAC0&#x27; 也可以工作)</span></span><br><span class="line">save        <span class="comment"># 保存修改</span></span><br><span class="line">reset       <span class="comment"># 重启. (稍后再重启, 先修改好 filesystem 内的初始化文件)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 参数简要说明:</span></span><br><span class="line"><span class="comment"># &#x27;root=/dev/nfs&#x27; 加载nfs文件系统</span></span><br><span class="line"><span class="comment"># &#x27;nfsroot=10.0.0.98:/fs&#x27; nfs文件系统的来源, 此处是由win10当nfs服务器, 共享出/fs文件夹</span></span><br><span class="line"><span class="comment"># &#x27;ip=10.0.0.111:10.0.0.98:10.0.0.138:255.255.255.0::eth0:off&#x27; 分别表示:</span></span><br><span class="line"><span class="comment">#  ip= 开发板ip : nfs服务器ip: 网关ip : 子网掩码 :: 开发板网口 : off</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="加载其它nfs文件"><a href="#加载其它nfs文件" class="headerlink" title="加载其它nfs文件"></a>加载其它nfs文件</h2><p>为了方便开发调试, 可以加载其它nfs文件到开发板linux中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 shell</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开发板手动加载nfs文件</span></span><br><span class="line">mkdir /mnt/jz2440</span><br><span class="line">mount -t nfs -o nolock,vers=2 10.0.0.98:/jz2440 /mnt/jz2440</span><br><span class="line"></span><br><span class="line">// 开机自动加载nfs文件</span><br><span class="line">mkdir /mnt/jz2440</span><br><span class="line">vi /etc/init.d/rcS                          <span class="comment"># 可以在windows下直接改</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 末尾加入如下语句: =====</span></span><br><span class="line">    <span class="comment"># mkdir /mnt/jz2440     # 建议手动创建, 需要容错的话, 可加上这句</span></span><br><span class="line">    mount -t nfs -o nolock,vers=2 10.0.0.98:/jz2440 /mnt/jz2440</span><br><span class="line">    ln -s /mnt/jz2440 /jz2440</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vi =====</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="基于-fs-mini-mdev-制作-qt"><a href="#基于-fs-mini-mdev-制作-qt" class="headerlink" title="基于 fs_mini_mdev 制作 qt"></a><del>基于 fs_mini_mdev 制作 qt</del></h2><p><strong>这部分没有自己验证过</strong>, 步骤繁琐, 不确定是否有问题.<br>因为本质上和使用最小系统是一样的, 只是加上了图形界面, 这个要到应用层开发UI才会用到!</p>
+<h3 id="编译qt依赖的库文件"><a href="#编译qt依赖的库文件" class="headerlink" title="编译qt依赖的库文件"></a><del>编译qt依赖的库文件</del></h3><p>注意修改<code>--prefix=/work/tools/gcc-3.4.5-glibc-2.3.6/arm-linux</code> 为实际的gcc-3.4.5-glibc-2.3.6绝对路径.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line"><span class="comment"># 编译qt依赖的库文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 编译jpeg库</span></span><br><span class="line"><span class="comment"># 源码位于 &#x27;.../qtopia/deps/jpegsrc.v6b.tar.gz&#x27;</span></span><br><span class="line">tar xzf jpegsrc.v6b.tar.gz                  <span class="comment"># 解压得到jpeg-6b目录</span></span><br><span class="line"><span class="built_in">cd</span> jpeg-6b                                  <span class="comment"># 进入源码目录进行配置</span></span><br><span class="line">./configure --enable-shared --enable-static --prefix=/work/tools/gcc-3.4.5-glibc-2.3.6/arm-linux --build=i386 --host=arm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 会生成 Makefile 文件, 修改编译工具(需要改为arm-linux-xxx, 交叉编译):</span></span><br><span class="line">vim Makefile                                <span class="comment"># 可以在windows下直接改</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 修改如下内容: =====</span></span><br><span class="line">    CC= arm-linux-gcc       <span class="comment"># CC= gcc</span></span><br><span class="line">    AR= arm-linux-ar rc     <span class="comment"># AR= ar rc</span></span><br><span class="line">    AR2= arm-linux-ranlib   <span class="comment"># AR2= ranlib</span></span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line">make</span><br><span class="line">make install-lib</span><br><span class="line"><span class="comment"># .../gcc-3.4.5-glibc-2.3.6/arm-linux/lib 中生成jpeg库文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 编译uuid库</span></span><br><span class="line"><span class="comment"># 源码位于 &#x27;.../qtopia/deps/e2fsprogs-1.40.2.tar.gz&#x27;</span></span><br><span class="line">tar xzf e2fsprogs-1.40.2.tar.gz             <span class="comment"># 解压</span></span><br><span class="line"><span class="built_in">cd</span> e2fsprogs-1.40.2                         <span class="comment"># 进入源码目录进行配置</span></span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line"><span class="comment"># 指定编译工具, 配置编译环境</span></span><br><span class="line">../configure --with-cc=arm-linux-gcc --with-linker=arm-linux-ld --enable-elf-shlibs--host=arm-prefix=/work/tools/gcc-3.4.5-glibc-2.3.6/arm-linux</span><br><span class="line">make</span><br><span class="line">make install-lib</span><br><span class="line"><span class="comment"># .../gcc-3.4.5-glibc-2.3.6/arm-linux/lib 中生成 libuuid.so</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 编译zlib库</span></span><br><span class="line"><span class="comment"># 源码位于 &#x27;.../qtopia/deps/zlib-1.2.3.tar.gz&#x27;</span></span><br><span class="line">tar xzf zlib-1.2.3.tar.gz                   <span class="comment"># 解压</span></span><br><span class="line"><span class="built_in">cd</span> zlib-1.2.3                               <span class="comment"># 进入源码目录进行配置</span></span><br><span class="line">./configure --shared --prefix=/work/tools/gcc-3.4.5-glibc-2.3.6/arm-linux</span><br><span class="line"></span><br><span class="line"><span class="comment"># 会生成 Makefile 文件, 修改编译工具(需要改为arm-linux-xxx, 交叉编译):</span></span><br><span class="line">vim Makefile                                <span class="comment"># 可以在windows下直接改</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 修改如下内容: =====</span></span><br><span class="line">    CC=arm-linux-gcc            <span class="comment"># CC=gcc</span></span><br><span class="line">    <span class="comment"># ......</span></span><br><span class="line">    <span class="comment">#LDSHARED=gcc -shared -Wl,-soname,libz.so.1</span></span><br><span class="line">    LDSHARED=arm-linux-gcc -shared -Wl,-soname,libz.so.1</span><br><span class="line">    <span class="comment"># ......</span></span><br><span class="line">    CPP=arm-linux-gcc -E        <span class="comment"># CPP=gcc -E</span></span><br><span class="line">    <span class="comment"># ......</span></span><br><span class="line">    AR=arm-linux-ar rc          <span class="comment"># AR=ar rc</span></span><br><span class="line">    <span class="comment"># ......</span></span><br><span class="line">    RANLIB=arm-linux-ranlib     <span class="comment"># RANLIB=ranlib</span></span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"><span class="comment"># .../gcc-3.4.5-glibc-2.3.6/arm-linux/lib 中生成zlib库文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 编译png库</span></span><br><span class="line"><span class="comment"># 源码位于 &#x27;.../qtopia/deps/libpng-1.2.23.tar.bz2&#x27;</span></span><br><span class="line">tar xjf libpng-1.2.23.tar.bz2               <span class="comment"># 解压</span></span><br><span class="line"><span class="built_in">cd</span> libpng-1.2.23                            <span class="comment"># 进入源码目录进行配置</span></span><br><span class="line">cp scripts/makefile.linux ./Makefile        <span class="comment"># 复制makefile</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开 Makefile 文件, 修改编译工具(需要改为arm-linux-xxx, 交叉编译):</span></span><br><span class="line">vim Makefile                                <span class="comment"># 可以在windows下直接改</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 修改如下内容: =====</span></span><br><span class="line">    AR_RC=arm-linux-ar rc       <span class="comment"># AR_RC=ar rc</span></span><br><span class="line">    CC=arm-linux-gcc            <span class="comment"># CC=gcc</span></span><br><span class="line">    <span class="comment"># ......</span></span><br><span class="line">    RANLIB=arm-linux-ranlib     <span class="comment"># RANLIB=ranlib</span></span><br><span class="line">    <span class="comment"># ......</span></span><br><span class="line">    prefix=/work/tools/gcc-3.4.5-glibc-2.3.6/arm-linux</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line">make</span><br><span class="line">make install-lib</span><br><span class="line"><span class="comment"># .../gcc-3.4.5-glibc-2.3.6/arm-linux/lib 中生成png库文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 编译ts库</span></span><br><span class="line"><span class="comment"># 源码位于 &#x27;.../qtopia/deps/tslib-1.3.tar.bz2&#x27;</span></span><br><span class="line">tar xjf tslib-1.3.tar.bz2                   <span class="comment"># 解压</span></span><br><span class="line"><span class="built_in">cd</span> tslib-1.3                                <span class="comment"># 进入源码目录进行配置</span></span><br><span class="line">./autogen.sh</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;ac_cv_func_malloc_0_nonnull=yes&quot;</span> &gt;arm-linux.cache</span><br><span class="line">./configure --host=arm-linux --cache-file=arm-linux.cache --enable-inputapi=no --prefix=/work/tools/gcc-3.4.5-glibc-2.3.6/arm-linux</span><br><span class="line"></span><br><span class="line">vim ./src/ts_read_raw.c                     <span class="comment"># 修改触摸芯片型号</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 修改如下内容: =====</span></span><br><span class="line">    <span class="comment">#char *defaulttseventtype=&quot;UCB1x00&quot;;    # 此句修改为:</span></span><br><span class="line">    char *defaulttseventtype=<span class="string">&quot;H3600&quot;</span>;</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 防止出现 &quot;libtool:link: only absolute run-paths are allowed&quot; 的错误</span></span><br><span class="line">vim ./plugins/Makefile                      <span class="comment"># 修改为绝对路径</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 修改如下内容: =====</span></span><br><span class="line">    <span class="comment">#LDFLAGS :=$(LDFLAGS) -rpath $(PLUGIN_DIR)</span></span><br><span class="line">    LDFLAGS :=$(LDFLAGS) -rpath `<span class="built_in">cd</span> $(PLUGIN_DIR) &amp;&amp; <span class="built_in">pwd</span>`</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"><span class="comment"># .../gcc-3.4.5-glibc-2.3.6/arm-linux/lib 中生成ts库文件</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="制作QT文件系统"><a href="#制作QT文件系统" class="headerlink" title="制作QT文件系统"></a><del>制作QT文件系统</del></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 创建qt文件夹</span></span><br><span class="line"><span class="comment"># tar要加上sudo. 因为解压出来的dev目录下有一些设备节点要用到root权限</span></span><br><span class="line">sudo tar xjf fs_mini_mdev.tar.bz2           <span class="comment"># 解压 fs_mini_mdev 最小fs</span></span><br><span class="line">sudo cp -rf fs_mini_mdev fs_qtopia          <span class="comment"># 重命名为 fs_qtopia</span></span><br><span class="line"><span class="comment"># sudo chown -R root:root fs_qtopis         # 更改用户和组</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 复制Qtopia 依赖的库文件</span></span><br><span class="line"><span class="built_in">cd</span> .../gcc-3.4.5-glibc-2.3.6/arm-linux/lib/</span><br><span class="line">cp libpng.so* .../fs_qtopia/lib/ -d</span><br><span class="line">cp libjpeg.so* .../fs_qtopia/lib/ -d</span><br><span class="line">cp libuuid.so* .../fs_qtopia/lib/ -d</span><br><span class="line">cp libz.so* .../fs_qtopia/lib/ -d</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 安装触摸屏所需的文件</span></span><br><span class="line"><span class="built_in">cd</span> .../tslib-1.3                            <span class="comment"># 编译ts库时, 解压出来的文件目录</span></span><br><span class="line">make prefix=.../fs_qtopia/usr/ install      <span class="comment"># 修改为绝对路径!</span></span><br><span class="line"><span class="built_in">cd</span> .../fs_qtopia</span><br><span class="line">cp ./usr/etc/ts.conf ./etc/                 <span class="comment"># 复制 ts.conf 文件</span></span><br><span class="line">vim ./etc/ts.conf                           <span class="comment"># 可以在windows下直接改</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 修改如下内容: =====</span></span><br><span class="line">    <span class="comment"># module mousebuts</span></span><br><span class="line">    module variance xlimit=50 ylimit=50 pthreshold=3</span><br><span class="line">    <span class="comment"># module dejitter xdelta=1 ydelta=1 pthreshold=3    # 注释掉了这一行!</span></span><br><span class="line">    module linear</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 复制字库和opt文件夹到开发板根目录</span></span><br><span class="line"><span class="built_in">cd</span> .../qtopia/qtopia-free-2.2.0/</span><br><span class="line">cp -rf qt2/lib/fonts qtopia/image/opt/Qtopia/lib/</span><br><span class="line">cp -rf qtopia/image/opt/ .../fs_qtopia</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 创建时区文件, 直接使用ubuntu中的时区文件</span></span><br><span class="line"><span class="built_in">cd</span> .../fs_qtopia</span><br><span class="line">mkdir -p usr/share/zoneinfo/</span><br><span class="line">cp -rf /usr/share/zoneinfo/America usr/share/zoneinfo/</span><br><span class="line">cp /usr/share/zoneinfo/zone.tab usr/share/zoneinfo/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 建立脚本, 用来校验触摸屏</span></span><br><span class="line"><span class="comment"># QT自带的触摸屏程序不好用. 想再次较验时, 把 /etc/pointercal 删掉后重启就可以了</span></span><br><span class="line"><span class="built_in">cd</span> .../fs_qtopia</span><br><span class="line">vim bin/ts_cal.sh                   <span class="comment"># 建立script文件</span></span><br><span class="line">    <span class="comment"># ===== 文件内容如下: =====</span></span><br><span class="line">    <span class="comment">#!/bin/sh</span></span><br><span class="line">    <span class="built_in">export</span> HOME=/root</span><br><span class="line">    <span class="built_in">export</span> QTDIR=/opt/Qtopia</span><br><span class="line">    <span class="built_in">export</span> QPEDIR=/opt/Qtopia</span><br><span class="line">    <span class="built_in">export</span> QWS_DISPLAY=LinuxFb:/dev/fb0</span><br><span class="line">    <span class="built_in">export</span> QWS_KEYBOARD=<span class="string">&quot;TTY:/dev/tty1&quot;</span></span><br><span class="line">    <span class="comment">#export QWS_MOUSE_PROTO=&quot;USB:/dev/mouse0&quot;</span></span><br><span class="line">    <span class="built_in">export</span> QWS_MOUSE_PROTO=<span class="string">&quot;TPanel:/dev/ts0&quot;</span></span><br><span class="line">    <span class="built_in">export</span> PATH=<span class="variable">$QPEDIR</span>/bin:<span class="variable">$PATH</span></span><br><span class="line">    <span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$QPEDIR</span>/lib:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line">    <span class="built_in">export</span> TSLIB_TSDEVICE=/dev/ts0</span><br><span class="line">    <span class="built_in">export</span> TSLIB_CONSOLEDEVICE=none</span><br><span class="line">    <span class="built_in">export</span> TSLIB_FBDEVICE=/dev/fb0</span><br><span class="line">    <span class="built_in">export</span> TSLIB_CONFFILE=/etc/ts.conf</span><br><span class="line">    <span class="built_in">export</span> TSLIB_PLUGINDIR=/usr/share/ts/plugins</span><br><span class="line">    <span class="built_in">export</span> TSLIB_TSEVENTTYPE=<span class="string">&quot;H3600&quot;</span></span><br><span class="line">    /usr/bin/ts_calibrate</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line"></span><br><span class="line">chmod +x bin/ts_cal.sh     <span class="comment"># 修改为可执行</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 7. 建立脚本, 用来运行qtopia</span></span><br><span class="line"><span class="built_in">cd</span> .../fs_qtopia</span><br><span class="line">mkdir -p root                       <span class="comment"># 给 export HOME=/root 使用</span></span><br><span class="line">vim bin/qpe.sh                      <span class="comment"># 建立script文件</span></span><br><span class="line">    <span class="comment"># ===== 文件内容如下: =====</span></span><br><span class="line">    <span class="comment">#!/bin/sh</span></span><br><span class="line">    <span class="built_in">export</span> HOME=/root</span><br><span class="line">    <span class="built_in">export</span> QTDIR=/opt/Qtopia</span><br><span class="line">    <span class="built_in">export</span> QPEDIR=/opt/Qtopia</span><br><span class="line">    <span class="built_in">export</span> QWS_DISPLAY=LinuxFb:/dev/fb0</span><br><span class="line">    <span class="built_in">export</span> QWS_KEYBOARD=<span class="string">&quot;TTY:/dev/tty1&quot;</span></span><br><span class="line">    <span class="comment">#export QWS_MOUSE_PROTO=&quot;USB:/dev/mouse0&quot;</span></span><br><span class="line">    <span class="built_in">export</span> QWS_MOUSE_PROTO=<span class="string">&quot;TPanel:/dev/ts0&quot;</span></span><br><span class="line">    <span class="built_in">export</span> PATH=<span class="variable">$QPEDIR</span>/bin:<span class="variable">$PATH</span></span><br><span class="line">    <span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$QPEDIR</span>/lib:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line">    <span class="built_in">export</span> TSLIB_TSDEVICE=/dev/ts0</span><br><span class="line">    <span class="built_in">export</span> TSLIB_CONSOLEDEVICE=none</span><br><span class="line">    <span class="built_in">export</span> TSLIB_FBDEVICE=/dev/fb0</span><br><span class="line">    <span class="built_in">export</span> TSLIB_CONFFILE=/etc/ts.conf</span><br><span class="line">    <span class="built_in">export</span> TSLIB_PLUGINDIR=/usr/share/ts/plugins</span><br><span class="line">    <span class="built_in">export</span> TSLIB_TSEVENTTYPE=<span class="string">&quot;H3600&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ ! -e /etc/pointercal ] <span class="keyword">then</span>                <span class="comment"># 若不存在ts校验文件</span></span><br><span class="line">        /bin/ts_cal.sh                              <span class="comment"># 执行校验脚本 (步骤6的文件)</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="variable">$QPEDIR</span>/bin/qpe &amp;</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line"></span><br><span class="line">chmod +x bin/qpe.sh         <span class="comment"># 修改为可执行</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 8. 修改根文件系统的启动脚本</span></span><br><span class="line"><span class="comment"># 需要用到临时目录/tmp，为减少对Flash的擦写，在/tmp目录上挂接tmpfs文件系统</span></span><br><span class="line"><span class="built_in">cd</span> .../fs_qtopia</span><br><span class="line">mkdir -p tmp                        <span class="comment"># 建立/tmp目录</span></span><br><span class="line">vim etc/fstab                       <span class="comment"># 挂载 tmpfs</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 加入如下语句: =====</span></span><br><span class="line">    tmpfs   /tmp    tmpfs   defaults    0   0</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vi =====</span></span><br><span class="line">vim etc/init.d/rcS                  <span class="comment"># 开机自动执行 qpe.sh 脚本</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 末尾加入如下语句: =====</span></span><br><span class="line">    /bin/qpe.sh &amp;</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vi =====</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">9. 至此, fs_qtopia已经是一个完整的, 可支持QT的根文件系统了.</span><br><span class="line">mkyaffs2image fs_qtopia fs_qtopia.yaffs2    <span class="comment"># 制作映像文件</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="编译驱动程序"><a href="#编译驱动程序" class="headerlink" title="编译驱动程序"></a>编译驱动程序</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line"><span class="comment"># 源码位于 &#x27;.../drivers_and_test/first_drv&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pwd = 驱动程序目录下</span></span><br><span class="line">vim Makefile                             <span class="comment"># 修改Makefile</span></span><br><span class="line">    <span class="comment"># ===== 文件内容, 找到 &#x27;KERN_DIR&#x27;, 配置内核位置: =====</span></span><br><span class="line">    KERN_DIR = /mnt/nfs/study/jz2440/kernel/linux-2.6.22.6</span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line">make                                    <span class="comment"># 获得 first_drv.ko</span></span><br><span class="line">arm-linux-gcc -o firstdrvtest firstdrvtest.c      <span class="comment"># 交叉编译测试程序,</span></span><br><span class="line"><span class="comment"># -o 表示目标文件, 所以 &#x27;arm-linux-gcc firstdrvtest.c -o firstdrvtest&#x27; 也可以</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到 开发板 shell</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设使用nfs加载的系统, 上述编译好后, 直接能在开发板上看到更改</span></span><br><span class="line"><span class="comment"># pwd = 驱动程序目录下</span></span><br><span class="line">insmod first_drv.ko                     <span class="comment"># 加载驱动模块</span></span><br><span class="line">./firstdrvtest on                       <span class="comment"># 执行测试</span></span><br><span class="line">./firstdrvtest off                      <span class="comment"># 执行测试</span></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+              <a href="/tags/environment/" rel="tag"># environment</a>
+              <a href="/tags/jz2440/" rel="tag"># jz2440</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/02/19/1706-linux-ubuntu16/" rel="prev" title="嵌入式linux环境搭建3-Ubuntu16.04">
+                  <i class="fa fa-chevron-left"></i> 嵌入式linux环境搭建3-Ubuntu16.04
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/02/22/1708-docker/" rel="next" title="Docker 初学笔记">
+                  Docker 初学笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

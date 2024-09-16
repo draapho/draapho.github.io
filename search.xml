@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>开博序</title>
-    <url>/2016/09/23/1600-Preface/</url>
+    <url>/2016/09/22/1600-Preface/</url>
     <content><![CDATA[<p>&emsp; &emsp; 我在IoT(物联网), M2M, 安防及智能建筑方面有丰富的需求分析和研发经验, 并且持续关注着这些领域. 如果我们把未来的网络世界看成一个生命体, 那么, 物联网的各个节点会是整个互联网世界的感知系统; 互联网和物联网扮演着神经系统; 人工智能则是大脑的角色; 而能量问题则全部由现有的电力系统来解决了.</p>
 <p>&emsp; &emsp; 对于这个新生的生命体, 通过过去的30年左右的发育, 消化系统基本完善——单位能量的运算能力大幅提高, 神经系统 的主干也已经发育成熟——互联网已成为全球信息传输的不二选择. 目前, 物联网和人工智能的盛行, 则意味着这个生命体的已经开始在另外两个方面的发育成长了, 一是感官系统 ——借助于物联网的各个节点, 虚拟的网络世界会具有感知真实世界的能力; 二是大脑 ——人工智能的快速发展终将会使机器具有自主学习能力. 最终, 人类将成为造物主, 创造出一个智能生命体, 他能感知真实环境, 做出独立的判断(不知是福是祸!). 现在, 我们站在这个开端, 持续时间至少是30年以上!</p>
 <p>&emsp; &emsp; 上面一段是我坚信不疑的脑洞. 结合自己的实际情况, 更多的精力会放在物联网方面.<br>目前物联网在特定的M2M领域很成功, 借助诸如 Zigbee, BLE, Enocean 或其它RF技术, 让各个节点采集的信息能联网汇总到一个网关, 然后通过 有线, wifi, 2G/3G/4G 以及值得关注的LPWAN(如NB-IOT) 等方式, 将数据发送到服务器端. 服务器端在收集存储数据后, 根据特定需求对这些数据进行整理和分析后, 或实现自动化, 或将信息交由人类决策, 整个系统最终就产生了商业价值.</p>
@@ -29,7 +29,7 @@
   </entry>
   <entry>
     <title>Windows 软件系列-提高效率</title>
-    <url>/2016/09/28/1602-WinSoft-efficiency/</url>
+    <url>/2016/09/27/1602-WinSoft-efficiency/</url>
     <content><![CDATA[<h1 id="AutoHotKey"><a href="#AutoHotKey" class="headerlink" title="AutoHotKey"></a><del><a href="https://autohotkey.com/">AutoHotKey</a></del></h1><h2 id="AHK-简介"><a href="#AHK-简介" class="headerlink" title="AHK 简介"></a>AHK 简介</h2><ul>
 <li><a href="https://autohotkey.com/">AutoHotkey</a>是一个windows下的开源, 免费, 自动化软件工具.</li>
 <li>我主要用于绑定快捷键, 便于快速打开应用和文件夹. 以此提高<strong>工作效率</strong></li>
@@ -208,7 +208,7 @@
   </entry>
   <entry>
     <title>Windows下使用github和hexo建独立博客</title>
-    <url>/2016/09/24/1601-InitBlog/</url>
+    <url>/2016/09/23/1601-InitBlog/</url>
     <content><![CDATA[<h1 id="内容更新-2021年3月"><a href="#内容更新-2021年3月" class="headerlink" title="内容更新(2021年3月)"></a>内容更新(2021年3月)</h1><ul>
 <li>hexo 的安装方式不变<ul>
 <li>先下载安装 Git 和 Node.JS.</li>
@@ -308,7 +308,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Windows 软件系列-文本编辑</title>
-    <url>/2016/09/30/1603-WinSoft-editor/</url>
+    <url>/2016/09/29/1603-WinSoft-editor/</url>
     <content><![CDATA[<h1 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad++"></a><a href="https://notepad-plus-plus.org/">Notepad++</a></h1><h2 id="Npp简介"><a href="#Npp简介" class="headerlink" title="Npp简介"></a>Npp简介</h2><ul>
 <li><a href="https://notepad-plus-plus.org/">Notepad++</a>简称Npp, 是免费好用的记事本</li>
 <li>轻便小巧, 打开速度快. 自带丰富功能且有插件, 如语法高亮</li>
@@ -530,7 +530,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>stm32选型及资料搜索指南</title>
-    <url>/2016/10/01/1605-Stm32Selection/</url>
+    <url>/2016/09/30/1605-Stm32Selection/</url>
     <content><![CDATA[<h1 id="stm32选型及手册搜索"><a href="#stm32选型及手册搜索" class="headerlink" title="stm32选型及手册搜索"></a>stm32选型及手册搜索</h1><ul>
 <li>进入搜索网页<a href="http://www.st.com/content/st_com/en/products/microcontrollers.html">STM选型</a></li>
 <li>在搜索框输入指定型号, 点击进入具体型号的页面. 如<a href="http://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32f1-series/stm32f103/stm32f103rc.html">STM32F103RC</a></li>
@@ -560,7 +560,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Vim常用快捷键</title>
-    <url>/2016/10/01/1604-CheatSheet-vim/</url>
+    <url>/2016/09/30/1604-CheatSheet-vim/</url>
     <content><![CDATA[<h1 id="Vim常用快捷键"><a href="#Vim常用快捷键" class="headerlink" title="Vim常用快捷键"></a>Vim常用快捷键</h1><h2 id="进入输入模式"><a href="#进入输入模式" class="headerlink" title="进入输入模式"></a>进入输入模式</h2><table>
 <thead>
 <tr>
@@ -934,7 +934,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Windows 软件系列-基于NFS的家庭网</title>
-    <url>/2016/10/03/1606-WinSoft-cloud/</url>
+    <url>/2016/10/02/1606-WinSoft-cloud/</url>
     <content><![CDATA[<h1 id="家庭网设想"><a href="#家庭网设想" class="headerlink" title="家庭网设想"></a>家庭网设想</h1><h2 id="理想的云"><a href="#理想的云" class="headerlink" title="理想的云"></a>理想的云</h2><ul>
 <li>理想的家庭网是由NAS做数据中心, 是家里的云</li>
 <li>需要使用千兆网来支持数据分享(如视频流)</li>
@@ -1077,7 +1077,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Windows快捷键</title>
-    <url>/2016/10/08/1607-CheatSheet-win/</url>
+    <url>/2016/10/07/1607-CheatSheet-win/</url>
     <content><![CDATA[<h1 id="专用快捷键"><a href="#专用快捷键" class="headerlink" title="专用快捷键"></a>专用快捷键</h1><table>
 <thead>
 <tr>
@@ -1797,7 +1797,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Windows 软件系列-自定义环境变量</title>
-    <url>/2016/10/09/1608-WinSoft-path/</url>
+    <url>/2016/10/08/1608-WinSoft-path/</url>
     <content><![CDATA[<h1 id="自定义环境变量"><a href="#自定义环境变量" class="headerlink" title="自定义环境变量"></a>自定义环境变量</h1><ul>
 <li>测试过几个例子, 简单的调用没问题, 但带参调用就会有各种无法预料的问题.</li>
 <li><code>ConEmu.lnk</code> 后面不支持带参数, <code>git-cmd.lnk</code> 支持带参, 但有奇怪现象.</li>
@@ -1850,7 +1850,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Windows 软件系列-终端</title>
-    <url>/2016/10/10/1609-WinSoft-terminal/</url>
+    <url>/2016/10/09/1609-WinSoft-terminal/</url>
     <content><![CDATA[<h1 id="ConEmu-简介"><a href="#ConEmu-简介" class="headerlink" title="ConEmu 简介"></a><a href="https://conemu.github.io/">ConEmu</a> 简介</h1><ul>
 <li><a href="https://conemu.github.io/">ConEmu</a> 即 Console Emulate, 一款终端模拟器, 完全免费, 可以通过他加载多种终端如 cmd, shell, bash, putty 而且便于管理!</li>
 <li>简而言之, 凡是喜欢用命令行方式的, windows就请使用这款软件, 分分钟变身geek或者hacker的感觉…</li>
@@ -2017,7 +2017,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>PyQt 的交互操作</title>
-    <url>/2016/10/20/1612-python-pyqtui/</url>
+    <url>/2016/10/19/1612-python-pyqtui/</url>
     <content><![CDATA[<h1 id="environment"><a href="#environment" class="headerlink" title="environment"></a>environment</h1><ul>
 <li>Windows</li>
 <li><a href="https://www.python.org/downloads/">python 2.7</a></li>
@@ -2098,7 +2098,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Windows 软件系列-开发软件</title>
-    <url>/2016/10/16/1611-WinSoft-other/</url>
+    <url>/2016/10/15/1611-WinSoft-other/</url>
     <content><![CDATA[<h1 id="eclipse"><a href="#eclipse" class="headerlink" title="eclipse"></a><a href="https://eclipse.org/downloads/">eclipse</a></h1><ul>
 <li><a href="https://eclipse.org/downloads/">eclipse</a> 就不做介绍了.</li>
 <li>设置主题<ul>
@@ -2309,7 +2309,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>python调用命令行</title>
-    <url>/2016/10/21/1613-python-cli/</url>
+    <url>/2016/10/20/1613-python-cli/</url>
     <content><![CDATA[<h1 id="python调用CLI"><a href="#python调用CLI" class="headerlink" title="python调用CLI"></a>python调用CLI</h1><ul>
 <li>CLI = Command Line Interface, 即命令行</li>
 <li>方法有很多, 通用性和安全性最好的就是<code>subprocess.Popen</code>这个方法. 见文档<ul>
@@ -2335,7 +2335,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Windows 软件系列-atom插件</title>
-    <url>/2016/10/12/1610-WinSoft-atompack/</url>
+    <url>/2016/10/11/1610-WinSoft-atompack/</url>
     <content><![CDATA[<h1 id="已不用atom"><a href="#已不用atom" class="headerlink" title="已不用atom"></a>已不用atom</h1><ul>
 <li>想通用的结果就是: 启动慢, 不稳定, 配置烦.</li>
 </ul>
@@ -2560,7 +2560,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Git 初始设置及常用命令</title>
-    <url>/2016/10/24/1614-CheatSheet-git/</url>
+    <url>/2016/10/23/1614-CheatSheet-git/</url>
     <content><![CDATA[<h1 id="git示意图"><a href="#git示意图" class="headerlink" title="git示意图"></a>git示意图</h1><p>  <img src="https://draapho.github.io/images/1614/git.jpg" alt="git"></p>
 <h1 id="资料和参考"><a href="#资料和参考" class="headerlink" title="资料和参考"></a>资料和参考</h1><ul>
 <li><a href="http://ndpsoftware.com/git-cheatsheet.html">Visual Git Cheat Sheet</a></li>
@@ -2619,7 +2619,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>协程/进程/线程资料收集</title>
-    <url>/2016/11/14/1615-software-thread/</url>
+    <url>/2016/11/13/1615-software-thread/</url>
     <content><![CDATA[<p>协程(Coroutine), 多线程(Thread), 多进程(Multiprocessing)资料繁多, 学无止境, 就集中在这一篇收集贴中. 便于查阅学习</p>
 <h1 id="自己的理解"><a href="#自己的理解" class="headerlink" title="自己的理解"></a>自己的理解</h1><ul>
 <li>协程, 任务之间不是竞争关系, 而是协作关系, 需要每个任务都需要有一颗舍己为公的心!<ul>
@@ -2842,7 +2842,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Python线程同步机制(Locks, RLocks, Semaphores, Conditions, Events和Queues)</title>
-    <url>/2016/11/03/1615-python-ipc/</url>
+    <url>/2016/11/02/1615-python-ipc/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="http://yoyzhou.github.io/blog/2013/02/28/python-threads-synchronization-locks/">Zhou’s Blog, Python线程同步机制: Locks, RLocks, Semaphores, Conditions, Events和Queues</a></strong></em><br><em><strong>翻译自 <a href="http://www.laurentluce.com/posts/python-threads-synchronization-locks-rlocks-semaphores-conditions-events-and-queues/">Laurent Luce, Python threads synchronization: Locks, RLocks, Semaphores, Conditions, Events and Queues</a></strong></em></p>
 <hr>
 <p>本文详细地阐述了Python线程同步机制。你将学习到以下有关Python线程同步机制：Lock，RLock，Semaphore，Condition，Event和Queue，还有Python的内部是如何实现这些机制的。 本文给出的程序的源代码可以在github上找到。</p>
@@ -3018,7 +3018,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>python基础： 深入理解 python 中的赋值、引用、拷贝、作用域</title>
-    <url>/2016/11/21/1618-python-variable/</url>
+    <url>/2016/11/20/1618-python-variable/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="https://my.oschina.net/leejun2005/blog/145911">python基础（5）：深入理解 python 中的赋值、引用、拷贝、作用域</a></strong></em></p>
 <hr>
 <h1 id="python的赋值"><a href="#python的赋值" class="headerlink" title="python的赋值"></a>python的赋值</h1><p>在 python 中赋值语句总是建立对象的引用值，而不是复制对象。因此，python 变量更像是指针，而不是数据存储区域，<br><img src="https://draapho.github.io/images/1618/python_point_1.jpg" alt="python_point"><br>这点和大多数 OO 语言类似吧，比如 C++、java 等 ~</p>
@@ -3139,7 +3139,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>python的第一个小程序, 蓝牙及串口终端</title>
-    <url>/2016/11/16/1617-python-terminal/</url>
+    <url>/2016/11/15/1617-python-terminal/</url>
     <content><![CDATA[<h1 id="环境与资源"><a href="#环境与资源" class="headerlink" title="环境与资源"></a>环境与资源</h1><ul>
 <li>windows 开发环境</li>
 <li>python 2.7</li>
@@ -3234,7 +3234,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>使用python实现BLE通讯</title>
-    <url>/2016/11/15/1616-python-ble/</url>
+    <url>/2016/11/14/1616-python-ble/</url>
     <content><![CDATA[<h1 id="环境与资源"><a href="#环境与资源" class="headerlink" title="环境与资源"></a>环境与资源</h1><ul>
 <li>windows 开发环境</li>
 <li>python 2.7</li>
@@ -3275,7 +3275,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>数据结构资料收集</title>
-    <url>/2016/11/23/1620-software-data-struct/</url>
+    <url>/2016/11/22/1620-software-data-struct/</url>
     <content><![CDATA[<h1 id="python各数据结构性能列表-TimeComplexity"><a href="#python各数据结构性能列表-TimeComplexity" class="headerlink" title="python各数据结构性能列表, TimeComplexity"></a>python各数据结构性能列表, <a href="https://wiki.python.org/moin/TimeComplexity">TimeComplexity</a></h1><ul>
 <li>list</li>
 </ul>
@@ -3519,7 +3519,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>30 个有关 Python 的小技巧</title>
-    <url>/2016/11/22/1619-python-tips/</url>
+    <url>/2016/11/21/1619-python-tips/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="http://sahandsaba.com/thirty-python-language-features-and-tricks-you-may-not-know.html">30 Python Language Features and Tricks You May Not Know About</a></strong></em><br><em><strong>中文版 <a href="http://blog.jobbole.com/63320/">30个有关Python的小技巧</a></strong></em></p>
 <hr>
 <h1 id="批量赋值"><a href="#批量赋值" class="headerlink" title="批量赋值"></a>批量赋值</h1><h2 id="Unpacking"><a href="#Unpacking" class="headerlink" title="Unpacking"></a>Unpacking</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c = <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c = (<span class="number">2</span> * i + <span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c</span><br><span class="line">(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, (b, c), d = [<span class="number">1</span>, (<span class="number">2</span>, <span class="number">3</span>), <span class="number">4</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d</span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
@@ -3629,7 +3629,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Python 调试及测试</title>
-    <url>/2016/12/13/1623-python-debug/</url>
+    <url>/2016/12/12/1623-python-debug/</url>
     <content><![CDATA[<h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><p>常用的方法有:</p>
 <ul>
 <li>print, 仅作临时测试, 而且还要删除.</li>
@@ -3719,7 +3719,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>python 延时及超时</title>
-    <url>/2016/11/28/1622-python-time/</url>
+    <url>/2016/11/27/1622-python-time/</url>
     <content><![CDATA[<h1 id="实用的例子"><a href="#实用的例子" class="headerlink" title="实用的例子"></a>实用的例子</h1><h2 id="time-sleep-单线程阻塞延时"><a href="#time-sleep-单线程阻塞延时" class="headerlink" title="time.sleep 单线程阻塞延时"></a><code>time.sleep</code> 单线程阻塞延时</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">time_sleep</span>():</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="built_in">print</span> i</span><br><span class="line">        time.sleep(<span class="number">1</span>)       <span class="comment"># delay 1s, not that accurate</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    start = time.time()</span><br><span class="line">    time_sleep()</span><br><span class="line">    end = time.time()</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;run time: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(end - start)</span><br></pre></td></tr></table></figure>
 
 <h2 id="time-time-单线程非阻塞延时-超时"><a href="#time-time-单线程非阻塞延时-超时" class="headerlink" title="time.time 单线程非阻塞延时/超时"></a><code>time.time</code> 单线程非阻塞延时/超时</h2><p>通过比较时间戳实现, 多用于循环中的延时/超时判断</p>
@@ -3796,7 +3796,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>python 字符串处理</title>
-    <url>/2016/11/24/1621-python-string/</url>
+    <url>/2016/11/23/1621-python-string/</url>
     <content><![CDATA[<h1 id="进制转换-编码转换"><a href="#进制转换-编码转换" class="headerlink" title="进制转换 / 编码转换"></a>进制转换 / 编码转换</h1><ul>
 <li><a href="https://docs.python.org/2/library/functions.html#hex">hex</a>, 十进制-&gt;十六进制字符串</li>
 <li><a href="https://docs.python.org/2/library/functions.html#oct">oct</a>, 十进制-&gt;八进制字符串</li>
@@ -3943,7 +3943,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Android中Activity、Service和线程之间的通信</title>
-    <url>/2016/12/14/1624-android-ipc/</url>
+    <url>/2016/12/13/1624-android-ipc/</url>
     <content><![CDATA[<p><em><strong>转载自<a href="http://blog.sina.com.cn/s/blog_3fe961ae0100xkyt.html">Android中Activity、Service和线程之间的通信</a></strong></em></p>
 <hr>
 <h1 id="我的说明"><a href="#我的说明" class="headerlink" title="我的说明"></a>我的说明</h1><p>很全面的总结了几种通讯方式. 是Android深入学习的必经阶段.<br>其实 Activity 和 Activity 间也就下面一些通讯方式,<br>只是从软件结构上讲, 较为复杂的通讯机制是分层的, 一般采用 Activity 纯显示UI, Service后台处理及开线程, Broadcast辅助通讯.</p>
@@ -3970,7 +3970,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>linux文件与目录相关指令</title>
-    <url>/2016/12/16/1626-linux-cmd-file/</url>
+    <url>/2016/12/15/1626-linux-cmd-file/</url>
     <content><![CDATA[<h1 id="linux-文件基础"><a href="#linux-文件基础" class="headerlink" title="linux 文件基础"></a>linux 文件基础</h1><h2 id="特殊符号代表的目录"><a href="#特殊符号代表的目录" class="headerlink" title="特殊符号代表的目录:"></a>特殊符号代表的目录:</h2><table>
 <thead>
 <tr>
@@ -4372,7 +4372,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Bash Shell及环境变量</title>
-    <url>/2016/12/17/1627-linux-cmd-bash/</url>
+    <url>/2016/12/16/1627-linux-cmd-bash/</url>
     <content><![CDATA[<h1 id="入门教程"><a href="#入门教程" class="headerlink" title="入门教程"></a>入门教程</h1><p>推荐 <a href="http://c.biancheng.net/cpp/shell/">C语言中文网-Shell教程</a></p>
 <ul>
 <li><a href="http://c.biancheng.net/cpp/view/6998.html">第一个shell脚本</a></li>
@@ -4933,7 +4933,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>正则表达式</title>
-    <url>/2016/12/18/1628-soft-regular/</url>
+    <url>/2016/12/17/1628-soft-regular/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
 <li><a href="https://draapho.github.io/2016/12/18/1628-soft-regular/">正则表达式</a></li>
 <li><a href="https://draapho.github.io/2017/09/19/1726-soft-easyre/">人人都看得懂的正则表达式教程</a></li>
@@ -5379,7 +5379,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Python 列表和字典的常见操作</title>
-    <url>/2017/01/03/1701-python-list-dict/</url>
+    <url>/2017/01/02/1701-python-list-dict/</url>
     <content><![CDATA[<h1 id="list"><a href="#list" class="headerlink" title="list []"></a>list <code>[]</code></h1><p>list是一种有序的集合，可以随时添加和删除其中的元素。 形式和特性都像C语言的数组</p>
 <h2 id="赋值修改及取值"><a href="#赋值修改及取值" class="headerlink" title="赋值修改及取值"></a>赋值修改及取值</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># list 赋值</span></span><br><span class="line">l = <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">9</span>,<span class="number">2</span>)   <span class="comment"># l = [1,3,5,7]      9是不包含在里面的</span></span><br><span class="line">l = [<span class="number">1</span>,<span class="number">3</span>]*<span class="number">3</span>        <span class="comment"># l = [1,3,1,3,1,3]  *表示重复次数</span></span><br><span class="line">l = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用切片 (同字符串用法)</span></span><br><span class="line">l[<span class="number">0</span>]        <span class="comment"># 1                 显示第一个元素</span></span><br><span class="line">l[-<span class="number">1</span>]       <span class="comment"># 5                 显示最后一个元素</span></span><br><span class="line">l[<span class="number">0</span>:<span class="number">2</span>]      <span class="comment"># [1, 2]            显示0,1两个元素</span></span><br><span class="line">l[-<span class="number">2</span>:]      <span class="comment"># [4, 5]            显示最后二个元素</span></span><br><span class="line">l[::-<span class="number">1</span>]     <span class="comment"># [5, 4, 3, 2, 1]   步进-1, 就是倒序了</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用切片修改元素</span></span><br><span class="line">l[<span class="number">0</span>] = <span class="number">3</span>        <span class="comment"># [3, 2, 3, 4, 5]       修改l[0]的值</span></span><br><span class="line"><span class="comment"># l[1] = [7,8]  # [3, [7, 8], 3, 4, 5]  修改为list表, 存储其指针. 注意和 l[1:2] = [7,8] 的本质区别!</span></span><br><span class="line">l[<span class="number">1</span>:<span class="number">2</span>] = [<span class="number">7</span>,<span class="number">8</span>]  <span class="comment"># [3, 7, 8, 3, 4, 5]    将l[1]修改为元素[7,8]</span></span><br><span class="line">l[<span class="number">1</span>:<span class="number">3</span>] = []     <span class="comment"># [3, 2, 3, 4, 5]       删除1-2的元素</span></span><br><span class="line">l[<span class="number">1</span>:<span class="number">1</span>] = [<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>]<span class="comment"># [3, 7, 8, 2, 3, 4, 5] 在l[1]处插入元素[7,8,2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 取长度</span></span><br><span class="line"><span class="built_in">len</span>(l)      <span class="comment"># 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 排序</span></span><br><span class="line">l.sort()    <span class="comment"># l=[2, 3, 3, 4, 5, 7, 8]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取元素出现的个数</span></span><br><span class="line">l.count(<span class="number">3</span>)  <span class="comment"># 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for循环取索引和值, 使用enumerate</span></span><br><span class="line"><span class="keyword">for</span> i, x <span class="keyword">in</span> <span class="built_in">enumerate</span>(l):</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;&#123;&#125;: &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(i, x)         <span class="comment"># i为index, x为list的值</span></span><br></pre></td></tr></table></figure>
 
@@ -5471,7 +5471,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>linux 系统文件及磁盘指令</title>
-    <url>/2016/12/15/1625-linux-cmd-disk/</url>
+    <url>/2016/12/14/1625-linux-cmd-disk/</url>
     <content><![CDATA[<h1 id="linux-系统文件简要说明"><a href="#linux-系统文件简要说明" class="headerlink" title="linux 系统文件简要说明"></a>linux 系统文件简要说明</h1><p>FHS是Filesystem Hierarchy Standard的简称.FHS定义了两层规范:<br>第一层是/目录下各个主要目录应该放什么文件数据, 例如/etc应该放配置文件,/bin与/sbin则应该放置可执行文件等.<br>第二层则是针对/usr和/var这两个目录的子目录来定义,例如/var/log放置系统登录文件,/usr/share放置共享数据等.<br>单一文件或目录的最大允许文件名为255个字符,包含完整路径的文件名或目录名最大允许为4096个字符.</p>
 <table>
 <thead>
@@ -5886,7 +5886,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Embedded Linux 入门有感</title>
-    <url>/2017/01/18/1702-linux-hard/</url>
+    <url>/2017/01/17/1702-linux-hard/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Embedded Linux 是自我学习过程中, 走的最不顺的一条路.<br>而学习android和python时, 基本自学一个月左右, 就能开始独立做项目了.<br>应该说, Embedded Linux的入门确实比较困难一点.</p>
 <p>自己是从底层往上走的, 系统的学过硬件, 嵌入式, 操作系统,<br>但在没有具体项目要求的情况下, 学习Embedded Linux的过程充满了痛苦和不解, 始终没有坚持下来.</p>
 <p>如今, 打算再次开始系统的学习Embedded Linux, 因而在此记录一下之前的学习感受, 分析一下困难之所在, 并制定好学习规则和方式.</p>
@@ -5936,7 +5936,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Unix/Linux 命令参考</title>
-    <url>/2017/01/19/1703-linux-command/</url>
+    <url>/2017/01/18/1703-linux-command/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="https://linuxtoy.org/pages/download.html">Unix/Linux 命令速查表</a></strong></em></p>
 <hr>
 <h1 id="搜索指令-find-grep"><a href="#搜索指令-find-grep" class="headerlink" title="搜索指令 find grep"></a>搜索指令 <code>find</code> <code>grep</code></h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find -name april*                   <span class="comment"># 当前目录下查找以april开始的文件</span></span><br><span class="line">find -iname april*                  <span class="comment"># 忽略大小写</span></span><br><span class="line">find /home -size +512k              <span class="comment"># 查大于512k的文件</span></span><br><span class="line">find /home -size -512k              <span class="comment"># 查小于512k的文件</span></span><br><span class="line">find /home -links +2                <span class="comment"># 查硬连接数大于2的文件或目录</span></span><br><span class="line">find /home -perm 0700               <span class="comment"># 查权限为700的文件或目录</span></span><br><span class="line"></span><br><span class="line">find -name tom.txt -user kim        <span class="comment"># 查找名称为tom.txt且用户为kim的文件</span></span><br><span class="line">find -name ap* -or -name may*       <span class="comment"># 查找以ap或may开头的文件</span></span><br><span class="line">find -name wa* -not -<span class="built_in">type</span> l         <span class="comment"># 查找名为wa开头且类型不为符号链接的文件</span></span><br><span class="line">find -name wa* ! -<span class="built_in">type</span> l            <span class="comment"># 查找名为wa开头且类型不为符号链接的文件</span></span><br><span class="line"><span class="comment"># 对于 -type, 有 b=block, d=dictory, c=character, p=pipe, l=link, f=file</span></span><br><span class="line"></span><br><span class="line">find / -iname <span class="string">&quot;MyCProgram.c&quot;</span> -<span class="built_in">exec</span> md5sum &#123;&#125; \; <span class="comment"># 对所有找到的文件进行MD5验证</span></span><br><span class="line">find / -name filename -ok rm -rf &#123;&#125; \;          <span class="comment"># 确认删除找到的文件</span></span><br><span class="line">find . -mtime +3 | xargs rm -rf                 <span class="comment"># 删除3天以前的文件</span></span><br><span class="line">find . -size +3000k -<span class="built_in">exec</span> ls -ld &#123;&#125; \;          <span class="comment"># 查找大于3M的文件</span></span><br><span class="line">find . -size -3000k | xargs <span class="built_in">echo</span> <span class="string">&quot;&quot;</span> &gt;./file.log <span class="comment"># 查找小于3M的文件并写入file.log</span></span><br><span class="line">find . -<span class="built_in">type</span> f | xargs grep <span class="string">&quot;hostname&quot;</span>          <span class="comment"># 在普通文件中搜索hostname这个词</span></span><br></pre></td></tr></table></figure>
@@ -6285,7 +6285,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Linux 0.11 源码阅读笔记-总览</title>
-    <url>/2017/01/23/1704-linux-source/</url>
+    <url>/2017/01/22/1704-linux-source/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/01/23/1704-linux-source/">Linux 0.11 源码阅读笔记-总览</a></li>
 <li><a href="https://draapho.github.io/2017/01/26/1704-linux-source1/">Linux 0.11 源码阅读笔记-内存的基础概念</a></li>
@@ -6322,7 +6322,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Linux 0.11 源码阅读笔记-内存的基础概念</title>
-    <url>/2017/01/26/1704-linux-source1/</url>
+    <url>/2017/01/25/1704-linux-source1/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/01/23/1704-linux-source/">Linux 0.11 源码阅读笔记-总览</a></li>
 <li><a href="https://draapho.github.io/2017/01/26/1704-linux-source1/">Linux 0.11 源码阅读笔记-内存的基础概念</a></li>
@@ -6397,7 +6397,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Linux 0.11 源码阅读笔记-启动程序</title>
-    <url>/2017/01/28/1704-linux-source2/</url>
+    <url>/2017/01/27/1704-linux-source2/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/01/23/1704-linux-source/">Linux 0.11 源码阅读笔记-总览</a></li>
 <li><a href="https://draapho.github.io/2017/01/26/1704-linux-source1/">Linux 0.11 源码阅读笔记-内存的基础概念</a></li>
@@ -6476,7 +6476,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Linux 0.11 源码阅读笔记-内核代码</title>
-    <url>/2017/01/31/1704-linux-source3/</url>
+    <url>/2017/01/30/1704-linux-source3/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/01/23/1704-linux-source/">Linux 0.11 源码阅读笔记-总览</a></li>
 <li><a href="https://draapho.github.io/2017/01/26/1704-linux-source1/">Linux 0.11 源码阅读笔记-内存的基础概念</a></li>
@@ -6519,7 +6519,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Linux 0.11 源码阅读笔记-设备驱动程序</title>
-    <url>/2017/02/01/1704-linux-source4/</url>
+    <url>/2017/01/31/1704-linux-source4/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/01/23/1704-linux-source/">Linux 0.11 源码阅读笔记-总览</a></li>
 <li><a href="https://draapho.github.io/2017/01/26/1704-linux-source1/">Linux 0.11 源码阅读笔记-内存的基础概念</a></li>
@@ -6567,7 +6567,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Linux 0.11 源码阅读笔记-文件系统</title>
-    <url>/2017/02/13/1704-linux-source5/</url>
+    <url>/2017/02/12/1704-linux-source5/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><p><a href="https://draapho.github.io/2017/01/23/1704-linux-source/">Linux 0.11 源码阅读笔记-总览</a></p>
 </li>
@@ -6680,7 +6680,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Linux 0.11 源码阅读笔记-内存管理</title>
-    <url>/2017/02/15/1704-linux-source6/</url>
+    <url>/2017/02/14/1704-linux-source6/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/01/23/1704-linux-source/">Linux 0.11 源码阅读笔记-总览</a></li>
 <li><a href="https://draapho.github.io/2017/01/26/1704-linux-source1/">Linux 0.11 源码阅读笔记-内存的基础概念</a></li>
@@ -6729,7 +6729,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>嵌入式linux环境搭建1-Ubuntu14.04</title>
-    <url>/2017/02/18/1706-linux-ubuntu14/</url>
+    <url>/2017/02/17/1706-linux-ubuntu14/</url>
     <content><![CDATA[<h1 id="环境及结论"><a href="#环境及结论" class="headerlink" title="环境及结论"></a>环境及结论</h1><ul>
 <li>大环境的搭建思路可参考<a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a><ul>
 <li>gateway ip <code>10.0.0.138</code></li>
@@ -6799,7 +6799,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>嵌入式linux环境搭建-主机端</title>
-    <url>/2017/02/16/1705-linux-env/</url>
+    <url>/2017/02/15/1705-linux-env/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a></li>
@@ -6956,7 +6956,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>嵌入式linux环境搭建2-CentOS7</title>
-    <url>/2017/02/19/1706-linux-centos7/</url>
+    <url>/2017/02/18/1706-linux-centos7/</url>
     <content><![CDATA[<h1 id="环境及结论"><a href="#环境及结论" class="headerlink" title="环境及结论"></a>环境及结论</h1><ul>
 <li>大环境的搭建思路可参考<a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a><ul>
 <li>gateway ip <code>10.0.0.138</code></li>
@@ -7007,7 +7007,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>嵌入式linux环境搭建3-Ubuntu16.04</title>
-    <url>/2017/02/20/1706-linux-ubuntu16/</url>
+    <url>/2017/02/19/1706-linux-ubuntu16/</url>
     <content><![CDATA[<h1 id="环境及结论"><a href="#环境及结论" class="headerlink" title="环境及结论"></a>环境及结论</h1><ul>
 <li>大环境的搭建思路可参考<a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a><ul>
 <li>gateway ip <code>10.0.0.138</code></li>
@@ -7078,7 +7078,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Docker 初学笔记</title>
-    <url>/2017/02/23/1708-docker/</url>
+    <url>/2017/02/22/1708-docker/</url>
     <content><![CDATA[<h1 id="Docker-总览"><a href="#Docker-总览" class="headerlink" title="Docker 总览"></a>Docker 总览</h1><h2 id="几个重要概念"><a href="#几个重要概念" class="headerlink" title="几个重要概念"></a>几个重要概念</h2><ul>
 <li>Docker: 是一种容器技术, 可以提供虚拟服务. 物理上共享主机的硬件和网络资源.<br>相比于虚拟机技术, 它轻巧, 快速, 便捷, 跨平台, 易于分配发布. 又同时拥有虚拟机的优点!<br>由于以上特点, 目前docker的容器有蚕食传统软件的趋势: 提供服务时, 给的是docker镜像或容器而非传统的安装软件!<br>譬如, 我学习docker的初衷就是: <strong>一劳永逸的制作一个用于开发2440系列编译环境的pc linux系统</strong><br>可以看出, 我需求就是提供编译服务. 传统的安装软件无法简单的实现, 但docker可以! (目前用的vm, 太重太麻烦)</li>
 <li>Union FS (分层存储): 本质是增量管理. 基于原有的运行系统, 执行某些命令后, 把新产生的文件作为增量新建一层文件.<br>直观感受一下, 是这样的:<br><img src="https://draapho.github.io/images/1708/docker-aufs.jpg" alt="docker-aufs"></li>
@@ -7162,7 +7162,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>快速读懂 makefile</title>
-    <url>/2017/04/04/1709-linux-makefile/</url>
+    <url>/2017/04/03/1709-linux-makefile/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="http://lucky521.github.io/blog/design/2015/10/01/makefile.html">怎么看懂和编写makefile</a></strong></em><br><em><strong>转载自 <a href="http://lucky521.github.io/blog/design/2015/10/01/makefile.html">跟我一起写Makefile</a></strong></em></p>
 <hr>
 <h1 id="Makefile最基本的组成"><a href="#Makefile最基本的组成" class="headerlink" title="Makefile最基本的组成"></a>Makefile最基本的组成</h1><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">target: dependencies</span></span><br><span class="line">[TAB] command</span><br><span class="line"></span><br><span class="line"><span class="section">目标: 依赖1 依赖2</span></span><br><span class="line">[TAB] 命令</span><br></pre></td></tr></table></figure>
@@ -7238,7 +7238,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>嵌入式linux环境搭建-jz2440开发板</title>
-    <url>/2017/02/21/1707-jz2440-env/</url>
+    <url>/2017/02/20/1707-jz2440-env/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a></li>
@@ -7342,7 +7342,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>jz2440 裸板程序的开发</title>
-    <url>/2017/04/05/1710-jz2440-led/</url>
+    <url>/2017/04/04/1710-jz2440-led/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/04/05/1710-jz2440-led/">jz2440裸板程序的开发</a></li>
@@ -7404,7 +7404,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>ezos简要用户手册</title>
-    <url>/2017/04/10/1712-ezos/</url>
+    <url>/2017/04/09/1712-ezos/</url>
     <content><![CDATA[<h1 id="ezos开发历史"><a href="#ezos开发历史" class="headerlink" title="ezos开发历史"></a>ezos开发历史</h1><p>ezos最早的思想起源于TCS德国的带有任务性质的超循环方式(前后台方式), 为使用方便, 作者将增减任务的方式直接和函数名相关, 加入延时功能.<br>并写了核心代码 ezos_schedule();  ezos_add(); ezos_delete();  ezos_delay(); 这样一个外表酷似RTOS, 内核为超循环任务的OS就诞生了, 版本V1.0.0.<br>由于使用起来非常方便, 代码为纯C语言, 简单易懂, 因此命名为 ezos, 即easy OS.</p>
 <p>后续由 TCS 胡工加入了任务参数, 静态任务, 可实例化任务的概念.<br>整合这些概念后, 重写了部分代码, 将ezos的版本升级至较为实用的V1.3.1.在这个阶段, 使用ezos做了功能较为复杂的项目, 并发现一些任务通讯和同步的问题,<br>在借鉴了抢占式RTOS的一些特性后, 决心重写ezos, 将其变为真正的协作式RTOS. 同时要求代码依旧清晰简洁, 可适用于资源较少的8位单片机应用.</p>
 <p>基于以上想法, 将ezos的提升到了V2开始的主版本. 将代码改为linux书写规范, 进化为协作式OS, 支持254级优先级. 使用了链表, 重写所有系统函数.<br>还有, 非常重要的是, 增加了任务间的通讯方式, 支持信号量, 互斥量, 事件, 邮箱, 消息队列.
@@ -7574,7 +7574,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>逻辑|这样表达，事半功倍</title>
-    <url>/2017/05/04/1714-expression/</url>
+    <url>/2017/05/03/1714-expression/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="http://www.jianshu.com/p/a2bcce138f48">逻辑|这样表达，事半功倍（附训练方法）</a></strong></em></p>
 <hr>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>表达是生活工作中最重要的沟通方式。<br>正式场合的表达，我们称为“演讲”、“汇报”、“发言”等；<br>休闲场合的表达，我们称为“闲聊”、“侃大山”、“吹牛”等。<br>总而言之，表达是我们传递信息、交流感情的重要技能。<br>那怎样的表达，能事半功倍呢？</p>
@@ -7689,7 +7689,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>使用网络爬虫抓取商品价格并分析</title>
-    <url>/2017/04/10/1711-web-spider/</url>
+    <url>/2017/04/09/1711-web-spider/</url>
     <content><![CDATA[<h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><p>基于 <a href="http://www.chemistwarehouse.com.au/">Chemist Warehouse</a> 的商品, 抓取其每天的价格变化. 并根据历史信息, 判断其价格变化规律, 以便在打折时购买.</p>
 <p>因此, 用户需求有如下几点:</p>
 <ul>
@@ -7787,7 +7787,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>AI和物联网的潜在应用</title>
-    <url>/2017/05/29/1716-AI-IoT/</url>
+    <url>/2017/05/28/1716-AI-IoT/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>基于目前AI和物联网的发展, 在可见的未来必然有无数的领域受到严重影响.<br>就我思考的范围而言, 此文列举出技术上基本可行的几种应用, 只是需要在商业模式, 技术细节上需要进一步考虑.</p>
 <h1 id="AI的发展模式"><a href="#AI的发展模式" class="headerlink" title="AI的发展模式"></a>AI的发展模式</h1><p>AlphoGo 在围棋上的完胜绝对是意义非凡. AlphoGo是真AI, 而不单单是一堆0,1+逻辑运算的机器.</p>
 <p>数学上有个概念叫建模, 本质上就是一种抽象. 只是这种抽象需要用数学表达出来, 便于他人理解和使用.<br>有了这么一个模型后, 就能描述系统的因果关系和相互关系.</p>
@@ -7841,7 +7841,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>C语言知识巩固</title>
-    <url>/2017/05/17/1715-c/</url>
+    <url>/2017/05/16/1715-c/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/05/04/1714-expression/">逻辑|这样表达，事半功倍</a></li>
 <li><a href="https://draapho.github.io/2018/01/10/1805-interview-general/">面试之常规问题</a></li>
@@ -7936,7 +7936,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>BLE基础概念</title>
-    <url>/2017/04/19/1713-ble/</url>
+    <url>/2017/04/18/1713-ble/</url>
     <content><![CDATA[<h1 id="ble-架构"><a href="#ble-架构" class="headerlink" title="ble 架构"></a>ble 架构</h1><p><img src="https://draapho.github.io/images/1713/ble-architecture.jpg" alt="ble architecture"></p>
 <ul>
 <li>PHY, Physical Layer:<br>物理层, 控制无线电信号的收发</li>
@@ -8148,7 +8148,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>敏捷开发 Scrum 学习</title>
-    <url>/2017/05/31/1717-scrum/</url>
+    <url>/2017/05/30/1717-scrum/</url>
     <content><![CDATA[<h1 id="学习资源推荐"><a href="#学习资源推荐" class="headerlink" title="学习资源推荐"></a>学习资源推荐</h1><ul>
 <li><a href="http://scrumtrainingseries.com/">Scrum Training Series</a>, 通俗易懂的视频教程</li>
 <li><a href="http://www.scrumreferencecard.com/">Scrum Reference Card</a>, Scrum 参考卡</li>
@@ -8313,7 +8313,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Ubuntu下配置支持Windows访问的samba共享</title>
-    <url>/2017/07/06/1718-linux-samba/</url>
+    <url>/2017/07/05/1718-linux-samba/</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>家用电脑, 环境的搭建思路可参考<a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a></p>
 <p>单位电脑, 没有使用nfs共享文件.<br>用的环境是: VMware Ubuntu 16.04 + Windows 7 + VMware 文件共享<br>尝试编译uboot时, 弹出一个错误提示</p>
 <blockquote>
@@ -8365,7 +8365,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>uboot之makefile分析</title>
-    <url>/2017/07/07/1719-uboot-makefile/</url>
+    <url>/2017/07/06/1719-uboot-makefile/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/24/1735-jz2440-basic/">jz2440分区及启动的基础概念</a></li>
@@ -8450,7 +8450,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>uboot之源码分析</title>
-    <url>/2017/08/25/1720-uboot-source/</url>
+    <url>/2017/08/24/1720-uboot-source/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/24/1735-jz2440-basic/">jz2440分区及启动的基础概念</a></li>
@@ -8532,7 +8532,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>uboot之定制指令</title>
-    <url>/2017/08/30/1721-uboot-modify/</url>
+    <url>/2017/08/29/1721-uboot-modify/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/24/1735-jz2440-basic/">jz2440分区及启动的基础概念</a></li>
@@ -8585,7 +8585,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>kernel之编译体验</title>
-    <url>/2017/09/01/1722-kernel-compile/</url>
+    <url>/2017/08/31/1722-kernel-compile/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/09/01/1722-kernel-compile/">kernel之编译体验</a></li>
@@ -8692,7 +8692,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>最实用的 Linux 命令行使用技巧</title>
-    <url>/2017/09/07/1723-linux-cmd-useful/</url>
+    <url>/2017/09/06/1723-linux-cmd-useful/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="https://www.oschina.net/translate/most-useful-linux-command-line-tricks#comments">最实用的 Linux 命令行使用技巧</a></strong></em><br><em><strong>英文原文 <a href="https://dzone.com/articles/most-useful-linux-command-line-tricks">Most Useful Linux Command Line Tricks</a></strong></em></p>
 <hr>
 <h1 id="将输出内容以表格的形式显示出来"><a href="#将输出内容以表格的形式显示出来" class="headerlink" title="将输出内容以表格的形式显示出来"></a>将输出内容以表格的形式显示出来</h1><p>可以使用 <code>cmd | column -t</code> 指令, 譬如:</p>
@@ -8751,7 +8751,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>kernel之Makefile分析</title>
-    <url>/2017/09/14/1724-kernel-makefile/</url>
+    <url>/2017/09/13/1724-kernel-makefile/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/09/01/1722-kernel-compile/">kernel之编译体验</a></li>
@@ -8811,7 +8811,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>人人都看得懂的正则表达式教程</title>
-    <url>/2017/09/19/1726-soft-easyre/</url>
+    <url>/2017/09/18/1726-soft-easyre/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="https://mp.weixin.qq.com/s?__biz=MzI4MDEwNzAzNg==&mid=2649444384&idx=1&sn=b1650af947842bbafb229eaabef4447e&key=93e82051231712653225010bec76aa3cdd1bb9dfb4cb4676f695a6cba336d79a73a39a9ae825aae8c16f26c0d1e0c67f7d96c8e03161da2c68ed58cc68e7c5818fdc72647bae92df46a1b85a43e276cd&ascene=1&uin=MTUzODYxOTg2MQ==&devicetype=Windows-QQBrowser&version=61030006&pass_ticket=X0yVRsvNQron8bDKwr7uv0tD/afEwhP8NalG1zmH0siQV8OIDKoyAcobBC8fze13">人人都看得懂的正则表达式教程</a></strong></em></p>
 <hr>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
@@ -8895,7 +8895,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>kernel之内核启动分析</title>
-    <url>/2017/09/15/1725-kernel-launch/</url>
+    <url>/2017/09/14/1725-kernel-launch/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/09/01/1722-kernel-compile/">kernel之编译体验</a></li>
@@ -9060,7 +9060,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>最全的常用正则表达式大全</title>
-    <url>/2017/10/07/1727-soft-reexample/</url>
+    <url>/2017/10/06/1727-soft-reexample/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html">最全的常用正则表达式大全——包括校验数字、字符、一些特殊的需求等等</a></strong></em></p>
 <hr>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
@@ -9156,7 +9156,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>我的终极思考</title>
-    <url>/2017/10/09/1728-ultimatethink/</url>
+    <url>/2017/10/08/1728-ultimatethink/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -9388,7 +9388,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>fs之BusyBox的使用与编译</title>
-    <url>/2017/11/02/1730-fs-busybox/</url>
+    <url>/2017/11/01/1730-fs-busybox/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/02/1730-fs-busybox/">fs之Busybox的编译与使用</a></li>
@@ -9512,7 +9512,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>人类简史简图</title>
-    <url>/2017/10/16/1729-history-of-humankind/</url>
+    <url>/2017/10/15/1729-history-of-humankind/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="https://www.zhihu.com/question/27767448">怎样评价尤瓦尔·赫拉力的《人类简史》? 的部分回答</a></strong></em></p>
 <hr>
 <p><img src="https://draapho.github.io/images/1729/Humankind1.png" alt="人类简史简图"></p>
@@ -9529,7 +9529,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>fs之创建文件系统</title>
-    <url>/2017/11/03/1731-fs-build/</url>
+    <url>/2017/11/02/1731-fs-build/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/02/1730-fs-busybox/">fs之Busybox的编译与使用</a></li>
@@ -9695,7 +9695,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Python2和Python3共存时, pip的使用</title>
-    <url>/2017/11/13/1732-python-pip/</url>
+    <url>/2017/11/12/1732-python-pip/</url>
     <content><![CDATA[<h1 id="pip的使用"><a href="#pip的使用" class="headerlink" title="pip的使用"></a>pip的使用</h1><p>pip 为python的包管理器. 最新的python2和python3都已经自带pip.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 显示帮助</span></span><br><span class="line">pip</span><br><span class="line">pip --<span class="built_in">help</span></span><br><span class="line">pip install -h                      <span class="comment"># 显示安装的帮助</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">pip install PackageName             <span class="comment"># latest version</span></span><br><span class="line">pip install PackageName==1.0.4      <span class="comment"># specific version</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 包列表</span></span><br><span class="line">pip list                            <span class="comment"># 显示已安装的包</span></span><br><span class="line">pip list --outdated                 <span class="comment"># 显示有更新的包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示包的简介, 以及包的源码文件</span></span><br><span class="line">pip show --files PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">pip install --U PackageName</span><br><span class="line">pip install --upgrade PackageName</span><br><span class="line">pip install --upgrade pip           <span class="comment"># pip更新自己</span></span><br><span class="line">python -m pip install --U pip       <span class="comment"># -m 表示调用python模块, 这里就是要调用pip</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载包</span></span><br><span class="line">pip uninstall PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遇到SSL问题, 下载失败时, 信任下载源即可</span></span><br><span class="line"><span class="comment"># [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:XXX)</span></span><br><span class="line">pip list --outdated --trusted-host pypi.python.org</span><br><span class="line">pip install --trusted-host pypi.python.org PackageName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果还是不行, 再试试下面这句. index-url 将源指定为http格式, 不用https了, 然后设置为信任.</span></span><br><span class="line">pip install --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org PackageName</span><br></pre></td></tr></table></figure>
 
@@ -9743,7 +9743,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之字符设备-框架</title>
-    <url>/2017/11/22/1733-drv-chr1/</url>
+    <url>/2017/11/21/1733-drv-chr1/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
@@ -9853,7 +9853,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>嵌入式Linux学习目录</title>
-    <url>/2017/11/23/1734-linux-content/</url>
+    <url>/2017/11/22/1734-linux-content/</url>
     <content><![CDATA[<h1 id="嵌入式开发环境搭建"><a href="#嵌入式开发环境搭建" class="headerlink" title="嵌入式开发环境搭建"></a>嵌入式开发环境搭建</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a><ul>
@@ -9924,7 +9924,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>jz2440分区及启动的基础概念</title>
-    <url>/2017/11/24/1735-jz2440-basic/</url>
+    <url>/2017/11/23/1735-jz2440-basic/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/24/1735-jz2440-basic/">jz2440分区及启动的基础概念</a></li>
@@ -10037,7 +10037,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>linux软件的安装和管理</title>
-    <url>/2017/11/26/1736-linux-apt/</url>
+    <url>/2017/11/25/1736-linux-apt/</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>接触linux至今, 遇到的最大的坑就是软件的安装!<br>找不到包, 找不到指定版本的包, 包依赖关系出问题, 软件源要更新…<br>因此, 在这里集中整理一下上述问题的解决方式.</p>
 <h1 id="apt-命令"><a href="#apt-命令" class="headerlink" title="apt 命令"></a>apt 命令</h1><p>最新 Ubuntu推荐使用 <code>apt</code> 指令. 其常用功能如下</p>
 <table>
@@ -10158,7 +10158,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>LinK+, 一款Linux内核开发IDE</title>
-    <url>/2017/11/27/1737-linux-ide/</url>
+    <url>/2017/11/26/1737-linux-ide/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>LinK+ 是一款在linux下基于eclipse开发的免费的Linux内核以及驱动开发软件.<br>这个软件在国外知名度也不高. 国内更是没人介绍过这一款软件.<br>软件的现状是: 开发者似乎已经停止更新, 设想中支持的ARM架构也没有下文. 因此不支持嵌入式的仿真.<br><strong>我主要用它来查看内核源码, 开发驱动, 能快速的搭建好驱动架构, 支持内核函数跳转查看! 自动生成Makefile.</strong></p>
 <p>网址如下: <a href="https://sourceforge.net/projects/linkplustest/">Linux Kernel Programming IDE (LinK+)</a></p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>根据用户手册, 有多种安装方法. 使用最简单的 LinK+IDE方式.<br>下载 32bit, 因为我用的是32位的Ubuntu.</p>
@@ -10230,7 +10230,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>基于DHCP建立嵌入式Linux开发环境</title>
-    <url>/2017/11/28/1738-dhcp-env/</url>
+    <url>/2017/11/27/1738-dhcp-env/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a></li>
@@ -10321,7 +10321,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Ubuntu 16.04安装配置NFS</title>
-    <url>/2017/11/29/1739-ubuntu-nfs/</url>
+    <url>/2017/11/28/1739-ubuntu-nfs/</url>
     <content><![CDATA[<p>转载自 <a href="http://blog.topspeedsnail.com/archives/908">Ubuntu 16.04安装配置NFS</a><br><strong>略有改动和增加</strong></p>
 <hr>
 <p>NFS允许用户通过网络分享目录和文件，客户端用户可以像操作本地文件一样操作服务端文件。</p>
@@ -10441,7 +10441,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之基于LinK+设计按键驱动</title>
-    <url>/2017/11/30/1740-drv-chr2/</url>
+    <url>/2017/11/29/1740-drv-chr2/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
@@ -10530,7 +10530,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之基于中断设计按键驱动</title>
-    <url>/2017/12/07/1741-drv-chr3/</url>
+    <url>/2017/12/06/1741-drv-chr3/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
@@ -10645,7 +10645,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之poll机制</title>
-    <url>/2017/12/11/1742-drv-chr4/</url>
+    <url>/2017/12/10/1742-drv-chr4/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
@@ -10717,7 +10717,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之异步通知</title>
-    <url>/2017/12/12/1743-drv-chr5/</url>
+    <url>/2017/12/11/1743-drv-chr5/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
@@ -10785,7 +10785,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之同步互斥阻塞</title>
-    <url>/2017/12/13/1744-drv-chr6/</url>
+    <url>/2017/12/12/1744-drv-chr6/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
@@ -10852,7 +10852,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Yocto 的安装与体验</title>
-    <url>/2017/12/15/1745-yocto-install/</url>
+    <url>/2017/12/14/1745-yocto-install/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Yocto的简介就不抄写了, 反正我光看介绍并不明白Yocto到底是干吗的.<br>但应该确确实实让定制和开发嵌入式Linux系统变得更方便, 招聘要求里会Yocto都是加分项.<br>所以决定动手实践一下, 先有个感性认识再说.</p>
 <p>下文基本按照官网的 <a href="https://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html">Yocto Project Quick Start</a> 步骤而来.</p>
 <h1 id="第一步-安装-Yocto-Project"><a href="#第一步-安装-Yocto-Project" class="headerlink" title="第一步, 安装 Yocto Project"></a>第一步, 安装 Yocto Project</h1><p>安装 Yocto Project 有两个方法:</p>
@@ -10909,7 +10909,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>嵌入式linux环境搭建-QQ物联</title>
-    <url>/2017/12/18/1746-qqiot-env/</url>
+    <url>/2017/12/17/1746-qqiot-env/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/12/18/1746-qqiot-env/">嵌入式linux环境搭建-QQ物联</a></li>
@@ -10984,7 +10984,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>QQ物联绑定分析</title>
-    <url>/2017/12/20/1747-qqiot-bind/</url>
+    <url>/2017/12/19/1747-qqiot-bind/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/12/18/1746-qqiot-env/">嵌入式linux环境搭建-QQ物联</a></li>
@@ -11034,7 +11034,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>QQ物联开发步骤简介</title>
-    <url>/2017/12/22/1748-qqiot-procedure/</url>
+    <url>/2017/12/21/1748-qqiot-procedure/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/12/18/1746-qqiot-env/">嵌入式linux环境搭建-QQ物联</a></li>
@@ -11229,7 +11229,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>QQ物联演示项目</title>
-    <url>/2017/12/23/1749-qqiot-demo/</url>
+    <url>/2017/12/22/1749-qqiot-demo/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/12/18/1746-qqiot-env/">嵌入式linux环境搭建-QQ物联</a></li>
@@ -11318,7 +11318,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之input子系统</title>
-    <url>/2018/01/05/1802-drv-input/</url>
+    <url>/2018/01/04/1802-drv-input/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/05/1802-drv-input/">驱动之input子系统</a></li>
@@ -11412,7 +11412,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之定时器按键防抖</title>
-    <url>/2018/01/04/1801-drv-chr7/</url>
+    <url>/2018/01/03/1801-drv-chr7/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2017/11/22/1733-drv-chr1/">驱动之字符设备-框架</a></li>
@@ -11513,7 +11513,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之platform概念</title>
-    <url>/2018/01/08/1803-drv-platform/</url>
+    <url>/2018/01/07/1803-drv-platform/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/05/1802-drv-input/">驱动之input子系统</a></li>
@@ -11562,7 +11562,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>面试之常规问题</title>
-    <url>/2018/01/10/1805-interview-general/</url>
+    <url>/2018/01/09/1805-interview-general/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/05/04/1714-expression/">逻辑|这样表达，事半功倍</a></li>
 <li><a href="https://draapho.github.io/2018/01/10/1805-interview-general/">面试之常规问题</a></li>
@@ -11697,7 +11697,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之触摸屏驱动框架和实现</title>
-    <url>/2018/01/11/1806-drv-ts/</url>
+    <url>/2018/01/10/1806-drv-ts/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/05/1802-drv-input/">驱动之input子系统</a></li>
@@ -11791,7 +11791,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之LCD驱动框架和实现</title>
-    <url>/2018/01/09/1804-drv-lcd/</url>
+    <url>/2018/01/08/1804-drv-lcd/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/05/1802-drv-input/">驱动之input子系统</a></li>
@@ -11921,7 +11921,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之USB基础概念和框架</title>
-    <url>/2018/01/18/1807-drv-usb1/</url>
+    <url>/2018/01/17/1807-drv-usb1/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/05/1802-drv-input/">驱动之input子系统</a></li>
@@ -12068,7 +12068,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之USB设备驱动程序</title>
-    <url>/2018/01/19/1808-drv-usb2/</url>
+    <url>/2018/01/18/1808-drv-usb2/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/05/1802-drv-input/">驱动之input子系统</a></li>
@@ -12145,7 +12145,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之NAND Flash源码</title>
-    <url>/2018/01/25/1811-drv-nand2/</url>
+    <url>/2018/01/24/1811-drv-nand2/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/22/1809-drv-blk/">驱动之块设备-框架</a></li>
@@ -12202,7 +12202,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之NAND Flash框架</title>
-    <url>/2018/01/24/1810-drv-nand1/</url>
+    <url>/2018/01/23/1810-drv-nand1/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/22/1809-drv-blk/">驱动之块设备-框架</a></li>
@@ -12364,7 +12364,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之块设备-框架</title>
-    <url>/2018/01/22/1809-drv-blk/</url>
+    <url>/2018/01/21/1809-drv-blk/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/22/1809-drv-blk/">驱动之块设备-框架</a></li>
@@ -12476,7 +12476,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之NOR Flash</title>
-    <url>/2018/01/26/1812-drv-nor/</url>
+    <url>/2018/01/25/1812-drv-nor/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/22/1809-drv-blk/">驱动之块设备-框架</a></li>
@@ -12585,7 +12585,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之I2C驱动</title>
-    <url>/2018/02/09/1815-drv-i2c/</url>
+    <url>/2018/02/08/1815-drv-i2c/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/02/09/1815-drv-i2c/">驱动之I2C驱动</a></li>
@@ -12720,7 +12720,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之RTC分析</title>
-    <url>/2018/02/08/1814-drv-rtc/</url>
+    <url>/2018/02/07/1814-drv-rtc/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/05/1802-drv-input/">驱动之input子系统</a></li>
@@ -12762,7 +12762,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>博客暂停更新</title>
-    <url>/2018/04/12/1815-suspend/</url>
+    <url>/2018/04/11/1815-suspend/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -12823,7 +12823,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>驱动之网卡驱动</title>
-    <url>/2018/02/06/1813-drv-net/</url>
+    <url>/2018/02/05/1813-drv-net/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
 <li><a href="https://draapho.github.io/2018/01/22/1809-drv-blk/">驱动之块设备-框架</a></li>
@@ -12881,7 +12881,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>面试之嵌入式Linux</title>
-    <url>/2018/05/08/1817-interview-linux/</url>
+    <url>/2018/05/07/1817-interview-linux/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/05/04/1714-expression/">逻辑|这样表达，事半功倍</a></li>
 <li><a href="https://draapho.github.io/2018/01/10/1805-interview-general/">面试之常规问题</a></li>
@@ -13169,7 +13169,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>佛教学习资料及一些感想</title>
-    <url>/2018/07/08/1818-buddhism/</url>
+    <url>/2018/07/07/1818-buddhism/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -13250,7 +13250,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>面试之嵌入式C语言</title>
-    <url>/2018/05/07/1816-interview-c/</url>
+    <url>/2018/05/06/1816-interview-c/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/05/04/1714-expression/">逻辑|这样表达，事半功倍</a></li>
 <li><a href="https://draapho.github.io/2018/01/10/1805-interview-general/">面试之常规问题</a></li>
@@ -13457,7 +13457,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>实修开始</title>
-    <url>/2018/11/29/1819-start-meditation/</url>
+    <url>/2018/11/28/1819-start-meditation/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -13628,7 +13628,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>闻思修</title>
-    <url>/2018/12/27/1820-meditation-LCP/</url>
+    <url>/2018/12/26/1820-meditation-LCP/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -14022,7 +14022,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>杂谈</title>
-    <url>/2019/03/19/1901-tittle-tattle/</url>
+    <url>/2019/03/18/1901-tittle-tattle/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -14226,7 +14226,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>交易市场思考</title>
-    <url>/2019/03/26/1902-trading-rule/</url>
+    <url>/2019/03/25/1902-trading-rule/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2019/03/26/1902-trading-rule/">交易市场思考</a></li>
 <li><a href="https://draapho.github.io/2019/04/26/1903-wave-principle/">波浪理论简述</a></li>
@@ -14570,7 +14570,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Python 错误及解决方法</title>
-    <url>/2019/05/19/1904-python-error/</url>
+    <url>/2019/05/18/1904-python-error/</url>
     <content><![CDATA[<h1 id="UnicodeEncodeError-‘charmap’-codec-can’t-encode-characters"><a href="#UnicodeEncodeError-‘charmap’-codec-can’t-encode-characters" class="headerlink" title="UnicodeEncodeError: ‘charmap’ codec can’t encode characters"></a>UnicodeEncodeError: ‘charmap’ codec can’t encode characters</h1><ul>
 <li>此问题多发生在windows的区域和开发中用到在字符不匹配. 譬如英文区域的windows要编解码中文字符.</li>
 <li>原因及解决方法参考 <a href="https://blog.csdn.net/haiross/article/details/36189103">代码页即地狱</a></li>
@@ -14610,7 +14610,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>波浪理论简述</title>
-    <url>/2019/04/26/1903-wave-principle/</url>
+    <url>/2019/04/25/1903-wave-principle/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2019/03/26/1902-trading-rule/">交易市场思考</a></li>
 <li><a href="https://draapho.github.io/2019/04/26/1903-wave-principle/">波浪理论简述</a></li>
@@ -14969,7 +14969,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>魔方简易步骤</title>
-    <url>/2019/06/03/1906-rubik/</url>
+    <url>/2019/06/02/1906-rubik/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>此文目标: 用最少的情况分类和记忆公式, 慢慢的还原三阶魔方.<br>底层为白色, 顶层为黄色. 四个面的中心点颜色是相对固定的,是重要的参考点.</p>
 <p>速记符和手法:<br><img src="https://draapho.github.io/images/1906/0_1.png" alt="手法"></p>
 <h1 id="一-底棱归位"><a href="#一-底棱归位" class="headerlink" title="一:底棱归位"></a>一:底棱归位</h1><p>方法: 先在顶部黄色弄出十字小白花, 然后转动顶层对齐侧面中心色, 再将白色翻转到底部. 重复每个侧面, 即可完成底棱归位, 底层为白色十字.</p>
@@ -15008,7 +15008,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Pandas Dataframe 入门</title>
-    <url>/2019/05/20/1905-python-pandas/</url>
+    <url>/2019/05/19/1905-python-pandas/</url>
     <content><![CDATA[<h1 id="1-创建DataFrame"><a href="#1-创建DataFrame" class="headerlink" title="1 创建DataFrame"></a>1 创建DataFrame</h1><p>对于一个用python做数据处理的人来说，pandas是必须要了解的。<br>对于一个数据处理工具来说，读写是最基本的，<br>下面是我最近整理的关于pandas一些基本本操作，主要包括以下内容：</p>
 <ul>
 <li>如何创建DataFrame</li>
@@ -15123,7 +15123,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>你将不会成为一个伟大的投资人</title>
-    <url>/2019/06/25/1907-investor/</url>
+    <url>/2019/06/24/1907-investor/</url>
     <content><![CDATA[<p><em><strong>转载自 <a href="https://zhuanlan.zhihu.com/p/22051177">马克·塞勒尔：阻碍你成为伟大投资者的七个先天因素</a></strong></em></p>
 <hr>
 <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
@@ -15193,7 +15193,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>好吧，我们就从头聊一聊科学、中医、东西方文明及其不同思维模式的话题</title>
-    <url>/2019/07/25/1909-TCM_science/</url>
+    <url>/2019/07/24/1909-TCM_science/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -15233,7 +15233,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>各种【一元化思维】的谬误——从“星座理论”到“共产主义社会”</title>
-    <url>/2019/07/05/1908-unified/</url>
+    <url>/2019/07/04/1908-unified/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -15320,7 +15320,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>交易市场阶段性探索心得</title>
-    <url>/2020/02/09/2001-exploration/</url>
+    <url>/2020/02/08/2001-exploration/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2019/03/26/1902-trading-rule/">交易市场思考</a></li>
 <li><a href="https://draapho.github.io/2019/04/26/1903-wave-principle/">波浪理论简述</a></li>
@@ -15456,7 +15456,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>开悟是怎样一种体验？</title>
-    <url>/2019/07/26/1910-satori/</url>
+    <url>/2019/07/25/1910-satori/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -15679,7 +15679,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Windows 软件系列-新装系统</title>
-    <url>/2020/05/02/2004-WinSoft-new/</url>
+    <url>/2020/05/01/2004-WinSoft-new/</url>
     <content><![CDATA[<h1 id="系统优化"><a href="#系统优化" class="headerlink" title="系统优化"></a>系统优化</h1><ul>
 <li>硬件检查: <a href="http://www.kbtool.cn/">卡硬工具箱</a>  (<em><strong>绿色软件</strong></em>)<ul>
 <li>综合检测</li>
@@ -15977,7 +15977,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>解构&lt;让子弹飞&gt;</title>
-    <url>/2020/04/15/2003-letthebulletsfly/</url>
+    <url>/2020/04/14/2003-letthebulletsfly/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -16631,7 +16631,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>波浪理论感悟</title>
-    <url>/2020/08/07/2006-wave-thinking/</url>
+    <url>/2020/08/06/2006-wave-thinking/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2019/03/26/1902-trading-rule/">交易市场思考</a></li>
 <li><a href="https://draapho.github.io/2019/04/26/1903-wave-principle/">波浪理论简述</a></li>
@@ -16776,7 +16776,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>波浪理论口诀</title>
-    <url>/2020/08/06/2005-wave-mnemonic/</url>
+    <url>/2020/08/05/2005-wave-mnemonic/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2019/03/26/1902-trading-rule/">交易市场思考</a></li>
 <li><a href="https://draapho.github.io/2019/04/26/1903-wave-principle/">波浪理论简述</a></li>
@@ -17001,7 +17001,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>一张简单图片演示的“甚深佛法”</title>
-    <url>/2021/02/09/2102-intermittent/</url>
+    <url>/2021/02/08/2102-intermittent/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -17039,7 +17039,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>交易市场思路</title>
-    <url>/2021/02/03/2102-share-skill/</url>
+    <url>/2021/02/02/2102-share-skill/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2019/03/26/1902-trading-rule/">交易市场思考</a></li>
 <li><a href="https://draapho.github.io/2019/04/26/1903-wave-principle/">波浪理论简述</a></li>
@@ -17059,7 +17059,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>与神对话读后感-矛盾与困惑</title>
-    <url>/2021/01/28/2101-confusion/</url>
+    <url>/2021/01/27/2101-confusion/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -17286,7 +17286,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>修行总领——明心见性</title>
-    <url>/2021/02/13/2104-satori/</url>
+    <url>/2021/02/12/2104-satori/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -17377,7 +17377,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>修道之路-总纲</title>
-    <url>/2021/02/14/2105-dao-outline/</url>
+    <url>/2021/02/13/2105-dao-outline/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><p>经过一段时间的资料收集和思考, 自己要走的修道之路基本也就定了下来.<br>此系列, 会记录自己修道之路中的探索和心得.</p>
 <ul>
 <li><strong><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></strong></li>
@@ -17502,7 +17502,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>修道之路-起疑</title>
-    <url>/2021/03/01/2106-dao-doubt/</url>
+    <url>/2021/02/28/2106-dao-doubt/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><strong><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">修道之路-起疑</a></strong></li>
@@ -17843,7 +17843,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>万年歌, 马前课, 梅花诗, 推背图 (上)</title>
-    <url>/2021/03/05/2107-tuibeitu1/</url>
+    <url>/2021/03/04/2107-tuibeitu1/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -18403,7 +18403,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>万年歌, 马前课, 梅花诗, 推背图 (下)</title>
-    <url>/2021/03/18/2108-tuibeitu2/</url>
+    <url>/2021/03/17/2108-tuibeitu2/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -19131,7 +19131,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>见性者体验收集</title>
-    <url>/2021/04/26/2123-caseofsatori/</url>
+    <url>/2021/04/25/2123-caseofsatori/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -19708,7 +19708,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>使用OMV搭建家庭NAS</title>
-    <url>/2021/03/31/2109-nuc-omv/</url>
+    <url>/2021/03/30/2109-nuc-omv/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>5年前写过一篇 <a href="https://draapho.github.io/2016/10/03/1606-WinSoft-cloud/">Windows 软件系列-基于NFS的家庭网</a>, 就有了搭建一个较为理想的NAS的愿望. 正好利用起淘汰下来的NUC5i5, 尝试自建.<br>优先级由高到低, 需求如下:</p>
 <ul>
 <li>24小时开机. 因而必须低功耗, 静音.</li>
@@ -20016,7 +20016,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>开悟是怎样一种体验？(新)</title>
-    <url>/2021/04/05/2110-satori2/</url>
+    <url>/2021/04/04/2110-satori2/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -20408,7 +20408,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>PyCharm 设置虚拟开发环境</title>
-    <url>/2022/06/08/2201-pycharm-venv/</url>
+    <url>/2022/06/07/2201-pycharm-venv/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>介绍了python的虚拟开发环境的建立和配置.<br>用于独立各个项目的依赖库, 便于后续维护和更新, 并能最小化可执行文件的大小.</p>
 <h1 id="PyCharm-新建工程"><a href="#PyCharm-新建工程" class="headerlink" title="PyCharm 新建工程"></a>PyCharm 新建工程</h1><p>新建工程界面: PyCharm内, <code>File-&gt;New Project...</code>, 打开后如下图:<br>    - 下图红色1处为工程目录, 指定为 <code>XXX\code</code><br>    - 下图红色2处为虚拟环境目录, 指定为 <code>XXX\venv</code></p>
 <p><img src="https://draapho.github.io/images/2201/create.png" alt="Create Project"></p>
@@ -20500,7 +20500,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>HTML和CSS基础</title>
-    <url>/2022/08/01/2202-html-ccs/</url>
+    <url>/2022/07/31/2202-html-ccs/</url>
     <content><![CDATA[<h1 id="HTML-参考资料"><a href="#HTML-参考资料" class="headerlink" title="HTML 参考资料"></a>HTML 参考资料</h1><ul>
 <li><a href="http://c.biancheng.net/html/">HTML 教程</a></li>
 <li><a href="https://www.runoob.com/tags/html-reference.html">HTML 参考手册</a></li>
@@ -20548,7 +20548,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>带着信仰行到底</title>
-    <url>/2021/11/29/2124-faith/</url>
+    <url>/2021/11/28/2124-faith/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -21219,7 +21219,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>项目开发方案评选</title>
-    <url>/2022/08/08/2205-solution-selection/</url>
+    <url>/2022/08/07/2205-solution-selection/</url>
     <content><![CDATA[<h1 id="背景和需求"><a href="#背景和需求" class="headerlink" title="背景和需求"></a>背景和需求</h1><ul>
 <li>项目背景<ul>
 <li>智能门锁猫眼项目, 需要支持远程与手机端音视频对讲.</li>
@@ -21409,7 +21409,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>JavaScript 基础</title>
-    <url>/2022/08/02/2203-javascript/</url>
+    <url>/2022/08/01/2203-javascript/</url>
     <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a href="https://www.runoob.com/jsref/jsref-tutorial.html">JavaScript 和 HTML DOM 参考手册</a></li>
 <li><a href="http://c.biancheng.net/js/">JavaScript 学习指南</a></li>
@@ -21777,7 +21777,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Visual Studio Code 环境配置</title>
-    <url>/2022/08/03/2204-Visual-Studio-Code/</url>
+    <url>/2022/08/02/2204-Visual-Studio-Code/</url>
     <content><![CDATA[<h1 id="IDE-的选择"><a href="#IDE-的选择" class="headerlink" title="IDE 的选择"></a>IDE 的选择</h1><ul>
 <li>不太好的Atom使用经验<ul>
 <li>之前有过 atom 的使用和配置经验.</li>
@@ -22043,7 +22043,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>面试之面向对象</title>
-    <url>/2022/08/10/2206-interview-oop/</url>
+    <url>/2022/08/09/2206-interview-oop/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/05/04/1714-expression/">逻辑|这样表达，事半功倍</a></li>
 <li><a href="https://draapho.github.io/2018/01/10/1805-interview-general/">面试之常规问题</a></li>
@@ -22193,7 +22193,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>知识革命：AI赋能未来，重塑人类历史</title>
-    <url>/2023/04/11/2301-revolution-of-knowledge/</url>
+    <url>/2023/04/10/2301-revolution-of-knowledge/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
 <li>这篇文章除了前言部分, 其它都是和Chat-GPT对话而来. 其能力如何各位可自行实验判断. 包括 “知识革命：AI赋能未来，重塑人类历史” 这个略显中二的标题.</li>
 <li>个人的观点: ChatGPT-3.5是必然载入史册的一个标识性事件. 和这个事件对标并不是第二次工业革命, 信息革命这种, 而是更上一级的农业革命和工业革命, 然后就是这一次的知识革命. 理由如下:<ul>
@@ -22224,7 +22224,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>设计模式概要</title>
-    <url>/2022/08/11/2207-design-patterns/</url>
+    <url>/2022/08/10/2207-design-patterns/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/05/04/1714-expression/">逻辑|这样表达，事半功倍</a></li>
 <li><a href="https://draapho.github.io/2018/01/10/1805-interview-general/">面试之常规问题</a></li>
@@ -22455,7 +22455,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>Zephyr Project 环境配置</title>
-    <url>/2023/04/25/2302-zephyr-start/</url>
+    <url>/2023/04/24/2302-zephyr-start/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Zephyr Project 是一个可扩展的实时操作系统, 为资源受限的设备提供支持. 由 Linux 基金会托管.<br>因而该项目极具Linux特点: 性能强大, 学习曲线陡峭, 入门困难. 主要使用命令行格式, 基于类Unix系统测试比较充分, Window下容易遇到各种莫名的问题.<br>该项目刚出来的时候, 也关注过, 根据其指导手册, 在windows下就没有配置成功. 现在有空又试了一下, 算是在windows环境下, 成功搭建了运行环境, 并把范例跑了起来.</p>
 <h1 id="1-安装-Chocolatey"><a href="#1-安装-Chocolatey" class="headerlink" title="1. 安装 Chocolatey"></a>1. 安装 Chocolatey</h1><p>首先，需要安装 Chocolatey 包管理器。请参阅 <a href="https://chocolatey.org/install">Chocolatey 安装页面</a> 获取详细信息。</p>
 <p>使用 PowerShell 以<strong>管理员身份</strong>运行以下命令：</p>
@@ -22570,7 +22570,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>拆解追溯 GPT-3.5 各项能力的起源</title>
-    <url>/2023/05/03/2303-chatgpt/</url>
+    <url>/2023/05/02/2303-chatgpt/</url>
     <content><![CDATA[<h1 id="拆解追溯-GPT-3-5-各项能力的起源"><a href="#拆解追溯-GPT-3-5-各项能力的起源" class="headerlink" title="拆解追溯 GPT-3.5 各项能力的起源"></a>拆解追溯 GPT-3.5 各项能力的起源</h1><blockquote>
 <p>作者：<strong>符尧</strong>, <a href="mailto:&#121;&#x61;&#x6f;&#46;&#x66;&#x75;&#x40;&#x65;&#100;&#x2e;&#97;&#x63;&#x2e;&#x75;&#107;">&#121;&#x61;&#x6f;&#46;&#x66;&#x75;&#x40;&#x65;&#100;&#x2e;&#97;&#x63;&#x2e;&#x75;&#107;</a>，爱丁堡大学 (University of Edinburgh) 博士生，本科毕业于北京大学<br>与 <strong>彭昊</strong>，<strong>Tushar Khot</strong><br>在 艾伦人工智能研究院 (Allen Institute for AI) 共同完成英文原稿<br>与 剑桥大学<strong>郭志江</strong> 共同翻译为中文</p>
 </blockquote>
@@ -22929,7 +22929,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>知乎,者也的想法摘录1</title>
-    <url>/2023/09/06/2304-zheye1/</url>
+    <url>/2023/09/05/2304-zheye1/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -23038,7 +23038,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>知乎,者也的想法摘录3</title>
-    <url>/2023/09/13/2306-zheye3/</url>
+    <url>/2023/09/12/2306-zheye3/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -23222,7 +23222,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>知乎,者也的想法摘录2</title>
-    <url>/2023/09/06/2305-zheye2/</url>
+    <url>/2023/09/05/2305-zheye2/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -23345,7 +23345,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>知乎,者也的想法摘录4</title>
-    <url>/2023/09/14/2307-zheye4/</url>
+    <url>/2023/09/13/2307-zheye4/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
@@ -23561,7 +23561,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   </entry>
   <entry>
     <title>知乎,者也的想法摘录5</title>
-    <url>/2023/09/15/2308-zheye5/</url>
+    <url>/2023/09/14/2308-zheye5/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>

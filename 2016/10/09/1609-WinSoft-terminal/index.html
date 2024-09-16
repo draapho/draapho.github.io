@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="使用ConEmu打造自己的windows终端.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 软件系列-终端">
+<meta property="og:url" content="https://draapho.github.io/2016/10/09/1609-WinSoft-terminal/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="使用ConEmu打造自己的windows终端.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-10-09T13:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="ConEmu">
+<meta property="article:tag" content="mingw">
+<meta property="article:tag" content="putty">
+<meta property="article:tag" content="cygwin">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2016/10/09/1609-WinSoft-terminal/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Windows 软件系列-终端 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ConEmu-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">ConEmu 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84ConEmu"><span class="nav-number">1.1.</span> <span class="nav-text">我的ConEmu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%88%B6ConEmu%E7%BB%BF%E8%89%B2%E7%89%88"><span class="nav-number">1.2.</span> <span class="nav-text">自制ConEmu绿色版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E9%80%9A%E7%94%A8%E7%9A%84%E5%81%9A%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">更通用的做法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConEmu%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">ConEmu的设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Putty"><span class="nav-number">2.</span> <span class="nav-text">Putty</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEDefault"><span class="nav-number">2.1.</span> <span class="nav-text">设置Default</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEssh"><span class="nav-number">2.2.</span> <span class="nav-text">设置ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEserial"><span class="nav-number">2.3.</span> <span class="nav-text">设置serial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%9A%84%E5%AF%BC%E5%85%A5%E5%92%8C%E5%AF%BC%E5%87%BA"><span class="nav-number">2.4.</span> <span class="nav-text">配置的导入和导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#putty%E7%9A%84%E8%B0%83%E7%94%A8"><span class="nav-number">2.5.</span> <span class="nav-text">putty的调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94TeraTerm"><span class="nav-number">2.6.</span> <span class="nav-text">对比TeraTerm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cygwin"><span class="nav-number">3.</span> <span class="nav-text">Cygwin</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2016/10/09/1609-WinSoft-terminal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Windows 软件系列-终端
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-10-09 21:00:00" itemprop="dateCreated datePublished" datetime="2016-10-09T21:00:00+08:00">2016-10-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">windows</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">使用ConEmu打造自己的windows终端.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="ConEmu-简介"><a href="#ConEmu-简介" class="headerlink" title="ConEmu 简介"></a><a target="_blank" rel="noopener" href="https://conemu.github.io/">ConEmu</a> 简介</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://conemu.github.io/">ConEmu</a> 即 Console Emulate, 一款终端模拟器, 完全免费, 可以通过他加载多种终端如 cmd, shell, bash, putty 而且便于管理!</li>
+<li>简而言之, 凡是喜欢用命令行方式的, windows就请使用这款软件, 分分钟变身geek或者hacker的感觉…</li>
+<li>右键文件夹打开ConEmu就自动进入此文件夹, <code>ConEmu Inside</code> 甚至能嵌入到文件夹中.</li>
+<li>顺便说一句, cmder就是他的马甲, 核心还是ConEmu.</li>
+</ul>
+<h2 id="我的ConEmu"><a href="#我的ConEmu" class="headerlink" title="我的ConEmu"></a>我的ConEmu</h2><ul>
+<li>我希望的ConEmu, 就是想输命令行, 打开ConEmu就行!</li>
+<li>本文的配置可以在ConEmu中执行:<ul>
+<li><code>cmd</code> <code>shell</code> windows自带终端</li>
+<li><code>git</code> windows下安装好git即可, 包含了<code>git-bash</code></li>
+<li><code>mingw</code> windows下用gnu工具链编译c, c++</li>
+<li><code>putty</code> ssh链接远程linux, 串口链接嵌入式linux</li>
+<li><code>cygwin</code> windows下模拟linux运行环境 (目前尚未使用, 在用传统的虚拟机)</li>
+<li>其它指令如: <code>hexo</code> 博客使用, <code>choco</code> 安装软件使用, <code>apm</code> atom下载插件使用.</li>
+</ul>
+</li>
+<li>快速在指定文件夹下打开ConEmu, 可在 <code>Listary</code> 关联快捷键 <code>ctrl-~</code></li>
+<li>快速在Notepad++下打开ConEmu, 关联快捷键 <code>ctrl-~</code></li>
+</ul>
+<h2 id="自制ConEmu绿色版"><a href="#自制ConEmu绿色版" class="headerlink" title="自制ConEmu绿色版"></a>自制ConEmu绿色版</h2><ul>
+<li>下载 <a target="_blank" rel="noopener" href="https://conemu.github.io/">ConEmu便携版</a><ul>
+<li>解压后放在理想的文件夹中. 下面以 <code>D:\Green\ConEmu</code> 路径为例.</li>
+</ul>
+</li>
+<li>下载 <a target="_blank" rel="noopener" href="https://mridgers.github.io/clink/">clink便携版</a>, 用于增强终端操作, 如复制拷贝快捷键等<ul>
+<li>解压后, 所有文件放入 <code>D:\Green\ConEmu\ConEmu\clink</code>, 这里面原来就有个 <code>Readme.txt</code>, 说的非常清楚了</li>
+</ul>
+</li>
+<li>下载 <a target="_blank" rel="noopener" href="https://git-scm.com/download/win">git便携版</a>, 版本管理软件<ul>
+<li>解压后命名为 <code>Git</code> 放到 <code>D:\Green\ConEmu\plugins</code>,</li>
+</ul>
+</li>
+<li>下载并使用默认设置安装 <a target="_blank" rel="noopener" href="http://www.mingw.org/">mingw</a>, 用于在win下使用gnu工具编译<ul>
+<li>只是装了 <code>MinGW Installation Manager</code> (实际上是个绿色软件). 打开后继续安装组件</li>
+<li><code>Basic Setup</code>-&gt;<code>mingw32-base</code>和<code>mingw32-gcc-g++</code>-&gt;左上<code>Installation</code>-&gt;<code>Apply changes</code>-&gt;等待安装完成.</li>
+<li>我只需要编译c和c++文件, <code>msys</code>也已经由git软件实现了, 因此无需安装其它组件了.</li>
+<li>然后把整个 <code>MinGW</code> 文件夹放到 <code>D:\Green\ConEmu\plugins</code><br> - 复制一份 <code>mingw32-make.exe</code> 并重命名为 <code>make.exe</code>, 这样就能直接用 <code>make</code> 指令了</li>
+</ul>
+</li>
+<li>下载 <a target="_blank" rel="noopener" href="http://www.putty.org/">putty.zip</a>, ssh远程连接软件及串口软件<ul>
+<li>解压后命名为 <code>putty</code> 放到 <code>D:\Green\ConEmu\plugins</code></li>
+</ul>
+</li>
+<li>然后需要将上述软件加入环境变量, 这个可以在ConEmu设置中完成!!!<ul>
+<li>打开ConEmu, <code>Setting</code>-&gt;<code>Startup</code>-&gt;<code>Environment</code>-&gt;<code>set PATH=%ConEmuBaseDir%\Scripts;%PATH%</code> 下面加上如下语句<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># git PATH</span><br><span class="line">set PATH&#x3D;%ConEmuDir%\plugins\Git;%PATH%</span><br><span class="line">set PATH&#x3D;%ConEmuDir%\plugins\Git\cmd;%PATH%</span><br><span class="line"># mingw PATH</span><br><span class="line">set PATH&#x3D;%ConEmuDir%\plugins\MinGW\bin;%PATH%</span><br><span class="line"># putty PATH%</span><br><span class="line">set PATH&#x3D;%ConEmuDir%\plugins\putty;%PATH%</span><br></pre></td></tr></table></figure></li>
+<li>这样, ConEmu在启动时, 会自动加入上述软件到PATH中</li>
+<li>如果使用 <strong>更通用的做法</strong>, 把上述环境变量删除或注释掉.</li>
+</ul>
+</li>
+<li>自制ConEmu绿色版就初步完成, 下面只需要配置了.</li>
+</ul>
+<h2 id="更通用的做法"><a href="#更通用的做法" class="headerlink" title="更通用的做法"></a>更通用的做法</h2><ul>
+<li>用上述方法有三个缺点<ul>
+<li>git便携版不支持ssh或GPG免密远程同步, 每次都要求输入用户名和密码, 非常麻烦.</li>
+<li>如果不用ConEmu, 那么其它终端, 如atom下的终端就无法使用上述软件.</li>
+<li>发现putty会新打开一个窗口, 而不是嵌入到ConEmu中.</li>
+</ul>
+</li>
+<li>下载 <a target="_blank" rel="noopener" href="https://git-scm.com/download/win">git安装版</a>, 使用默认配置安装即可.<ul>
+<li>为了便于使用, 建议把git的根目录也加入环境变量, 这样就能直接调用 <code>git-cmd.exe</code></li>
+</ul>
+</li>
+<li>设置 <code>D:\Green\ConEmu\plugins\MinGW\bin</code> 文件夹到系统环境变量中</li>
+<li>设置 <code>D:\Green\ConEmu\plugins\putty</code> 文件夹到系统环境变量中</li>
+<li>还可以考虑下载安装 <a target="_blank" rel="noopener" href="https://www.cygwin.com/">cygwin</a> 并加入ConEmu中, 这是一款Windows下的Linux模拟器. 注意安装和卸载都比较麻烦.<h2 id="ConEmu的设置"><a href="#ConEmu的设置" class="headerlink" title="ConEmu的设置"></a>ConEmu的设置</h2></li>
+<li>所有设置都会存放在 <code>conEmu.xml</code> 里, 所以设置的备份很简单</li>
+<li>首次打开会有设置向导 <code>fast configuration</code>, 用于生成 <code>conEmu.xml</code></li>
+<li>可以在设置好环境变量, 安装好git后, 删除<code>conEmu.xml</code>重新运行, 这样ConEmu会自动检测加入<code>Git bash</code> 和 <code>putty</code>, 省心不少. clink放在指定路径后, 其功能也会自动启用.</li>
+<li>配置过程如下, 需要图文版可参考 <a target="_blank" rel="noopener" href="https://higoge.github.io/2015/07/22/tools02/">工具02：cmd的替代品ConEmu+Clink</a>, 配置上略有区别, 进入 <code>Settings</code> 后<ul>
+<li><code>Main</code>-&gt;<code>Appearance</code>-&gt;<code>Generic</code>-&gt;<code>Single instance mode (...)</code></li>
+<li><code>Main</code>-&gt;<code>Confirm</code>-&gt;<code>CLose confirmations</code>-&gt;<del><code>When running process was detected</code></del></li>
+<li><code>Startup</code>-&gt;<code>Specified named task</code>-&gt;<code>Bash:: Git bash</code> 更改打开时默认使用的终端类型</li>
+<li><code>Startup</code>-&gt;<code>Environment</code> 启动时, 会加载这里的环境变量. 配置好系统环境变量的话, 可以全部删除</li>
+<li>注册鼠标右键 <code>ConEmu Here</code> 和 <code>ConEmu Inside</code>, 并设置为使用 <code>Git bash</code> 启动<ul>
+<li><code>Integration</code>-&gt;<code>ConEmu Here</code>-&gt;<code>Command:</code>改为<code>&#123;Git Bash&#125; -cur_console:n</code>-&gt;<code>Register</code></li>
+<li><code>Integration</code>-&gt;<code>ConEmu Inside</code>-&gt;<code>Command:</code>改为<code>&#123;Git Bash&#125; -cur_console:n</code>-&gt;<code>Register</code></li>
+</ul>
+</li>
+<li><code>Integration</code>-&gt;<code>Default term</code>-&gt;<code>Force ConEmu as default terminal for console applications</code></li>
+<li>添加 <code>tasks</code>. 选择 <code>Startup</code>-&gt;<code>Tasks</code>, 根据现有例子依样画葫芦即可.<ul>
+<li><code>Bash::Git bash</code>: <code>git-cmd.lnk --no-cd --command=usr/bin/bash.exe -l -i</code> 也可以点击<code>File path...</code>使用绝对路径替代快捷方式.</li>
+<li><code>Bash::Git bash(Admin)</code>: <code>*git-cmd.exe --no-cd --command=usr/bin/bash.exe -l -i</code> 最前面加个<code>*</code>就是管理员权限了.</li>
+<li><code>Putty::default</code>: <code>putty.exe</code> 同样, 可能需要使用绝对路径, 点击<code>File path...</code>选择即可</li>
+<li><code>Putty::Ubuntu</code>: <code>putty.exe -new_console -load &quot;ubuntu&quot;</code> 需要putty设置好名为<code>ubuntu</code>的session</li>
+<li><code>Cygwin</code>: <code>set HOME=d:\cygwin\home\XXX &amp; &quot;d:\cygwin\bin\mintty.exe&quot; -i /Cygwin.ico -</code> 这条指令没有测试过.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Putty"><a href="#Putty" class="headerlink" title="Putty"></a><a target="_blank" rel="noopener" href="http://www.putty.org/">Putty</a></h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.putty.org/">Putty</a> 可用于ssh连接远程主机, 也支持串口. 使用简单, 完全免费</li>
+<li>putty的配置, 一个配置就是一个<code>Session</code>. 可以参考<a target="_blank" rel="noopener" href="http://blog.csdn.net/tianlesoftware/article/details/5831605">Putty 工具 保存配置的 小技巧</a></li>
+<li>putty免密登录, 没有尝试, 可以参考如下两篇文章.<ul>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000000639516">PuTTY的自动登录设置</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/hxg130435477/article/details/9960187">windows 上用程序putty使用 ssh自动登录linux</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="设置Default"><a href="#设置Default" class="headerlink" title="设置Default"></a>设置Default</h2><ul>
+<li><code>Window</code>-&gt;<code>Lines of scrollback</code>-<code>20000</code>  回看更多历史屏幕信息</li>
+<li><code>Window</code>-&gt;<code>Apperance</code>-&gt;<code>Vertical line</code>, <code>Cursor blinks</code> 游标闪烁</li>
+<li><code>Window</code>-&gt;<code>Colours</code>-&gt;<code>Default Backgroud</code>-&gt;<code>R0 G43 B54</code> 使用ConEmu背景色</li>
+<li><code>Connection</code>-&gt;<code>Serial</code>-&gt;<code>Flow control</code>-&gt;<code>None</code> 默认串口不用流控制</li>
+<li><code>Session</code>-&gt;<code>Saved Sessions</code>-&gt;输入 <code>Default Settings</code>-&gt;<code>Save</code> 默认值设置完成</li>
+</ul>
+<h2 id="设置ssh"><a href="#设置ssh" class="headerlink" title="设置ssh"></a>设置ssh</h2><ul>
+<li><code>Session</code>-&gt;<code>Conncection type</code>选<code>SSH</code>-&gt;<code>Host Name (or IP address)</code>-&gt;<code>10.0.0.99</code> 或者  <code>username@10.0.0.99</code> 来指定登录名</li>
+<li><code>Session</code>-&gt;<code>Saved Session</code> <code>Ubuntu</code>-&gt;<code>Save</code> 设置好配置名称, 保存即可.</li>
+<li>如果需要免密登录, 明文的很简单, 调用 <code>putty.exe -load &quot;session_name&quot; -l &quot;username&quot; -pw &quot;password&quot;</code> 即可</li>
+<li>如果需要密码加密, 稍微麻烦点. 参考 <a target="_blank" rel="noopener" href="http://blog.csdn.net/hxg130435477/article/details/9960187">windows 上用程序putty使用 ssh自动登录linux</a>. 我不需要这个功能, 略过不表.</li>
+</ul>
+<h2 id="设置serial"><a href="#设置serial" class="headerlink" title="设置serial"></a>设置serial</h2><ul>
+<li><code>Session</code>-&gt;<code>Conncection type</code>选<code>Serial</code>-&gt;<code>Serial line</code> <code>COM4</code>-&gt;<code>Speed</code> <code>9600</code> 即串口4, 波特率9600</li>
+<li><code>Connection</code>-&gt;<code>Serial</code>-&gt;<code>Flow control</code> <code>None</code> 这里可以设置其它串口参数, 不支持自动回显.</li>
+<li><code>Session</code>-&gt;<code>Saved Session</code> <code>COM4-9600</code>-&gt;<code>Save</code> 设置好配置名称, 保存即可.</li>
+</ul>
+<h2 id="配置的导入和导出"><a href="#配置的导入和导出" class="headerlink" title="配置的导入和导出"></a>配置的导入和导出</h2><ul>
+<li>putty直接把配置存放在注册表中. 所以思路就是导入导出注册表</li>
+<li>cmd下-&gt;<code>regedit</code>-&gt;打开注册表</li>
+<li>找到 <code>HKEY_CURRENT_USER\Software\SimonTatham</code></li>
+<li>在 <code>SimonTatham</code> 这个节点上点击右键, 选择导出, 保存为<code>config.reg</code>. 这里不单单是putty的配置</li>
+<li>恢复时, 管理员权限执行 <code>config.reg</code> 即可</li>
+</ul>
+<h2 id="putty的调用"><a href="#putty的调用" class="headerlink" title="putty的调用"></a>putty的调用</h2><ul>
+<li>基本用法 <code>putty.exe -load &quot;session_name&quot;</code></li>
+<li>自动登录 <code>putty.exe -load &quot;session_name&quot; -l &quot;username&quot; -pw &quot;password&quot;</code></li>
+<li>更多调用方式可查看 <code>PUTTY.CHM 3.8.x</code> 包含于下载的<code>putty.zip</code>中</li>
+</ul>
+<h2 id="对比TeraTerm"><a href="#对比TeraTerm" class="headerlink" title="对比TeraTerm"></a>对比<a target="_blank" rel="noopener" href="https://ttssh2.osdn.jp/index.html.en">TeraTerm</a></h2><ul>
+<li>TeraTerm相比于putty设置显得更复杂, 至少串口的功能比putty的要多一点</li>
+<li>TeraTerm有自己的脚本语句, 可以实现比较复杂的自动化功能</li>
+<li>TeraTerm在ConEmu字体显示有问题.</li>
+<li>putty完全满足需求, 配置简单, 完美兼容ConEmu, 因此没有考虑TeraTerm</li>
+</ul>
+<h1 id="Cygwin"><a href="#Cygwin" class="headerlink" title="Cygwin"></a><a target="_blank" rel="noopener" href="https://www.cygwin.com/">Cygwin</a></h1><ul>
+<li>是windows下的unix仿真环境, 可以用来做交叉编译, 因此可替代虚拟机安装linux.</li>
+<li>安装, 可以参考 <a target="_blank" rel="noopener" href="http://velep.com/archives/747.html">cygwin介绍、安装及其使用</a></li>
+<li>交叉编译, 可以参考<ul>
+<li><a target="_blank" rel="noopener" href="http://mazhijing.blog.51cto.com/215535/39539/">Cygwin 安装  基本使用 交叉编译vivi kernel</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.360doc.com/content/12/0929/14/5013584_238783155.shtml">在cygwin中安装gcc编译器</a></li>
+</ul>
+</li>
+<li>卸载, 因为权限问题, Cygwin卸载很麻烦. 可以参考两篇文章, 已经是最简单的方法了<ul>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/yelangjueqi/article/details/45199209">window 下完全卸载Cygwin最简单方法</a>, 就是在运行一次 <code>setup.exe</code> 来卸载</li>
+<li><a target="_blank" rel="noopener" href="http://blog.163.com/zhuandi_h/blog/static/180270288201282204521376/">Win7 完全删除cygwin（本人已删除成功）</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/windows/" rel="tag"># windows</a>
+              <a href="/tags/ConEmu/" rel="tag"># ConEmu</a>
+              <a href="/tags/mingw/" rel="tag"># mingw</a>
+              <a href="/tags/putty/" rel="tag"># putty</a>
+              <a href="/tags/cygwin/" rel="tag"># cygwin</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/10/08/1608-WinSoft-path/" rel="prev" title="Windows 软件系列-自定义环境变量">
+                  <i class="fa fa-chevron-left"></i> Windows 软件系列-自定义环境变量
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/10/11/1610-WinSoft-atompack/" rel="next" title="Windows 软件系列-atom插件">
+                  Windows 软件系列-atom插件 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

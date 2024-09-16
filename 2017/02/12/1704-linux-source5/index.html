@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 0.11 源码阅读笔记-文件系统">
+<meta property="og:url" content="https://draapho.github.io/2017/02/12/1704-linux-source5/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-map.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-hard-disk.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-minix.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-super-block.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-inode.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-file-info.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-izone.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-inode-find.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-buffer-init.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-buffer-list.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-buffer-hash.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-buffer-function.jpg">
+<meta property="og:image" content="https://draapho.github.io/images/1704/5-fs-getblk.jpg">
+<meta property="article:published_time" content="2017-02-12T13:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draapho.github.io/images/1704/5-fs-map.jpg">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/02/12/1704-linux-source5/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Linux 0.11 源码阅读笔记-文件系统 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E7%9B%98%E8%AE%BE%E5%A4%87%E5%88%86%E5%8C%BA"><span class="nav-number">2.1.</span> <span class="nav-text">硬盘设备分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MINIX1-0-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.2.</span> <span class="nav-text">MINIX1.0 文件系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E5%88%87%E7%9A%86%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">一切皆文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#inode-%E8%AF%A6%E8%A7%A3"><span class="nav-number">3.1.</span> <span class="nav-text">inode 详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E5%AD%98%E5%82%A8%E5%8F%8A%E6%9F%A5%E6%89%BE"><span class="nav-number">3.2.</span> <span class="nav-text">文件名的存储及查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98-buffer-c"><span class="nav-number">4.</span> <span class="nav-text">高速缓存 buffer.c</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/02/12/1704-linux-source5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux 0.11 源码阅读笔记-文件系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-02-12 21:00:00" itemprop="dateCreated datePublished" datetime="2017-02-12T21:00:00+08:00">2017-02-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><p><a href="https://draapho.github.io/2017/01/23/1704-linux-source/">Linux 0.11 源码阅读笔记-总览</a></p>
+</li>
+<li><p><a href="https://draapho.github.io/2017/01/26/1704-linux-source1/">Linux 0.11 源码阅读笔记-内存的基础概念</a></p>
+</li>
+<li><p><a href="https://draapho.github.io/2017/01/28/1704-linux-source2/">Linux 0.11 源码阅读笔记-启动程序</a></p>
+</li>
+<li><p><a href="https://draapho.github.io/2017/01/31/1704-linux-source3/">Linux 0.11 源码阅读笔记-内核代码</a></p>
+</li>
+<li><p><a href="https://draapho.github.io/2017/02/01/1704-linux-source4/">Linux 0.11 源码阅读笔记-设备驱动程序</a></p>
+</li>
+<li><p><a href="https://draapho.github.io/2017/02/13/1704-linux-source5/">Linux 0.11 源码阅读笔记-文件系统</a></p>
+</li>
+<li><p><a href="https://draapho.github.io/2017/02/15/1704-linux-source6/">Linux 0.11 源码阅读笔记-内存管理</a></p>
+</li>
+<li><p>推荐阅读 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI5ODExMDQzNw==&mid=2650737282&idx=1&sn=07a3fc491dbd06ea61afe4c7108cf7b9&chksm=f4a17608c3d6ff1e7bb2b1168efa53f39db5c77b474296ba6086c1cf6612a452a6d234766b52&scene=0&key=7b81aac53bd2393d2edc7d94c6241745fd19b9a63b96f3683b767fbe2d367bd483fac89816919a23882f7bb13be77dc2&ascene=7&uin=MTUzODYxOTg2MQ==&devicetype=android-19&version=26031933&nettype=live.vodafone.com&pass_ticket=MhcadpuflaJvGcaLNh0HQ3y1Ae/L2WCKStoj0RjDWXVN6c001WFeoX4HFyF1KE51">我是一块硬盘-码农翻身-刘欣</a><br>通俗易懂的介绍了硬盘及文件系统的管理方式, 也简单提了一下inode. 可以作为此部分的入门.</p>
+</li>
+</ul>
+<h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><p>本人手工制作的 <strong>Linux 0.11 文件系统图解</strong><br><img src="https://draapho.github.io/images/1704/5-fs-map.jpg" alt="fs"></p>
+<p>几个核心点:</p>
+<ul>
+<li>Linux下<strong>一切皆文件, 文件即i节点!</strong></li>
+<li>文件名和i节点的关联, 在目录项结构中实现.<br>索引过程为: <strong>目录inode-&gt;目录名/文件名-&gt;对应inode-&gt;具体内容</strong></li>
+<li>任何读写硬盘的过程都是通过内存的buffer(高速缓冲)实现的, 系统不能直接读写硬盘! 由此产生同步问题.<br>调用过程为: <strong>系统函数-&gt;buffer-&gt;硬盘</strong></li>
+<li>Linux对内存条的分配和使用. <code>Buffer</code> <code>Memory</code> 的概念和用途. <code>Buffer Head</code> <code>Buffer Hash List</code>.<br><code>Buffer</code> 介于高速的CPU指令和低速的硬盘之间, 用于缓存CPU对硬盘的读写内容, 提高CPU执行效率.<br><code>Memory</code> 是系统可用的内存. 系统变量, <code>malloc</code> 都是用的这块空间.<br><code>虚拟内存</code> 把使用频率低的 <code>Memory</code> 暂时搬到硬盘, 以便存放使用频率更高的内存数据. 依赖于硬盘读写操作!</li>
+</ul>
+<h2 id="硬盘设备分区"><a href="#硬盘设备分区" class="headerlink" title="硬盘设备分区"></a>硬盘设备分区</h2><p>硬盘设备上的分区和文件系统<br><img src="https://draapho.github.io/images/1704/5-fs-hard-disk.jpg" alt="hard disk"></p>
+<ul>
+<li>主引导扇区: 存放硬盘引导程序和分区表信息.</li>
+<li>分区表: 标明了每个分区的类型, 起止位置以及占用的扇区数.</li>
+<li>相关文件: <code>kernel/blk_drv/hd.c</code></li>
+</ul>
+<p>下面, 将以MINIX1.0为例说明文件系统的基本概念.<br>Linux使用的其它的文件系统核心概念都是一样的! 只是支持的大小, 寻址速度, 文件上限有区别.</p>
+<h2 id="MINIX1-0-文件系统"><a href="#MINIX1-0-文件系统" class="headerlink" title="MINIX1.0 文件系统"></a>MINIX1.0 文件系统</h2><p>MINIX1.0 文件系统布局示意图<br><img src="https://draapho.github.io/images/1704/5-fs-minix.jpg" alt="minix"></p>
+<ul>
+<li>引导块: 上电时, BISO自动读入的部分. 有了引导块内引导程序, BIOS才能启动系统</li>
+<li>Super Block(超级块): 存放文件系统的结构信息, 说明各部分的大小. <code>super_block[8]</code>, 可加载8个文件系统</li>
+<li>Inode Bitmap(i节点位图): 记录i节点的使用情况, 1bit代表一个i节点. <code>s_imap[8]</code>, 占用8个块, 可表示8191个i节点情况</li>
+<li>Zone Bitmap(逻辑块位图): 记录数据区的使用情况, 1bit代表一个盘块(block). <code>s_zmap[8]</code>, 占用8个块, 最大支持64M的硬盘</li>
+<li>Inode(i节点): 每个文件或目录名唯一对应一个i节点, 在i节点中, 储存 id信息, 文件长度, 时间信息, 实际数据所在位置等等</li>
+<li>Zone Data(数据区): <code>8 (bit/byte)  * 1024 (byte/block) * 8(zmap blocks) * 1024 (byte/block)= 64M byte</code></li>
+</ul>
+<p>MINIX1.0 的超级块数据结构<br><img src="https://draapho.github.io/images/1704/5-fs-super-block.jpg" alt="super block"></p>
+<h1 id="一切皆文件"><a href="#一切皆文件" class="headerlink" title="一切皆文件"></a>一切皆文件</h1><h2 id="inode-详解"><a href="#inode-详解" class="headerlink" title="inode 详解"></a>inode 详解</h2><p>MINIX1.0 的i节点数据结构<br><img src="https://draapho.github.io/images/1704/5-fs-inode.jpg" alt="inode"></p>
+<ul>
+<li><code>i_nlinks</code>: <strong>硬链接</strong>计数器. 因此硬连接具有相同的inode号, 硬连接不能跨文件系统!</li>
+</ul>
+<p>命令 <code>ls -l</code> 显示的文件信息, 多数信息读取i节点就可获得<br><img src="https://draapho.github.io/images/1704/5-fs-file-info.jpg" alt="file info"></p>
+<ul>
+<li>符号连接 <code>s</code>: 就是常说的<strong>软连接</strong>, 类似于windows下的快捷方式, 占用i节点, 在对应的数据块内存放路径</li>
+</ul>
+<p><code>i_zone[9]</code> i节点的逻辑块数组功能.<br><img src="https://draapho.github.io/images/1704/5-fs-izone.jpg" alt="izone"></p>
+<ul>
+<li><code>i_zone[0-6]</code> 直接块号: 存放文件开始的7个磁盘块号. 此时文件大小: <code>7*1024(byte/block)=7K byte</code></li>
+<li><code>i_zone[7]</code> 一次间接块号: 地址占用2byte, 因此一个数据块可存放512个地址. 此时可寻块 <code>7+512 blocks</code></li>
+<li><code>i_zone[8]</code> 二次间接块号: 此时可寻块 <code>7+512+512*512 blocks</code>, 文件的最大可达 <code>512M byte</code></li>
+<li><code>/dev/</code>下设备文件的 <code>i_zone[0]</code>: 设备文件不占用硬盘, 因此i节点仅保存设备的属性和设备号.</li>
+</ul>
+<h2 id="文件名的存储及查找"><a href="#文件名的存储及查找" class="headerlink" title="文件名的存储及查找"></a>文件名的存储及查找</h2><p>Linux 0.11 的目录项结构</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义在 include/linux/fs.h 文件中</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NAME_LEN 14                 <span class="comment">// 名字长度值</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ROOT_INO 1                  <span class="comment">// 根i节点</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 文件目录项结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">dir_entry</span> &#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span> inode;           <span class="comment">// i节点号</span></span><br><span class="line">    <span class="keyword">char</span> name[NAME_LEN];            <span class="comment">// 文件名</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可见, linux下的文件名称都存在了目录项的数据里面, 并且唯一关联其i节点号.</li>
+<li>每个目录项占用16字节, 因此, 一个盘块可以存放 <code>1024/16=64</code> 个目录项</li>
+<li>对于空目录, 也至少会有名称未 <code>.</code> 和 <code>..</code> 两项, 指向 <code>当前目录inode</code> 和 <code>上级目录inode</code></li>
+<li>因此, 空目录的硬连接计数值<code>i_nlinks</code>为2, 每多一个文件, <code>i_nlinks</code>再加1.</li>
+</ul>
+<p>通过文件名最终找到对应文件盘块位置的示意图<br><img src="https://draapho.github.io/images/1704/5-fs-inode-find.jpg" alt="inode find"></p>
+<p>整个搜索过程是根据<code>目录项结构</code>及对应的<code>inode 号</code>, 逐步深入路径的过程.<br>以路径名 <code>/usr/bin/vi</code> 搜索对应的i节点, 然后读取文件内容为例:</p>
+<ol>
+<li>根目录 <code>/</code> 具有固定的 inode号 <code>1</code>.</li>
+<li>读取<code>inode 1</code>的数据块, 搜索名为<code>usr</code>的目录项, 从而得到<code>/usr</code>的inode号, 假设为 <code>23</code></li>
+<li>读取<code>inode 23</code>的数据块, 搜索名为<code>bin</code>的目录项, 假设<code>/usr/bin</code>的inode号为 <code>61</code></li>
+<li>读取<code>inode 61</code>的数据块, 搜索名为<code>vi</code>的文件名, 假设获得<code>/usr/bin/vi</code>的inode号 <code>98</code></li>
+<li>读取<code>inode 98</code>的数据块, 根据i节点信息, 如 <code>i_size</code> <code>i_zone[9]</code>, 最终读取文件内容</li>
+</ol>
+<h1 id="高速缓存-buffer-c"><a href="#高速缓存-buffer-c" class="headerlink" title="高速缓存 buffer.c"></a>高速缓存 <code>buffer.c</code></h1><p><code>buffer_head</code> 的数据结构</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">buffer_head</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> * b_data;                      <span class="comment">// 指向该缓冲块中数据区(1024字节)的指针</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> b_blocknr;            <span class="comment">// 块号</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span> b_dev;               <span class="comment">// 数据源的设备号(0=free)</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> b_uptodate;           <span class="comment">// 更新标记: 表示数据是否已更新</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> b_dirt;               <span class="comment">// 修改标记: 0-未修改(clean), 1-已修改(dirty)</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> b_count;              <span class="comment">// 使用该块的用户数</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> b_lock;               <span class="comment">// 缓冲区是否被锁定. 0-ok, 1-locked</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">task_struct</span> * <span class="title">b_wait</span>;</span>        <span class="comment">// 指向等待该缓冲区解锁的任务</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">buffer_head</span> * <span class="title">b_prev</span>;</span>        <span class="comment">// hash 队列的前一块. (这四个指针用于缓冲区管理)</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">buffer_head</span> * <span class="title">b_next</span>;</span>        <span class="comment">// hash 队列的下一块</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">buffer_head</span> * <span class="title">b_prev_free</span>;</span>   <span class="comment">// 空闲表上前一块</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">buffer_head</span> * <span class="title">b_next_free</span>;</span>   <span class="comment">// 空闲表上下一块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>buffer的初始化<br><img src="https://draapho.github.io/images/1704/5-fs-buffer-init.jpg" alt="inode find"></p>
+<p>buffer的双向循环链表<br><img src="https://draapho.github.io/images/1704/5-fs-buffer-list.jpg" alt="inode find"></p>
+<ul>
+<li>该双向链表是最近最少使用LRU链表(Least Recently Used), <code>free_list</code> 指向最为空闲的缓冲块指针</li>
+</ul>
+<p>buffer的hash表<br><img src="https://draapho.github.io/images/1704/5-fs-buffer-hash.jpg" alt="inode find"></p>
+<ul>
+<li>Linux 0.11 使用的hash函数是 <code>设备号^逻辑块号 Mod 307</code>, 因此共有307项hash表</li>
+<li>hash的功能类似于字典, 先预先归类, 然后可以按类查找, 加快了查找速度.</li>
+</ul>
+<p>缓冲区管理函数关系图<br><img src="https://draapho.github.io/images/1704/5-fs-buffer-function.jpg" alt="inode find"></p>
+<p>详解 <code>getblk()</code> 函数. 用于寻找最为空闲的buffer缓冲块.<br><img src="https://draapho.github.io/images/1704/5-fs-getblk.jpg" alt="inode find"></p>
+<ul>
+<li>首先调用 <code>get_hash_table()</code>, 查看搜索的指定缓冲块是否已经存在于buffer中. 存在就立刻返回该buffer指针.</li>
+<li>不存在时, 从空闲链表头开始扫描, 寻找最合适的空闲块(没有被使用, 没有被上锁, 没有被修改). 实现LRU</li>
+<li>因为可能别的进程已经加入了所需的缓冲块, 因此再调用一遍 <code>get_hash_table()</code></li>
+<li>此时, 可以将块应用计数置1, 把该缓冲块移到空闲队列末尾.</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://oldlinux.org/download/clk011c-3.0-toc.pdf">Linux 内核完全注释 内核版本0.11 - 赵炯</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI5ODExMDQzNw==&mid=2650737282&idx=1&sn=07a3fc491dbd06ea61afe4c7108cf7b9&chksm=f4a17608c3d6ff1e7bb2b1168efa53f39db5c77b474296ba6086c1cf6612a452a6d234766b52&scene=0&key=7b81aac53bd2393d2edc7d94c6241745fd19b9a63b96f3683b767fbe2d367bd483fac89816919a23882f7bb13be77dc2&ascene=7&uin=MTUzODYxOTg2MQ==&devicetype=android-19&version=26031933&nettype=live.vodafone.com&pass_ticket=MhcadpuflaJvGcaLNh0HQ3y1Ae/L2WCKStoj0RjDWXVN6c001WFeoX4HFyF1KE51">我是一块硬盘-码农翻身-刘欣</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/01/31/1704-linux-source4/" rel="prev" title="Linux 0.11 源码阅读笔记-设备驱动程序">
+                  <i class="fa fa-chevron-left"></i> Linux 0.11 源码阅读笔记-设备驱动程序
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/02/14/1704-linux-source6/" rel="next" title="Linux 0.11 源码阅读笔记-内存管理">
+                  Linux 0.11 源码阅读笔记-内存管理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

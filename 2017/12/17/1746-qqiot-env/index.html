@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如题.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式linux环境搭建-QQ物联">
+<meta property="og:url" content="https://draapho.github.io/2017/12/17/1746-qqiot-env/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="如题.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-12-17T13:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="embedded linux">
+<meta property="article:tag" content="qqiot">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2017/12/17/1746-qqiot-env/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>嵌入式linux环境搭建-QQ物联 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="nav-number">2.</span> <span class="nav-text">安装交叉编译工具链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#uboot%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E7%83%A7%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">uboot的编译和烧录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91uboot"><span class="nav-number">3.1.</span> <span class="nav-text">编译uboot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%83%A7%E5%BD%95uboot"><span class="nav-number">3.2.</span> <span class="nav-text">烧录uboot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEuboot"><span class="nav-number">3.3.</span> <span class="nav-text">设置uboot</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kernel%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E7%83%A7%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">kernel的编译和烧录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91kernel"><span class="nav-number">4.1.</span> <span class="nav-text">编译kernel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%83%A7%E5%BD%95kernel"><span class="nav-number">4.2.</span> <span class="nav-text">烧录kernel</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#filesystem%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E7%83%A7%E5%BD%95"><span class="nav-number">5.</span> <span class="nav-text">filesystem的制作和烧录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C-filesystem"><span class="nav-number">5.1.</span> <span class="nav-text">制作 filesystem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%83%A7%E5%BD%95-filesystem"><span class="nav-number">5.2.</span> <span class="nav-text">烧录 filesystem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%86%E5%8C%BA"><span class="nav-number">6.</span> <span class="nav-text">查看分区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C-%E6%94%AF%E6%8C%81nfs"><span class="nav-number">7.</span> <span class="nav-text">配置网络, 支持nfs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0dhcp%E5%8A%9F%E8%83%BD"><span class="nav-number">7.1.</span> <span class="nav-text">实现dhcp功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BDnfs"><span class="nav-number">7.2.</span> <span class="nav-text">开机自动挂载nfs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%B9%B6%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9D%97"><span class="nav-number">8.</span> <span class="nav-text">编译并测试驱动模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LED%E9%A9%B1%E5%8A%A8"><span class="nav-number">8.1.</span> <span class="nav-text">LED驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E9%94%AE%E9%A9%B1%E5%8A%A8"><span class="nav-number">8.2.</span> <span class="nav-text">按键驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LCD%E9%A9%B1%E5%8A%A8"><span class="nav-number">8.3.</span> <span class="nav-text">LCD驱动</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2017/12/17/1746-qqiot-env/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          嵌入式linux环境搭建-QQ物联
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-17 21:00:00" itemprop="dateCreated datePublished" datetime="2017-12-17T21:00:00+08:00">2017-12-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-08-03 23:25:26" itemprop="dateModified" datetime="2023-08-03T23:25:26+08:00">2023-08-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/qqiot/" itemprop="url" rel="index"><span itemprop="name">qqiot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2017/11/23/1734-linux-content/">嵌入式linux学习目录</a></li>
+<li><a href="https://draapho.github.io/2017/12/18/1746-qqiot-env/">嵌入式linux环境搭建-QQ物联</a></li>
+<li><a href="https://draapho.github.io/2017/12/22/1748-qqiot-procedure/">QQ物联开发步骤简介</a></li>
+<li><a href="https://draapho.github.io/2017/12/20/1747-qqiot-bind/">QQ物联绑定分析</a></li>
+<li><a href="https://draapho.github.io/2017/12/23/1749-qqiot-demo/">QQ物联演示项目</a></li>
+</ul>
+<p>为学习QQ物联而搭建的jz2440开发环境.<br>需要升级交叉编译环境, 然后编译和烧录<br>使用如下软件版本:</p>
+<ul>
+<li>u-boot-1.1.6</li>
+<li>linux-3.4.2</li>
+<li>arm-linux-gcc-4.3.2</li>
+</ul>
+<p>另可参考:</p>
+<ul>
+<li><a href="https://draapho.github.io/2017/02/16/1705-linux-env/">嵌入式linux环境搭建-主机端</a>, 搭建Ubuntu开发环境</li>
+<li><a href="https://draapho.github.io/2017/02/21/1707-jz2440-env/">嵌入式linux环境搭建-jz2440开发板</a>, 基于2.6.22内核的编译和烧录</li>
+<li><a href="https://draapho.github.io/2017/11/28/1738-dhcp-env/">基于DHCP建立嵌入式Linux开发环境</a>, 修改jz2440的内核和文件系统以支持DHCP</li>
+</ul>
+<h1 id="安装交叉编译工具链"><a href="#安装交叉编译工具链" class="headerlink" title="安装交叉编译工具链"></a>安装交叉编译工具链</h1><p>新的linux内核需要用 arm-linux-gcc-4.3.2 这个版本的交叉编译.<br>对已安装的arm-linux-gcc-3.4.5, 无需删除, 但需要从环境变量中去除.<br>因此整个过程需要安装新软件, 重新设置一下Ubuntu的环境变量</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接拷贝解压 arm-linux-gcc-4.3.2.tar.bz2, 提供的压缩包包含了路径 /usr/local/arm/4.3.2</span></span><br><span class="line">$ sudo tar xjf arm-linux-gcc-4.3.2.tar.bz2 -C /</span><br><span class="line"><span class="comment"># 添加路径到环境变量, 记得去掉 gcc-3.4.5-glibc-2.3.6</span></span><br><span class="line">$ sudo vim /etc/bash.bashrc</span><br><span class="line">    <span class="comment"># ===== 文件内容, 末尾加入如下语句 =====</span></span><br><span class="line">    <span class="comment"># if [ -d /usr/local/gcc-3.4.5-glibc-2.3.6 ] ; then</span></span><br><span class="line">    <span class="comment">#   PATH=/usr/local/gcc-3.4.5-glibc-2.3.6/bin:&quot;$&#123;PATH&#125;&quot;</span></span><br><span class="line">    <span class="comment"># fi</span></span><br><span class="line">    <span class="keyword">if</span> [ -d /usr/<span class="built_in">local</span>/arm/4.3.2 ] ; <span class="keyword">then</span></span><br><span class="line">        PATH=/usr/<span class="built_in">local</span>/arm/4.3.2/bin:<span class="string">&quot;<span class="variable">$&#123;PATH&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="comment"># ===== 结束修改, 保存退出vim =====</span></span><br><span class="line"><span class="comment"># 如果直接修改 /etc/environment 文件也可以.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试安装结果</span></span><br><span class="line">$ <span class="built_in">source</span> /etc/bash.bashrc                           <span class="comment"># 不重启更新PATH</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$PATH</span>                                        <span class="comment"># 查看PATH</span></span><br><span class="line">$ arm-linux-gcc -v                                  <span class="comment"># 测试是否安装成功</span></span><br><span class="line">gcc version 4.3.2</span><br></pre></td></tr></table></figure>
+
+<h1 id="uboot的编译和烧录"><a href="#uboot的编译和烧录" class="headerlink" title="uboot的编译和烧录"></a>uboot的编译和烧录</h1><h2 id="编译uboot"><a href="#编译uboot" class="headerlink" title="编译uboot"></a>编译uboot</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line"></span><br><span class="line">tar xjvf u-boot-1.1.6.tar.bz2               <span class="comment"># 解压uboot源码</span></span><br><span class="line"><span class="built_in">cd</span> u-boot-1.1.6                             <span class="comment"># 进入uboot源码目录</span></span><br><span class="line">patch -p1 &lt; ../u-boot-1.1.6_20161226_all.patch</span><br><span class="line">make clean</span><br><span class="line">make 100ask24x0_config                      <span class="comment"># uboot config文件</span></span><br><span class="line">make                                        <span class="comment"># uboot 编译, 得到u-boot.bin文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="烧录uboot"><a href="#烧录uboot" class="headerlink" title="烧录uboot"></a>烧录uboot</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 打开 jz2440 开发板串口终端, 启动时输入空格键, 进入如下菜单</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[n] Download u-boot to Nand Flash</span><br><span class="line">...</span><br><span class="line">Enter your selection: n / o                 <span class="comment"># 输入n 或者 o, 烧录uboot</span></span><br><span class="line">USB host is connected. Waiting a download.  <span class="comment"># 提示连接成功</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到 Ubuntu 终端, 输入</span></span><br><span class="line"><span class="comment"># pwd = ./u-boot-1.1.6                      # 确保在 uboot 源码路径下</span></span><br><span class="line">sudo dnw u-boot.bin                         <span class="comment"># 使用dnw烧录uboot</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置uboot"><a href="#设置uboot" class="headerlink" title="设置uboot"></a>设置uboot</h2><p>如果希望通过uboot直接加载nfs文件系统, 还需进行如下设置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 设置ip地址, 在OpenJTAG&gt; 提示符下</span></span><br><span class="line"><span class="built_in">set</span> ipaddr 10.0.0.111           <span class="comment"># 设置开发板的ip地址</span></span><br><span class="line"><span class="built_in">set</span> serverip 10.0.0.138</span><br><span class="line">save                            <span class="comment"># 保存</span></span><br><span class="line">printenv                        <span class="comment"># 打印环境变量, 查看设置结果</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> bootargs noinitrd root=/dev/nfs nfsroot=10.0.0.98:/fs ip=10.0.0.111:10.0.0.98:10.0.0.138:255.255.255.0::eth0:off init=/linuxrc console=ttySAC0</span><br><span class="line"><span class="comment"># (简化ip: &#x27;set bootargs noinitrd root=/dev/nfs nfsroot=10.0.0.98:/fs ip=10.0.0.111 init=/linuxrc console=ttySAC0&#x27; 也可以工作)</span></span><br><span class="line">save        <span class="comment"># 保存修改</span></span><br><span class="line">reset       <span class="comment"># 重启. (稍后再重启, 先修改好 filesystem 内的初始化文件)</span></span><br><span class="line"><span class="comment"># 参数简要说明:</span></span><br><span class="line"><span class="comment"># &#x27;root=/dev/nfs&#x27; 加载nfs文件系统</span></span><br><span class="line"><span class="comment"># &#x27;nfsroot=10.0.0.98:/fs&#x27; nfs文件系统的来源, 此处是由win10当nfs服务器, 共享出/fs文件夹</span></span><br><span class="line"><span class="comment"># &#x27;ip=10.0.0.111:10.0.0.98:10.0.0.138:255.255.255.0::eth0:off&#x27; 分别表示:</span></span><br><span class="line"><span class="comment">#  ip= 开发板ip : nfs服务器ip: 网关ip : 子网掩码 :: 开发板网口 : off</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="kernel的编译和烧录"><a href="#kernel的编译和烧录" class="headerlink" title="kernel的编译和烧录"></a>kernel的编译和烧录</h1><h2 id="编译kernel"><a href="#编译kernel" class="headerlink" title="编译kernel"></a>编译kernel</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line"></span><br><span class="line">tar xjvf linux-3.4.2.tar.bz2                <span class="comment"># 解压kernel源码</span></span><br><span class="line"><span class="built_in">cd</span> linux-3.4.2                              <span class="comment"># 进入kernel源码目录</span></span><br><span class="line">patch -p1 &lt; ../linux-3.4.2_20161226_all.patch  <span class="comment"># 打补丁文件, p1表忽略patch文件内的1层目录</span></span><br><span class="line"></span><br><span class="line">make clean                                  <span class="comment"># 清空 (先清空再在SI内查看)</span></span><br><span class="line">cp config_jz2440 .config                    <span class="comment"># 设置config文件, 此配置文件已支持dhcp</span></span><br><span class="line">make uImage                                 <span class="comment"># 编译获得内核image</span></span><br></pre></td></tr></table></figure>
+
+<p>编译时, 遇到一个错误: <code>Can&#39;t use &#39;defined(@array)&#39; (Maybe you should just omit the defined()?) at kernel/timeconst.pl line 373.</code><br>参考 <a target="_blank" rel="noopener" href="http://sunyongfeng.com/201701/programmer/linux/kernel_compile_fail.html">Linux kernel 编译问题记录</a>. 原因是perl版本升级了.<br>将 <code>if (!defined(@val))</code> 改为 <code>if (!@val)</code> 再次编译就可以了.</p>
+<h2 id="烧录kernel"><a href="#烧录kernel" class="headerlink" title="烧录kernel"></a>烧录kernel</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 打开 jz2440 开发板串口终端, 启动时输入空格键, 进入如下菜单</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[k] Download Linux kernel uImage</span><br><span class="line">...</span><br><span class="line">Enter your selection: k                     <span class="comment"># 输入k, 烧录 kernel</span></span><br><span class="line">USB host is connected. Waiting a download.  <span class="comment"># 提示连接成功</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到 Ubuntu 终端, 输入</span></span><br><span class="line"><span class="comment"># pwd = ./linux-2.6.22.6                    # 确保在 kernel 源码路径下</span></span><br><span class="line">sudo dnw ./arch/arm/boot/uImage             <span class="comment"># 输入dnw指令, 指明烧录文件</span></span><br><span class="line"><span class="comment"># DNW usb device found!                     # 开始烧录</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="filesystem的制作和烧录"><a href="#filesystem的制作和烧录" class="headerlink" title="filesystem的制作和烧录"></a>filesystem的制作和烧录</h1><p><strong>注意</strong>, QQ物联的应用, 文件系统必须烧录到nand flash中, 而不能采用NFS的方式加载.</p>
+<h2 id="制作-filesystem"><a href="#制作-filesystem" class="headerlink" title="制作 filesystem"></a>制作 filesystem</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu shell</span></span><br><span class="line">sudo tar xjvf fs_mini_mdev_new_auto_wifi.tar.bz2        <span class="comment"># 解压缩</span></span><br><span class="line">mkyaffs2image fs_mini_mdev_new fs_mini_mdev_new.yaffs2  <span class="comment"># 生成文件系统</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="烧录-filesystem"><a href="#烧录-filesystem" class="headerlink" title="烧录 filesystem"></a>烧录 filesystem</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot</span></span><br><span class="line"><span class="comment"># 打开 jz2440 开发板串口终端, 启动时输入空格键, 进入如下菜单</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[y] Download root_yaffs image</span><br><span class="line">...</span><br><span class="line">Enter your selection: y                     <span class="comment"># 输入k, 烧录 root_yaffs</span></span><br><span class="line">USB host is connected. Waiting a download.  <span class="comment"># 提示连接成功</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到 Ubuntu 终端, 输入</span></span><br><span class="line">sudo dnw fs_mini_mdev_new.yaffs2            <span class="comment"># 输入dnw指令, 指明烧录文件</span></span><br><span class="line"><span class="comment"># DNW usb device found!                     # 开始烧录</span></span><br><span class="line"><span class="comment"># 这样就成功把文件系统烧录到 jz2440 开发板中了.</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="查看分区"><a href="#查看分区" class="headerlink" title="查看分区"></a><del>查看分区</del></h1><ul>
+<li>bootloader, 512k</li>
+<li>params, 128k</li>
+<li>kernel, 4m</li>
+<li>rootfs, 剩下的空间</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板 uboot, 进入命令行模式</span></span><br><span class="line">&gt; printenv</span><br><span class="line">mtdparts=mtdparts=nandflash0:512k@0(bootloader),128k(params),4m(kernel),-(root)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ubuntu端, kernel 源码下</span></span><br><span class="line">$ vim arch/arm/mach-s3c24xx/common-smdk.c</span><br><span class="line"><span class="comment"># 查看 smdk_default_nand_part 可知分区情况</span></span><br><span class="line">static struct mtd_partition smdk_default_nand_part[] = &#123;</span><br><span class="line">        [0] = &#123;</span><br><span class="line">                .name   = <span class="string">&quot;bootloader&quot;</span>,</span><br><span class="line">                .size   = SZ_512K,</span><br><span class="line">                .offset = 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        [1] = &#123;</span><br><span class="line">                .name   = <span class="string">&quot;params&quot;</span>,</span><br><span class="line">                .offset = MTDPART_OFS_APPEND,</span><br><span class="line">                .size   = SZ_128K,</span><br><span class="line">        &#125;,</span><br><span class="line">        [2] = &#123;</span><br><span class="line">                .name   = <span class="string">&quot;kernel&quot;</span>,</span><br><span class="line">                .offset = MTDPART_OFS_APPEND,</span><br><span class="line">                .size   = SZ_4M,</span><br><span class="line">        &#125;,</span><br><span class="line">        [3] = &#123;</span><br><span class="line">                .name   = <span class="string">&quot;rootfs&quot;</span>,</span><br><span class="line">                .offset = MTDPART_OFS_APPEND,</span><br><span class="line">                .size   = MTDPART_SIZ_FULL,</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="配置网络-支持nfs"><a href="#配置网络-支持nfs" class="headerlink" title="配置网络, 支持nfs"></a>配置网络, 支持nfs</h1><h2 id="实现dhcp功能"><a href="#实现dhcp功能" class="headerlink" title="实现dhcp功能"></a>实现dhcp功能</h2><p>为了正常使用udhcpc, 还需要对文件系统稍加修改. 如下工作即可以在开发板端做, 也可以先在文件系统上做好, 然后编译烧录进开发板</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发板bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># udhcpc需要一个脚本文件, 否则无法完整实现dhcp功能. (测试了一下, 这个版本没有脚本也不报错, 但无法正常使用!)</span></span><br><span class="line">mkdir -p /usr/share/udhcpc/     <span class="comment"># 自动建立多层目录</span></span><br><span class="line">vi /usr/share/udhcpc/default.script</span><br><span class="line"><span class="comment"># ===== 打开vim, 写入如下内容 =====</span></span><br><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">[ -z <span class="string">&quot;<span class="variable">$1</span>&quot;</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;Error: should be called from udhcpc&quot;</span> &amp;&amp; <span class="built_in">exit</span> 1</span><br><span class="line">RESOLV_CONF=<span class="string">&quot;/etc/resolv.conf&quot;</span></span><br><span class="line">[ -n <span class="string">&quot;<span class="variable">$broadcast</span>&quot;</span> ] &amp;&amp; BROADCAST=<span class="string">&quot;broadcast <span class="variable">$broadcast</span>&quot;</span></span><br><span class="line">[ -n <span class="string">&quot;<span class="variable">$subnet</span>&quot;</span> ] &amp;&amp; NETMASK=<span class="string">&quot;netmask <span class="variable">$subnet</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">  deconfig)</span><br><span class="line">    /sbin/ifconfig <span class="variable">$interface</span> 0.0.0.0</span><br><span class="line">    ;;</span><br><span class="line"></span><br><span class="line">  renew|bound)</span><br><span class="line">    /sbin/ifconfig <span class="variable">$interface</span> <span class="variable">$ip</span> <span class="variable">$BROADCAST</span> <span class="variable">$NETMASK</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$router</span>&quot;</span> ] ; <span class="keyword">then</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;deleting routers&quot;</span></span><br><span class="line">      <span class="keyword">while</span> route del default gw 0.0.0.0 dev <span class="variable">$interface</span> ; <span class="keyword">do</span></span><br><span class="line">        :</span><br><span class="line">      <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> i <span class="keyword">in</span> <span class="variable">$router</span> ; <span class="keyword">do</span></span><br><span class="line">        route add default gw <span class="variable">$i</span> dev <span class="variable">$interface</span></span><br><span class="line">      <span class="keyword">done</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> -n &gt; <span class="variable">$RESOLV_CONF</span></span><br><span class="line">    [ -n <span class="string">&quot;<span class="variable">$domain</span>&quot;</span> ] &amp;&amp; <span class="built_in">echo</span> search <span class="variable">$domain</span> &gt;&gt; <span class="variable">$RESOLV_CONF</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="variable">$dns</span> ; <span class="keyword">do</span></span><br><span class="line">      <span class="built_in">echo</span> adding dns <span class="variable">$i</span></span><br><span class="line">      <span class="built_in">echo</span> nameserver <span class="variable">$i</span> &gt;&gt; <span class="variable">$RESOLV_CONF</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">    ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="comment"># ===== wq保存文件, 退出 =====</span></span><br><span class="line">chmod +x /usr/share/udhcpc/default.script       <span class="comment"># 加入可执行属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后测试一下</span></span><br><span class="line">ifconfig eth0 up</span><br><span class="line">udhcpc eth0</span><br><span class="line"><span class="comment"># 如果没有脚本文件, 只能获得IP地址, 没有dns的信息!</span></span><br><span class="line">ifconfig</span><br><span class="line"><span class="comment"># 能看到IP地址, 广播地址, 子网掩码信息</span></span><br><span class="line">ping 192.168.1.100</span><br><span class="line"><span class="comment"># 能ping通ubuntu主机</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="开机自动挂载nfs"><a href="#开机自动挂载nfs" class="headerlink" title="开机自动挂载nfs"></a>开机自动挂载nfs</h2><p>要使用nfs, Ubuntu主机首先必须支持nfs. 主机端配置详情见 <a href="https://draapho.github.io/2017/11/29/1739-ubuntu-nfs/">Ubuntu 16.04安装配置NFS</a><br>使用 <code>ifconfig</code> 查看主机IP地址, <code>vim /etc/exports</code> 查看共享目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># jz2440开发板</span></span><br><span class="line">vi /etc/init.d/rcS             <span class="comment"># 开机自动执行udhcpc. S是大写!</span></span><br><span class="line"><span class="comment"># ===== 打开vim, 修改/增加如下内容 =====</span></span><br><span class="line"><span class="comment">#ifconfig eth0 192.168.1.17</span></span><br><span class="line"></span><br><span class="line">ifconfig eth0 up</span><br><span class="line">udhcpc eth0</span><br><span class="line"><span class="comment"># 上述两行放在最前面. 这样才能成功自动挂载nfs</span></span><br><span class="line"><span class="comment"># ===== wq保存文件, 退出 =====</span></span><br><span class="line"></span><br><span class="line">vi /etc/fstab</span><br><span class="line"><span class="comment"># ===== 打开vim, 增加如下内容 =====</span></span><br><span class="line"><span class="comment"># 文件最后加入这样一句nfs模板, 便于日后修改</span></span><br><span class="line"><span class="comment"># 192.168.1.100:/home/draapho/share /mnt/share nfs rsize=1024,wsize=1024,timeo=14,intr,nolock 0 0</span></span><br><span class="line"><span class="comment"># ===== wq保存文件, 退出 =====</span></span><br><span class="line"></span><br><span class="line">mkdir /mnt/share                <span class="comment"># 创建挂载点</span></span><br><span class="line">mount -a                        <span class="comment"># 不重启挂载, 测试一下</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="编译并测试驱动模块"><a href="#编译并测试驱动模块" class="headerlink" title="编译并测试驱动模块"></a>编译并测试驱动模块</h1><p>默认提供的驱动关联了 <code>/work/system/linux-3.4.2</code>作为内核关联.<br>另外, 可以把编译好的驱动拷贝到jz2440 flash中, 统一放在 <code>/lib/modules/3.4.2</code> 目录下面.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># jz2440开发板</span></span><br><span class="line">mkdir -p /lib/modules/3.4.2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ubuntu端firstdrvtest.c</span></span><br><span class="line">sudo mkdir -p /work/system/</span><br><span class="line">firstdrvtest.c</span><br></pre></td></tr></table></figure>
+
+<h2 id="LED驱动"><a href="#LED驱动" class="headerlink" title="LED驱动"></a>LED驱动</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu端</span></span><br><span class="line"><span class="comment"># pwd = ./jz2440/first_drv                  # nfs共享文件</span></span><br><span class="line">make</span><br><span class="line">arm-linux-gcc firstdrvtest.c -o firstdrvtest</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># jz2440开发板</span></span><br><span class="line"><span class="comment"># pwd = /mnt/share/.../jz2440/first_drv     # nfs共享文件</span></span><br><span class="line">cp first_drv.ko /lib/modules/3.4.2/</span><br><span class="line">ls /lib/modules/3.4.2/                      <span class="comment"># 查看拷贝结果</span></span><br><span class="line">insmod first_drv.ko</span><br><span class="line">lsmod                                       <span class="comment"># 列出已加载模块</span></span><br><span class="line">./firstdrvtest on                           <span class="comment"># 测试</span></span><br><span class="line">./firstdrvtest off</span><br></pre></td></tr></table></figure>
+
+<h2 id="按键驱动"><a href="#按键驱动" class="headerlink" title="按键驱动"></a>按键驱动</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu端</span></span><br><span class="line"><span class="comment"># pwd = ./jz2440/7th_buttons_all                # nfs共享文件</span></span><br><span class="line">make</span><br><span class="line">arm-linux-gcc buttons_test.c -o buttons_test</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># jz2440开发板</span></span><br><span class="line"><span class="comment"># pwd = /mnt/share/.../jz2440/7th_buttons_all   # nfs共享文件</span></span><br><span class="line">cp buttons.ko /lib/modules/3.4.2/</span><br><span class="line">ls /lib/modules/3.4.2/                          <span class="comment"># 查看拷贝结果</span></span><br><span class="line">insmod buttons.ko</span><br><span class="line">lsmod                                           <span class="comment"># 列出已加载模块</span></span><br><span class="line">./buttons_test                                  <span class="comment"># 测试</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="LCD驱动"><a href="#LCD驱动" class="headerlink" title="LCD驱动"></a>LCD驱动</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu端</span></span><br><span class="line"><span class="comment"># pwd = ./jz2440/10th_lcd                       # nfs共享文件, 屏幕驱动</span></span><br><span class="line">cp lcd_4.3.c lcd.c                              <span class="comment"># jz2440, 用的4.3寸屏</span></span><br><span class="line">make</span><br><span class="line"><span class="comment"># pwd = ./jz2440/fb_test                        # nfs共享文件, 屏幕测试</span></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># jz2440开发板</span></span><br><span class="line"><span class="comment"># pwd = /mnt/share/.../jz2440/10th_lcd          # nfs共享文件, 屏幕驱动</span></span><br><span class="line">cp lcd.ko /lib/modules/3.4.2/</span><br><span class="line">ls /lib/modules/3.4.2/                          <span class="comment"># 查看拷贝结果</span></span><br><span class="line">insmod lcd.ko</span><br><span class="line">lsmod                                           <span class="comment"># 列出已加载模块</span></span><br><span class="line"><span class="comment"># pwd = /mnt/share/.../jz2440/fb_test           # nfs共享文件, 屏幕测试</span></span><br><span class="line">./fb_test                                       <span class="comment"># 测试, 显示用法</span></span><br><span class="line">ls /dev/fb*                                     <span class="comment"># 显示设备</span></span><br><span class="line">./fb_test /dev/fb0                              <span class="comment"># 测试指定设备</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/embedded-linux/" rel="tag"># embedded linux</a>
+              <a href="/tags/qqiot/" rel="tag"># qqiot</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/12/14/1745-yocto-install/" rel="prev" title="Yocto 的安装与体验">
+                  <i class="fa fa-chevron-left"></i> Yocto 的安装与体验
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/12/19/1747-qqiot-bind/" rel="next" title="QQ物联绑定分析">
+                  QQ物联绑定分析 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
