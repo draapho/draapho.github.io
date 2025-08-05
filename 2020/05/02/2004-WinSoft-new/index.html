@@ -31,7 +31,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://draapho.github.io/images/2004/search.png">
 <meta property="article:published_time" content="2020-05-01T14:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-05T10:19:50.563Z">
+<meta property="article:modified_time" content="2025-08-05T11:36:03.863Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary">
@@ -285,7 +285,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2025-08-05 20:19:50" itemprop="dateModified" datetime="2025-08-05T20:19:50+10:00">2025-08-05</time>
+        <time title="Modified: 2025-08-05 21:36:03" itemprop="dateModified" datetime="2025-08-05T21:36:03+10:00">2025-08-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -362,11 +362,16 @@
 </li>
 </ul>
 </li>
+<li>恢复经典界面<ul>
 <li>快速访问:<ul>
-<li>保留最常用的: 下载, 云盘, 用户内容, 生活, 学习, 工作, 家庭, 备份等等</li>
+<li>保留最常用的: 下载, 用户内容, 生活, 学习, 工作, 家庭, 备份等等</li>
 </ul>
 </li>
-<li>恢复经典界面<ul>
+<li>桌面隐藏回收站:<ul>
+<li>个性化-&gt;主题-&gt;桌面图标设置</li>
+<li>弹出的小窗, 取消选择桌面图标下的 <code>回收站</code></li>
+</ul>
+</li>
 <li>我的电脑默认界面: <ul>
 <li>我的电脑(文件资源管理器) -&gt; 操作了中间的<code>...</code>-&gt;选项</li>
 <li>弹出框: 打开文件资源管理器时打开: 选择 <code>此电脑</code></li>
@@ -515,8 +520,9 @@
 <li>Chrome. 网页浏览器<ul>
 <li>插件可以自动同步, 但需要分别设置!</li>
 <li><code>chrome://extensions/</code> 进行安全性设置<ul>
+<li><strong>对每个扩展应用右键-选项, 进入设置界面</strong></li>
 <li>检查权限, 避免高风险应用, 它会要求访问计算机上所有的数据.</li>
-<li>点击时. 低频使用的插件建议此选项, 增加安全性.</li>
+<li><strong>点击时. 低频使用的插件建议此选项, 增加安全性.</strong></li>
 <li>在特定网站上. 针对特定网站的高频插件, 建议选用此选项.</li>
 <li>在所有网站上. 高频通用性插件, 选此选项. 此为Chrome默认选项.</li>
 </ul>
@@ -588,9 +594,7 @@
 <ul>
 <li>打开powershell</li>
 </ul>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --set-default-version 2 <span class="comment"># 设置为wsl2</span></span><br><span class="line">wsl --list --online 		<span class="comment"># 查看安装列表</span></span><br><span class="line">wsl --install -d Ubuntu-24.04</span><br><span class="line">wsl --set-default Ubuntu-24.04  <span class="comment"># 设为默认</span></span><br><span class="line">wsl -l -v		<span class="comment"># 查看安装列表</span></span><br><span class="line">wsl  <span class="comment"># 进入Ubuntu</span></span><br><span class="line"></span><br><span class="line">sudo nano /etc/wsl.conf</span><br><span class="line"><span class="comment"># 加上如下内容</span></span><br><span class="line">[user]</span><br><span class="line">default=root</span><br><span class="line"><span class="comment"># 保持推出</span></span><br><span class="line"><span class="built_in">exit</span> <span class="comment"># 退回到 windows powershell</span></span><br><span class="line"></span><br><span class="line">wsl --shutdown</span><br><span class="line">wsl	<span class="comment"># 应该用root登录了.</span></span><br></pre></td></tr></table></figure>
-
-</li>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --set-default-version 2 <span class="comment"># 设置为wsl2</span></span><br><span class="line">wsl --list --online 		<span class="comment"># 查看安装列表</span></span><br><span class="line">wsl --install -d Ubuntu-24.04</span><br><span class="line">wsl --set-default Ubuntu-24.04  <span class="comment"># 设为默认</span></span><br><span class="line">wsl -l -v		<span class="comment"># 查看安装列表</span></span><br><span class="line">wsl  <span class="comment"># 进入Ubuntu</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面为可选项, **不建议设置**. </span></span><br><span class="line"><span class="comment"># root情况下, powershell只显示黑白路径.</span></span><br><span class="line">sudo nano /etc/wsl.conf</span><br><span class="line"><span class="comment"># 加上如下内容</span></span><br><span class="line">[user]</span><br><span class="line">default=root</span><br><span class="line"><span class="comment"># 保持推出</span></span><br><span class="line"><span class="built_in">exit</span> <span class="comment"># 退回到 windows powershell</span></span><br><span class="line"></span><br><span class="line">wsl --shutdown</span><br><span class="line">wsl	<span class="comment"># 应该用root登录了.</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="系统清理"><a href="#系统清理" class="headerlink" title="系统清理:"></a>系统清理:</h1><ul>
 <li>卡硬工具箱-&gt;其他工具-&gt;DISM++ -&gt;依次优化</li>
