@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://draapho.github.io/images/1611/pycharm1.png">
 <meta property="og:image" content="https://draapho.github.io/images/1611/pycharm2.png">
 <meta property="article:published_time" content="2016-10-15T13:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:modified_time" content="2025-08-06T09:37:19.962Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="windows">
 <meta property="article:tag" content="eclipse">
@@ -207,7 +207,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -289,7 +289,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-08-04 01:25:26" itemprop="dateModified" datetime="2023-08-04T01:25:26+10:00">2023-08-04</time>
+        <time title="Modified: 2025-08-06 19:37:19" itemprop="dateModified" datetime="2025-08-06T19:37:19+10:00">2025-08-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -430,9 +430,9 @@
 <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ul>
 <li>开发环境: <code>Win10 + Python 3.8.8 + PyQt5 + PyCharm社区版</code>. 另有历史项目适用 <code>Python 2.7 + PyQt4 4.11.4</code>.</li>
 <li>运行安装 <a target="_blank" rel="noopener" href="https://www.python.org/downloads/windows/">Python 3.8.8</a>, 记得勾选加入PATH, 确保环境变量的正确配置.</li>
-<li><code>pip install pip install pyqt5-tools</code>, 会自动下载相关的包如pyqt5, sip.<ul>
+<li><code>pip install pyqt5-tools</code>, 会自动下载相关的包如pyqt5, sip.<ul>
 <li>查了下, 当前版本是 <code>PyQt5 5.15.2</code>, 是能保证正常运行的.</li>
-<li>指定版本安装的话, 使用<code>pip install pip install pyqt5-tools==5.15.2</code></li>
+<li>指定版本安装的话, 使用<code>pip install pyqt5-tools==5.15.2</code></li>
 </ul>
 </li>
 <li><code>pip install xxx</code>, 安装其它常用包, 略过不表.</li>
@@ -483,6 +483,11 @@
 <li><code>virtualenv venv</code> 建立了新环境名为venv，在项目文件夹中可以看到增加的文件</li>
 <li><code>xxx\venv\Scripts&gt;activate</code> 进入venv\Scripts下运行, 激活此虚拟环境</li>
 <li><code>(venv) xxx\venv\Scripts&gt;activate</code> 出现(venv), 说明激活成功. 继续敲命令行即可</li>
+</ul>
+</li>
+<li>如果加载venv中的python路径错误 (新电脑重新安装了)<ul>
+<li>打开venv文件夹下的pyvenv.cfg文件, 修改home路径地址即可</li>
+<li>建议python统一安装地址到 “C:\Programs\Python\PythonXX-XX”</li>
 </ul>
 </li>
 </ul>

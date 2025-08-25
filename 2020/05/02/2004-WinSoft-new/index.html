@@ -31,7 +31,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://draapho.github.io/images/2004/search.png">
 <meta property="article:published_time" content="2020-05-01T14:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-05T11:36:03.863Z">
+<meta property="article:modified_time" content="2025-08-06T10:13:02.435Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary">
@@ -203,7 +203,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -285,7 +285,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2025-08-05 21:36:03" itemprop="dateModified" datetime="2025-08-05T21:36:03+10:00">2025-08-05</time>
+        <time title="Modified: 2025-08-06 20:13:02" itemprop="dateModified" datetime="2025-08-06T20:13:02+10:00">2025-08-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -344,7 +344,10 @@
 <li>隐私相关的设置, 全部过一遍</li>
 </ul>
 </li>
-<li>设置-&gt;数据使用量-&gt;后台数据-&gt;开启 限制后台执行的操作</li>
+<li>设置-&gt;蓝牙和其它设备-&gt;自动播放-&gt; 关闭 <code>在所有媒体和设备上使用自动播放</code><ul>
+<li>选择自动播放默认设置: <code>不执行操作</code></li>
+</ul>
+</li>
 <li>桌面右键-&gt;个性化-&gt;开始 优化一便. 任务栏 优化一便</li>
 </ul>
 </li>
@@ -595,6 +598,12 @@
 <li>打开powershell</li>
 </ul>
   <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --set-default-version 2 <span class="comment"># 设置为wsl2</span></span><br><span class="line">wsl --list --online 		<span class="comment"># 查看安装列表</span></span><br><span class="line">wsl --install -d Ubuntu-24.04</span><br><span class="line">wsl --set-default Ubuntu-24.04  <span class="comment"># 设为默认</span></span><br><span class="line">wsl -l -v		<span class="comment"># 查看安装列表</span></span><br><span class="line">wsl  <span class="comment"># 进入Ubuntu</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面为可选项, **不建议设置**. </span></span><br><span class="line"><span class="comment"># root情况下, powershell只显示黑白路径.</span></span><br><span class="line">sudo nano /etc/wsl.conf</span><br><span class="line"><span class="comment"># 加上如下内容</span></span><br><span class="line">[user]</span><br><span class="line">default=root</span><br><span class="line"><span class="comment"># 保持推出</span></span><br><span class="line"><span class="built_in">exit</span> <span class="comment"># 退回到 windows powershell</span></span><br><span class="line"></span><br><span class="line">wsl --shutdown</span><br><span class="line">wsl	<span class="comment"># 应该用root登录了.</span></span><br></pre></td></tr></table></figure></li>
+<li><p>其它开发软件</p>
+<ul>
+<li>不要用默认值, 统一安装到 <code>C:\Programs\下</code></li>
+<li>python统一安装地址到 “C:\Programs\Python\PythonXX-XX”</li>
+</ul>
+</li>
 </ul>
 <h1 id="系统清理"><a href="#系统清理" class="headerlink" title="系统清理:"></a>系统清理:</h1><ul>
 <li>卡硬工具箱-&gt;其他工具-&gt;DISM++ -&gt;依次优化</li>
