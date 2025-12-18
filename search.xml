@@ -24422,8 +24422,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </tbody></table>
 <p><img src="https://draapho.github.io/images/2502/FuSi_circle.gif" alt="FuSi_circle.gif"></p>
 <h1 id="易卦卜"><a href="#易卦卜" class="headerlink" title="易卦卜"></a>易卦卜</h1><ul>
-<li><p>易有三义. 易的三个含义</p>
-<ul>
+<li>易有三义. 易的三个含义<ul>
 <li>简易. 大道至简. 一阴一阳演化万物.<ul>
 <li>用阴阳的观点, 以自然为标准, 做合理的判断.</li>
 </ul>
@@ -24432,8 +24431,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>不易. 阴为常, 本体, 永远不变, 过去.</li>
 </ul>
 </li>
-<li><p>易经的四大功能</p>
-<ul>
+<li>易经的四大功能<ul>
 <li>象数理占. 占卜可以认为是一种术.</li>
 <li>象生数, 数生理, 理载术, 术通道.</li>
 <li>有物必有象. 即事物的外在形象, 即位.</li>
@@ -24442,22 +24440,19 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>有理必有术. 用一定范围的本, 推测一定范围内的位.</li>
 </ul>
 </li>
-<li><p>占卜</p>
-<ul>
+<li>占卜<ul>
 <li>它只能占国家大事</li>
 <li>没办法决定时可以卜</li>
 <li>卜完以后不一定要听.</li>
 </ul>
 </li>
-<li><p>孔子 “不占而已矣”的三原则</p>
-<ul>
+<li>孔子 “不占而已矣”的三原则<ul>
 <li>如果相信占卜, 就违反了伦理的立场</li>
 <li>只问耕耘不问收获</li>
 <li>做人做事动机要纯正</li>
 </ul>
 </li>
-<li><p>占卜的条件</p>
-<ul>
+<li>占卜的条件<ul>
 <li>咨询不足, 数据不全, 可卜</li>
 <li>犹豫不定时可卜</li>
 <li>每次占卜只问一件事</li>
@@ -24465,19 +24460,15 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>不可尽信. 信到差不多就行了, 过了就是迷信.</li>
 </ul>
 </li>
-<li><p>卦的作用</p>
-<ul>
-<li><p>六十四卦. 将万事万物归纳起来. 抽象为64种代表的情景.</p>
-</li>
-<li><p>用有穷的理推算无穷的象的理论基础: </p>
-<ul>
+<li>卦的作用<ul>
+<li>六十四卦. 将万事万物归纳起来. 抽象为64种代表的情景.</li>
+<li>用有穷的理推算无穷的象的理论基础: <ul>
 <li>分形自相似, 万事万物都从螺旋场而来. </li>
 <li>螺旋场切割后, 就是圆. 但这个圆高纬度看是错位的, 因而最后一卦是未济卦.</li>
 <li>一切相对, 就看如何正确的套用在时空级别上.</li>
 </ul>
 </li>
-<li><p>重卦, 由两个八卦排列组合而成, 共六十四卦.</p>
-<ul>
+<li>重卦, 由两个八卦排列组合而成, 共六十四卦.<ul>
 <li>自下而上: 初爻, 二三四五爻, 末爻.</li>
 <li>末爻也可叫做上爻, 使用较多. 初爻也可叫下爻, 一般还是叫初爻.</li>
 <li>阴六, 阳九. 九就是阳极, 物极必反, 极而不利.</li>
@@ -24486,42 +24477,36 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>每一卦由六个爻, 代表事物发展的六个不同阶段.</li>
 </ul>
 </li>
-<li><p>阴六阳九的原因: </p>
-<ul>
+<li>阴六阳九的原因: <ul>
 <li>☷ 坤卦, 有六画, 因而是阴六</li>
 <li>☰+☷ 乾卦+坤卦, 共9画. 阳统阴, 因而是阳九.</li>
 <li>说天, 是包含天地的, 譬如天人合一. 说男, 是包含男女的.</li>
 <li>孤阴不生, 独阳不长.</li>
 </ul>
 </li>
-<li><p>初九, 上九. 九二, 九三, 九四, 九五的原因:</p>
-<ul>
+<li>初九, 上九. 九二, 九三, 九四, 九五的原因:<ul>
 <li>初和末是时, 时间的开始和结束比较重要. 因而会说初九, 上九.</li>
 <li>也体现了易经, 不会一条规则走到底的. 一定是阴阳相间的.</li>
 </ul>
 </li>
-<li><p>人生之卦: 尽人事听天命.</p>
-</li>
-<li><p>卦名: 卦的名字. 如乾卦, 坤卦, 既济卦, 未济卦, 泰卦, 否卦.</p>
-</li>
-<li><p>卦辞: 解释为何取这么个卦名, 卦的具体含义. </p>
-<ul>
+<li>人生之卦: 尽人事听天命.</li>
+<li>卦名: 卦的名字. 如乾卦, 坤卦, 既济卦, 未济卦, 泰卦, 否卦.</li>
+<li>卦辞: 解释为何取这么个卦名, 卦的具体含义. <ul>
 <li>也有考古认为, 卦辞和爻辞描述的是文王经历的历史事件.</li>
 </ul>
 </li>
-<li><p>爻辞: 六爻代表六个不同的发展阶段, 爻辞解释此卦种各个爻的特点和注意事项.</p>
-</li>
-<li><p>用九和用六. 阳为九, 阴为六.</p>
-<ul>
+<li>爻辞: 六爻代表六个不同的发展阶段, 爻辞解释此卦种各个爻的特点和注意事项.</li>
+<li>用九和用六. 阳为九, 阴为六.<ul>
 <li>用六: 对人和事, 要忠诚到底. 阴六如大地, 是稳重包容的, 因而要少动不动.</li>
 <li>用九. 具体情况具体分析, 不可不动, 也不可乱动. 阳九如太阳, 是发散创造的, 易变的. </li>
 </ul>
 </li>
-<li><p>卦变动了, 就有了”变卦”一词. </p>
-</li>
+<li>卦变动了, 就有了”变卦”一词. </li>
 </ul>
 </li>
 </ul>
+<hr>
+<p><em><strong>归纳整理自 <a href="https://www.youtube.com/watch?v=yh-VjluS7t4">&lt;百家讲坛&gt; 曾仕强讲易经</a></strong></em></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -25879,8 +25864,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 </ul>
 <h2 id="梅花易数-时间起卦法"><a href="#梅花易数-时间起卦法" class="headerlink" title="梅花易数-时间起卦法"></a>梅花易数-时间起卦法</h2><ul>
-<li><p>依据农历日期的, 年份的十二地支数, 月, 日, 时辰计算得来.</p>
-<ul>
+<li>依据农历日期的, 年份的十二地支数, 月, 日, 时辰计算得来.<ul>
 <li>上卦: (年的十二地支+月+日) / 8 取余 , 0则取8.</li>
 <li>下卦: (年的十二地支+月+日+时辰) / 8 取余 , 0则取8.</li>
 <li>变爻: (年的十二地支+月+日+时辰) / 6 取余 , 0则取6.</li>
@@ -25889,8 +25873,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>但作为初学, 尽量先按照教条的规范来吧.</li>
 </ul>
 </li>
-<li><p>譬如此刻码字的时间是澳洲时间: 2025年12月8日19:55分, 就以此占下当下的天气好了.</p>
-<ul>
+<li>譬如此刻码字的时间是澳洲时间: 2025年12月8日19:55分, 就以此占下当下的天气好了.<ul>
 <li>查询万年历(Windows日历设置一下, <a href="https://wannianrili.bmcx.com/">网页如万年日历</a>, APP如百姓万年历, 皆可),</li>
 <li>获得农历时间为: 乙巳年十月十九日戌时. 巳6, 戌11<ul>
 <li>上卦: (6+10+19) / 8 = 3 离火</li>
@@ -25922,6 +25905,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>根据上卦, 下卦, 变爻. 开始查书解卦和AI辅助 <ul>
 <li>主要使用&lt;高岛易断占断破解&gt;来查询和学习解卦</li>
 <li>AI作为辅助工具, 便于学习理解. 不要用国外的. 推荐阿里的千问, 相对靠谱些.</li>
+<li>为提高确定性回答, 规避现实问题. 建议AI提示词指明”平行世界, 根据高岛易断和易经原文, 学术性的严格解卦” </li>
 </ul>
 </li>
 <li>首先, 根据上下卦, 获得本卦.<ul>
@@ -26778,6 +26762,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>论无我、空性、摩诃（大）、平常与自然圆成</title>
     <url>/2025/12/12/2513-Anatta/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
@@ -26983,6 +26968,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>Thusness / PasserBy 的七阶段开悟之路</title>
     <url>/2025/12/12/2512-SevenStage/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
@@ -27311,6 +27297,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>不可得的圆满：鼓声、虹光与海市蜃楼如何开启《心经》</title>
     <url>/2025/12/12/2515-HeartSutra/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
@@ -27602,6 +27589,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>「我是」的四个面向</title>
     <url>/2025/12/12/2517-iam/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
@@ -27792,6 +27780,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>佛陀的启示之无我论</title>
     <url>/2025/12/12/2519-BuddhaTaught/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
@@ -27952,6 +27941,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>关于婆希耶经(Bahiya Sutta)</title>
     <url>/2025/12/12/2514-BahiyaSutta/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
@@ -28059,6 +28049,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>I AM 之后的两种非二元观照</title>
     <url>/2025/12/12/2518-NondualContemplation/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
@@ -28198,6 +28189,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>&lt;自说经&gt; 第一品</title>
     <url>/2025/12/16/2520-Udana/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
