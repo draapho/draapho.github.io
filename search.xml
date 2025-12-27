@@ -29172,25 +29172,19 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 </ul>
 <h1 id="爻的基础知识"><a href="#爻的基础知识" class="headerlink" title="爻的基础知识"></a>爻的基础知识</h1><ul>
-<li><p><strong>阳爻(九)</strong>: 主动、刚健、进取</p>
-</li>
-<li><p><strong>阴爻(六)</strong>: 主静、柔顺、守成</p>
-</li>
-<li><p><strong>当位</strong>, 或<strong>得位</strong>: 阳爻在奇爻, 阴爻在偶爻. 称之为当位.</p>
-<ul>
+<li><strong>阳爻(九)</strong>: 主动、刚健、进取</li>
+<li><strong>阴爻(六)</strong>: 主静、柔顺、守成</li>
+<li><strong>当位</strong>, 或<strong>得位</strong>: 阳爻在奇爻, 阴爻在偶爻. 称之为当位.<ul>
 <li>水火既济. 初九, 九三, 九五. 六二, 六四, 上六全部为当位.</li>
 <li>一般认为, 当位符合阴阳平衡, 象征吉利, 合理.  需记得物极必反.</li>
 </ul>
 </li>
-<li><p><strong>不当位</strong>, 或<strong>失位</strong>: 与当位相反, 阴爻在偶爻, 阳爻在奇爻</p>
-<ul>
+<li><strong>不当位</strong>, 或<strong>失位</strong>: 与当位相反, 阴爻在偶爻, 阳爻在奇爻<ul>
 <li>火水未济. 初六, 六三, 六五. 九二, 九四, 上九全部为不当位.</li>
-<li>一般认为, 违背规律, 不合适宜, 不吉利或凶. 需记得物极必反.</li>
+<li>一般认为, 违背规律, 不合适宜, 不吉利或凶. 需记得物极必反.<br><img src="https://draapho.github.io/images/2527/dang.jpg" alt="当位和不当位"></li>
 </ul>
-<p><img src="https://draapho.github.io/images/2527/dang.jpg" alt="当位和不当位"></p>
 </li>
-<li><p><strong>居中</strong>: 二,五爻为”中”, 所谓居中, 特指二爻或五爻.</p>
-<ul>
+<li><strong>居中</strong>: 二,五爻为”中”, 所谓居中, 特指二爻或五爻.<ul>
 <li>二爻与五爻是<strong>全卦的枢纽</strong><ul>
 <li><strong>二爻</strong>：内卦(下卦)之中, 代表<strong>内在根基、德行、家庭、执行层</strong></li>
 <li><strong>五爻</strong>：外卦(上卦)之中, 代表<strong>外在领导、趋势、天命、决策层</strong></li>
@@ -29200,16 +29194,13 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>《彖传》《象传》凡论卦之吉凶, 十有七八聚焦二、五爻</li>
 </ul>
 </li>
-<li><p><strong>中正</strong>. 即爻即”居中”, 又”当位”. 称之为中正.</p>
-<ul>
+<li><strong>中正</strong>. 即爻即”居中”, 又”当位”. 称之为中正.<ul>
 <li>六二,九五,为中正, 是“德位相配”之象, 为大吉之基</li>
 <li>可用内柔(六二)外刚(九五)为吉, 助记.</li>
-<li><strong>二五居中, 中正为宝; 动在中位, 事系枢要</strong></li>
+<li><strong>二五居中, 中正为宝; 动在中位, 事系枢要</strong><br><img src="https://draapho.github.io/images/2527/zhen.jpg" alt="中正"></li>
 </ul>
-<p><img src="https://draapho.github.io/images/2527/zhen.jpg" alt="中正"></p>
 </li>
-<li><p>爻位关系: <strong>应</strong>, <strong>比</strong>, 承, 乘. </p>
-<ul>
+<li>爻位关系: <strong>应</strong>, <strong>比</strong>, 承, 乘. <ul>
 <li>见后续详解.</li>
 </ul>
 </li>
@@ -29363,15 +29354,12 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </tr>
 </tbody></table>
 <h1 id="爻位关系"><a href="#爻位关系" class="headerlink" title="爻位关系"></a>爻位关系</h1><h2 id="应"><a href="#应" class="headerlink" title="应"></a>应</h2><ul>
-<li><p><strong>应</strong>, 指上下两卦三爻的对应关系. 即初爻与四爻，二爻与五爻，三爻与上爻之间的呼应关系</p>
-</li>
-<li><p><strong>相应</strong>: 初与四、二与五、三与上，若一阴一阳，则“相应”. </p>
-<ul>
+<li><strong>应</strong>, 指上下两卦三爻的对应关系. 即初爻与四爻，二爻与五爻，三爻与上爻之间的呼应关系</li>
+<li><strong>相应</strong>: 初与四、二与五、三与上，若一阴一阳，则“相应”. <ul>
 <li>多表内外通达、上下协力. 但需灵活判断</li>
 </ul>
 </li>
-<li><p><strong>无应</strong>或<strong>敌应</strong>: 初与四、二与五、三与上，若同阴同阳，则“无应”. </p>
-<ul>
+<li><strong>无应</strong>或<strong>敌应</strong>: 初与四、二与五、三与上，若同阴同阳，则“无应”. <ul>
 <li> 多表对立, 隔阂, 失助.</li>
 <li>两阳主亢，两阴主弱</li>
 </ul>
