@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="本地AI配置教程, 及对AI的看法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地AI配置教程">
+<meta property="og:url" content="https://draapho.github.io/2026/02/25/2607-LocalAI/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="本地AI配置教程, 及对AI的看法">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-24T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-28T12:59:58.249Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="crisis">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2026/02/25/2607-LocalAI/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>本地AI配置教程 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">一. 需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E7%8B%AC%E7%AB%8B%E6%98%BE%E5%8D%A1-%E5%AE%89%E8%A3%85-Ollama"><span class="nav-number">2.</span> <span class="nav-text">二. 独立显卡, 安装 Ollama</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-Intel-AI-PC-%E5%AE%89%E8%A3%85-Intel-AI-Playground"><span class="nav-number">3.</span> <span class="nav-text">三. Intel AI PC, 安装 Intel AI Playground</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intel-Ultra-%E7%B3%BB%E5%88%97%E7%9A%84%E4%B8%89%E8%84%91%E6%9E%B6%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">Intel Ultra 系列的三脑架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">修改基础配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8-Intel-AI-Playground"><span class="nav-number">3.3.</span> <span class="nav-text">设置和使用 Intel AI Playground</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-AnythingLLM"><span class="nav-number">4.</span> <span class="nav-text">四. AnythingLLM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AnythingLLM%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.1.</span> <span class="nav-text">AnythingLLM的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-AnythingLLM"><span class="nav-number">4.2.</span> <span class="nav-text">安装和配置 AnythingLLM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B5%8C%E5%85%A5%E5%99%A8-Embedder-%EF%BC%9F"><span class="nav-number">4.3.</span> <span class="nav-text">什么是嵌入器 (Embedder)？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93-Vector-Database-%EF%BC%9F"><span class="nav-number">4.4.</span> <span class="nav-text">什么是向量数据库 (Vector Database)？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94-%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84AI%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">五. 如何选择正确的AI模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E6%A8%A1%E5%9E%8B%E6%9D%83%E9%87%8D%EF%BC%88%E5%9B%BA%E5%AE%9A%E6%94%AF%E5%87%BA%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">第一部分：模型权重（固定支出）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E4%B8%8A%E4%B8%8B%E6%96%87%E9%95%BF%E5%BA%A6%E7%BC%93%E5%AD%98-Context-Cache"><span class="nav-number">5.2.</span> <span class="nav-text">第二部分：上下文长度缓存, Context Cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E5%A4%9A%E6%A8%A1%E6%80%81%E5%9B%BE%E7%89%87%E9%A2%84%E7%95%99%E7%BC%93%E5%86%B2"><span class="nav-number">5.3.</span> <span class="nav-text">第三部分：多模态图片预留缓冲</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD-%E5%96%82%E5%85%A5%E8%87%AA%E6%95%91%E7%9F%A5%E8%AF%86%E5%BA%93-RAG"><span class="nav-number">6.</span> <span class="nav-text">六. 喂入自救知识库 (RAG)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83-%E6%89%AB%E6%8F%8F%E7%89%88pdf%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text">七. 扫描版pdf的自动识别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8IBM%E7%9A%84-Docling"><span class="nav-number">7.1.</span> <span class="nav-text">使用IBM的 Docling</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AB-%E6%95%B4%E4%BD%93%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">8.</span> <span class="nav-text">八. 整体操作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%9D-%E6%9C%AC%E5%9C%B0%E5%8C%96AI%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83-2026"><span class="nav-number">9.</span> <span class="nav-text">九. 本地化AI模型比较(2026)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81-%E6%9C%AC%E5%9C%B0AI%E6%9E%B6%E6%9E%84%E5%88%86%E5%B1%82"><span class="nav-number">10.</span> <span class="nav-text">十. 本地AI架构分层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%A1%AC%E4%BB%B6%E5%B1%82-Hardware-Layer"><span class="nav-number">10.1.</span> <span class="nav-text">1. 硬件层 (Hardware Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A8%A1%E5%9E%8B%E5%B1%82-Model-Layer"><span class="nav-number">10.2.</span> <span class="nav-text">2. 模型层(Model Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8E%A8%E7%90%86%E5%BC%95%E6%93%8E%E5%B1%82-Inference-Engine"><span class="nav-number">10.3.</span> <span class="nav-text">3. 推理引擎层(Inference Engine)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BB%A3%E7%90%86%E5%B1%82-Agent-Layer"><span class="nav-number">10.4.</span> <span class="nav-text">4. 代理层(Agent Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%BA%94%E7%94%A8%E5%B1%82-Application-Layer"><span class="nav-number">10.5.</span> <span class="nav-text">5. 应用层 (Application Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E7%9F%9B%E7%9B%BE%E5%92%8C%E5%86%B2%E7%AA%81"><span class="nav-number">10.6.</span> <span class="nav-text">6. 矛盾和冲突</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2026/02/25/2607-LocalAI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          本地AI配置教程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-02-25 00:00:00" itemprop="dateCreated datePublished" datetime="2026-02-25T00:00:00+11:00">2026-02-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2026-02-28 23:59:58" itemprop="dateModified" datetime="2026-02-28T23:59:58+11:00">2026-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">本地AI配置教程, 及对AI的看法</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="一-需求"><a href="#一-需求" class="headerlink" title="一. 需求"></a>一. 需求</h1><p>准备安装可以离线的本地AI，主要用于灾备，存储知识，可以离线问答。<br>次要目标是学习了解AI嵌入式本地化的实用性情况<br>电脑1台式机配置是: 5070ti, AMD Ryzen 7 7800X3D, 32GB,1tb+2tb硬盘<br>电脑2笔记本配置是: 无显卡, Intel Ultra7 255H, 64G,1tb+2tb硬盘</p>
+<p>要求：</p>
+<ul>
+<li>本地AI能回答常识性知识，如如何种菜等等，</li>
+<li>可以给他已有的知识库学习， 譬如PDF版本的书籍和文件。</li>
+<li>主要用于灾备，即断网情况下的自救知识。</li>
+<li>顺便学习一下本地AI的发展情况和工具集, 评估嵌入式AI的应用前景.</li>
+</ul>
+<h1 id="二-独立显卡-安装-Ollama"><a href="#二-独立显卡-安装-Ollama" class="headerlink" title="二. 独立显卡, 安装 Ollama"></a>二. 独立显卡, 安装 Ollama</h1><ol>
+<li>Ollama 支持的硬件<ul>
+<li>完美支持 NVIDIA 独立显卡 (CUDA协议).</li>
+<li>良好支持 AMD RX6000系列及以上的显卡 (ROCm协议).</li>
+<li>完美支持 苹果电脑(M1/M2/M3/M4)</li>
+<li>其它情况, Ollama 只能默认使用CPU的算力(体验极差, 无法流畅使用).</li>
+</ul>
+</li>
+<li><strong>下载</strong>：前往 <a target="_blank" rel="noopener" href="https://ollama.com/download">ollama.com</a> 下载 Windows 版并安装。<ul>
+<li>安装后。打开终端（PowerShell），输入：<code>  ollama --version</code>  验证</li>
+</ul>
+</li>
+<li><strong>下载模型</strong>（基于 5070 Ti 16GB，2026年主流选型）：<ul>
+<li><strong>下载主模型</strong>：<code>ollama pull qwen3:14b</code> (百科全书，种菜、自救首选)</li>
+<li><strong>下载 Embedding 模型</strong>：<code>ollama pull nomic-embed-text</code> (用于断网下量化文本内容)</li>
+<li><strong>模型路径修改</strong>：<ul>
+<li>Ollama 默认把模型存在 C 盘。</li>
+<li>在 Windows 环境变量中添加 <code>OLLAMA_MODELS</code><ul>
+<li><code>D:\My_Work\2015_20xx_FREE\202602_LocalAI\models</code></li>
+</ul>
+</li>
+<li>也需要在Setting UI中修改到同样的路径. 一个是cmd模式路径, 一个是UI模式路径.</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://ollama.com/library">https://ollama.com/library</a> 可以进行模型查询</li>
+<li>常用指令<ul>
+<li><code>ollama list</code>  列出下载的本地模型</li>
+<li><code>ollama pull &lt;模型名称&gt;</code>   下载模型到本地</li>
+<li><code>ollama rm &lt;模型名称&gt;</code>     移除本地模型</li>
+<li><code>ollama ps</code>     运行模型的情况及占用内存</li>
+<li><code>ollama stop &lt;模型名称&gt;</code>  停止指定的模型,释放内存</li>
+<li><code>ollama show &lt;模型名称&gt;</code>  显示模型的详细信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="三-Intel-AI-PC-安装-Intel-AI-Playground"><a href="#三-Intel-AI-PC-安装-Intel-AI-Playground" class="headerlink" title="三. Intel AI PC, 安装 Intel AI Playground"></a>三. Intel AI PC, 安装 Intel AI Playground</h1><h2 id="Intel-Ultra-系列的三脑架构"><a href="#Intel-Ultra-系列的三脑架构" class="headerlink" title="Intel Ultra 系列的三脑架构"></a>Intel Ultra 系列的三脑架构</h2><table>
+<thead>
+<tr>
+<th><strong>核心单元</strong></th>
+<th><strong>核心优势</strong></th>
+<th><strong>255H 的硬核参数</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CPU (中央处理器)</strong></td>
+<td>处理突发、复杂的指令，调度全局。</td>
+<td>16核/16线程，主频高达 <strong>5.1 GHz</strong>。</td>
+</tr>
+<tr>
+<td><strong>GPU (集成显卡)</strong></td>
+<td><strong>暴力输出</strong>。处理大规模并行数据，速度极快。</td>
+<td>8个Xe核心，AI 算力高达 <strong>74 TOPS</strong>。</td>
+</tr>
+<tr>
+<td><strong>NPU (神经网络处理器)</strong></td>
+<td><strong>极致节能</strong>。专门应付需要长效、静默运行的任务。</td>
+<td>2026 年新一代 NPU，算力约 <strong>13 TOPS</strong>。</td>
+</tr>
+</tbody></table>
+<h2 id="修改基础配置"><a href="#修改基础配置" class="headerlink" title="修改基础配置"></a>修改基础配置</h2><ul>
+<li>安装或更新 <strong>Intel Graphics Driver</strong> 显卡驱动<ul>
+<li>下载地址 <a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html">Intel® Arc™ &amp; Iris® Xe Graphics - Windows*</a></li>
+<li>注意选择 “Clean Install（全新安装）”</li>
+</ul>
+</li>
+<li>安装或更新 <strong>Intel NPU Driver</strong> 驱动<ul>
+<li>下载地址 <a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/794734/intel-npu-driver-windows.html">Intel NPU Driver</a></li>
+<li>注意选择 “Clean Install（全新安装）”</li>
+</ul>
+</li>
+<li>安装或更新 <strong>Intel AI Playground</strong> 软件<ul>
+<li>下载地址: <a target="_blank" rel="noopener" href="https://github.com/intel/AI-Playground/releases">Intel AI-Playground GitHub Releases</a></li>
+<li>两个驱动安装好后, 需要重启. 然后管理员安装 Intel AI Playground</li>
+<li>首次打开后, 自动进入后端设置界面:<ul>
+<li>勾选 <code>OpenVINO</code> 进行安装. 用于激活GPU和NPU</li>
+<li>勾选 <code>ComfyUI</code> 进行安装. 使其具备生成图片的能力</li>
+<li>勾选 <code> Llama.cpp (GGUF)</code> 进行安装. 可运行开源模型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设置界面：直接搜索 <code>图形设置</code>。<ul>
+<li>确保 <code>Intel AI Playground</code> 处于 “高性能（High performance）” 模式.</li>
+</ul>
+</li>
+</ul>
+<h2 id="设置和使用-Intel-AI-Playground"><a href="#设置和使用-Intel-AI-Playground" class="headerlink" title="设置和使用 Intel AI Playground"></a>设置和使用 Intel AI Playground</h2><ul>
+<li><p>安装完成后, App Settings 进行设置</p>
+<ul>
+<li>开启 <code>Speech To Text</code>, 后端选定硬件为 <code>NPU</code></li>
+<li>内存足够大话, 开启 <code>Keep Models Loaded 保持模型加载</code>, 即AI模型常驻内存.</li>
+</ul>
+</li>
+<li><p>下载指定模型</p>
+<ul>
+<li>几个模式下, 都有推荐的模型. 首次使用会提示下载.<ul>
+<li>保持地址在安装目录下的 <code>resources\models\</code></li>
+</ul>
+</li>
+<li>Chat 模式下, 点击右侧的<code>Chat Settings</code>,<ul>
+<li>前往 <a target="_blank" rel="noopener" href="https://huggingface.co/Intel">HuggingFace - OpenVINO Models 专区</a> 选择模型</li>
+<li>点击 <code>Add Model 添加Model</code> 填入模型名称, 配置参数.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong></p>
+<ul>
+<li>无法让AnythingLLM 通过 Intel AI Playground 去调用核显GPU和NPU.</li>
+</ul>
+</li>
+<li><p>有间接的方法, 可通过Ollama间接实现, 过程复杂. 没有去测试.</p>
+</li>
+<li><p>注意: WSL的内存占用</p>
+<ul>
+<li><p>由于自己的电脑分配给了WSL大量的内存. 如果运行过WSL, 需要确保Windows下的可用内存</p>
+</li>
+<li><p><code>wsl --shutdown</code> 确保关闭wsl</p>
+</li>
+<li><p><code>C:\Users\&lt;你的用户名&gt;\</code> 创建或修改 <code>.wslconfig</code> 文件, 让其自动归还内存</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">32</span>GB</span><br><span class="line"><span class="comment"># ......</span></span><br><span class="line"><span class="comment"># 以上, 为原有的设置</span></span><br><span class="line"><span class="comment"># 新增, 闲置时自动归还内存给Windows</span></span><br><span class="line"><span class="attr">autoMemoryReclaim</span>=gradual</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="四-AnythingLLM"><a href="#四-AnythingLLM" class="headerlink" title="四. AnythingLLM"></a>四. AnythingLLM</h1><h2 id="AnythingLLM的介绍"><a href="#AnythingLLM的介绍" class="headerlink" title="AnythingLLM的介绍"></a>AnythingLLM的介绍</h2><p>这是管理 PDF 知识库的地方。</p>
+<p><strong>AnythingLLM</strong> 的核心价值在于将复杂的 <strong>RAG（检索增强生成）</strong> 技术变得像使用文件夹一样简单。</p>
+<p>以下是它的四大核心功能：</p>
+<ul>
+<li>构建“私人知识库” (RAG)</li>
+<li>模型的多端调度与管理</li>
+<li>会议与全局助理 (2026 新特性)</li>
+</ul>
+<p>配置里面<strong>主模型（Qwen 3）</strong>就是<strong>大脑</strong>，而<strong>嵌入器（Embedder）</strong>和<strong>向量数据库</strong>就是<strong>超级索引库</strong>。</p>
+<p>为了在断网灾备时能快速从几千页 PDF 里翻出答案，这三者必须分工明确：</p>
+<h2 id="安装和配置-AnythingLLM"><a href="#安装和配置-AnythingLLM" class="headerlink" title="安装和配置 AnythingLLM"></a>安装和配置 AnythingLLM</h2><ul>
+<li>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong></li>
+<li>安装: 直接从 <a target="_blank" rel="noopener" href="https://useanything.com/download">useanything.com</a> 下载安装包。</li>
+<li>安装完成后, 打开 AnythingLLM 界面后，按照以下顺序配置：<ol>
+<li>**LLM Setup (大语言模型)**：<ul>
+<li><strong>LLM Provider</strong>: 选择 <code>Ollama</code> 或者 <code>Intel AI Playground</code></li>
+<li><strong>Model</strong>: 选择 <code>qwen3:14b</code>  (请按实际需求选择)</li>
+<li><strong>Ollama URL</strong>: <code>http://127.0.0.1:11434</code>。</li>
+</ul>
+</li>
+<li>**Embedder (嵌入器)**：<ul>
+<li>如果安装了 <code> Intel AI Playground</code><ul>
+<li>保持默认值即可</li>
+<li>目前不支持 <code>nomic-embed-text</code></li>
+</ul>
+</li>
+<li>如果安装了<code>Ollama</code><ul>
+<li><strong>Embedding Provider</strong>: 选择 <code>Ollama</code></li>
+<li><strong>Model</strong>: 选择 <code>nomic-embed-text</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>**Vector Database (数据库)**：<ul>
+<li>选择 <code>LanceDB</code> (这是内置的，直接存在你硬盘里，无需额外安装)。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="什么是嵌入器-Embedder-？"><a href="#什么是嵌入器-Embedder-？" class="headerlink" title="什么是嵌入器 (Embedder)？"></a>什么是嵌入器 (Embedder)？</h2><p><strong>它是 AI 的“翻译官”，负责把文字变成“坐标”。</strong></p>
+<ul>
+<li><strong>作用</strong>：人类的文字（如“如何过滤水”）对计算机来说太感性了。嵌入器会将这段话转化成一串长长的数字（向量），比如 <code>[0.12, -0.98, 0.55...]</code>。</li>
+<li>它能让意思相近的话，在数字空间里的“位置”也非常接近。比如“怎么找喝的水”和“野外水源净化”，虽然字面上没一个字相同，但在嵌入器眼里，它们的数字坐标挨得很近。</li>
+<li><code>nomic-embed-text</code>：是这个“翻译官”的名字。它是目前公认的<strong>离线性能最强、速度最快</strong>的小模型之一。</li>
+</ul>
+<h2 id="什么是向量数据库-Vector-Database-？"><a href="#什么是向量数据库-Vector-Database-？" class="headerlink" title="什么是向量数据库 (Vector Database)？"></a>什么是向量数据库 (Vector Database)？</h2><p><strong>它是 AI 的“超级图书馆架”，负责存坐标。</strong></p>
+<ul>
+<li><strong>作用</strong>：当把一个 1GB 的 PDF 塞给 AnythingLLM 时，系统会先把 PDF 切成几万个小碎片，让 <code>nomic-embed-text</code> 把每个碎片都翻译成“数字坐标”，然后存进这个“向量数据库”里。</li>
+<li><strong>查询过程</strong>：当问题时，它不是在搜关键词（像 Ctrl+F 那样），而是在数据库里找“离你问题坐标最近”的那几个 PDF 碎片。</li>
+<li><strong>在 AnythingLLM 里</strong>：它通常内置了一个叫 <strong>LanceDB</strong> 或 <strong>Chroma</strong> 的数据库，不需要额外下载，它会自动管理。</li>
+</ul>
+<h1 id="五-如何选择正确的AI模型"><a href="#五-如何选择正确的AI模型" class="headerlink" title="五. 如何选择正确的AI模型"></a>五. 如何选择正确的AI模型</h1><ul>
+<li>核心公式: <strong>显存必须装下整个模型文件 + 上下文（Context）所需的空间。</strong></li>
+<li>“全显存”是分水岭. AI 推理本质上是极其密集的数学运算。<ul>
+<li><strong>全显存模式（GPU Only）：</strong> 数据在显存（VRAM）和 GPU 核心之间传输，带宽通常在 <strong>500GB/s - 1000GB/s</strong> 以上。</li>
+<li><strong>混合模式（GPU + CPU/RAM）：</strong> 当显存装不下，模型的一部分会被迫放在内存里。由于总瓶颈，内存带宽通常只有 <strong>50GB/s - 100GB/s</strong>。</li>
+<li><strong>结果：</strong> 整个系统的速度会被最慢的环节（内存）拖累。即便只溢出了 1GB 到内存，速度也会从 50 t/s 掉到 3-5 t/s。</li>
+</ul>
+</li>
+</ul>
+<h2 id="第一部分：模型权重（固定支出）"><a href="#第一部分：模型权重（固定支出）" class="headerlink" title="第一部分：模型权重（固定支出）"></a>第一部分：模型权重（固定支出）</h2><p>这是模型文件加载进显卡的大小。</p>
+<ul>
+<li><strong>计算：</strong> 如果是 <strong>14B</strong> 模型，使用 <strong>Q4_K_M</strong> 量化，大约占用 <strong>9GB - 9.5GB</strong>。</li>
+<li><strong>余额：</strong> 16GB - 9.5GB = <strong>6.5GB</strong>。这剩下的 6.5GB 就是剩余可用显卡内存。</li>
+</ul>
+<h2 id="第二部分：上下文长度缓存-Context-Cache"><a href="#第二部分：上下文长度缓存-Context-Cache" class="headerlink" title="第二部分：上下文长度缓存, Context Cache"></a>第二部分：上下文长度缓存, Context Cache</h2><p>这决定了 AI 能记得多远的聊天记录。<strong>Context Cache 是显存占用的大户。</strong></p>
+<ul>
+<li><strong>估算公式（经验法则）：</strong><ul>
+<li>对于 7B 的模型，每 1K Token大约占用 100MB - 200MB 显存。</li>
+<li>对于 14B 的模型，每 1K Token大约占用 300MB - 400MB 显存。</li>
+<li>对于 32B 的模型，每 1K Token大约占用 600MB - 800MB 显存。</li>
+</ul>
+</li>
+<li><strong>最低4K上下文的情况下. 7B模型约0.7GB; 14B模型约1.5GB.</strong></li>
+</ul>
+<h2 id="第三部分：多模态图片预留缓冲"><a href="#第三部分：多模态图片预留缓冲" class="headerlink" title="第三部分：多模态图片预留缓冲"></a>第三部分：多模态图片预留缓冲</h2><p>对于支持多模态的AI大模型, 还需要预留出足够的图片缓冲.</p>
+<p>视觉模型处理图片时，会将图片编码为 “Token”。</p>
+<ul>
+<li><strong>计算参考：</strong> Qwen-VL 系列通常将一张图片编码为约 <strong>1000 - 1500 个 Token</strong>。</li>
+<li>处理图片瞬间的计算（Activation）和存储这些图片 Token，<ul>
+<li>建议为“单次对话处理 1-2 张图”预留 <strong>1.5GB - 2GB</strong> 的显存。</li>
+</ul>
+</li>
+</ul>
+<h1 id="六-喂入自救知识库-RAG"><a href="#六-喂入自救知识库-RAG" class="headerlink" title="六. 喂入自救知识库 (RAG)"></a>六. 喂入自救知识库 (RAG)</h1><ol>
+<li>回到 AnythingLLM 主界面。点击搜索旁边的<strong>”+“</strong>号， 就是新建工作区。</li>
+<li>**创建工作区 (Workspace)**：起名为 <code>EmergencySurvival</code>。</li>
+<li><strong>上传 PDF</strong>：点击新建工作区右侧的上传按钮，把收集的《赤脚医生手册》、《野外生存指南》、种植等灾备书籍(<strong>必须是文字版</strong>)拖进去。</li>
+<li><strong>搬运到 Workspace</strong>：点击 **”Move to Workspace”**，然后点击 **”Save and Embed”**。<ul>
+<li>此时显卡会疯狂工作一会，它正在把书里的文字变成 AI 能理解的数学向量。</li>
+</ul>
+</li>
+<li><strong>开始提问</strong>：<ul>
+<li>在对话框切换到 <strong>“Query”</strong> 模式（仅从文档找答案）或 <strong>“Chat”</strong> 模式（文档+AI自带常识）。</li>
+<li>试着问：“如果断水了，如何用简单的材料制作净水装置？”</li>
+</ul>
+</li>
+</ol>
+<h1 id="七-扫描版pdf的自动识别"><a href="#七-扫描版pdf的自动识别" class="headerlink" title="七. 扫描版pdf的自动识别"></a>七. 扫描版pdf的自动识别</h1><p>在尝试放入PDF文件时, 马上会遇到的问题就是: 大部分的PDF是图片扫描版本, 而不是文字版.<br>因而需要自动批量化实现以下功能</p>
+<ul>
+<li>PDF文件的加载和读取</li>
+<li>图片识别为文字, 保存.</li>
+<li>识别出文件中真正的图片, 保存.</li>
+<li>文字和图片, 尽量保持原有布局, 导出为新文件.</li>
+</ul>
+<p>经过比较判断, 直接使用图片识别大模型并不现实.</p>
+<ul>
+<li>本地AI大多只能处理一二张图片的识别</li>
+<li>大多不支持PDF格式的导入, 或PDF文件过大.</li>
+<li>无法自动保留布局, 并导出为新文件.</li>
+</ul>
+<p>一样要编程实现, 选了IBM的Docling.</p>
+<ul>
+<li>需要安装python 3.10以上.</li>
+</ul>
+<h2 id="使用IBM的-Docling"><a href="#使用IBM的-Docling" class="headerlink" title="使用IBM的 Docling"></a>使用IBM的 Docling</h2><ul>
+<li>下载安装Docling</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">python <span class="literal">-V</span>   <span class="comment"># 需要python 3.10以上.</span></span><br><span class="line">python <span class="literal">-m</span> pip install docling           <span class="comment"># 核心库</span></span><br><span class="line">python <span class="literal">-m</span> pip install docling[<span class="type">ocr</span>]      <span class="comment"># 文字识别引擎</span></span><br><span class="line">python <span class="literal">-m</span> pip install docling[<span class="type">render</span>]   <span class="comment"># 图片渲染引擎</span></span><br><span class="line">python <span class="literal">-m</span> pip install pypdf             <span class="comment"># 读取pdf</span></span><br><span class="line">python <span class="literal">-m</span> pip install hf_xet            <span class="comment"># 用于加快大模型的下载速度</span></span><br><span class="line">python <span class="literal">-m</span> pip install ebooklib beautifulsoup4   <span class="comment"># 处理epub格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># !!!注意, 只有NV独立显卡, 才需要安装特殊版本的torch以便加速.!!!</span></span><br><span class="line"><span class="comment"># 要先卸载已有的版本, 无法自动覆盖安装</span></span><br><span class="line">python <span class="literal">-m</span> pip uninstall torch torchvision <span class="literal">-y</span></span><br><span class="line"><span class="comment"># 安装CUDA工具, 让NVIDIA 5070Ti参与加速OCR.</span></span><br><span class="line">python <span class="literal">-m</span> pip install torch torchvision torchaudio -<span class="literal">-index</span><span class="literal">-url</span> https://download.pytorch.org/whl/cu128</span><br><span class="line"><span class="comment"># !!!注意结束!!!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查torch版本</span></span><br><span class="line">python <span class="literal">-c</span> <span class="string">&quot;import torch; print(torch.__version__)&quot;</span></span><br><span class="line"><span class="comment"># 默认是 +cpu 工作.NV显卡则显示 +cuXXX</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认的 torch 版本, 使用CPU, 一般已经自动安装. 便于错误安装后的恢复.</span></span><br><span class="line"><span class="comment">### python -m pip install torch torchvision</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>通过 Docling 提取图文的脚本, 可通过GitHub下载.<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/draapho/FILE_Docling">draapho / FILE_Docling</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/tree/master/_blog_stuff/python/fileDocling.py">博客备用下载</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>首次运行, 需要管理员权限, 运行该脚本. 会联网自动下载配置大模型 <ul>
+<li>大模型会存入 C:\Users&lt;账户名称&gt;.cache\huggingface\，</li>
+<li>下次处理其他 PDF 时，它就会直接读取本地文件，不再需要联网。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 方法一, 将pdf文件放到 `fileDocling.py` 所在文件夹</span></span><br><span class="line"><span class="comment"># 然后双击运行 fileDocling.py脚本, 选择python运行即可.</span></span><br><span class="line"><span class="comment"># 或者打开管理员终端, 运行下述指令之一即可.</span></span><br><span class="line">python fileDocling.py</span><br><span class="line">py fileDocling.py</span><br><span class="line">py -3.12 fileDocling.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二, 在pdf所在文件夹, 指定路径运行 fileDocling.py</span></span><br><span class="line"><span class="comment"># 打开管理员终端, 运行下述指令之一即可.</span></span><br><span class="line">python /...path/fileDocling.py</span><br><span class="line">py /...path/fileDocling.py</span><br><span class="line">py -3.12 /...path/fileDocling.py</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>py文件右键添加管理员(可选)<ul>
+<li>下述内容保存为文件 <code>文件py右键添加管理员打开.reg</code></li>
+<li>如有必要, 保存一下windows注册表</li>
+<li>运行 <code>文件py右键添加管理员打开.reg</code>, 这样右键即可直接管理员运行选中的py文件.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Python.File\shell\runas]</span><br><span class="line">@=<span class="string">&quot;以管理员身份运行&quot;</span></span><br><span class="line"><span class="string">&quot;Extended&quot;</span>=dword:00000001</span><br><span class="line"><span class="string">&quot;Icon&quot;</span>=<span class="string">&quot;python.exe&quot;</span></span><br><span class="line"><span class="string">&quot;HasLUASHIELD&quot;</span>=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Python.File\shell\runas\<span class="built_in">command</span>]</span><br><span class="line">@=<span class="string">&quot;cmd.exe /k \&quot;pushd \&quot;%1\\..\&quot; &amp;&amp; python \&quot;%1\&quot; %*\&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="八-整体操作流程"><a href="#八-整体操作流程" class="headerlink" title="八. 整体操作流程"></a>八. 整体操作流程</h1><ul>
+<li>预处理阶段（把扫描图变文本）<ul>
+<li>将扫描版的PDF书籍放入 <code>fileDocling.py</code> 所在的文件夹.</li>
+<li>运行 <code>fileDocling.py</code>脚本, 提取出md或html格式的书籍</li>
+</ul>
+</li>
+<li>录入阶段（把文本变成LLM库）<ul>
+<li><strong>操作</strong>：打开 <strong>AnythingLLM</strong>。</li>
+<li><strong>动作</strong>：进入 <code>Emergency_Survival</code> 工作区，把刚才保存的文本文件丢进去，点击 **”Save and Embed”**。</li>
+<li><strong>结果</strong>：这时“索引员” <code>nomic-embed-text</code> 会接手，把它存入本地向量数据库。</li>
+</ul>
+</li>
+<li>提问阶段（正式使用）<ul>
+<li><strong>操作</strong>：在 <strong>AnythingLLM</strong> 的聊天框里直接输入问题。</li>
+<li><strong>后台状态</strong>：Ollama 或 Intel AI Playground 必须在后台运行。</li>
+<li><strong>关键点：选对模型</strong><ul>
+<li>在 AnythingLLM 聊天窗口的顶部或设置里，确保 <strong>Chat Model</strong> 选的是 **<code>qwen3:14b</code>**。或其它高性能通用性大模型.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="九-本地化AI模型比较-2026"><a href="#九-本地化AI模型比较-2026" class="headerlink" title="九. 本地化AI模型比较(2026)"></a>九. 本地化AI模型比较(2026)</h1><table>
+<thead>
+<tr>
+<th><strong>大模型</strong></th>
+<th><strong>大小</strong></th>
+<th><strong>逻辑推理</strong></th>
+<th><strong>文本能力</strong></th>
+<th><strong>多模视觉</strong></th>
+<th><strong>核心定位</strong></th>
+<th><strong>主要特点</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Qwen3:14B</strong></td>
+<td>9.3GB</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>无</td>
+<td>通用旗舰</td>
+<td>中文语境理解与长文本处理最强。</td>
+</tr>
+<tr>
+<td><strong>Qwen3:8B</strong></td>
+<td>5.1GB</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>无</td>
+<td>轻量旗舰</td>
+<td>Qwen3:14B 的轻量化版。</td>
+</tr>
+<tr>
+<td><strong>DeepSeek-R1:14B</strong></td>
+<td>9.5GB</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>无</td>
+<td>深度思考</td>
+<td>逻辑推理天花板，自带“思考链”。</td>
+</tr>
+<tr>
+<td><strong>DeepSeek-R1:8B</strong></td>
+<td>5.3GB</td>
+<td>⭐⭐⭐</td>
+<td>⭐</td>
+<td>无</td>
+<td>轻量推理</td>
+<td>R1:14B 的轻量化版。</td>
+</tr>
+<tr>
+<td><strong>Gemma 3:12B</strong></td>
+<td>8.2GB</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>创意助手</td>
+<td>文学创作、多轮对话自然，多模态。</td>
+</tr>
+<tr>
+<td><strong>Qwen2.5-Coder:14B</strong></td>
+<td>9.2GB</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>无</td>
+<td>编程专家</td>
+<td>代码生成准确率和排错能力本地最强。</td>
+</tr>
+<tr>
+<td><strong>Qwen2.5-Coder:7B</strong></td>
+<td>4.7GB</td>
+<td>⭐⭐</td>
+<td>⭐</td>
+<td>无</td>
+<td>轻量编程</td>
+<td>Coder:14B 的轻量化版。</td>
+</tr>
+<tr>
+<td><strong>Qwen3-VL:8B</strong></td>
+<td>6.4GB</td>
+<td>⭐</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>图像解析</td>
+<td>能够理解复杂图表并生成代码或描述。</td>
+</tr>
+<tr>
+<td><strong>TranslateGemma:12B</strong></td>
+<td>8.4GB</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>无</td>
+<td>翻译专用</td>
+<td>翻译能力超过通用模型，带术语库支持。</td>
+</tr>
+<tr>
+<td><strong>微小模型</strong></td>
+<td>大小</td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>端应用,嵌入式</strong></td>
+<td>成本和资源受限的情况</td>
+</tr>
+<tr>
+<td><strong>Qwen3-VL:2B</strong></td>
+<td>1.8GB</td>
+<td>⭐⭐</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>端侧视觉</td>
+<td>视觉解析同级别顶尖</td>
+</tr>
+<tr>
+<td><strong>GLM-OCR:q8_0</strong></td>
+<td>1.6GB</td>
+<td>⭐</td>
+<td>⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>极致OCR</td>
+<td>复杂图文的OCR高度还原。</td>
+</tr>
+<tr>
+<td><strong>LFM2.5-Thinking:1.2B</strong></td>
+<td>0.8GB</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>无</td>
+<td>指令过滤</td>
+<td>解析并拆解复杂的任务指令。</td>
+</tr>
+</tbody></table>
+<h1 id="十-本地AI架构分层"><a href="#十-本地AI架构分层" class="headerlink" title="十. 本地AI架构分层"></a>十. 本地AI架构分层</h1><h2 id="1-硬件层-Hardware-Layer"><a href="#1-硬件层-Hardware-Layer" class="headerlink" title="1. 硬件层 (Hardware Layer)"></a>1. 硬件层 (Hardware Layer)</h2><p>可以运行大模型的硬件有如下几种:</p>
+<table>
+<thead>
+<tr>
+<th><strong>硬件</strong></th>
+<th><strong>缩写全称</strong></th>
+<th><strong>背后巨头</strong></th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CPU</strong></td>
+<td>中央处理器</td>
+<td>Intel / AMD</td>
+<td>什么都可以做. 擅长逻辑调度, 串行计算. 不适合密集计算。</td>
+</tr>
+<tr>
+<td><strong>GPU</strong></td>
+<td>图形处理器</td>
+<td>NVIDIA / AMD</td>
+<td>虽然每个只会简单算术，但一起算题速度极快。高功耗.</td>
+</tr>
+<tr>
+<td><strong>NPU</strong></td>
+<td>神经网络处理器</td>
+<td>Intel / 苹果 / 华为</td>
+<td>专为AI设计. 低功耗AI专用机算器。</td>
+</tr>
+<tr>
+<td><strong>TPU</strong></td>
+<td>张量处理器</td>
+<td>Google</td>
+<td>专门处理极大规模的计算。买不到，只能云端租用。</td>
+</tr>
+</tbody></table>
+<p>不同硬件芯片的指令集和加速协议:</p>
+<table>
+<thead>
+<tr>
+<th><strong>加速协议/框架</strong></th>
+<th><strong>所属/适配</strong></th>
+<th><strong>核心特点</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CUDA</strong></td>
+<td>NVIDIA</td>
+<td>生态最成熟，拥有物理层级最高的并行计算效率与底层算力优化能力。</td>
+</tr>
+<tr>
+<td><strong>ROCm</strong></td>
+<td>AMD</td>
+<td>对应 CUDA 的开源方案。</td>
+</tr>
+<tr>
+<td><strong>Metal / AMX</strong></td>
+<td>Apple</td>
+<td>苹果统一内存架构的核心。通过集成在 SoC 中的异步矩阵扩展（AMX）实现极高性能的推理。</td>
+</tr>
+<tr>
+<td><strong>OpenVINO</strong></td>
+<td>Intel</td>
+<td>跨硬件加速器。能将模型自动映射到 CPU、GPU（集显）和 NPU 上，是 Intel AI PC 的核心。</td>
+</tr>
+<tr>
+<td><strong>DirectML</strong></td>
+<td>Microsoft</td>
+<td>微软推出的跨硬件 API。只要支持 DirectX 12 的显卡都能跑，适配性最广但极致性能略逊。</td>
+</tr>
+</tbody></table>
+<h2 id="2-模型层-Model-Layer"><a href="#2-模型层-Model-Layer" class="headerlink" title="2. 模型层(Model Layer)"></a>2. 模型层(Model Layer)</h2><p>即本地大模型, 纯二进制文件. 包含了训练后, AI的整个参数集和知识库.</p>
+<p>必要的知识点:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/">Hugging Face</a>.  AI 界的 GitHub. 用于存储、分享模型和数据集的标准云端仓库。</li>
+<li>GGUF 文件格式：本地化部署的标准文件格式，通过“量化”技术让大模型能塞进家用显存里。</li>
+</ul>
+<p>当前模型的局限性. 资源和算力总是有限的, 单个AI是有自己的特点, 局限和专长的.</p>
+<p>因而需要了解主流AI模型的特长, 才能较好的选择正确的AI大模型.</p>
+<ul>
+<li>主流闭源云端模型（2026）<ul>
+<li><strong>Gemini 2.0 Ultra</strong>：原生多模态，擅长处理视频流与复杂音频指令。</li>
+<li><strong>GPT-5 / Claude 4</strong>：逻辑推理与复杂指令，用于处理超长文本或极高难度逻辑。</li>
+</ul>
+</li>
+<li>主流开源模型（2026）<ul>
+<li>**Qwen 3 (通义千问)**：中文语境下的绝对王者. 其云端产品性能已经与闭源模型对齐<ul>
+<li>2025年起, Qwen有成为开源模型霸主的趋势.</li>
+<li>2026 年, 其提供的开源本地版, 逻辑能力已全面对齐 GPT-4.</li>
+</ul>
+</li>
+<li>**Llama 3.3 / 4 (Meta)**：过去几年, AI开源社区的生态位中心。</li>
+<li><strong>DeepSeek V3</strong>：性价比与架构创新的代表，在数学、编程等垂直领域表现突出。</li>
+<li><strong>Mistral NeMo</strong>：针对端侧优化，在极小参数量下保持了极高的上下文窗口处理能力。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-推理引擎层-Inference-Engine"><a href="#3-推理引擎层-Inference-Engine" class="headerlink" title="3. 推理引擎层(Inference Engine)"></a>3. 推理引擎层(Inference Engine)</h2><p>负责将静态的模型文件加载到硬件上，并提供与外界沟通的接口。</p>
+<ul>
+<li><strong>Ollama</strong>：全能驱动引擎。它极大的简化了复杂的部署流程, 并具有广泛的适配性。</li>
+<li><strong>Intel AI Playground</strong>：专为 Core Ultra 处理器设计，通过 OpenVINO 框架榨干 NPU 和集显的每一分性能。</li>
+</ul>
+<p>其它引擎层软件, 供参考学习.</p>
+<ul>
+<li><strong>vLLM</strong>：高并发首选。主要用于服务器端或本地多用户环境。</li>
+<li><strong>LM Studio</strong>：更像是调试工具, 适合企业和开发者进行模型性能对比与提示词测试。</li>
+<li>**Text-Generation-WebUI **：高度自定义首选。适合发烧友。</li>
+</ul>
+<h2 id="4-代理层-Agent-Layer"><a href="#4-代理层-Agent-Layer" class="headerlink" title="4. 代理层(Agent Layer)"></a>4. 代理层(Agent Layer)</h2><p>这一层不再是关注如何让单个AI跑起来, 关注的重点是如何整合资源(多AI, 其它功能, 权限)来提供某种服务.</p>
+<ul>
+<li><strong>AnythingLLM</strong>：本地知识库管理专家。<ul>
+<li>内置全套 RAG 链路（嵌入、切片、检索）。</li>
+<li>将 RAG流程标准化. 极大简化了知识库的构建过程.</li>
+<li>提供了非常实用的应用层功能, 诸如会议记录和摘要, 电脑交互收集信息, 知识库检索.</li>
+</ul>
+</li>
+<li><strong>Claude Code / OpenClaw / OpenCode</strong>：操作级 Agent。主要用于辅助编程.</li>
+<li><strong>Dify / LangFlow</strong>：工作流编排。通过拖拽节点的方式，将 LLM、搜索插件、数据库操作连成复杂的自动化流水线。</li>
+</ul>
+<h2 id="5-应用层-Application-Layer"><a href="#5-应用层-Application-Layer" class="headerlink" title="5. 应用层 (Application Layer)"></a>5. 应用层 (Application Layer)</h2><p>AI 的“隐形化与终端化”. 标志着 AI 从炙手可热的前沿工具演变为悄无声息的背景服务。</p>
+<ul>
+<li>集成层提供的功能, 进一步成为基础服务和API,</li>
+<li>应用层的开发者, 无需考虑大模型的选型适配. 选择对应集成服务即可.</li>
+<li>应用层纯粹的聚焦于用户需求及实现.</li>
+<li>最终用户按照自然习惯使用应用. 几乎没有学习曲线.</li>
+</ul>
+<h2 id="6-矛盾和冲突"><a href="#6-矛盾和冲突" class="headerlink" title="6. 矛盾和冲突"></a>6. 矛盾和冲突</h2><p>AI的能力高度依赖知识库. 但是AI一旦通过知识库学会某种技能后, 整体趋势就是整个行业对人力的需求快速萎缩.<br>这场变革正在不同领域以不均等的速度发生。</p>
+<p>目前, 很清晰的, 只要知识信息便于收集和获取的, AI的表现都比较出众.</p>
+<ul>
+<li>编程领域, 完全能替代新手编程员.<ul>
+<li>缺少的是大局观, 架构设计, 底层交互调试等高度依赖个人经验积累的, 抽象级别更高, 更离散的知识库.</li>
+</ul>
+</li>
+<li>商用创意多媒体, 如平面设计, CG 建模, 动画中间帧, 甚至商业摄影<ul>
+<li>由于互联网上有海量的标注图像和视频流，AI 已经能实现从分镜到成片的端到端输出。</li>
+<li>低端美工和初级剪辑师已基本被集成层工具取代。</li>
+</ul>
+</li>
+<li>文字助理, 大众文学. 由于经典文献、网络文学、新闻稿件已高度数字化. AI 的遣词造句能力远超普通人类。<ul>
+<li>法律文职助理</li>
+<li>售后服务</li>
+</ul>
+</li>
+<li>交易员. 目标清晰, 历史走势可公开获取. 还没有人性固有的缺点.</li>
+</ul>
+<p>而专业领域, 由于缺乏数字化公开资料, 会形成”数字孤岛”, AI的替换速度就要缓慢的多. 但渗透只是时间问题.</p>
+<ul>
+<li>硬件电路设计. 主要障碍是AI的大规模图片识别能力有限, 无法从公开的原理图中总结普适性经验.<ul>
+<li>电路板layout 走线设计以及硬件调试, 更是深藏资深硬件工程师的经验和离线文档中.</li>
+<li>AI可以从辅助设计原理图和走线开始. 电路调试相当长时间内, 依旧需要人类参与.</li>
+</ul>
+</li>
+<li>精密机械结构. 涉及复杂的物理材料特性、模具精度与装配公差.<ul>
+<li>AI 仍需大量高质量的闭环实验数据支撑。</li>
+</ul>
+</li>
+<li>医疗临床诊断. 临床经验很难量化为标准数据. 甚至会被描述成一种”临床直觉”<ul>
+<li>影像诊断是例外, 目前已经成为了辅助判断病例的得力助手.</li>
+</ul>
+</li>
+<li>法律与高端智库. 法律的博弈并不全在公开的法律条文.<ul>
+<li>而是隐藏在案件背后的利益博弈, 人情世故与法庭辩论的即时反应.</li>
+<li>往往要针对每个案件, 深入研究分析其背后的相关利益者. AI 难以触及.</li>
+</ul>
+</li>
+</ul>
+<p>最后. 核心不是人和AI的矛盾, 而是人和人的矛盾. 即: 资源的分配问题.</p>
+<ul>
+<li>当前的主要分配形式为: 按劳取酬和资本得利. 普通大众基本是按劳取酬.</li>
+<li>去焦虑被AI淘汰是没有用的, 这只是时间问题.<ul>
+<li>不要相信什么AI只是新技术, 会产生新的工作. AI对整个生产模式是颠覆性的, 破坏性的.</li>
+<li>即凡是被AI占领的工作, 人类再也没有可能分一杯羹.  是生产主体从”碳基” 向”硅基”的永久迁移.</li>
+<li>而且, 这种占领范围是全方位的, 鲜有死角, 只有快慢之分.</li>
+<li><strong>犹如猛虎在后, 现在引导的焦虑感, 是让你觉得只要跑赢周围的人就行了. 但这只猛虎永不停歇!!!</strong></li>
+</ul>
+</li>
+<li>目前, AI带来的技术红利, 主要流向了资产持有者. 即资本得利. 这是不可持续的.<ul>
+<li>现有的制度崩溃是无法避免的, 要么损上益下逐步改良, 要么乱而后治.</li>
+</ul>
+</li>
+<li>因而, 后AI时代, 需要解决的是人类的制度问题!</li>
+</ul>
+<p>打破一个旧世界很难, 更难的是破而后立, 我们需要共同思考:</p>
+<ul>
+<li><strong>我们, 真正追求的是怎样的人生?</strong></li>
+<li><strong>人的价值和尊严, 应该建立在怎样的制度之上?</strong></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"># software</a>
+              <a href="/tags/crisis/" rel="tag"># crisis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/02/21/2606-IamPath/" rel="prev" title="超越“体验”：自我参究/话头与“我是”证悟的详尽指南">
+                  <i class="fa fa-chevron-left"></i> 超越“体验”：自我参究/话头与“我是”证悟的详尽指南
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/03/01/2608-mapping/" rel="next" title="八卦的常见映射">
+                  八卦的常见映射 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
