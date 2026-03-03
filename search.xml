@@ -30003,8 +30003,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p>修行次第: 小我, 大我及无我.</p>
 <ul>
 <li>小我, 自我, 世俗<br><img src="https://draapho.github.io/images/2528/iLowcase.png" alt="iLowcase.png"></li>
-<li>大我, 一心, 自性, 明心见性(阶段一至阶段四), 有镜的比喻. 容易安住于此, 认为是终点.<br><img src="https://draapho.github.io/images/2528/iCaptial.png" alt="iCaptial.png"></li>
-<li>无我, 无门之门(阶段五及以上). 真空妙有, 直觉现象, 无执无住.<br><img src="https://draapho.github.io/images/2528/anatta.png" alt="anatta.png"></li>
+<li>大我, 一心, 自性, 明心(阶段一至阶段四), 有镜的比喻. 容易安住于此, 认为是终点.<br><img src="https://draapho.github.io/images/2528/iCaptial.png" alt="iCaptial.png"></li>
+<li>无我, 无门之门(阶段五及以上). 真空妙有, 直觉现象, 无执无住.</li>
+<li>禅宗见性之说, 应该是无我的初次体验, 不一定是阶段五的证悟.<br><img src="https://draapho.github.io/images/2528/anatta.png" alt="anatta.png"></li>
+<li>证悟无我成为入流者（须陀洹），开始理解佛教修行（胜义谛）的目的。也就是禅宗所说的，悟后起修。</li>
 </ul>
 <p>阶段五及以后. 自己尚在修习, 没有亲证. 而且阶段四也尚未证悟. </p>
 <p><strong>上述想法, 诸位当戏论即可.</strong></p>
@@ -31906,9 +31908,9 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
       </tags>
   </entry>
   <entry>
-    <title>本地AI配置教程</title>
+    <title>基于Ollama的本地AI配置教程</title>
     <url>/2026/02/25/2607-LocalAI/</url>
-    <content><![CDATA[<h1 id="一-需求"><a href="#一-需求" class="headerlink" title="一. 需求"></a>一. 需求</h1><p>准备安装可以离线的本地AI，主要用于灾备，存储知识，可以离线问答。<br>次要目标是学习了解AI嵌入式本地化的实用性情况<br>电脑1台式机配置是: 5070ti, AMD Ryzen 7 7800X3D, 32GB,1tb+2tb硬盘<br>电脑2笔记本配置是: 无显卡, Intel Ultra7 255H, 64G,1tb+2tb硬盘</p>
+    <content><![CDATA[<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>准备安装可以离线的本地AI，主要用于灾备，存储知识，可以离线问答。<br>次要目标是学习了解AI嵌入式本地化的实用性情况<br>台式机配置是: 5070ti, AMD Ryzen 7 7800X3D, 32GB,1tb+2tb硬盘</p>
 <p>要求：</p>
 <ul>
 <li>本地AI能回答常识性知识，如如何种菜等等，</li>
@@ -31916,7 +31918,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>主要用于灾备，即断网情况下的自救知识。</li>
 <li>顺便学习一下本地AI的发展情况和工具集, 评估嵌入式AI的应用前景.</li>
 </ul>
-<h1 id="二-独立显卡-安装-Ollama"><a href="#二-独立显卡-安装-Ollama" class="headerlink" title="二. 独立显卡, 安装 Ollama"></a>二. 独立显卡, 安装 Ollama</h1><ol>
+<h1 id="安装-Ollama"><a href="#安装-Ollama" class="headerlink" title="安装 Ollama"></a>安装 Ollama</h1><ol>
 <li>Ollama 支持的硬件<ul>
 <li>完美支持 NVIDIA 独立显卡 (CUDA协议).</li>
 <li>良好支持 AMD RX6000系列及以上的显卡 (ROCm协议).</li>
@@ -31929,8 +31931,15 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 <li><strong>下载模型</strong>（基于 5070 Ti 16GB，2026年主流选型）：<ul>
-<li><strong>下载主模型</strong>：<code>ollama pull qwen3:14b</code> (百科全书，种菜、自救首选)</li>
-<li><strong>下载 Embedding 模型</strong>：<code>ollama pull nomic-embed-text</code> (用于断网下量化文本内容)</li>
+<li><strong>下载主模型</strong>：<ul>
+<li><code>ollama pull qwen3:14b</code> (百科全书，种菜、自救首选)</li>
+</ul>
+</li>
+<li><strong>下载 Embedding 模型</strong>：<ul>
+<li><code>ollama pull bge-m3:567m</code> (量化文本内容, 适合中文或多语言)</li>
+<li><code>ollama pull nomic-embed-text</code> (量化文本内容, 适合纯英文)</li>
+</ul>
+</li>
 <li><strong>模型路径修改</strong>：<ul>
 <li>Ollama 默认把模型存在 C 盘。</li>
 <li>在 Windows 环境变量中添加 <code>OLLAMA_MODELS</code><ul>
@@ -31953,96 +31962,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 </ol>
-<h1 id="三-Intel-AI-PC-安装-Intel-AI-Playground"><a href="#三-Intel-AI-PC-安装-Intel-AI-Playground" class="headerlink" title="三. Intel AI PC, 安装 Intel AI Playground"></a>三. Intel AI PC, 安装 Intel AI Playground</h1><h2 id="Intel-Ultra-系列的三脑架构"><a href="#Intel-Ultra-系列的三脑架构" class="headerlink" title="Intel Ultra 系列的三脑架构"></a>Intel Ultra 系列的三脑架构</h2><table>
-<thead>
-<tr>
-<th><strong>核心单元</strong></th>
-<th><strong>核心优势</strong></th>
-<th><strong>255H 的硬核参数</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>CPU (中央处理器)</strong></td>
-<td>处理突发、复杂的指令，调度全局。</td>
-<td>16核/16线程，主频高达 <strong>5.1 GHz</strong>。</td>
-</tr>
-<tr>
-<td><strong>GPU (集成显卡)</strong></td>
-<td><strong>暴力输出</strong>。处理大规模并行数据，速度极快。</td>
-<td>8个Xe核心，AI 算力高达 <strong>74 TOPS</strong>。</td>
-</tr>
-<tr>
-<td><strong>NPU (神经网络处理器)</strong></td>
-<td><strong>极致节能</strong>。专门应付需要长效、静默运行的任务。</td>
-<td>2026 年新一代 NPU，算力约 <strong>13 TOPS</strong>。</td>
-</tr>
-</tbody></table>
-<h2 id="修改基础配置"><a href="#修改基础配置" class="headerlink" title="修改基础配置"></a>修改基础配置</h2><ul>
-<li>安装或更新 <strong>Intel Graphics Driver</strong> 显卡驱动<ul>
-<li>下载地址 <a href="https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html">Intel® Arc™ &amp; Iris® Xe Graphics - Windows*</a></li>
-<li>注意选择 “Clean Install（全新安装）”</li>
-</ul>
-</li>
-<li>安装或更新 <strong>Intel NPU Driver</strong> 驱动<ul>
-<li>下载地址 <a href="https://www.intel.com/content/www/us/en/download/794734/intel-npu-driver-windows.html">Intel NPU Driver</a></li>
-<li>注意选择 “Clean Install（全新安装）”</li>
-</ul>
-</li>
-<li>安装或更新 <strong>Intel AI Playground</strong> 软件<ul>
-<li>下载地址: <a href="https://github.com/intel/AI-Playground/releases">Intel AI-Playground GitHub Releases</a></li>
-<li>两个驱动安装好后, 需要重启. 然后管理员安装 Intel AI Playground</li>
-<li>首次打开后, 自动进入后端设置界面:<ul>
-<li>勾选 <code>OpenVINO</code> 进行安装. 用于激活GPU和NPU</li>
-<li>勾选 <code>ComfyUI</code> 进行安装. 使其具备生成图片的能力</li>
-<li>勾选 <code> Llama.cpp (GGUF)</code> 进行安装. 可运行开源模型</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>设置界面：直接搜索 <code>图形设置</code>。<ul>
-<li>确保 <code>Intel AI Playground</code> 处于 “高性能（High performance）” 模式.</li>
-</ul>
-</li>
-</ul>
-<h2 id="设置和使用-Intel-AI-Playground"><a href="#设置和使用-Intel-AI-Playground" class="headerlink" title="设置和使用 Intel AI Playground"></a>设置和使用 Intel AI Playground</h2><ul>
-<li><p>安装完成后, App Settings 进行设置</p>
-<ul>
-<li>开启 <code>Speech To Text</code>, 后端选定硬件为 <code>NPU</code></li>
-<li>内存足够大话, 开启 <code>Keep Models Loaded 保持模型加载</code>, 即AI模型常驻内存.</li>
-</ul>
-</li>
-<li><p>下载指定模型</p>
-<ul>
-<li>几个模式下, 都有推荐的模型. 首次使用会提示下载.<ul>
-<li>保持地址在安装目录下的 <code>resources\models\</code></li>
-</ul>
-</li>
-<li>Chat 模式下, 点击右侧的<code>Chat Settings</code>,<ul>
-<li>前往 <a href="https://huggingface.co/Intel">HuggingFace - OpenVINO Models 专区</a> 选择模型</li>
-<li>点击 <code>Add Model 添加Model</code> 填入模型名称, 配置参数.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong></p>
-<ul>
-<li>无法让AnythingLLM 通过 Intel AI Playground 去调用核显GPU和NPU.</li>
-</ul>
-</li>
-<li><p>有间接的方法, 可通过Ollama间接实现, 过程复杂. 没有去测试.</p>
-</li>
-<li><p>注意: WSL的内存占用</p>
-<ul>
-<li><p>由于自己的电脑分配给了WSL大量的内存. 如果运行过WSL, 需要确保Windows下的可用内存</p>
-</li>
-<li><p><code>wsl --shutdown</code> 确保关闭wsl</p>
-</li>
-<li><p><code>C:\Users\&lt;你的用户名&gt;\</code> 创建或修改 <code>.wslconfig</code> 文件, 让其自动归还内存</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">32</span>GB</span><br><span class="line"><span class="comment"># ......</span></span><br><span class="line"><span class="comment"># 以上, 为原有的设置</span></span><br><span class="line"><span class="comment"># 新增, 闲置时自动归还内存给Windows</span></span><br><span class="line"><span class="attr">autoMemoryReclaim</span>=gradual</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h1 id="四-AnythingLLM"><a href="#四-AnythingLLM" class="headerlink" title="四. AnythingLLM"></a>四. AnythingLLM</h1><h2 id="AnythingLLM的介绍"><a href="#AnythingLLM的介绍" class="headerlink" title="AnythingLLM的介绍"></a>AnythingLLM的介绍</h2><p>这是管理 PDF 知识库的地方。</p>
+<h1 id="安装-AnythingLLM"><a href="#安装-AnythingLLM" class="headerlink" title="安装 AnythingLLM"></a>安装 AnythingLLM</h1><h2 id="AnythingLLM的介绍"><a href="#AnythingLLM的介绍" class="headerlink" title="AnythingLLM的介绍"></a>AnythingLLM的介绍</h2><p>这是管理 PDF 知识库的地方。</p>
 <p><strong>AnythingLLM</strong> 的核心价值在于将复杂的 <strong>RAG（检索增强生成）</strong> 技术变得像使用文件夹一样简单。</p>
 <p>以下是它的四大核心功能：</p>
 <ul>
@@ -32063,20 +31983,12 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 <li>**Embedder (嵌入器)**：<ul>
-<li>如果安装了 <code> Intel AI Playground</code><ul>
-<li>保持默认值即可</li>
-<li>目前不支持 <code>nomic-embed-text</code></li>
-</ul>
-</li>
-<li>如果安装了<code>Ollama</code><ul>
 <li><strong>Embedding Provider</strong>: 选择 <code>Ollama</code></li>
-<li><strong>Model</strong>: 选择 <code>nomic-embed-text</code>。</li>
-</ul>
-</li>
+<li><strong>Model</strong>: 选择 <code>bge-m3</code> (中文或多语言推荐)  或 <code>nomic-embed-text</code> (英文最强) </li>
 </ul>
 </li>
 <li>**Vector Database (数据库)**：<ul>
-<li>选择 <code>LanceDB</code> (这是内置的，直接存在你硬盘里，无需额外安装)。</li>
+<li>选择 <code>LanceDB</code> (这是内置的，直接存在硬盘里，无需额外安装)。</li>
 </ul>
 </li>
 </ol>
@@ -32086,7 +31998,15 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <ul>
 <li><strong>作用</strong>：人类的文字（如“如何过滤水”）对计算机来说太感性了。嵌入器会将这段话转化成一串长长的数字（向量），比如 <code>[0.12, -0.98, 0.55...]</code>。</li>
 <li>它能让意思相近的话，在数字空间里的“位置”也非常接近。比如“怎么找喝的水”和“野外水源净化”，虽然字面上没一个字相同，但在嵌入器眼里，它们的数字坐标挨得很近。</li>
-<li><code>nomic-embed-text</code>：是这个“翻译官”的名字。它是目前公认的<strong>离线性能最强、速度最快</strong>的小模型之一。</li>
+<li><code>nomic-embed-text</code>：是这个“翻译官”的名字。它是目前公认的<strong>离线性能最强、速度最快</strong>的小模型之一。<ul>
+<li>主要针对单语言使用. 譬如导入英文资料, 查询也是使用英文. </li>
+</ul>
+</li>
+<li>bge-m3：另一个“翻译官”。特点是<strong>多语言, 多功能, 多维度</strong><ul>
+<li>从设计上就强调多语言，在中文检索、语义相似度等任务上 常年领先。</li>
+<li>适合中文为主或中英文混用的 RAG、本地知识库等场景。</li>
+</ul>
+</li>
 </ul>
 <h2 id="什么是向量数据库-Vector-Database-？"><a href="#什么是向量数据库-Vector-Database-？" class="headerlink" title="什么是向量数据库 (Vector Database)？"></a>什么是向量数据库 (Vector Database)？</h2><p><strong>它是 AI 的“超级图书馆架”，负责存坐标。</strong></p>
 <ul>
@@ -32094,7 +32014,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><strong>查询过程</strong>：当问题时，它不是在搜关键词（像 Ctrl+F 那样），而是在数据库里找“离你问题坐标最近”的那几个 PDF 碎片。</li>
 <li><strong>在 AnythingLLM 里</strong>：它通常内置了一个叫 <strong>LanceDB</strong> 或 <strong>Chroma</strong> 的数据库，不需要额外下载，它会自动管理。</li>
 </ul>
-<h1 id="五-如何选择正确的AI模型"><a href="#五-如何选择正确的AI模型" class="headerlink" title="五. 如何选择正确的AI模型"></a>五. 如何选择正确的AI模型</h1><ul>
+<h1 id="如何选择正确的AI模型"><a href="#如何选择正确的AI模型" class="headerlink" title="如何选择正确的AI模型"></a>如何选择正确的AI模型</h1><ul>
 <li>核心公式: <strong>显存必须装下整个模型文件 + 上下文（Context）所需的空间。</strong></li>
 <li>“全显存”是分水岭. AI 推理本质上是极其密集的数学运算。<ul>
 <li><strong>全显存模式（GPU Only）：</strong> 数据在显存（VRAM）和 GPU 核心之间传输，带宽通常在 <strong>500GB/s - 1000GB/s</strong> 以上。</li>
@@ -32127,7 +32047,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 </ul>
-<h1 id="六-喂入自救知识库-RAG"><a href="#六-喂入自救知识库-RAG" class="headerlink" title="六. 喂入自救知识库 (RAG)"></a>六. 喂入自救知识库 (RAG)</h1><ol>
+<h1 id="喂入自救知识库-RAG"><a href="#喂入自救知识库-RAG" class="headerlink" title="喂入自救知识库 (RAG)"></a>喂入自救知识库 (RAG)</h1><ol>
 <li>回到 AnythingLLM 主界面。点击搜索旁边的<strong>”+“</strong>号， 就是新建工作区。</li>
 <li>**创建工作区 (Workspace)**：起名为 <code>EmergencySurvival</code>。</li>
 <li><strong>上传 PDF</strong>：点击新建工作区右侧的上传按钮，把收集的《赤脚医生手册》、《野外生存指南》、种植等灾备书籍(<strong>必须是文字版</strong>)拖进去。</li>
@@ -32141,7 +32061,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 </ol>
-<h1 id="七-扫描版pdf的自动识别"><a href="#七-扫描版pdf的自动识别" class="headerlink" title="七. 扫描版pdf的自动识别"></a>七. 扫描版pdf的自动识别</h1><p>在尝试放入PDF文件时, 马上会遇到的问题就是: 大部分的PDF是图片扫描版本, 而不是文字版.<br>因而需要自动批量化实现以下功能</p>
+<h1 id="扫描版pdf的自动识别"><a href="#扫描版pdf的自动识别" class="headerlink" title="扫描版pdf的自动识别"></a>扫描版pdf的自动识别</h1><p>在尝试放入PDF文件时, 马上会遇到的问题就是: 大部分的PDF是图片扫描版本, 而不是文字版.<br>因而需要自动批量化实现以下功能</p>
 <ul>
 <li>PDF文件的加载和读取</li>
 <li>图片识别为文字, 保存.</li>
@@ -32195,7 +32115,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 
 
 
-<h1 id="八-整体操作流程"><a href="#八-整体操作流程" class="headerlink" title="八. 整体操作流程"></a>八. 整体操作流程</h1><ul>
+<h1 id="整体操作流程"><a href="#整体操作流程" class="headerlink" title="整体操作流程"></a>整体操作流程</h1><ul>
 <li>预处理阶段（把扫描图变文本）<ul>
 <li>将扫描版的PDF书籍放入 <code>fileDocling.py</code> 所在的文件夹.</li>
 <li>运行 <code>fileDocling.py</code>脚本, 提取出md或html格式的书籍</li>
@@ -32217,7 +32137,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 </ul>
-<h1 id="九-本地化AI模型比较-2026"><a href="#九-本地化AI模型比较-2026" class="headerlink" title="九. 本地化AI模型比较(2026)"></a>九. 本地化AI模型比较(2026)</h1><table>
+<h1 id="本地化AI模型比较-2026"><a href="#本地化AI模型比较-2026" class="headerlink" title="本地化AI模型比较(2026)"></a>本地化AI模型比较(2026)</h1><table>
 <thead>
 <tr>
 <th><strong>大模型</strong></th>
@@ -32275,22 +32195,13 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td>文学创作、多轮对话自然，多模态。</td>
 </tr>
 <tr>
-<td><strong>Qwen2.5-Coder:14B</strong></td>
-<td>9.2GB</td>
-<td>⭐⭐⭐</td>
-<td>⭐⭐</td>
-<td>无</td>
-<td>编程专家</td>
-<td>代码生成准确率和排错能力本地最强。</td>
-</tr>
-<tr>
 <td><strong>Qwen2.5-Coder:7B</strong></td>
 <td>4.7GB</td>
 <td>⭐⭐</td>
 <td>⭐</td>
 <td>无</td>
-<td>轻量编程</td>
-<td>Coder:14B 的轻量化版。</td>
+<td>辅助编程</td>
+<td>代码生成，代码自动补全</td>
 </tr>
 <tr>
 <td><strong>Qwen3-VL:8B</strong></td>
@@ -32347,7 +32258,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td>解析并拆解复杂的任务指令。</td>
 </tr>
 </tbody></table>
-<h1 id="十-本地AI架构分层"><a href="#十-本地AI架构分层" class="headerlink" title="十. 本地AI架构分层"></a>十. 本地AI架构分层</h1><h2 id="1-硬件层-Hardware-Layer"><a href="#1-硬件层-Hardware-Layer" class="headerlink" title="1. 硬件层 (Hardware Layer)"></a>1. 硬件层 (Hardware Layer)</h2><p>可以运行大模型的硬件有如下几种:</p>
+<h1 id="本地AI架构分层"><a href="#本地AI架构分层" class="headerlink" title="本地AI架构分层"></a>本地AI架构分层</h1><h2 id="1-硬件层-Hardware-Layer"><a href="#1-硬件层-Hardware-Layer" class="headerlink" title="1. 硬件层 (Hardware Layer)"></a>1. 硬件层 (Hardware Layer)</h2><p>可以运行大模型的硬件有如下几种:</p>
 <table>
 <thead>
 <tr>
@@ -32472,7 +32383,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>应用层纯粹的聚焦于用户需求及实现.</li>
 <li>最终用户按照自然习惯使用应用. 几乎没有学习曲线.</li>
 </ul>
-<h2 id="6-矛盾和冲突"><a href="#6-矛盾和冲突" class="headerlink" title="6. 矛盾和冲突"></a>6. 矛盾和冲突</h2><p>AI的能力高度依赖知识库. 但是AI一旦通过知识库学会某种技能后, 整体趋势就是整个行业对人力的需求快速萎缩.<br>这场变革正在不同领域以不均等的速度发生。</p>
+<h1 id="随想-AI带来的矛盾和冲突"><a href="#随想-AI带来的矛盾和冲突" class="headerlink" title="随想, AI带来的矛盾和冲突"></a>随想, AI带来的矛盾和冲突</h1><p>AI的能力高度依赖知识库. 但是AI一旦通过知识库学会某种技能后, 整体趋势就是整个行业对人力的需求快速萎缩.<br>这场变革正在不同领域以不均等的速度发生。</p>
 <p>目前, 很清晰的, 只要知识信息便于收集和获取的, AI的表现都比较出众.</p>
 <ul>
 <li>编程领域, 完全能替代新手编程员.<ul>
@@ -32512,7 +32423,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 </ul>
-<p>最后. 核心不是人和AI的矛盾, 而是人和人的矛盾. 即: 资源的分配问题.</p>
+<p>最后. 核心不是人和AI的矛盾, 而是人和人的矛盾. 即资源的分配问题.</p>
 <ul>
 <li>当前的主要分配形式为: 按劳取酬和资本得利. 普通大众基本是按劳取酬.</li>
 <li>去焦虑被AI淘汰是没有用的, 这只是时间问题.<ul>
@@ -32528,7 +32439,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li>因而, 后AI时代, 需要解决的是人类的制度问题!</li>
 </ul>
-<p>打破一个旧世界很难, 更难的是破而后立, 我们需要共同思考:</p>
+<p>打破一个旧世界不容易, 更难的是破而后立, 我们需要共同思考:</p>
 <ul>
 <li><strong>我们, 真正追求的是怎样的人生?</strong></li>
 <li><strong>人的价值和尊严, 应该建立在怎样的制度之上?</strong></li>
