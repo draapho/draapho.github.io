@@ -30,7 +30,7 @@
 <meta property="og:description" content="探索Intel的本地AI玩法">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-03-02T13:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-03T08:57:54.769Z">
+<meta property="article:modified_time" content="2026-03-03T09:04:20.077Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="software">
 <meta property="article:tag" content="crisis">
@@ -278,7 +278,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2026-03-03 00:00:00 / Modified: 19:57:54" itemprop="dateCreated datePublished" datetime="2026-03-03T00:00:00+11:00">2026-03-03</time>
+      <time title="Created: 2026-03-03 00:00:00 / Modified: 20:04:20" itemprop="dateCreated datePublished" datetime="2026-03-03T00:00:00+11:00">2026-03-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -365,14 +365,12 @@
 </li>
 </ul>
 <h1 id="设置-Intel-AI-Playground"><a href="#设置-Intel-AI-Playground" class="headerlink" title="设置 Intel AI Playground"></a>设置 Intel AI Playground</h1><ul>
-<li><p>安装完成后, App Settings 进行设置</p>
-<ul>
+<li>安装完成后, App Settings 进行设置<ul>
 <li>开启 <code>Speech To Text</code>, 后端选定硬件为 <code>NPU</code></li>
 <li>内存足够大话, 开启 <code>Keep Models Loaded 保持模型加载</code>, 即AI模型常驻内存.</li>
 </ul>
 </li>
-<li><p>下载指定模型</p>
-<ul>
+<li>下载指定模型<ul>
 <li>几个模式下, 都有推荐的模型. 首次使用会提示下载.<ul>
 <li>保持地址在安装目录下的 <code>resources\models\</code></li>
 </ul>
@@ -390,20 +388,15 @@
 </li>
 </ul>
 </li>
-<li><p>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong></p>
-<ul>
+<li>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong><ul>
 <li>无法让AnythingLLM 通过 Intel AI Playground 去调用核显GPU和NPU.</li>
 <li>有间接的方法, 可通过Ollama间接实现, 过程复杂. 没有去测试.</li>
 </ul>
 </li>
-<li><p>注意: WSL的内存占用</p>
-<ul>
-<li><p>由于自己的电脑分配给了WSL大量的内存. 如果运行过WSL, 需要确保Windows下的可用内存</p>
-</li>
-<li><p><code>wsl --shutdown</code> 确保关闭wsl</p>
-</li>
-<li><p><code>C:\Users\&lt;你的用户名&gt;\</code> 创建或修改 <code>.wslconfig</code> 文件, 让其自动归还内存</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">32</span>GB</span><br><span class="line"><span class="comment"># ......</span></span><br><span class="line"><span class="comment"># 以上, 为原有的设置</span></span><br><span class="line"><span class="comment"># 新增, 闲置时自动归还内存给Windows</span></span><br><span class="line"><span class="attr">autoMemoryReclaim</span>=gradual</span><br></pre></td></tr></table></figure></li>
+<li>注意: WSL的内存占用<ul>
+<li>由于自己的电脑分配给了WSL大量的内存. 如果运行过WSL, 需要确保Windows下的可用内存</li>
+<li><code>wsl --shutdown</code> 确保关闭wsl</li>
+<li><code>C:\Users\&lt;你的用户名&gt;\</code> 创建或修改 <code>.wslconfig</code> 文件, 让其自动归还内存<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">32</span>GB</span><br><span class="line"><span class="comment"># ......</span></span><br><span class="line"><span class="comment"># 以上, 为原有的设置</span></span><br><span class="line"><span class="comment"># 新增, 闲置时自动归还内存给Windows</span></span><br><span class="line"><span class="attr">autoMemoryReclaim</span>=gradual</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>

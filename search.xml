@@ -31969,16 +31969,14 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 </ol>
-<h1 id="安装-AnythingLLM"><a href="#安装-AnythingLLM" class="headerlink" title="安装 AnythingLLM"></a>安装 AnythingLLM</h1><h2 id="AnythingLLM的介绍"><a href="#AnythingLLM的介绍" class="headerlink" title="AnythingLLM的介绍"></a>AnythingLLM的介绍</h2><p>这是管理 PDF 知识库的地方。</p>
-<p><strong>AnythingLLM</strong> 的核心价值在于将复杂的 <strong>RAG（检索增强生成）</strong> 技术变得像使用文件夹一样简单。</p>
+<h1 id="安装-AnythingLLM"><a href="#安装-AnythingLLM" class="headerlink" title="安装 AnythingLLM"></a>安装 AnythingLLM</h1><h2 id="AnythingLLM的介绍"><a href="#AnythingLLM的介绍" class="headerlink" title="AnythingLLM的介绍"></a>AnythingLLM的介绍</h2><p>这是管理 PDF 知识库的地方。<br><strong>AnythingLLM</strong> 的核心价值在于将复杂的 <strong>RAG（检索增强生成）</strong> 技术变得像使用文件夹一样简单。</p>
 <p>以下是它的四大核心功能：</p>
 <ul>
 <li>构建“私人知识库” (RAG)</li>
 <li>模型的多端调度与管理</li>
 <li>会议与全局助理 (2026 新特性)</li>
 </ul>
-<p>配置里面<strong>主模型（Qwen 3）</strong>就是<strong>大脑</strong>，而<strong>嵌入器（Embedder）</strong>和<strong>向量数据库</strong>就是<strong>超级索引库</strong>。</p>
-<p>为了在断网灾备时能快速从几千页 PDF 里翻出答案，这三者必须分工明确：</p>
+<p>配置里面<strong>主模型（Qwen 3）</strong>就是<strong>大脑</strong>，而<strong>嵌入器（Embedder）</strong>和<strong>向量数据库</strong>就是<strong>超级索引库</strong>。<br>为了在断网灾备时能快速从几千页 PDF 里翻出答案，这三者必须分工明确：</p>
 <h2 id="安装和配置-AnythingLLM"><a href="#安装和配置-AnythingLLM" class="headerlink" title="安装和配置 AnythingLLM"></a>安装和配置 AnythingLLM</h2><ul>
 <li>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong></li>
 <li>安装: 直接从 <a href="https://useanything.com/download">useanything.com</a> 下载安装包。</li>
@@ -32046,8 +32044,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li><strong>最低4K上下文的情况下. 7B模型约0.7GB; 14B模型约1.5GB.</strong></li>
 </ul>
-<h2 id="第三部分：多模态图片预留缓冲"><a href="#第三部分：多模态图片预留缓冲" class="headerlink" title="第三部分：多模态图片预留缓冲"></a>第三部分：多模态图片预留缓冲</h2><p>对于支持多模态的AI大模型, 还需要预留出足够的图片缓冲.</p>
-<p>视觉模型处理图片时，会将图片编码为 “Token”。</p>
+<h2 id="第三部分：多模态图片预留缓冲"><a href="#第三部分：多模态图片预留缓冲" class="headerlink" title="第三部分：多模态图片预留缓冲"></a>第三部分：多模态图片预留缓冲</h2><p>对于支持多模态的AI大模型, 还需要预留出足够的图片缓冲.<br>视觉模型处理图片时，会将图片编码为 “Token”。</p>
 <ul>
 <li><strong>计算参考：</strong> Qwen-VL 系列通常将一张图片编码为约 <strong>1000 - 1500 个 Token</strong>。</li>
 <li>处理图片瞬间的计算（Activation）和存储这些图片 Token，<ul>
@@ -32343,7 +32340,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 <li>主流开源模型（2026）<ul>
-<li>**Qwen 3 (通义千问)**：中文语境下的绝对王者. 其云端产品性能已经与闭源模型对齐<ul>
+<li><strong>Qwen 3</strong> (通义千问)：中文语境下的绝对王者. 其云端产品性能已经与闭源模型对齐<ul>
 <li>2025年起, Qwen有成为开源模型霸主的趋势.</li>
 <li>2026 年, 其提供的开源本地版, 逻辑能力已全面对齐 GPT-4.</li>
 </ul>
@@ -32522,14 +32519,12 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 </ul>
 <h1 id="设置-Intel-AI-Playground"><a href="#设置-Intel-AI-Playground" class="headerlink" title="设置 Intel AI Playground"></a>设置 Intel AI Playground</h1><ul>
-<li><p>安装完成后, App Settings 进行设置</p>
-<ul>
+<li>安装完成后, App Settings 进行设置<ul>
 <li>开启 <code>Speech To Text</code>, 后端选定硬件为 <code>NPU</code></li>
 <li>内存足够大话, 开启 <code>Keep Models Loaded 保持模型加载</code>, 即AI模型常驻内存.</li>
 </ul>
 </li>
-<li><p>下载指定模型</p>
-<ul>
+<li>下载指定模型<ul>
 <li>几个模式下, 都有推荐的模型. 首次使用会提示下载.<ul>
 <li>保持地址在安装目录下的 <code>resources\models\</code></li>
 </ul>
@@ -32547,20 +32542,15 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 </ul>
 </li>
-<li><p>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong></p>
-<ul>
+<li>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong><ul>
 <li>无法让AnythingLLM 通过 Intel AI Playground 去调用核显GPU和NPU.</li>
 <li>有间接的方法, 可通过Ollama间接实现, 过程复杂. 没有去测试.</li>
 </ul>
 </li>
-<li><p>注意: WSL的内存占用</p>
-<ul>
-<li><p>由于自己的电脑分配给了WSL大量的内存. 如果运行过WSL, 需要确保Windows下的可用内存</p>
-</li>
-<li><p><code>wsl --shutdown</code> 确保关闭wsl</p>
-</li>
-<li><p><code>C:\Users\&lt;你的用户名&gt;\</code> 创建或修改 <code>.wslconfig</code> 文件, 让其自动归还内存</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">32</span>GB</span><br><span class="line"><span class="comment"># ......</span></span><br><span class="line"><span class="comment"># 以上, 为原有的设置</span></span><br><span class="line"><span class="comment"># 新增, 闲置时自动归还内存给Windows</span></span><br><span class="line"><span class="attr">autoMemoryReclaim</span>=gradual</span><br></pre></td></tr></table></figure></li>
+<li>注意: WSL的内存占用<ul>
+<li>由于自己的电脑分配给了WSL大量的内存. 如果运行过WSL, 需要确保Windows下的可用内存</li>
+<li><code>wsl --shutdown</code> 确保关闭wsl</li>
+<li><code>C:\Users\&lt;你的用户名&gt;\</code> 创建或修改 <code>.wslconfig</code> 文件, 让其自动归还内存<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">32</span>GB</span><br><span class="line"><span class="comment"># ......</span></span><br><span class="line"><span class="comment"># 以上, 为原有的设置</span></span><br><span class="line"><span class="comment"># 新增, 闲置时自动归还内存给Windows</span></span><br><span class="line"><span class="attr">autoMemoryReclaim</span>=gradual</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
