@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="探索Intel的本地AI玩法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intel的本地AI玩法">
+<meta property="og:url" content="https://draapho.github.io/2026/03/03/2609-IntelAI/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="探索Intel的本地AI玩法">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-03-02T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-03T08:57:54.769Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="crisis">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2026/03/03/2609-IntelAI/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Intel的本地AI玩法 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">需求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intel-Ultra-%E7%B3%BB%E5%88%97%E7%9A%84%E4%B8%89%E8%84%91%E6%9E%B6%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">Intel Ultra 系列的三脑架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%A9%B1%E5%8A%A8%E5%92%8CIntel-AI-Playground"><span class="nav-number">3.</span> <span class="nav-text">安装驱动和Intel AI Playground</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE-Intel-AI-Playground"><span class="nav-number">4.</span> <span class="nav-text">设置 Intel AI Playground</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Intel-AI-Playground"><span class="nav-number">5.</span> <span class="nav-text">使用 Intel AI Playground</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chat-Setting"><span class="nav-number">5.1.</span> <span class="nav-text">Chat Setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Image-Video-Setting"><span class="nav-number">5.2.</span> <span class="nav-text">Image &#x2F; Video Setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%B8%8B%E8%BD%BD%E7%9A%84%E5%A4%A7%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.3.</span> <span class="nav-text">删除下载的大模型</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">188</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2026/03/03/2609-IntelAI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Intel的本地AI玩法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2026-03-03 00:00:00 / Modified: 19:57:54" itemprop="dateCreated datePublished" datetime="2026-03-03T00:00:00+11:00">2026-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">探索Intel的本地AI玩法</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
+<li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
+<li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
+<li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
+<li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
+</ul>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>另有一台笔记本配置是: 无独立显卡, Intel Ultra7 255H, 64G,1tb+2tb硬盘<br>也想一并探索安装一下本地AI.</p>
+<p>然后发现, 要Ollama 去支持Intel的集成显卡, 配置较为复杂. 最后还是决定直接安装Intel AI Playground, 可以灵活的选择CPU, GPU, NPU. 故决定能简单应用即可. 毕竟不是本地AI主力机.</p>
+<h2 id="Intel-Ultra-系列的三脑架构"><a href="#Intel-Ultra-系列的三脑架构" class="headerlink" title="Intel Ultra 系列的三脑架构"></a>Intel Ultra 系列的三脑架构</h2><table>
+<thead>
+<tr>
+<th><strong>核心单元</strong></th>
+<th><strong>核心优势</strong></th>
+<th><strong>255H 的硬核参数</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CPU (中央处理器)</strong></td>
+<td>处理突发、复杂的指令，调度全局。</td>
+<td>16核/16线程，主频高达 <strong>5.1 GHz</strong>。</td>
+</tr>
+<tr>
+<td><strong>GPU (集成显卡)</strong></td>
+<td><strong>暴力输出</strong>。处理大规模并行数据，速度极快。</td>
+<td>8个Xe核心，AI 算力高达 <strong>74 TOPS</strong>。</td>
+</tr>
+<tr>
+<td><strong>NPU (神经网络处理器)</strong></td>
+<td><strong>极致节能</strong>。专门应付需要长效、静默运行的任务。</td>
+<td>2026 年新一代 NPU，算力约 <strong>13 TOPS</strong>。</td>
+</tr>
+</tbody></table>
+<h1 id="安装驱动和Intel-AI-Playground"><a href="#安装驱动和Intel-AI-Playground" class="headerlink" title="安装驱动和Intel AI Playground"></a>安装驱动和Intel AI Playground</h1><ul>
+<li>安装或更新 <strong>Intel Graphics Driver</strong> 显卡驱动<ul>
+<li>下载地址 <a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html">Intel® Arc™ &amp; Iris® Xe Graphics - Windows*</a></li>
+<li>注意选择 “Clean Install（全新安装）”</li>
+</ul>
+</li>
+<li>安装或更新 <strong>Intel NPU Driver</strong> 驱动<ul>
+<li>下载地址 <a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/794734/intel-npu-driver-windows.html">Intel NPU Driver</a></li>
+<li>注意选择 “Clean Install（全新安装）”</li>
+</ul>
+</li>
+<li>安装或更新 <strong>Intel AI Playground</strong> 软件<ul>
+<li>下载地址: <a target="_blank" rel="noopener" href="https://github.com/intel/AI-Playground/releases">Intel AI-Playground GitHub Releases</a></li>
+<li>两个驱动安装好后, 需要重启. 然后管理员安装 Intel AI Playground</li>
+<li>首次打开后, 自动进入后端设置界面:<ul>
+<li>勾选 <code>OpenVINO</code> 进行安装. 为Intel专用大模型格式, 可使用Intel GPU和NPU.</li>
+<li>勾选 <code>ComfyUI</code> 进行安装. 使其具备生成图片的能力</li>
+<li>勾选 <code> Llama.cpp (GGUF)</code> 进行安装. 可运行GGUF通用格式的大模型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设置界面：直接搜索 <code>图形设置</code>。<ul>
+<li>确保 <code>Intel AI Playground</code> 处于 “高性能（High performance）” 模式.</li>
+</ul>
+</li>
+</ul>
+<h1 id="设置-Intel-AI-Playground"><a href="#设置-Intel-AI-Playground" class="headerlink" title="设置 Intel AI Playground"></a>设置 Intel AI Playground</h1><ul>
+<li><p>安装完成后, App Settings 进行设置</p>
+<ul>
+<li>开启 <code>Speech To Text</code>, 后端选定硬件为 <code>NPU</code></li>
+<li>内存足够大话, 开启 <code>Keep Models Loaded 保持模型加载</code>, 即AI模型常驻内存.</li>
+</ul>
+</li>
+<li><p>下载指定模型</p>
+<ul>
+<li>几个模式下, 都有推荐的模型. 首次使用会提示下载.<ul>
+<li>保持地址在安装目录下的 <code>resources\models\</code></li>
+</ul>
+</li>
+<li>Chat 模式下, 点击右侧的<code>Chat Settings</code>,<ul>
+<li>前往 <a target="_blank" rel="noopener" href="https://huggingface.co/Intel">HuggingFace - OpenVINO Models 专区</a> 选择模型</li>
+<li>点击 <code>Add Model 添加Model</code> 填入模型名称, 配置参数.<ul>
+<li><code>OpenVINO/Qwen3-14B-int4-ov</code></li>
+</ul>
+</li>
+<li>通用的 <code>GGUF</code> 格式也是支持的, 但性能释放上不如专用的 <code>OpenVINO</code> 格式</li>
+<li><code>-cw</code> 表示为<code>npu</code>优化过的大模型</li>
+<li><code>-ov</code> 表示是<code>OpenVino</code> 格式, 即intel CPU专用格式.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong></p>
+<ul>
+<li>无法让AnythingLLM 通过 Intel AI Playground 去调用核显GPU和NPU.</li>
+<li>有间接的方法, 可通过Ollama间接实现, 过程复杂. 没有去测试.</li>
+</ul>
+</li>
+<li><p>注意: WSL的内存占用</p>
+<ul>
+<li><p>由于自己的电脑分配给了WSL大量的内存. 如果运行过WSL, 需要确保Windows下的可用内存</p>
+</li>
+<li><p><code>wsl --shutdown</code> 确保关闭wsl</p>
+</li>
+<li><p><code>C:\Users\&lt;你的用户名&gt;\</code> 创建或修改 <code>.wslconfig</code> 文件, 让其自动归还内存</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">32</span>GB</span><br><span class="line"><span class="comment"># ......</span></span><br><span class="line"><span class="comment"># 以上, 为原有的设置</span></span><br><span class="line"><span class="comment"># 新增, 闲置时自动归还内存给Windows</span></span><br><span class="line"><span class="attr">autoMemoryReclaim</span>=gradual</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="使用-Intel-AI-Playground"><a href="#使用-Intel-AI-Playground" class="headerlink" title="使用 Intel AI Playground"></a>使用 Intel AI Playground</h1><p>Intel AI Playground 的使用分为两大类.</p>
+<ul>
+<li>一个是文本为主的对话, 即 <code>Chat</code> 类别, 实用性较高.<ul>
+<li>默认有几个推荐的模型供选择(首次使用会自动提示下载).</li>
+<li>推荐 <code>Backend</code> 使用 <code>OpenVINO</code>, 即Intel专用大模型格式, 性能更好.</li>
+<li><code>Backend</code> 选择 <code>llamaCPP-GGUF</code> 的话, 可以加载使用通用的GGUF格式.</li>
+<li>设备选择, GPU最优(性能最好, 能耗最高), NPU次之(性能一般, 能耗低), CPU最差(性能差, 能耗高).</li>
+<li>如下设置好后:<ul>
+<li>日常多用 <code>Basic Chat</code> 或者 <code>Chat with RAG</code> 模式</li>
+<li>需要推理就用 <code>Advanced Chat</code> 模式</li>
+<li>需要图文分析用 <code>Vision</code> 模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>另一个是基于<code>ComfyUI</code> 的图片视频生成玩法. 主要分成三大类<ul>
+<li>图片生成 <code>Image Gen</code></li>
+<li>图片修改 <code>Image Edit</code></li>
+<li>视频生成 <code>Video</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Chat-Setting"><a href="#Chat-Setting" class="headerlink" title="Chat Setting"></a>Chat Setting</h2><p>进入<code>Chat Setting</code> 后, 也已经划分了好几种应用场景. <code>Backend</code> 统一使用<code>OpenVINO</code></p>
+<ul>
+<li>Basic Chat. 基础对话<ul>
+<li>推荐使用:  <code>OpenVINO/Qwen3-14B-int4-ov</code></li>
+<li>需要通过 <code>添加 Model</code> 手动添加.</li>
+</ul>
+</li>
+<li>NPU Chat. 固定使用NPU单元运行, 能耗低, 性能不如GPU.<ul>
+<li>选择列表中的 <code>OpenVINO/Phi-3.5-mini-instruct-int4-cw-ov</code></li>
+<li><code>-cw</code> 表示为<code>npu</code>优化过的大模型</li>
+<li>开始第一次对话时, 会提示下载大模型. 后续才可以离线使用. 后同.</li>
+</ul>
+</li>
+<li>Chat with RAG. 基于知识库的对话<ul>
+<li>推荐使用: <code>OpenVINO/Qwen3-14B-int4-ov</code></li>
+<li>使用 <code>Add Documents</code> 添加外部知识库.</li>
+<li><code>Embeddings</code> 就是 <code>Embedder</code>, 文本嵌入器. 选择默认模型<code>bge-base-en-vl.5-fp16-ov</code>即可.</li>
+<li>注意: 需要上传一个文件, 进行一次对话, 才会下载默认的<code>Embedding</code>模型. 后续才可以离线使用.</li>
+</ul>
+</li>
+<li>Vision. 多模态对话, 即支持图片分析的大模型.<ul>
+<li>选择列表中的 <code>OpenVINO/Qwen2.5-VL-7B-Instruct-int4-ov</code></li>
+<li><code>-VL</code> 表示多模态, 即支持输入图文.</li>
+</ul>
+</li>
+<li>Agentic. 智能代理执行对话, 即自动尝试执行目标.<ul>
+<li>选择列表中的 <code>OpenVINO/Qwen2.5-VL-7B-Instruct-int4-ov</code></li>
+<li><code>-Instruct</code> 表示听从指令的模型. Agentic 需要这类模型才能调用外部工具.</li>
+</ul>
+</li>
+<li>Reasoning. 推理分析<ul>
+<li>选择列表中的 <code>OpenVINO/DeepSeek-R1-Distill-Qwen-7B-int4-ov</code></li>
+</ul>
+</li>
+<li>Advanced Chat. 高级自定义<ul>
+<li>推荐使用: <code>OpenVINO/DeepSeek-R1-Distill-Qwen-14B-int4-ov</code></li>
+</ul>
+</li>
+<li>Intel OpenVINO AI 对话模型推荐(2026)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>大模型</strong></th>
+<th><strong>大小</strong></th>
+<th><strong>推荐应用</strong></th>
+<th><strong>主要特点</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenVINO/Phi-3.5-mini-instruct-int4-cw-ov</td>
+<td>~2.0GB</td>
+<td>NPU Chat</td>
+<td>默认可选. 功耗低, 响应快, 适用广.</td>
+</tr>
+<tr>
+<td>OpenVINO/DeepSeek-R1-Distill-Qwen-7B-int4-ov</td>
+<td>~4.5GB</td>
+<td>Reasoning</td>
+<td>默认可选. 逻辑推理. 大小性能的平衡.</td>
+</tr>
+<tr>
+<td>OpenVINO/Qwen2.5-VL-7B-Instruct-int4-ov</td>
+<td>~5.2GB</td>
+<td>Vision / Agentic</td>
+<td>默认可选. 多模态模型, 支持看图.</td>
+</tr>
+<tr>
+<td>OpenVINO/Qwen3-14B-int4-ov</td>
+<td>~9.7GB</td>
+<td>GPU日常使用</td>
+<td>手动添加. 中文语境理解与长文本处理最强。</td>
+</tr>
+<tr>
+<td>OpenVINO/DeepSeek-R1-Distill-Qwen-14B-int4-ov</td>
+<td>~8.5GB</td>
+<td>GPU深度思考</td>
+<td>手动添加. 逻辑推理天花板，自带“思考链”。</td>
+</tr>
+</tbody></table>
+<h2 id="Image-Video-Setting"><a href="#Image-Video-Setting" class="headerlink" title="Image / Video Setting"></a>Image / Video Setting</h2><p>Intel AI Playground 已经按照常用的应用需求配置好了所需的大模型和默认参数.</p>
+<ul>
+<li>譬如. 换脸, 黑白变彩色, 图片指定修改等等.</li>
+<li>选择好应用需求, 首次使用会提示下载缺失的大模型, 然后等待出效果即可.</li>
+<li>此部分尝鲜为主, 尤其是视频生成. 如果硬盘空间不够, 不建议下载.</li>
+</ul>
+<h2 id="删除下载的大模型"><a href="#删除下载的大模型" class="headerlink" title="删除下载的大模型"></a>删除下载的大模型</h2><p>目前软件界面没有提供大模型删除功能, 只能进入按照目录, 手动删除模型.</p>
+<ul>
+<li><code>...\AI Playground\resources\models</code><ul>
+<li><code>ComfyUI</code> 存放图片和视频大模型的路径. <ul>
+<li>如果确认某个模型不需要了, 可以按需删除里面的文件夹.</li>
+</ul>
+</li>
+<li><code>LLM</code> 对话类大模型的路径<ul>
+<li><code>embedding</code>  文本嵌入器模型, 给 <code>Chat with RAG</code> 用的.<ul>
+<li>下面依旧细分了 <code>ggufLLM</code> 和 <code>openvino</code> 两种文件格式.</li>
+</ul>
+</li>
+<li><code>ggufLLM</code> 通用的GGUF格式大模型. 没下载过, 应该是空的.</li>
+<li><code>openvino</code> Intel专用格式大模型. 保持了下载好的模型.<ul>
+<li>文件夹命名对应了大模型名称, 按需删除整个文件夹即可.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>STT</code> 语音转文本模型</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"># software</a>
+              <a href="/tags/crisis/" rel="tag"># crisis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/03/01/2608-mapping/" rel="prev" title="八卦的常见映射">
+                  <i class="fa fa-chevron-left"></i> 八卦的常见映射
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/03/04/2610-CrisisPlan/" rel="next" title="灾备资料获取">
+                  灾备资料获取 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -18582,6 +18582,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
       </categories>
       <tags>
         <tag>thoughts</tag>
+        <tag>crisis</tag>
       </tags>
   </entry>
   <entry>
@@ -19646,6 +19647,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
       </categories>
       <tags>
         <tag>thoughts</tag>
+        <tag>crisis</tag>
       </tags>
   </entry>
   <entry>
@@ -25764,22 +25766,14 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>三战预测</title>
     <url>/2025/10/16/2508-WWIII/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
-<li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
-<li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
-<li><a href="https://draapho.github.io/2021/04/05/2110-satori2/">开悟是怎样一种体验？(新)</a></li>
-<li><a href="https://draapho.github.io/2021/11/29/2124-faith/">带着信仰行到底</a></li>
-<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
-<li><a href="https://draapho.github.io/2025/08/20/2503-ClarkCao1/">【江湖姐訪談】克拉克1</a></li>
-<li><a href="https://draapho.github.io/2025/08/25/2504-ClarkCao2/">【江湖姐訪談】克拉克2</a></li>
-<li><a href="https://draapho.github.io/2025/08/26/2505-ClarkCao3/">【江湖姐訪談】克拉克3</a></li>
-<li><a href="https://draapho.github.io/2025/08/27/2506-ClarkCao4/">【江湖姐訪談】克拉克4</a></li>
-<li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
+<li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
+<li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
 <li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
-<li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
-<li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
-<li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
+<li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
+<li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
 </ul>
 <h1 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h1><p>既然是现实世界的预测, 就没有100%的可能性. 请使用 <strong>后验概率 (贝叶斯定理)</strong> 的理念, 来看待这类问题. **即某些前置现象发生了, 那么这个预测中的后续事件发生的可能性就会变高. **</p>
 <p>因而, 看完后, 不屑一顾也好, 信以为真也好. 尤其是信以为真的: <strong>千万正常生活, 不要自我焦虑, 逐级准备, 有备无患</strong>.</p>
@@ -25827,10 +25821,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p><em><strong>部分原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em><br>***部分转载自  <a href="https://www.zhihu.com/people/mr_weekend">知乎 MR.WEEKEND</a> ***</p>
 ]]></content>
       <categories>
-        <category>thoughts</category>
+        <category>crisis</category>
       </categories>
       <tags>
         <tag>thoughts</tag>
+        <tag>crisis</tag>
       </tags>
   </entry>
   <entry>
@@ -27170,6 +27165,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
       </categories>
       <tags>
         <tag>学习</tag>
+        <tag>crisis</tag>
       </tags>
   </entry>
   <entry>
@@ -30404,6 +30400,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
       </categories>
       <tags>
         <tag>学习</tag>
+        <tag>crisis</tag>
       </tags>
   </entry>
   <entry>
@@ -31910,7 +31907,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>基于Ollama的本地AI配置教程</title>
     <url>/2026/02/25/2607-LocalAI/</url>
-    <content><![CDATA[<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>准备安装可以离线的本地AI，主要用于灾备，存储知识，可以离线问答。<br>次要目标是学习了解AI嵌入式本地化的实用性情况<br>台式机配置是: 5070ti, AMD Ryzen 7 7800X3D, 32GB,1tb+2tb硬盘</p>
+    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
+<li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
+<li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
+<li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
+<li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
+</ul>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>准备安装可以离线的本地AI，主要用于灾备，存储知识，可以离线问答。<br>次要目标是学习了解AI嵌入式本地化的实用性情况<br>台式机配置是: 5070ti, AMD Ryzen 7 7800X3D, 32GB,1tb+2tb硬盘</p>
 <p>要求：</p>
 <ul>
 <li>本地AI能回答常识性知识，如如何种菜等等，</li>
@@ -31976,18 +31983,19 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong></li>
 <li>安装: 直接从 <a href="https://useanything.com/download">useanything.com</a> 下载安装包。</li>
 <li>安装完成后, 打开 AnythingLLM 界面后，按照以下顺序配置：<ol>
-<li>**LLM Setup (大语言模型)**：<ul>
+<li><strong>LLM Setup</strong> (大语言模型)：<ul>
 <li><strong>LLM Provider</strong>: 选择 <code>Ollama</code> 或者 <code>Intel AI Playground</code></li>
 <li><strong>Model</strong>: 选择 <code>qwen3:14b</code>  (请按实际需求选择)</li>
 <li><strong>Ollama URL</strong>: <code>http://127.0.0.1:11434</code>。</li>
 </ul>
 </li>
-<li>**Embedder (嵌入器)**：<ul>
+<li><strong>Embedder</strong> (嵌入器)：<ul>
 <li><strong>Embedding Provider</strong>: 选择 <code>Ollama</code></li>
-<li><strong>Model</strong>: 选择 <code>bge-m3</code> (中文或多语言推荐)  或 <code>nomic-embed-text</code> (英文最强) </li>
+<li><strong>Model</strong>: 选择 <code>bge-m3</code> (中文或多语言推荐) </li>
+<li>如果是英语, 选择默认 <code>AnythingLLM Embedder</code> 的 <code>nomic-embed-text-v1</code> 即可</li>
 </ul>
 </li>
-<li>**Vector Database (数据库)**：<ul>
+<li><strong>Vector Database</strong> (数据库)：<ul>
 <li>选择 <code>LanceDB</code> (这是内置的，直接存在硬盘里，无需额外安装)。</li>
 </ul>
 </li>
@@ -32002,7 +32010,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>主要针对单语言使用. 譬如导入英文资料, 查询也是使用英文. </li>
 </ul>
 </li>
-<li>bge-m3：另一个“翻译官”。特点是<strong>多语言, 多功能, 多维度</strong><ul>
+<li><code>bge-m3</code>：另一个“翻译官”。特点是<strong>多语言, 多功能, 多维度</strong><ul>
 <li>从设计上就强调多语言，在中文检索、语义相似度等任务上 常年领先。</li>
 <li>适合中文为主或中英文混用的 RAG、本地知识库等场景。</li>
 </ul>
@@ -32231,15 +32239,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td>成本和资源受限的情况</td>
 </tr>
 <tr>
-<td><strong>Qwen3-VL:2B</strong></td>
-<td>1.8GB</td>
-<td>⭐⭐</td>
-<td>⭐⭐</td>
-<td>⭐⭐⭐⭐</td>
-<td>端侧视觉</td>
-<td>视觉解析同级别顶尖</td>
-</tr>
-<tr>
 <td><strong>GLM-OCR:q8_0</strong></td>
 <td>1.6GB</td>
 <td>⭐</td>
@@ -32333,6 +32332,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <ul>
 <li><a href="https://huggingface.co/">Hugging Face</a>.  AI 界的 GitHub. 用于存储、分享模型和数据集的标准云端仓库。</li>
 <li>GGUF 文件格式：本地化部署的标准文件格式，通过“量化”技术让大模型能塞进家用显存里。</li>
+<li>OpenVINO 文件格式: Intel 针对自家芯片优化的大模型格式.</li>
 </ul>
 <p>当前模型的局限性. 资源和算力总是有限的, 单个AI是有自己的特点, 局限和专长的.</p>
 <p>因而需要了解主流AI模型的特长, 才能较好的选择正确的AI大模型.</p>
@@ -32452,6 +32452,382 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
       </categories>
       <tags>
         <tag>software</tag>
+        <tag>crisis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Intel的本地AI玩法</title>
+    <url>/2026/03/03/2609-IntelAI/</url>
+    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
+<li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
+<li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
+<li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
+<li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
+</ul>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>另有一台笔记本配置是: 无独立显卡, Intel Ultra7 255H, 64G,1tb+2tb硬盘<br>也想一并探索安装一下本地AI.</p>
+<p>然后发现, 要Ollama 去支持Intel的集成显卡, 配置较为复杂. 最后还是决定直接安装Intel AI Playground, 可以灵活的选择CPU, GPU, NPU. 故决定能简单应用即可. 毕竟不是本地AI主力机.</p>
+<h2 id="Intel-Ultra-系列的三脑架构"><a href="#Intel-Ultra-系列的三脑架构" class="headerlink" title="Intel Ultra 系列的三脑架构"></a>Intel Ultra 系列的三脑架构</h2><table>
+<thead>
+<tr>
+<th><strong>核心单元</strong></th>
+<th><strong>核心优势</strong></th>
+<th><strong>255H 的硬核参数</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CPU (中央处理器)</strong></td>
+<td>处理突发、复杂的指令，调度全局。</td>
+<td>16核/16线程，主频高达 <strong>5.1 GHz</strong>。</td>
+</tr>
+<tr>
+<td><strong>GPU (集成显卡)</strong></td>
+<td><strong>暴力输出</strong>。处理大规模并行数据，速度极快。</td>
+<td>8个Xe核心，AI 算力高达 <strong>74 TOPS</strong>。</td>
+</tr>
+<tr>
+<td><strong>NPU (神经网络处理器)</strong></td>
+<td><strong>极致节能</strong>。专门应付需要长效、静默运行的任务。</td>
+<td>2026 年新一代 NPU，算力约 <strong>13 TOPS</strong>。</td>
+</tr>
+</tbody></table>
+<h1 id="安装驱动和Intel-AI-Playground"><a href="#安装驱动和Intel-AI-Playground" class="headerlink" title="安装驱动和Intel AI Playground"></a>安装驱动和Intel AI Playground</h1><ul>
+<li>安装或更新 <strong>Intel Graphics Driver</strong> 显卡驱动<ul>
+<li>下载地址 <a href="https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html">Intel® Arc™ &amp; Iris® Xe Graphics - Windows*</a></li>
+<li>注意选择 “Clean Install（全新安装）”</li>
+</ul>
+</li>
+<li>安装或更新 <strong>Intel NPU Driver</strong> 驱动<ul>
+<li>下载地址 <a href="https://www.intel.com/content/www/us/en/download/794734/intel-npu-driver-windows.html">Intel NPU Driver</a></li>
+<li>注意选择 “Clean Install（全新安装）”</li>
+</ul>
+</li>
+<li>安装或更新 <strong>Intel AI Playground</strong> 软件<ul>
+<li>下载地址: <a href="https://github.com/intel/AI-Playground/releases">Intel AI-Playground GitHub Releases</a></li>
+<li>两个驱动安装好后, 需要重启. 然后管理员安装 Intel AI Playground</li>
+<li>首次打开后, 自动进入后端设置界面:<ul>
+<li>勾选 <code>OpenVINO</code> 进行安装. 为Intel专用大模型格式, 可使用Intel GPU和NPU.</li>
+<li>勾选 <code>ComfyUI</code> 进行安装. 使其具备生成图片的能力</li>
+<li>勾选 <code> Llama.cpp (GGUF)</code> 进行安装. 可运行GGUF通用格式的大模型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设置界面：直接搜索 <code>图形设置</code>。<ul>
+<li>确保 <code>Intel AI Playground</code> 处于 “高性能（High performance）” 模式.</li>
+</ul>
+</li>
+</ul>
+<h1 id="设置-Intel-AI-Playground"><a href="#设置-Intel-AI-Playground" class="headerlink" title="设置 Intel AI Playground"></a>设置 Intel AI Playground</h1><ul>
+<li><p>安装完成后, App Settings 进行设置</p>
+<ul>
+<li>开启 <code>Speech To Text</code>, 后端选定硬件为 <code>NPU</code></li>
+<li>内存足够大话, 开启 <code>Keep Models Loaded 保持模型加载</code>, 即AI模型常驻内存.</li>
+</ul>
+</li>
+<li><p>下载指定模型</p>
+<ul>
+<li>几个模式下, 都有推荐的模型. 首次使用会提示下载.<ul>
+<li>保持地址在安装目录下的 <code>resources\models\</code></li>
+</ul>
+</li>
+<li>Chat 模式下, 点击右侧的<code>Chat Settings</code>,<ul>
+<li>前往 <a href="https://huggingface.co/Intel">HuggingFace - OpenVINO Models 专区</a> 选择模型</li>
+<li>点击 <code>Add Model 添加Model</code> 填入模型名称, 配置参数.<ul>
+<li><code>OpenVINO/Qwen3-14B-int4-ov</code></li>
+</ul>
+</li>
+<li>通用的 <code>GGUF</code> 格式也是支持的, 但性能释放上不如专用的 <code>OpenVINO</code> 格式</li>
+<li><code>-cw</code> 表示为<code>npu</code>优化过的大模型</li>
+<li><code>-ov</code> 表示是<code>OpenVino</code> 格式, 即intel CPU专用格式.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong></p>
+<ul>
+<li>无法让AnythingLLM 通过 Intel AI Playground 去调用核显GPU和NPU.</li>
+<li>有间接的方法, 可通过Ollama间接实现, 过程复杂. 没有去测试.</li>
+</ul>
+</li>
+<li><p>注意: WSL的内存占用</p>
+<ul>
+<li><p>由于自己的电脑分配给了WSL大量的内存. 如果运行过WSL, 需要确保Windows下的可用内存</p>
+</li>
+<li><p><code>wsl --shutdown</code> 确保关闭wsl</p>
+</li>
+<li><p><code>C:\Users\&lt;你的用户名&gt;\</code> 创建或修改 <code>.wslconfig</code> 文件, 让其自动归还内存</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">32</span>GB</span><br><span class="line"><span class="comment"># ......</span></span><br><span class="line"><span class="comment"># 以上, 为原有的设置</span></span><br><span class="line"><span class="comment"># 新增, 闲置时自动归还内存给Windows</span></span><br><span class="line"><span class="attr">autoMemoryReclaim</span>=gradual</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="使用-Intel-AI-Playground"><a href="#使用-Intel-AI-Playground" class="headerlink" title="使用 Intel AI Playground"></a>使用 Intel AI Playground</h1><p>Intel AI Playground 的使用分为两大类.</p>
+<ul>
+<li>一个是文本为主的对话, 即 <code>Chat</code> 类别, 实用性较高.<ul>
+<li>默认有几个推荐的模型供选择(首次使用会自动提示下载).</li>
+<li>推荐 <code>Backend</code> 使用 <code>OpenVINO</code>, 即Intel专用大模型格式, 性能更好.</li>
+<li><code>Backend</code> 选择 <code>llamaCPP-GGUF</code> 的话, 可以加载使用通用的GGUF格式.</li>
+<li>设备选择, GPU最优(性能最好, 能耗最高), NPU次之(性能一般, 能耗低), CPU最差(性能差, 能耗高).</li>
+<li>如下设置好后:<ul>
+<li>日常多用 <code>Basic Chat</code> 或者 <code>Chat with RAG</code> 模式</li>
+<li>需要推理就用 <code>Advanced Chat</code> 模式</li>
+<li>需要图文分析用 <code>Vision</code> 模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>另一个是基于<code>ComfyUI</code> 的图片视频生成玩法. 主要分成三大类<ul>
+<li>图片生成 <code>Image Gen</code></li>
+<li>图片修改 <code>Image Edit</code></li>
+<li>视频生成 <code>Video</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Chat-Setting"><a href="#Chat-Setting" class="headerlink" title="Chat Setting"></a>Chat Setting</h2><p>进入<code>Chat Setting</code> 后, 也已经划分了好几种应用场景. <code>Backend</code> 统一使用<code>OpenVINO</code></p>
+<ul>
+<li>Basic Chat. 基础对话<ul>
+<li>推荐使用:  <code>OpenVINO/Qwen3-14B-int4-ov</code></li>
+<li>需要通过 <code>添加 Model</code> 手动添加.</li>
+</ul>
+</li>
+<li>NPU Chat. 固定使用NPU单元运行, 能耗低, 性能不如GPU.<ul>
+<li>选择列表中的 <code>OpenVINO/Phi-3.5-mini-instruct-int4-cw-ov</code></li>
+<li><code>-cw</code> 表示为<code>npu</code>优化过的大模型</li>
+<li>开始第一次对话时, 会提示下载大模型. 后续才可以离线使用. 后同.</li>
+</ul>
+</li>
+<li>Chat with RAG. 基于知识库的对话<ul>
+<li>推荐使用: <code>OpenVINO/Qwen3-14B-int4-ov</code></li>
+<li>使用 <code>Add Documents</code> 添加外部知识库.</li>
+<li><code>Embeddings</code> 就是 <code>Embedder</code>, 文本嵌入器. 选择默认模型<code>bge-base-en-vl.5-fp16-ov</code>即可.</li>
+<li>注意: 需要上传一个文件, 进行一次对话, 才会下载默认的<code>Embedding</code>模型. 后续才可以离线使用.</li>
+</ul>
+</li>
+<li>Vision. 多模态对话, 即支持图片分析的大模型.<ul>
+<li>选择列表中的 <code>OpenVINO/Qwen2.5-VL-7B-Instruct-int4-ov</code></li>
+<li><code>-VL</code> 表示多模态, 即支持输入图文.</li>
+</ul>
+</li>
+<li>Agentic. 智能代理执行对话, 即自动尝试执行目标.<ul>
+<li>选择列表中的 <code>OpenVINO/Qwen2.5-VL-7B-Instruct-int4-ov</code></li>
+<li><code>-Instruct</code> 表示听从指令的模型. Agentic 需要这类模型才能调用外部工具.</li>
+</ul>
+</li>
+<li>Reasoning. 推理分析<ul>
+<li>选择列表中的 <code>OpenVINO/DeepSeek-R1-Distill-Qwen-7B-int4-ov</code></li>
+</ul>
+</li>
+<li>Advanced Chat. 高级自定义<ul>
+<li>推荐使用: <code>OpenVINO/DeepSeek-R1-Distill-Qwen-14B-int4-ov</code></li>
+</ul>
+</li>
+<li>Intel OpenVINO AI 对话模型推荐(2026)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>大模型</strong></th>
+<th><strong>大小</strong></th>
+<th><strong>推荐应用</strong></th>
+<th><strong>主要特点</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenVINO/Phi-3.5-mini-instruct-int4-cw-ov</td>
+<td>~2.0GB</td>
+<td>NPU Chat</td>
+<td>默认可选. 功耗低, 响应快, 适用广.</td>
+</tr>
+<tr>
+<td>OpenVINO/DeepSeek-R1-Distill-Qwen-7B-int4-ov</td>
+<td>~4.5GB</td>
+<td>Reasoning</td>
+<td>默认可选. 逻辑推理. 大小性能的平衡.</td>
+</tr>
+<tr>
+<td>OpenVINO/Qwen2.5-VL-7B-Instruct-int4-ov</td>
+<td>~5.2GB</td>
+<td>Vision / Agentic</td>
+<td>默认可选. 多模态模型, 支持看图.</td>
+</tr>
+<tr>
+<td>OpenVINO/Qwen3-14B-int4-ov</td>
+<td>~9.7GB</td>
+<td>GPU日常使用</td>
+<td>手动添加. 中文语境理解与长文本处理最强。</td>
+</tr>
+<tr>
+<td>OpenVINO/DeepSeek-R1-Distill-Qwen-14B-int4-ov</td>
+<td>~8.5GB</td>
+<td>GPU深度思考</td>
+<td>手动添加. 逻辑推理天花板，自带“思考链”。</td>
+</tr>
+</tbody></table>
+<h2 id="Image-Video-Setting"><a href="#Image-Video-Setting" class="headerlink" title="Image / Video Setting"></a>Image / Video Setting</h2><p>Intel AI Playground 已经按照常用的应用需求配置好了所需的大模型和默认参数.</p>
+<ul>
+<li>譬如. 换脸, 黑白变彩色, 图片指定修改等等.</li>
+<li>选择好应用需求, 首次使用会提示下载缺失的大模型, 然后等待出效果即可.</li>
+<li>此部分尝鲜为主, 尤其是视频生成. 如果硬盘空间不够, 不建议下载.</li>
+</ul>
+<h2 id="删除下载的大模型"><a href="#删除下载的大模型" class="headerlink" title="删除下载的大模型"></a>删除下载的大模型</h2><p>目前软件界面没有提供大模型删除功能, 只能进入按照目录, 手动删除模型.</p>
+<ul>
+<li><code>...\AI Playground\resources\models</code><ul>
+<li><code>ComfyUI</code> 存放图片和视频大模型的路径. <ul>
+<li>如果确认某个模型不需要了, 可以按需删除里面的文件夹.</li>
+</ul>
+</li>
+<li><code>LLM</code> 对话类大模型的路径<ul>
+<li><code>embedding</code>  文本嵌入器模型, 给 <code>Chat with RAG</code> 用的.<ul>
+<li>下面依旧细分了 <code>ggufLLM</code> 和 <code>openvino</code> 两种文件格式.</li>
+</ul>
+</li>
+<li><code>ggufLLM</code> 通用的GGUF格式大模型. 没下载过, 应该是空的.</li>
+<li><code>openvino</code> Intel专用格式大模型. 保持了下载好的模型.<ul>
+<li>文件夹命名对应了大模型名称, 按需删除整个文件夹即可.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>STT</code> 语音转文本模型</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>software</category>
+      </categories>
+      <tags>
+        <tag>software</tag>
+        <tag>crisis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>灾备资料获取</title>
+    <url>/2026/03/04/2610-CrisisPlan/</url>
+    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
+<li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
+<li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
+<li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
+<li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
+</ul>
+<h1 id="Kiwix-离线资料"><a href="#Kiwix-离线资料" class="headerlink" title="Kiwix 离线资料"></a>Kiwix 离线资料</h1><p><a href="https://kiwix.org/en/">https://kiwix.org/en/</a>   </p>
+<ul>
+<li>kiwix, 支持离线阅读, 可以下维基百科 (Wikipedia) 的离线版（.zim 格式）</li>
+<li>推荐下载. (Language: 中文, English)<ul>
+<li>对大文件可以直接通过 <a href="https://download.kiwix.org/zim/wikipedia/">官网ZIM链接</a> 下载</li>
+<li>维基百科, 中英文完整版    <ul>
+<li>医学维基百科. 450MB. 便携设备应急用.</li>
+<li>地理维基百科. 300MB. 便携设备应急用.</li>
+<li>WikiMed Medical Encyclopedia. 2GB. 英文医学维基百科.</li>
+<li>Geography by Wikipedia. 1.3GB. 英文地理维基百科.</li>
+<li>wikisource, 中文完整版. 包含大量古籍.</li>
+<li>wikisource, 英文完整版 包含已出版作品的原文</li>
+</ul>
+</li>
+<li>wikibooks, 中英文完整版. 现代教程为主.</li>
+<li>wikiHow, 中英文完整版. How-to, 怎么做的简易指南.<ul>
+<li>官网已经下载不到.</li>
+<li>可以从 <a href="https://cdimage.debian.org/mirror/kiwix.org/archive/zim/wikihow/">kiwix zim 镜像备份</a> 下载</li>
+</ul>
+</li>
+<li>古腾堡图书馆项目, Project Gutenberg Library 内所有的中文书. 古籍为主.</li>
+<li><del>Project Gutenberg Library</del>  七万多的电子书, 以文学为主. 内含传统农业和食品保存</li>
+</ul>
+</li>
+</ul>
+<h1 id="z-library中文资料"><a href="#z-library中文资料" class="headerlink" title="z-library中文资料"></a>z-library中文资料</h1><p><a href="https://zh.z-library.sk/">https://zh.z-library.sk/</a>  </p>
+<ul>
+<li>可能是假冒z-library的中文网站. </li>
+<li>每日可免费下载五本书. </li>
+<li>如果要尝试注册, 使用随机密码, 不要输入自己的常用密码.</li>
+<li>搜索关键词: 自给自足, 赤脚医生, 野外生存, 生存手册, 饮水安全, 军地两用人才, 民兵训练, 心理急救等等</li>
+</ul>
+<p>高度推荐下载的书籍 (中文):</p>
+<ul>
+<li>自给自足生活简明指南 (约翰.西摩)</li>
+<li>赤脚医生手册 (延安地区革命委员会卫生局《赤脚医生手册》编写组) (蓝封面书)</li>
+<li>新赤脚医生手册 (《新赤脚医生手册》编写部) (红封面书)</li>
+<li>最新野外生存手册 (李一新)</li>
+<li>野外生存手册 (风间麟平)</li>
+<li>户外医学：野外急救与医学应急求生宝典（第5版）</li>
+<li>军地两用人才之友</li>
+</ul>
+<h1 id="野外生存和人类文明重启-英文"><a href="#野外生存和人类文明重启-英文" class="headerlink" title="野外生存和人类文明重启(英文)"></a>野外生存和人类文明重启(英文)</h1><p><a href="https://trueprepper.com/survival-pdfs-downloads/">https://trueprepper.com/survival-pdfs-downloads/</a></p>
+<ul>
+<li>军事生存, 野外生存资料为主. 全英文</li>
+</ul>
+<p><a href="https://www.survivorlibrary.com/index.php/main-library-index/">https://www.survivorlibrary.com/index.php/main-library-index/</a></p>
+<ul>
+<li>幸存者图书馆. 专门为“人类文明重启”准备的开源项目。全英文.</li>
+<li>提供了非常详实的工程操作细节, 而不只是简单的知识介绍.</li>
+<li>作为备份即可. 初期都无需喂给AI当知识库.</li>
+</ul>
+<h1 id="如何利用这些资料"><a href="#如何利用这些资料" class="headerlink" title="如何利用这些资料"></a>如何利用这些资料</h1><ul>
+<li><p>在电脑端和手机端都装好 kiwix, </p>
+<ul>
+<li>将下载好ZIM资料放进kiwix设置中的目录即可自动识别.</li>
+<li><strong>kiwix 以自己查询阅读为主.</strong></li>
+<li>手机端受限于容量, 可以只放核心ZIM文件. </li>
+<li>外置一个Type C U盘, 存放ZIM大文件, 让手机可访问.</li>
+<li>手机必须考虑电量问题, 需要为其准备太阳能充电板.</li>
+</ul>
+</li>
+<li><p>大量的PDF文件, 两种用法. </p>
+<ul>
+<li>一种为明确需求后, 自己查阅学习.</li>
+<li>另一种为利用本地AI, 建立知识库. 可参考 <a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">本地AI配置教程</a></li>
+</ul>
+</li>
+<li><p>仅仅下载资料是毫无用处的. 但立刻开始练习掌握也不现实. 重点是有所准备</p>
+<ul>
+<li><p>总体的准备原则是在一段时间内, 尽可能的自给自足.</p>
+<ul>
+<li>可假设所有的公共服务, 即水电网, 购物都无法稳定的提供.</li>
+</ul>
+</li>
+<li><p>此种情况下, 尽可能根据现实情况和自身条件, 最大限度的实现一定范围内的自给自足.</p>
+</li>
+<li><p><strong>心理准备是第一层, 物质准备是第二层, 身体锻炼适应是第三层.</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>有稳定居所, 且居所安全的, 重点关注食物和能源的自给自足.</strong></p>
+<ul>
+<li>能源直接安装太阳能板+电池储能. 有条件的购买纯电车及必要的电动工具.</li>
+<li>食物参考学习家庭农场的运营. 另要保证水源.</li>
+<li>提前将必要的软件和资料下载保持并备份. </li>
+<li>可考虑部署本地AI, 知识的学习和获取将非常便利.</li>
+</ul>
+</li>
+<li><p>户外生存模式下, 充分准备和无准备有非常大的差距.</p>
+<ul>
+<li><p><strong>书籍里提到的应急物资和工具, 必须要提前整理打包好.</strong></p>
+</li>
+<li><p><strong>户外环境一般较为恶劣和不可控. 不要过度依赖电子产品.</strong></p>
+</li>
+<li><p><strong>第一层知识储备: 准备太阳能板, 线材, 手机. 资料存放在手机和备用U盘.</strong></p>
+</li>
+<li><p><strong>第二层知识储备: 准备精心挑选的一本纸质书籍, 手摇式手电筒, 氚气管氚灯.</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>crisis</category>
+      </categories>
+      <tags>
         <tag>crisis</tag>
       </tags>
   </entry>

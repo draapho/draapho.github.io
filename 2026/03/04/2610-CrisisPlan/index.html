@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"draapho.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="灾备资料的获取, 以及如何利用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="灾备资料获取">
+<meta property="og:url" content="https://draapho.github.io/2026/03/04/2610-CrisisPlan/index.html">
+<meta property="og:site_name" content="DRA&amp;PHO">
+<meta property="og:description" content="灾备资料的获取, 以及如何利用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-03-03T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-03T08:58:51.292Z">
+<meta property="article:author" content="draapho">
+<meta property="article:tag" content="crisis">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>灾备资料获取 | DRA&PHO</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DRA&PHO</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">thinking & logging</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kiwix-%E7%A6%BB%E7%BA%BF%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">Kiwix 离线资料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#z-library%E4%B8%AD%E6%96%87%E8%B5%84%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">z-library中文资料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8E%E5%A4%96%E7%94%9F%E5%AD%98%E5%92%8C%E4%BA%BA%E7%B1%BB%E6%96%87%E6%98%8E%E9%87%8D%E5%90%AF-%E8%8B%B1%E6%96%87"><span class="nav-number">4.</span> <span class="nav-text">野外生存和人类文明重启(英文)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E8%BF%99%E4%BA%9B%E8%B5%84%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">如何利用这些资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="draapho"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">draapho</p>
+  <div class="site-description" itemprop="description">explore</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">188</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="draapho">
+      <meta itemprop="description" content="explore">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DRA&PHO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          灾备资料获取
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2026-03-04T00:00:00+11:00">2026-03-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2026-03-03 19:58:51" itemprop="dateModified" datetime="2026-03-03T19:58:51+11:00">2026-03-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/crisis/" itemprop="url" rel="index"><span itemprop="name">crisis</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">灾备资料的获取, 以及如何利用</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
+<li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
+<li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
+<li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
+<li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
+</ul>
+<h1 id="Kiwix-离线资料"><a href="#Kiwix-离线资料" class="headerlink" title="Kiwix 离线资料"></a>Kiwix 离线资料</h1><p><a target="_blank" rel="noopener" href="https://kiwix.org/en/">https://kiwix.org/en/</a>   </p>
+<ul>
+<li>kiwix, 支持离线阅读, 可以下维基百科 (Wikipedia) 的离线版（.zim 格式）</li>
+<li>推荐下载. (Language: 中文, English)<ul>
+<li>对大文件可以直接通过 <a target="_blank" rel="noopener" href="https://download.kiwix.org/zim/wikipedia/">官网ZIM链接</a> 下载</li>
+<li>维基百科, 中英文完整版    <ul>
+<li>医学维基百科. 450MB. 便携设备应急用.</li>
+<li>地理维基百科. 300MB. 便携设备应急用.</li>
+<li>WikiMed Medical Encyclopedia. 2GB. 英文医学维基百科.</li>
+<li>Geography by Wikipedia. 1.3GB. 英文地理维基百科.</li>
+<li>wikisource, 中文完整版. 包含大量古籍.</li>
+<li>wikisource, 英文完整版 包含已出版作品的原文</li>
+</ul>
+</li>
+<li>wikibooks, 中英文完整版. 现代教程为主.</li>
+<li>wikiHow, 中英文完整版. How-to, 怎么做的简易指南.<ul>
+<li>官网已经下载不到.</li>
+<li>可以从 <a target="_blank" rel="noopener" href="https://cdimage.debian.org/mirror/kiwix.org/archive/zim/wikihow/">kiwix zim 镜像备份</a> 下载</li>
+</ul>
+</li>
+<li>古腾堡图书馆项目, Project Gutenberg Library 内所有的中文书. 古籍为主.</li>
+<li><del>Project Gutenberg Library</del>  七万多的电子书, 以文学为主. 内含传统农业和食品保存</li>
+</ul>
+</li>
+</ul>
+<h1 id="z-library中文资料"><a href="#z-library中文资料" class="headerlink" title="z-library中文资料"></a>z-library中文资料</h1><p><a target="_blank" rel="noopener" href="https://zh.z-library.sk/">https://zh.z-library.sk/</a>  </p>
+<ul>
+<li>可能是假冒z-library的中文网站. </li>
+<li>每日可免费下载五本书. </li>
+<li>如果要尝试注册, 使用随机密码, 不要输入自己的常用密码.</li>
+<li>搜索关键词: 自给自足, 赤脚医生, 野外生存, 生存手册, 饮水安全, 军地两用人才, 民兵训练, 心理急救等等</li>
+</ul>
+<p>高度推荐下载的书籍 (中文):</p>
+<ul>
+<li>自给自足生活简明指南 (约翰.西摩)</li>
+<li>赤脚医生手册 (延安地区革命委员会卫生局《赤脚医生手册》编写组) (蓝封面书)</li>
+<li>新赤脚医生手册 (《新赤脚医生手册》编写部) (红封面书)</li>
+<li>最新野外生存手册 (李一新)</li>
+<li>野外生存手册 (风间麟平)</li>
+<li>户外医学：野外急救与医学应急求生宝典（第5版）</li>
+<li>军地两用人才之友</li>
+</ul>
+<h1 id="野外生存和人类文明重启-英文"><a href="#野外生存和人类文明重启-英文" class="headerlink" title="野外生存和人类文明重启(英文)"></a>野外生存和人类文明重启(英文)</h1><p><a target="_blank" rel="noopener" href="https://trueprepper.com/survival-pdfs-downloads/">https://trueprepper.com/survival-pdfs-downloads/</a></p>
+<ul>
+<li>军事生存, 野外生存资料为主. 全英文</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.survivorlibrary.com/index.php/main-library-index/">https://www.survivorlibrary.com/index.php/main-library-index/</a></p>
+<ul>
+<li>幸存者图书馆. 专门为“人类文明重启”准备的开源项目。全英文.</li>
+<li>提供了非常详实的工程操作细节, 而不只是简单的知识介绍.</li>
+<li>作为备份即可. 初期都无需喂给AI当知识库.</li>
+</ul>
+<h1 id="如何利用这些资料"><a href="#如何利用这些资料" class="headerlink" title="如何利用这些资料"></a>如何利用这些资料</h1><ul>
+<li><p>在电脑端和手机端都装好 kiwix, </p>
+<ul>
+<li>将下载好ZIM资料放进kiwix设置中的目录即可自动识别.</li>
+<li><strong>kiwix 以自己查询阅读为主.</strong></li>
+<li>手机端受限于容量, 可以只放核心ZIM文件. </li>
+<li>外置一个Type C U盘, 存放ZIM大文件, 让手机可访问.</li>
+<li>手机必须考虑电量问题, 需要为其准备太阳能充电板.</li>
+</ul>
+</li>
+<li><p>大量的PDF文件, 两种用法. </p>
+<ul>
+<li>一种为明确需求后, 自己查阅学习.</li>
+<li>另一种为利用本地AI, 建立知识库. 可参考 <a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">本地AI配置教程</a></li>
+</ul>
+</li>
+<li><p>仅仅下载资料是毫无用处的. 但立刻开始练习掌握也不现实. 重点是有所准备</p>
+<ul>
+<li><p>总体的准备原则是在一段时间内, 尽可能的自给自足.</p>
+<ul>
+<li>可假设所有的公共服务, 即水电网, 购物都无法稳定的提供.</li>
+</ul>
+</li>
+<li><p>此种情况下, 尽可能根据现实情况和自身条件, 最大限度的实现一定范围内的自给自足.</p>
+</li>
+<li><p><strong>心理准备是第一层, 物质准备是第二层, 身体锻炼适应是第三层.</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>有稳定居所, 且居所安全的, 重点关注食物和能源的自给自足.</strong></p>
+<ul>
+<li>能源直接安装太阳能板+电池储能. 有条件的购买纯电车及必要的电动工具.</li>
+<li>食物参考学习家庭农场的运营. 另要保证水源.</li>
+<li>提前将必要的软件和资料下载保持并备份. </li>
+<li>可考虑部署本地AI, 知识的学习和获取将非常便利.</li>
+</ul>
+</li>
+<li><p>户外生存模式下, 充分准备和无准备有非常大的差距.</p>
+<ul>
+<li><p><strong>书籍里提到的应急物资和工具, 必须要提前整理打包好.</strong></p>
+</li>
+<li><p><strong>户外环境一般较为恶劣和不可控. 不要过度依赖电子产品.</strong></p>
+</li>
+<li><p><strong>第一层知识储备: 准备太阳能板, 线材, 手机. 资料存放在手机和备用U盘.</strong></p>
+</li>
+<li><p><strong>第二层知识储备: 准备精心挑选的一本纸质书籍, 手摇式手电筒, 氚气管氚灯.</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/crisis/" rel="tag"># crisis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/03/03/2609-IntelAI/" rel="prev" title="Intel的本地AI玩法">
+                  <i class="fa fa-chevron-left"></i> Intel的本地AI玩法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">draapho</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

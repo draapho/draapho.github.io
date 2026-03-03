@@ -30,7 +30,7 @@
 <meta property="og:description" content="基于Ollama的AI配置教程. 目前仅支持NV卡或CPU.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-02-24T13:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-03T06:55:00.194Z">
+<meta property="article:modified_time" content="2026-03-03T08:58:06.227Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="software">
 <meta property="article:tag" content="crisis">
@@ -186,7 +186,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Ollama"><span class="nav-number">2.</span> <span class="nav-text">安装 Ollama</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-AnythingLLM"><span class="nav-number">3.</span> <span class="nav-text">安装 AnythingLLM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AnythingLLM%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="nav-number">3.1.</span> <span class="nav-text">AnythingLLM的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-AnythingLLM"><span class="nav-number">3.2.</span> <span class="nav-text">安装和配置 AnythingLLM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B5%8C%E5%85%A5%E5%99%A8-Embedder-%EF%BC%9F"><span class="nav-number">3.3.</span> <span class="nav-text">什么是嵌入器 (Embedder)？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93-Vector-Database-%EF%BC%9F"><span class="nav-number">3.4.</span> <span class="nav-text">什么是向量数据库 (Vector Database)？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84AI%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">如何选择正确的AI模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E6%A8%A1%E5%9E%8B%E6%9D%83%E9%87%8D%EF%BC%88%E5%9B%BA%E5%AE%9A%E6%94%AF%E5%87%BA%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">第一部分：模型权重（固定支出）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E4%B8%8A%E4%B8%8B%E6%96%87%E9%95%BF%E5%BA%A6%E7%BC%93%E5%AD%98-Context-Cache"><span class="nav-number">4.2.</span> <span class="nav-text">第二部分：上下文长度缓存, Context Cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E5%A4%9A%E6%A8%A1%E6%80%81%E5%9B%BE%E7%89%87%E9%A2%84%E7%95%99%E7%BC%93%E5%86%B2"><span class="nav-number">4.3.</span> <span class="nav-text">第三部分：多模态图片预留缓冲</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%96%82%E5%85%A5%E8%87%AA%E6%95%91%E7%9F%A5%E8%AF%86%E5%BA%93-RAG"><span class="nav-number">5.</span> <span class="nav-text">喂入自救知识库 (RAG)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%AB%E6%8F%8F%E7%89%88pdf%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB"><span class="nav-number">6.</span> <span class="nav-text">扫描版pdf的自动识别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8IBM%E7%9A%84-Docling"><span class="nav-number">6.1.</span> <span class="nav-text">使用IBM的 Docling</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">7.</span> <span class="nav-text">整体操作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96AI%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83-2026"><span class="nav-number">8.</span> <span class="nav-text">本地化AI模型比较(2026)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0AI%E6%9E%B6%E6%9E%84%E5%88%86%E5%B1%82"><span class="nav-number">9.</span> <span class="nav-text">本地AI架构分层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%A1%AC%E4%BB%B6%E5%B1%82-Hardware-Layer"><span class="nav-number">9.1.</span> <span class="nav-text">1. 硬件层 (Hardware Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A8%A1%E5%9E%8B%E5%B1%82-Model-Layer"><span class="nav-number">9.2.</span> <span class="nav-text">2. 模型层(Model Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8E%A8%E7%90%86%E5%BC%95%E6%93%8E%E5%B1%82-Inference-Engine"><span class="nav-number">9.3.</span> <span class="nav-text">3. 推理引擎层(Inference Engine)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BB%A3%E7%90%86%E5%B1%82-Agent-Layer"><span class="nav-number">9.4.</span> <span class="nav-text">4. 代理层(Agent Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%BA%94%E7%94%A8%E5%B1%82-Application-Layer"><span class="nav-number">9.5.</span> <span class="nav-text">5. 应用层 (Application Layer)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%8F%E6%83%B3-AI%E5%B8%A6%E6%9D%A5%E7%9A%84%E7%9F%9B%E7%9B%BE%E5%92%8C%E5%86%B2%E7%AA%81"><span class="nav-number">10.</span> <span class="nav-text">随想, AI带来的矛盾和冲突</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Ollama"><span class="nav-number">3.</span> <span class="nav-text">安装 Ollama</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-AnythingLLM"><span class="nav-number">4.</span> <span class="nav-text">安装 AnythingLLM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AnythingLLM%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.1.</span> <span class="nav-text">AnythingLLM的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-AnythingLLM"><span class="nav-number">4.2.</span> <span class="nav-text">安装和配置 AnythingLLM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B5%8C%E5%85%A5%E5%99%A8-Embedder-%EF%BC%9F"><span class="nav-number">4.3.</span> <span class="nav-text">什么是嵌入器 (Embedder)？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93-Vector-Database-%EF%BC%9F"><span class="nav-number">4.4.</span> <span class="nav-text">什么是向量数据库 (Vector Database)？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84AI%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">如何选择正确的AI模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E6%A8%A1%E5%9E%8B%E6%9D%83%E9%87%8D%EF%BC%88%E5%9B%BA%E5%AE%9A%E6%94%AF%E5%87%BA%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">第一部分：模型权重（固定支出）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E4%B8%8A%E4%B8%8B%E6%96%87%E9%95%BF%E5%BA%A6%E7%BC%93%E5%AD%98-Context-Cache"><span class="nav-number">5.2.</span> <span class="nav-text">第二部分：上下文长度缓存, Context Cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E5%A4%9A%E6%A8%A1%E6%80%81%E5%9B%BE%E7%89%87%E9%A2%84%E7%95%99%E7%BC%93%E5%86%B2"><span class="nav-number">5.3.</span> <span class="nav-text">第三部分：多模态图片预留缓冲</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%96%82%E5%85%A5%E8%87%AA%E6%95%91%E7%9F%A5%E8%AF%86%E5%BA%93-RAG"><span class="nav-number">6.</span> <span class="nav-text">喂入自救知识库 (RAG)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%AB%E6%8F%8F%E7%89%88pdf%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text">扫描版pdf的自动识别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8IBM%E7%9A%84-Docling"><span class="nav-number">7.1.</span> <span class="nav-text">使用IBM的 Docling</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">8.</span> <span class="nav-text">整体操作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96AI%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83-2026"><span class="nav-number">9.</span> <span class="nav-text">本地化AI模型比较(2026)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0AI%E6%9E%B6%E6%9E%84%E5%88%86%E5%B1%82"><span class="nav-number">10.</span> <span class="nav-text">本地AI架构分层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%A1%AC%E4%BB%B6%E5%B1%82-Hardware-Layer"><span class="nav-number">10.1.</span> <span class="nav-text">1. 硬件层 (Hardware Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A8%A1%E5%9E%8B%E5%B1%82-Model-Layer"><span class="nav-number">10.2.</span> <span class="nav-text">2. 模型层(Model Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8E%A8%E7%90%86%E5%BC%95%E6%93%8E%E5%B1%82-Inference-Engine"><span class="nav-number">10.3.</span> <span class="nav-text">3. 推理引擎层(Inference Engine)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BB%A3%E7%90%86%E5%B1%82-Agent-Layer"><span class="nav-number">10.4.</span> <span class="nav-text">4. 代理层(Agent Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%BA%94%E7%94%A8%E5%B1%82-Application-Layer"><span class="nav-number">10.5.</span> <span class="nav-text">5. 应用层 (Application Layer)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%8F%E6%83%B3-AI%E5%B8%A6%E6%9D%A5%E7%9A%84%E7%9F%9B%E7%9B%BE%E5%92%8C%E5%86%B2%E7%AA%81"><span class="nav-number">11.</span> <span class="nav-text">随想, AI带来的矛盾和冲突</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -202,14 +202,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">188</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -284,7 +284,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2026-03-03 17:55:00" itemprop="dateModified" datetime="2026-03-03T17:55:00+11:00">2026-03-03</time>
+        <time title="Modified: 2026-03-03 19:58:06" itemprop="dateModified" datetime="2026-03-03T19:58:06+11:00">2026-03-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -307,7 +307,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>准备安装可以离线的本地AI，主要用于灾备，存储知识，可以离线问答。<br>次要目标是学习了解AI嵌入式本地化的实用性情况<br>台式机配置是: 5070ti, AMD Ryzen 7 7800X3D, 32GB,1tb+2tb硬盘</p>
+        <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
+<li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
+<li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
+<li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
+<li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
+</ul>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>准备安装可以离线的本地AI，主要用于灾备，存储知识，可以离线问答。<br>次要目标是学习了解AI嵌入式本地化的实用性情况<br>台式机配置是: 5070ti, AMD Ryzen 7 7800X3D, 32GB,1tb+2tb硬盘</p>
 <p>要求：</p>
 <ul>
 <li>本地AI能回答常识性知识，如如何种菜等等，</li>
@@ -373,18 +383,19 @@
 <li>注意: <strong>AnythingLLM 目前没有支持 Intel AI Playground</strong></li>
 <li>安装: 直接从 <a target="_blank" rel="noopener" href="https://useanything.com/download">useanything.com</a> 下载安装包。</li>
 <li>安装完成后, 打开 AnythingLLM 界面后，按照以下顺序配置：<ol>
-<li>**LLM Setup (大语言模型)**：<ul>
+<li><strong>LLM Setup</strong> (大语言模型)：<ul>
 <li><strong>LLM Provider</strong>: 选择 <code>Ollama</code> 或者 <code>Intel AI Playground</code></li>
 <li><strong>Model</strong>: 选择 <code>qwen3:14b</code>  (请按实际需求选择)</li>
 <li><strong>Ollama URL</strong>: <code>http://127.0.0.1:11434</code>。</li>
 </ul>
 </li>
-<li>**Embedder (嵌入器)**：<ul>
+<li><strong>Embedder</strong> (嵌入器)：<ul>
 <li><strong>Embedding Provider</strong>: 选择 <code>Ollama</code></li>
-<li><strong>Model</strong>: 选择 <code>bge-m3</code> (中文或多语言推荐)  或 <code>nomic-embed-text</code> (英文最强) </li>
+<li><strong>Model</strong>: 选择 <code>bge-m3</code> (中文或多语言推荐) </li>
+<li>如果是英语, 选择默认 <code>AnythingLLM Embedder</code> 的 <code>nomic-embed-text-v1</code> 即可</li>
 </ul>
 </li>
-<li>**Vector Database (数据库)**：<ul>
+<li><strong>Vector Database</strong> (数据库)：<ul>
 <li>选择 <code>LanceDB</code> (这是内置的，直接存在硬盘里，无需额外安装)。</li>
 </ul>
 </li>
@@ -399,7 +410,7 @@
 <li>主要针对单语言使用. 譬如导入英文资料, 查询也是使用英文. </li>
 </ul>
 </li>
-<li>bge-m3：另一个“翻译官”。特点是<strong>多语言, 多功能, 多维度</strong><ul>
+<li><code>bge-m3</code>：另一个“翻译官”。特点是<strong>多语言, 多功能, 多维度</strong><ul>
 <li>从设计上就强调多语言，在中文检索、语义相似度等任务上 常年领先。</li>
 <li>适合中文为主或中英文混用的 RAG、本地知识库等场景。</li>
 </ul>
@@ -628,15 +639,6 @@
 <td>成本和资源受限的情况</td>
 </tr>
 <tr>
-<td><strong>Qwen3-VL:2B</strong></td>
-<td>1.8GB</td>
-<td>⭐⭐</td>
-<td>⭐⭐</td>
-<td>⭐⭐⭐⭐</td>
-<td>端侧视觉</td>
-<td>视觉解析同级别顶尖</td>
-</tr>
-<tr>
 <td><strong>GLM-OCR:q8_0</strong></td>
 <td>1.6GB</td>
 <td>⭐</td>
@@ -730,6 +732,7 @@
 <ul>
 <li><a target="_blank" rel="noopener" href="https://huggingface.co/">Hugging Face</a>.  AI 界的 GitHub. 用于存储、分享模型和数据集的标准云端仓库。</li>
 <li>GGUF 文件格式：本地化部署的标准文件格式，通过“量化”技术让大模型能塞进家用显存里。</li>
+<li>OpenVINO 文件格式: Intel 针对自家芯片优化的大模型格式.</li>
 </ul>
 <p>当前模型的局限性. 资源和算力总是有限的, 单个AI是有自己的特点, 局限和专长的.</p>
 <p>因而需要了解主流AI模型的特长, 才能较好的选择正确的AI大模型.</p>
