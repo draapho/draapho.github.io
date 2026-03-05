@@ -30,7 +30,7 @@
 <meta property="og:description" content="基于Ollama的AI配置教程. 目前仅支持NV卡或CPU.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-02-24T13:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-04T11:53:17.014Z">
+<meta property="article:modified_time" content="2026-03-05T06:45:36.750Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="software">
 <meta property="article:tag" content="crisis">
@@ -186,7 +186,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Ollama"><span class="nav-number">3.</span> <span class="nav-text">安装 Ollama</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-AnythingLLM"><span class="nav-number">4.</span> <span class="nav-text">安装 AnythingLLM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AnythingLLM%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.1.</span> <span class="nav-text">AnythingLLM的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-AnythingLLM"><span class="nav-number">4.2.</span> <span class="nav-text">安装和配置 AnythingLLM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B5%8C%E5%85%A5%E5%99%A8-Embedder-%EF%BC%9F"><span class="nav-number">4.3.</span> <span class="nav-text">什么是嵌入器 (Embedder)？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93-Vector-Database-%EF%BC%9F"><span class="nav-number">4.4.</span> <span class="nav-text">什么是向量数据库 (Vector Database)？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84AI%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">如何选择正确的AI模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E6%A8%A1%E5%9E%8B%E6%9D%83%E9%87%8D%EF%BC%88%E5%9B%BA%E5%AE%9A%E6%94%AF%E5%87%BA%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">第一部分：模型权重（固定支出）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E4%B8%8A%E4%B8%8B%E6%96%87%E9%95%BF%E5%BA%A6%E7%BC%93%E5%AD%98-Context-Cache"><span class="nav-number">5.2.</span> <span class="nav-text">第二部分：上下文长度缓存, Context Cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E5%A4%9A%E6%A8%A1%E6%80%81%E5%9B%BE%E7%89%87%E9%A2%84%E7%95%99%E7%BC%93%E5%86%B2"><span class="nav-number">5.3.</span> <span class="nav-text">第三部分：多模态图片预留缓冲</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%96%82%E5%85%A5%E8%87%AA%E6%95%91%E7%9F%A5%E8%AF%86%E5%BA%93-RAG"><span class="nav-number">6.</span> <span class="nav-text">喂入自救知识库 (RAG)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%AB%E6%8F%8F%E7%89%88pdf%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text">扫描版pdf的自动识别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8IBM%E7%9A%84-Docling"><span class="nav-number">7.1.</span> <span class="nav-text">使用IBM的 Docling</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RAG%E6%95%B4%E4%BD%93%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">8.</span> <span class="nav-text">RAG整体操作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E6%B7%BB%E5%8A%A0AI%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B"><span class="nav-number">9.</span> <span class="nav-text">VS Code 添加AI辅助编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96AI%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83-2026%E5%B9%B4%E5%88%9D"><span class="nav-number">10.</span> <span class="nav-text">本地化AI模型比较(2026年初)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0AI%E6%9E%B6%E6%9E%84%E5%88%86%E5%B1%82"><span class="nav-number">11.</span> <span class="nav-text">本地AI架构分层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%A1%AC%E4%BB%B6%E5%B1%82-Hardware-Layer"><span class="nav-number">11.1.</span> <span class="nav-text">1. 硬件层 (Hardware Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A8%A1%E5%9E%8B%E5%B1%82-Model-Layer"><span class="nav-number">11.2.</span> <span class="nav-text">2. 模型层(Model Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8E%A8%E7%90%86%E5%BC%95%E6%93%8E%E5%B1%82-Inference-Engine"><span class="nav-number">11.3.</span> <span class="nav-text">3. 推理引擎层(Inference Engine)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BB%A3%E7%90%86%E5%B1%82-Agent-Layer"><span class="nav-number">11.4.</span> <span class="nav-text">4. 代理层(Agent Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%BA%94%E7%94%A8%E5%B1%82-Application-Layer"><span class="nav-number">11.5.</span> <span class="nav-text">5. 应用层 (Application Layer)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%8F%E6%83%B3-AI%E5%B8%A6%E6%9D%A5%E7%9A%84%E7%9F%9B%E7%9B%BE%E5%92%8C%E5%86%B2%E7%AA%81"><span class="nav-number">12.</span> <span class="nav-text">随想, AI带来的矛盾和冲突</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Ollama"><span class="nav-number">3.</span> <span class="nav-text">安装 Ollama</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NV%E5%8D%A1%E5%AE%89%E8%A3%85Ollama"><span class="nav-number">3.1.</span> <span class="nav-text">NV卡安装Ollama</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intel-%E8%8A%AF%E7%89%87%E5%AE%89%E8%A3%85-Ollama"><span class="nav-number">3.2.</span> <span class="nav-text">Intel 芯片安装 Ollama</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-AnythingLLM"><span class="nav-number">4.</span> <span class="nav-text">安装 AnythingLLM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AnythingLLM%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.1.</span> <span class="nav-text">AnythingLLM的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-AnythingLLM"><span class="nav-number">4.2.</span> <span class="nav-text">安装和配置 AnythingLLM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B5%8C%E5%85%A5%E5%99%A8-Embedder-%EF%BC%9F"><span class="nav-number">4.3.</span> <span class="nav-text">什么是嵌入器 (Embedder)？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93-Vector-Database-%EF%BC%9F"><span class="nav-number">4.4.</span> <span class="nav-text">什么是向量数据库 (Vector Database)？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84AI%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">如何选择正确的AI模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E6%A8%A1%E5%9E%8B%E6%9D%83%E9%87%8D%EF%BC%88%E5%9B%BA%E5%AE%9A%E6%94%AF%E5%87%BA%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">第一部分：模型权重（固定支出）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E4%B8%8A%E4%B8%8B%E6%96%87%E9%95%BF%E5%BA%A6%E7%BC%93%E5%AD%98-Context-Cache"><span class="nav-number">5.2.</span> <span class="nav-text">第二部分：上下文长度缓存, Context Cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E5%A4%9A%E6%A8%A1%E6%80%81%E5%9B%BE%E7%89%87%E9%A2%84%E7%95%99%E7%BC%93%E5%86%B2"><span class="nav-number">5.3.</span> <span class="nav-text">第三部分：多模态图片预留缓冲</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%96%82%E5%85%A5%E8%87%AA%E6%95%91%E7%9F%A5%E8%AF%86%E5%BA%93-RAG"><span class="nav-number">6.</span> <span class="nav-text">喂入自救知识库 (RAG)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%AB%E6%8F%8F%E7%89%88pdf%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text">扫描版pdf的自动识别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8IBM%E7%9A%84-Docling"><span class="nav-number">7.1.</span> <span class="nav-text">使用IBM的 Docling</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RAG%E6%95%B4%E4%BD%93%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">8.</span> <span class="nav-text">RAG整体操作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E6%B7%BB%E5%8A%A0AI%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B"><span class="nav-number">9.</span> <span class="nav-text">VS Code 添加AI辅助编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96AI%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83-2026%E5%B9%B4%E5%88%9D"><span class="nav-number">10.</span> <span class="nav-text">本地化AI模型比较(2026年初)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0AI%E6%9E%B6%E6%9E%84%E5%88%86%E5%B1%82"><span class="nav-number">11.</span> <span class="nav-text">本地AI架构分层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%A1%AC%E4%BB%B6%E5%B1%82-Hardware-Layer"><span class="nav-number">11.1.</span> <span class="nav-text">1. 硬件层 (Hardware Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A8%A1%E5%9E%8B%E5%B1%82-Model-Layer"><span class="nav-number">11.2.</span> <span class="nav-text">2. 模型层(Model Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8E%A8%E7%90%86%E5%BC%95%E6%93%8E%E5%B1%82-Inference-Engine"><span class="nav-number">11.3.</span> <span class="nav-text">3. 推理引擎层(Inference Engine)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BB%A3%E7%90%86%E5%B1%82-Agent-Layer"><span class="nav-number">11.4.</span> <span class="nav-text">4. 代理层(Agent Layer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%BA%94%E7%94%A8%E5%B1%82-Application-Layer"><span class="nav-number">11.5.</span> <span class="nav-text">5. 应用层 (Application Layer)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%8F%E6%83%B3-AI%E5%B8%A6%E6%9D%A5%E7%9A%84%E7%9F%9B%E7%9B%BE%E5%92%8C%E5%86%B2%E7%AA%81"><span class="nav-number">12.</span> <span class="nav-text">随想, AI带来的矛盾和冲突</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -284,7 +284,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2026-03-04 22:53:17" itemprop="dateModified" datetime="2026-03-04T22:53:17+11:00">2026-03-04</time>
+        <time title="Modified: 2026-03-05 17:45:36" itemprop="dateModified" datetime="2026-03-05T17:45:36+11:00">2026-03-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -314,20 +314,27 @@
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
 <li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
-<li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
 <li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
 <li><a href="https://draapho.github.io/2026/03/05/2611-EmergencySupplies/">应急基础物资清单</a></li>
 </ul>
-<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>准备安装可以离线的本地AI，主要用于灾备，存储知识，可以离线问答。<br>次要目标是学习了解AI嵌入式本地化的实用性情况<br>台式机配置是: 5070ti, AMD Ryzen 7 7800X3D, 32GB,1tb+2tb硬盘</p>
-<p>要求：</p>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>准备安装可以离线的本地AI，主要用于灾备，存储知识，可以离线问答。<br>次要目标是学习了解AI嵌入式本地化的实用性情况<br>机器1, 台式机配置: 5070ti, AMD Ryzen 7 7800X3D, 32GB,1tb+2tb硬盘<br>机器2, 笔记本配置: Intel Ultra 7 255H, 64GB, 1tb+2tb硬盘</p>
 <ul>
+<li>要求：<ul>
 <li>本地AI能回答常识性知识，如如何种菜等等，</li>
 <li>可以给他已有的知识库学习， 譬如PDF版本的书籍和文件。</li>
 <li>主要用于灾备，即断网情况下的自救知识。</li>
 <li>顺便学习一下本地AI的发展情况和工具集, 评估嵌入式AI的应用前景.</li>
 </ul>
-<h1 id="安装-Ollama"><a href="#安装-Ollama" class="headerlink" title="安装 Ollama"></a>安装 Ollama</h1><ol>
-<li>Ollama 支持的硬件<ul>
+</li>
+<li>注意: WSL的内存占用<ul>
+<li>由于自己的电脑分配给了WSL大量的内存. 如果运行过WSL, 需要确保Windows下的可用内存</li>
+<li><code>wsl --shutdown</code> 确保关闭wsl</li>
+<li><code>C:\Users\&lt;用户名&gt;\</code> 创建或修改 <code>.wslconfig</code> 文件, 让其自动归还内存<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">24</span>GB</span><br><span class="line"><span class="comment"># ......</span></span><br><span class="line"><span class="comment"># 以上, 为原有的设置</span></span><br><span class="line"><span class="comment"># 新增, 闲置时自动归还内存给Windows</span></span><br><span class="line"><span class="attr">autoMemoryReclaim</span>=gradual</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="安装-Ollama"><a href="#安装-Ollama" class="headerlink" title="安装 Ollama"></a>安装 Ollama</h1><h2 id="NV卡安装Ollama"><a href="#NV卡安装Ollama" class="headerlink" title="NV卡安装Ollama"></a>NV卡安装Ollama</h2><ol>
+<li>Ollama 直接支持的硬件<ul>
 <li>完美支持 NVIDIA 独立显卡 (CUDA协议).</li>
 <li>良好支持 AMD RX6000系列及以上的显卡 (ROCm协议).</li>
 <li>完美支持 苹果电脑(M1/M2/M3/M4)</li>
@@ -365,6 +372,84 @@
 <li><code>ollama ps</code>     运行模型的情况及占用内存</li>
 <li><code>ollama stop &lt;模型名称&gt;</code>  停止指定的模型,释放内存</li>
 <li><code>ollama show &lt;模型名称&gt;</code>  显示模型的详细信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Intel-芯片安装-Ollama"><a href="#Intel-芯片安装-Ollama" class="headerlink" title="Intel 芯片安装 Ollama"></a>Intel 芯片安装 Ollama</h2><ol>
+<li>Intel Ultra 系列的三脑架构<table>
+<thead>
+<tr>
+<th><strong>核心单元</strong></th>
+<th><strong>核心优势</strong></th>
+<th><strong>255H 的硬核参数</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CPU (中央处理器)</strong></td>
+<td>处理突发、复杂的指令，调度全局。</td>
+<td>16核/16线程，主频高达 <strong>5.1 GHz</strong>。</td>
+</tr>
+<tr>
+<td><strong>GPU (集成显卡)</strong></td>
+<td><strong>暴力输出</strong>。处理大规模并行数据，速度极快。</td>
+<td>8个Xe核心，AI 算力高达 <strong>74 TOPS</strong>。</td>
+</tr>
+<tr>
+<td><strong>NPU (神经网络处理器)</strong></td>
+<td><strong>极致节能</strong>。专门应付需要长效、静默运行的任务。</td>
+<td>2026 年新一代 NPU，算力约 <strong>13 TOPS</strong>。</td>
+</tr>
+</tbody></table>
+</li>
+<li>安装或更新Intel驱动<ul>
+<li>安装或更新 <strong>Intel Graphics Driver</strong> 显卡驱动<ul>
+<li>下载地址 <a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html">Intel® Arc™ &amp; Iris® Xe Graphics - Windows*</a></li>
+<li>注意选择 “Clean Install（全新安装）”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>安装Ollama. <ul>
+<li>访问 <a target="_blank" rel="noopener" href="https://github.com/intel/ipex-llm/blob/main/README.zh-CN.md">IPEX-LLM Ollama GitHub</a> 下载适用于 Windows 的Ollama。</li>
+<li>推荐 <a target="_blank" rel="noopener" href="https://github.com/intel/ipex-llm/blob/main/docs/mddocs/Quickstart/llamacpp_portable_zip_gpu_quickstart.zh-CN.md">使用 IPEX-LLM 在 Intel GPU 运行 llama.cpp Portable Zip</a><ul>
+<li>下载 <a target="_blank" rel="noopener" href="https://github.com/ipex-llm/ipex-llm/releases/tag/v2.2.0">ollama-ipex-llm-2.2.0-win.zip</a>, 建议选最新版本, 此处只是示例.</li>
+<li>解压到Ollama目标文件夹</li>
+<li>运行 <code>start-ollama.bat</code> (可能需要右键管理员运行), 会自动启动一个针对Intel GPU优化的Ollama服务. </li>
+<li>在Ollama文件夹打开 cmd 或 powershell, 就能运行调用指令了. 如 <code>.\ollama ls</code> </li>
+</ul>
+</li>
+<li>备选, 正常安装Ollama软件, 使用 Vulkan支持, 目前为实验性质. <ul>
+<li>新建系统的环境变量, 变量名 <code>OLLAMA_VULKAN</code>, 变量值 <code>1</code></li>
+<li>退出Ollama, 然后重新打开. 查看运行大模型时, GPU的占用率情况, 确定是CPU在工作还是GPU在工作</li>
+<li>缺点: 性能不如 IPEX-LLM, 70%左右. 优点是兼容性好.</li>
+<li>我没有使用测试过, 不清楚具体效果</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>配置Ollama.<ul>
+<li>打开系统环境变量. <ul>
+<li>点击进入环境变量 <code>Path</code>, 增加Ollama文件夹路径. 便于直接调用ollama指令.</li>
+<li>添加环境变量 <code>OLLAMA_MODELS</code>, 为大模型路径, 譬如 <code>D:\xxx\Ollama\models</code></li>
+</ul>
+</li>
+<li>文本模式打开 <code>ollama-serve.bat</code>, 其中的<code>set</code>语句都是设置参数的, 可按需调节.<ul>
+<li>新手可以不去修改. 可以考虑如下优化设置</li>
+<li>修改 <code>set OLLAMA_KEEP_ALIVE=60m</code>  模型常驻时间, 默认为10m.</li>
+<li>添加 <code>set OLLAMA_MAX_LOADED_MODELS=2</code>  最多同时加载两个大模型</li>
+<li>添加 <code>set OLLAMA_INTEL_GPU=1</code> 使用INTEL GPU</li>
+</ul>
+</li>
+<li>为了开机无窗口自启动 ollama服务. 可如下操作<ul>
+<li>在Ollama文件夹下, 新建记事本, 写入如下内容. 然后另存为 <code>start-ollama-silent.vbs</code></li>
+<li>打开 <code>startup</code>目录 <ul>
+<li>方法1: <code>Win+R</code> 输入<code>shell:startup</code>可直达</li>
+<li>方法2: <code>everything</code>搜索文件夹 <code>Start Menu\</code> 找到正确的 <code>startup</code> 文件夹</li>
+</ul>
+</li>
+<li>创建一份 <code>start-ollama-silent.vbs</code> 快捷方式, 并放入<code>startup</code>文件夹即可.<figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Set</span> WshShell = <span class="built_in">CreateObject</span>(<span class="string">&quot;WScript.Shell&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27; 获取当前 VBS 文件夹</span></span><br><span class="line"><span class="keyword">Dim</span> currentFolder</span><br><span class="line">currentFolder = <span class="built_in">CreateObject</span>(<span class="string">&quot;Scripting.FileSystemObject&quot;</span>).GetParentFolderName(WScript.ScriptFullName)</span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27; 在当前文件夹启动 BAT，窗口完全隐藏</span></span><br><span class="line">WshShell.Run <span class="string">&quot;&quot;&quot;&quot;</span> &amp; currentFolder &amp; <span class="string">&quot;\ollama-serve.bat&quot;&quot;&quot;</span>, <span class="number">0</span>, <span class="literal">False</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -485,42 +570,24 @@
 <li>需要安装python 3.10以上.</li>
 </ul>
 <h2 id="使用IBM的-Docling"><a href="#使用IBM的-Docling" class="headerlink" title="使用IBM的 Docling"></a>使用IBM的 Docling</h2><ul>
-<li>下载安装Docling</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">python <span class="literal">-V</span>   <span class="comment"># 需要python 3.10以上.</span></span><br><span class="line">python <span class="literal">-m</span> pip install docling           <span class="comment"># 核心库</span></span><br><span class="line">python <span class="literal">-m</span> pip install docling[<span class="type">ocr</span>]      <span class="comment"># 文字识别引擎</span></span><br><span class="line">python <span class="literal">-m</span> pip install docling[<span class="type">render</span>]   <span class="comment"># 图片渲染引擎</span></span><br><span class="line">python <span class="literal">-m</span> pip install pypdf             <span class="comment"># 读取pdf</span></span><br><span class="line">python <span class="literal">-m</span> pip install hf_xet            <span class="comment"># 用于加快大模型的下载速度</span></span><br><span class="line">python <span class="literal">-m</span> pip install ebooklib beautifulsoup4   <span class="comment"># 处理epub格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># !!!注意, 只有NV独立显卡, 才需要安装特殊版本的torch以便加速.!!!</span></span><br><span class="line"><span class="comment"># 要先卸载已有的版本, 无法自动覆盖安装</span></span><br><span class="line">python <span class="literal">-m</span> pip uninstall torch torchvision <span class="literal">-y</span></span><br><span class="line"><span class="comment"># 安装CUDA工具, 让NVIDIA 5070Ti参与加速OCR.</span></span><br><span class="line">python <span class="literal">-m</span> pip install torch torchvision torchaudio -<span class="literal">-index</span><span class="literal">-url</span> https://download.pytorch.org/whl/cu128</span><br><span class="line"><span class="comment"># !!!注意结束!!!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查torch版本</span></span><br><span class="line">python <span class="literal">-c</span> <span class="string">&quot;import torch; print(torch.__version__)&quot;</span></span><br><span class="line"><span class="comment"># 默认是 +cpu 工作.NV显卡则显示 +cuXXX</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认的 torch 版本, 使用CPU, 一般已经自动安装. 便于错误安装后的恢复.</span></span><br><span class="line"><span class="comment">### python -m pip install torch torchvision</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
+<li>下载安装Docling  <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">python <span class="literal">-V</span>   <span class="comment"># 需要python 3.10以上.</span></span><br><span class="line">python <span class="literal">-m</span> pip install docling           <span class="comment"># 核心库</span></span><br><span class="line">python <span class="literal">-m</span> pip install docling[<span class="type">ocr</span>]      <span class="comment"># 文字识别引擎</span></span><br><span class="line">python <span class="literal">-m</span> pip install docling[<span class="type">render</span>]   <span class="comment"># 图片渲染引擎</span></span><br><span class="line">python <span class="literal">-m</span> pip install pypdf             <span class="comment"># 读取pdf</span></span><br><span class="line">python <span class="literal">-m</span> pip install hf_xet            <span class="comment"># 用于加快大模型的下载速度</span></span><br><span class="line">python <span class="literal">-m</span> pip install ebooklib beautifulsoup4   <span class="comment"># 处理epub格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># !!!注意, 只有NV独立显卡, 才需要安装特殊版本的torch以便加速.!!!</span></span><br><span class="line"><span class="comment"># 要先卸载已有的版本, 无法自动覆盖安装</span></span><br><span class="line">python <span class="literal">-m</span> pip uninstall torch torchvision <span class="literal">-y</span></span><br><span class="line"><span class="comment"># 安装CUDA工具, 让NVIDIA 5070Ti参与加速OCR.</span></span><br><span class="line">python <span class="literal">-m</span> pip install torch torchvision torchaudio -<span class="literal">-index</span><span class="literal">-url</span> https://download.pytorch.org/whl/cu128</span><br><span class="line"><span class="comment"># !!!注意结束!!!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查torch版本</span></span><br><span class="line">python <span class="literal">-c</span> <span class="string">&quot;import torch; print(torch.__version__)&quot;</span></span><br><span class="line"><span class="comment"># 默认是 +cpu 工作.NV显卡则显示 +cuXXX</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认的 torch 版本, 使用CPU, 一般已经自动安装. 便于错误安装后的恢复.</span></span><br><span class="line"><span class="comment">### python -m pip install torch torchvision</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li>通过 Docling 提取图文的脚本, 可通过GitHub下载.<ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/draapho/FILE_Docling">draapho / FILE_Docling</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/draapho/Blog/tree/master/_blog_stuff/python/fileDocling.py">博客备用下载</a></li>
 </ul>
 </li>
-</ul>
-<ul>
 <li>首次运行, 需要管理员权限, 运行该脚本. 会联网自动下载配置大模型 <ul>
 <li>大模型会存入 C:\Users&lt;账户名称&gt;.cache\huggingface\，</li>
-<li>下次处理其他 PDF 时，它就会直接读取本地文件，不再需要联网。</li>
+<li>下次处理其他 PDF 时，它就会直接读取本地文件，不再需要联网。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 方法一, 将pdf文件放到 `fileDocling.py` 所在文件夹</span></span><br><span class="line"><span class="comment"># 然后双击运行 fileDocling.py脚本, 选择python运行即可.</span></span><br><span class="line"><span class="comment"># 或者打开管理员终端, 运行下述指令之一即可.</span></span><br><span class="line">python fileDocling.py</span><br><span class="line">py fileDocling.py</span><br><span class="line">py -3.12 fileDocling.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二, 在pdf所在文件夹, 指定路径运行 fileDocling.py</span></span><br><span class="line"><span class="comment"># 打开管理员终端, 运行下述指令之一即可.</span></span><br><span class="line">python /...path/fileDocling.py</span><br><span class="line">py /...path/fileDocling.py</span><br><span class="line">py -3.12 /...path/fileDocling.py</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 方法一, 将pdf文件放到 `fileDocling.py` 所在文件夹</span></span><br><span class="line"><span class="comment"># 然后双击运行 fileDocling.py脚本, 选择python运行即可.</span></span><br><span class="line"><span class="comment"># 或者打开管理员终端, 运行下述指令之一即可.</span></span><br><span class="line">python fileDocling.py</span><br><span class="line">py fileDocling.py</span><br><span class="line">py -3.12 fileDocling.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二, 在pdf所在文件夹, 指定路径运行 fileDocling.py</span></span><br><span class="line"><span class="comment"># 打开管理员终端, 运行下述指令之一即可.</span></span><br><span class="line">python /...path/fileDocling.py</span><br><span class="line">py /...path/fileDocling.py</span><br><span class="line">py -3.12 /...path/fileDocling.py</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
 <li>py文件右键添加管理员(可选)<ul>
 <li>下述内容保存为文件 <code>文件py右键添加管理员打开.reg</code></li>
 <li>如有必要, 保存一下windows注册表</li>
-<li>运行 <code>文件py右键添加管理员打开.reg</code>, 这样右键即可直接管理员运行选中的py文件.</li>
+<li>运行 <code>文件py右键添加管理员打开.reg</code>, 这样右键即可直接管理员运行选中的py文件.<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Python.File\shell\runas]</span><br><span class="line">@=<span class="string">&quot;以管理员身份运行&quot;</span></span><br><span class="line"><span class="string">&quot;Extended&quot;</span>=dword:00000001</span><br><span class="line"><span class="string">&quot;Icon&quot;</span>=<span class="string">&quot;python.exe&quot;</span></span><br><span class="line"><span class="string">&quot;HasLUASHIELD&quot;</span>=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Python.File\shell\runas\<span class="built_in">command</span>]</span><br><span class="line">@=<span class="string">&quot;cmd.exe /k \&quot;pushd \&quot;%1\\..\&quot; &amp;&amp; python \&quot;%1\&quot; %*\&quot;&quot;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Python.File\shell\runas]</span><br><span class="line">@=<span class="string">&quot;以管理员身份运行&quot;</span></span><br><span class="line"><span class="string">&quot;Extended&quot;</span>=dword:00000001</span><br><span class="line"><span class="string">&quot;Icon&quot;</span>=<span class="string">&quot;python.exe&quot;</span></span><br><span class="line"><span class="string">&quot;HasLUASHIELD&quot;</span>=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Python.File\shell\runas\<span class="built_in">command</span>]</span><br><span class="line">@=<span class="string">&quot;cmd.exe /k \&quot;pushd \&quot;%1\\..\&quot; &amp;&amp; python \&quot;%1\&quot; %*\&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h1 id="RAG整体操作流程"><a href="#RAG整体操作流程" class="headerlink" title="RAG整体操作流程"></a>RAG整体操作流程</h1><ul>
 <li>预处理阶段（把扫描图变文本）<ul>
 <li>将扫描版的PDF书籍放入 <code>fileDocling.py</code> 所在的文件夹.</li>
@@ -564,7 +631,7 @@
 </li>
 <li><code>Chat</code> 为普通聊天, 给出建议.  </li>
 <li><code>Plan</code> 是对复杂任务给出分解步骤. </li>
-<li><code>Agent</code> 是给出任务尝试自动完成.<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Local</span> <span class="string">Config</span></span><br><span class="line"><span class="attr">version:</span> <span class="number">1.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">schema:</span> <span class="string">v1</span></span><br><span class="line"></span><br><span class="line"><span class="attr">models:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;qwen3.5:9b&quot;</span></span><br><span class="line">    <span class="attr">provider:</span> <span class="string">ollama</span></span><br><span class="line">    <span class="attr">model:</span> <span class="string">qwen3.5:9b</span></span><br><span class="line">    <span class="attr">contextLength:</span> <span class="number">32000</span></span><br><span class="line">    <span class="attr">roles:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">chat</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">edit</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">apply</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">summarize</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;qwen2.5-coder:1.5b&quot;</span></span><br><span class="line">    <span class="attr">provider:</span> <span class="string">ollama</span></span><br><span class="line">    <span class="attr">model:</span> <span class="string">qwen2.5-coder:1.5b</span></span><br><span class="line">    <span class="attr">roles:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">autocomplete</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;qwen2.5-coder:7b&quot;</span></span><br><span class="line">    <span class="attr">provider:</span> <span class="string">ollama</span></span><br><span class="line">    <span class="attr">model:</span> <span class="string">qwen2.5-coder:7b</span></span><br><span class="line">    <span class="attr">contextLength:</span> <span class="number">32000</span></span><br><span class="line">    <span class="attr">roles:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">chat</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">edit</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">apply</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">summarize</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">autocomplete</span></span><br></pre></td></tr></table></figure></li>
+<li><code>Agent</code> 是给出任务尝试自动完成.<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">  <span class="attr">name:</span> <span class="string">Local</span> <span class="string">Config</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">1.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">schema:</span> <span class="string">v1</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">models:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;qwen3.5:9b&quot;</span></span><br><span class="line">      <span class="attr">provider:</span> <span class="string">ollama</span></span><br><span class="line">      <span class="attr">model:</span> <span class="string">qwen3.5:9b</span></span><br><span class="line">      <span class="attr">contextLength:</span> <span class="number">32000</span></span><br><span class="line">      <span class="attr">roles:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">chat</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">edit</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">apply</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">summarize</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;qwen2.5-coder:1.5b&quot;</span></span><br><span class="line">      <span class="attr">provider:</span> <span class="string">ollama</span></span><br><span class="line">      <span class="attr">model:</span> <span class="string">qwen2.5-coder:1.5b</span></span><br><span class="line">      <span class="attr">roles:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">autocomplete</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;qwen2.5-coder:7b&quot;</span></span><br><span class="line">      <span class="attr">provider:</span> <span class="string">ollama</span></span><br><span class="line">      <span class="attr">model:</span> <span class="string">qwen2.5-coder:7b</span></span><br><span class="line">      <span class="attr">contextLength:</span> <span class="number">32000</span></span><br><span class="line">      <span class="attr">roles:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">chat</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">edit</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">apply</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">summarize</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">autocomplete</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -748,8 +815,7 @@
 <li>GGUF 文件格式：本地化部署的标准文件格式，通过“量化”技术让大模型能塞进家用显存里。</li>
 <li>OpenVINO 文件格式: Intel 针对自家芯片优化的大模型格式.</li>
 </ul>
-<p>当前模型的局限性. 资源和算力总是有限的, 单个AI是有自己的特点, 局限和专长的.</p>
-<p>因而需要了解主流AI模型的特长, 才能较好的选择正确的AI大模型.</p>
+<p>当前模型的局限性. 资源和算力总是有限的, 单个AI是有自己的特点, 局限和专长的.<br>因而需要了解主流AI模型的特长, 才能较好的选择正确的AI大模型.</p>
 <ul>
 <li>主流闭源云端模型（2026）<ul>
 <li><strong>Gemini 2.0 Ultra</strong>：原生多模态，擅长处理视频流与复杂音频指令。</li>
