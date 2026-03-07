@@ -31617,7 +31617,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <tr>
 <td align="left"><strong>行业</strong></td>
 <td align="left">军人、体育、交通、创业</td>
-<td align="left">商贸、媒、设计、旅游</td>
+<td align="left">商贸、媒体、设计、旅游</td>
 <td align="left">艺术、电力、美容、教育</td>
 <td align="left">地产、农业、护理、行政</td>
 <td align="left">演艺、销售、法律、公关</td>
@@ -32024,6 +32024,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
 <li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
 <li><a href="https://draapho.github.io/2026/03/05/2611-EmergencySupplies/">应急基础物资清单</a></li>
+<li><a href="https://draapho.github.io/2026/03/06/2612_TbtAnalysis1/">金圣叹版推背图卦象的整理和分析</a></li>
+<li><a href="https://draapho.github.io/2026/03/07/2613_TbtAnalysis2/">金圣叹版推背图数字的整理和分析</a></li>
 </ul>
 <h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>准备安装可以离线的本地AI，主要用于灾备，存储知识，可以离线问答。<br>次要目标是学习了解AI嵌入式本地化的实用性情况<br>机器1, 台式机配置: 5070ti, AMD Ryzen 7 7800X3D, 32GB,1tb+2tb硬盘<br>机器2, 笔记本配置: Intel Ultra 7 255H, 64GB, 1tb+2tb硬盘</p>
 <ul>
@@ -32892,9 +32894,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
 <li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
-<li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
 <li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
 <li><a href="https://draapho.github.io/2026/03/05/2611-EmergencySupplies/">应急基础物资清单</a></li>
+<li><a href="https://draapho.github.io/2026/03/06/2612_TbtAnalysis1/">金圣叹版推背图卦象的整理和分析</a></li>
+<li><a href="https://draapho.github.io/2026/03/07/2613_TbtAnalysis2/">金圣叹版推背图数字的整理和分析</a></li>
 </ul>
 <h1 id="Kiwix-离线资料"><a href="#Kiwix-离线资料" class="headerlink" title="Kiwix 离线资料"></a>Kiwix 离线资料</h1><p><a href="https://kiwix.org/en/">https://kiwix.org/en/</a>   </p>
 <ul>
@@ -33007,9 +33010,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
 <li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
-<li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
 <li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
 <li><a href="https://draapho.github.io/2026/03/05/2611-EmergencySupplies/">应急基础物资清单</a></li>
+<li><a href="https://draapho.github.io/2026/03/06/2612_TbtAnalysis1/">金圣叹版推背图卦象的整理和分析</a></li>
+<li><a href="https://draapho.github.io/2026/03/07/2613_TbtAnalysis2/">金圣叹版推背图数字的整理和分析</a></li>
 </ul>
 <h1 id="应急基础物资清单"><a href="#应急基础物资清单" class="headerlink" title="应急基础物资清单"></a>应急基础物资清单</h1><p>在灾难情况下，应急物资清单是确保个人和家庭安全的关键。<br>以下是一份较为全面的应急物资清单，涵盖生存、医疗、通讯、防护、野外生存等多个方面。<br>根据具体灾难类型（如地震、洪水、 风、火灾等）和居住环境，您可以适当调整清单内容。</p>
 <h2 id="基础生存物资"><a href="#基础生存物资" class="headerlink" title="基础生存物资"></a>基础生存物资</h2><h3 id="水"><a href="#水" class="headerlink" title="水"></a>水</h3><ul>
@@ -33174,6 +33178,2120 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>crisis</category>
       </categories>
       <tags>
+        <tag>crisis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>金圣叹版推背图数字的整理和分析</title>
+    <url>/2026/03/07/2613_TbtAnalysis2/</url>
+    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
+<li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
+<li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
+<li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
+<li><a href="https://draapho.github.io/2026/03/05/2611-EmergencySupplies/">应急基础物资清单</a></li>
+<li><a href="https://draapho.github.io/2026/03/06/2612_TbtAnalysis1/">金圣叹版推背图卦象的整理和分析</a></li>
+<li><a href="https://draapho.github.io/2026/03/07/2613_TbtAnalysis2/">金圣叹版推背图数字的整理和分析</a></li>
+</ul>
+<h3 id="谶曰中的数字："><a href="#谶曰中的数字：" class="headerlink" title="谶曰中的数字："></a>谶曰中的数字：</h3><table>
+<thead>
+<tr>
+<th align="left">象</th>
+<th align="left">语句</th>
+<th align="left">事件</th>
+<th align="left">朝代</th>
+<th align="left">数字分析</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">10</td>
+<td align="left">莫御八牛</td>
+<td align="left">朱温篡唐</td>
+<td align="left">五代十国</td>
+<td align="left">拆字法, 八牛=朱</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">五人同卜</td>
+<td align="left">后唐国运</td>
+<td align="left">五代十国</td>
+<td align="left">五人同卜, 即五个政权是同样的命运</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">统二八州</td>
+<td align="left">后晋儿皇</td>
+<td align="left">五代十国</td>
+<td align="left">2*8=16. 燕云十六州</td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left">天一生水</td>
+<td align="left">宋朝建立</td>
+<td align="left">宋朝</td>
+<td align="left">表起始. 固定用法.</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">如”天一生水,地六成之”</td>
+</tr>
+<tr>
+<td align="left">18</td>
+<td align="left">三八之年</td>
+<td align="left">刘后主政</td>
+<td align="left">宋朝</td>
+<td align="left">3*8=24. 仁宗 24 虚岁亲政</td>
+</tr>
+<tr>
+<td align="left">19</td>
+<td align="left">百万雄师</td>
+<td align="left">平戎大败</td>
+<td align="left">宋朝</td>
+<td align="left">百万为虚指. 表大规模用兵.</td>
+</tr>
+<tr>
+<td align="left">24</td>
+<td align="left">二九四八</td>
+<td align="left">南宋灭亡</td>
+<td align="left">宋朝</td>
+<td align="left">二九: 北宋九帝, 南宋九主.</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">40*8=320. 宋朝共319年.</td>
+</tr>
+<tr>
+<td align="left">25</td>
+<td align="left">一兀自立</td>
+<td align="left">元朝国运</td>
+<td align="left">元朝</td>
+<td align="left">拆字法, 一兀=元</td>
+</tr>
+<tr>
+<td align="left">32</td>
+<td align="left">八九数尽</td>
+<td align="left">闯王灭明</td>
+<td align="left">明朝</td>
+<td align="left">8+9=17. 明朝共16任皇帝, 17个年号</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">次选, 南明存续18年</td>
+</tr>
+<tr>
+<td align="left">40</td>
+<td align="left">一二三四</td>
+<td align="left">国共内战，败走台湾</td>
+<td align="left">民国</td>
+<td align="left">1+2=3, 3+4=7. 表示37年</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">中华民国在大陆呆了37年</td>
+</tr>
+<tr>
+<td align="left">48</td>
+<td align="left">八牛牵动</td>
+<td align="left">同人于野, 龙蛇内战</td>
+<td align="left">日月丽天</td>
+<td align="left">拆字法, 八牛=朱. 或指八股势力</td>
+</tr>
+<tr>
+<td align="left">49</td>
+<td align="left">六爻占尽文明见</td>
+<td align="left">彻底分裂，各自为政</td>
+<td align="left">日月丽天</td>
+<td align="left">六爻, 固定用法. 表事物之终</td>
+</tr>
+<tr>
+<td align="left">57</td>
+<td align="left">三尺童子</td>
+<td align="left">一人解决硅基战争</td>
+<td align="left">阴阳和</td>
+<td align="left">三尺, 约为1m. 确实是童子</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">四夷詟服</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">东南西北为四. 四夷指周边国家.</td>
+</tr>
+<tr>
+<td align="left">58</td>
+<td align="left">称兄弟 六七国</td>
+<td align="left">全球国家联盟，北方不加入</td>
+<td align="left">阴阳和</td>
+<td align="left">6+7=13国, 次选6*7=42国</td>
+</tr>
+</tbody></table>
+<h3 id="颂曰中的数字"><a href="#颂曰中的数字" class="headerlink" title="颂曰中的数字"></a>颂曰中的数字</h3><table>
+<thead>
+<tr>
+<th align="left">象</th>
+<th align="left">语句</th>
+<th align="left">事件</th>
+<th align="left">朝代</th>
+<th align="left">数字分析</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">2</td>
+<td align="left">二九先成实</td>
+<td align="left">唐朝国运</td>
+<td align="left">唐朝</td>
+<td align="left">200+90=290. 唐朝289年</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">极目萧条十八枝</td>
+<td align="left">逼退武皇</td>
+<td align="left">唐朝</td>
+<td align="left">拆字法. 十八(子)=李, 枝=皇室宗亲</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">一二年來见太平</td>
+<td align="left">再造唐朝</td>
+<td align="left">唐朝</td>
+<td align="left">只是一两年的短暂太平</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">居然三杰踞关中</td>
+<td align="left">藩镇之乱</td>
+<td align="left">唐朝</td>
+<td align="left">三杰, 指三个人.李希烈,朱泚,李怀光</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">一后二主尽升遐</td>
+<td align="left">朱温篡唐</td>
+<td align="left">五代十国</td>
+<td align="left">一后为何太后. 二主为唐昭宗, 唐哀帝.</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">龙蛇相斗三十年</td>
+<td align="left">后唐国运</td>
+<td align="left">五代十国</td>
+<td align="left">30年. 后梁后唐共30年.</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">龙为后梁, 蛇为后唐.</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">百个雀儿水上飞</td>
+<td align="left">后汉亡，后周立</td>
+<td align="left">五代十国</td>
+<td align="left">百=100, 表多.</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">九十九个过山西</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">99, 亦表多.</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">惟有一个踏破足</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">100-99 = 一个雀儿</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">十三童子五王公</td>
+<td align="left">后周亡，五代运终</td>
+<td align="left">五代十国</td>
+<td align="left">五代八姓十三主</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">五十三參運不通</td>
+<td align="left"></td>
+<td align="left">五代十国</td>
+<td align="left">五代共五十三年</td>
+</tr>
+<tr>
+<td align="left">21</td>
+<td align="left">卜世三六又南行</td>
+<td align="left">靖康之耻</td>
+<td align="left">宋朝</td>
+<td align="left">3+6=9. 北宋九帝</td>
+</tr>
+<tr>
+<td align="left">24</td>
+<td align="left">十一卜人小月终</td>
+<td align="left">南宋灭亡</td>
+<td align="left">宋朝</td>
+<td align="left">拆字法. 走肖=趙</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">十一卜人=走, 小月=肖</td>
+</tr>
+<tr>
+<td align="left">25</td>
+<td align="left">一狼二鼠判须臾</td>
+<td align="left">元朝国运</td>
+<td align="left">元朝</td>
+<td align="left">一狼指蒙古. 二鼠指金国和南宋</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">另解: 二鼠指两个鼠年(1264和1276)</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">子子孙孙五五宜</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">5+5=10. 元朝十主</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">5+5=10, 表100年. 元朝共97年</td>
+</tr>
+<tr>
+<td align="left">29</td>
+<td align="left">一枝向北一枝东</td>
+<td align="left">仁宣之治</td>
+<td align="left">明朝</td>
+<td align="left">东杨杨荣, 参加北伐.</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">又有南枝种亦同</td>
+<td align="left">三杨辅政</td>
+<td align="left"></td>
+<td align="left">另有南杨杨溥, 西杨杨士奇</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">真有三代之遗风</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">三代指夏商周三代圣主</td>
+</tr>
+<tr>
+<td align="left">30</td>
+<td align="left">六龙亲御到胡边</td>
+<td align="left">土木之变</td>
+<td align="left">明朝</td>
+<td align="left">六龙指皇帝. 固定用法.</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">取自”时乘六龙以御天”</td>
+</tr>
+<tr>
+<td align="left">37</td>
+<td align="left">倒戈逢八月</td>
+<td align="left">清朝灭亡，民国建立</td>
+<td align="left">民国</td>
+<td align="left">农历八月. 武昌起义.</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">农历1911年八月十九日</td>
+</tr>
+<tr>
+<td align="left">39</td>
+<td align="left">十二月中气不和</td>
+<td align="left">日本侵华，二战</td>
+<td align="left">民国</td>
+<td align="left">12/2=六月. 七七卢沟桥事变</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">农历1937年六月初一</td>
+</tr>
+<tr>
+<td align="left">41</td>
+<td align="left">九十九年成大錯</td>
+<td align="left">建国和文革</td>
+<td align="left">PRC</td>
+<td align="left">解法一: 99</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">解法二: 90+19=109</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">解法三: 9+19=28. 1949-1977的大错</td>
+</tr>
+<tr>
+<td align="left">42</td>
+<td align="left">闹乱君臣百万般</td>
+<td align="left">冷战和改革开放</td>
+<td align="left">PRC</td>
+<td align="left">百万为虚指. 表人数多周期长.</td>
+</tr>
+<tr>
+<td align="left">43</td>
+<td align="left">三十年中子孫結</td>
+<td align="left">衰落分裂</td>
+<td align="left">PRC</td>
+<td align="left">解法一: 30/2=15</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">解法二: 3+10=13</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">解法三: 30</td>
+</tr>
+<tr>
+<td align="left">44</td>
+<td align="left">四夷重译称天子</td>
+<td align="left">中华联邦</td>
+<td align="left">日月丽天</td>
+<td align="left">东南西北为四. 四夷指周边国家.</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">否极泰来九国春</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">九为虚词, 表众多国家.</td>
+</tr>
+<tr>
+<td align="left">48</td>
+<td align="left">五十年中一将臣</td>
+<td align="left">同人于野，龙蛇内战</td>
+<td align="left">日月丽天</td>
+<td align="left">取半为25; 直接50; 加法5+10=15</td>
+</tr>
+<tr>
+<td align="left">49</td>
+<td align="left">一个或人口内啼</td>
+<td align="left">彻底分裂，各自为政</td>
+<td align="left">日月丽天</td>
+<td align="left">可能是拆字法.</td>
+</tr>
+<tr>
+<td align="left">51</td>
+<td align="left">卜年一六寿而康</td>
+<td align="left">夫妇共治，国祚一百六</td>
+<td align="left">阴阳和</td>
+<td align="left">100+6=106年. 卜年表国祚</td>
+</tr>
+</tbody></table>
+<h1 id="近期卦象的数字分析"><a href="#近期卦象的数字分析" class="headerlink" title="近期卦象的数字分析"></a>近期卦象的数字分析</h1><h2 id="第四一象-甲辰-䷝-離下離上-火"><a href="#第四一象-甲辰-䷝-離下離上-火" class="headerlink" title="第四一象　甲辰 ䷝ 離下離上 火"></a>第四一象　甲辰 ䷝ 離下離上 火</h2><p>颂曰: <code>帽儿须戴血无头 手弄乾坤何日休 九十九年成大錯　稱王只合在秦州</code><br>九十九年, 三种解法.</p>
+<ul>
+<li>直指 99年</li>
+<li>9+10+9=28年</li>
+<li>90+19 = 109年</li>
+<li>另有, 万年歌, 更得相安一百九</li>
+</ul>
+<p>时间基点: </p>
+<ul>
+<li>前文 <code>帽儿须戴血无头</code> 是文革. <code>手弄乾坤何日休</code> 反手为毛, 大跃进和文革.</li>
+<li>故首选建国1949</li>
+<li>次选中共成立1921.</li>
+</ul>
+<p>有如下组合:</p>
+<ul>
+<li>1949+28 = 1977. <ul>
+<li>1976毛去世. 1977年恢复高考, 1978年改革开放.</li>
+<li>可理解为建国后28年里毛犯的大错.</li>
+<li>较为勉强, 不应后句 <code>稱王只合在秦州</code></li>
+</ul>
+</li>
+<li>1949+99 = 2048 / 1949+109 = 2058<ul>
+<li>这两个时间点为主选. 符合四一象总起PRC, </li>
+<li>前两句为建国后的运动, 后两句为失去权力的时间和归宿.</li>
+<li>另可参考梅花诗其八: <code>如棋世事局初残，共济和衷却大难。豹死犹留皮一袭，最佳秋色在长安。</code></li>
+<li>不做猜测, 静观历史.  </li>
+</ul>
+</li>
+<li>1921+28 = 1949<ul>
+<li>时间很匹配, 但不符合成大错. 也不应前面两句的时间点.</li>
+</ul>
+</li>
+<li> 1921+99=2020</li>
+<li>武汉爆发新冠病毒.  </li>
+<li>仅作备选, 可以作为由盛转衰的转折点. </li>
+<li>1921+109 = 2030<ul>
+<li>不做猜测, 静观历史.  </li>
+</ul>
+</li>
+</ul>
+<h2 id="第四三象-丙午-䷱-巽下離上-鼎"><a href="#第四三象-丙午-䷱-巽下離上-鼎" class="headerlink" title="第四三象　丙午 ䷱ 巽下離上 鼎"></a>第四三象　丙午 ䷱ 巽下離上 鼎</h2><p>颂曰:  <code>黑兔走入青龙穴 欲尽不尽不可说 惟有外边根树上 三十年中子孙结</code><br>三十年中, 三种解法</p>
+<ul>
+<li>30/2=15年<ul>
+<li>参考<code>十二月中气不和</code>, 为十二月取半, 农历六月.</li>
+</ul>
+</li>
+<li>直指 30年</li>
+<li>3+10=13年</li>
+</ul>
+<p>时间基点: </p>
+<ul>
+<li>可能性最高的是黑兔青龙. 即2023到2024年</li>
+</ul>
+<p>有如下组合:</p>
+<ul>
+<li>2023, 2024+30=2053, 2054年. </li>
+<li>2023, 2024+15=2038, 2039年.</li>
+<li>2023, 2024+13=2036, 2037年.</li>
+<li>即这些年里, 中央无力把握全局, 华人团体不断自主自立, 延续生存.<ul>
+<li>这样可应, 圣人出, 以文德重塑中国的未来预言.</li>
+<li>推背图四四象 <code>而今中国有圣人 虽非豪杰也周成 四夷重译称天子 否极泰来九国春</code></li>
+<li>梅花诗其九 <code>一院梨花春有主</code> , 是先散落为一院梨花, 才被圣人收聚.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>thoughts</category>
+      </categories>
+      <tags>
+        <tag>thoughts</tag>
+        <tag>crisis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>金圣叹版推背图卦象的整理和分析</title>
+    <url>/2026/03/06/2612_TbtAnalysis1/</url>
+    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
+<li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
+<li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
+<li><a href="https://draapho.github.io/2026/03/04/2610-CrisisPlan/">灾备资料获取</a></li>
+<li><a href="https://draapho.github.io/2026/03/05/2611-EmergencySupplies/">应急基础物资清单</a></li>
+<li><a href="https://draapho.github.io/2026/03/06/2612_TbtAnalysis1/">金圣叹版推背图卦象的整理和分析</a></li>
+<li><a href="https://draapho.github.io/2026/03/07/2613_TbtAnalysis2/">金圣叹版推背图数字的整理和分析</a></li>
+</ul>
+<h1 id="推背图的几个推论"><a href="#推背图的几个推论" class="headerlink" title="推背图的几个推论"></a>推背图的几个推论</h1><h2 id="推论一-明末的文人-重排过推背图"><a href="#推论一-明末的文人-重排过推背图" class="headerlink" title="推论一: 明末的文人, 重排过推背图"></a>推论一: 明末的文人, 重排过推背图</h2><p>推论一: 金圣叹版本的推背图, 一定进行过重新排序, 排序者为明末或清初, 代表文官集团利益的传统文人.<br>理由是非常诡异的 <strong>魏忠贤之乱</strong> 一象. 其诡异有五处, 可交叉验证.</p>
+<ul>
+<li>看前后卦的爻变特性.分析一下所有四爻变及以上的历史和未来事件, 自会一目了然.<ul>
+<li>第10象, 五爻变. 朱温篡唐. 王朝覆灭.</li>
+<li>第21象, 四爻变.靖康之耻.  外族入侵, 皇帝被虏.</li>
+<li>第26象, 五爻变. 元朝灭亡. 王朝覆灭.</li>
+<li><strong>第31象, 四爻变. 魏忠贤之乱, 权臣专政, 王朝常见之事而已. 都没有内乱, 没有战争.</strong></li>
+<li>第35象, 五爻变. 火烧圆明园,  第二次鸦片战争, 英法联军, 劫掠帝都.</li>
+<li>第36象, 四爻变(基于35象). 慈禧光绪西逃. 八国联军, 占领北京.</li>
+<li>第49象, 五爻变. 未来事件. 彻底分裂, 各自为政.</li>
+<li>第56象, 四爻变(基于54象). 未来事件. 硅基战争, 全球战.</li>
+</ul>
+</li>
+<li>如果我们挪开31象, 让32象接30象. 其前后爻变会极为顺畅.<ul>
+<li>从27象明朝立国到闯王灭明, 其爻变为: 初九,六二,六三,九四(30象),六五(32象)</li>
+<li>因而, 31象家人卦, 大概率本不属于明朝, 是重排者从后续卦象中修改挪用了.</li>
+</ul>
+</li>
+<li>看互为错卦的象<ul>
+<li>错卦整体是顺序的, 即小数递增, 大数也递增.</li>
+<li>但28 ↔ 31的对应, 其朝代是极其突兀的 <strong>明朝 ↔ 明朝</strong>, 没有任何一例是这样的!!!</li>
+<li>错卦的整体趋势是顺序对应, 唯一 “17 ↔ <del>20/</del>48”,  “宋朝 ↔ <del>宋朝/</del>日月丽天”, 是可以解释的.<ul>
+<li>17象对应的错卦是48象的日月丽天. 20象用于综卦对应.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>再看互为综卦的象:<ul>
+<li>综卦整体是逆序的, 即小数递增, 大数递减. 但不绝对, 乱序较多.</li>
+<li>“21 ↔ 37” 和 “23 ↔ 36” 对应的朝代是 “宋朝 ↔ 民国” “宋朝 ↔ 清朝”,</li>
+<li>中间又是非常突兀的来个乱序”22 ↔ 31”, 朝代为 “宋朝 ↔ 明朝”.</li>
+<li>其正常的朝代顺序本应该是 “清朝” 或 “民国”, 绝不可能是 “明朝”!</li>
+<li>另外一个类似的象是 “8 ↔ 16”, “唐朝 ↔ 宋朝”, 但朝代整体时序依旧是正常的.</li>
+</ul>
+</li>
+<li>接着看用词<ul>
+<li>推背图整体用词, 有两个特点:<ul>
+<li>不会明言特指, 解法绝对不唯一, 避免过于直白的泄露天机.</li>
+<li>其用词只是中国本位, 但没有明显的利益倾向. 整体而言是观察者视角, 不悲不喜, 描述事实.</li>
+</ul>
+</li>
+<li>三十一象颂: “<strong>忠臣贤士尽沉沦 天启其衷乱更纷 纵有胸怀能坦白 乾坤不属旧明君</strong>“<ul>
+<li>忠臣贤士, 推背图原作者绝对不会这样去定义某个团体.<ul>
+<li>见第八象, 藩镇之乱. 颂词是 “居然三杰踞关中”. 把反贼称为三杰!!!</li>
+</ul>
+</li>
+<li>天启是明言, 推背图从来没有这么直白的把年号写进去, 至少是要拆字的, 如”二人户口又xx”这种!</li>
+<li>纵有胸怀能坦白, 谁有胸怀要坦白? 不可能是原作者, 只可能是事件亲历者!!!</li>
+<li>乾坤不属旧明君. 谁要思议旧明君? 推背图从来不会怀旧.<ul>
+<li>原作者开篇是 “茫茫天地, 不知所止”, 结尾是 “茫茫天数此中求 世道兴衰不自由”</li>
+<li>一个看破世道循环的人, 会在这里感怀旧主?</li>
+<li>旧主是盟友关系的朱常洛吧? 在位一个月就能看出是明君了?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>根据用词, 修改者的综合水平一般. 一起修改卦象和配图的可能性几乎为零.</li>
+</ul>
+</li>
+<li>最后看历史情况<ul>
+<li>魏忠贤实际上是皇权用来平衡日益失控的文官集团的一把利器.</li>
+<li>魏忠贤在, 尚能打压文官集团, 为皇权收敛财务. 而且其权力来源就是皇权.</li>
+<li>文官集团始终掌控着笔杆子, 另外两种皇权可用的外戚和宦官势力, 才始终臭名昭著.</li>
+<li>魏忠贤倒后, 后面文官集团的表现自有历史公论.</li>
+</ul>
+</li>
+<li>如果是推背图原作者, 可能提到魏忠贤, 但绝不可能以他为中心, 独占一整象, 更不可能如此感怀!</li>
+</ul>
+<h2 id="推论二-推背图是在明朝之前被创作出来的"><a href="#推论二-推背图是在明朝之前被创作出来的" class="headerlink" title="推论二: 推背图是在明朝之前被创作出来的"></a>推论二: 推背图是在明朝之前被创作出来的</h2><p>推论二: 推背图是在明朝之前被创作出来的. 相传的唐朝创作, 宋朝以假乱真, 并非空穴来风.<br>由于出现了 <strong>魏忠贤之乱</strong> 一象, 也反向证明了推背图不是在明朝末年被创作出来的, 而确实是流传下来的.</p>
+<ul>
+<li>明末清初的人, 其能力上限是根据历史知识, 重排推背图, 然后夹带私心的串改了某一象为魏忠贤之乱.</li>
+<li>也正是因为身处明末清初, 第55象对应的 “清朝甲午战争, 丁汝昌”. 只能根据卦象顺序去排列.<ul>
+<li>基于互为错卦的象, 前为”7 ↔ 30”, 后为 “9 ↔ 56”.  30象是已知的土木之变, 31象被设计成了”魏忠贤之乱”,</li>
+<li>这样”8 ↔ 55”就是最好的选择. 故把”䷄需”卦排到了55象.</li>
+</ul>
+</li>
+</ul>
+<h2 id="推论三-55象正确的定位是35-5象"><a href="#推论三-55象正确的定位是35-5象" class="headerlink" title="推论三: 55象正确的定位是35.5象"></a>推论三: 55象正确的定位是35.5象</h2><p>推论三: 55象错排了, 明确其定位是35.5象, 对应的是中日甲午战争. 事件性质, 关键人物, 全部能对上.</p>
+<ul>
+<li>先看错卦, 第8象对应35.5的清朝, 或55的阴阳和, 都是合理的.</li>
+<li>再看综卦, 如果定位到55象, 会有 “47 ↔ 55”, 朝代对应是 “日月丽天 ↔ 阴阳和”.<ul>
+<li>排序者明显是知道的, 因为他的参考点有 “<strong>8 ↔ 16</strong>“ 和 “<strong>18 ↔ 26</strong>“, 都是前者加八得后者. 且只差一个朝代.</li>
+</ul>
+</li>
+<li>问题的关键点是, 我们知道了中日甲午战争, 是清朝的重大事件, 55象的关键线索又全都能对上.<ul>
+<li><code>无远勿届</code> = 出动的战列舰都是带<code>远</code>的. 如定远号, 镇远号.</li>
+<li><code>水边有女 对日自拜</code> = 丁<code>汝昌</code>.</li>
+<li><code>觊觎神器终无用</code> = 洋务运动, 师夷长技以自强. 结果建立起的北洋舰队全军覆没.</li>
+<li><code>翼翼小心有臣众</code> = <code>惧则生戒</code> = 战略制定上万分地谨慎保守.</li>
+<li><code>转危为安见节义 未必河山是我送</code> = 李鸿章割地赔款, 清政府转危为安. 清朝并未就此葬送.</li>
+</ul>
+</li>
+<li>那么就看重新排列到35.5象, 结构上是否依旧完全合理就行了.<ul>
+<li>互为错卦的象为 “8 ↔ <strong>35.5</strong>“, 完全不影响错卦的顺序. 因为前面已经有一个 “7 ↔ <strong>30</strong>“ 的明朝事件打底了.</li>
+<li>互为综卦的象为 “<strong>35.5</strong> ↔ 47”, 基本可接受.</li>
+</ul>
+</li>
+<li>然后看前后象的爻变.<ul>
+<li>纵观60象, 四爻变及以上是极其稀少的, 抛开明显异常的31象魏忠贤之乱. 象按原序排列, 共有6象. 如下:<ul>
+<li>第10象, 五爻变. 朱温篡唐. 王朝覆灭.</li>
+<li>第21象, 四爻变.靖康之耻.  外族入侵, 皇帝被虏.</li>
+<li>第26象, 五爻变. 元朝灭亡. 王朝覆灭.</li>
+<li>第35象, 五爻变. 火烧圆明园,  第二次鸦片战争, 英法联军, 劫掠帝都.</li>
+<li>第36象, 四爻变(基于35象). 慈禧光绪西逃. 八国联军, 占领北京.</li>
+<li>第49象, 五爻变. 未来事件. 彻底分裂, 各自为政.</li>
+</ul>
+</li>
+<li>问题是35和36是紧挨着的, 不符合四五爻变时间跨度上的稀有性. 如果55象改为35.5象. 则如下:<ul>
+<li>第10象, 五爻变. 朱温篡唐. 王朝覆灭.</li>
+<li>第21象, 四爻变.靖康之耻.  外族入侵, 皇帝被虏.</li>
+<li>第26象, 五爻变. 元朝灭亡. 王朝覆灭.</li>
+<li>第35象, 五爻变. 火烧圆明园,  第二次鸦片战争, 英法联军, 劫掠帝都.</li>
+<li>第49象, 五爻变. 未来事件. 彻底分裂, 各自为政.</li>
+<li>第56象, 四爻变(基于54象). 未来事件. 硅基战争, 全球战.</li>
+<li>第36象, 单爻变(基于35.5象)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="复原31象的真实位置和事件"><a href="#复原31象的真实位置和事件" class="headerlink" title="复原31象的真实位置和事件"></a>复原31象的真实位置和事件</h1><p>通过占卜预测:</p>
+<ul>
+<li>20260307.1321: 金圣叹版推背图31象(魏忠贤之乱), 原象位置应该是哪里?</li>
+<li>略筮法: 上卦6坎, 下卦3离, 动爻6</li>
+<li>本卦: 水火既济, 动爻上六, 变卦: 风火家人</li>
+<li>解卦: <strong>首推36象, 次选43象</strong><ul>
+<li>本卦: 水火既济.亨，小利贞，初吉终乱。<ul>
+<li>按序卦传, 为63卦.</li>
+<li>按爻变, 为43卦</li>
+<li>按爻变顺序,</li>
+<li>离为3, 坎为6. 合为36.</li>
+</ul>
+</li>
+<li>动爻: 上六. 濡其首，厉。<ul>
+<li>动爻为6.</li>
+</ul>
+</li>
+<li>变卦: 风火家人. 利女贞。<ul>
+<li>应31象的风火家人.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>然后通过动爻, 错卦和综卦确定预测位置的合理性.</p>
+<ul>
+<li>看错卦和综卦, 将31改为36.5象的话, 立刻变得极其自然和合理.</li>
+<li>再将31象按照36.5象, 放到36象之后, 看动爻情况:<ul>
+<li>此处按照55象改为35.5象处理. 这是高度确定的错排.</li>
+<li>从36象开始, 动爻为: 上六, 九二, 九三, 六四, 九四.</li>
+<li>这远比缺失的36.5象更为自然流畅.</li>
+</ul>
+</li>
+</ul>
+<p>最后猜测31象(应为36.5象)映射的真实事件.</p>
+<ul>
+<li>36象为1900年, 37象为1912年. 可供选择的事件不多:<ul>
+<li>辛丑条约</li>
+<li>清末新政, 预备立宪</li>
+<li>光绪与慈禧之死</li>
+</ul>
+</li>
+<li>象之间的间隔是否过短?<ul>
+<li>推背图对于乱世, 多着重描写. 时间线紧密的例子有:</li>
+<li>14象, 后周亡, 五代运终; 15象, 宋太祖扫荡群雄; 16象, 宋朝建立</li>
+<li>24象, 南宋灭亡; 25象, 元朝国运.</li>
+<li>32象, 闯王灭明; 33象, 清朝国运.</li>
+<li>39象, 日本侵华; 40象, 国共内战.</li>
+</ul>
+</li>
+<li>根据用词, 修改者的综合水平一般. 一起修改卦象和配图的可能性几乎为零.<ul>
+<li>图中左边女子, 自然为慈禧太后.</li>
+<li>结合37象配图, 为异鬼水中托着一头.<ul>
+<li>异鬼入水, 为外国入侵清朝, 清朝成为半殖民地.</li>
+<li>托着的头, 说明身躯已无头. 应”海内竟无王”</li>
+</ul>
+</li>
+<li>因而36.5象, 右边为异鬼, 表示外国人.</li>
+<li>倒地的禾苗可表示沉重的赔款负担.</li>
+</ul>
+</li>
+<li>故而有此结论: 正确应为36.5象. 是慈禧最后的自保挣扎.<ul>
+<li>图片表示的事件是慈禧求和赔款, 签订辛丑条约</li>
+<li>卦象”天火同人”表示的是慈禧为自保, 和外国人及反对者有限合作.<ul>
+<li>对外, 求和赔款, 签订辛丑条约</li>
+<li>对内, 清末新政, 有限改革, 废除科举制, 预备立宪.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>篡改者取此象修改的原因.</p>
+<ul>
+<li>因为图片是一女一鬼.</li>
+<li>魏忠贤正有鬼字, 便是一鬼.</li>
+<li>一女便是客氏. (按照推背图的宏观视角, 客氏是没有资格被书写描述的)</li>
+<li>只需修改谶和颂, 便可骂臭魏忠贤, 一抒郁闷之情.</li>
+</ul>
+<h1 id="一个猜测-45象有概率排错了"><a href="#一个猜测-45象有概率排错了" class="headerlink" title="一个猜测: 45象有概率排错了"></a>一个猜测: 45象有概率排错了</h1><p>45象仅推背图提供的信息, 现有排序是非常合理的. 自己结合其它预测手段, 判为可能错排.</p>
+<ul>
+<li>对于明末清初的重新排序者, 45象的定位很合理.<ul>
+<li>看互为错卦的象. 前为”13 ↔ 44”, 后为”15 ↔ 46”, 非常自然, 14 象革卦, 错卦为蒙, 就应该是 45象.</li>
+<li>再看互为综卦的象. 同样”12 ↔ 45”的话, 后接 “13 ↔ 44” 和 “14 ↔ 43” 有更好的规律性.</li>
+<li>看前后卦动爻. 是非常连续的单爻变: 从42象开始, 初九, 六二, 九三, 六四, 六五.</li>
+</ul>
+</li>
+<li>再分析一下明末之后, 从33象起到最近的42象, 为什么都是顺序正确的预言.<ul>
+<li>仔细查看 <strong>互为错卦的象</strong> 就很容易理解了.</li>
+<li>未来事件的象, 排除掉被占用的, 依次递增即可. 唯一可能弄错的只有34和35两象的顺序.</li>
+<li>看清朝到民国的象: 26 ↔ 34, 27 ↔ 36, 28 ↔ 31(被修改的象, 魏忠贤之乱), 29 ↔ 37, 30象为第7象的错卦, 31象为第28象的错卦, 32 ↔ 38, 33 ↔ 39, 34象为26象的错卦, 35 ↔ 40.</li>
+<li>再看PRC到日月丽天: 10 ↔ 41, 11 ↔ 42, 12 ↔ 43, 13 ↔ 44, 14 ↔ 45, 15 ↔ 46, 16 ↔ 47, 17 ↔ 48, 完美的依次递增.</li>
+<li>继续后续的象: 1 ↔ 49, 2 ↔ 50, 3 ↔ 51, 4 ↔ 52, 5 ↔ 53, 6 ↔ 54, 7 ↔ 30(土木之变为明朝已知事件), 8 ↔ 55(未知事件错排的象, 实际是清朝的35.5象), 9 ↔ 56</li>
+</ul>
+</li>
+<li>由于判定金圣叹版推背图有被修改并重排的迹象. (31象魏忠贤, 55象甲午战争), 我们可以在极其谨慎, 证据充分的情况下, 考虑少部分卦象错排的可能性.<ul>
+<li>当前(2026年)为43象.已过”黑兔青龙”, 处于”欲尽不尽不可说”</li>
+<li>44象, 为非武力, 形似周朝的统一. 是”否极泰来”.<ul>
+<li>最像周朝, 可以文统的就是联邦制, 猜测是民主联邦制.</li>
+</ul>
+</li>
+<li>45象, 此象的核心: 一为范围极广的战争, 二为”木火金水洗耻”, 三为金乌运终.<ul>
+<li>“炎运宏开世界同”, 范围极广, 是世界大战. 可参考38象的”火运开时祸蔓延”, 为一战.</li>
+<li>木火年受辱: 甲乙为木, 巳午为火. 可对应: 1894年中日甲午战争.</li>
+<li>金水年雪耻: 庚辛为金, 亥子为水. 可对应: 庚子年(2020年), 辛亥年(2031年), 请记住2031这个年份!</li>
+<li>金乌即太阳, 结合”木火金水洗耻”的分析, 暗合日本国旗. 即日本运终.</li>
+</ul>
+</li>
+<li>一般来说, 大乱之后大治. 经过45象的”炎运宏开世界同”, 然后44象”否极泰来”, 是常见状态.<ul>
+<li>很难想象刚刚44象”否极泰来”, 立刻就是”炎运宏开世界同”级别的战乱.</li>
+<li>现实情况(俄乌战争, 以伊战争, 即将到来的经济危机, 美国为欧洲和日本解绑), 三战就在这几年的感觉.</li>
+<li>另外还结合了易经占卜以及预知梦, 交叉验证.</li>
+<li>偏向于认为45象先发生, 然后才是44象”而今中国有圣人”, “四夷重译称天子, 否极泰来九国春”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="推背图卦象整理"><a href="#推背图卦象整理" class="headerlink" title="推背图卦象整理"></a>推背图卦象整理</h1><table>
+<thead>
+<tr>
+<th align="left">象</th>
+<th align="left">上卦</th>
+<th align="left">五行</th>
+<th align="left">下卦</th>
+<th align="left">五行</th>
+<th align="left">卦</th>
+<th align="left">卦象规律</th>
+<th>动爻</th>
+<th align="left">事件</th>
+<th align="left">朝代</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">䷀乾</td>
+<td align="left">六消卦/上乾</td>
+<td>始卦</td>
+<td align="left">兴亡循环</td>
+<td align="left">总论</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">䷫姤</td>
+<td align="left">六消卦/上乾</td>
+<td>初九</td>
+<td align="left"><strong>唐朝国运</strong></td>
+<td align="left">唐朝</td>
+<td align="left"><strong>总分结构</strong></td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">䷠遁</td>
+<td align="left">六消卦/上乾</td>
+<td>九二</td>
+<td align="left">武后称帝</td>
+<td align="left">唐朝</td>
+<td align="left"><strong>治世八象</strong></td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">䷋否</td>
+<td align="left">六消卦/上乾/下坤</td>
+<td>九三</td>
+<td align="left">逼退武皇</td>
+<td align="left">唐朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">䷓观</td>
+<td align="left">六消卦/下坤</td>
+<td>九四</td>
+<td align="left">安史之乱</td>
+<td align="left">唐朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">䷖剥</td>
+<td align="left">六消卦/下坤</td>
+<td>九五</td>
+<td align="left">再造唐朝</td>
+<td align="left">唐朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">䷘无妄</td>
+<td align="left"><strong>土生金/木克土</strong></td>
+<td>初六,六四,六五</td>
+<td align="left">吐蕃侵掠</td>
+<td align="left">唐朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">䷢晋</td>
+<td align="left"><del>上离</del>/<strong>火克金</strong></td>
+<td>初九,九五</td>
+<td align="left">藩镇之乱</td>
+<td align="left">唐朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">䷍大有</td>
+<td align="left"><del>上离</del>/<strong>土生金</strong></td>
+<td>初六,六二,六三</td>
+<td align="left">黄巢起义</td>
+<td align="left">唐朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">䷜水</td>
+<td align="left">上坎</td>
+<td>初九,九三,九四,六五,上九</td>
+<td align="left">朱温篡唐</td>
+<td align="left">五代十国</td>
+<td align="left"><strong>分总结构</strong></td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">䷻节</td>
+<td align="left">上坎</td>
+<td>初六</td>
+<td align="left">后唐国运</td>
+<td align="left">五代十国</td>
+<td align="left">乱世六象</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">䷂屯</td>
+<td align="left">上坎</td>
+<td>九二</td>
+<td align="left">后晋儿皇</td>
+<td align="left">五代十国</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">䷾既济</td>
+<td align="left">上坎/下离</td>
+<td>六三</td>
+<td align="left">后汉亡,后周立</td>
+<td align="left">五代十国</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">䷰革</td>
+<td align="left">下离</td>
+<td>六四</td>
+<td align="left">后周亡, 五代运终</td>
+<td align="left">五代十国</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">䷶丰</td>
+<td align="left">下离</td>
+<td>九五</td>
+<td align="left">宋太祖扫荡群雄</td>
+<td align="left">五代十国</td>
+<td align="left">承上启下</td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">䷣明夷</td>
+<td align="left">上坤土/下离</td>
+<td>九四</td>
+<td align="left">宋朝建立</td>
+<td align="left">宋朝</td>
+<td align="left"><strong>分总结构</strong></td>
+</tr>
+<tr>
+<td align="left">17</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">䷆师</td>
+<td align="left">上坤土</td>
+<td>初九,六二,九三</td>
+<td align="left">澶渊之盟</td>
+<td align="left">宋朝</td>
+<td align="left"><strong>治世九象</strong></td>
+</tr>
+<tr>
+<td align="left">18</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">䷳山</td>
+<td align="left">上艮土</td>
+<td>九二,六三,上六</td>
+<td align="left">刘后主政</td>
+<td align="left">宋朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">19</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">䷕贲</td>
+<td align="left">上艮土/<del>下离</del></td>
+<td>初六</td>
+<td align="left">王安石变法, 平戎大败</td>
+<td align="left">宋朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">20</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">䷌同人</td>
+<td align="left"><strong>土生金</strong>/<del>下离</del></td>
+<td>六四,六五</td>
+<td align="left">蔡京乱政</td>
+<td align="left">宋朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">21</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">䷨损</td>
+<td align="left">下兑</td>
+<td>六二,九三,九四,九五</td>
+<td align="left">靖康之耻</td>
+<td align="left">宋朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">22</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">䷥睽</td>
+<td align="left">下兑</td>
+<td>六四</td>
+<td align="left">偏安南宋</td>
+<td align="left">宋朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">23</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">䷉履</td>
+<td align="left">下兑</td>
+<td>六五</td>
+<td align="left">蒙古崛起</td>
+<td align="left">宋朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">24</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">䷼中孚</td>
+<td align="left"><del>上巽</del>/下兑</td>
+<td>九四</td>
+<td align="left">南宋灭亡</td>
+<td align="left">宋朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">25</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">䷴渐</td>
+<td align="left"><del>上巽</del></td>
+<td>初九,九二,六三</td>
+<td align="left">元朝国运</td>
+<td align="left">元朝</td>
+<td align="left"><strong>总分结构</strong></td>
+</tr>
+<tr>
+<td align="left">26</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">䷲雷</td>
+<td align="left">上震</td>
+<td>初六,九三,六四,九五,上九</td>
+<td align="left">元朝灭亡</td>
+<td align="left">元朝</td>
+<td align="left">乱世二象</td>
+</tr>
+<tr>
+<td align="left">27</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">䷏豫</td>
+<td align="left">上震</td>
+<td>初九</td>
+<td align="left">明朝立国</td>
+<td align="left">明朝</td>
+<td align="left"><strong>平铺直叙</strong></td>
+</tr>
+<tr>
+<td align="left">28</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">䷧解</td>
+<td align="left">上震</td>
+<td>六二</td>
+<td align="left">燕王夺位</td>
+<td align="left">明朝</td>
+<td align="left"><strong>治世六象</strong></td>
+</tr>
+<tr>
+<td align="left">29</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">䷟恒</td>
+<td align="left">上震/下巽</td>
+<td>六三</td>
+<td align="left">仁宣之治</td>
+<td align="left">明朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">30</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">䷭升</td>
+<td align="left"><strong>应土木</strong>/下巽</td>
+<td>九四</td>
+<td align="left">土木之变</td>
+<td align="left">明朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><del>31</del></td>
+<td align="left"><del>巽</del></td>
+<td align="left"><del>木</del></td>
+<td align="left"><del>离</del></td>
+<td align="left"><del>火</del></td>
+<td align="left">䷤家人</td>
+<td align="left"></td>
+<td><del>初六,九二,六五,上六</del></td>
+<td align="left"><del>魏忠贤之乱</del></td>
+<td align="left"><del>明朝</del></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">32</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">䷯井</td>
+<td align="left">下巽</td>
+<td>(31)初九,六二,上九, (30)六五</td>
+<td align="left">闯王灭明</td>
+<td align="left">明朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">33</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">䷛大过</td>
+<td align="left">下巽</td>
+<td>六四</td>
+<td align="left">清朝国运</td>
+<td align="left">清朝</td>
+<td align="left"><strong>总分结构</strong></td>
+</tr>
+<tr>
+<td align="left">34</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">䷸风</td>
+<td align="left">下巽</td>
+<td>九四,上六</td>
+<td align="left">太平天国</td>
+<td align="left">清朝</td>
+<td align="left"><strong>治世四/五象</strong></td>
+</tr>
+<tr>
+<td align="left">35</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">䷐随</td>
+<td align="left"><strong>金克木</strong></td>
+<td>初六,九二,九三,六四,上九</td>
+<td align="left">火烧圆明园</td>
+<td align="left">清朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>35.5</strong></td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">䷄需</td>
+<td align="left"><strong>金克木</strong>/<del>下乾</del></td>
+<td>六二,六三,九四</td>
+<td align="left"><strong>甲午战争 ?</strong></td>
+<td align="left">清朝</td>
+<td align="left"><strong>原55</strong></td>
+</tr>
+<tr>
+<td align="left">36</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">䷈小畜</td>
+<td align="left">上巽/<del>下乾</del></td>
+<td>(35.5)上六, (35)六二,六三,九四,上六</td>
+<td align="left">慈禧光绪西逃</td>
+<td align="left">清朝</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>36.5</strong></td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">䷤家人</td>
+<td align="left">上巽</td>
+<td>九二</td>
+<td align="left"><strong>辛丑条约,清末新政 ?</strong></td>
+<td align="left">清朝</td>
+<td align="left"><strong>原31</strong></td>
+</tr>
+<tr>
+<td align="left">37</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">䷩益</td>
+<td align="left">上巽/下震</td>
+<td>(36.5)九三, (36)九二,九三</td>
+<td align="left">清朝灭亡, 民国建立</td>
+<td align="left">民国</td>
+<td align="left"><strong>分总结构</strong></td>
+</tr>
+<tr>
+<td align="left">38</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">䷔噬嗑</td>
+<td align="left">下震</td>
+<td>六四</td>
+<td align="left">第一次世界大战</td>
+<td align="left">民国</td>
+<td align="left">乱世四象</td>
+</tr>
+<tr>
+<td align="left">39</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">䷚颐</td>
+<td align="left"><del>上艮</del>/下震</td>
+<td>九四</td>
+<td align="left">日本侵华, 二战</td>
+<td align="left">民国</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">40</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">䷑蛊</td>
+<td align="left"><del>上艮</del>/<strong>木克土</strong></td>
+<td>初九,六二,六三</td>
+<td align="left">国共内战, 败走台湾</td>
+<td align="left">民国</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">41</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">䷝火</td>
+<td align="left">上离</td>
+<td>初六,九二,六四</td>
+<td align="left">建国和文革</td>
+<td align="left">PRC</td>
+<td align="left"><strong>总分结构</strong></td>
+</tr>
+<tr>
+<td align="left">42</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">䷷旅</td>
+<td align="left">上离</td>
+<td>初九</td>
+<td align="left">冷战和改革开放</td>
+<td align="left">PRC</td>
+<td align="left"><strong>治世三/四象</strong></td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">—未来预测—</td>
+<td></td>
+<td align="left">—仅供参考—</td>
+<td align="left">-</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">43</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">䷱鼎</td>
+<td align="left">上离</td>
+<td>六二</td>
+<td align="left">衰落分裂</td>
+<td align="left">PRC</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><del><strong>43.5</strong></del></td>
+<td align="left"><del>艮</del></td>
+<td align="left"><del>土</del></td>
+<td align="left"><del>坎</del></td>
+<td align="left"><del>水</del></td>
+<td align="left">䷃蒙</td>
+<td align="left"></td>
+<td><del>九三, 九四</del></td>
+<td align="left"><del>再战日本, 三战</del> ?</td>
+<td align="left"><del>PRC</del></td>
+<td align="left"><strong>原45</strong></td>
+</tr>
+<tr>
+<td align="left">44</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">䷿未济</td>
+<td align="left">下坎</td>
+<td>(43)九三, (43.5)六四</td>
+<td align="left">中华联邦</td>
+<td align="left">日月丽天</td>
+<td align="left"><strong>平铺直叙</strong></td>
+</tr>
+<tr>
+<td align="left">45</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">䷃蒙</td>
+<td align="left">下坎</td>
+<td>六四</td>
+<td align="left">防守战</td>
+<td align="left">日月丽天</td>
+<td align="left"><strong>治世七/六象</strong></td>
+</tr>
+<tr>
+<td align="left">46</td>
+<td align="left">巽</td>
+<td align="left">木</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">䷺涣</td>
+<td align="left">下坎</td>
+<td>(45)六五,(44)九四,六五,</td>
+<td align="left">军事政变</td>
+<td align="left">日月丽天</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">47</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">䷅讼</td>
+<td align="left"><del>上乾</del>/下坎</td>
+<td>六四</td>
+<td align="left">民选, 紫薇星</td>
+<td align="left">日月丽天</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">48</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">离</td>
+<td align="left">火</td>
+<td align="left">䷌同人</td>
+<td align="left"><del>上乾</del>/<strong>火克金</strong></td>
+<td>初六,九二,六三</td>
+<td align="left">同人于野, 龙蛇内战</td>
+<td align="left">日月丽天</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">49</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">䷁地</td>
+<td align="left">六息卦/上坤</td>
+<td>初九,九三, 九四, 九五, 上九</td>
+<td align="left">彻底分裂, 各自为政</td>
+<td align="left">日月丽天</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">50</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">䷗复</td>
+<td align="left">六息卦/上坤</td>
+<td>初六</td>
+<td align="left">兽贵人贱, 超级乱世</td>
+<td align="left">日月丽天</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">51</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">䷒临</td>
+<td align="left">六息卦/上坤</td>
+<td>六二</td>
+<td align="left">夫妇共治, 国祚一百六</td>
+<td align="left">阴阳和</td>
+<td align="left"><strong>总分结构</strong></td>
+</tr>
+<tr>
+<td align="left">52</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">䷊泰</td>
+<td align="left">六息卦/上坤/下乾</td>
+<td>六三</td>
+<td align="left">北方入侵, 东南起兵收复</td>
+<td align="left">阴阳和</td>
+<td align="left"><strong>治世八/七象</strong></td>
+</tr>
+<tr>
+<td align="left">53</td>
+<td align="left">震</td>
+<td align="left">木</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">䷡大壮</td>
+<td align="left">六息卦/下乾</td>
+<td>六四</td>
+<td align="left">出雄主, 安天下</td>
+<td align="left">阴阳和</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">54</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">乾</td>
+<td align="left">金</td>
+<td align="left">䷪夬</td>
+<td align="left">六息卦/下乾</td>
+<td>六五</td>
+<td align="left">分裂割据, 仅存名分</td>
+<td align="left">阴阳和</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><del>55</del></td>
+<td align="left"><del>坎</del></td>
+<td align="left"><del>水</del></td>
+<td align="left"><del>乾</del></td>
+<td align="left"><del>金</del></td>
+<td align="left">䷄需</td>
+<td align="left"><del>上坎</del>/下乾</td>
+<td><del>九四</del></td>
+<td align="left"><del>努力救社稷于水火</del></td>
+<td align="left"><del>阴阳和</del></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">56</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">䷇比</td>
+<td align="left"><del>上坎</del>/<strong>金生水</strong></td>
+<td>(54) 初九, 九二, 九三, 九四</td>
+<td align="left">硅基战争, 全球战</td>
+<td align="left">阴阳和</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">57</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">䷹泽</td>
+<td align="left">上兑</td>
+<td>初六, 六二, 六四</td>
+<td align="left">一人解决硅基战争</td>
+<td align="left">阴阳和</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">58</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">坎</td>
+<td align="left">水</td>
+<td align="left">䷮困</td>
+<td align="left">上兑</td>
+<td>初九</td>
+<td align="left">全球国家联盟, 北方不加入</td>
+<td align="left">阴阳和</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">59</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">艮</td>
+<td align="left">土</td>
+<td align="left">䷞咸</td>
+<td align="left">上兑</td>
+<td>九二, 六三</td>
+<td align="left">天下一家, 世界大同</td>
+<td align="left">天下一家</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">60</td>
+<td align="left">兑</td>
+<td align="left">金</td>
+<td align="left">坤</td>
+<td align="left">土</td>
+<td align="left">䷬萃</td>
+<td align="left">上兑</td>
+<td>九三</td>
+<td align="left">无始无终, 推背归休</td>
+<td align="left">推背归休</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h1 id="推背图互为错卦的象"><a href="#推背图互为错卦的象" class="headerlink" title="推背图互为错卦的象"></a>推背图互为错卦的象</h1><table>
+<thead>
+<tr>
+<th align="left">卦对</th>
+<th align="left">象</th>
+<th align="left">事件</th>
+<th align="left">朝代</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">䷀乾 ↔ ䷁坤</td>
+<td align="left">1 ↔ 49</td>
+<td align="left">兴亡循环 ↔ 彻底分裂，各自为政</td>
+<td align="left">总论 ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷫姤 ↔ ䷗复</td>
+<td align="left">2 ↔ 50</td>
+<td align="left">唐朝国运 ↔ 兽贵人贱，超级乱世</td>
+<td align="left">唐朝 ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷠遁 ↔ ䷒临</td>
+<td align="left">3 ↔ 51</td>
+<td align="left">武后称帝 ↔ 夫妇共治，国祚一百六</td>
+<td align="left">唐朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷋否 ↔ ䷊泰</td>
+<td align="left">4 ↔ 52</td>
+<td align="left">逼退武皇 ↔ 北方入侵，东南起兵收复</td>
+<td align="left">唐朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷓观 ↔ ䷡大壮</td>
+<td align="left">5 ↔ 53</td>
+<td align="left">安史之乱 ↔ 出雄主，安天下</td>
+<td align="left">唐朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷖剥 ↔ ䷪夬</td>
+<td align="left">6 ↔ 54</td>
+<td align="left">再造唐朝 ↔ 分裂割据，仅存名分</td>
+<td align="left">唐朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷘无妄 ↔ ䷭升</td>
+<td align="left">7 ↔ <strong>30</strong></td>
+<td align="left">吐蕃侵掠 ↔ <strong>土木之变</strong></td>
+<td align="left">唐朝 ↔ <strong>明朝</strong></td>
+</tr>
+<tr>
+<td align="left">䷢晋 ↔ ䷄需</td>
+<td align="left">8 ↔ <strong>34.5</strong></td>
+<td align="left">藩镇之乱 ↔ <strong>甲午战争 ?</strong></td>
+<td align="left">唐朝 ↔ 清朝 ?</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">8 ↔ <del>55</del></td>
+<td align="left">藩镇之乱 ↔ <del>努力救社稷于水火</del></td>
+<td align="left">唐朝 ↔ <del>阴阳和</del></td>
+</tr>
+<tr>
+<td align="left">䷍大有 ↔ ䷇比</td>
+<td align="left">9 ↔ 56</td>
+<td align="left">黄巢起义 ↔ 硅基战争，全球战</td>
+<td align="left">唐朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷜坎 ↔ ䷝离</td>
+<td align="left">10 ↔ 41</td>
+<td align="left">朱温篡唐 ↔ 建国和文革</td>
+<td align="left">五代十国 ↔ PRC</td>
+</tr>
+<tr>
+<td align="left">䷻节 ↔ ䷷旅</td>
+<td align="left">11 ↔ 42</td>
+<td align="left">后唐国运 ↔ 冷战和改革开放</td>
+<td align="left">五代十国 ↔ PRC</td>
+</tr>
+<tr>
+<td align="left">䷂屯 ↔ ䷱鼎</td>
+<td align="left">12 ↔ 43</td>
+<td align="left">后晋儿皇 ↔ 衰落分裂</td>
+<td align="left">五代十国 ↔ PRC</td>
+</tr>
+<tr>
+<td align="left">䷾既济 ↔ ䷿未济</td>
+<td align="left">13 ↔ 44</td>
+<td align="left">后汉亡，后周立 ↔ 中华联邦</td>
+<td align="left">五代十国 ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷰革 ↔ ䷃蒙</td>
+<td align="left">14 ↔ <del>43.5</del></td>
+<td align="left">后周亡，五代运终 ↔ <del>再战日本?</del></td>
+<td align="left">五代十国 ↔<del>PRC ?</del></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">14 ↔ 45</td>
+<td align="left">后周亡，五代运终 ↔ 防守战</td>
+<td align="left">五代十国 ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷶丰 ↔ ䷺涣</td>
+<td align="left">15 ↔ 46</td>
+<td align="left">宋太祖扫荡群雄 ↔ 军事政变</td>
+<td align="left">五代十国 ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷣明夷 ↔ ䷅讼</td>
+<td align="left">16 ↔ 47</td>
+<td align="left">宋朝建立 ↔ 民选，紫薇星</td>
+<td align="left">宋朝 ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷆师 ↔ ䷌同人</td>
+<td align="left">17 ↔ <del>20/</del>48</td>
+<td align="left">澶渊之盟 ↔ <del>蔡京乱政/</del> 龙蛇内战</td>
+<td align="left">宋朝 ↔ <del>宋朝/</del>日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷳艮 ↔ ䷹兑</td>
+<td align="left">18 ↔ 57</td>
+<td align="left">刘后主政 ↔ 一人解决硅基战争</td>
+<td align="left">宋朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷕贲 ↔ ䷮困</td>
+<td align="left">19 ↔ 58</td>
+<td align="left">王安石变法 ↔ 全球国家联盟</td>
+<td align="left">宋朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷨损 ↔ ䷞咸</td>
+<td align="left">21 ↔ 59</td>
+<td align="left">靖康之耻 ↔ 天下一家，世界大同</td>
+<td align="left">宋朝 ↔ 天下一家</td>
+</tr>
+<tr>
+<td align="left">䷲震 ↔ ䷸巽</td>
+<td align="left">26 ↔ 34</td>
+<td align="left">元朝灭亡 ↔ 太平天国</td>
+<td align="left">元朝 ↔ 清朝</td>
+</tr>
+<tr>
+<td align="left">䷏豫 ↔ ䷈小畜</td>
+<td align="left">27 ↔ 36</td>
+<td align="left">明朝立国 ↔ 慈禧光绪西逃</td>
+<td align="left">明朝 ↔ 清朝</td>
+</tr>
+<tr>
+<td align="left">䷧解 ↔ ䷤家人</td>
+<td align="left">28 ↔ <strong>36.5</strong></td>
+<td align="left">燕王夺位 ↔ <strong>辛丑条约,清末新政 ?</strong></td>
+<td align="left">明朝 ↔ 清朝 ?</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">28 ↔ <del>31</del></td>
+<td align="left">燕王夺位 ↔ <del>魏忠贤之乱</del></td>
+<td align="left"><del>明朝 ↔ 明朝</del></td>
+</tr>
+<tr>
+<td align="left">䷟恒 ↔ ䷩益</td>
+<td align="left">29 ↔ 37</td>
+<td align="left">仁宣之治 ↔ 清朝灭亡，民国建立</td>
+<td align="left">明朝 ↔ 民国</td>
+</tr>
+<tr>
+<td align="left">䷯井 ↔ ䷔噬嗑</td>
+<td align="left">32 ↔ 38</td>
+<td align="left">闯王灭明 ↔ 第一次世界大战</td>
+<td align="left">明朝 ↔ 民国</td>
+</tr>
+<tr>
+<td align="left">䷛大过 ↔ ䷚颐</td>
+<td align="left">33 ↔ 39</td>
+<td align="left">清朝国运 ↔ 日本侵华，二战</td>
+<td align="left">清朝 ↔ 民国</td>
+</tr>
+<tr>
+<td align="left">䷐随 ↔ ䷑蛊</td>
+<td align="left">35 ↔ 40</td>
+<td align="left">火烧圆明园 ↔ 国共内战，败走台湾</td>
+<td align="left">清朝 ↔ 民国</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">—没有对应错卦的象—</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">䷥睽</td>
+<td align="left">22</td>
+<td align="left">偏安南宋</td>
+<td align="left">宋朝</td>
+</tr>
+<tr>
+<td align="left">䷉履</td>
+<td align="left">23</td>
+<td align="left">蒙古崛起</td>
+<td align="left">宋朝</td>
+</tr>
+<tr>
+<td align="left">䷼中孚</td>
+<td align="left">24</td>
+<td align="left">南宋灭亡</td>
+<td align="left">宋朝</td>
+</tr>
+<tr>
+<td align="left">䷴渐</td>
+<td align="left">25</td>
+<td align="left">元朝国运</td>
+<td align="left">元朝</td>
+</tr>
+<tr>
+<td align="left">䷬萃</td>
+<td align="left">60</td>
+<td align="left">无始无终, 推背归休</td>
+<td align="left">推背归休</td>
+</tr>
+</tbody></table>
+<h1 id="推背图互为综卦的象"><a href="#推背图互为综卦的象" class="headerlink" title="推背图互为综卦的象"></a>推背图互为综卦的象</h1><table>
+<thead>
+<tr>
+<th align="left">卦对</th>
+<th align="left">象</th>
+<th align="left">事件</th>
+<th align="left">朝代</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">䷫姤 ↔ ䷪夬</td>
+<td align="left">2 ↔ 54</td>
+<td align="left">唐朝国运 ↔ 分裂割据，仅存名分</td>
+<td align="left">唐朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷠遁 ↔ ䷡大壮</td>
+<td align="left">3 ↔ 53</td>
+<td align="left">武后称帝 ↔ 出雄主，安天下</td>
+<td align="left">唐朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷋否 ↔ ䷊泰</td>
+<td align="left">4 ↔ 52</td>
+<td align="left">逼退武皇 ↔ 北方入侵，东南起兵收复</td>
+<td align="left">唐朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷓观 ↔ ䷒临</td>
+<td align="left">5 ↔ 51</td>
+<td align="left">安史之乱 ↔ 夫妇共治，国祚一百六</td>
+<td align="left">唐朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷖剥 ↔ ䷗复</td>
+<td align="left">6 ↔ 50</td>
+<td align="left">再造唐朝 ↔ 兽贵人贱，超级乱世</td>
+<td align="left">唐朝 ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷢晋 ↔ ䷣明夷</td>
+<td align="left"><strong>8 ↔ 16</strong></td>
+<td align="left">藩镇之乱 ↔ 宋朝建立</td>
+<td align="left">唐朝 ↔ 宋朝</td>
+</tr>
+<tr>
+<td align="left">䷍大有 ↔ ䷌同人</td>
+<td align="left">9 ↔ 20<del>/48</del></td>
+<td align="left">黄巢起义 ↔ 蔡京乱政<del>/龙蛇内战</del></td>
+<td align="left">唐朝 ↔ 宋朝<del>/日月丽天</del></td>
+</tr>
+<tr>
+<td align="left">䷻节 ↔ ䷷旅</td>
+<td align="left">11 ↔ 42</td>
+<td align="left">后唐国运 ↔ 冷战和改革开放</td>
+<td align="left">五代十国 ↔ PRC</td>
+</tr>
+<tr>
+<td align="left">䷂屯 ↔ ䷃蒙</td>
+<td align="left">12 ↔ <del>43.5</del></td>
+<td align="left">后晋儿皇 ↔ <del>再战日本 ?</del></td>
+<td align="left">五代十国 ↔ <del>PRC?</del></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">12 ↔ 45</td>
+<td align="left">后晋儿皇 ↔  防守战</td>
+<td align="left">五代十国 ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷾既济 ↔ ䷿未济</td>
+<td align="left">13 ↔ 44</td>
+<td align="left">后汉亡，后周立 ↔ 中华联邦</td>
+<td align="left">五代十国 ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷰革 ↔ ䷱鼎</td>
+<td align="left">14 ↔ 43</td>
+<td align="left">后周亡，五代运终 ↔ 衰落分裂</td>
+<td align="left">五代十国 ↔ PRC</td>
+</tr>
+<tr>
+<td align="left">䷶丰 ↔ ䷺涣</td>
+<td align="left">15 ↔ 46</td>
+<td align="left">宋太祖扫荡群雄 ↔ 军事政变</td>
+<td align="left">五代十国 ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left">䷆师 ↔ ䷇比</td>
+<td align="left">17 ↔ 56</td>
+<td align="left">澶渊之盟 ↔ 硅基战争，全球战</td>
+<td align="left">宋朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷳艮 ↔ ䷲震</td>
+<td align="left"><strong>18 ↔ 26</strong></td>
+<td align="left">刘后主政 ↔ 元朝灭亡</td>
+<td align="left">宋朝 ↔ 元朝</td>
+</tr>
+<tr>
+<td align="left">䷕贲 ↔ ䷔噬嗑</td>
+<td align="left">19 ↔ 38</td>
+<td align="left">王安石变法 ↔ 第一次世界大战</td>
+<td align="left">宋朝 ↔ 民国</td>
+</tr>
+<tr>
+<td align="left">䷨损 ↔ ䷩益</td>
+<td align="left">21 ↔ 37</td>
+<td align="left">靖康之耻 ↔ 清朝灭亡，民国建立</td>
+<td align="left">宋朝 ↔ 民国</td>
+</tr>
+<tr>
+<td align="left">䷥睽 ↔ ䷤家人</td>
+<td align="left">22 ↔ <strong>36.5</strong></td>
+<td align="left">偏安南宋 ↔ <strong>辛丑条约,清末新政 ?</strong></td>
+<td align="left">宋朝 ↔ 清朝</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">22 ↔ <del>31</del></td>
+<td align="left">偏安南宋 ↔ <del>魏忠贤之乱</del></td>
+<td align="left">宋朝 ↔ <del>明朝</del></td>
+</tr>
+<tr>
+<td align="left">䷉履 ↔ ䷈小畜</td>
+<td align="left">23 ↔ 36</td>
+<td align="left">蒙古崛起 ↔ 慈禧光绪西逃</td>
+<td align="left">宋朝 ↔ 清朝</td>
+</tr>
+<tr>
+<td align="left">䷟恒 ↔ ䷞咸</td>
+<td align="left">29 ↔ 59</td>
+<td align="left">仁宣之治 ↔ 天下一家，世界大同</td>
+<td align="left">明朝 ↔ 天下一家</td>
+</tr>
+<tr>
+<td align="left">䷭升 ↔ ䷬萃</td>
+<td align="left">30 ↔ 60</td>
+<td align="left">土木之变 ↔ 无始无终，推背归休</td>
+<td align="left">明朝 ↔ 推背归休</td>
+</tr>
+<tr>
+<td align="left">䷯井 ↔ ䷮困</td>
+<td align="left">32 ↔ 58</td>
+<td align="left">闯王灭明 ↔ 全球国家联盟</td>
+<td align="left">明朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷸巽 ↔ ䷹兑</td>
+<td align="left">34 ↔ 57</td>
+<td align="left">太平天国 ↔ 一人解决硅基战争</td>
+<td align="left">清朝 ↔ 阴阳和</td>
+</tr>
+<tr>
+<td align="left">䷐随 ↔ ䷑蛊</td>
+<td align="left">35 ↔ 40</td>
+<td align="left">火烧圆明园 ↔ 国共内战，败走台湾</td>
+<td align="left">清朝 ↔ 民国</td>
+</tr>
+<tr>
+<td align="left">䷄需 ↔ ䷅讼</td>
+<td align="left"><strong>35.5</strong> ↔ 47</td>
+<td align="left">甲午战争 ? ↔  民选，紫薇星</td>
+<td align="left">清朝 ? ↔ 日月丽天</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">47 ↔ <del>55</del></td>
+<td align="left">民选，紫薇星 ↔ <del>努力救社稷于水火</del></td>
+<td align="left">日月丽天 ↔ <del>阴阳和</del></td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">—自综卦—</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">䷀乾</td>
+<td align="left">1</td>
+<td align="left">兴亡循环</td>
+<td align="left">总论</td>
+</tr>
+<tr>
+<td align="left">䷜水</td>
+<td align="left">10</td>
+<td align="left">朱温篡唐</td>
+<td align="left">五代十国</td>
+</tr>
+<tr>
+<td align="left">䷼中孚</td>
+<td align="left">24</td>
+<td align="left">南宋灭亡</td>
+<td align="left">宋朝</td>
+</tr>
+<tr>
+<td align="left">䷛大过</td>
+<td align="left">33</td>
+<td align="left">清朝国运</td>
+<td align="left">清朝</td>
+</tr>
+<tr>
+<td align="left">䷚颐</td>
+<td align="left">39</td>
+<td align="left">日本侵华, 二战</td>
+<td align="left">民国</td>
+</tr>
+<tr>
+<td align="left">䷝火</td>
+<td align="left">41</td>
+<td align="left">建国和文革</td>
+<td align="left">PRC</td>
+</tr>
+<tr>
+<td align="left">䷁地</td>
+<td align="left">49</td>
+<td align="left">彻底分裂, 各自为政</td>
+<td align="left">日月丽天</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">—没有对应综卦的象—</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">䷘无妄</td>
+<td align="left">7</td>
+<td align="left">吐蕃侵掠</td>
+<td align="left">唐朝</td>
+</tr>
+<tr>
+<td align="left">䷴渐</td>
+<td align="left">25</td>
+<td align="left">元朝国运</td>
+<td align="left">元朝</td>
+</tr>
+<tr>
+<td align="left">䷏豫</td>
+<td align="left">27</td>
+<td align="left">明朝立国</td>
+<td align="left">明朝</td>
+</tr>
+<tr>
+<td align="left">䷧解</td>
+<td align="left">28</td>
+<td align="left">燕王夺位</td>
+<td align="left">明朝</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>thoughts</category>
+      </categories>
+      <tags>
+        <tag>thoughts</tag>
         <tag>crisis</tag>
       </tags>
   </entry>
