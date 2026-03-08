@@ -33735,7 +33735,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>第56象, 四爻变(基于54象). 未来事件. 硅基战争, 全球战.</li>
 </ul>
 </li>
-<li>如果我们挪开31象, 让32象接30象. 其前后爻变会极为顺畅.<ul>
+<li>如果我们挪开31象, 让32象接30象. 其前后的卦象衔接和爻变会极为顺畅.<ul>
+<li>32象的下巽可以直接衔接30象的下巽. 一旦插入31象, 会导致30-&gt;31象, 31-&gt;32象两次上下卦皆变.</li>
 <li>从27象明朝立国到闯王灭明, 其爻变为: 初九,六二,六三,九四(30象),六五(32象)</li>
 <li>因而, 31象家人卦, 大概率本不属于明朝, 是重排者从后续卦象中修改挪用了.</li>
 </ul>
@@ -33768,7 +33769,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>见第八象, 藩镇之乱. 颂词是 “居然三杰踞关中”. 把反贼称为三杰!!!</li>
 </ul>
 </li>
-<li>天启是明言, 推背图从来没有这么直白的把年号写进去, 至少是要拆字的, 如”二人户口又xx”这种!</li>
+<li>天启是明言, 推背图从来没有这么直白的把年号写进去, 至少是要拆字或将”启”自然的藏在句中.</li>
 <li>纵有胸怀能坦白, 谁有胸怀要坦白? 不可能是原作者, 只可能是事件亲历者!!!</li>
 <li>乾坤不属旧明君. 谁要思议旧明君? 推背图从来不会怀旧.<ul>
 <li>原作者开篇是 “茫茫天地, 不知所止”, 结尾是 “茫茫天数此中求 世道兴衰不自由”</li>
@@ -33778,7 +33779,20 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 </ul>
 </li>
-<li>根据用词, 修改者的综合水平一般. 一起修改卦象和配图的可能性几乎为零.</li>
+<li>看推背图20象, 蔡京乱政. 原版描述权臣的藏字和用词.<ul>
+<li><code>朝无光　日月盲</code>. 表明朝廷晦暗无光. <del>无光: 司马光卒.</del></li>
+<li><code>莫与京　终旁皇</code>. 只提了一个京字. 定位到蔡京, 成天傍着谄媚皇帝.</li>
+<li><code>父子同心并同道　中天日月手中物</code>. 蔡京父子齐心同力,玩弄权术,把持朝政.</li>
+<li><code>奇云翻过北海头　凤阙龙廷生怛恻</code>. 切入历史, 金国铁骑南下, 皇帝群臣胆怯恐惧.</li>
+<li>此象藏了个<code>京</code>字, 提了父子<code>同心同道</code>. 最后两句描写北方南下入侵, 朝野怛恻.</li>
+</ul>
+</li>
+<li>明朝末年时期, 原作者不写魏忠贤很正常. 从30象土木之变到32象闯王灭明之间, 可写:<ul>
+<li>张居正改革, 万历的怠政, 东林党和阉党, 崇祯的折腾.</li>
+<li>如果是推背图原作者, 同写东林党和阉党才更为客观, 更符合推背图的整体视角.</li>
+<li>比对用词, 修改者的认知和综合水平一般. 一起修改卦象和配图的可能性几乎为零.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>最后看历史情况<ul>
@@ -33788,7 +33802,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>魏忠贤倒后, 后面文官集团的表现自有历史公论.</li>
 </ul>
 </li>
-<li>如果是推背图原作者, 可能提到魏忠贤, 但绝不可能以他为中心, 独占一整象, 更不可能如此感怀!</li>
 </ul>
 <h2 id="推论二-推背图是在明朝之前被创作出来的"><a href="#推论二-推背图是在明朝之前被创作出来的" class="headerlink" title="推论二: 推背图是在明朝之前被创作出来的"></a>推论二: 推背图是在明朝之前被创作出来的</h2><p>推论二: 推背图是在明朝之前被创作出来的. 相传的唐朝创作, 宋朝以假乱真, 并非空穴来风.<br>由于出现了 <strong>魏忠贤之乱</strong> 一象, 也反向证明了推背图不是在明朝末年被创作出来的, 而确实是流传下来的.</p>
 <ul>
@@ -33936,6 +33949,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>继续后续的象: 1 ↔ 49, 2 ↔ 50, 3 ↔ 51, 4 ↔ 52, 5 ↔ 53, 6 ↔ 54, 7 ↔ 30(土木之变为明朝已知事件), 8 ↔ 55(未知事件错排的象, 实际是清朝的35.5象), 9 ↔ 56</li>
 </ul>
 </li>
+<li>推背图原文, 唯一可能支持45象错排的, 只有治乱之世的象数统计. 如果45象改为43.5象, 归属于PRC时期. 则有.<ul>
+<li>治世象数规律: 明朝五象, 日月丽天六象, 阴阳和七象, 唐朝八象, 宋朝九象.</li>
+<li>乱世象数规律: 元朝二象, 国共各四象, 清朝六象, 五代十国六象.</li>
+</ul>
+</li>
 <li>由于判定金圣叹版推背图有被修改并重排的迹象. (31象魏忠贤, 55象甲午战争), 我们可以在极其谨慎, 证据充分的情况下, 考虑少部分卦象错排的可能性.<ul>
 <li>当前(2026年)为43象.已过”黑兔青龙”, 处于”欲尽不尽不可说”</li>
 <li>44象, 为非武力, 形似周朝的统一. 是”否极泰来”.<ul>
@@ -33959,7 +33977,61 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 </ul>
-<h1 id="推背图卦象整理"><a href="#推背图卦象整理" class="headerlink" title="推背图卦象整理"></a>推背图卦象整理</h1><table>
+<h1 id="推背图卦象整理"><a href="#推背图卦象整理" class="headerlink" title="推背图卦象整理"></a>推背图卦象整理</h1><p>卦象规律, 规则说明:</p>
+<ul>
+<li>观察前后象, 是否有相同的上卦或下卦, 有相同的上下卦, 便认为是一般的卦象.</li>
+<li>四动爻及以上, 是极其严重的变故, 常对应外族深度侵略, 改朝换代等事件.</li>
+<li>统计上下卦皆变的象,<ul>
+<li>第7象: 吐蕃侵掠, 唐朝</li>
+<li>第8象: 藩镇之乱, 唐朝</li>
+<li>第10象: 朱温篡唐, 五代十国. <strong>五爻变</strong></li>
+<li>第18象: 刘后主政, 宋朝</li>
+<li>第21象: 靖康之耻, 宋朝. <strong>四爻变</strong></li>
+<li>第26象: 元朝灭亡, 元朝. <strong>五爻变</strong></li>
+<li><del>第31象</del>: 魏忠贤之乱, 明朝. 疑似篡改. <del><strong>四爻变</strong></del></li>
+<li>第35象: 火烧圆明园, 清朝. <strong>五爻变</strong></li>
+<li><del>第36象(基于35象)</del>: 慈禧光绪西逃, 清朝. <del><strong>四爻变</strong></del>. 基于35.5象(55象)则是单爻变.</li>
+<li>第41象: 建国和文革. PRC.</li>
+<li>第49象: 彻底分裂, 各自为政. 日月丽天. <strong>五爻变</strong></li>
+<li>第56象(基于54象): 硅基战争, 全球战. 阴阳和. <strong>四爻变</strong></li>
+</ul>
+</li>
+<li>如果上下卦都不同, 则观察五行生克关系. 必须是前象生后象(符号↓↙↘), 或后象克前象(符号↑↗↖).</li>
+<li>只有两象同上下卦, 也记录了五行生克.连续三象或以上则不再分析上下卦的五行生克.</li>
+</ul>
+<p>推背图是中国汉族本位的. 治世和乱世的定义为:</p>
+<ul>
+<li>治世朝代在总起或总结时, 用词正向, 会有中兴之象穿插描述.<ul>
+<li>第6象, 唐朝. 再造唐朝. <code>日月复光</code>, <code>乾坤再造人民乐　一二年来见太平</code></li>
+<li>第16象, 宋朝. 宋朝建立. <code>天一生水　姿禀圣武 顺天应人 无今无古</code></li>
+<li>第18象, 宋朝. 刘后主政. <code>天下之母 治安巩固</code>, <code>朝中又见钗光照　宇内承平气象开</code></li>
+<li>第27象, 明朝. 明朝立国. <code>枝枝叶叶现金光　晃晃朗朗照四方</code></li>
+<li>第29象, 明朝. 仁宣之治. <code>为国之栋 康乐利众</code>, <code>宇内同歌贤母德　真有三代之遗风</code></li>
+<li>第44象, 日月丽天. 中华联邦. <code>日月丽天　群阴慑服 百灵来朝</code>, <code>而今中国有圣人 否极泰来九国春</code></li>
+<li>第47象, 日月丽天. 紫薇星出. <code>紫薇星明</code> <code>义言一出见英明</code></li>
+<li>第51象, 阴阳和. 夫妇共治. <code>阴阳和　化以正 坤顺而感　后见尧舜</code>, <code>坤德居然感四方 重见中天新气象</code></li>
+<li>第53象, 阴阳和. 出雄主安天下. <code>关中天子　礼贤下士</code>, <code>一个孝子自西来　手握乾纲天下安 前人不及后人才</code></li>
+</ul>
+</li>
+<li>乱世在总起或总结时, 只是客观描述, 无正向用词. 整个朝代都是描述乱象的, 会忽略或淡化稳定时期的描述.<ul>
+<li>关于清朝的治乱. 看33象总起的用词是<code>主客不分</code>, <code>胡人气不衰</code>. 且34象直接从太平天国乱世写起.</li>
+<li>推背图对于国共是一起写的. 结构是: 民国分总(40象), PRC总(41象)分. 国共一起是分总(43象).</li>
+</ul>
+</li>
+<li>治乱之世的象数统计, 与时间跨度无关, 另<strong>治乱之说是基于推背图原作者呈现观点的相对之说, 请勿对应实际情况</strong><ul>
+<li>治世九象, 宋朝</li>
+<li>治世八象, 唐朝</li>
+<li>治世七象, 阴阳和</li>
+<li>治世七象或<del>六象</del>, 日月丽天. 取决于45象的排序.</li>
+<li>治世五象, 明朝. 去除了31象, 魏忠贤之乱</li>
+<li>乱世七象或<del>八象</del>, 国共. 或各取四象. 取决于45象的排序.</li>
+<li>乱世六象, 五代十国</li>
+<li>乱世六象, 清朝. 加入35.5象(原55象), 36.5象(原31象)</li>
+<li>乱世二象, 元朝</li>
+</ul>
+</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th align="left">象</th>
@@ -33982,7 +34054,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">乾</td>
 <td align="left">金</td>
 <td align="left">䷀乾</td>
-<td align="left">六消卦/上乾</td>
+<td align="left">上乾/消卦</td>
 <td>始卦</td>
 <td align="left">兴亡循环</td>
 <td align="left">总论</td>
@@ -33995,10 +34067,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">巽</td>
 <td align="left">木</td>
 <td align="left">䷫姤</td>
-<td align="left">六消卦/上乾</td>
+<td align="left">上乾/消卦</td>
 <td>初九</td>
-<td align="left"><strong>唐朝国运</strong></td>
-<td align="left">唐朝</td>
+<td align="left">唐朝国运</td>
+<td align="left"><strong>唐朝</strong></td>
 <td align="left"><strong>总分结构</strong></td>
 </tr>
 <tr>
@@ -34008,11 +34080,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">艮</td>
 <td align="left">土</td>
 <td align="left">䷠遁</td>
-<td align="left">六消卦/上乾</td>
+<td align="left">上乾/消卦</td>
 <td>九二</td>
 <td align="left">武后称帝</td>
-<td align="left">唐朝</td>
-<td align="left"><strong>治世八象</strong></td>
+<td align="left"><strong>唐朝</strong></td>
+<td align="left">治世八象</td>
 </tr>
 <tr>
 <td align="left">4</td>
@@ -34021,10 +34093,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">坤</td>
 <td align="left">土</td>
 <td align="left">䷋否</td>
-<td align="left">六消卦/上乾/下坤</td>
+<td align="left">上乾/下坤/消卦</td>
 <td>九三</td>
 <td align="left">逼退武皇</td>
-<td align="left">唐朝</td>
+<td align="left"><strong>唐朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34034,10 +34106,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">坤</td>
 <td align="left">土</td>
 <td align="left">䷓观</td>
-<td align="left">六消卦/下坤</td>
+<td align="left">下坤/消卦</td>
 <td>九四</td>
 <td align="left">安史之乱</td>
-<td align="left">唐朝</td>
+<td align="left"><strong>唐朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34047,36 +34119,36 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">坤</td>
 <td align="left">土</td>
 <td align="left">䷖剥</td>
-<td align="left">六消卦/下坤</td>
+<td align="left">下坤/消卦</td>
 <td>九五</td>
 <td align="left">再造唐朝</td>
-<td align="left">唐朝</td>
-<td align="left"></td>
+<td align="left"><strong>唐朝</strong></td>
+<td align="left">正向描述</td>
 </tr>
 <tr>
 <td align="left">7</td>
 <td align="left">乾</td>
-<td align="left">金</td>
+<td align="left">↓金</td>
 <td align="left">震</td>
-<td align="left">木</td>
+<td align="left">↑木</td>
 <td align="left">䷘无妄</td>
-<td align="left"><strong>土生金/木克土</strong></td>
-<td>初六,六四,六五</td>
+<td align="left"><strong>上生/下克</strong></td>
+<td><em>初六,六四,六五</em></td>
 <td align="left">吐蕃侵掠</td>
-<td align="left">唐朝</td>
+<td align="left"><strong>唐朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left">8</td>
 <td align="left">离</td>
-<td align="left">火</td>
+<td align="left">↑火</td>
 <td align="left">坤</td>
 <td align="left">土</td>
 <td align="left">䷢晋</td>
-<td align="left"><del>上离</del>/<strong>火克金</strong></td>
+<td align="left"><strong>上克/上离</strong></td>
 <td>初九,九五</td>
 <td align="left">藩镇之乱</td>
-<td align="left">唐朝</td>
+<td align="left"><strong>唐朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34084,23 +34156,23 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">离</td>
 <td align="left">火</td>
 <td align="left">乾</td>
-<td align="left">金</td>
+<td align="left">↓金</td>
 <td align="left">䷍大有</td>
-<td align="left"><del>上离</del>/<strong>土生金</strong></td>
-<td>初六,六二,六三</td>
+<td align="left">上离</td>
+<td><em>初六,六二,六三</em></td>
 <td align="left">黄巢起义</td>
-<td align="left">唐朝</td>
+<td align="left"><strong>唐朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left">10</td>
 <td align="left">坎</td>
-<td align="left">水</td>
+<td align="left">↑水</td>
 <td align="left">坎</td>
-<td align="left">水</td>
+<td align="left">↓水</td>
 <td align="left">䷜水</td>
-<td align="left">上坎</td>
-<td>初九,九三,九四,六五,上九</td>
+<td align="left"><strong>上克/下生/上坎</strong></td>
+<td><strong>初九,九三,九四,六五,上九</strong></td>
 <td align="left">朱温篡唐</td>
 <td align="left">五代十国</td>
 <td align="left"><strong>分总结构</strong></td>
@@ -34177,10 +34249,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">离</td>
 <td align="left">火</td>
 <td align="left">䷣明夷</td>
-<td align="left">上坤土/下离</td>
+<td align="left">下离/上坤土</td>
 <td>九四</td>
 <td align="left">宋朝建立</td>
-<td align="left">宋朝</td>
+<td align="left"><strong>宋朝</strong></td>
 <td align="left"><strong>分总结构</strong></td>
 </tr>
 <tr>
@@ -34188,26 +34260,26 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">坤</td>
 <td align="left">土</td>
 <td align="left">坎</td>
-<td align="left">水</td>
+<td align="left">↑水</td>
 <td align="left">䷆师</td>
-<td align="left">上坤土</td>
-<td>初九,六二,九三</td>
+<td align="left">上坤土/下克</td>
+<td><em>初九,六二,九三</em></td>
 <td align="left">澶渊之盟</td>
-<td align="left">宋朝</td>
-<td align="left"><strong>治世九象</strong></td>
+<td align="left"><strong>宋朝</strong></td>
+<td align="left">治世九象</td>
 </tr>
 <tr>
 <td align="left">18</td>
 <td align="left">艮</td>
 <td align="left">土</td>
 <td align="left">艮</td>
-<td align="left">土</td>
+<td align="left">↑土</td>
 <td align="left">䷳山</td>
-<td align="left">上艮土</td>
-<td>九二,六三,上六</td>
+<td align="left"><strong>下克/上艮土</strong></td>
+<td><em>九二,六三,上六</em></td>
 <td align="left">刘后主政</td>
-<td align="left">宋朝</td>
-<td align="left"></td>
+<td align="left"><strong>宋朝</strong></td>
+<td align="left">正向描述</td>
 </tr>
 <tr>
 <td align="left">19</td>
@@ -34216,36 +34288,36 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">离</td>
 <td align="left">火</td>
 <td align="left">䷕贲</td>
-<td align="left">上艮土/<del>下离</del></td>
+<td align="left">上艮土/下离</td>
 <td>初六</td>
 <td align="left">王安石变法, 平戎大败</td>
-<td align="left">宋朝</td>
+<td align="left"><strong>宋朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left">20</td>
 <td align="left">乾</td>
-<td align="left">金</td>
+<td align="left">↓金</td>
 <td align="left">离</td>
 <td align="left">火</td>
 <td align="left">䷌同人</td>
-<td align="left"><strong>土生金</strong>/<del>下离</del></td>
+<td align="left">下离/上生</td>
 <td>六四,六五</td>
 <td align="left">蔡京乱政</td>
-<td align="left">宋朝</td>
+<td align="left"><strong>宋朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left">21</td>
 <td align="left">艮</td>
-<td align="left">土</td>
+<td align="left">↙土</td>
 <td align="left">兑</td>
 <td align="left">金</td>
 <td align="left">䷨损</td>
-<td align="left">下兑</td>
-<td>六二,九三,九四,九五</td>
+<td align="left"><strong>火生土/下兑</strong></td>
+<td><strong>六二,九三,九四,九五</strong></td>
 <td align="left">靖康之耻</td>
-<td align="left">宋朝</td>
+<td align="left"><strong>宋朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34258,7 +34330,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">下兑</td>
 <td>六四</td>
 <td align="left">偏安南宋</td>
-<td align="left">宋朝</td>
+<td align="left"><strong>宋朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34271,7 +34343,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">下兑</td>
 <td>六五</td>
 <td align="left">蒙古崛起</td>
-<td align="left">宋朝</td>
+<td align="left"><strong>宋朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34281,10 +34353,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">兑</td>
 <td align="left">金</td>
 <td align="left">䷼中孚</td>
-<td align="left"><del>上巽</del>/下兑</td>
+<td align="left">下兑/上巽</td>
 <td>九四</td>
 <td align="left">南宋灭亡</td>
-<td align="left">宋朝</td>
+<td align="left"><strong>宋朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34294,8 +34366,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">艮</td>
 <td align="left">土</td>
 <td align="left">䷴渐</td>
-<td align="left"><del>上巽</del></td>
-<td>初九,九二,六三</td>
+<td align="left">上巽</td>
+<td><em>初九,九二,六三</em></td>
 <td align="left">元朝国运</td>
 <td align="left">元朝</td>
 <td align="left"><strong>总分结构</strong></td>
@@ -34305,10 +34377,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">震</td>
 <td align="left">木</td>
 <td align="left">震</td>
-<td align="left">木</td>
+<td align="left">↑木</td>
 <td align="left">䷲雷</td>
-<td align="left">上震</td>
-<td>初六,九三,六四,九五,上九</td>
+<td align="left"><strong>下克/上震</strong></td>
+<td><strong>初六,九三,六四,九五,上九</strong></td>
 <td align="left">元朝灭亡</td>
 <td align="left">元朝</td>
 <td align="left">乱世二象</td>
@@ -34323,7 +34395,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">上震</td>
 <td>初九</td>
 <td align="left">明朝立国</td>
-<td align="left">明朝</td>
+<td align="left"><strong>明朝</strong></td>
 <td align="left"><strong>平铺直叙</strong></td>
 </tr>
 <tr>
@@ -34336,8 +34408,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">上震</td>
 <td>六二</td>
 <td align="left">燕王夺位</td>
-<td align="left">明朝</td>
-<td align="left"><strong>治世六象</strong></td>
+<td align="left"><strong>明朝</strong></td>
+<td align="left">治世五象</td>
 </tr>
 <tr>
 <td align="left">29</td>
@@ -34349,8 +34421,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">上震/下巽</td>
 <td>六三</td>
 <td align="left">仁宣之治</td>
-<td align="left">明朝</td>
-<td align="left"></td>
+<td align="left"><strong>明朝</strong></td>
+<td align="left">正向描述</td>
 </tr>
 <tr>
 <td align="left">30</td>
@@ -34359,24 +34431,24 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">巽</td>
 <td align="left">木</td>
 <td align="left">䷭升</td>
-<td align="left"><strong>应土木</strong>/下巽</td>
+<td align="left">下巽</td>
 <td>九四</td>
 <td align="left">土木之变</td>
-<td align="left">明朝</td>
+<td align="left"><strong>明朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left"><del>31</del></td>
 <td align="left"><del>巽</del></td>
-<td align="left"><del>木</del></td>
+<td align="left"><del>↑木</del></td>
 <td align="left"><del>离</del></td>
-<td align="left"><del>火</del></td>
+<td align="left"><del>↓火</del></td>
 <td align="left">䷤家人</td>
 <td align="left"></td>
-<td><del>初六,九二,六五,上六</del></td>
+<td><del><strong>初六,九二,六五,上六</strong></del></td>
 <td align="left"><del>魏忠贤之乱</del></td>
-<td align="left"><del>明朝</del></td>
-<td align="left"></td>
+<td align="left"><del><strong>明朝</strong></del></td>
+<td align="left">疑似篡改</td>
 </tr>
 <tr>
 <td align="left">32</td>
@@ -34386,9 +34458,9 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">木</td>
 <td align="left">䷯井</td>
 <td align="left">下巽</td>
-<td>(31)初九,六二,上九, (30)六五</td>
+<td><del>(31)初九,六二,上九</del>, (30)六五</td>
 <td align="left">闯王灭明</td>
-<td align="left">明朝</td>
+<td align="left"><strong>明朝</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34415,17 +34487,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td>九四,上六</td>
 <td align="left">太平天国</td>
 <td align="left">清朝</td>
-<td align="left"><strong>治世四/五象</strong></td>
+<td align="left">乱世六象</td>
 </tr>
 <tr>
 <td align="left">35</td>
 <td align="left">兑</td>
-<td align="left">金</td>
+<td align="left">↑金</td>
 <td align="left">震</td>
 <td align="left">木</td>
 <td align="left">䷐随</td>
-<td align="left"><strong>金克木</strong></td>
-<td>初六,九二,九三,六四,上九</td>
+<td align="left"><strong>上克</strong></td>
+<td><strong>初六,九二,九三,六四,上九</strong></td>
 <td align="left">火烧圆明园</td>
 <td align="left">清朝</td>
 <td align="left"></td>
@@ -34435,10 +34507,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">坎</td>
 <td align="left">水</td>
 <td align="left">乾</td>
-<td align="left">金</td>
+<td align="left">↑金</td>
 <td align="left">䷄需</td>
-<td align="left"><strong>金克木</strong>/<del>下乾</del></td>
-<td>六二,六三,九四</td>
+<td align="left"><strong>下克/下乾</strong></td>
+<td><em>六二,六三,九四</em></td>
 <td align="left"><strong>甲午战争 ?</strong></td>
 <td align="left">清朝</td>
 <td align="left"><strong>原55</strong></td>
@@ -34446,12 +34518,12 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <tr>
 <td align="left">36</td>
 <td align="left">巽</td>
-<td align="left">木</td>
+<td align="left">↓木</td>
 <td align="left">乾</td>
 <td align="left">金</td>
 <td align="left">䷈小畜</td>
-<td align="left">上巽/<del>下乾</del></td>
-<td>(35.5)上六, (35)六二,六三,九四,上六</td>
+<td align="left">下乾/上生/上巽</td>
+<td>(35.5)上六, <del>(35)<strong>六二,六三,九四,上六</strong></del></td>
 <td align="left">慈禧光绪西逃</td>
 <td align="left">清朝</td>
 <td align="left"></td>
@@ -34477,9 +34549,9 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">木</td>
 <td align="left">䷩益</td>
 <td align="left">上巽/下震</td>
-<td>(36.5)九三, (36)九二,九三</td>
+<td>(36.5)九三, <del>(36)九二,九三</del></td>
 <td align="left">清朝灭亡, 民国建立</td>
-<td align="left">民国</td>
+<td align="left"><strong>民国</strong> <em>国共</em></td>
 <td align="left"><strong>分总结构</strong></td>
 </tr>
 <tr>
@@ -34492,7 +34564,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">下震</td>
 <td>六四</td>
 <td align="left">第一次世界大战</td>
-<td align="left">民国</td>
+<td align="left"><strong>民国</strong> <em>国共</em></td>
 <td align="left">乱世四象</td>
 </tr>
 <tr>
@@ -34502,23 +34574,23 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">震</td>
 <td align="left">木</td>
 <td align="left">䷚颐</td>
-<td align="left"><del>上艮</del>/下震</td>
+<td align="left">下震/上艮</td>
 <td>九四</td>
 <td align="left">日本侵华, 二战</td>
-<td align="left">民国</td>
+<td align="left"><strong>民国</strong> <em>国共</em></td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left">40</td>
 <td align="left">艮</td>
-<td align="left">土</td>
+<td align="left">↗土</td>
 <td align="left">巽</td>
 <td align="left">木</td>
 <td align="left">䷑蛊</td>
-<td align="left"><del>上艮</del>/<strong>木克土</strong></td>
-<td>初九,六二,六三</td>
+<td align="left">上艮/木克土</td>
+<td><em>初九,六二,六三</em></td>
 <td align="left">国共内战, 败走台湾</td>
-<td align="left">民国</td>
+<td align="left"><strong>民国</strong> <em>国共</em></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34526,12 +34598,12 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">离</td>
 <td align="left">火</td>
 <td align="left">离</td>
-<td align="left">火</td>
+<td align="left">↓火</td>
 <td align="left">䷝火</td>
-<td align="left">上离</td>
-<td>初六,九二,六四</td>
+<td align="left"><strong>下生/上离</strong></td>
+<td><em>初六,九二,六四</em></td>
 <td align="left">建国和文革</td>
-<td align="left">PRC</td>
+<td align="left">PRC <em>国共</em></td>
 <td align="left"><strong>总分结构</strong></td>
 </tr>
 <tr>
@@ -34544,8 +34616,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">上离</td>
 <td>初九</td>
 <td align="left">冷战和改革开放</td>
-<td align="left">PRC</td>
-<td align="left"><strong>治世三/四象</strong></td>
+<td align="left">PRC <em>国共</em></td>
+<td align="left">三或<del>四</del>象</td>
 </tr>
 <tr>
 <td align="left">-</td>
@@ -34570,17 +34642,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">上离</td>
 <td>六二</td>
 <td align="left">衰落分裂</td>
-<td align="left">PRC</td>
-<td align="left"></td>
+<td align="left">PRC <em>国共</em></td>
+<td align="left"><em>国共分总</em></td>
 </tr>
 <tr>
 <td align="left"><del><strong>43.5</strong></del></td>
 <td align="left"><del>艮</del></td>
-<td align="left"><del>土</del></td>
+<td align="left"><del>↓土</del></td>
 <td align="left"><del>坎</del></td>
 <td align="left"><del>水</del></td>
 <td align="left">䷃蒙</td>
-<td align="left"></td>
+<td align="left"><del><strong>上生/下坎</strong></del></td>
 <td><del>九三, 九四</del></td>
 <td align="left"><del>再战日本, 三战</del> ?</td>
 <td align="left"><del>PRC</del></td>
@@ -34593,10 +34665,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">坎</td>
 <td align="left">水</td>
 <td align="left">䷿未济</td>
-<td align="left">下坎</td>
-<td>(43)九三, (43.5)六四</td>
+<td align="left">上离/下坎</td>
+<td>(43)九三, <del>(43.5)六四</del></td>
 <td align="left">中华联邦</td>
-<td align="left">日月丽天</td>
+<td align="left"><strong>日月丽天</strong></td>
 <td align="left"><strong>平铺直叙</strong></td>
 </tr>
 <tr>
@@ -34609,8 +34681,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">下坎</td>
 <td>六四</td>
 <td align="left">防守战</td>
-<td align="left">日月丽天</td>
-<td align="left"><strong>治世七/六象</strong></td>
+<td align="left"><strong>日月丽天</strong></td>
+<td align="left">治世七象</td>
 </tr>
 <tr>
 <td align="left">46</td>
@@ -34620,10 +34692,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">水</td>
 <td align="left">䷺涣</td>
 <td align="left">下坎</td>
-<td>(45)六五,(44)九四,六五,</td>
+<td>(45)六五, <del>(44)九四,六五</del></td>
 <td align="left">军事政变</td>
-<td align="left">日月丽天</td>
-<td align="left"></td>
+<td align="left"><strong>日月丽天</strong></td>
+<td align="left"><del>治世六象</del></td>
 </tr>
 <tr>
 <td align="left">47</td>
@@ -34632,23 +34704,23 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">坎</td>
 <td align="left">水</td>
 <td align="left">䷅讼</td>
-<td align="left"><del>上乾</del>/下坎</td>
+<td align="left">下坎/上乾</td>
 <td>六四</td>
-<td align="left">民选, 紫薇星</td>
-<td align="left">日月丽天</td>
-<td align="left"></td>
+<td align="left">民选, 紫薇星出</td>
+<td align="left"><strong>日月丽天</strong></td>
+<td align="left">正向描述</td>
 </tr>
 <tr>
 <td align="left">48</td>
 <td align="left">乾</td>
 <td align="left">金</td>
 <td align="left">离</td>
-<td align="left">火</td>
+<td align="left">↖火</td>
 <td align="left">䷌同人</td>
-<td align="left"><del>上乾</del>/<strong>火克金</strong></td>
-<td>初六,九二,六三</td>
+<td align="left">上乾/火克金</td>
+<td><em>初六,九二,六三</em></td>
 <td align="left">同人于野, 龙蛇内战</td>
-<td align="left">日月丽天</td>
+<td align="left"><strong>日月丽天</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34656,12 +34728,12 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">坤</td>
 <td align="left">土</td>
 <td align="left">坤</td>
-<td align="left">土</td>
+<td align="left">↓土</td>
 <td align="left">䷁地</td>
-<td align="left">六息卦/上坤</td>
-<td>初九,九三, 九四, 九五, 上九</td>
+<td align="left"><strong>下生/上坤/息卦</strong></td>
+<td><strong>初九,九三, 九四, 九五, 上九</strong></td>
 <td align="left">彻底分裂, 各自为政</td>
-<td align="left">日月丽天</td>
+<td align="left"><strong>日月丽天</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34671,10 +34743,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">震</td>
 <td align="left">木</td>
 <td align="left">䷗复</td>
-<td align="left">六息卦/上坤</td>
+<td align="left">上坤/息卦</td>
 <td>初六</td>
 <td align="left">兽贵人贱, 超级乱世</td>
-<td align="left">日月丽天</td>
+<td align="left"><strong>日月丽天</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34684,7 +34756,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">兑</td>
 <td align="left">金</td>
 <td align="left">䷒临</td>
-<td align="left">六息卦/上坤</td>
+<td align="left">上坤/息卦</td>
 <td>六二</td>
 <td align="left">夫妇共治, 国祚一百六</td>
 <td align="left">阴阳和</td>
@@ -34697,11 +34769,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">乾</td>
 <td align="left">金</td>
 <td align="left">䷊泰</td>
-<td align="left">六息卦/上坤/下乾</td>
+<td align="left">上坤/下乾/息卦</td>
 <td>六三</td>
 <td align="left">北方入侵, 东南起兵收复</td>
 <td align="left">阴阳和</td>
-<td align="left"><strong>治世八/七象</strong></td>
+<td align="left">治世七象</td>
 </tr>
 <tr>
 <td align="left">53</td>
@@ -34710,11 +34782,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">乾</td>
 <td align="left">金</td>
 <td align="left">䷡大壮</td>
-<td align="left">六息卦/下乾</td>
+<td align="left">下乾/息卦</td>
 <td>六四</td>
 <td align="left">出雄主, 安天下</td>
 <td align="left">阴阳和</td>
-<td align="left"></td>
+<td align="left">正向描述</td>
 </tr>
 <tr>
 <td align="left">54</td>
@@ -34723,7 +34795,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">乾</td>
 <td align="left">金</td>
 <td align="left">䷪夬</td>
-<td align="left">六息卦/下乾</td>
+<td align="left">下乾/息卦</td>
 <td>六五</td>
 <td align="left">分裂割据, 仅存名分</td>
 <td align="left">阴阳和</td>
@@ -34736,7 +34808,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left"><del>乾</del></td>
 <td align="left"><del>金</del></td>
 <td align="left">䷄需</td>
-<td align="left"><del>上坎</del>/下乾</td>
+<td align="left"><del>下乾/上坎</del></td>
 <td><del>九四</del></td>
 <td align="left"><del>努力救社稷于水火</del></td>
 <td align="left"><del>阴阳和</del></td>
@@ -34745,25 +34817,25 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <tr>
 <td align="left">56</td>
 <td align="left">坎</td>
-<td align="left">水</td>
+<td align="left">↓水</td>
 <td align="left">坤</td>
 <td align="left">土</td>
 <td align="left">䷇比</td>
-<td align="left"><del>上坎</del>/<strong>金生水</strong></td>
-<td>(54) 初九, 九二, 九三, 九四</td>
+<td align="left"><del>上坎</del>/(54)<strong>上生</strong></td>
+<td>(54) <strong>初九, 九二, 九三, 九四</strong>, <del>(55)<em>初九, 九二, 九三</em></del></td>
 <td align="left">硅基战争, 全球战</td>
 <td align="left">阴阳和</td>
-<td align="left"></td>
+<td align="left">疑似乱序</td>
 </tr>
 <tr>
 <td align="left">57</td>
 <td align="left">兑</td>
 <td align="left">金</td>
 <td align="left">兑</td>
-<td align="left">金</td>
+<td align="left">↓金</td>
 <td align="left">䷹泽</td>
-<td align="left">上兑</td>
-<td>初六, 六二, 六四</td>
+<td align="left"><strong>下生/上兑</strong></td>
+<td><em>初六, 六二, 六四</em></td>
 <td align="left">一人解决硅基战争</td>
 <td align="left">阴阳和</td>
 <td align="left"></td>
@@ -34791,7 +34863,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">上兑</td>
 <td>九二, 六三</td>
 <td align="left">天下一家, 世界大同</td>
-<td align="left">天下一家</td>
+<td align="left"><strong>天下一家</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -34922,7 +34994,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <tr>
 <td align="left">䷣明夷 ↔ ䷅讼</td>
 <td align="left">16 ↔ 47</td>
-<td align="left">宋朝建立 ↔ 民选，紫薇星</td>
+<td align="left">宋朝建立 ↔ 紫薇星出</td>
 <td align="left">宋朝 ↔ 日月丽天</td>
 </tr>
 <tr>
@@ -35196,13 +35268,13 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <tr>
 <td align="left">䷄需 ↔ ䷅讼</td>
 <td align="left"><strong>35.5</strong> ↔ 47</td>
-<td align="left">甲午战争 ? ↔  民选，紫薇星</td>
+<td align="left">甲午战争 ? ↔  紫薇星出</td>
 <td align="left">清朝 ? ↔ 日月丽天</td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left">47 ↔ <del>55</del></td>
-<td align="left">民选，紫薇星 ↔ <del>努力救社稷于水火</del></td>
+<td align="left">紫薇星出 ↔ <del>努力救社稷于水火</del></td>
 <td align="left">日月丽天 ↔ <del>阴阳和</del></td>
 </tr>
 <tr>
