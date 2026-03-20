@@ -22445,10 +22445,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>AI</category>
       </categories>
       <tags>
-        <tag>学习</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -22801,7 +22801,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>拆解追溯 GPT-3.5 各项能力的起源</title>
     <url>/2023/05/03/2303-chatgpt/</url>
     <content><![CDATA[<h1 id="拆解追溯-GPT-3-5-各项能力的起源"><a href="#拆解追溯-GPT-3-5-各项能力的起源" class="headerlink" title="拆解追溯 GPT-3.5 各项能力的起源"></a>拆解追溯 GPT-3.5 各项能力的起源</h1><blockquote>
-<p>作者：<strong>符尧</strong>, <a href="mailto:&#121;&#x61;&#111;&#x2e;&#x66;&#117;&#64;&#101;&#100;&#x2e;&#97;&#x63;&#46;&#x75;&#107;">&#121;&#x61;&#111;&#x2e;&#x66;&#117;&#64;&#101;&#100;&#x2e;&#97;&#x63;&#46;&#x75;&#107;</a>，爱丁堡大学 (University of Edinburgh) 博士生，本科毕业于北京大学<br>与 <strong>彭昊</strong>，<strong>Tushar Khot</strong><br>在 艾伦人工智能研究院 (Allen Institute for AI) 共同完成英文原稿<br>与 剑桥大学<strong>郭志江</strong> 共同翻译为中文</p>
+<p>作者：<strong>符尧</strong>, <a href="mailto:&#121;&#97;&#111;&#x2e;&#x66;&#117;&#64;&#101;&#x64;&#x2e;&#x61;&#x63;&#x2e;&#x75;&#x6b;">&#121;&#97;&#111;&#x2e;&#x66;&#117;&#64;&#101;&#x64;&#x2e;&#x61;&#x63;&#x2e;&#x75;&#x6b;</a>，爱丁堡大学 (University of Edinburgh) 博士生，本科毕业于北京大学<br>与 <strong>彭昊</strong>，<strong>Tushar Khot</strong><br>在 艾伦人工智能研究院 (Allen Institute for AI) 共同完成英文原稿<br>与 剑桥大学<strong>郭志江</strong> 共同翻译为中文</p>
 </blockquote>
 <blockquote>
 <p>感谢 上海交通大学<strong>何俊贤</strong>，加州大学洛杉矶分校<strong>鲁盼</strong>，达特茅斯学院<strong>刘睿博</strong> 对初稿的讨论与建议。</p>
@@ -23150,10 +23150,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p><em><strong>转载自   <a href="https://yaofu.notion.site/GPT-3-5-360081d91ec245f29029d37b54573756#fddad03599d34b7fb19e25c6107e1a9b">拆解追溯 GPT-3.5 各项能力的起源</a>   <a href="https://yaofu.notion.site/How-does-GPT-Obtain-its-Ability-Tracing-Emergent-Abilities-of-Language-Models-to-their-Sources-b9a57ac0fcf74f30a1ab9e3e36fa1dc1">英文原版</a></strong></em></p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>AI</category>
       </categories>
       <tags>
-        <tag>学习</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -24327,15 +24327,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>初学易经</title>
     <url>/2025/07/30/2502-yi/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2025/07/22/2501-mbti/">MBTI 学习</a></li>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
-<li><a href="https://draapho.github.io/2026/02/13/2602-xiaoxi/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 </ul>
 <h1 id="几个重要理念"><a href="#几个重要理念" class="headerlink" title="几个重要理念"></a>几个重要理念</h1><ul>
 <li><strong>一阴一阳之谓道</strong>: <ul>
@@ -24702,7 +24704,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>Bagua</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Bagua</tag>
       </tags>
   </entry>
@@ -25830,15 +25831,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>卜卦入门</title>
     <url>/2025/12/08/2509-divination/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2025/07/22/2501-mbti/">MBTI 学习</a></li>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
-<li><a href="https://draapho.github.io/2026/02/13/2602-xiaoxi/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 </ul>
 <h1 id="卜卦的理论基础"><a href="#卜卦的理论基础" class="headerlink" title="卜卦的理论基础"></a>卜卦的理论基础</h1><ul>
 <li>整个世界是由道演化而来的, 信息是全息的, 自相似的, 无始无终.</li>
@@ -26098,9 +26101,9 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 <h2 id="梅花易数-时间起卦法"><a href="#梅花易数-时间起卦法" class="headerlink" title="梅花易数-时间起卦法"></a>梅花易数-时间起卦法</h2><ul>
 <li>依据农历日期的, 年份的十二地支数, 月, 日, 时辰计算得来.<ul>
-<li>上卦: (年的十二地支+月+日) / 8 取余 , 0则取8.</li>
-<li>下卦: (年的十二地支+月+日+时辰) / 8 取余 , 0则取8.</li>
-<li>变爻: (年的十二地支+月+日+时辰) / 6 取余 , 0则取6.</li>
+<li>上卦: (年的十二地支+月+日) % 8 , 0则取8.</li>
+<li>下卦: (年的十二地支+月+日+时辰) % 8 , 0则取8.</li>
+<li>变爻: (年的十二地支+月+日+时辰) % 6 , 0则取6.</li>
 <li>补充说明: 梅花易数的起卦其实非常自由, 主打一个随心而动, 有感而卜.</li>
 <li>因而, 如果灵感到了, 后面可以自行加入其它信息, 如人名笔画数, 分钟数等等.</li>
 <li>但作为初学, 尽量先按照教条的规范来吧.</li>
@@ -26109,9 +26112,9 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>譬如此刻码字的时间是澳洲时间: 2025年12月8日19:55分, 就以此占下当下的天气好了.<ul>
 <li>查询万年历(Windows日历设置一下, <a href="https://wannianrili.bmcx.com/">网页如万年日历</a>, APP如百姓万年历, 皆可),</li>
 <li>获得农历时间为: 乙巳年十月十九日戌时. 巳6, 戌11<ul>
-<li>上卦: (6+10+19) / 8 = 3 离火</li>
-<li>下卦: (6+10+19+11) / 8 = 6 坎水</li>
-<li>变爻: (6+10+19+11) / 6 = 4 九四</li>
+<li>上卦: (6+10+19) % 8 = 3 离火</li>
+<li>下卦: (6+10+19+11) % 8 = 6 坎水</li>
+<li>变爻: (6+10+19+11) % 6 = 4 九四</li>
 </ul>
 </li>
 <li>即得, 本卦: 火水未济, 动爻九四, 变卦: 山水蒙.</li>
@@ -26133,6 +26136,12 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 </ul>
 </li>
+</ul>
+<h2 id="梅花易数-数字起卦法"><a href="#梅花易数-数字起卦法" class="headerlink" title="梅花易数-数字起卦法"></a>梅花易数-数字起卦法</h2><ul>
+<li>让求测者在心诚无杂念的情况下, 随意翻书两次取书页, 或报两个数字.</li>
+<li>第一个数除以8的余数为上卦, 0则取8.</li>
+<li>第二个数除以8的余数为下卦, 0则取8.</li>
+<li>最后, 两数之和除以6的余数为动爻, 0则取6.</li>
 </ul>
 <h1 id="高岛易断-解卦"><a href="#高岛易断-解卦" class="headerlink" title="高岛易断-解卦"></a>高岛易断-解卦</h1><ul>
 <li>根据上卦, 下卦, 变爻. 开始查书解卦和AI辅助 <ul>
@@ -26203,7 +26212,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>Bagua</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Bagua</tag>
       </tags>
   </entry>
@@ -26211,15 +26219,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>序卦传</title>
     <url>/2025/12/10/2511-preface/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2025/07/22/2501-mbti/">MBTI 学习</a></li>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
-<li><a href="https://draapho.github.io/2026/02/13/2602-xiaoxi/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 </ul>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a href="https://ctext.org/book-of-changes/xu-gua/zhs#n279023">中国哲学书电子化计划-序卦</a></li>
@@ -26876,7 +26886,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>Bagua</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Bagua</tag>
       </tags>
   </entry>
@@ -26884,15 +26893,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>卜卦实例之危机预测</title>
     <url>/2025/12/09/2510-case/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2025/07/22/2501-mbti/">MBTI 学习</a></li>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
-<li><a href="https://draapho.github.io/2026/02/13/2602-xiaoxi/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 </ul>
 <h1 id="基于开战时间-评估俄乌战事"><a href="#基于开战时间-评估俄乌战事" class="headerlink" title="基于开战时间, 评估俄乌战事"></a>基于开战时间, 评估俄乌战事</h1><ul>
 <li>普京发表采取“特别军事行动”演讲后，2022年2月24日，基辅时间凌晨3点40分，俄军对乌克兰发动全面入侵. 测该”军事行动”的吉凶</li>
@@ -27132,7 +27143,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>Bagua</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>crisis</tag>
         <tag>Bagua</tag>
       </tags>
@@ -29583,15 +29593,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
     <title>卜卦进阶之爻的入门</title>
     <url>/2025/12/26/2527-yao/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
-<li><a href="https://draapho.github.io/2025/07/22/2501-mbti/">MBTI 学习</a></li>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
-<li><a href="https://draapho.github.io/2026/02/13/2602-xiaoxi/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 </ul>
 <h1 id="爻的基础知识"><a href="#爻的基础知识" class="headerlink" title="爻的基础知识"></a>爻的基础知识</h1><ul>
 <li><strong>阳爻(九)</strong>: 主动、刚健、进取</li>
@@ -29838,7 +29850,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>Bagua</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Bagua</tag>
       </tags>
   </entry>
@@ -30020,8 +30031,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
-<li><a href="https://draapho.github.io/2026/02/13/2602-xiaoxi/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 </ul>
 <h1 id="20260102-未来10年，美国运势如何？"><a href="#20260102-未来10年，美国运势如何？" class="headerlink" title="20260102: 未来10年，美国运势如何？"></a>20260102: 未来10年，美国运势如何？</h1><ul>
 <li>略筮法: 上卦5巽, 下卦8坤, 动爻1</li>
@@ -30500,7 +30514,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>Bagua</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>crisis</tag>
         <tag>Bagua</tag>
       </tags>
@@ -30515,11 +30528,13 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
-<li><a href="https://draapho.github.io/2026/02/13/2602-xiaoxi/">易经的发展猜想</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 </ul>
-<h1 id="关于八卦的两个卜卦"><a href="#关于八卦的两个卜卦" class="headerlink" title="关于八卦的两个卜卦"></a>关于八卦的两个卜卦</h1><h2 id="20260107-请问是否可以这样理解-先天八卦占卜之本-象的对立统一-象数对应关系-，后天八卦解卦之本-象对应到具体内容"><a href="#20260107-请问是否可以这样理解-先天八卦占卜之本-象的对立统一-象数对应关系-，后天八卦解卦之本-象对应到具体内容" class="headerlink" title="20260107: 请问是否可以这样理解 :先天八卦占卜之本(象的对立统一, 象数对应关系)，后天八卦解卦之本(象对应到具体内容)?"></a>20260107: 请问是否可以这样理解 :先天八卦占卜之本(象的对立统一, 象数对应关系)，后天八卦解卦之本(象对应到具体内容)?</h2><ul>
+<h1 id="关于八卦的卜卦"><a href="#关于八卦的卜卦" class="headerlink" title="关于八卦的卜卦"></a>关于八卦的卜卦</h1><h2 id="20260107-请问是否可以这样理解-先天八卦占卜之本-象的对立统一-象数对应关系-，后天八卦解卦之本-象对应到具体内容"><a href="#20260107-请问是否可以这样理解-先天八卦占卜之本-象的对立统一-象数对应关系-，后天八卦解卦之本-象对应到具体内容" class="headerlink" title="20260107: 请问是否可以这样理解 :先天八卦占卜之本(象的对立统一, 象数对应关系)，后天八卦解卦之本(象对应到具体内容)?"></a>20260107: 请问是否可以这样理解 :先天八卦占卜之本(象的对立统一, 象数对应关系)，后天八卦解卦之本(象对应到具体内容)?</h2><ul>
 <li><p>略筮法: 上卦2兑, 下卦3离, 动爻2</p>
 </li>
 <li><p>本卦: 泽火革, 动爻六二, 变卦:泽天夬</p>
@@ -30568,6 +30583,28 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><p>是否应验: 这是很直接的回答.</p>
 </li>
 </ul>
+<h1 id="20260318-1700-能否将京房八宫卦的五行配对，推广到整个64卦象里？"><a href="#20260318-1700-能否将京房八宫卦的五行配对，推广到整个64卦象里？" class="headerlink" title="20260318.1700: 能否将京房八宫卦的五行配对，推广到整个64卦象里？"></a>20260318.1700: 能否将京房八宫卦的五行配对，推广到整个64卦象里？</h1><ul>
+<li>略筮法: 上卦6坎, 下卦5巽, 动爻6</li>
+<li>本卦: 水风井, 动爻上六, 变卦: 巽为风</li>
+<li>解卦: <strong>是可以尝试的. 过程会有阻碍困难. 但总体是有利的事情.</strong><ul>
+<li>本卦: 改邑不改井，无丧无得。往来井井。汔至，亦未繘井，羸其瓶，凶。<ul>
+<li>水对五行, 风为八卦(应用广泛). 水生木. 两者可相辅相成.</li>
+<li>过程比较困难. 互卦为火泽睽, 错卦火雷噬磕.</li>
+</ul>
+</li>
+<li>动爻: 上六. 井收勿幕，有孚元吉。<ul>
+<li>“收”，谓辘轳收缩。“幕”井盖也，“勿幕”者，即《彖》所云“往来井井”</li>
+<li>应爻九三：井渫不食，为我心恻。可用汲，王明，并受其福。</li>
+<li>解为可以推广, 是有利的事情.</li>
+</ul>
+</li>
+<li>变卦: 巽为风<ul>
+<li>即五行融入64卦中.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h1 id="关于先天八卦"><a href="#关于先天八卦" class="headerlink" title="关于先天八卦"></a>关于先天八卦</h1><p>都说先天八卦为本. 那就应该进一步简化先天八卦的对应关系.<br>所谓先天, 即开天辟地之前. 此时高度抽象, 根本不会有所谓的方向.<br>退一万步讲, 如果脱离地球, 到浩渺的太空中, 哪里还有什么”方位”, 哪里有”泽”,”雷”,”山”等等现象?<br>故先天八卦, 应该只有特性描述, 以及数字对应(仅作为输入端, 为占卜取卦用, 已成习惯)<br>除此之外, 别无任何别的对应!  是不应该有自然现象和方位上的对应!!!<br>简而言之, 先天八卦为下表. </p>
 <p><img src="https://draapho.github.io/images/2602/bagua-table.png" alt="bagua-table.png"></p>
 <p>或下图 (包含了太极的对立统一, 只有特性和数字)</p>
@@ -30592,20 +30629,28 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <h2 id="义理派和象数派"><a href="#义理派和象数派" class="headerlink" title="义理派和象数派"></a>义理派和象数派</h2><p>首先, 八卦系统的起源就是用于占卜的. 我明确的不赞同要去掉其实用性, 而”形而上”的往理论, 哲学上去走. 修身这一块, 不是易经的强项. 大可选择道教, 佛家和儒家. </p>
 <p>但我赞同, 不疑不占, 非大事不占, 善易者不占. 因为讲到底, 占卜求吉凶, 就还有个吉凶的观念. 其实易经整套系统讲的是阴阳转变, 事物的螺旋发展和覆灭, 成住坏空的循环. 本质上是没有吉凶的, 对特定环境下人而言才有吉凶. 人认识到这种循环的不可抗性后, 就不会在意传统上的吉凶, 而是人应该以何种心态去面对这些过程. 即修行修心, 儒释道三家的大道理, 其实是经过简化提炼, 最好的用来适应环境变化的指南, 可惜道理是需要经验去体会感悟的, 人性如此. </p>
 <p>因而, 我也不赞同只把易经作为工具使用, 事事预测, 妄知吉凶. 比较好的方法, 还是需要参考学习一下易理派强调的为人处事之道. 即见吉非吉, 知吉终有终, 见凶非凶, 知凶中有机. 该努力努力, 该隐忍隐忍. 避免心态上的患得患失, 认识到心态最重要才是真正的趋吉避凶. </p>
-<h2 id="六爻预测-纳甲派"><a href="#六爻预测-纳甲派" class="headerlink" title="六爻预测(纳甲派)"></a>六爻预测(纳甲派)</h2><p>粗略了解了一下, 完全抛弃了卦辞, 将天干地支、五行、六亲（父母、官鬼、兄弟等）及“六兽”（青龙、白虎等）全部装入八卦中, 可以说讲常见的映射关系全部打包好, 自动完成第一步的解码工作, 大大增加了解码的规范化流程性, 对从业人员的灵性要求(天人感应)较低, 最易于推广普及. 整体上有点类似于西医, 分门别类的都归纳整理好了, 真正的难点是辩证, 也就是如何根据实际情况去分辨主次矛盾来解卦. </p>
-<p>但个人不太认同, 因为发现解卦时将卜卦时间的权重拉的很高. 对同一个事情, 不同时段的卜卦(尤其是月份), 单从卦象上看, 结果是一致或类似的, 但纳甲给出的结论可以是完全相反的, 并过于强调了何时吉, 何时凶的结论. 硬要解释的话, 偏向于那种每个时点都在不断分裂的多重宇宙, 所以不同的世界占卜, 走的世界线也不一样. </p>
-<p>对于世俗, 个人更认同”命定论”, 即如果无法长期的内观自省的话, 整个人生会如惯性一般可预测(见&lt;了凡四训&gt;作者), 其理论猜想如下: 人对每一个事物的反应和想法, 都是习惯性的, 这种习惯性的作用力, 导致后续发生的事情也是可预知的, 因而整个人生经历虽然有着各种”作用力”, 但整体轨迹却是相对固定的.</p>
-<p>说明一下: 可以有一瞬间的内观, 感悟, 修正, 但力度远远不够, 马上会回到原有的轨迹. 可以想象交易市场, 均线就是惯性, 只是一二笔的突发性的尖峰交易, 对整体走势是没有任何影响的.</p>
-<p>基于这个理论假设, 绝大多数的普通人, 在不同时间占卜预测同一件事情, 结论应该是基本一致的, 不应该高频率的出现不同的占卜时间, 去占卜同一个目标, 给出完全相反的结论!!! 而且占卜目标越是集体, 越是大事, 稳定性就越高(共业的惯性就会比个业远远的更大, 就如交易系统里, 大盘指数要比小盘股走势稳定, 可预测的多, 完全不是一个级别的!!!)</p>
-<p>因而, 纳甲派可能更适合针对个人, 近期, 小事件来进行占卜预测. 目前学习重点不会放在纳甲上. 个人对其可靠性概率存疑(在输入端, 即占卜者灵性一致的情况下). </p>
 <h2 id="梅花易数-高岛易断"><a href="#梅花易数-高岛易断" class="headerlink" title="梅花易数, 高岛易断"></a>梅花易数, 高岛易断</h2><p>梅花易数就随时随地的非常考验占卜解卦者的天人感应, 以及相关的背景知识. 即对人的要求非常的高.</p>
 <p>现行梅花易术, 将体用和五行生克作为其固定范式, 个人是不赞同的. 法无定法, 当用则用, 不当用就舍. 希望标准化恰恰是后世能力不足后, 僵化的按图索骥, 却丢掉了触机而发、圆融无碍的灵性.</p>
 <p>像倪海厦老师用梅花易数, 是综合各种信息后来解卦的. 他会风水, 看相, 把脉, 通过这些就已经把一个人的背景情况把握了个一大半. 在这种情况下, 再用梅花易数来断个人之事, 才是高准确率的解卦. 而如果背景信息不足, 纳甲派反而可以作为补充使用. 而且倪师亦不会过于强调吉凶, 而是更强调如何应对, 给出具体的人生指导.</p>
 <p>高岛易断, 非常注重卦辞爻辞, 但并非死守经辞, 越到后期, 会发现越随心而卦而解. 个人将其视为低配版或简化版的梅花易数流派. 即有一部分固定的形式和内容, 但核心是天人感应式的, 基于个人的背景知识, 理解, 感应来解卦, 并非受限于卦辞爻辞.</p>
 <p>最好的一个例子, 就是高岛越狱前占卜到的履之井(应该是用的大衍筮法, 四个爻变, 后来才简化为一爻变). 高岛刚开始不解井的含义, 最后看到吊衣服的绳子, 灵光一闪, 立刻意识到这是水风井之象, 爬出井困逃脱. 有过这种经历的高岛吞象, 不可能固守卦辞爻辞, 一定会深刻体会到天人感应, 随机而变的重要性.</p>
 <p>梅花易术流派较好的平衡了易经卜卦的实用性(占卜预测)和伦理性(为人处世). 看吉非吉, 物极必反;见危非危, 危中有机. 从而能接触和深入到易理精髓: 阴中有阳, 阳中有阴, 万事万物似有生发易变, 其本质从来也没逃过阴阳转换. 而进一步了解学习道家佛教, 就会进一步简化为: 二归一, 有归无. 阴阳转换和成住坏空, 讲的都是一回事. </p>
-<h2 id="其它流派"><a href="#其它流派" class="headerlink" title="其它流派"></a>其它流派</h2><p>并非其它流派不精妙, 而是在没有师承的情况下, 公开资料少, 自学难度高. 就只能直接跳过了.</p>
-<p>常见的, 包括但不限于:</p>
+<h2 id="六爻占卜-京房纳甲派"><a href="#六爻占卜-京房纳甲派" class="headerlink" title="六爻占卜(京房纳甲派)"></a>六爻占卜(京房纳甲派)</h2><p>粗略了解了一下, 基本搁置了原本卦辞爻辞, 将天干地支、五行、六亲（父母、官鬼、兄弟等）及“六兽”（青龙、白虎等）全部装入八卦中, 可以说讲常见的映射关系全部打包好, 自动完成第一步的解码工作, 大大增加了解码的规范化流程性, 对从业人员的灵性要求(天人感应)较低, 最易于推广普及. 整体上有点类似于西医, 分门别类的都归纳整理好了, 真正的难点是辩证, 也就是如何根据实际情况去分辨主次矛盾来解卦. </p>
+<p>传统上, 采用铜钱起卦法, 摇卦六次, 从下到上记录六个爻位, 得本卦和动爻.</p>
+<ul>
+<li>三个正面为老阳（动爻）</li>
+<li>三个反面为老阴（动爻）</li>
+<li>两正一反为少阳（静爻）</li>
+<li>两反一正为少阴（静爻）</li>
+</ul>
+<p>根据《增删卜易》，六爻占卜适用于：</p>
+<ul>
+<li>个人决策：婚姻、事业、财运、健康等</li>
+<li>时机选择：出行、签约、动土等吉日选择</li>
+<li>事态预测：天气、考试、诉讼结果等</li>
+</ul>
+<p>个人理解:<br>六爻占卜因其高度体系化的断卦逻辑，侧重于‘术’的精准应用，而相对弱化了‘道’的哲学引导。<br>它擅长解决具体短中时期内的世俗诉求（趋吉避凶），在使用过程中，容易让人执着于吉凶结果，而忽视了对心性修养与道德伦理的观照。<br>有必要结合《周易》义理，以修身养性为体，以占卜预测为用。</p>
+<h2 id="其它流派"><a href="#其它流派" class="headerlink" title="其它流派"></a>其它流派</h2><p>并非其它流派不精妙, 而是在没有师承的情况下, 公开资料少, 自学难度高. 就只能直接跳过了.<br>常见的, 包括但不限于:</p>
 <ul>
 <li>奇门遁甲</li>
 <li>大六壬</li>
@@ -30613,6 +30658,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>紫薇斗数</li>
 <li>太乙神数</li>
 </ul>
+<h1 id="随想"><a href="#随想" class="headerlink" title="随想"></a>随想</h1><p>中华文明的特点是实用性的归摄简化. 似乎总是想把所有的东西融合起来, 然后让它应用于方方面面.<br>初学易经, 就发现古人总想着将所有基础理论融合起来, 然后应用到方方面面. 譬如, 河图洛书, 易经八卦, 农历. 在宗教方面也是如此, 儒释道三教在华夏这片土地, 其实一直在交互融合. 而西方文明喜欢分化独立, 钉是钉，铆是铆. 从理论, 到工具, 都喜欢拆分开来归类好.</p>
+<p>这种文化上的差异, 最直接的体现恐怕就是餐桌工具了.<br>中华文明的代表之一是筷子. 一双筷子搞定绝大多数的需求. 可夹, 可戳, 可托, 可扒拉, 可轻, 可重. 而且学习用筷子, 很难谈对错, 用的不熟练, 也能扒拉米饭. 用的熟练, 还能吃豆腐. 但即便是吃米饭或吃豆腐, 每个人又都有着自己的喜好习性, 绝没有一个统一的标准.<br>而学易经占卜, 让我深深感觉这是类似于筷子的工具. 各个流派, 犹如各种使用方法. 学习之人用熟之后, 却又多少会形成自己的理解和解卦偏好. 应用领域之庞杂更不用多说, 天文地理, 国家大事, 医药命理, 世俗婚丧, 无所不包. 以至于我们的文字中, 冷不定一个词就起源于易经八卦.</p>
 <hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
@@ -30620,7 +30667,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>Bagua</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Bagua</tag>
       </tags>
   </entry>
@@ -31131,15 +31177,19 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>八卦的常见映射</title>
     <url>/2026/03/01/2608-mapping/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
-<li><a href="https://draapho.github.io/2026/02/13/2602-xiaoxi/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 </ul>
 <h1 id="64卦高岛断易索引"><a href="#64卦高岛断易索引" class="headerlink" title="64卦高岛断易索引"></a>64卦高岛断易索引</h1><p><img src="https://draapho.github.io/images/2608/64gua.png" alt="64卦图"></p>
 <h1 id="京房八宫卦"><a href="#京房八宫卦" class="headerlink" title="京房八宫卦"></a>京房八宫卦</h1><table>
@@ -31254,8 +31304,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td>䷇ 水地比</td>
 </tr>
 </tbody></table>
-<h1 id="先天64卦方圆图"><a href="#先天64卦方圆图" class="headerlink" title="先天64卦方圆图"></a>先天64卦方圆图</h1><p><img src="https://draapho.github.io/images/2608/xt64gua.png" alt="先天64卦图"></p>
 <h1 id="五行辟卦图"><a href="#五行辟卦图" class="headerlink" title="五行辟卦图"></a>五行辟卦图</h1><p><img src="https://draapho.github.io/images/2608/wxbgt.jpg" alt="五行辟卦图"></p>
+<h1 id="先天64卦方圆图"><a href="#先天64卦方圆图" class="headerlink" title="先天64卦方圆图"></a>先天64卦方圆图</h1><p><img src="https://draapho.github.io/images/2608/xt64gua.jpg" alt="先天64卦图"></p>
 <h1 id="后天八卦常见映射"><a href="#后天八卦常见映射" class="headerlink" title="后天八卦常见映射"></a>后天八卦常见映射</h1><table>
 <thead>
 <tr>
@@ -31544,21 +31594,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="center">六纯阴</td>
 </tr>
 <tr>
-<td align="center"><strong>五行</strong></td>
-<td align="center">阳水</td>
-<td align="center"><strong>阴土</strong></td>
-<td align="center">阳木</td>
-<td align="center">阴木</td>
-<td align="center"><strong>阳土</strong></td>
-<td align="center">阴火</td>
-<td align="center">阳火</td>
-<td align="center"><strong>阴土</strong></td>
-<td align="center">阳金</td>
-<td align="center">阴金</td>
-<td align="center"><strong>阳土</strong></td>
-<td align="center">阴水</td>
-</tr>
-<tr>
 <td align="center"><strong>地支</strong></td>
 <td align="center"><strong>子</strong></td>
 <td align="center"><strong>丑</strong></td>
@@ -31664,6 +31699,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="center">11月</td>
 </tr>
 </tbody></table>
+<p>说明: 五行仅与十二地支有映射关联, 不能对应到辟卦. 六十四卦的五行一般参考京房易学.</p>
 <h1 id="五行常见映射"><a href="#五行常见映射" class="headerlink" title="五行常见映射"></a>五行常见映射</h1><table>
 <thead>
 <tr>
@@ -31811,6 +31847,55 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="center">浅蓝</td>
 </tr>
 </tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>地支</strong></th>
+<th><strong>子</strong></th>
+<th><strong>丑</strong></th>
+<th><strong>寅</strong></th>
+<th><strong>卯</strong></th>
+<th><strong>辰</strong></th>
+<th><strong>巳</strong></th>
+<th><strong>午</strong></th>
+<th><strong>未</strong></th>
+<th><strong>申</strong></th>
+<th><strong>酉</strong></th>
+<th><strong>戌</strong></th>
+<th><strong>亥</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>阴阳</strong></td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+</tr>
+<tr>
+<td><strong>五行</strong></td>
+<td>水</td>
+<td>土</td>
+<td>木</td>
+<td>木</td>
+<td>土</td>
+<td>火</td>
+<td>火</td>
+<td>土</td>
+<td>金</td>
+<td>金</td>
+<td>土</td>
+<td>水</td>
+</tr>
+</tbody></table>
 <hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
@@ -31818,7 +31903,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>Bagua</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Bagua</tag>
       </tags>
   </entry>
@@ -32450,17 +32534,19 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
       <categories>
-        <category>software</category>
+        <category>AI</category>
       </categories>
       <tags>
-        <tag>software</tag>
         <tag>crisis</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
     <title>Intel的本地AI玩法</title>
     <url>/2026/03/03/2609-IntelAI/</url>
     <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2023/04/11/2301-revolution-of-knowledge/">知识革命</a></li>
+<li><a href="https://draapho.github.io/2023/05/03/2303-chatgpt/">拆解追溯 GPT-3.5 各项能力的起源</a></li>
 <li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
 <li><a href="https://draapho.github.io/2026/03/03/2609-IntelAI/">Intel的本地AI玩法</a></li>
 </ul>
@@ -32689,11 +32775,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
 ]]></content>
       <categories>
-        <category>software</category>
+        <category>AI</category>
       </categories>
       <tags>
-        <tag>software</tag>
         <tag>crisis</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -36891,9 +36977,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
-<li><a href="https://draapho.github.io/2026/02/13/2602-xiaoxi/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
 <li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 </ul>
 <h1 id="本卦和变卦"><a href="#本卦和变卦" class="headerlink" title="本卦和变卦"></a>本卦和变卦</h1><p>本卦. 就是占卜后, 获得的卦.<br>又叫主卦, 原卦.它体现的是事物初始阶段的信息, 或目前的情况.</p>
 <p>变卦. 由本卦经过动爻, 即某个或某些爻的变动, 而得到的卦.<br>一般而言, 变卦代表着事物发展变化的最终结果, 或后续发展趋势.</p>
@@ -36907,13 +36995,15 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <ul>
 <li>三四爻正是对应了三才中的人. 是可以发挥主观能动性的两个爻.</li>
 <li>重卦中, 二五爻非常重要, 是判断是否中正的两个爻位. </li>
-<li>而互卦便将三四爻扩展到了二五爻位.</li>
+<li>而互卦便将原有的三四爻扩展到了二五爻位.</li>
+<li>而且原有的三爻成为互卦的四爻, 原有的四爻成为互卦的三爻.</li>
+<li>相当于转换了原三四两爻的位置, 用综卦去看三四两爻了.</li>
 </ul>
-<p><strong>互卦可用于判断事件内部的交互关系, 组织情况, 发展过程, 执行落地的难度等</strong></p>
+<p><strong>互卦可用于判断事件内部的交互关系, 组织情况, 发展过程, 执行落地的难度等等</strong></p>
 <p>互卦是收敛的, 互卦一共只有16种. 如果互卦两次, 则必然收敛于乾, 坤, 既济, 未济四个卦.<br>其中乾坤两卦没有互卦, 或者认为其互卦自指.  既济未济互为互卦.<br>我们可以将这四个卦理解为事物发展的四种内因: </p>
 <ul>
-<li>乾: 动, 扩张</li>
-<li>坤: 静, 收缩</li>
+<li>乾: 动, 扩张, 进取</li>
+<li>坤: 静, 收缩, 守成</li>
 <li>既济: 稳态, 平衡</li>
 <li>未济: 初始, 混沌</li>
 </ul>
@@ -37031,7 +37121,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>Bagua</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Bagua</tag>
       </tags>
   </entry>
@@ -37045,10 +37134,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
 <li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
-<li><a href="https://draapho.github.io/2026/02/13/2602-xiaoxi/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
 <li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 </ul>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>《皇极经世》是北宋学者邵雍（1011-1077年）撰写的一部重要著作，以预测历史和宇宙运行为核心。书中最著名的是其时间体系和推演法则，被称为“元会运世”。这一时间体系基于邵雍的“象数”理论，融合了古代中国的《<a href="https://2743.com/baike/yijing">易经</a>》哲学、阴阳五行学说以及对天地宇宙运行的观察。</p>
 <p>邵雍把<a href="https://2743.com/baike/yijing">易经</a>六十四卦，配合古人记录时间的天干地支组成的六十甲子，推演出了<strong>元会运世时间体系</strong>。</p>
@@ -37251,7 +37341,1943 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
         <category>Bagua</category>
       </categories>
       <tags>
-        <tag>学习</tag>
+        <tag>Bagua</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>八宫卦和六亲世应图</title>
+    <url>/2026/03/18/2621-bagonggua/</url>
+    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
+<li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
+<li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
+</ul>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>南怀瑾关于京房八宫卦来源介绍:</p>
+<blockquote>
+<p>现在讲卦的变化方法，这方法用之于卜卦，人事的预知，最早是在汉朝的京焦易，由焦赣传给京房这一系统，后来演变成各家的卜法，而京焦易这一系统，也是来自孔子。</p>
+<p>孔子著作《<a href="https://2743.com/baike/zhouyi">周易</a>》的《系传》等十翼以外，又传《<a href="https://2743.com/baike/yijing">易经</a>》与商瞿，《史记》载商霍为鲁人，但四川人说他是川人，所以四川人有“易学在川”的口号。孔子死后，子夏讲学河西，亦讲《<a href="https://2743.com/baike/yijing">易经</a>》，当时一般同学们，认为他没有得夫子之道，所谓易理还可以，用的方面则不知道，所以不赞同他讲，而子夏还是照讲不误，就有同学问他次日的晴雨，子夏说晴，而结果和现代的气象台一样，偏偏下雨，所以《易》的传人还是商霍。</p>
+<p>历史上记载，他四十岁还没有儿子，商霍母亲很难过，就去问孔子，孔子叫她不要难过，告诉她商霍在四十岁以后，会有三个好儿子，结果一切都如孔子所说，所以孔子所传《<a href="https://2743.com/baike/yijing">易经</a>》的用，自商霍这个系统，一直下来，到了汉朝，就演变成京房的系统。</p>
+</blockquote>
+<p>京房八宫卦，对于后世的影响非常深远，一直持续到今天，尤其在数术层面。现在流行于世的各种各样风水、命理门派，都不可避免地用到了京房八宫卦。</p>
+<h1 id="京房八宫卦"><a href="#京房八宫卦" class="headerlink" title="京房八宫卦"></a>京房八宫卦</h1><p>八宫卦是汉朝京房氏对六十四卦次序的排列方法:</p>
+<ul>
+<li>八宫卦以“乾、坎、艮，震、巽、离、坤、兑”为本卦, 称为  <strong>宫主</strong>.</li>
+<li>宫主初爻变，得 <strong>一世卦</strong>；</li>
+<li>宫主初、二爻爻变，得 <strong>二世卦</strong>；</li>
+<li>宫主初、二、三爻爻变，得 <strong>三世卦</strong>；</li>
+<li>宫主初、二、三、四爻爻变，得 <strong>四世卦</strong>；</li>
+<li>宫主初、二、三、四、五爻爻变，得 <strong>五世卦</strong>；</li>
+<li>宫主初、二、三、五爻爻变，即五世卦四爻变，得 <strong>游魂卦</strong>；</li>
+<li>宫主五爻变，即游魂卦初、二、三爻变回宫主，得 <strong>归魂卦</strong>；</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>八宫</th>
+<th>乾宫</th>
+<th>坎宫</th>
+<th>艮宫</th>
+<th>震宫</th>
+<th>巽宫</th>
+<th>离宫</th>
+<th>坤宫</th>
+<th>兑宫</th>
+<th>变爻</th>
+<th>四易</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>阴阳</strong></td>
+<td>阳, 父</td>
+<td>阳, 中男</td>
+<td>阳, 少男</td>
+<td>阳, 长男</td>
+<td>阴, 长女</td>
+<td>阴, 中女</td>
+<td>阴, 母</td>
+<td>阴, 少女</td>
+<td>(世)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>五行</strong></td>
+<td>金</td>
+<td>水</td>
+<td>土</td>
+<td>木</td>
+<td>木</td>
+<td>火</td>
+<td>土</td>
+<td>金</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>宫主</strong></td>
+<td>䷀ 乾为天</td>
+<td>䷜ 坎为水</td>
+<td>䷳ 艮为山</td>
+<td>䷲ 震为雷</td>
+<td>䷸ 巽为风</td>
+<td>䷝ 离为火</td>
+<td>䷁ 坤为地</td>
+<td>䷹ 兑为泽</td>
+<td>(上)</td>
+<td>天</td>
+</tr>
+<tr>
+<td><strong>一世卦</strong></td>
+<td>䷫ 天风姤</td>
+<td>䷻ 水泽节</td>
+<td>䷕ 山火贲</td>
+<td>䷏ 雷地豫</td>
+<td>䷈ 风天小畜</td>
+<td>䷷ 火山旅</td>
+<td>䷗ 地雷复</td>
+<td>䷮ 泽水困</td>
+<td>初爻</td>
+<td>地</td>
+</tr>
+<tr>
+<td><strong>二世卦</strong></td>
+<td>䷠ 天山遁</td>
+<td>䷂ 水雷屯</td>
+<td>䷙ 山天大畜</td>
+<td>䷧ 雷水解</td>
+<td>䷤ 风火家人</td>
+<td>䷱ 火风鼎</td>
+<td>䷒ 地泽临</td>
+<td>䷬ 泽地萃</td>
+<td>+二</td>
+<td>地</td>
+</tr>
+<tr>
+<td><strong>三世卦</strong></td>
+<td>䷋ 天地否</td>
+<td>䷾ 水火既济</td>
+<td>䷨ 山泽损</td>
+<td>䷟ 雷风恒</td>
+<td>䷩ 风雷益</td>
+<td>䷿ 火水未济</td>
+<td>䷊ 地天泰</td>
+<td>䷞ 泽山咸</td>
+<td>+三</td>
+<td>人</td>
+</tr>
+<tr>
+<td><strong>四世卦</strong></td>
+<td>䷓ 风地观</td>
+<td>䷰ 泽火革</td>
+<td>䷥ 火泽睽</td>
+<td>䷭ 地风升</td>
+<td>䷘ 天雷无妄</td>
+<td>䷃ 山水蒙</td>
+<td>䷡ 雷天大壮</td>
+<td>䷦ 水山蹇</td>
+<td>+四</td>
+<td>人</td>
+</tr>
+<tr>
+<td><strong>五世卦</strong></td>
+<td>䷖ 山地剥</td>
+<td>䷶ 雷火丰</td>
+<td>䷉ 天泽履</td>
+<td>䷯ 水风井</td>
+<td>䷔ 火雷噬嗑</td>
+<td>䷺ 风水涣</td>
+<td>䷪ 泽天夬</td>
+<td>䷎ 地山谦</td>
+<td>+五</td>
+<td>天</td>
+</tr>
+<tr>
+<td><strong>游魂卦</strong></td>
+<td>䷢ 火地晋</td>
+<td>䷣ 地火明夷</td>
+<td>䷼ 风泽中孚</td>
+<td>䷛ 泽风大过</td>
+<td>䷚ 山雷颐</td>
+<td>䷅ 天水讼</td>
+<td>䷄ 水天需</td>
+<td>䷽ 雷山小过</td>
+<td>-四</td>
+<td>鬼</td>
+</tr>
+<tr>
+<td><strong>归魂卦</strong></td>
+<td>䷍ 火天大有</td>
+<td>䷆ 地水师</td>
+<td>䷴ 风山渐</td>
+<td>䷐ 泽雷随</td>
+<td>䷑ 山风蛊</td>
+<td>䷌ 天火同人</td>
+<td>䷇ 水地比</td>
+<td>䷵ 雷泽归妹</td>
+<td>五(三)</td>
+<td>鬼</td>
+</tr>
+</tbody></table>
+<h1 id="八宫卦基础概念"><a href="#八宫卦基础概念" class="headerlink" title="八宫卦基础概念"></a>八宫卦基础概念</h1><ul>
+<li>分阴阳<ul>
+<li>使用八卦对应的家庭关系, 很容易记住.</li>
+<li>乾父,震长男,坎中男,艮少男. 为 <strong>阳四宫</strong></li>
+<li>坤母,巽长女,离中女,兑少女. 为 <strong>阴四宫</strong></li>
+</ul>
+</li>
+<li>分五行<ul>
+<li><strong>乾为阳金</strong>, 乾宫八卦都属阳金<ul>
+<li>乾为天、天风姤、天山遁、天地否、风地观、山地剥、火地晋、火天大有。</li>
+</ul>
+</li>
+<li><strong>坎为水</strong>, 坎宫八卦都属水<ul>
+<li>坎为水、水泽节、水雷屯、水火既济、泽火革、雷火丰、地火明夷、地水师。</li>
+</ul>
+</li>
+<li><strong>艮为阳土</strong>, 艮宫八卦都属阳土<ul>
+<li>艮为山、山火贲、山天大畜、山泽损、火泽睽、天泽履、风泽中孚，风山渐。</li>
+</ul>
+</li>
+<li><strong>震为阳木</strong>, 艮宫八卦都属阳木<ul>
+<li>震为雷、雷地豫、雷水解、雷风恒、地风升、水风井、泽风大过，泽雷随。</li>
+</ul>
+</li>
+<li><strong>巽为阴木</strong>, 巽宫八卦都属阴木<ul>
+<li>巽为风、风天小畜、风火家人、风雷益、天雷无妄，火雷噬嗑，山雷颐，山风蛊。</li>
+</ul>
+</li>
+<li><strong>离为火</strong>, 离宫八卦都属火<ul>
+<li>离为火，火山旅，火风鼎，火水未济，山水蒙，风水涣，天水讼、天火同人。</li>
+</ul>
+</li>
+<li><strong>坤为阴土</strong>, 坤宫八卦都属阴土<ul>
+<li>坤为地，地雷复，地泽临，地天泰，雷天大壮、泽天夬，水天需，水地比。</li>
+</ul>
+</li>
+<li><strong>兑为阴金</strong>, 兑宫八卦都属阴金<ul>
+<li>兑为泽，泽水困，泽地萃，泽山咸，水山蹇，地山谦，雷山小过，雷泽归妹。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分四易. 京房有“地、人、天、鬼”四易之说.<ul>
+<li><strong>地易</strong>: 一世卦, 二世卦.</li>
+<li><strong>人易</strong>: 三世卦, 四世卦.</li>
+<li><strong>天易</strong>: 五世卦, 宫主.</li>
+<li><strong>鬼易</strong>: 游魂卦, 归魂卦.</li>
+<li>助记: 和六爻对应三才类似. <ul>
+<li>初二爻为地. </li>
+<li>三四爻为人.</li>
+<li>五上爻为天.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>定世应<ul>
+<li>主要根据变爻确定 <strong>世爻</strong>. 世爻的应爻就是 <strong>应爻</strong></li>
+<li>宫主和归魂卦的世爻是固定的, 分别为上爻和三爻.</li>
+<li><strong>宫主, 取上爻为世</strong>, 则三爻为应</li>
+<li><strong>一世卦</strong>, 初爻为世, 则四爻为应</li>
+<li><strong>二世卦</strong>, 二爻为世, 则五爻为应</li>
+<li><strong>三世卦</strong>, 三爻为世, 则上爻为应</li>
+<li><strong>四世卦</strong>, 四爻为世, 则初爻为应</li>
+<li><strong>五世卦</strong>, 五爻为世, 则二爻为应</li>
+<li><strong>游魂卦</strong>, 四爻为世, 则初爻为应</li>
+<li><strong>归魂卦, 取三爻为世</strong>, 则上爻为应</li>
+</ul>
+</li>
+</ul>
+<h1 id="纳甲"><a href="#纳甲" class="headerlink" title="纳甲"></a>纳甲</h1><p><strong>纳甲</strong>: 就是把卦中, 每个爻的世应, 五行, 十二地支, 六亲完整填写的过程.</p>
+<ul>
+<li><strong>最终都可以查表直接获得纳甲结果, 无需手动计算.</strong></li>
+<li><strong>推荐直接采用排盘软件, 这样公历农历的日期转换也自动完成了</strong></li>
+<li>此处介绍了天干地支, 六亲的概念.</li>
+<li>也介绍了纳地支, 定六亲的具体步骤和方法.</li>
+<li>天干地址从甲子开始. 八宫卦以乾卦为首, 故而排乾卦称为<strong>纳甲</strong>, 排坤卦称为纳乙.</li>
+</ul>
+<h2 id="天干地支简介"><a href="#天干地支简介" class="headerlink" title="天干地支简介"></a>天干地支简介</h2><p>天干地址与五行的关系, 起源于季节, 方位的对应关系. 在战国时期已成熟.</p>
+<table>
+<thead>
+<tr>
+<th align="center">季节</th>
+<th align="center">方位</th>
+<th align="center">五行</th>
+<th align="center">天干</th>
+<th>地支</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>春</strong></td>
+<td align="center">东</td>
+<td align="center"><strong>木</strong></td>
+<td align="center">甲、乙</td>
+<td>寅、卯</td>
+</tr>
+<tr>
+<td align="center"><strong>夏</strong></td>
+<td align="center">南</td>
+<td align="center"><strong>火</strong></td>
+<td align="center">丙、丁</td>
+<td>巳、午</td>
+</tr>
+<tr>
+<td align="center"><strong>季末</strong></td>
+<td align="center">中</td>
+<td align="center"><strong>土</strong></td>
+<td align="center">戊、己</td>
+<td>辰、戌、丑、未</td>
+</tr>
+<tr>
+<td align="center"><strong>秋</strong></td>
+<td align="center">西</td>
+<td align="center"><strong>金</strong></td>
+<td align="center">庚、辛</td>
+<td>申、酉</td>
+</tr>
+<tr>
+<td align="center"><strong>冬</strong></td>
+<td align="center">北</td>
+<td align="center"><strong>水</strong></td>
+<td align="center">壬、癸</td>
+<td>亥、子</td>
+</tr>
+</tbody></table>
+<p>天干地支也分阴阳. 从一开始, 奇数为阳, 偶数为阴.</p>
+<table>
+<thead>
+<tr>
+<th><strong>天干</strong></th>
+<th><strong>甲</strong></th>
+<th><strong>乙</strong></th>
+<th><strong>丙</strong></th>
+<th><strong>丁</strong></th>
+<th><strong>戊</strong></th>
+<th><strong>己</strong></th>
+<th><strong>庚</strong></th>
+<th><strong>辛</strong></th>
+<th><strong>壬</strong></th>
+<th><strong>癸</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>五行</strong></td>
+<td>阳木</td>
+<td>阴木</td>
+<td>阳火</td>
+<td>阴火</td>
+<td>阳土</td>
+<td>阴土</td>
+<td>阳金</td>
+<td>阴金</td>
+<td>阳水</td>
+<td>阴水</td>
+</tr>
+<tr>
+<td><strong>数字</strong></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>地支</strong></th>
+<th><strong>子</strong></th>
+<th><strong>丑</strong></th>
+<th><strong>寅</strong></th>
+<th><strong>卯</strong></th>
+<th><strong>辰</strong></th>
+<th><strong>巳</strong></th>
+<th><strong>午</strong></th>
+<th><strong>未</strong></th>
+<th><strong>申</strong></th>
+<th><strong>酉</strong></th>
+<th><strong>戌</strong></th>
+<th><strong>亥</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>五行</strong></td>
+<td>阳水</td>
+<td>阴土</td>
+<td>阳木</td>
+<td>阴木</td>
+<td>阳土</td>
+<td>阴火</td>
+<td>阳火</td>
+<td>阴土</td>
+<td>阳金</td>
+<td>阴金</td>
+<td>阳土</td>
+<td>阴水</td>
+</tr>
+<tr>
+<td><strong>时辰</strong></td>
+<td>23-01</td>
+<td>01-03</td>
+<td>03-05</td>
+<td>05-07</td>
+<td>07-09</td>
+<td>09-11</td>
+<td>11-13</td>
+<td>13-15</td>
+<td>15-17</td>
+<td>17-19</td>
+<td>19-21</td>
+<td>21-23</td>
+</tr>
+<tr>
+<td><strong>农历</strong></td>
+<td><strong>十一月</strong></td>
+<td><strong>十二月</strong></td>
+<td><strong>正月</strong></td>
+<td><strong>二月</strong></td>
+<td><strong>三月</strong></td>
+<td><strong>四月</strong></td>
+<td><strong>五月</strong></td>
+<td><strong>六月</strong></td>
+<td><strong>七月</strong></td>
+<td><strong>八月</strong></td>
+<td><strong>九月</strong></td>
+<td><strong>十月</strong></td>
+</tr>
+<tr>
+<td><strong>节气</strong></td>
+<td>大雪,<strong>冬至</strong></td>
+<td>小寒,<strong>大寒</strong></td>
+<td><strong>立春</strong>,雨水</td>
+<td>惊蛰,<strong>春分</strong></td>
+<td>清明,<strong>谷雨</strong></td>
+<td><strong>立夏</strong>,小满</td>
+<td>芒种,<strong>夏至</strong></td>
+<td>小暑,<strong>大暑</strong></td>
+<td><strong>立秋</strong>,处暑</td>
+<td>白露,<strong>秋分</strong></td>
+<td>寒露,<strong>霜降</strong></td>
+<td><strong>立冬</strong>,小雪</td>
+</tr>
+<tr>
+<td><strong>阳历</strong></td>
+<td>12月</td>
+<td>1月</td>
+<td>2月</td>
+<td>3月</td>
+<td>4月</td>
+<td>5月</td>
+<td>6月</td>
+<td>7月</td>
+<td>8月</td>
+<td>9月</td>
+<td>10月</td>
+<td>11月</td>
+</tr>
+<tr>
+<td><strong>生肖</strong></td>
+<td><strong>鼠</strong></td>
+<td><strong>牛</strong></td>
+<td><strong>虎</strong></td>
+<td><strong>兔</strong></td>
+<td><strong>龙</strong></td>
+<td><strong>蛇</strong></td>
+<td><strong>马</strong></td>
+<td><strong>羊</strong></td>
+<td><strong>猴</strong></td>
+<td><strong>鸡</strong></td>
+<td><strong>狗</strong></td>
+<td><strong>猪</strong></td>
+</tr>
+<tr>
+<td><strong>数字</strong></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+</tr>
+</tbody></table>
+<p>天干地支配对的时候, 必须阳对阳, 阴对阴. 即只有甲子年, 辛亥年. 不可能存在阴阳配对的情况.<br>因而天干地支一循环是六十年. 而不是12*10=120年.</p>
+<h2 id="纳地支"><a href="#纳地支" class="headerlink" title="纳地支"></a>纳地支</h2><p>把得到的卦象, 写出其各爻对应的十二地支.<br>基础规则:</p>
+<ul>
+<li><strong>阳卦顺纳阳支</strong>. 乾坎艮震为阳，用奇数地支, 顺行依次排入各爻</li>
+<li><strong>阴卦逆纳阴支</strong>. 巽离坤兑为阴，用偶数地支, 逆行依次排入各爻</li>
+<li><strong>乾卦初爻纳子水</strong>. 后爻顺纳阳支. 六爻分别对应: <strong>子寅辰, 午申戌</strong></li>
+<li><strong>坎卦初爻纳寅木</strong>. 后爻顺纳阳支. 六爻分别对应: <strong>寅辰午, 申戌子</strong></li>
+<li><strong>艮卦初爻纳辰土</strong>. 后爻顺纳阳支. 六爻分别对应: <strong>辰午申, 戌 子寅</strong></li>
+<li><strong>震卦初爻纳子水</strong>. 后爻顺纳阳支. 六爻分别对应: <strong>子寅辰, 午申戌</strong></li>
+<li><strong>巽卦初爻纳丑土</strong>. 后爻逆纳阴支. 六爻分别对应: <strong>丑亥酉, 未巳卯</strong></li>
+<li><strong>离卦初爻纳卯木</strong>. 后爻逆纳阴支. 六爻分别对应: <strong>卯丑亥, 酉未巳</strong></li>
+<li><strong>坤卦初爻纳未土</strong>. 后爻逆纳阴支. 六爻分别对应: <strong>未巳卯, 丑亥酉</strong></li>
+<li><strong>兑卦初爻纳巳火</strong>. 后爻逆纳阴支. 六爻分别对应: <strong>巳卯丑, 亥酉未</strong></li>
+</ul>
+<p>其它56卦初爻地支规则:</p>
+<ul>
+<li>需要拆分为内卦(下卦)和外卦(上卦)分别处理.</li>
+<li>内卦, 重叠为八宫卦之一, 取其一二三爻对应的地支纳入即可.</li>
+<li>外卦, 重叠为八宫卦之一, 取其四五六爻对应的地支纳入即可.</li>
+<li>譬如: 火天大有. 外卦为离火. 内卦为乾天.<ul>
+<li>内卦重叠为宫主乾卦. 乾卦的初,二,三爻可纳入子水,寅木,辰土</li>
+<li>外卦重叠为宫主离卦. 巽卦的四,五,上爻可纳入酉金,未土,巳火</li>
+<li>则火天大有纳地支结果为:初子水,二寅木,三辰土,四酉金,五未土,六巳火</li>
+</ul>
+</li>
+</ul>
+<h2 id="定六亲"><a href="#定六亲" class="headerlink" title="定六亲"></a>定六亲</h2><p>纳地支完成后，为每个爻确定六亲关系, 就是 <strong>定六亲</strong>。</p>
+<ul>
+<li>纳地支后, 每个爻就获得了一个五行属性.</li>
+<li>八个宫主, 自带五行属性.</li>
+<li>两个五行属性的关系, 如生克比和, 决定了六亲. 口诀中我为宫主,<ul>
+<li>生我者为父母，(爻生宫)</li>
+<li>我生者为子孙，(宫生爻)</li>
+<li>克我者为官鬼，(爻克宫)</li>
+<li>我克者为妻财，(宫克爻)</li>
+<li>比和者为兄弟。(五行相同)</li>
+</ul>
+</li>
+</ul>
+<p>以火天大有, 举个例子:</p>
+<ul>
+<li>火天大有属于乾宫归魂卦. 乾宫五行为金, 即”我”为金</li>
+<li>火天大有纳地支结果为: 初子水,二寅木,三辰土,四酉金,五未土,六巳火</li>
+<li>初爻子水. 金生水, 则六亲为子孙.</li>
+<li>二爻寅木. 金克木, 则六亲为妻财.</li>
+<li>三爻辰土. 土生金, 则六亲为父母.</li>
+<li>四爻酉金. 同为金, 则六亲为兄弟.</li>
+<li>五爻未土. 土生金, 则六亲为父母.</li>
+<li>上爻巳火. 火克金, 则六亲为官鬼.</li>
+</ul>
+<h2 id="装六神"><a href="#装六神" class="headerlink" title="装六神"></a>装六神</h2><p>六神是基于占卜当日的天干确定的:</p>
+<ul>
+<li>天干可查询万年历获得, 网页如’<a href="https://wannianrili.bmcx.com/">万年日历</a>‘, APP如’百姓万年历’等.</li>
+<li>甲乙日：青龙、朱雀、勾陈、腾蛇、白虎、玄武（从初爻至上爻）</li>
+<li>丙丁日：朱雀、勾陈、腾蛇、白虎、玄武、青龙</li>
+<li>戊日：勾陈、腾蛇、白虎、玄武、青龙、朱雀</li>
+<li>己日：腾蛇、白虎、玄武、青龙、朱雀、勾陈</li>
+<li>庚辛日：白虎、玄武、青龙、朱雀、勾陈、腾蛇</li>
+<li>壬癸日：玄武、青龙、朱雀、勾陈、腾蛇、白虎</li>
+</ul>
+<p>个人看法: 六神不是必须.</p>
+<ul>
+<li>用了六神, 可获取一定时间信息上的宜或不宜.</li>
+<li>但也正是因为用了六神, 将六爻占卜局限在了个人和近期的事件上.</li>
+<li>更大级别的事件, 稳定性很高, 占卜时间的影响可以忽略不计.</li>
+<li>而且, 个人事情的吉凶, 若要处处考虑清楚何时何地吉利, 过于功利. </li>
+<li>最好事不占尽, 遇事调心为上. </li>
+</ul>
+<h1 id="八宫卦六亲世应图"><a href="#八宫卦六亲世应图" class="headerlink" title="八宫卦六亲世应图"></a>八宫卦六亲世应图</h1><p><strong>乾宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/qiangong.png" alt="乾宫卦"></p>
+<p><strong>坎宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/kangong.png" alt="坎宫卦"></p>
+<p><strong>艮宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/gengong.png" alt="艮宫卦"></p>
+<p><strong>震宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/zhengong.png" alt="震宫卦"></p>
+<p><strong>巽宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/xungong.png" alt="巽宫卦"></p>
+<p><strong>离宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/ligong.png" alt="离宫卦"></p>
+<p><strong>坤宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/kungong.png" alt="坤宫卦"></p>
+<p><strong>兑宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/duigong.png" alt="兑宫卦"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://2743.com/archives/12537">什么是八宫卦？八宫卦的变爻规律; 八宫卦如何定世应? 六爻如何安六亲</a></li>
+<li><a href="https://2743.com/archives/12926">八宫卦六亲世应图 (图表）</a></li>
+<li><a href="https://www.pulung.com/fungshu_12_simp.php">尊聖普隆佛閣-京氏易学</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>Bagua</category>
+      </categories>
+      <tags>
+        <tag>Bagua</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>六爻占卜的卜卦和解卦</title>
+    <url>/2026/03/19/2622-jiegua/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
+<li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
+<li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
+</ul>
+<h1 id="六爻占卜简介"><a href="#六爻占卜简介" class="headerlink" title="六爻占卜简介"></a>六爻占卜简介</h1><p>六爻占卜源远流长，其理论体系可追溯至西汉时期的易学大师<strong>京房</strong>（公元前77-前37年）。京房在《京房易传》中系统阐述了”纳甲筮法”，将天干地支、五行生克等概念融入周易卦象之中，奠定了六爻占卜的基础理论框架。</p>
+<p>《京房易传》云：”分六十四卦，配三百八十四爻，序一万一千五百二十策，定天地万物之情状。”这表明六爻体系通过卦爻的复杂组合，构建了一个能够模拟天地万物变化的象征系统。</p>
+<p>历经两千余年的发展，六爻占卜在明清时期达到成熟。野鹤老人的《增删卜易》和王洪绪的《卜筮正宗》成为六爻学的经典著作，完善了用神、原神、忌神等核心概念，使六爻占卜更加系统化和实用化。</p>
+<h1 id="起卦方法详解"><a href="#起卦方法详解" class="headerlink" title="起卦方法详解"></a>起卦方法详解</h1><h2 id="铜钱摇卦法"><a href="#铜钱摇卦法" class="headerlink" title="铜钱摇卦法"></a>铜钱摇卦法</h2><p>这是六爻占卜, 最传统的标准方法</p>
+<ul>
+<li>准备工作与注意事项<ul>
+<li>准备三枚大小、厚薄一致的铜钱（现代可用相同硬币代替）</li>
+<li>选择安静、整洁的环境</li>
+<li>心中默念所问之事，保持专注</li>
+<li>一事一卦，不重复占问同一问题</li>
+</ul>
+</li>
+<li>具体操作步骤<ol>
+<li>净手、静坐片刻，将问题明确思考清楚</li>
+<li>将三枚铜钱合于掌心，轻微摇动</li>
+<li>心中默念：”假尔泰筮有常，某（自己姓名）今以某事，未知可否，爰质所疑于神之灵，吉凶得失，悔吝忧虞，惟尔有神，尚明告之。”</li>
+<li>将铜钱抛落在平整的桌面上</li>
+<li>记录铜钱正反面情况：<ul>
+<li>两正一反为<strong>少阳</strong>（记作 <code>一</code>）</li>
+<li>两反一正为<strong>少阴</strong>（记作 <code>--</code>）</li>
+<li>三反为<strong>老阳</strong>（记作 <code>一 ○</code>）</li>
+<li>三正为<strong>老阴</strong>（记作 <code>-- ×</code>）</li>
+</ul>
+</li>
+<li>重复以上步骤6次，自下而上记录六个爻</li>
+</ol>
+</li>
+<li>取得卦象<ul>
+<li>自下而上记录六个爻, 就是本卦</li>
+<li>老阳老阴后面有 <code>○</code> 或 <code>×</code> , 就是动爻.</li>
+<li>动爻阴变阳, 阳变阴后, 就获得了变卦.</li>
+</ul>
+</li>
+</ul>
+<h2 id="其它占卜方式"><a href="#其它占卜方式" class="headerlink" title="其它占卜方式"></a>其它占卜方式</h2><p>另可参考采用其它卜卦方式.</p>
+<ul>
+<li> 如梅花易数的时间起卦法</li>
+<li> 数字起卦法</li>
+<li>高岛易断的略筮法.</li>
+</ul>
+<p>此处略过不表. 具体可参考:</p>
+<ul>
+<li><a href="https://draapho.github.io/2025/12/08/2509-divination">卜卦入门</a></li>
+</ul>
+<h2 id="纳甲排盘"><a href="#纳甲排盘" class="headerlink" title="纳甲排盘"></a>纳甲排盘</h2><p>卜卦完成后, 需要一个纳甲的过程.<br>可直接使用排盘软件, 自动排盘, 无需手动计算.<br>纳甲排盘的原理参考博客此文: <a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></p>
+<p><strong>但是对于占卜, 个人建议初学者使用实物, 而非点击按钮获取本卦</strong></p>
+<ul>
+<li>核心原因: 心诚为上.</li>
+<li>对于大多数人来说, 有一定的仪式感, 才可谓心诚.</li>
+<li>虽不致于要求沐浴更衣, 但手取实物, 花几分钟闭息宁心, 卜得本卦还是必要的.</li>
+</ul>
+<h1 id="六爻占卜的适用范围"><a href="#六爻占卜的适用范围" class="headerlink" title="六爻占卜的适用范围"></a>六爻占卜的适用范围</h1><p>根据《增删卜易》，六爻占卜适用于：</p>
+<ul>
+<li>个人决策：婚姻、事业、财运、健康等</li>
+<li>时机选择：出行、签约、动土等吉日选择</li>
+<li>事态预测：天气、考试、诉讼结果等</li>
+</ul>
+<p>但不适用于：</p>
+<ul>
+<li>国家大事（需用太乙、奇门等高级术数）</li>
+<li>戏谑不敬之事</li>
+<li>违背伦理道德之事</li>
+</ul>
+<p>个人观点:</p>
+<ul>
+<li>对于长远的(如一生之运), 宏大的(如国家大事), 也不是不行.<ul>
+<li>一切事物为无中生有, 一生二生三, 螺旋成长而出.</li>
+<li>所占之事的大小, 也只是相对而言. </li>
+<li>犹如 &lt;红楼梦&gt;, 将国家兴亡之事, 缩小到了大观园的家族尺度.</li>
+<li>但会完全违法六爻占卜中, 认为日月&gt;动爻&gt;静爻&gt;卦辞爻辞的重要性排序.</li>
+</ul>
+</li>
+<li>因为卦已经在那里了, 只是怎么解卦的方法问题.</li>
+<li>只是传统上, 六爻解卦以月建日辰为分析要点, 基本不看卦辞, 爻辞, 才有此说.</li>
+<li>占卜之后, 解卦是可以根据情况选用解卦流派, 甚至杂糅而相互参考的.</li>
+<li>当然这就对解卦者要求更高了. 需要针对具体问题, 或经验, 或灵感, 来解卦. </li>
+</ul>
+<h1 id="解卦需要的核心概念"><a href="#解卦需要的核心概念" class="headerlink" title="解卦需要的核心概念"></a>解卦需要的核心概念</h1><p>六爻占卜的核心是爻位和时间对应的十二地支, 十二地支有六冲六合, 以及对应到五行后的生克关系.<br>其所有的概念都是确定本位后, 基于十二地支的冲合生克关系而来的.</p>
+<h2 id="用神"><a href="#用神" class="headerlink" title="用神"></a>用神</h2><p>根据问的事情，确定卦中哪个爻代表这件事。<br><strong>取对用神是六爻占卜的解卦中, 最为首要的事情。</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">问测事项</th>
+<th align="center">取用神（六亲）</th>
+<th align="center">逻辑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>妻子、钱财、货物、饮食、工具</strong></td>
+<td align="center"><strong>妻财爻</strong></td>
+<td align="center">财为我克(<strong>欲望,追求</strong>)之物</td>
+</tr>
+<tr>
+<td align="left"><strong>官职、疾病、工作、丈夫、盗贼</strong></td>
+<td align="center"><strong>官鬼爻</strong></td>
+<td align="center">官为克(<strong>管束,克制</strong>)我之物</td>
+</tr>
+<tr>
+<td align="left"><strong>父母、房产、文书、交通、天气</strong></td>
+<td align="center"><strong>父母爻</strong></td>
+<td align="center">父母为生(<strong>支撑,庇护</strong>)我之物</td>
+</tr>
+<tr>
+<td align="left"><strong>子孙、晚辈、宠物、解忧、医治</strong></td>
+<td align="center"><strong>子孙爻</strong></td>
+<td align="center">子孙为我生(<strong>拥有,抚养</strong>)之物</td>
+</tr>
+<tr>
+<td align="left"><strong>兄弟、朋友、竞争、破财</strong></td>
+<td align="center"><strong>兄弟爻</strong></td>
+<td align="center">兄弟为比和(<strong>分享、竞争</strong>)之物</td>
+</tr>
+</tbody></table>
+<h2 id="飞神和伏神"><a href="#飞神和伏神" class="headerlink" title="飞神和伏神"></a>飞神和伏神</h2><p><em>初学暂缓.</em></p>
+<p>少数情况, 所得的卦, 六个爻没有对应的用神, 这种情况, 需要找<strong>伏神</strong>代替.</p>
+<ul>
+<li><strong>伏神</strong>: 找到卦所属的宫, 宫主卦必有需要的六亲对应的爻, 将此爻定为<strong>伏神</strong>即可.</li>
+<li><strong>飞神</strong>: 确定伏神所在爻之后, 原卦该爻的六亲, 就叫<strong>飞神</strong></li>
+</ul>
+<p>打个比方: 求财得”天风姤”卦. “天风姤”六亲没有妻财爻.</p>
+<ul>
+<li>可知”天风姤”属于乾宫, 找到宫主”乾为天”的六亲世应图.</li>
+<li>“乾为天”的妻财爻, 在二爻, 为妻财寅木. 将其挂在本卦二爻后面.</li>
+<li>回到本卦”天风姤”, 即没有<strong>用神</strong>. <strong>伏神</strong>为妻财寅木;</li>
+<li><strong>飞神</strong>为”天风姤”二爻的六亲: 亥水子孙</li>
+<li>断卦时，重点还是本卦的6个爻. 伏神只在分析”财”的时候才调出来参考.</li>
+</ul>
+<p>伏神的三种状态：</p>
+<table>
+<thead>
+<tr>
+<th align="left">状态</th>
+<th align="left">条件</th>
+<th align="left">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>伏不得出</strong></td>
+<td align="left"><strong>飞神克伏神</strong> 或 <strong>伏神休囚死</strong> 或 <strong>无日月生扶</strong></td>
+<td align="left">❌ <strong>完全不可用</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>伏而待出</strong></td>
+<td align="left"><strong>飞神空亡</strong> 或 <strong>飞神月破</strong> (飞神 被月建冲) <strong>或</strong> 3. <strong>日月生扶</strong> (日/月 生 伏神，或 五行 同 于 伏神)</td>
+<td align="left">⏳ <strong>未来可用</strong> (需待应期)</td>
+</tr>
+<tr>
+<td align="left"><strong>伏而得出</strong></td>
+<td align="left">1. <strong>飞神生伏神</strong> (飞神五行 生 伏神五行) 2. <strong>伏神旺相</strong> (伏神在月建为 旺 或 相) 3. <strong>日月生扶</strong> (日/月 生 伏神，或 五行 同 于 伏神)</td>
+<td align="left">✅ <strong>当前可用</strong></td>
+</tr>
+</tbody></table>
+<h2 id="世应爻和动静爻"><a href="#世应爻和动静爻" class="headerlink" title="世应爻和动静爻"></a>世应爻和动静爻</h2><p>世应的含义:</p>
+<ul>
+<li><strong>世爻：</strong> 代表<strong>占卜者自己</strong>。</li>
+<li><strong>应爻：</strong> 代表<strong>对方、环境、所测之事</strong>。</li>
+</ul>
+<p>世应的关系:</p>
+<ul>
+<li>世应相生：表示双方和谐，事情容易成功</li>
+<li>世应相克：表示存在矛盾，需要化解<ul>
+<li>世克应：自己主动，有利于自己</li>
+<li>应克世：对方主动，对自己不利</li>
+</ul>
+</li>
+<li><strong>世应的应克关系只是参考之一. 需要看用神.</strong></li>
+</ul>
+<p>动静变化的含义:</p>
+<ul>
+<li>动爻：有变化，主动，力量强. 表示事物运动状态. </li>
+<li>静爻：无变化，被动，力量弱. 表示事物稳定状态</li>
+<li>变爻：动爻变出的爻，代表事情的发展趋势.</li>
+<li>动爻为重，静爻为轻，动爻在断卦中具有重要作用。</li>
+<li>动爻生克静爻：动爻对静爻有影响</li>
+</ul>
+<h2 id="五行的生克-比和"><a href="#五行的生克-比和" class="headerlink" title="五行的生克, 比和"></a>五行的生克, 比和</h2><p>十二地支有固定对应的五行. 见下表格.</p>
+<p>五行助记为<strong>木火土金水</strong>, 而不是传统上的金木水火土.<br>助记<strong>木火土金水</strong>后, 生克关系一目了然:</p>
+<ul>
+<li>五行<strong>相邻者相生</strong>: 木生火, 火生土, 土生金, 金生水, 水生木.</li>
+<li>五行<strong>想隔者相克</strong>: 木克土, 火克金, 土克水, 金克木, 水克火.</li>
+<li>当两个五行相同时(如月建对用神), 为<strong>比和</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>天干</strong></th>
+<th><strong>甲</strong></th>
+<th><strong>乙</strong></th>
+<th><strong>丙</strong></th>
+<th><strong>丁</strong></th>
+<th><strong>戊</strong></th>
+<th><strong>己</strong></th>
+<th><strong>庚</strong></th>
+<th><strong>辛</strong></th>
+<th><strong>壬</strong></th>
+<th><strong>癸</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>阴阳</strong></td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+</tr>
+<tr>
+<td><strong>五行</strong></td>
+<td>木</td>
+<td>木</td>
+<td>火</td>
+<td>火</td>
+<td>土</td>
+<td>土</td>
+<td>金</td>
+<td>金</td>
+<td>水</td>
+<td>水</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>地支</strong></th>
+<th><strong>子</strong></th>
+<th><strong>丑</strong></th>
+<th><strong>寅</strong></th>
+<th><strong>卯</strong></th>
+<th><strong>辰</strong></th>
+<th><strong>巳</strong></th>
+<th><strong>午</strong></th>
+<th><strong>未</strong></th>
+<th><strong>申</strong></th>
+<th><strong>酉</strong></th>
+<th><strong>戌</strong></th>
+<th><strong>亥</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>阴阳</strong></td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+<td>阳</td>
+<td>阴</td>
+</tr>
+<tr>
+<td><strong>五行</strong></td>
+<td>水</td>
+<td>土</td>
+<td>木</td>
+<td>木</td>
+<td>土</td>
+<td>火</td>
+<td>火</td>
+<td>土</td>
+<td>金</td>
+<td>金</td>
+<td>土</td>
+<td>水</td>
+</tr>
+<tr>
+<td><strong>节气</strong></td>
+<td>大雪,<strong>冬至</strong></td>
+<td>小寒,<strong>大寒</strong></td>
+<td><strong>立春</strong>,雨水</td>
+<td>惊蛰,<strong>春分</strong></td>
+<td>清明,<strong>谷雨</strong></td>
+<td><strong>立夏</strong>,小满</td>
+<td>芒种,<strong>夏至</strong></td>
+<td>小暑,<strong>大暑</strong></td>
+<td><strong>立秋</strong>,处暑</td>
+<td>白露,<strong>秋分</strong></td>
+<td>寒露,<strong>霜降</strong></td>
+<td><strong>立冬</strong>,小雪</td>
+</tr>
+<tr>
+<td>四季</td>
+<td>冬</td>
+<td>季末</td>
+<td>春</td>
+<td>春</td>
+<td>季末</td>
+<td>夏</td>
+<td>夏</td>
+<td>季末</td>
+<td>秋</td>
+<td>秋</td>
+<td>季末</td>
+<td>冬</td>
+</tr>
+<tr>
+<td><strong>藏干</strong></td>
+<td>癸</td>
+<td>己癸辛</td>
+<td>甲丙戊</td>
+<td>乙</td>
+<td>戊乙癸</td>
+<td>丙庚戊</td>
+<td>丁己</td>
+<td>己丁乙</td>
+<td>庚壬戊</td>
+<td>辛</td>
+<td>戊辛丁</td>
+<td>壬甲</td>
+</tr>
+</tbody></table>
+<p>自己的助记理解: 四个土对应的是四季季末. 故而, </p>
+<ul>
+<li><strong>丑土含子水, 亥水, 为湿土</strong></li>
+<li>辰土含寅木, 卯木, 为湿土. (湿土生木)</li>
+<li><strong>未土含巳火, 午火, 为燥土</strong></li>
+<li>戌土含申金, 酉金, 为燥土. (燥土含金)</li>
+</ul>
+<p>专业说法为: <strong>藏干</strong>. 用地支对应的天干, 来判断湿燥.</p>
+<ul>
+<li><strong>丑土</strong>: 己土、<strong>癸水</strong>、辛金. 故为湿土.</li>
+<li><strong>辰土</strong>: 戊土、乙木、<strong>癸水</strong>. 故为湿土.</li>
+<li><strong>未土</strong>: 己土、<strong>丁火</strong>、乙木. 故为燥土.</li>
+<li><strong>戌土</strong>: 戊土、辛金、<strong>丁火</strong>. 故为燥土.</li>
+</ul>
+<h2 id="六冲六合"><a href="#六冲六合" class="headerlink" title="六冲六合"></a>六冲六合</h2><p><strong>六冲六合基于十二地支判断, 是六爻占卜的解卦核心之一</strong>. 和五行生克互补, 且冲合关系优先于生克关系</p>
+<h3 id="六冲"><a href="#六冲" class="headerlink" title="六冲"></a>六冲</h3><p>六冲的核心含义: <strong>散动破离, 主事急和散.</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">六冲</th>
+<th align="center">地支 A</th>
+<th align="center">地支 B</th>
+<th align="center">意象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><strong>子</strong> (水)</td>
+<td align="center"><strong>午</strong> (火)</td>
+<td align="center">水火冲</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><strong>丑</strong> (丑土含水, 大寒)</td>
+<td align="center"><strong>未</strong> (未土含火, 大暑)</td>
+<td align="center">湿燥冲, 冷热冲</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><strong>寅</strong> (木)</td>
+<td align="center"><strong>申</strong> (金)</td>
+<td align="center">金木冲</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><strong>卯</strong> (木)</td>
+<td align="center"><strong>酉</strong> (金)</td>
+<td align="center">金木冲</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><strong>辰</strong> (辰土含木, 谷雨)</td>
+<td align="center"><strong>戌</strong> (戌土含金, 霜降)</td>
+<td align="center">湿燥冲</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center"><strong>巳</strong> (火)</td>
+<td align="center"><strong>亥</strong> (水)</td>
+<td align="center">水火冲</td>
+</tr>
+</tbody></table>
+<h3 id="六合"><a href="#六合" class="headerlink" title="六合"></a>六合</h3><p>六合的核心含义: <strong>聚绊和留, 主事缓和成.</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">六合</th>
+<th align="center">地支 A</th>
+<th align="center">地支 B</th>
+<th align="center">意象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><strong>子</strong> (水)</td>
+<td align="center"><strong>丑</strong> (土)</td>
+<td align="center">湿土合</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><strong>寅</strong> (木)</td>
+<td align="center"><strong>亥</strong> (水)</td>
+<td align="center">木合</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><strong>卯</strong> (木)</td>
+<td align="center"><strong>戌</strong> (土)</td>
+<td align="center">火合</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><strong>辰</strong> (土)</td>
+<td align="center"><strong>酉</strong> (金)</td>
+<td align="center">金合</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><strong>巳</strong> (火)</td>
+<td align="center"><strong>申</strong> (金)</td>
+<td align="center">水合</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center"><strong>午</strong> (火)</td>
+<td align="center"><strong>未</strong> (土)</td>
+<td align="center">燥土合</td>
+</tr>
+</tbody></table>
+<h3 id="十大六冲卦-八大六合卦"><a href="#十大六冲卦-八大六合卦" class="headerlink" title="十大六冲卦, 八大六合卦"></a>十大六冲卦, 八大六合卦</h3><p><strong>十大六冲卦</strong>（固定名单）</p>
+<ul>
+<li>八个宫主卦：乾、兑、离、震、巽、坎、艮、坤</li>
+<li>两个天雷卦: 天雷无妄、雷天大壮</li>
+<li><strong>特征</strong>：主散、快、冲突、变动。</li>
+</ul>
+<p><strong>八大六合卦</strong>（固定名单）</p>
+<ul>
+<li>两个天地卦: 天地泰、地天否</li>
+<li>两个地雷卦: 地雷复、雷地豫</li>
+<li>两个泽水卦: 水泽节、泽水困</li>
+<li>两个山火卦: 山火贲、火山旅</li>
+<li><strong>特征</strong>：主合、慢、稳定、羁绊。</li>
+</ul>
+<h3 id="六合六冲的吉凶判断"><a href="#六合六冲的吉凶判断" class="headerlink" title="六合六冲的吉凶判断"></a>六合六冲的吉凶判断</h3><p>六冲占卜中的吉凶判断: <strong>冲不一定凶，合不一定吉，需要看具体的事情。</strong>, 譬如:</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="center">冲合判断</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>问婚姻/合作</strong></td>
+<td align="center"><strong>喜合，忌冲</strong></td>
+<td align="center">冲则婚姻/合作散，合则成。</td>
+</tr>
+<tr>
+<td align="left"><strong>问疾病/灾祸</strong></td>
+<td align="center"><strong>喜冲，忌合</strong></td>
+<td align="center">冲则疾病/灾祸散，合则留。</td>
+</tr>
+<tr>
+<td align="left"><strong>问求财</strong></td>
+<td align="center"><strong>视情况</strong></td>
+<td align="center">冲代表急和散，可能财快来快去；合代表稳定，但也可能停滞。</td>
+</tr>
+<tr>
+<td align="left"><strong>问求官/求职</strong></td>
+<td align="center"><strong>喜合</strong></td>
+<td align="center">合代表领导赏识，职位稳固，得人相助。</td>
+</tr>
+<tr>
+<td align="left"><strong>问失物</strong></td>
+<td align="center"><strong>喜冲</strong></td>
+<td align="center">冲则动，东西出现了。合则藏，东西找不到。</td>
+</tr>
+<tr>
+<td align="left"><strong>问官司</strong></td>
+<td align="center"><strong>喜冲</strong></td>
+<td align="center">冲则散，代表官司很快结束（无论胜负）。合则纠缠不休。</td>
+</tr>
+<tr>
+<td align="left"><strong>问出行</strong></td>
+<td align="center"><strong>忌合</strong></td>
+<td align="center">合代表走不了，被事情耽搁，行程延误。</td>
+</tr>
+</tbody></table>
+<h2 id="三刑"><a href="#三刑" class="headerlink" title="三刑"></a>三刑</h2><p><strong>核心含义：</strong> <strong>折磨，伤害，是非</strong> 主要用于断<strong>细节、性质、痛苦程度</strong>。</p>
+<ul>
+<li><strong>旺相逢刑</strong> 主发威、权力、手术成功。如官鬼旺相逢刑 → 掌权法官。</li>
+<li><strong>休囚逢刑</strong> 主灾祸、疾病、牢狱。如官鬼休囚逢刑 → 犯人坐牢。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">刑名</th>
+<th align="center">地支组合</th>
+<th align="center">触发条件</th>
+<th>触发例子</th>
+<th align="left">意象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>无恩</strong></td>
+<td align="center"><strong>寅</strong> (木), <strong>巳</strong> (火), <strong>申</strong> (金)</td>
+<td align="center"><strong>三者全见</strong>方论刑</td>
+<td>时为申, 卦中有寅和巳</td>
+<td align="left"><strong>恩将仇报</strong>. 忘恩负义，亲人反目，合作破裂，车祸外伤。</td>
+</tr>
+<tr>
+<td align="left"><strong>持势</strong></td>
+<td align="center"><strong>丑</strong> (土), <strong>戌</strong> (土), <strong>未</strong> (土)</td>
+<td align="center"><strong>见两者</strong>即可论刑</td>
+<td>月为未, 卦中有丑或戌</td>
+<td align="left"><strong>同室操戈</strong>. 恃强凌弱，内部内讧，固执己见。官司缠讼，牢狱之灾，脾胃疾病，肿瘤。</td>
+</tr>
+<tr>
+<td align="left"><strong>无礼</strong></td>
+<td align="center"><strong>子</strong> (水), <strong>卯</strong> (木)</td>
+<td align="center"><strong>二者全见</strong>方论刑</td>
+<td>日为卯, 卦中有子</td>
+<td align="left"><strong>不慈不孝</strong>. 色情纠纷，缺乏礼貌，失和，肝胆疾病，泌尿系统问题。</td>
+</tr>
+<tr>
+<td align="left"><strong>自刑</strong></td>
+<td align="center"><strong>辰</strong>见辰, <strong>午</strong>见午, <strong>酉</strong>见酉, <strong>亥</strong>见亥</td>
+<td align="center">相同的地支出现</td>
+<td>卦中有辰，变爻又是辰</td>
+<td align="left"><strong>作茧自缚</strong>. 自我折磨，抑郁焦虑，作茧自缚，慢性病</td>
+</tr>
+</tbody></table>
+<h2 id="六害"><a href="#六害" class="headerlink" title="六害"></a>六害</h2><p><strong>核心含义：</strong> <strong>破坏，不和，隐晦</strong>主要用于断<strong>细节、内部关系、健康隐患</strong>。</p>
+<table>
+<thead>
+<tr>
+<th align="center">六害</th>
+<th align="center">地支 A</th>
+<th align="center">地支 B</th>
+<th align="left">破坏逻辑 (记忆口诀)</th>
+<th align="left">意象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>1</strong></td>
+<td align="center"><strong>子</strong> (水)</td>
+<td align="center"><strong>未</strong> (燥土)</td>
+<td align="left">子丑合, 但未冲丑 → <strong>子未害</strong></td>
+<td align="left">势利之交，互相利用后伤害。</td>
+</tr>
+<tr>
+<td align="center"><strong>2</strong></td>
+<td align="center"><strong>丑</strong> (湿土)</td>
+<td align="center"><strong>午</strong> (火)</td>
+<td align="left">午未合, 但丑冲未 → <strong>丑午害</strong></td>
+<td align="left">才华被埋没，好心办坏事，内部不和。</td>
+</tr>
+<tr>
+<td align="center"><strong>3</strong></td>
+<td align="center"><strong>寅</strong> (木)</td>
+<td align="center"><strong>巳</strong> (火)</td>
+<td align="left">寅亥合, 但巳冲亥 → <strong>寅巳害</strong></td>
+<td align="left">先好后坏，亲人反目，帮倒忙。(木生火, 但寅巳无恩.)</td>
+</tr>
+<tr>
+<td align="center"><strong>4</strong></td>
+<td align="center"><strong>卯</strong> (木)</td>
+<td align="center"><strong>辰</strong> (湿土)</td>
+<td align="left">卯戌合, 但辰冲戌 → <strong>卯辰害</strong></td>
+<td align="left">欺凌弱小，内部破坏，根基受损。</td>
+</tr>
+<tr>
+<td align="center"><strong>5</strong></td>
+<td align="center"><strong>申</strong> (金)</td>
+<td align="center"><strong>亥</strong> (水)</td>
+<td align="left">巳申合, 但亥冲巳 → <strong>申亥害</strong></td>
+<td align="left">付出得不到回报，泄露机密，身体虚寒。(金生水, 但泄气)</td>
+</tr>
+<tr>
+<td align="center"><strong>6</strong></td>
+<td align="center"><strong>酉</strong> (金)</td>
+<td align="center"><strong>戌</strong> (燥土)</td>
+<td align="left">辰酉合, 但戌冲酉 → <strong>酉戌害</strong></td>
+<td align="left">表面支持，实则损害，信誉受损。</td>
+</tr>
+</tbody></table>
+<h2 id="三合"><a href="#三合" class="headerlink" title="三合"></a>三合</h2><p>三合局是由<strong>三个地支</strong>组合成一个<strong>五行局</strong>。有 4 组<br>成局条件严格, 只针对动爻+日月的情况.<br>一旦成型, 就是团队力量, 比六合六冲力量还大。<br>主: <strong>聚力成势</strong>, <strong>强力有效</strong>, <strong>长久稳定</strong>. 常用来断<strong>长远应期</strong>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">三合局</th>
+<th align="left">合成五行</th>
+<th align="left">比喻</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>申子辰</strong></td>
+<td align="left"><strong>水局</strong></td>
+<td align="left">水势浩大（如洪水）</td>
+</tr>
+<tr>
+<td align="left"><strong>亥卯未</strong></td>
+<td align="left"><strong>木局</strong></td>
+<td align="left">木气成林（如森林）</td>
+</tr>
+<tr>
+<td align="left"><strong>寅午戌</strong></td>
+<td align="left"><strong>火局</strong></td>
+<td align="left">火势燎原（如火山）</td>
+</tr>
+<tr>
+<td align="left"><strong>巳酉丑</strong></td>
+<td align="left"><strong>金局</strong></td>
+<td align="left">金气成器（如兵阵）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">情况</th>
+<th align="left">是否成局</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>卦中三爻皆动</strong></td>
+<td align="left">✅ <strong>成局</strong></td>
+<td align="left">三个动爻正好凑齐三合（如申子辰全动）</td>
+</tr>
+<tr>
+<td align="left"><strong>两爻动 + 占卜日或月</strong></td>
+<td align="left">✅ <strong>成局</strong></td>
+<td align="left">卦中两动爻 + 日/月补齐第三个地支（最常见）</td>
+</tr>
+<tr>
+<td align="left"><strong>一爻动 + 占卜日月</strong></td>
+<td align="left">✅ <strong>成局</strong></td>
+<td align="left">卦中一动爻 + 日/月补齐另两个地支</td>
+</tr>
+<tr>
+<td align="left"><strong>仅缺一个五行</strong></td>
+<td align="left">⏳ <strong>待用</strong></td>
+<td align="left">叫“<strong>虚一待用</strong>”，等未来时间补齐那个字</td>
+</tr>
+</tbody></table>
+<p>三合局的”破局”情况供参考. 三合局成立后，也可能被”打破”.<br>注意：<strong>三合局一旦成立，力量很强，不易被破</strong>，除非冲的是”中神”（子/卯/午/酉）。</p>
+<table>
+<thead>
+<tr>
+<th align="left">破局方式</th>
+<th align="left">说明</th>
+<th align="left">例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>冲局</strong></td>
+<td align="left">日/月冲三合局中的任何一个爻</td>
+<td align="left">申子辰水局，逢午日冲子 → 局破</td>
+</tr>
+<tr>
+<td align="left"><strong>空亡</strong></td>
+<td align="left">三合局中任一爻旬空</td>
+<td align="left">申子辰，子水旬空 → 局虚，待出空</td>
+</tr>
+<tr>
+<td align="left"><strong>月破</strong></td>
+<td align="left">三合局中任一爻被月建冲</td>
+<td align="left">申子辰，子水在午月 → 子月破，局不稳</td>
+</tr>
+</tbody></table>
+<h2 id="原神、忌神、仇神、进神、退神"><a href="#原神、忌神、仇神、进神、退神" class="headerlink" title="原神、忌神、仇神、进神、退神"></a>原神、忌神、仇神、进神、退神</h2><table>
+<thead>
+<tr>
+<th align="left">概念</th>
+<th align="left">定义</th>
+<th>比喻</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>用神</strong></td>
+<td align="left">占卜的核心目标</td>
+<td>我军</td>
+<td align="left">确定吉凶的承受主体。</td>
+</tr>
+<tr>
+<td align="left"><strong>原神</strong></td>
+<td align="left"><strong>生</strong> 用神之爻</td>
+<td>我军粮草</td>
+<td align="left">判断用神是否有源、有救、有后劲。</td>
+</tr>
+<tr>
+<td align="left"><strong>忌神</strong></td>
+<td align="left"><strong>克</strong> 用神之爻</td>
+<td>敌军</td>
+<td align="left">判断阻力、风险、破坏力的来源。</td>
+</tr>
+<tr>
+<td align="left"><strong>仇神</strong></td>
+<td align="left"><strong>生</strong> 忌神之爻</td>
+<td>敌军粮草</td>
+<td align="left">当忌神旺相时，仇神会加剧危害。初期可略。</td>
+</tr>
+<tr>
+<td align="left"><strong>进神</strong></td>
+<td align="left">动爻变化后比原爻更旺</td>
+<td>士气提高</td>
+<td align="left">事情向好的方向发展</td>
+</tr>
+<tr>
+<td align="left"><strong>退神</strong></td>
+<td align="left">动爻变化后比原爻更弱</td>
+<td>士气降低</td>
+<td align="left">事情向坏的方向发展</td>
+</tr>
+</tbody></table>
+<h2 id="月建日辰"><a href="#月建日辰" class="headerlink" title="月建日辰"></a>月建日辰</h2><p>日月时间, 取十二地支对应的五行即可. 对应关系见”五行生克”中的介绍.<br><strong>月建日辰的作用力</strong>：</p>
+<ul>
+<li>月建：当月地支，管一月之权</li>
+<li>日辰：当日地支，管一日之权</li>
+</ul>
+<p><strong>日月对爻的影响：</strong></p>
+<ul>
+<li>月建生扶则旺，月建克制则衰. 有 <strong>旺相休囚死</strong> 之判断</li>
+<li>日辰生扶则增力，日辰克制则减力</li>
+</ul>
+<h3 id="月建的旺相休囚死"><a href="#月建的旺相休囚死" class="headerlink" title="月建的旺相休囚死"></a>月建的旺相休囚死</h3><p>基于十二地支时间, 我为月建(农历), 对爻的生克关系： </p>
+<ul>
+<li><strong>旺：</strong> 同五行。帝旺, 力量最强。</li>
+<li><strong>相：</strong> 我生者。宰相, 力量次强。</li>
+<li><strong>休：</strong> 生我者。退休, 力量衰退。</li>
+<li><strong>囚：</strong> 克我者。囚困, 力量被困。</li>
+<li><strong>死：</strong> 我克者。死亡, 力量最弱。</li>
+</ul>
+<p>补充说明:</p>
+<ul>
+<li>虽然”旺相休囚死”是针对月建来说的.</li>
+<li>但是五行生克是可以用于其它尺度的时间的. 譬如日辰.<table>
+<thead>
+<tr>
+<th></th>
+<th>春木</th>
+<th>夏火</th>
+<th>季末土</th>
+<th>秋金</th>
+<th>冬水</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>正月二月</td>
+<td>四月五月</td>
+<td>三六九,十二月</td>
+<td>七月八月</td>
+<td>十月十一月</td>
+</tr>
+<tr>
+<td><strong>爻</strong></td>
+<td><strong>寅卯</strong></td>
+<td><strong>巳午</strong></td>
+<td><strong>辰戌丑未</strong></td>
+<td><strong>申酉</strong></td>
+<td><strong>亥子</strong></td>
+</tr>
+<tr>
+<td>木</td>
+<td>旺</td>
+<td>休</td>
+<td>囚</td>
+<td>死</td>
+<td>相</td>
+</tr>
+<tr>
+<td>火</td>
+<td>相</td>
+<td>旺</td>
+<td>休</td>
+<td>囚</td>
+<td>死</td>
+</tr>
+<tr>
+<td>土</td>
+<td>死</td>
+<td>相</td>
+<td>旺</td>
+<td>休</td>
+<td>囚</td>
+</tr>
+<tr>
+<td>金</td>
+<td>囚</td>
+<td>死</td>
+<td>相</td>
+<td>旺</td>
+<td>休</td>
+</tr>
+<tr>
+<td>水</td>
+<td>休</td>
+<td>囚</td>
+<td>死</td>
+<td>相</td>
+<td>旺</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="日辰的空亡"><a href="#日辰的空亡" class="headerlink" title="日辰的空亡"></a>日辰的空亡</h3><p><strong>空亡, 也叫旬空.</strong><br>中国天干地支纪年法中, 有十天干, 十二地支. 阴配阴, 阳配阳, 依次相配. 故而一轮为60.<br>旬表十, 这里指十天. 十个天干只能配到十个地支, 这轮空的两个地支, 就叫旬空, 即为空亡.<br>如甲子旬, 戌亥空亡. 甲戌旬, 申酉空亡.</p>
+<p>空亡通俗的理解：<strong>空亡 = 暂时掉线、能量不在线、心里没底</strong>。</p>
+<table>
+<thead>
+<tr>
+<th><strong>天干</strong></th>
+<th><strong>甲</strong></th>
+<th><strong>乙</strong></th>
+<th><strong>丙</strong></th>
+<th><strong>丁</strong></th>
+<th><strong>戊</strong></th>
+<th><strong>己</strong></th>
+<th><strong>庚</strong></th>
+<th><strong>辛</strong></th>
+<th><strong>壬</strong></th>
+<th><strong>癸</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>地支</td>
+<td>子</td>
+<td>丑</td>
+<td>寅</td>
+<td>卯</td>
+<td>辰</td>
+<td>巳</td>
+<td>午</td>
+<td>未</td>
+<td>申</td>
+<td>酉</td>
+<td><strong>戌</strong></td>
+<td><strong>亥</strong></td>
+</tr>
+<tr>
+<td>甲子旬</td>
+<td>甲子</td>
+<td>乙丑</td>
+<td>丙寅</td>
+<td>丁卯</td>
+<td>戊辰</td>
+<td>己巳</td>
+<td>庚午</td>
+<td>辛未</td>
+<td>壬申</td>
+<td>癸酉</td>
+<td><strong>空亡</strong></td>
+<td><strong>空亡</strong></td>
+</tr>
+<tr>
+<td>地支</td>
+<td>戌</td>
+<td>亥</td>
+<td>子</td>
+<td>丑</td>
+<td>寅</td>
+<td>卯</td>
+<td>辰</td>
+<td>巳</td>
+<td>午</td>
+<td>未</td>
+<td><strong>申</strong></td>
+<td><strong>酉</strong></td>
+</tr>
+<tr>
+<td>甲戌旬</td>
+<td>甲戌</td>
+<td>乙亥</td>
+<td>丙子</td>
+<td>丁丑</td>
+<td>戊寅</td>
+<td>己卯</td>
+<td>庚辰</td>
+<td>辛巳</td>
+<td>壬午</td>
+<td>癸未</td>
+<td><strong>空亡</strong></td>
+<td><strong>空亡</strong></td>
+</tr>
+</tbody></table>
+<h3 id="月建日辰与卦爻地支关系术语表"><a href="#月建日辰与卦爻地支关系术语表" class="headerlink" title="月建日辰与卦爻地支关系术语表"></a>月建日辰与卦爻地支关系术语表</h3><p>对于月建日辰, 其地支和卦爻的地支关系, 还有如下的相关术语概念</p>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>情形</th>
+<th>强弱说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>值</strong>（值月/值日）</td>
+<td>月/日地支 = 卦爻地支</td>
+<td>最强 (旺相至极)</td>
+<td>寅月见寅爻</td>
+</tr>
+<tr>
+<td><strong>临/扶</strong>（临月/临日）</td>
+<td>月/日五行 = 卦爻五行，地支不同</td>
+<td>次强 (助爻增力)</td>
+<td>寅木月见卯木爻</td>
+</tr>
+<tr>
+<td><strong>生</strong>（得生）</td>
+<td>月/日五行 生 卦爻五行</td>
+<td>强 (得生则旺)</td>
+<td>亥水月见寅木爻</td>
+</tr>
+<tr>
+<td><strong>克</strong>（受克）</td>
+<td>月/日地支 克 卦爻地支</td>
+<td>弱 (受克则衰)</td>
+<td>申金月见寅木爻</td>
+</tr>
+<tr>
+<td><strong>冲</strong>（月冲/日冲）</td>
+<td>月/日地支 六冲 爻地支</td>
+<td>动/破</td>
+<td>旺则<strong>暗动</strong>，弱则<strong>破</strong></td>
+</tr>
+<tr>
+<td><strong>空亡</strong>（旬空）</td>
+<td>爻地支 落于 日辰旬空</td>
+<td>暂时掉线</td>
+<td>分真空/假空</td>
+</tr>
+</tbody></table>
+<h2 id="六神的属性与作用"><a href="#六神的属性与作用" class="headerlink" title="六神的属性与作用"></a>六神的属性与作用</h2><p><em>初学暂缓.</em></p>
+<table>
+<thead>
+<tr>
+<th>六神</th>
+<th>五行</th>
+<th>主要象征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>青龙</td>
+<td>木</td>
+<td>喜庆、酒色、贵人</td>
+</tr>
+<tr>
+<td>朱雀</td>
+<td>火</td>
+<td>口舌、文书、消息</td>
+</tr>
+<tr>
+<td>勾陈</td>
+<td>土</td>
+<td>田土、牢狱、迟钝</td>
+</tr>
+<tr>
+<td>腾蛇</td>
+<td>土</td>
+<td>虚惊、怪异、缠绕</td>
+</tr>
+<tr>
+<td>白虎</td>
+<td>金</td>
+<td>凶伤、孝服、血光</td>
+</tr>
+<tr>
+<td>玄武</td>
+<td>水</td>
+<td>盗贼、阴私、暧昧</td>
+</tr>
+</tbody></table>
+<h2 id="库墓"><a href="#库墓" class="headerlink" title="库墓"></a>库墓</h2><p><em>高阶应用, 初学暂缓.</em></p>
+<table>
+<thead>
+<tr>
+<th>墓库地支</th>
+<th>所墓五行</th>
+<th>旺爻入”库”</th>
+<th>衰爻入”墓”</th>
+<th>特殊象意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>辰</strong></td>
+<td>水、土</td>
+<td>水库：钱财积蓄、资源待用</td>
+<td>水墓：被困、昏迷、事停滞</td>
+<td>地户、东南、基层</td>
+</tr>
+<tr>
+<td><strong>戌</strong></td>
+<td>火、土</td>
+<td>火库：能量储备、贵人暗助</td>
+<td>火墓：熄灭、希望落空、病重</td>
+<td><strong>天门</strong>、西北、远方、升迁</td>
+</tr>
+<tr>
+<td><strong>丑</strong></td>
+<td>金、土</td>
+<td>金库：财富收藏、技术沉淀</td>
+<td>金墓：才华埋没、器械损坏</td>
+<td>冰库、寒冬、隐忍</td>
+</tr>
+<tr>
+<td><strong>未</strong></td>
+<td>木、土</td>
+<td>木库：计划酝酿、生机潜伏</td>
+<td>木墓：生机断绝、计划夭折</td>
+<td>花园、田园、饮食</td>
+</tr>
+</tbody></table>
+<p>按六亲入库入墓取象</p>
+<table>
+<thead>
+<tr>
+<th>六亲</th>
+<th>爻旺 → 入库（吉象）</th>
+<th>爻衰 → 入墓（凶象）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>妻财</strong></td>
+<td>钱财存银行✅、投资待涨、支票在手</td>
+<td>钱财丢失❌、资金冻结、债务缠身</td>
+</tr>
+<tr>
+<td><strong>子孙</strong></td>
+<td>学生在校学习✅、医生值班、药品储备</td>
+<td>孩童走失❌、医生失职、药品短缺</td>
+</tr>
+<tr>
+<td><strong>兄弟</strong></td>
+<td>朋友帮忙✅、团队集结、手足团聚</td>
+<td>朋友失联❌、手足受伤、被人拖累</td>
+</tr>
+<tr>
+<td><strong>官鬼</strong></td>
+<td>工作稳定✅、职位在编、官司有记录</td>
+<td>疾病潜伏❌、小人暗算、官非缠身</td>
+</tr>
+<tr>
+<td><strong>父母</strong></td>
+<td>文书归档✅、房产在手、长辈安康</td>
+<td>证件丢失❌、房屋破损、长辈病困</td>
+</tr>
+</tbody></table>
+<p>墓库之法，重在”象”的灵活运用。理法定旺衰吉凶，象法断具体事象</p>
+<ul>
+<li>爻只入<strong>高层次</strong>之墓库（日/月 &gt; 变爻 &gt; 动爻），不入同层次墓</li>
+<li>入墓库期间，爻<strong>暂时失去生克权</strong>，不能生克他爻，他爻也不能生克它</li>
+</ul>
+<p><strong>入库入墓</strong>的三种形式(爻如何入库墓)</p>
+<ul>
+<li>入日/月墓库：任何爻逢日辰或月建为墓库，皆入墓<ul>
+<li>例：申爻逢丑日/丑月 → 申金入丑墓</li>
+</ul>
+</li>
+<li>入动爻墓库：静爻可入卦中动爻之墓<ul>
+<li>例：子水静爻，卦中辰土动 → 子水入辰墓</li>
+</ul>
+</li>
+<li>入变爻墓库：动爻可入变爻之墓. <ul>
+<li>表示是爻自己的行为, 常表示结局和趋势.</li>
+<li>这种情况非常重要, 有固定名称 <strong>化墓化库</strong>.</li>
+<li>例：午火动化戌土 → 午火入戌墓</li>
+</ul>
+</li>
+</ul>
+<p><strong>出库出墓</strong>的三种形式(爻如何出库墓)</p>
+<ul>
+<li>出日/月墓库：待未来之日/月冲开墓库(日/月)，或值入墓库之爻<ul>
+<li>因日/月力量大，卦爻不能冲日/月，只能<strong>等时间</strong></li>
+<li>例：申爻逢丑日入墓 → 待<strong>未日冲丑</strong>（冲开墓），或<strong>申日值爻</strong>（爻旺出墓）</li>
+</ul>
+</li>
+<li>出动爻墓库：日/月冲墓库(动爻)，或值入墓库之爻(静爻)<ul>
+<li>墓是卦中动爻，层次较低，可被日/月冲开</li>
+</ul>
+</li>
+<li>出变爻墓库：日/月冲墓库(变爻)，或值入墓库之爻(动爻)<ul>
+<li>表示结局可解，待时而动，应期多在此时</li>
+<li>这种情况对应“化墓化库”，解墓即解局</li>
+</ul>
+</li>
+<li>另有一种暗动出墓的情况, 供了解参考.<ul>
+<li>当入墓库之爻本为”旺相”, 未来日月地支冲了此爻, 可认为推醒了此爻. 即<strong>暗动出墓</strong></li>
+<li>但如果此入库墓之爻为”休囚死”, 未来日月冲了此爻，则为凶，难出墓.</li>
+</ul>
+</li>
+</ul>
+<p>对于墓库, 自己的理解和总结: </p>
+<ul>
+<li>地支为 “辰戌丑未” 四个五行为土的地支, 可为墓或库.</li>
+<li>墓库, 可以理解为一个暂存, 一个临时箱子, git里的staging. </li>
+<li>低层次的爻, 可以入高层次的墓库. (爻可入日月墓库, 静爻可入动爻墓库, 动爻可入变爻墓库)</li>
+<li>入了墓库的爻, 相当于被关了起来. 入墓后失去主动五行生克权. </li>
+<li>作为墓库的高层次的日/月或爻, 保留原功能, 依旧可以参与判断.</li>
+<li>出库出墓, 主要看未来的日月时间, 是否能冲开墓库, 或值入墓之爻.</li>
+<li>由解卦者灵活判断是否要进行入库入墓的操作. 因而比较难用.</li>
+</ul>
+<h2 id="其它如生旺死绝表"><a href="#其它如生旺死绝表" class="headerlink" title="其它如生旺死绝表"></a>其它如生旺死绝表</h2><p><em>过于庞杂, 暂不考虑</em></p>
+<h1 id="六爻占卜解卦步骤"><a href="#六爻占卜解卦步骤" class="headerlink" title="六爻占卜解卦步骤"></a>六爻占卜解卦步骤</h1><p>六爻占卜解卦的核心步骤:</p>
+<table>
+<thead>
+<tr>
+<th align="left">步骤</th>
+<th align="left">判断要素</th>
+<th align="left">核心逻辑</th>
+<th align="left">关键补充 (基于文档)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1</strong></td>
+<td align="left"><strong>定用神</strong></td>
+<td align="left">确定基准，本位中的本</td>
+<td align="left">1. <strong>取用神</strong>：依六亲表 (如财爻、官鬼爻)。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2. <strong>看世应</strong>：兼看世应生克冲合关系。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">3. <strong>卦身大局</strong>: 三对应爻, 是否为<strong>六冲/六合卦</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">4. 若用神不现, 则 <strong>查伏神</strong>, <strong>判伏神状态</strong>.</td>
+</tr>
+<tr>
+<td align="left"><strong>2</strong></td>
+<td align="left"><strong>月建日辰</strong></td>
+<td align="left">天时/外部环境</td>
+<td align="left">1. <strong>月建</strong>：定先天体质 (旺/相/休/囚/死)。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2. <strong>日辰</strong>：定当下强弱 (临/生/克/冲/空亡)。</td>
+</tr>
+<tr>
+<td align="left"><strong>3</strong></td>
+<td align="left"><strong>动变爻</strong></td>
+<td align="left">人事/内部动因</td>
+<td align="left">1. <strong>优先级</strong>：动爻 &gt; 静爻。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2. <strong>变爻</strong>：看回头生/克/墓/绝，决定动爻归宿。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">3. <strong>三合</strong>：检查是否成三合局 (动 + 日月)。</td>
+</tr>
+<tr>
+<td align="left"><strong>4</strong></td>
+<td align="left"><strong>静爻</strong></td>
+<td align="left">现状/基础</td>
+<td align="left">1. <strong>被动</strong>：静爻被动接受生克。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2. <strong>暗动</strong>：旺相静爻逢日冲为暗动 (有力)。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">3. <strong>日破</strong>：休囚静爻逢日冲为日破 (无力)。</td>
+</tr>
+<tr>
+<td align="left"><strong>5</strong></td>
+<td align="left"><strong>冲合关系</strong></td>
+<td align="left">改变作用方式</td>
+<td align="left">1. <strong>优先权</strong>：冲合关系 影响 五行生克。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2. <strong>互动</strong>：合能解冲克，冲能解合；贪合忘生克。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">3. <strong>吉凶</strong>：依占事定 (如婚姻喜合，疾病喜冲)。</td>
+</tr>
+<tr>
+<td align="left"><strong>6</strong></td>
+<td align="left"><strong>刑害关系</strong></td>
+<td align="left">细节波折</td>
+<td align="left">1. <strong>辅助</strong>：测官司/疾病时放大；一般事辅助参考。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2. <strong>自刑</strong>：辰午酉亥自见，主自我纠结。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">3. <strong>六害</strong>：主暗中损伤、内部不和。</td>
+</tr>
+<tr>
+<td align="left"><strong>7</strong></td>
+<td align="left"><strong>六神</strong></td>
+<td align="left">人事分类 + 象意细节</td>
+<td align="left">1. <strong>定位</strong>：六亲定事类，六神断细节。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2. <strong>象征</strong>：如白虎主血光，青龙主喜庆，朱雀主口舌。</td>
+</tr>
+<tr>
+<td align="left"><strong>8</strong></td>
+<td align="left"><strong>综合吉凶</strong></td>
+<td align="left">公式化判断</td>
+<td align="left"><strong>公式</strong>：<code>(旺衰 + 生克) × (冲合) × (状态)</code></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">1. <strong>吉</strong>：用旺、原神助、忌受制、卦无冲克。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2. <strong>凶</strong>：用衰、忌猖、卦逢冲克、用神空破。</td>
+</tr>
+<tr>
+<td align="left"><strong>9</strong></td>
+<td align="left"><strong>应期判断</strong></td>
+<td align="left">事情何时发生</td>
+<td align="left">1. <strong>空亡</strong>：待填实 (值日/月) 或 冲空。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2. <strong>月破</strong>：待合 (值日/月) 或 出月。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">3. <strong>入墓</strong>：待冲墓 或 值爻。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">4. <strong>静爻</strong>：待值 或 冲。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">5. <strong>合局</strong>：待冲 或 虚一待用。</td>
+</tr>
+</tbody></table>
+<p>六爻占卜解卦要点:</p>
+<ul>
+<li><strong>抓主要矛盾</strong>： 不要每一步都平均用力。<strong>旺衰 + 生克</strong> 是核心（占 70% 权重），冲合刑害等是修饰（占 30% 权重）。不要为了一个“刑害”细节而忽略了“月破”大凶。</li>
+<li><strong>灵活大于规则</strong>： 表格是死的，卦是活的。如果遇到规则冲突（如既冲又合），<strong>回归五行生克本质</strong>：谁力量大听谁的（日月 &gt; 动变 &gt; 静爻 &gt; 卦辞爻辞）。</li>
+<li><strong>复盘验证</strong>： 解卦后，一定要记录结果。特别是<strong>应期</strong>，验证准不准，是提升水平的最快路径。</li>
+</ul>
+<h2 id="一、婚姻感情"><a href="#一、婚姻感情" class="headerlink" title="一、婚姻感情"></a>一、婚姻感情</h2><p><strong>用神取法</strong>：</p>
+<ul>
+<li>未婚男占：妻财为用神</li>
+<li>未婚女占：官鬼为用神</li>
+<li>已婚占婚姻质量：世应关系为主</li>
+</ul>
+<p><strong>判断要点</strong>：</p>
+<ul>
+<li>世应相生合主感情好</li>
+<li>妻财/官鬼旺相主对方条件好</li>
+<li>子孙动克官鬼不利女占婚姻</li>
+<li>兄弟动克妻财不利男占婚姻</li>
+</ul>
+<h2 id="二、事业工作"><a href="#二、事业工作" class="headerlink" title="二、事业工作"></a>二、事业工作</h2><p><strong>用神取法</strong>：</p>
+<ul>
+<li>占工作：官鬼为用神</li>
+<li>占升职：官鬼配合父母爻</li>
+<li>占同事关系：兄弟爻参考</li>
+</ul>
+<p><strong>判断要点</strong>：</p>
+<ul>
+<li>官鬼旺相有职位</li>
+<li>父母旺相有单位</li>
+<li>妻财旺相待遇好</li>
+<li>子孙动克官鬼不利工作</li>
+</ul>
+<h2 id="三、财运投资"><a href="#三、财运投资" class="headerlink" title="三、财运投资"></a>三、财运投资</h2><p><strong>用神取法</strong>：</p>
+<ul>
+<li>妻财爻为用神</li>
+<li>子孙爻为财源</li>
+<li>兄弟爻为破财</li>
+</ul>
+<p><strong>判断要点</strong>：</p>
+<ul>
+<li>妻财旺相财丰厚</li>
+<li>子孙生妻财财源广</li>
+<li>兄弟动克妻财防破财</li>
+<li>官鬼动生父母利于长期投资</li>
+</ul>
+<h2 id="四、健康疾病"><a href="#四、健康疾病" class="headerlink" title="四、健康疾病"></a>四、健康疾病</h2><p><strong>用神取法</strong>：</p>
+<ul>
+<li>官鬼爻为病源</li>
+<li>子孙爻为医药</li>
+<li>世爻为本人身体</li>
+</ul>
+<p><strong>判断要点</strong>：</p>
+<ul>
+<li>官鬼旺相病重</li>
+<li>子孙旺相药效好</li>
+<li>官鬼克世病难受</li>
+<li>子孙克官鬼病易愈</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://wiki.tianjiyao.com/yijing/liuyao.html">六爻占卜入门：从起卦到解卦的完整流程</a></li>
+<li><a href="https://www.6yao.ai/blog/liuyao-divination-complete-guide">六爻占卜详解：从起卦到解卦的完整指南</a></li>
+<li><a href="https://m.sohu.com/n/476359403/">教你学八字28:地支藏干，五行藏在暗中的秘密</a></li>
+</ul>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>Bagua</category>
+      </categories>
+      <tags>
         <tag>Bagua</tag>
       </tags>
   </entry>
