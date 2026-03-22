@@ -17103,7 +17103,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>与神对话读后感-矛盾与困惑</title>
     <url>/2021/01/28/2101-confusion/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -17388,7 +17389,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>修行总领——明心见性</title>
     <url>/2021/02/13/2104-satori/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -17498,7 +17500,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>修道之路-总纲</title>
     <url>/2021/02/14/2105-dao-outline/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -17661,7 +17664,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>介绍本位方法论</title>
     <url>/2021/03/01/2106-dao-doubt/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -18027,7 +18031,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>万年歌, 马前课, 梅花诗, 推背图 (上)</title>
     <url>/2021/03/05/2107-tuibeitu1/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -18591,7 +18596,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>使用OMV搭建家庭NAS</title>
     <url>/2021/03/31/2109-nuc-omv/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>5年前写过一篇 <a href="https://draapho.github.io/2016/10/03/1606-WinSoft-cloud/">Windows 软件系列-基于NFS的家庭网</a>, 就有了搭建一个较为理想的NAS的愿望. 正好利用起淘汰下来的NUC5i5, 尝试自建.<br>优先级由高到低, 需求如下:</p>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>5年前写过一篇 <a href="https://draapho.github.io/2016/10/03/1606-WinSoft-cloud/">Windows 软件系列-基于NFS的家庭网</a>, 就有了搭建一个较为理想的NAS的愿望. 正好利用起淘汰下来的NUC5i5, 尝试自建.<br>优先级由高到低, 需求如下:</p>
 <ul>
 <li>24小时开机. 因而必须低功耗, 静音.</li>
 <li>支持共享文件, 支持Windows网络映射.</li>
@@ -18899,7 +18905,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>万年歌, 马前课, 梅花诗, 推背图 (下)</title>
     <url>/2021/03/18/2108-tuibeitu2/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -19648,7 +19655,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>开悟是怎样一种体验？(新)</title>
     <url>/2021/04/05/2110-satori2/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -20049,7 +20057,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>见性者体验收集</title>
     <url>/2021/04/26/2123-caseofsatori/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -20635,7 +20644,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>带着信仰行到底</title>
     <url>/2021/11/29/2124-faith/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -21315,7 +21325,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>PyCharm 设置虚拟开发环境</title>
     <url>/2022/06/08/2201-pycharm-venv/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>介绍了python的虚拟开发环境的建立和配置.<br>用于独立各个项目的依赖库, 便于后续维护和更新, 并能最小化可执行文件的大小.</p>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>介绍了python的虚拟开发环境的建立和配置.<br>用于独立各个项目的依赖库, 便于后续维护和更新, 并能最小化可执行文件的大小.</p>
 <h1 id="PyCharm-新建工程"><a href="#PyCharm-新建工程" class="headerlink" title="PyCharm 新建工程"></a>PyCharm 新建工程</h1><p>新建工程界面: PyCharm内, <code>File-&gt;New Project...</code>, 打开后如下图:<br>    - 下图红色1处为工程目录, 指定为 <code>XXX\code</code><br>    - 下图红色2处为虚拟环境目录, 指定为 <code>XXX\venv</code></p>
 <p><img src="https://draapho.github.io/images/2201/create.png" alt="Create Project"></p>
 <p>这样, 会在项目的<code>XXX</code>根目录下, 自动生成 <code>code</code> 和 <code>venv</code> 两个文件夹.<br>再手动放入 <code>.gitignore</code>, 并新建一下 <code>exe</code> 文件夹.<br>目录结构为:</p>
@@ -21407,11 +21418,12 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>HTML和CSS基础</title>
     <url>/2022/08/01/2202-html-ccs/</url>
-    <content><![CDATA[<h1 id="HTML-参考资料"><a href="#HTML-参考资料" class="headerlink" title="HTML 参考资料"></a>HTML 参考资料</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="HTML-参考资料"><a href="#HTML-参考资料" class="headerlink" title="HTML 参考资料"></a>HTML 参考资料</h1><ul>
 <li><a href="http://c.biancheng.net/html/">HTML 教程</a></li>
 <li><a href="https://www.runoob.com/tags/html-reference.html">HTML 参考手册</a></li>
 </ul>
-<h1 id="HTML-范例"><a href="#HTML-范例" class="headerlink" title="HTML 范例"></a>HTML 范例</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是注释 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>		<span class="comment">&lt;!-- 当前文档采用UTF-8编码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML网页布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">&quot;color:blue;text-align:center;&quot;</span>&gt;</span>This is a heading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;style.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper clearfix&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/&quot;</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/html/&quot;</span>&gt;</span>HTML教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/css3/&quot;</span>&gt;</span>CSS教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/js/&quot;</span>&gt;</span>JS教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h2</span>&gt;</span>网站简介<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>introduce yourself. welcome to <span class="tag">&lt;<span class="name">b</span>&gt;</span>NOWHERE<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>draapho.github.io<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="HTML-范例"><a href="#HTML-范例" class="headerlink" title="HTML 范例"></a>HTML 范例</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是注释 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>      <span class="comment">&lt;!-- 当前文档采用UTF-8编码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML网页布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">&quot;color:blue;text-align:center;&quot;</span>&gt;</span>This is a heading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;style.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper clearfix&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/&quot;</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/html/&quot;</span>&gt;</span>HTML教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/css3/&quot;</span>&gt;</span>CSS教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://c.biancheng.net/js/&quot;</span>&gt;</span>JS教程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h2</span>&gt;</span>网站简介<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>introduce yourself. welcome to <span class="tag">&lt;<span class="name">b</span>&gt;</span>NOWHERE<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>draapho.github.io<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="CSS-参考资料"><a href="#CSS-参考资料" class="headerlink" title="CSS 参考资料"></a>CSS 参考资料</h1><ul>
 <li><a href="http://c.biancheng.net/css3/">CSS 教程</a></li>
@@ -21437,7 +21449,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 </li>
 </ul>
-<h1 id="scss"><a href="#scss" class="headerlink" title="scss"></a>scss</h1><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增的单行注释</span></span><br><span class="line"><span class="comment">// 简单说 scss是css的超集, 但增加了很多编程特性.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 1. $ 符号来标识变量 */</span> </span><br><span class="line"><span class="variable">$nav-color</span>: <span class="number">#F90</span>;               <span class="comment">// 作用域: 当前样式表都可以使用</span></span><br><span class="line">    <span class="selector-tag">nav</span> &#123;</span><br><span class="line">        <span class="variable">$width</span>: <span class="number">100px</span>;          <span class="comment">// 作用域: 只有nav&#123;&#125;里面才可以使用.</span></span><br><span class="line">        <span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">        <span class="attribute">color</span>: <span class="variable">$nav_color</span>;      <span class="comment">// 中划线和下划线等价，包括对混合器和Sass函数的命名</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译后, 等同于如下css </span></span><br><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#F90</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 2. 选择器嵌套 */</span></span><br><span class="line"><span class="selector-id">#content</span> &#123;                 </span><br><span class="line">    <span class="selector-tag">article</span> &#123;</span><br><span class="line">        <span class="selector-tag">h1</span> &#123; <span class="attribute">color</span>: <span class="number">#333</span> &#125;</span><br><span class="line">        p &#123; margin-bottom: <span class="number">1.4em</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    aside &#123; background-color: <span class="number">#EEE</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 编译后, 等同于如下css </span><br><span class="line">#content article h1 &#123; color: <span class="number">#333</span> &#125;</span><br><span class="line">#content article p &#123; margin-bottom: <span class="number">1.4em</span> &#125;</span><br><span class="line">#content aside &#123; background-color: <span class="number">#EEE</span> &#125;</span><br><span class="line"></span><br><span class="line">/* <span class="number">3</span>. @extend 支持继承 */</span><br><span class="line">/* <span class="number">4</span>. @mixin 混合器, 类似于函数调用概念 */</span><br><span class="line">/* <span class="number">5</span>. @import 导入其它css, scss文件 */</span><br><span class="line">/* <span class="number">6</span>. 还增加了控制指令, 条件语句, 循环语句, 自定义函数等等, 此处略 */</span><br></pre></td></tr></table></figure>
+<h1 id="scss"><a href="#scss" class="headerlink" title="scss"></a>scss</h1><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增的单行注释</span></span><br><span class="line"><span class="comment">// 简单说 scss是css的超集, 但增加了很多编程特性.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 1. $ 符号来标识变量 */</span></span><br><span class="line"><span class="variable">$nav-color</span>: <span class="number">#F90</span>;               <span class="comment">// 作用域: 当前样式表都可以使用</span></span><br><span class="line">    <span class="selector-tag">nav</span> &#123;</span><br><span class="line">        <span class="variable">$width</span>: <span class="number">100px</span>;          <span class="comment">// 作用域: 只有nav&#123;&#125;里面才可以使用.</span></span><br><span class="line">        <span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">        <span class="attribute">color</span>: <span class="variable">$nav_color</span>;      <span class="comment">// 中划线和下划线等价，包括对混合器和Sass函数的命名</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译后, 等同于如下css</span></span><br><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#F90</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 2. 选择器嵌套 */</span></span><br><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">    <span class="selector-tag">article</span> &#123;</span><br><span class="line">        <span class="selector-tag">h1</span> &#123; <span class="attribute">color</span>: <span class="number">#333</span> &#125;</span><br><span class="line">        p &#123; margin-bottom: <span class="number">1.4em</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    aside &#123; background-color: <span class="number">#EEE</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 编译后, 等同于如下css</span><br><span class="line">#content article h1 &#123; color: <span class="number">#333</span> &#125;</span><br><span class="line">#content article p &#123; margin-bottom: <span class="number">1.4em</span> &#125;</span><br><span class="line">#content aside &#123; background-color: <span class="number">#EEE</span> &#125;</span><br><span class="line"></span><br><span class="line">/* <span class="number">3</span>. @extend 支持继承 */</span><br><span class="line">/* <span class="number">4</span>. @mixin 混合器, 类似于函数调用概念 */</span><br><span class="line">/* <span class="number">5</span>. @import 导入其它css, scss文件 */</span><br><span class="line">/* <span class="number">6</span>. 还增加了控制指令, 条件语句, 循环语句, 自定义函数等等, 此处略 */</span><br></pre></td></tr></table></figure>
 
 <hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
@@ -21455,7 +21467,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>项目开发方案评选</title>
     <url>/2022/08/08/2205-solution-selection/</url>
-    <content><![CDATA[<h1 id="背景和需求"><a href="#背景和需求" class="headerlink" title="背景和需求"></a>背景和需求</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="背景和需求"><a href="#背景和需求" class="headerlink" title="背景和需求"></a>背景和需求</h1><ul>
 <li>项目背景<ul>
 <li>智能门锁猫眼项目, 需要支持远程与手机端音视频对讲.</li>
 <li>需要支持主流手机, Android 和 iOS. 最好也支持微信小程序.</li>
@@ -21645,7 +21658,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>Visual Studio Code 环境配置</title>
     <url>/2022/08/03/2204-Visual-Studio-Code/</url>
-    <content><![CDATA[<h1 id="IDE-的选择"><a href="#IDE-的选择" class="headerlink" title="IDE 的选择"></a>IDE 的选择</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="IDE-的选择"><a href="#IDE-的选择" class="headerlink" title="IDE 的选择"></a>IDE 的选择</h1><ul>
 <li>不太好的Atom使用经验<ul>
 <li>之前有过 atom 的使用和配置经验.</li>
 <li>结论是看上去啥都能支持, 结果啥都支持不好.</li>
@@ -21905,7 +21919,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>面试之面向对象</title>
     <url>/2022/08/10/2206-interview-oop/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/05/04/1714-expression/">逻辑|这样表达，事半功倍</a></li>
 <li><a href="https://draapho.github.io/2018/01/10/1805-interview-general/">面试之常规问题</a></li>
 <li><a href="https://draapho.github.io/2018/05/07/1816-interview-c/">面试之嵌入式C语言</a></li>
@@ -22055,7 +22070,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>JavaScript 基础</title>
     <url>/2022/08/02/2203-javascript/</url>
-    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a href="https://www.runoob.com/jsref/jsref-tutorial.html">JavaScript 和 HTML DOM 参考手册</a></li>
 <li><a href="http://c.biancheng.net/js/">JavaScript 学习指南</a></li>
 <li><a href="https://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li>
@@ -22454,7 +22470,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>设计模式概要</title>
     <url>/2022/08/11/2207-design-patterns/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/05/04/1714-expression/">逻辑|这样表达，事半功倍</a></li>
 <li><a href="https://draapho.github.io/2018/01/10/1805-interview-general/">面试之常规问题</a></li>
 <li><a href="https://draapho.github.io/2018/05/07/1816-interview-c/">面试之嵌入式C语言</a></li>
@@ -22685,7 +22702,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>Zephyr Project 环境配置</title>
     <url>/2023/04/25/2302-zephyr-start/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Zephyr Project 是一个可扩展的实时操作系统, 为资源受限的设备提供支持. 由 Linux 基金会托管.<br>因而该项目极具Linux特点: 性能强大, 学习曲线陡峭, 入门困难. 主要使用命令行格式, 基于类Unix系统测试比较充分, Window下容易遇到各种莫名的问题.<br>该项目刚出来的时候, 也关注过, 根据其指导手册, 在windows下就没有配置成功. 现在有空又试了一下, 算是在windows环境下, 成功搭建了运行环境, 并把范例跑了起来.</p>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Zephyr Project 是一个可扩展的实时操作系统, 为资源受限的设备提供支持. 由 Linux 基金会托管.<br>因而该项目极具Linux特点: 性能强大, 学习曲线陡峭, 入门困难. 主要使用命令行格式, 基于类Unix系统测试比较充分, Window下容易遇到各种莫名的问题.<br>该项目刚出来的时候, 也关注过, 根据其指导手册, 在windows下就没有配置成功. 现在有空又试了一下, 算是在windows环境下, 成功搭建了运行环境, 并把范例跑了起来.</p>
 <h1 id="1-安装-Chocolatey"><a href="#1-安装-Chocolatey" class="headerlink" title="1. 安装 Chocolatey"></a>1. 安装 Chocolatey</h1><p>首先，需要安装 Chocolatey 包管理器。请参阅 <a href="https://chocolatey.org/install">Chocolatey 安装页面</a> 获取详细信息。</p>
 <p>使用 PowerShell 以<strong>管理员身份</strong>运行以下命令：</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> AllSigned</span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; [<span class="type">System.Net.ServicePointManager</span>]::SecurityProtocol = [<span class="type">System.Net.ServicePointManager</span>]::SecurityProtocol <span class="operator">-bor</span> <span class="number">3072</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://community.chocolatey.org/install.ps1&#x27;</span>))</span><br></pre></td></tr></table></figure>
@@ -22800,8 +22818,9 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>拆解追溯 GPT-3.5 各项能力的起源</title>
     <url>/2023/05/03/2303-chatgpt/</url>
-    <content><![CDATA[<h1 id="拆解追溯-GPT-3-5-各项能力的起源"><a href="#拆解追溯-GPT-3-5-各项能力的起源" class="headerlink" title="拆解追溯 GPT-3.5 各项能力的起源"></a>拆解追溯 GPT-3.5 各项能力的起源</h1><blockquote>
-<p>作者：<strong>符尧</strong>, <a href="mailto:&#121;&#97;&#111;&#x2e;&#x66;&#117;&#64;&#101;&#x64;&#x2e;&#x61;&#x63;&#x2e;&#x75;&#x6b;">&#121;&#97;&#111;&#x2e;&#x66;&#117;&#64;&#101;&#x64;&#x2e;&#x61;&#x63;&#x2e;&#x75;&#x6b;</a>，爱丁堡大学 (University of Edinburgh) 博士生，本科毕业于北京大学<br>与 <strong>彭昊</strong>，<strong>Tushar Khot</strong><br>在 艾伦人工智能研究院 (Allen Institute for AI) 共同完成英文原稿<br>与 剑桥大学<strong>郭志江</strong> 共同翻译为中文</p>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="拆解追溯-GPT-3-5-各项能力的起源"><a href="#拆解追溯-GPT-3-5-各项能力的起源" class="headerlink" title="拆解追溯 GPT-3.5 各项能力的起源"></a>拆解追溯 GPT-3.5 各项能力的起源</h1><blockquote>
+<p>作者：<strong>符尧</strong>, <a href="mailto:&#x79;&#x61;&#111;&#46;&#x66;&#x75;&#64;&#101;&#x64;&#x2e;&#x61;&#99;&#x2e;&#117;&#x6b;">&#x79;&#x61;&#111;&#46;&#x66;&#x75;&#64;&#101;&#x64;&#x2e;&#x61;&#99;&#x2e;&#117;&#x6b;</a>，爱丁堡大学 (University of Edinburgh) 博士生，本科毕业于北京大学<br>与 <strong>彭昊</strong>，<strong>Tushar Khot</strong><br>在 艾伦人工智能研究院 (Allen Institute for AI) 共同完成英文原稿<br>与 剑桥大学<strong>郭志江</strong> 共同翻译为中文</p>
 </blockquote>
 <blockquote>
 <p>感谢 上海交通大学<strong>何俊贤</strong>，加州大学洛杉矶分校<strong>鲁盼</strong>，达特茅斯学院<strong>刘睿博</strong> 对初稿的讨论与建议。</p>
@@ -23159,7 +23178,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>知乎,者也的想法摘录2</title>
     <url>/2023/09/06/2305-zheye2/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -23282,7 +23302,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>知乎,者也的想法摘录1</title>
     <url>/2023/09/06/2304-zheye1/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -23391,7 +23412,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>知乎,者也的想法摘录3</title>
     <url>/2023/09/13/2306-zheye3/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -23575,7 +23597,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>知乎,者也的想法摘录4</title>
     <url>/2023/09/14/2307-zheye4/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -23791,7 +23814,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>知乎,者也的想法摘录5</title>
     <url>/2023/09/15/2308-zheye5/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -23982,7 +24006,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>心得体会-心自明</title>
     <url>/2024/09/16/2401-xinming/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2017/10/09/1728-ultimatethink/">我的终极思考</a></li>
 <li><a href="https://draapho.github.io/2018/04/12/1815-suspend/">博客暂停更新</a></li>
 <li><a href="https://draapho.github.io/2018/07/08/1818-buddhism/">佛教学习资料及一些感想</a></li>
@@ -24112,7 +24137,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>MBTI 学习</title>
     <url>/2025/07/22/2501-mbti/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/22/2501-mbti/">MBTI 学习</a></li>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
@@ -24326,7 +24352,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>初学易经</title>
     <url>/2025/07/30/2502-yi/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
@@ -24710,7 +24737,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>【江湖姐訪談】克拉克1</title>
     <url>/2025/08/20/2503-ClarkCao1/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/20/2503-ClarkCao1/">【江湖姐訪談】克拉克1</a></li>
 <li><a href="https://draapho.github.io/2025/08/25/2504-ClarkCao2/">【江湖姐訪談】克拉克2</a></li>
@@ -24964,7 +24992,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>【江湖姐訪談】克拉克3</title>
     <url>/2025/08/26/2505-ClarkCao3/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/20/2503-ClarkCao1/">【江湖姐訪談】克拉克1</a></li>
 <li><a href="https://draapho.github.io/2025/08/25/2504-ClarkCao2/">【江湖姐訪談】克拉克2</a></li>
@@ -25229,7 +25258,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>【江湖姐訪談】克拉克4</title>
     <url>/2025/08/27/2506-ClarkCao4/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/20/2503-ClarkCao1/">【江湖姐訪談】克拉克1</a></li>
 <li><a href="https://draapho.github.io/2025/08/25/2504-ClarkCao2/">【江湖姐訪談】克拉克2</a></li>
@@ -25297,7 +25327,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>【江湖姐訪談】克拉克2</title>
     <url>/2025/08/25/2504-ClarkCao2/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/20/2503-ClarkCao1/">【江湖姐訪談】克拉克1</a></li>
 <li><a href="https://draapho.github.io/2025/08/25/2504-ClarkCao2/">【江湖姐訪談】克拉克2</a></li>
@@ -25605,7 +25636,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>克拉克的问答与自己的感想</title>
     <url>/2025/08/28/2507-ClarAnswer/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -25760,7 +25792,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>三战预测</title>
     <url>/2025/10/16/2508-WWIII/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
 <li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
 <li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
@@ -25830,7 +25863,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>卜卦入门</title>
     <url>/2025/12/08/2509-divination/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
@@ -26218,7 +26252,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>序卦传</title>
     <url>/2025/12/10/2511-preface/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
@@ -26892,7 +26927,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>卜卦实例之危机预测</title>
     <url>/2025/12/09/2510-case/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
@@ -27150,7 +27186,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>论无我、空性、摩诃（大）、平常与自然圆成</title>
     <url>/2025/12/12/2513-Anatta/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -27370,7 +27407,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>Thusness / PasserBy 的七阶段开悟之路</title>
     <url>/2025/12/12/2512-SevenStage/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -27740,7 +27778,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>不可得的圆满：鼓声、虹光与海市蜃楼如何开启《心经》</title>
     <url>/2025/12/12/2515-HeartSutra/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -27873,7 +27912,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>体验/觉受、证悟、知见、修行与果位</title>
     <url>/2025/12/12/2516-SohAwakening/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -28063,7 +28103,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>「我是」的四个面向</title>
     <url>/2025/12/12/2517-iam/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -28268,7 +28309,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>佛陀的启示之无我论</title>
     <url>/2025/12/12/2519-BuddhaTaught/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -28443,7 +28485,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>关于婆希耶经(Bahiya Sutta)</title>
     <url>/2025/12/12/2514-BahiyaSutta/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -28557,7 +28600,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>I AM 之后的两种非二元观照</title>
     <url>/2025/12/12/2518-NondualContemplation/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -28711,7 +28755,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>&lt;自说经&gt; 第一品</title>
     <url>/2025/12/16/2520-Udana/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -28860,7 +28905,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>发起动词，无需名词</title>
     <url>/2025/12/19/2522-NoNouns/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -28922,7 +28968,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>大手印的皇印、自行解脱：堪楚仁波切三世</title>
     <url>/2025/12/19/2521-SelfLiberation/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -28998,7 +29045,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>佛陀教法的极佳资源</title>
     <url>/2025/12/19/2525-resource/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -29146,7 +29194,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>从不同角度看“证悟与体验以及不二体验</title>
     <url>/2025/12/19/2523-RealizationExperience/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -29265,7 +29314,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>辨析 I AM、一心、无心与无我</title>
     <url>/2025/12/19/2526-Differentiating/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -29592,7 +29642,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>卜卦进阶之爻的入门</title>
     <url>/2025/12/26/2527-yao/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
@@ -29856,7 +29907,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>老师来找我</title>
     <url>/2025/12/29/2528-email/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
 <li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
 <li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
@@ -30024,7 +30076,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>卜卦实例2之各国运势</title>
     <url>/2026/01/08/2601-case2/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
@@ -30521,7 +30574,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>易经的发展猜想</title>
     <url>/2026/02/13/2602-development/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
@@ -30673,7 +30727,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>初关明心(我是)之后的路</title>
     <url>/2026/02/20/2605-NewPath/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -30807,7 +30862,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>道元《一法究尽》——超越整体与部分的全体</title>
     <url>/2026/02/19/2604-TotalExertion/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -30900,7 +30956,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>超越“体验”：自我参究/话头与“我是”证悟的详尽指南</title>
     <url>/2026/02/21/2606-IamPath/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -31909,7 +31966,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>基于Ollama的本地AI配置教程</title>
     <url>/2026/02/25/2607-LocalAI/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
 <li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
 <li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
@@ -32544,7 +32602,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>Intel的本地AI玩法</title>
     <url>/2026/03/03/2609-IntelAI/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2023/04/11/2301-revolution-of-knowledge/">知识革命</a></li>
 <li><a href="https://draapho.github.io/2023/05/03/2303-chatgpt/">拆解追溯 GPT-3.5 各项能力的起源</a></li>
 <li><a href="https://draapho.github.io/2026/02/25/2607-LocalAI/">基于Ollama的本地AI配置教程</a></li>
@@ -32785,7 +32844,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>灾备资料获取</title>
     <url>/2026/03/04/2610-CrisisPlan/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
 <li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
 <li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
@@ -32902,7 +32962,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>应急基础物资清单</title>
     <url>/2026/03/05/2611-EmergencySupplies/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
 <li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
 <li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
@@ -33096,7 +33157,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>金圣叹版推背图数字的整理和分析</title>
     <url>/2026/03/07/2613_TbtAnalysis2/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
 <li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
 <li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
@@ -33662,7 +33724,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>金圣叹版推背图卦象的整理和分析</title>
     <url>/2026/03/06/2612_TbtAnalysis1/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
 <li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
 <li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
@@ -35396,7 +35459,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>金圣叹版推背图45象的推测</title>
     <url>/2026/03/08/2614_predict/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/03/05/2107-tuibeitu1/">万年歌, 马前课, 梅花诗, 推背图 (上)</a></li>
 <li><a href="https://draapho.github.io/2021/03/18/2108-tuibeitu2/">万年歌, 马前课, 梅花诗, 推背图 (下)</a></li>
 <li><a href="https://draapho.github.io/2025/10/16/2508-WWIII/">三战预测</a></li>
@@ -36385,7 +36449,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>太极浑圆桩站桩要领</title>
     <url>/2026/03/12/2615-Standing/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -36476,7 +36541,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>见性、“我是”的觉醒与无我的亲证</title>
     <url>/2026/03/13/2616-Jianxing/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -36642,7 +36708,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>禅宗路线图与无我证悟</title>
     <url>/2026/03/13/2617-zen/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -36791,7 +36858,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</title>
     <url>/2026/03/14/2618-Misunderstanding/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
 <li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
 <li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
@@ -36970,7 +37038,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>卜卦进阶之互卦综卦和错卦</title>
     <url>/2026/03/16/2619-gua/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
@@ -36985,7 +37054,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 <h1 id="本卦和变卦"><a href="#本卦和变卦" class="headerlink" title="本卦和变卦"></a>本卦和变卦</h1><p>本卦. 就是占卜后, 获得的卦.<br>又叫主卦, 原卦.它体现的是事物初始阶段的信息, 或目前的情况.</p>
 <p>变卦. 由本卦经过动爻, 即某个或某些爻的变动, 而得到的卦.<br>一般而言, 变卦代表着事物发展变化的最终结果, 或后续发展趋势.</p>
-<h1 id="互卦"><a href="#互卦" class="headerlink" title="互卦"></a>互卦</h1><p>互卦. 是由本卦的两个内卦组合而成的.<br>具体组合方法是: </p>
+<h1 id="互卦"><a href="#互卦" class="headerlink" title="互卦"></a>互卦</h1><p>互卦. 是由本卦的两个内卦组合而成的.<br>具体组合方法是:</p>
 <ul>
 <li>本卦的第三四五爻, 作为互卦的上卦</li>
 <li>本卦的第二三四爻, 作为互卦的下卦</li>
@@ -36994,13 +37063,13 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p>可以发现, 互卦去掉了初爻和上爻, 扩展了本卦的三四爻.</p>
 <ul>
 <li>三四爻正是对应了三才中的人. 是可以发挥主观能动性的两个爻.</li>
-<li>重卦中, 二五爻非常重要, 是判断是否中正的两个爻位. </li>
+<li>重卦中, 二五爻非常重要, 是判断是否中正的两个爻位.</li>
 <li>而互卦便将原有的三四爻扩展到了二五爻位.</li>
 <li>而且原有的三爻成为互卦的四爻, 原有的四爻成为互卦的三爻.</li>
 <li>相当于转换了原三四两爻的位置, 用综卦去看三四两爻了.</li>
 </ul>
 <p><strong>互卦可用于判断事件内部的交互关系, 组织情况, 发展过程, 执行落地的难度等等</strong></p>
-<p>互卦是收敛的, 互卦一共只有16种. 如果互卦两次, 则必然收敛于乾, 坤, 既济, 未济四个卦.<br>其中乾坤两卦没有互卦, 或者认为其互卦自指.  既济未济互为互卦.<br>我们可以将这四个卦理解为事物发展的四种内因: </p>
+<p>互卦是收敛的, 互卦一共只有16种. 如果互卦两次, 则必然收敛于乾, 坤, 既济, 未济四个卦.<br>其中乾坤两卦没有互卦, 或者认为其互卦自指.  既济未济互为互卦.<br>我们可以将这四个卦理解为事物发展的四种内因:</p>
 <ul>
 <li>乾: 动, 扩张, 进取</li>
 <li>坤: 静, 收缩, 守成</li>
@@ -37099,14 +37168,14 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 <h1 id="综卦"><a href="#综卦" class="headerlink" title="综卦"></a>综卦</h1><p>综卦. 是把本卦整个倒过来看，即初爻和上爻, 二五爻, 三四爻交换后的卦象.<br><strong>综卦是从另一种立场来思考问题, 即换位思考</strong></p>
 <p>一般而言, 综卦是有着共同基础, 只是局部不同, 譬如组织内的身份, 地位的不同. 即便有矛盾冲突, 多半也可以同中求异, 属于可以解决的内部矛盾.</p>
-<p>六十四卦中，有八个卦像是自综卦: </p>
+<p>六十四卦中，有八个卦像是自综卦:</p>
 <ul>
-<li>乾为天, 坤为地, 坎为水, 离为火, </li>
+<li>乾为天, 坤为地, 坎为水, 离为火,</li>
 <li>泽风大过, 雷山小过, 山雷颐, 风泽中孚</li>
 </ul>
 <p>其余五十六卦则皆有其相对性。</p>
 <ul>
-<li>如: 天风姤, 综卦为泽天夬. </li>
+<li>如: 天风姤, 综卦为泽天夬.</li>
 <li>姤者遇也，不期而遇，谓姤，是挑逗的，犹疑的。</li>
 <li>夬者决也，当下决定，谓决，是无情的，果断的。</li>
 <li>这样, 面对同一个问题或情景, 就给出两种不同的处理方式.</li>
@@ -37127,7 +37196,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>皇极经世和先天64卦</title>
     <url>/2026/03/17/2620-xt64gua/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
@@ -37143,7 +37213,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>《皇极经世》是北宋学者邵雍（1011-1077年）撰写的一部重要著作，以预测历史和宇宙运行为核心。书中最著名的是其时间体系和推演法则，被称为“元会运世”。这一时间体系基于邵雍的“象数”理论，融合了古代中国的《<a href="https://2743.com/baike/yijing">易经</a>》哲学、阴阳五行学说以及对天地宇宙运行的观察。</p>
 <p>邵雍把<a href="https://2743.com/baike/yijing">易经</a>六十四卦，配合古人记录时间的天干地支组成的六十甲子，推演出了<strong>元会运世时间体系</strong>。</p>
 <p>不同的时间维度之间，<strong>元会运世旬和每一年，分别对应不同的卦象</strong>，从大到小的<strong>统领卦、正卦、运卦、世卦、十年卦（旬卦）、值年卦</strong>，来分析推演万事万物的演变规律。</p>
-<h1 id="元会运世"><a href="#元会运世" class="headerlink" title="元会运世"></a>元会运世</h1><p>邵雍将时间分为四个层次，分别为元、会、运、世。每个层次都有固定的时间跨度. </p>
+<h1 id="元会运世"><a href="#元会运世" class="headerlink" title="元会运世"></a>元会运世</h1><p>邵雍将时间分为四个层次，分别为元、会、运、世。每个层次都有固定的时间跨度.</p>
 <ul>
 <li><strong>元</strong>：是最大的时间单位，129600年为一元, <strong>一元</strong>由<strong>十二会</strong>组成。</li>
 <li><strong>会</strong>：一会各10800年, 由子丑寅卯辰巳午未申酉戌亥代表, 由<strong>30个运</strong>组成。</li>
@@ -37208,7 +37278,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p>对运卦继续依次爻变, 即可获得<strong>世卦</strong></p>
 <ul>
 <li>姤卦初爻变。化为<del>乾卦</del>。其统摄的时限是。公元1744-1803年<ul>
-<li>由于乾卦属于乾坎坤离<strong>四正卦, 只能用于统领卦</strong>. </li>
+<li>由于乾卦属于乾坎坤离<strong>四正卦, 只能用于统领卦</strong>.</li>
 <li>故在先天64卦圆图中, 顺时针选下一个卦, 得姤卦</li>
 </ul>
 </li>
@@ -37228,7 +37298,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>鼎卦五爻变。化为<strong>姤卦</strong>。其统摄时限是: 公元2024-2033年</li>
 <li>鼎卦上爻变，化为恒卦。其统摄时限是: 公元2034-2043年</li>
 </ul>
-<p><strong>旬卦, 即十年卦</strong>. 每个旬卦时间跨度为60/6=10年. </p>
+<p><strong>旬卦, 即十年卦</strong>. 每个旬卦时间跨度为60/6=10年.</p>
 <table>
 <thead>
 <tr>
@@ -37347,7 +37417,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
   <entry>
     <title>八宫卦和六亲世应图</title>
     <url>/2026/03/18/2621-bagonggua/</url>
-    <content><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
 <li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
@@ -37572,8 +37643,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><strong>人易</strong>: 三世卦, 四世卦.</li>
 <li><strong>天易</strong>: 五世卦, 宫主.</li>
 <li><strong>鬼易</strong>: 游魂卦, 归魂卦.</li>
-<li>助记: 和六爻对应三才类似. <ul>
-<li>初二爻为地. </li>
+<li>助记: 和六爻对应三才类似.<ul>
+<li>初二爻为地.</li>
 <li>三四爻为人.</li>
 <li>五上爻为天.</li>
 </ul>
@@ -37849,8 +37920,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>八个宫主, 自带五行属性.</li>
 <li>两个五行属性的关系, 如生克比和, 决定了六亲. 口诀中我为宫主,<ul>
 <li>生我者为父母，(爻生宫)</li>
-<li>我生者为子孙，(宫生爻)</li>
 <li>克我者为官鬼，(爻克宫)</li>
+<li>我生者为子孙，(宫生爻)</li>
 <li>我克者为妻财，(宫克爻)</li>
 <li>比和者为兄弟。(五行相同)</li>
 </ul>
@@ -37882,8 +37953,8 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>用了六神, 可获取一定时间信息上的宜或不宜.</li>
 <li>但也正是因为用了六神, 将六爻占卜局限在了个人和近期的事件上.</li>
 <li>更大级别的事件, 稳定性很高, 占卜时间的影响可以忽略不计.</li>
-<li>而且, 个人事情的吉凶, 若要处处考虑清楚何时何地吉利, 过于功利. </li>
-<li>最好事不占尽, 遇事调心为上. </li>
+<li>而且, 个人事情的吉凶, 若要处处考虑清楚何时何地吉利, 过于功利.</li>
+<li>最好事不占尽, 遇事调心为上.</li>
 </ul>
 <h1 id="八宫卦六亲世应图"><a href="#八宫卦六亲世应图" class="headerlink" title="八宫卦六亲世应图"></a>八宫卦六亲世应图</h1><p><strong>乾宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/qiangong.png" alt="乾宫卦"></p>
 <p><strong>坎宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/kangong.png" alt="坎宫卦"></p>
@@ -37895,7 +37966,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <p><strong>兑宫六亲世应图:</strong><br><img src="https://draapho.github.io/images/2621/duigong.png" alt="兑宫卦"></p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a href="https://2743.com/archives/12537">什么是八宫卦？八宫卦的变爻规律; 八宫卦如何定世应? 六爻如何安六亲</a></li>
-<li><a href="https://2743.com/archives/12926">八宫卦六亲世应图 (图表）</a></li>
+<li><a href="https://2743.com/archives/12926">八宫卦六亲世应图 (图表）</a>  注意: 图表乾宫火地晋有错误.</li>
 <li><a href="https://www.pulung.com/fungshu_12_simp.php">尊聖普隆佛閣-京氏易学</a></li>
 </ul>
 <hr>
@@ -38003,7 +38074,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>当然这就对解卦者要求更高了. 需要针对具体问题, 或经验, 或灵感, 来解卦. </li>
 </ul>
 <h1 id="解卦需要的核心概念"><a href="#解卦需要的核心概念" class="headerlink" title="解卦需要的核心概念"></a>解卦需要的核心概念</h1><p>六爻占卜的核心是爻位和时间对应的十二地支, 十二地支有六冲六合, 以及对应到五行后的生克关系.<br>其所有的概念都是确定本位后, 基于十二地支的冲合生克关系而来的.</p>
-<h2 id="用神"><a href="#用神" class="headerlink" title="用神"></a>用神</h2><p>根据问的事情，确定卦中哪个爻代表这件事。<br><strong>取对用神是六爻占卜的解卦中, 最为首要的事情。</strong></p>
+<h2 id="爻神的定义"><a href="#爻神的定义" class="headerlink" title="爻神的定义"></a>爻神的定义</h2><h3 id="用神"><a href="#用神" class="headerlink" title="用神"></a>用神</h3><p>根据问的事情，确定卦中哪个爻代表这件事。<br><strong>取对用神是六爻占卜的解卦中, 最为首要的事情。</strong><br>如果有多个相同的六亲爻, 即<strong>用神多现</strong>, 动爻优先, 次选持世或近世, 尽量避开空亡月破的爻.</p>
 <table>
 <thead>
 <tr>
@@ -38013,19 +38084,14 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>妻子、钱财、货物、饮食、工具</strong></td>
-<td align="center"><strong>妻财爻</strong></td>
-<td align="center">财为我克(<strong>欲望,追求</strong>)之物</td>
+<td align="left"><strong>父母、房产、文书、交通、天气</strong></td>
+<td align="center"><strong>父母爻</strong></td>
+<td align="center">父母为生(<strong>支撑,庇护</strong>)我之物</td>
 </tr>
 <tr>
 <td align="left"><strong>官职、疾病、工作、丈夫、盗贼</strong></td>
 <td align="center"><strong>官鬼爻</strong></td>
-<td align="center">官为克(<strong>管束,克制</strong>)我之物</td>
-</tr>
-<tr>
-<td align="left"><strong>父母、房产、文书、交通、天气</strong></td>
-<td align="center"><strong>父母爻</strong></td>
-<td align="center">父母为生(<strong>支撑,庇护</strong>)我之物</td>
+<td align="center">官鬼为克(<strong>管束,克制</strong>)我之物</td>
 </tr>
 <tr>
 <td align="left"><strong>子孙、晚辈、宠物、解忧、医治</strong></td>
@@ -38033,12 +38099,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="center">子孙为我生(<strong>拥有,抚养</strong>)之物</td>
 </tr>
 <tr>
+<td align="left"><strong>妻子、钱财、货物、饮食、工具</strong></td>
+<td align="center"><strong>妻财爻</strong></td>
+<td align="center">妻财为我克(<strong>欲望,追求</strong>)之物</td>
+</tr>
+<tr>
 <td align="left"><strong>兄弟、朋友、竞争、破财</strong></td>
 <td align="center"><strong>兄弟爻</strong></td>
 <td align="center">兄弟为比和(<strong>分享、竞争</strong>)之物</td>
 </tr>
 </tbody></table>
-<h2 id="飞神和伏神"><a href="#飞神和伏神" class="headerlink" title="飞神和伏神"></a>飞神和伏神</h2><p><em>初学暂缓.</em></p>
+<h3 id="飞神和伏神"><a href="#飞神和伏神" class="headerlink" title="飞神和伏神"></a>飞神和伏神</h3><p><em>初学暂缓.</em></p>
 <p>少数情况, 所得的卦, 六个爻没有对应的用神, 这种情况, 需要找<strong>伏神</strong>代替.</p>
 <ul>
 <li><strong>伏神</strong>: 找到卦所属的宫, 宫主卦必有需要的六亲对应的爻, 将此爻定为<strong>伏神</strong>即可.</li>
@@ -38075,6 +38146,117 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left"><strong>伏而得出</strong></td>
 <td align="left">1. <strong>飞神生伏神</strong> (飞神五行 生 伏神五行) 2. <strong>伏神旺相</strong> (伏神在月建为 旺 或 相) 3. <strong>日月生扶</strong> (日/月 生 伏神，或 五行 同 于 伏神)</td>
 <td align="left">✅ <strong>当前可用</strong></td>
+</tr>
+</tbody></table>
+<h3 id="原神、忌神、仇神、耗护神"><a href="#原神、忌神、仇神、耗护神" class="headerlink" title="原神、忌神、仇神、耗护神"></a>原神、忌神、仇神、耗护神</h3><p>确定用神之后, 原神、忌神、仇神都是固定下来的, 可以直接对应到某个六亲爻.<br>用神、原神、忌神、仇神、耗护神都是临时变量, 确定用神六亲后, 其它神的六亲就固定下来了.</p>
+<table>
+<thead>
+<tr>
+<th align="left">概念</th>
+<th align="left">定义</th>
+<th>比喻</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>用神</strong></td>
+<td align="left">占卜的核心目标</td>
+<td>我军</td>
+<td align="left">确定吉凶的承受主体。</td>
+</tr>
+<tr>
+<td align="left"><strong>原神</strong></td>
+<td align="left"><strong>生用神</strong>之爻</td>
+<td>粮草, 救兵</td>
+<td align="left">判断用神是否有源、有救、有后劲。</td>
+</tr>
+<tr>
+<td align="left"><strong>忌神</strong></td>
+<td align="left"><strong>克用神</strong>之爻</td>
+<td>敌军</td>
+<td align="left">判断阻力、风险、破坏力的来源。</td>
+</tr>
+<tr>
+<td align="left"><strong>仇神</strong></td>
+<td align="left"><strong>用神克</strong>之爻. 必生忌神</td>
+<td>敌军粮草</td>
+<td align="left">当忌神旺相时，仇神会加剧危害。初期可略。</td>
+</tr>
+<tr>
+<td align="left"><strong>耗护神</strong></td>
+<td align="left"><strong>用神生</strong>之爻</td>
+<td>分兵, 培养新军</td>
+<td align="left">会耗泄用神的气，但可克忌神.</td>
+</tr>
+</tbody></table>
+<p>爻神和六亲关系对应表</p>
+<table>
+<thead>
+<tr>
+<th align="center">用神</th>
+<th align="center">原神(生用神)</th>
+<th align="center">忌神(克用神)</th>
+<th align="center">(用神克)仇神(生忌神)</th>
+<th align="center">(用神生)耗护神</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>父母</strong></td>
+<td align="center">官鬼</td>
+<td align="center">妻财</td>
+<td align="center">子孙</td>
+<td align="center">兄弟</td>
+</tr>
+<tr>
+<td align="center"><strong>子孙</strong></td>
+<td align="center">兄弟</td>
+<td align="center">父母</td>
+<td align="center">官鬼</td>
+<td align="center">妻财</td>
+</tr>
+<tr>
+<td align="center"><strong>官鬼</strong></td>
+<td align="center">妻财</td>
+<td align="center">子孙</td>
+<td align="center">兄弟</td>
+<td align="center">父母</td>
+</tr>
+<tr>
+<td align="center"><strong>妻财</strong></td>
+<td align="center">子孙</td>
+<td align="center">兄弟</td>
+<td align="center">父母</td>
+<td align="center">官鬼</td>
+</tr>
+<tr>
+<td align="center"><strong>兄弟</strong></td>
+<td align="center">父母</td>
+<td align="center">官鬼</td>
+<td align="center">妻财</td>
+<td align="center">子孙</td>
+</tr>
+</tbody></table>
+<h3 id="进神、退神"><a href="#进神、退神" class="headerlink" title="进神、退神"></a>进神、退神</h3><p>针对动爻而言.</p>
+<table>
+<thead>
+<tr>
+<th align="left">概念</th>
+<th align="left">定义</th>
+<th>比喻</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>进神</strong></td>
+<td align="left">动爻爻变后比原爻更旺</td>
+<td>士气提高</td>
+<td align="left">事情向好的方向发展</td>
+</tr>
+<tr>
+<td align="left"><strong>退神</strong></td>
+<td align="left">动爻爻变后比原爻更弱</td>
+<td>士气降低</td>
+<td align="left">事情向坏的方向发展</td>
 </tr>
 </tbody></table>
 <h2 id="世应爻和动静爻"><a href="#世应爻和动静爻" class="headerlink" title="世应爻和动静爻"></a>世应爻和动静爻</h2><p>世应的含义:</p>
@@ -38258,7 +38440,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><strong>未土</strong>: 己土、<strong>丁火</strong>、乙木. 故为燥土.</li>
 <li><strong>戌土</strong>: 戊土、辛金、<strong>丁火</strong>. 故为燥土.</li>
 </ul>
-<h2 id="六冲六合"><a href="#六冲六合" class="headerlink" title="六冲六合"></a>六冲六合</h2><p><strong>六冲六合基于十二地支判断, 是六爻占卜的解卦核心之一</strong>. 和五行生克互补, 且冲合关系优先于生克关系</p>
+<h2 id="地支的六冲六合"><a href="#地支的六冲六合" class="headerlink" title="地支的六冲六合"></a>地支的六冲六合</h2><p><strong>六冲六合基于十二地支判断, 是六爻占卜的解卦核心之一</strong>. 和五行生克互补, 且冲合关系优先于生克关系</p>
 <h3 id="六冲"><a href="#六冲" class="headerlink" title="六冲"></a>六冲</h3><p>六冲的核心含义: <strong>散动破离, 主事急和散.</strong></p>
 <table>
 <thead>
@@ -38412,6 +38594,316 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="center">合代表走不了，被事情耽搁，行程延误。</td>
 </tr>
 </tbody></table>
+<h2 id="月建日辰"><a href="#月建日辰" class="headerlink" title="月建日辰"></a>月建日辰</h2><p>日月时间, 取十二地支对应的五行即可. 对应关系见”五行生克”中的介绍.<br>月建日辰的基础概念.</p>
+<ul>
+<li><strong>月柱</strong>为一月的天干地支.</li>
+<li><strong>月建</strong>为一月的地支部分.  六爻主要使用地支, 因而称月建.</li>
+<li>月建是按节气更换的, 而不是按农历初一更换.</li>
+<li><strong>日柱</strong>为一日的天干地支. </li>
+<li><strong>日辰</strong> 为一日的地支部分. 六爻主要使用地支, 因而称日辰.</li>
+</ul>
+<p><strong>月建日辰的作用力</strong>：</p>
+<ul>
+<li>月建：当月地支，管一月之权</li>
+<li>日辰：当日地支，管一日之权</li>
+</ul>
+<p><strong>日月对爻的影响：</strong></p>
+<ul>
+<li>月建生扶则旺，月建克制则衰. 有 <strong>旺相休囚死</strong> 之判断</li>
+<li>日辰生扶则增力，日辰克制则减力</li>
+</ul>
+<h3 id="月建的旺相休囚死"><a href="#月建的旺相休囚死" class="headerlink" title="月建的旺相休囚死"></a>月建的旺相休囚死</h3><p>基于十二地支时间, 我为月建(农历), 对爻的生克关系： </p>
+<ul>
+<li><strong>旺：</strong> 同五行。帝旺, 力量最强。</li>
+<li><strong>相：</strong> 我生者。宰相, 力量次强。</li>
+<li><strong>休：</strong> 生我者。退休, 力量衰退。</li>
+<li><strong>囚：</strong> 克我者。囚困, 力量被困。</li>
+<li><strong>死：</strong> 我克者。死亡, 力量最弱。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>春木</th>
+<th>夏火</th>
+<th>季末土</th>
+<th>秋金</th>
+<th>冬水</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>正月二月</td>
+<td>四月五月</td>
+<td>三六九,十二月</td>
+<td>七月八月</td>
+<td>十月十一月</td>
+</tr>
+<tr>
+<td><strong>爻</strong></td>
+<td><strong>寅卯</strong></td>
+<td><strong>巳午</strong></td>
+<td><strong>辰戌丑未</strong></td>
+<td><strong>申酉</strong></td>
+<td><strong>亥子</strong></td>
+</tr>
+<tr>
+<td>木</td>
+<td>旺</td>
+<td>休</td>
+<td>囚</td>
+<td>死</td>
+<td>相</td>
+</tr>
+<tr>
+<td>火</td>
+<td>相</td>
+<td>旺</td>
+<td>休</td>
+<td>囚</td>
+<td>死</td>
+</tr>
+<tr>
+<td>土</td>
+<td>死</td>
+<td>相</td>
+<td>旺</td>
+<td>休</td>
+<td>囚</td>
+</tr>
+<tr>
+<td>金</td>
+<td>囚</td>
+<td>死</td>
+<td>相</td>
+<td>旺</td>
+<td>休</td>
+</tr>
+<tr>
+<td>水</td>
+<td>休</td>
+<td>囚</td>
+<td>死</td>
+<td>相</td>
+<td>旺</td>
+</tr>
+</tbody></table>
+<h3 id="日辰的空亡"><a href="#日辰的空亡" class="headerlink" title="日辰的空亡"></a>日辰的空亡</h3><p><strong>空亡, 也叫旬空.</strong><br>中国天干地支纪年法中, 有十天干, 十二地支. 阴配阴, 阳配阳, 依次相配. 故而一轮为60.<br>旬表十, 这里指十天. 十个天干只能配到十个地支, 这轮空的两个地支, 就叫旬空, 即为空亡.<br>如甲子旬, 戌亥空亡. 甲戌旬, 申酉空亡.</p>
+<p>空亡通俗的理解：<strong>空亡 = 暂时掉线、能量不在线、心里没底</strong>。分真空/假空</p>
+<table>
+<thead>
+<tr>
+<th><strong>天干</strong></th>
+<th><strong>甲</strong></th>
+<th><strong>乙</strong></th>
+<th><strong>丙</strong></th>
+<th><strong>丁</strong></th>
+<th><strong>戊</strong></th>
+<th><strong>己</strong></th>
+<th><strong>庚</strong></th>
+<th><strong>辛</strong></th>
+<th><strong>壬</strong></th>
+<th><strong>癸</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>地支</td>
+<td>子</td>
+<td>丑</td>
+<td>寅</td>
+<td>卯</td>
+<td>辰</td>
+<td>巳</td>
+<td>午</td>
+<td>未</td>
+<td>申</td>
+<td>酉</td>
+<td><strong>戌</strong></td>
+<td><strong>亥</strong></td>
+</tr>
+<tr>
+<td>甲子旬</td>
+<td>甲子</td>
+<td>乙丑</td>
+<td>丙寅</td>
+<td>丁卯</td>
+<td>戊辰</td>
+<td>己巳</td>
+<td>庚午</td>
+<td>辛未</td>
+<td>壬申</td>
+<td>癸酉</td>
+<td><strong>空亡</strong></td>
+<td><strong>空亡</strong></td>
+</tr>
+<tr>
+<td>地支</td>
+<td>戌</td>
+<td>亥</td>
+<td>子</td>
+<td>丑</td>
+<td>寅</td>
+<td>卯</td>
+<td>辰</td>
+<td>巳</td>
+<td>午</td>
+<td>未</td>
+<td><strong>申</strong></td>
+<td><strong>酉</strong></td>
+</tr>
+<tr>
+<td>甲戌旬</td>
+<td>甲戌</td>
+<td>乙亥</td>
+<td>丙子</td>
+<td>丁丑</td>
+<td>戊寅</td>
+<td>己卯</td>
+<td>庚辰</td>
+<td>辛巳</td>
+<td>壬午</td>
+<td>癸未</td>
+<td><strong>空亡</strong></td>
+<td><strong>空亡</strong></td>
+</tr>
+</tbody></table>
+<h3 id="应期"><a href="#应期" class="headerlink" title="应期"></a>应期</h3><p>对于空亡的爻, 有应期的概念, 即何时能回归岗位起作用, 是未来作用时间的重要判断依据</p>
+<ul>
+<li>主要看假空爻的应期, 通常表示起作用的时间.</li>
+<li>真空爻也有应期，真空爻的应期多主：<strong>应而不实 / 应凶 / 彻底落空</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>触发条件</th>
+<th>通俗比喻</th>
+<th>适用场景</th>
+<th>举例（戌亥空）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>填实</strong></td>
+<td>空亡地支「值日/值月」</td>
+<td>「请假的人今天到岗了」</td>
+<td>最直接、最彻底的解空方式</td>
+<td>戌爻空 → 逢戌日/戌月</td>
+</tr>
+<tr>
+<td><strong>出空</strong></td>
+<td>过了当前旬（10天），进入新旬</td>
+<td>「假期结束，自动返岗」</td>
+<td>时间自然流转解除空亡</td>
+<td>甲子旬戌亥空 → 进入甲戌旬自动出空</td>
+</tr>
+<tr>
+<td><strong>逢冲</strong> (冲实)</td>
+<td>空亡爻逢对冲地支来冲</td>
+<td>「被闹钟叫醒，被迫上岗」</td>
+<td>需爻有气（假空），真空难冲起</td>
+<td>戌爻空 → 逢辰日（辰戌冲）</td>
+</tr>
+<tr>
+<td><strong>逢合</strong></td>
+<td>空亡爻逢六合/三合</td>
+<td>「被队友拉起来一起干」</td>
+<td>辅助解空，需结合卦象判断</td>
+<td>戌爻空 → 逢卯日（卯戌合）</td>
+</tr>
+<tr>
+<td><strong>动而逢值/冲</strong></td>
+<td>动爻空亡 + 逢值日/逢冲日</td>
+<td>「主动请假的人，一到时间就发力」</td>
+<td>动爻应期更快，优先判断</td>
+<td>戌爻发动且空 → 戌日或辰日应事</td>
+</tr>
+</tbody></table>
+<h2 id="地支的三合三刑六害"><a href="#地支的三合三刑六害" class="headerlink" title="地支的三合三刑六害"></a>地支的三合三刑六害</h2><h2 id="三合"><a href="#三合" class="headerlink" title="三合"></a>三合</h2><p>三合局是由<strong>三个地支</strong>组合成一个<strong>五行局</strong>。有 4 组<br>成局条件严格, 只针对动爻+日月的情况.<br>一旦成型, 就是团队力量, 比六合六冲力量还大。<br>主: <strong>聚力成势</strong>, <strong>强力有效</strong>, <strong>长久稳定</strong>. 常用来断<strong>长远应期</strong>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">三合局</th>
+<th align="left">合成五行</th>
+<th align="left">比喻</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>申子辰</strong></td>
+<td align="left"><strong>水局</strong></td>
+<td align="left">水势浩大（如洪水）</td>
+</tr>
+<tr>
+<td align="left"><strong>亥卯未</strong></td>
+<td align="left"><strong>木局</strong></td>
+<td align="left">木气成林（如森林）</td>
+</tr>
+<tr>
+<td align="left"><strong>寅午戌</strong></td>
+<td align="left"><strong>火局</strong></td>
+<td align="left">火势燎原（如火山）</td>
+</tr>
+<tr>
+<td align="left"><strong>巳酉丑</strong></td>
+<td align="left"><strong>金局</strong></td>
+<td align="left">金气成器（如兵阵）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">情况</th>
+<th align="left">是否成局</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>卦中三爻皆动</strong></td>
+<td align="left">✅ <strong>成局</strong></td>
+<td align="left">三个动爻正好凑齐三合（如申子辰全动）</td>
+</tr>
+<tr>
+<td align="left"><strong>两爻动 + 占卜日或月</strong></td>
+<td align="left">✅ <strong>成局</strong></td>
+<td align="left">卦中两动爻 + 日/月补齐第三个地支（最常见）</td>
+</tr>
+<tr>
+<td align="left"><strong>一爻动 + 占卜日月</strong></td>
+<td align="left">✅ <strong>成局</strong></td>
+<td align="left">卦中一动爻 + 日/月补齐另两个地支</td>
+</tr>
+<tr>
+<td align="left"><strong>仅缺一个五行</strong></td>
+<td align="left">⏳ <strong>待用</strong></td>
+<td align="left">叫“<strong>虚一待用</strong>”，等未来时间补齐那个字</td>
+</tr>
+</tbody></table>
+<p>三合局的”破局”情况供参考. 三合局成立后，也可能被”打破”.<br>注意：<strong>三合局一旦成立，力量很强，不易被破</strong>，除非冲的是”中神”（子/卯/午/酉）。</p>
+<table>
+<thead>
+<tr>
+<th align="left">破局方式</th>
+<th align="left">说明</th>
+<th align="left">例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>冲局</strong></td>
+<td align="left">日/月冲三合局中的任何一个爻</td>
+<td align="left">申子辰水局，逢午日冲子 → 局破</td>
+</tr>
+<tr>
+<td align="left"><strong>空亡</strong></td>
+<td align="left">三合局中任一爻旬空</td>
+<td align="left">申子辰，子水旬空 → 局虚，待出空</td>
+</tr>
+<tr>
+<td align="left"><strong>月破</strong></td>
+<td align="left">三合局中任一爻被月建冲</td>
+<td align="left">申子辰，子水在午月 → 子月破，局不稳</td>
+</tr>
+</tbody></table>
 <h2 id="三刑"><a href="#三刑" class="headerlink" title="三刑"></a>三刑</h2><p><strong>核心含义：</strong> <strong>折磨，伤害，是非</strong> 主要用于断<strong>细节、性质、痛苦程度</strong>。</p>
 <ul>
 <li><strong>旺相逢刑</strong> 主发威、权力、手术成功。如官鬼旺相逢刑 → 掌权法官。</li>
@@ -38510,356 +39002,201 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">表面支持，实则损害，信誉受损。</td>
 </tr>
 </tbody></table>
-<h2 id="三合"><a href="#三合" class="headerlink" title="三合"></a>三合</h2><p>三合局是由<strong>三个地支</strong>组合成一个<strong>五行局</strong>。有 4 组<br>成局条件严格, 只针对动爻+日月的情况.<br>一旦成型, 就是团队力量, 比六合六冲力量还大。<br>主: <strong>聚力成势</strong>, <strong>强力有效</strong>, <strong>长久稳定</strong>. 常用来断<strong>长远应期</strong>.</p>
+<h2 id="月建日辰与卦爻地支关系术语表"><a href="#月建日辰与卦爻地支关系术语表" class="headerlink" title="月建日辰与卦爻地支关系术语表"></a>月建日辰与卦爻地支关系术语表</h2><p>对于月建日辰, 其地支和卦爻的地支关系, 还有如下的相关术语概念</p>
 <table>
 <thead>
 <tr>
-<th align="left">三合局</th>
-<th align="left">合成五行</th>
-<th align="left">比喻</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>申子辰</strong></td>
-<td align="left"><strong>水局</strong></td>
-<td align="left">水势浩大（如洪水）</td>
-</tr>
-<tr>
-<td align="left"><strong>亥卯未</strong></td>
-<td align="left"><strong>木局</strong></td>
-<td align="left">木气成林（如森林）</td>
-</tr>
-<tr>
-<td align="left"><strong>寅午戌</strong></td>
-<td align="left"><strong>火局</strong></td>
-<td align="left">火势燎原（如火山）</td>
-</tr>
-<tr>
-<td align="left"><strong>巳酉丑</strong></td>
-<td align="left"><strong>金局</strong></td>
-<td align="left">金气成器（如兵阵）</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="left">情况</th>
-<th align="left">是否成局</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>卦中三爻皆动</strong></td>
-<td align="left">✅ <strong>成局</strong></td>
-<td align="left">三个动爻正好凑齐三合（如申子辰全动）</td>
-</tr>
-<tr>
-<td align="left"><strong>两爻动 + 占卜日或月</strong></td>
-<td align="left">✅ <strong>成局</strong></td>
-<td align="left">卦中两动爻 + 日/月补齐第三个地支（最常见）</td>
-</tr>
-<tr>
-<td align="left"><strong>一爻动 + 占卜日月</strong></td>
-<td align="left">✅ <strong>成局</strong></td>
-<td align="left">卦中一动爻 + 日/月补齐另两个地支</td>
-</tr>
-<tr>
-<td align="left"><strong>仅缺一个五行</strong></td>
-<td align="left">⏳ <strong>待用</strong></td>
-<td align="left">叫“<strong>虚一待用</strong>”，等未来时间补齐那个字</td>
-</tr>
-</tbody></table>
-<p>三合局的”破局”情况供参考. 三合局成立后，也可能被”打破”.<br>注意：<strong>三合局一旦成立，力量很强，不易被破</strong>，除非冲的是”中神”（子/卯/午/酉）。</p>
-<table>
-<thead>
-<tr>
-<th align="left">破局方式</th>
-<th align="left">说明</th>
-<th align="left">例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>冲局</strong></td>
-<td align="left">日/月冲三合局中的任何一个爻</td>
-<td align="left">申子辰水局，逢午日冲子 → 局破</td>
-</tr>
-<tr>
-<td align="left"><strong>空亡</strong></td>
-<td align="left">三合局中任一爻旬空</td>
-<td align="left">申子辰，子水旬空 → 局虚，待出空</td>
-</tr>
-<tr>
-<td align="left"><strong>月破</strong></td>
-<td align="left">三合局中任一爻被月建冲</td>
-<td align="left">申子辰，子水在午月 → 子月破，局不稳</td>
-</tr>
-</tbody></table>
-<h2 id="原神、忌神、仇神、进神、退神"><a href="#原神、忌神、仇神、进神、退神" class="headerlink" title="原神、忌神、仇神、进神、退神"></a>原神、忌神、仇神、进神、退神</h2><table>
-<thead>
-<tr>
-<th align="left">概念</th>
-<th align="left">定义</th>
-<th>比喻</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>用神</strong></td>
-<td align="left">占卜的核心目标</td>
-<td>我军</td>
-<td align="left">确定吉凶的承受主体。</td>
-</tr>
-<tr>
-<td align="left"><strong>原神</strong></td>
-<td align="left"><strong>生</strong> 用神之爻</td>
-<td>我军粮草</td>
-<td align="left">判断用神是否有源、有救、有后劲。</td>
-</tr>
-<tr>
-<td align="left"><strong>忌神</strong></td>
-<td align="left"><strong>克</strong> 用神之爻</td>
-<td>敌军</td>
-<td align="left">判断阻力、风险、破坏力的来源。</td>
-</tr>
-<tr>
-<td align="left"><strong>仇神</strong></td>
-<td align="left"><strong>生</strong> 忌神之爻</td>
-<td>敌军粮草</td>
-<td align="left">当忌神旺相时，仇神会加剧危害。初期可略。</td>
-</tr>
-<tr>
-<td align="left"><strong>进神</strong></td>
-<td align="left">动爻变化后比原爻更旺</td>
-<td>士气提高</td>
-<td align="left">事情向好的方向发展</td>
-</tr>
-<tr>
-<td align="left"><strong>退神</strong></td>
-<td align="left">动爻变化后比原爻更弱</td>
-<td>士气降低</td>
-<td align="left">事情向坏的方向发展</td>
-</tr>
-</tbody></table>
-<h2 id="月建日辰"><a href="#月建日辰" class="headerlink" title="月建日辰"></a>月建日辰</h2><p>日月时间, 取十二地支对应的五行即可. 对应关系见”五行生克”中的介绍.<br><strong>月建日辰的作用力</strong>：</p>
-<ul>
-<li>月建：当月地支，管一月之权</li>
-<li>日辰：当日地支，管一日之权</li>
-</ul>
-<p><strong>日月对爻的影响：</strong></p>
-<ul>
-<li>月建生扶则旺，月建克制则衰. 有 <strong>旺相休囚死</strong> 之判断</li>
-<li>日辰生扶则增力，日辰克制则减力</li>
-</ul>
-<h3 id="月建的旺相休囚死"><a href="#月建的旺相休囚死" class="headerlink" title="月建的旺相休囚死"></a>月建的旺相休囚死</h3><p>基于十二地支时间, 我为月建(农历), 对爻的生克关系： </p>
-<ul>
-<li><strong>旺：</strong> 同五行。帝旺, 力量最强。</li>
-<li><strong>相：</strong> 我生者。宰相, 力量次强。</li>
-<li><strong>休：</strong> 生我者。退休, 力量衰退。</li>
-<li><strong>囚：</strong> 克我者。囚困, 力量被困。</li>
-<li><strong>死：</strong> 我克者。死亡, 力量最弱。</li>
-</ul>
-<p>补充说明:</p>
-<ul>
-<li>虽然”旺相休囚死”是针对月建来说的.</li>
-<li>但是五行生克是可以用于其它尺度的时间的. 譬如日辰.<table>
-<thead>
-<tr>
-<th></th>
-<th>春木</th>
-<th>夏火</th>
-<th>季末土</th>
-<th>秋金</th>
-<th>冬水</th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td>正月二月</td>
-<td>四月五月</td>
-<td>三六九,十二月</td>
-<td>七月八月</td>
-<td>十月十一月</td>
-</tr>
-<tr>
-<td><strong>爻</strong></td>
-<td><strong>寅卯</strong></td>
-<td><strong>巳午</strong></td>
-<td><strong>辰戌丑未</strong></td>
-<td><strong>申酉</strong></td>
-<td><strong>亥子</strong></td>
-</tr>
-<tr>
-<td>木</td>
-<td>旺</td>
-<td>休</td>
-<td>囚</td>
-<td>死</td>
-<td>相</td>
-</tr>
-<tr>
-<td>火</td>
-<td>相</td>
-<td>旺</td>
-<td>休</td>
-<td>囚</td>
-<td>死</td>
-</tr>
-<tr>
-<td>土</td>
-<td>死</td>
-<td>相</td>
-<td>旺</td>
-<td>休</td>
-<td>囚</td>
-</tr>
-<tr>
-<td>金</td>
-<td>囚</td>
-<td>死</td>
-<td>相</td>
-<td>旺</td>
-<td>休</td>
-</tr>
-<tr>
-<td>水</td>
-<td>休</td>
-<td>囚</td>
-<td>死</td>
-<td>相</td>
-<td>旺</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h3 id="日辰的空亡"><a href="#日辰的空亡" class="headerlink" title="日辰的空亡"></a>日辰的空亡</h3><p><strong>空亡, 也叫旬空.</strong><br>中国天干地支纪年法中, 有十天干, 十二地支. 阴配阴, 阳配阳, 依次相配. 故而一轮为60.<br>旬表十, 这里指十天. 十个天干只能配到十个地支, 这轮空的两个地支, 就叫旬空, 即为空亡.<br>如甲子旬, 戌亥空亡. 甲戌旬, 申酉空亡.</p>
-<p>空亡通俗的理解：<strong>空亡 = 暂时掉线、能量不在线、心里没底</strong>。</p>
-<table>
-<thead>
-<tr>
-<th><strong>天干</strong></th>
-<th><strong>甲</strong></th>
-<th><strong>乙</strong></th>
-<th><strong>丙</strong></th>
-<th><strong>丁</strong></th>
-<th><strong>戊</strong></th>
-<th><strong>己</strong></th>
-<th><strong>庚</strong></th>
-<th><strong>辛</strong></th>
-<th><strong>壬</strong></th>
-<th><strong>癸</strong></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>地支</td>
-<td>子</td>
-<td>丑</td>
-<td>寅</td>
-<td>卯</td>
-<td>辰</td>
-<td>巳</td>
-<td>午</td>
-<td>未</td>
-<td>申</td>
-<td>酉</td>
-<td><strong>戌</strong></td>
-<td><strong>亥</strong></td>
-</tr>
-<tr>
-<td>甲子旬</td>
-<td>甲子</td>
-<td>乙丑</td>
-<td>丙寅</td>
-<td>丁卯</td>
-<td>戊辰</td>
-<td>己巳</td>
-<td>庚午</td>
-<td>辛未</td>
-<td>壬申</td>
-<td>癸酉</td>
-<td><strong>空亡</strong></td>
-<td><strong>空亡</strong></td>
-</tr>
-<tr>
-<td>地支</td>
-<td>戌</td>
-<td>亥</td>
-<td>子</td>
-<td>丑</td>
-<td>寅</td>
-<td>卯</td>
-<td>辰</td>
-<td>巳</td>
-<td>午</td>
-<td>未</td>
-<td><strong>申</strong></td>
-<td><strong>酉</strong></td>
-</tr>
-<tr>
-<td>甲戌旬</td>
-<td>甲戌</td>
-<td>乙亥</td>
-<td>丙子</td>
-<td>丁丑</td>
-<td>戊寅</td>
-<td>己卯</td>
-<td>庚辰</td>
-<td>辛巳</td>
-<td>壬午</td>
-<td>癸未</td>
-<td><strong>空亡</strong></td>
-<td><strong>空亡</strong></td>
-</tr>
-</tbody></table>
-<h3 id="月建日辰与卦爻地支关系术语表"><a href="#月建日辰与卦爻地支关系术语表" class="headerlink" title="月建日辰与卦爻地支关系术语表"></a>月建日辰与卦爻地支关系术语表</h3><p>对于月建日辰, 其地支和卦爻的地支关系, 还有如下的相关术语概念</p>
-<table>
-<thead>
-<tr>
+<th>术语分类</th>
 <th>术语</th>
-<th>情形</th>
-<th>强弱说明</th>
-<th>备注</th>
+<th>触发条件</th>
+<th>爻的能量</th>
+<th>作用说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>值</strong>（值月/值日）</td>
-<td>月/日地支 = 卦爻地支</td>
-<td>最强 (旺相至极)</td>
-<td>寅月见寅爻</td>
+<td><strong>月建专属</strong></td>
+<td>旺</td>
+<td>爻五行=月建五行(比和)</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>比和为旺</td>
 </tr>
 <tr>
-<td><strong>临/扶</strong>（临月/临日）</td>
-<td>月/日五行 = 卦爻五行，地支不同</td>
-<td>次强 (助爻增力)</td>
-<td>寅木月见卯木爻</td>
+<td></td>
+<td>相</td>
+<td>月建五行 生 爻五行</td>
+<td>⭐⭐⭐⭐</td>
+<td>我生者相，得势</td>
 </tr>
 <tr>
-<td><strong>生</strong>（得生）</td>
-<td>月/日五行 生 卦爻五行</td>
-<td>强 (得生则旺)</td>
-<td>亥水月见寅木爻</td>
+<td></td>
+<td>休</td>
+<td>爻五行 生 月建五行</td>
+<td>⭐⭐</td>
+<td>生我者休，泄气</td>
 </tr>
 <tr>
-<td><strong>克</strong>（受克）</td>
-<td>月/日地支 克 卦爻地支</td>
-<td>弱 (受克则衰)</td>
-<td>申金月见寅木爻</td>
+<td></td>
+<td>囚</td>
+<td>爻五行 克 月建五行</td>
+<td>⭐</td>
+<td>克我者囚，反被耗</td>
 </tr>
 <tr>
-<td><strong>冲</strong>（月冲/日冲）</td>
-<td>月/日地支 六冲 爻地支</td>
-<td>动/破</td>
-<td>旺则<strong>暗动</strong>，弱则<strong>破</strong></td>
+<td></td>
+<td>死</td>
+<td>月建五行 克 爻五行</td>
+<td>❌</td>
+<td>我克者死，被压制</td>
 </tr>
 <tr>
-<td><strong>空亡</strong>（旬空）</td>
+<td><strong>日月通用</strong></td>
+<td>值（值月/值日）</td>
+<td>月/日地支=爻地支</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>爻力巅峰，当权得令</td>
+</tr>
+<tr>
+<td></td>
+<td>临/扶</td>
+<td>月/日五行=爻五行，地支不同</td>
+<td>⭐⭐⭐⭐</td>
+<td>同类相助，增力明显</td>
+</tr>
+<tr>
+<td></td>
+<td>生（得生）</td>
+<td>月/日五行 生 爻五行</td>
+<td>⭐⭐⭐⭐</td>
+<td>得源头活水，能量充沛</td>
+</tr>
+<tr>
+<td></td>
+<td>克（受克）</td>
+<td>月/日五行 克 爻五行</td>
+<td>⭐</td>
+<td>受制于外，力量打折</td>
+</tr>
+<tr>
+<td></td>
+<td>泄</td>
+<td>爻五行 生 月/日五行</td>
+<td>⭐⭐</td>
+<td>输出能量，自身消耗</td>
+</tr>
+<tr>
+<td><strong>冲合刑害</strong></td>
+<td>冲（六冲）</td>
+<td>月/日地支 与 爻地支 六冲</td>
+<td>视旺衰定</td>
+<td>冲开/冲散/冲起，双面性</td>
+</tr>
+<tr>
+<td></td>
+<td>→ <strong>暗动</strong></td>
+<td>冲 + 爻旺相 + 安静</td>
+<td>⭐⭐⭐⭐</td>
+<td>被冲醒，主动应事</td>
+</tr>
+<tr>
+<td></td>
+<td>→ <strong>月破/日破</strong></td>
+<td>冲 + 爻休囚死 + 无生扶</td>
+<td>❌</td>
+<td>被冲坏，暂失生克权</td>
+</tr>
+<tr>
+<td></td>
+<td>合（六合/三合）</td>
+<td>月/日/动爻 与 爻地支 相合</td>
+<td>⭐⭐⭐⭐</td>
+<td>羁绊/助力/成局，需看用神</td>
+</tr>
+<tr>
+<td></td>
+<td>刑/害</td>
+<td>地支相刑/相害关系</td>
+<td>⭐⭐</td>
+<td>内部矛盾，暗中损耗</td>
+</tr>
+<tr>
+<td><strong>日辰专用</strong></td>
+<td>空亡（旬空）</td>
 <td>爻地支 落于 日辰旬空</td>
-<td>暂时掉线</td>
-<td>分真空/假空</td>
+<td>暂时掉线, 看应期</td>
+<td>能量待机，分真假空</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>假空</strong></td>
+<td>空亡 + (旺相/动爻/有生扶/逢合冲)</td>
+<td>⭐⭐⭐</td>
+<td>出空/填实/逢冲可发力</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>真空</strong></td>
+<td>空亡 + 休囚 + 静爻 + 无生扶 + 被日月克</td>
+<td>❌</td>
+<td>彻底失效，难应事</td>
+</tr>
+<tr>
+<td><strong>气的判断</strong></td>
+<td>得气</td>
+<td>月扶 / 日生 / 动爻</td>
+<td>✅ 有能量</td>
+<td>能生克它爻，可应事</td>
+</tr>
+<tr>
+<td></td>
+<td>无气</td>
+<td>月克 + 日克 + 无生扶</td>
+<td>❌ 无能量</td>
+<td>有心无力，难成事</td>
+</tr>
+<tr>
+<td></td>
+<td>假无气</td>
+<td>表面休囚，但有暗动/伏神/合局</td>
+<td>⚠️ 隐性能量</td>
+<td>待时而发，出空/逢冲可用</td>
+</tr>
+<tr>
+<td><strong>假空应期</strong></td>
+<td>填实</td>
+<td>空亡地支, 值日/值月</td>
+<td>✅ 能量回归</td>
+<td>最直接的解空方式</td>
+</tr>
+<tr>
+<td>(真空可看)</td>
+<td>出空</td>
+<td>过当前旬(10天)，进入新旬</td>
+<td>✅ 自动解除</td>
+<td>时间流转自然解空</td>
+</tr>
+<tr>
+<td>(但主应凶)</td>
+<td>逢冲(冲实)</td>
+<td>空亡爻 逢对冲地支</td>
+<td>⚠️ 需爻有气</td>
+<td>冲开空亡，激发能量</td>
+</tr>
+<tr>
+<td>(问灾反吉)</td>
+<td>逢合</td>
+<td>空亡爻 逢六合/三合</td>
+<td>⚠️ 辅助解空</td>
+<td>合中带解，需看卦象</td>
+</tr>
+<tr>
+<td></td>
+<td>动而应期</td>
+<td>动爻空 + 逢值/逢冲</td>
+<td>🚀 应期更快</td>
+<td>动爻优先，发力迅速</td>
 </tr>
 </tbody></table>
-<h2 id="六神的属性与作用"><a href="#六神的属性与作用" class="headerlink" title="六神的属性与作用"></a>六神的属性与作用</h2><p><em>初学暂缓.</em></p>
+<h2 id="六神的属性与作用"><a href="#六神的属性与作用" class="headerlink" title="六神的属性与作用"></a>六神的属性与作用</h2><p>六神由卜卦日期确定. <em>初学暂缓.</em></p>
 <table>
 <thead>
 <tr>
@@ -39028,210 +39365,72 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>出库出墓, 主要看未来的日月时间, 是否能冲开墓库, 或值入墓之爻.</li>
 <li>由解卦者灵活判断是否要进行入库入墓的操作. 因而比较难用.</li>
 </ul>
-<h2 id="其它如生旺死绝表"><a href="#其它如生旺死绝表" class="headerlink" title="其它如生旺死绝表"></a>其它如生旺死绝表</h2><p><em>过于庞杂, 暂不考虑</em></p>
-<h1 id="六爻占卜解卦步骤"><a href="#六爻占卜解卦步骤" class="headerlink" title="六爻占卜解卦步骤"></a>六爻占卜解卦步骤</h1><p>六爻占卜解卦的核心步骤:</p>
-<table>
-<thead>
-<tr>
-<th align="left">步骤</th>
-<th align="left">判断要素</th>
-<th align="left">核心逻辑</th>
-<th align="left">关键补充 (基于文档)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>1</strong></td>
-<td align="left"><strong>定用神</strong></td>
-<td align="left">确定基准，本位中的本</td>
-<td align="left">1. <strong>取用神</strong>：依六亲表 (如财爻、官鬼爻)。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">2. <strong>看世应</strong>：兼看世应生克冲合关系。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">3. <strong>卦身大局</strong>: 三对应爻, 是否为<strong>六冲/六合卦</strong></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">4. 若用神不现, 则 <strong>查伏神</strong>, <strong>判伏神状态</strong>.</td>
-</tr>
-<tr>
-<td align="left"><strong>2</strong></td>
-<td align="left"><strong>月建日辰</strong></td>
-<td align="left">天时/外部环境</td>
-<td align="left">1. <strong>月建</strong>：定先天体质 (旺/相/休/囚/死)。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">2. <strong>日辰</strong>：定当下强弱 (临/生/克/冲/空亡)。</td>
-</tr>
-<tr>
-<td align="left"><strong>3</strong></td>
-<td align="left"><strong>动变爻</strong></td>
-<td align="left">人事/内部动因</td>
-<td align="left">1. <strong>优先级</strong>：动爻 &gt; 静爻。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">2. <strong>变爻</strong>：看回头生/克/墓/绝，决定动爻归宿。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">3. <strong>三合</strong>：检查是否成三合局 (动 + 日月)。</td>
-</tr>
-<tr>
-<td align="left"><strong>4</strong></td>
-<td align="left"><strong>静爻</strong></td>
-<td align="left">现状/基础</td>
-<td align="left">1. <strong>被动</strong>：静爻被动接受生克。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">2. <strong>暗动</strong>：旺相静爻逢日冲为暗动 (有力)。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">3. <strong>日破</strong>：休囚静爻逢日冲为日破 (无力)。</td>
-</tr>
-<tr>
-<td align="left"><strong>5</strong></td>
-<td align="left"><strong>冲合关系</strong></td>
-<td align="left">改变作用方式</td>
-<td align="left">1. <strong>优先权</strong>：冲合关系 影响 五行生克。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">2. <strong>互动</strong>：合能解冲克，冲能解合；贪合忘生克。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">3. <strong>吉凶</strong>：依占事定 (如婚姻喜合，疾病喜冲)。</td>
-</tr>
-<tr>
-<td align="left"><strong>6</strong></td>
-<td align="left"><strong>刑害关系</strong></td>
-<td align="left">细节波折</td>
-<td align="left">1. <strong>辅助</strong>：测官司/疾病时放大；一般事辅助参考。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">2. <strong>自刑</strong>：辰午酉亥自见，主自我纠结。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">3. <strong>六害</strong>：主暗中损伤、内部不和。</td>
-</tr>
-<tr>
-<td align="left"><strong>7</strong></td>
-<td align="left"><strong>六神</strong></td>
-<td align="left">人事分类 + 象意细节</td>
-<td align="left">1. <strong>定位</strong>：六亲定事类，六神断细节。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">2. <strong>象征</strong>：如白虎主血光，青龙主喜庆，朱雀主口舌。</td>
-</tr>
-<tr>
-<td align="left"><strong>8</strong></td>
-<td align="left"><strong>综合吉凶</strong></td>
-<td align="left">公式化判断</td>
-<td align="left"><strong>公式</strong>：<code>(旺衰 + 生克) × (冲合) × (状态)</code></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">1. <strong>吉</strong>：用旺、原神助、忌受制、卦无冲克。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">2. <strong>凶</strong>：用衰、忌猖、卦逢冲克、用神空破。</td>
-</tr>
-<tr>
-<td align="left"><strong>9</strong></td>
-<td align="left"><strong>应期判断</strong></td>
-<td align="left">事情何时发生</td>
-<td align="left">1. <strong>空亡</strong>：待填实 (值日/月) 或 冲空。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">2. <strong>月破</strong>：待合 (值日/月) 或 出月。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">3. <strong>入墓</strong>：待冲墓 或 值爻。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">4. <strong>静爻</strong>：待值 或 冲。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">5. <strong>合局</strong>：待冲 或 虚一待用。</td>
-</tr>
-</tbody></table>
-<p>六爻占卜解卦要点:</p>
-<ul>
-<li><strong>抓主要矛盾</strong>： 不要每一步都平均用力。<strong>旺衰 + 生克</strong> 是核心（占 70% 权重），冲合刑害等是修饰（占 30% 权重）。不要为了一个“刑害”细节而忽略了“月破”大凶。</li>
-<li><strong>灵活大于规则</strong>： 表格是死的，卦是活的。如果遇到规则冲突（如既冲又合），<strong>回归五行生克本质</strong>：谁力量大听谁的（日月 &gt; 动变 &gt; 静爻 &gt; 卦辞爻辞）。</li>
-<li><strong>复盘验证</strong>： 解卦后，一定要记录结果。特别是<strong>应期</strong>，验证准不准，是提升水平的最快路径。</li>
+<h2 id="其它如生旺死绝表"><a href="#其它如生旺死绝表" class="headerlink" title="其它如生旺死绝表"></a>其它如生旺死绝表</h2><p>如绝, 长生, 帝旺等. <em>过于庞杂, 暂不考虑</em></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://wiki.tianjiyao.com/yijing/liuyao.html">六爻占卜入门：从起卦到解卦的完整流程</a></li>
+<li><a href="https://www.6yao.ai/blog/liuyao-divination-complete-guide">六爻占卜详解：从起卦到解卦的完整指南</a></li>
+<li><a href="https://m.sohu.com/n/476359403/">教你学八字28:地支藏干，五行藏在暗中的秘密</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/714822006">第八章：用神、原神、忌神、仇神——分清卦中的敌我</a></li>
 </ul>
-<h2 id="一、婚姻感情"><a href="#一、婚姻感情" class="headerlink" title="一、婚姻感情"></a>一、婚姻感情</h2><p><strong>用神取法</strong>：</p>
+<hr>
+<p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>Bagua</category>
+      </categories>
+      <tags>
+        <tag>Bagua</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>六爻占卜的解卦步骤</title>
+    <url>/2026/03/19/2623-jiegua2/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
+<li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
+<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
+<li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
+<li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
+<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
+<li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
+<li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
+<li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
+<li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
+</ul>
+<h1 id="常见占卜解卦入门"><a href="#常见占卜解卦入门" class="headerlink" title="常见占卜解卦入门"></a>常见占卜解卦入门</h1><h2 id="婚姻感情"><a href="#婚姻感情" class="headerlink" title="婚姻感情"></a>婚姻感情</h2><p><strong>用神取法</strong>：</p>
 <ul>
-<li>未婚男占：妻财为用神</li>
-<li>未婚女占：官鬼为用神</li>
-<li>已婚占婚姻质量：世应关系为主</li>
+<li><p>世爻为自己, 应爻为对方</p>
+</li>
+<li><p><strong>未婚男占：妻财为用神</strong></p>
+<ul>
+<li>原神子孙, 忌神兄弟, 仇神父母, 耗护神官鬼 </li>
+</ul>
+</li>
+<li><p><strong>未婚女占：官鬼为用神</strong></p>
+<ul>
+<li>原神妻财, 忌神子孙, 仇神兄弟, 耗护神父母 </li>
+</ul>
+</li>
+<li><p>已婚占婚姻质量：世应关系为主</p>
+</li>
 </ul>
 <p><strong>判断要点</strong>：</p>
 <ul>
 <li>世应相生合主感情好</li>
 <li>妻财/官鬼旺相主对方条件好</li>
-<li>子孙动克官鬼不利女占婚姻</li>
 <li>兄弟动克妻财不利男占婚姻</li>
+<li>子孙动克官鬼不利女占婚姻</li>
 </ul>
-<h2 id="二、事业工作"><a href="#二、事业工作" class="headerlink" title="二、事业工作"></a>二、事业工作</h2><p><strong>用神取法</strong>：</p>
+<h2 id="事业工作"><a href="#事业工作" class="headerlink" title="事业工作"></a>事业工作</h2><p><strong>用神取法</strong>：</p>
 <ul>
-<li>占工作：官鬼为用神</li>
-<li>占升职：官鬼配合父母爻</li>
-<li>占同事关系：兄弟爻参考</li>
+<li>世爻为自己</li>
+<li><strong>占工作：官鬼为用神</strong></li>
+<li>占升职：官鬼为用神, 配合父母</li>
+<li>占同事关系：参考兄弟</li>
+<li>原神妻财(待遇), 忌神子孙 </li>
+<li>仇神兄弟(同事), 耗护神父母</li>
 </ul>
 <p><strong>判断要点</strong>：</p>
 <ul>
@@ -39240,11 +39439,14 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>妻财旺相待遇好</li>
 <li>子孙动克官鬼不利工作</li>
 </ul>
-<h2 id="三、财运投资"><a href="#三、财运投资" class="headerlink" title="三、财运投资"></a>三、财运投资</h2><p><strong>用神取法</strong>：</p>
+<h2 id="财运投资"><a href="#财运投资" class="headerlink" title="财运投资"></a>财运投资</h2><p><strong>用神取法</strong>：</p>
 <ul>
-<li>妻财爻为用神</li>
+<li>世爻为自己</li>
+<li><strong>妻财爻为用神</strong></li>
 <li>子孙爻为财源</li>
 <li>兄弟爻为破财</li>
+<li>原神子孙(财源), 忌神兄弟(破财)</li>
+<li>仇神父母, 耗护神官鬼</li>
 </ul>
 <p><strong>判断要点</strong>：</p>
 <ul>
@@ -39253,11 +39455,13 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>兄弟动克妻财防破财</li>
 <li>官鬼动生父母利于长期投资</li>
 </ul>
-<h2 id="四、健康疾病"><a href="#四、健康疾病" class="headerlink" title="四、健康疾病"></a>四、健康疾病</h2><p><strong>用神取法</strong>：</p>
+<h2 id="健康疾病"><a href="#健康疾病" class="headerlink" title="健康疾病"></a>健康疾病</h2><p><strong>用神取法</strong>：</p>
 <ul>
-<li>官鬼爻为病源</li>
-<li>子孙爻为医药</li>
 <li>世爻为本人身体</li>
+<li><strong>官鬼爻为病源, 可定为用神</strong></li>
+<li>子孙爻为医药, </li>
+<li>原神妻财(欲望生病), 忌神子孙(医药治病)</li>
+<li>仇神兄弟, 耗护神父母(自身抵抗)</li>
 </ul>
 <p><strong>判断要点</strong>：</p>
 <ul>
@@ -39266,10 +39470,666 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li>官鬼克世病难受</li>
 <li>子孙克官鬼病易愈</li>
 </ul>
+<h1 id="解卦进阶步骤"><a href="#解卦进阶步骤" class="headerlink" title="解卦进阶步骤"></a>解卦进阶步骤</h1><p>六爻占卜解卦的核心步骤:</p>
+<table>
+<thead>
+<tr>
+<th align="left">步骤 &amp; 重要性</th>
+<th align="left">判断要素</th>
+<th align="left">核心逻辑</th>
+<th align="left">关键补充</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1.1 定基准</strong></td>
+<td align="left">取用神</td>
+<td align="left">确定分析锚点，本位中的本位</td>
+<td align="left">① 依事类查六亲表（财/官/父/子/兄）</td>
+</tr>
+<tr>
+<td align="left"><strong>第一层</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">② 圈出三神：用神 + 原神（队友）+ 忌神（敌人）</td>
+</tr>
+<tr>
+<td align="left"><strong>着力70%</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">③ 看世应关系：世=我，应=对方/事体</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">④ 用神不现则查伏神，判飞伏生克</td>
+</tr>
+<tr>
+<td align="left"><strong>1.2 定先天</strong></td>
+<td align="left">月建旺衰</td>
+<td align="left">月令管一月大势，定爻的「体质等级」</td>
+<td align="left">① 仅月建论旺相休囚死（季节规律）</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">② 月冲判断：冲 + 旺=暗动；冲 + 休囚=月破</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">③ 月建不管空亡，空亡由日辰定</td>
+</tr>
+<tr>
+<td align="left"><strong>1.3 定当下</strong></td>
+<td align="left">日辰状态</td>
+<td align="left">日辰管一日应期，定爻的「即时能量」</td>
+<td align="left">① 日辰生克值临，即时加减力</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">② 依日柱旬定空亡（如甲子旬戌亥空）</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">③ 日冲判断：旺 + 冲=暗动；休囚 + 冲=日破</td>
+</tr>
+<tr>
+<td align="left"><strong>1.4 看动变</strong></td>
+<td align="left">动变爻</td>
+<td align="left">「神机兆于动」，动爻是卦的发动机</td>
+<td align="left">① 动爻&gt;静爻，动爻能生克静爻</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">② 回头克优先：用神动化回头克多主凶</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">③ 看变爻归宿：生/克/墓/绝/空/破</td>
+</tr>
+<tr>
+<td align="left"><strong>2.1 看卦象</strong></td>
+<td align="left">卦象空亡</td>
+<td align="left">看卦象, 看空/破/墓库，影响发力</td>
+<td align="left">① 看主卦和变卦的意象及含义.</td>
+</tr>
+<tr>
+<td align="left"><strong>第二层</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">② 空亡：先判真假，假空可救，真空难成</td>
+</tr>
+<tr>
+<td align="left"><strong>着力10%</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">③ 月破：破 + 有生扶=假破；破 + 无气=真破</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">④ 入墓入库：待冲墓/值爻方出，暂受困</td>
+</tr>
+<tr>
+<td align="left"><strong>2.2 看互动</strong></td>
+<td align="left">冲合动破</td>
+<td align="left">冲合能改变生克路径，是关系调节器</td>
+<td align="left">① 冲合优先：先论冲合，定动破，再论生克</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">② 贪合忘生：爻逢合可能暂不受生克</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">③ 事类定吉凶：婚姻喜合，疾病/官司喜冲</td>
+</tr>
+<tr>
+<td align="left"><strong>2.3 看静爻</strong></td>
+<td align="left">静爻状态</td>
+<td align="left">静爻是「背景板」，被动接受生克冲合</td>
+<td align="left">① 静爻被动：无生扶 + 休囚=无力</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">② 暗动识别：旺相静爻 + 日冲=有力</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">③ 日破识别：休囚静爻 + 日冲=暂失权</td>
+</tr>
+<tr>
+<td align="left"><strong>3.1 加象意</strong></td>
+<td align="left">六神刑害</td>
+<td align="left">六神/刑害是「细节滤镜」，不定吉凶主干</td>
+<td align="left">① 六神定位：只断性质（颜色/情绪），不断吉凶</td>
+</tr>
+<tr>
+<td align="left"><strong>第三层</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">② 刑害辅助：测官司/疾病时放大，一般事参考</td>
+</tr>
+<tr>
+<td align="left"><strong>着力20%</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">③ 自刑注意：辰午酉亥自见，主自我纠结</td>
+</tr>
+<tr>
+<td align="left"><strong>3.2 断结论</strong></td>
+<td align="left">判断吉凶</td>
+<td align="left">公式化输出：<code>(旺衰 + 生克) × 状态 × 事类</code></td>
+<td align="left">① 判断吉凶：用旺 + 原神助=吉；反之=凶</td>
+</tr>
+<tr>
+<td align="left"><strong>3.3 算应期</strong></td>
+<td align="left">计算应期</td>
+<td align="left">如有必要, 计算出应期</td>
+<td align="left">① 再断应期：假空→填实/出空；月破→出月/逢合</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">② 真空处理：优先断「难成」，应期多主落空</td>
+</tr>
+</tbody></table>
+<p>对于月建日辰, 其地支和卦爻的地支关系, 常用术语总结.</p>
+<table>
+<thead>
+<tr>
+<th>术语分类</th>
+<th>术语</th>
+<th>触发条件</th>
+<th>爻的能量</th>
+<th>作用说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>月建专属</strong></td>
+<td>旺</td>
+<td>爻五行=月建五行(比和)</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>比和为旺</td>
+</tr>
+<tr>
+<td></td>
+<td>相</td>
+<td>月建五行 生 爻五行</td>
+<td>⭐⭐⭐⭐</td>
+<td>我生者相，得势</td>
+</tr>
+<tr>
+<td></td>
+<td>休</td>
+<td>爻五行 生 月建五行</td>
+<td>⭐⭐</td>
+<td>生我者休，泄气</td>
+</tr>
+<tr>
+<td></td>
+<td>囚</td>
+<td>爻五行 克 月建五行</td>
+<td>⭐</td>
+<td>克我者囚，反被耗</td>
+</tr>
+<tr>
+<td></td>
+<td>死</td>
+<td>月建五行 克 爻五行</td>
+<td>❌</td>
+<td>我克者死，被压制</td>
+</tr>
+<tr>
+<td><strong>日月通用</strong></td>
+<td>值（值月/值日）</td>
+<td>月/日地支=爻地支</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>爻力巅峰，当权得令</td>
+</tr>
+<tr>
+<td></td>
+<td>临/扶</td>
+<td>月/日五行=爻五行，地支不同</td>
+<td>⭐⭐⭐⭐</td>
+<td>同类相助，增力明显</td>
+</tr>
+<tr>
+<td></td>
+<td>生（得生）</td>
+<td>月/日五行 生 爻五行</td>
+<td>⭐⭐⭐⭐</td>
+<td>得源头活水，能量充沛</td>
+</tr>
+<tr>
+<td></td>
+<td>克（受克）</td>
+<td>月/日五行 克 爻五行</td>
+<td>⭐</td>
+<td>受制于外，力量打折</td>
+</tr>
+<tr>
+<td></td>
+<td>泄</td>
+<td>爻五行 生 月/日五行</td>
+<td>⭐⭐</td>
+<td>输出能量，自身消耗</td>
+</tr>
+<tr>
+<td><strong>冲合刑害</strong></td>
+<td>冲（六冲）</td>
+<td>月/日地支 与 爻地支 六冲</td>
+<td>视旺衰定</td>
+<td>冲开/冲散/冲起，双面性</td>
+</tr>
+<tr>
+<td></td>
+<td>→ <strong>暗动</strong></td>
+<td>冲 + 爻旺相 + 安静</td>
+<td>⭐⭐⭐⭐</td>
+<td>被冲醒，主动应事</td>
+</tr>
+<tr>
+<td></td>
+<td>→ <strong>月破/日破</strong></td>
+<td>冲 + 爻休囚死 + 无生扶</td>
+<td>❌</td>
+<td>被冲坏，暂失生克权</td>
+</tr>
+<tr>
+<td></td>
+<td>合（六合/三合）</td>
+<td>月/日/动爻 与 爻地支 相合</td>
+<td>⭐⭐⭐⭐</td>
+<td>羁绊/助力/成局，需看用神</td>
+</tr>
+<tr>
+<td></td>
+<td>刑/害</td>
+<td>地支相刑/相害关系</td>
+<td>⭐⭐</td>
+<td>内部矛盾，暗中损耗</td>
+</tr>
+<tr>
+<td><strong>日辰专用</strong></td>
+<td>空亡（旬空）</td>
+<td>爻地支 落于 日辰旬空</td>
+<td>暂时掉线, 看应期</td>
+<td>能量待机，分真假空</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>假空</strong></td>
+<td>空亡 + (旺相/动爻/有生扶/逢合冲)</td>
+<td>⭐⭐⭐</td>
+<td>出空/填实/逢冲可发力</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>真空</strong></td>
+<td>空亡 + 休囚 + 静爻 + 无生扶 + 被日月克</td>
+<td>❌</td>
+<td>彻底失效，难应事</td>
+</tr>
+<tr>
+<td><strong>气的判断</strong></td>
+<td>得气</td>
+<td>月扶 / 日生 / 动爻</td>
+<td>✅ 有能量</td>
+<td>能生克它爻，可应事</td>
+</tr>
+<tr>
+<td></td>
+<td>无气</td>
+<td>月克 + 日克 + 无生扶</td>
+<td>❌ 无能量</td>
+<td>有心无力，难成事</td>
+</tr>
+<tr>
+<td></td>
+<td>假无气</td>
+<td>表面休囚，但有暗动/伏神/合局</td>
+<td>⚠️ 隐性能量</td>
+<td>待时而发，出空/逢冲可用</td>
+</tr>
+<tr>
+<td><strong>假空应期</strong></td>
+<td>填实</td>
+<td>空亡地支, 值日/值月</td>
+<td>✅ 能量回归</td>
+<td>最直接的解空方式</td>
+</tr>
+<tr>
+<td>(真空可看)</td>
+<td>出空</td>
+<td>过当前旬(10天)，进入新旬</td>
+<td>✅ 自动解除</td>
+<td>时间流转自然解空</td>
+</tr>
+<tr>
+<td>(但主应凶)</td>
+<td>逢冲(冲实)</td>
+<td>空亡爻 逢对冲地支</td>
+<td>⚠️ 需爻有气</td>
+<td>冲开空亡，激发能量</td>
+</tr>
+<tr>
+<td>(问灾反吉)</td>
+<td>逢合</td>
+<td>空亡爻 逢六合/三合</td>
+<td>⚠️ 辅助解空</td>
+<td>合中带解，需看卦象</td>
+</tr>
+<tr>
+<td></td>
+<td>动而应期</td>
+<td>动爻空 + 逢值/逢冲</td>
+<td>🚀 应期更快</td>
+<td>动爻优先，发力迅速</td>
+</tr>
+</tbody></table>
+<p>六爻占卜解卦要点:</p>
+<ul>
+<li>不要平均用力<ul>
+<li>主要精力放在「用神旺衰 + 动爻生克」（第一层）, 这是最重要的.</li>
+<li>少量精力放在「六神刑害」（第三层）, 甚至可以忽略.</li>
+</ul>
+</li>
+<li>动爻是灵魂<ul>
+<li>「神机兆于动」，有动爻先看动爻，静卦才看旺衰。</li>
+<li>动爻能生克静爻，静爻不能生克动爻（除非暗动）。</li>
+</ul>
+</li>
+<li>吉凶与应期分离<ul>
+<li>先断「成不成」（吉凶），再断「何时成」（应期）。</li>
+<li>若卦象显示「真空/月破无救」，直接断不成，不必强行找应期。</li>
+</ul>
+</li>
+<li>世应关系是视角<ul>
+<li>测合作/感情：世应相生合为吉，冲克为凶。</li>
+<li>测求财/办事：世爻旺相能担财，用神旺相财自来。</li>
+</ul>
+</li>
+</ul>
+<h1 id="六爻占卜解卦的举例"><a href="#六爻占卜解卦的举例" class="headerlink" title="六爻占卜解卦的举例"></a>六爻占卜解卦的举例</h1><h2 id="20260321-1046-当前是否可入黄金-何时更合适"><a href="#20260321-1046-当前是否可入黄金-何时更合适" class="headerlink" title="20260321.1046, 当前是否可入黄金, 何时更合适?"></a>20260321.1046, 当前是否可入黄金, 何时更合适?</h2><p>略筮法: 上卦2兑, 下卦6坎, 动爻6</p>
+<h2 id="六爻装卦排盘"><a href="#六爻装卦排盘" class="headerlink" title="六爻装卦排盘"></a>六爻装卦排盘</h2><ul>
+<li>起卦时间：丙午年 辛卯月 甲午日 巳时 </li>
+<li>日旬空：辰巳 </li>
+<li>主卦属于兑宫一世卦 </li>
+<li>主装卦信息：泽水困<table>
+<thead>
+<tr>
+<th>爻位</th>
+<th>六神</th>
+<th>六亲</th>
+<th>纳甲</th>
+<th>爻</th>
+<th>世应</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上爻</td>
+<td>玄武</td>
+<td>父母</td>
+<td>未土</td>
+<td>老阴</td>
+<td></td>
+</tr>
+<tr>
+<td>五爻</td>
+<td>白虎</td>
+<td>兄弟</td>
+<td>酉金</td>
+<td>少阳</td>
+<td></td>
+</tr>
+<tr>
+<td>四爻</td>
+<td>腾蛇</td>
+<td>子孙</td>
+<td>亥水</td>
+<td>少阳</td>
+<td>应</td>
+</tr>
+<tr>
+<td>三爻</td>
+<td>勾陈</td>
+<td>官鬼</td>
+<td>午火</td>
+<td>少阴</td>
+<td></td>
+</tr>
+<tr>
+<td>二爻</td>
+<td>朱雀</td>
+<td>父母</td>
+<td>辰土</td>
+<td>少阳</td>
+<td></td>
+</tr>
+<tr>
+<td>初爻</td>
+<td>青龙</td>
+<td>妻财</td>
+<td>寅木</td>
+<td>少阴</td>
+<td>世</td>
+</tr>
+</tbody></table>
+</li>
+<li>变卦装卦信息： 天水讼<table>
+<thead>
+<tr>
+<th>爻位</th>
+<th>六神</th>
+<th>六亲</th>
+<th>纳甲</th>
+<th>爻</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上爻</td>
+<td>玄武</td>
+<td>父母</td>
+<td>戌土</td>
+<td>少阳</td>
+</tr>
+<tr>
+<td>五爻</td>
+<td>白虎</td>
+<td>兄弟</td>
+<td>申金</td>
+<td>少阳</td>
+</tr>
+<tr>
+<td>四爻</td>
+<td>腾蛇</td>
+<td>官鬼</td>
+<td>午火</td>
+<td>少阳</td>
+</tr>
+<tr>
+<td>三爻</td>
+<td>勾陈</td>
+<td>官鬼</td>
+<td>午火</td>
+<td>少阴</td>
+</tr>
+<tr>
+<td>二爻</td>
+<td>朱雀</td>
+<td>父母</td>
+<td>辰土</td>
+<td>少阳</td>
+</tr>
+<tr>
+<td>初爻</td>
+<td>青龙</td>
+<td>妻财</td>
+<td>寅木</td>
+<td>少阴</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="第一层-着力70"><a href="#第一层-着力70" class="headerlink" title="第一层, 着力70%"></a>第一层, 着力70%</h2><ul>
+<li>1.1 取用神. 测求财，以妻财爻为用神<ul>
+<li>用神：初爻 妻财寅木（持世）</li>
+<li>原神：四爻 子孙亥水（生财）</li>
+<li>忌神：五爻 兄弟酉金（劫财）</li>
+<li>世应：世爻=自己，应爻=金价</li>
+<li>仇神:   上爻未土(动) 二爻辰土(静) 父母爻(生忌神之事物)</li>
+</ul>
+</li>
+<li>1.2 月建旺衰. 卯月木旺，定用神体质等级<ul>
+<li>用神寅木：临卯月为「旺」（同五行）</li>
+<li>忌神酉金：在卯月为「囚/死」（金克木被耗）<ul>
+<li>查表可确定为囚. 实际操作中, 克或被克, 就是囚或死.</li>
+<li>两者都是低爻力, 故而快速判断即可.</li>
+</ul>
+</li>
+<li>原神亥水：在卯月为「休」（水生木泄气）</li>
+<li><strong>助记</strong>: 月建五行为我, 为本. 重要的爻神为位. 两者判断五行生克比和. <ul>
+<li>与爻比和为旺; 我生为相; 有克(克或被克)为囚死; 生我为休(要坐月子放产假).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1.3 日辰状态. 午日火旺，定即时能量与空亡<ul>
+<li>用神寅木：生午日为「泄」（木生火，能量输出）</li>
+<li>空亡：甲午旬辰巳空，二爻父母辰土落空</li>
+<li>日辰午火：生助父母爻（成本）</li>
+<li>有两个父母爻. 重点看上爻作为父母爻, 因为是动爻.</li>
+</ul>
+</li>
+<li>1.4 看动变. 上爻发动，是卦的变数核心<ul>
+<li>动爻：上爻 父母未土（老阴）</li>
+<li>变爻：父母戌土（少阳）</li>
+<li>关系：未土化戌土为「进神」（成本/压力增大）</li>
+<li>生克：父母未土 生 兄弟酉金（忌神得助）</li>
+</ul>
+</li>
+<li>1.5 初步判断. 到此位置, 整个卦的基本信息以及较为全面的判断了.<ul>
+<li>月建总结: 用神旺, 忌神弱. 但原神也不强. 可以定个当月可操作.</li>
+<li>日辰总结: 二爻空亡, 但可忽略. 但可看出, 当前不适合买入.</li>
+<li>动变总结: 上爻为父母爻, 动变后成进神, 非常强势, 即成本增加.</li>
+<li>结论: 当前不适合买入. 买入的话会增加成本, 带来压力. </li>
+<li>预期: 如果非常想买入, 譬如建仓, 可选择当月的后续日辰, 这再最后的应期计算一下.</li>
+</ul>
+</li>
+</ul>
+<h2 id="第二层-着力10"><a href="#第二层-着力10" class="headerlink" title="第二层, 着力10%"></a>第二层, 着力10%</h2><ul>
+<li>2.1 卦象空亡. 看空亡爻的情况<ul>
+<li>卦名主卦：泽水困（困顿、受制）. <ul>
+<li>有多解, 可表金价困顿受制, 也可表自己买入的话困顿受制</li>
+</ul>
+</li>
+<li>卦名变卦：天水讼（争执、口舌）<ul>
+<li>亦有多解. 可表买入后心情/家人不和谐, 也可表后续金价上, 其它交易市场下.</li>
+</ul>
+</li>
+<li>真空/假空：二爻辰土空亡，休囚受克为「真空」（文书/成本落空）<ul>
+<li>二爻本就不重要. 这里不进行判断都可以. 判为真空, 可忽略.</li>
+<li>二爻真空可暗示当前市场不明朗，可作为细节佐证。</li>
+</ul>
+</li>
+<li>入墓库判断: 动爻为未土, 属于木库. 基于卦象含义, 解为入墓.<ul>
+<li>如果买入: 用神世爻寅木（自己/资金）入 动爻未土（市场/成本）之墓。</li>
+<li>则用神世爻被关,  不再参与冲合生克判断, 除非出墓.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.2 冲合动破. 六合卦主慢，冲合改变路径.<ul>
+<li>主卦六合：泽水困为六合卦（主稳定、羁绊、慢）</li>
+<li>忌神酉金：被月建卯木冲克+困死, 形成月破，无力劫财</li>
+</ul>
+</li>
+<li>2.3 静爻状态. 静爻被动接受生克冲合<ul>
+<li>忌神酉金：静爻，月破且受动爻生（矛盾）<ul>
+<li>注意点: 可理解为此月很弱, 调整为主. </li>
+<li>但仇神(动爻父母爻)很强. 出此月后忌神就会变强(劫财).</li>
+</ul>
+</li>
+<li>原神亥水：静爻，休囚无力生财</li>
+<li>用神寅木：静爻，月旺</li>
+<li>二爻辰土：静爻，旬空无力. </li>
+</ul>
+</li>
+</ul>
+<h2 id="第三层-着力20"><a href="#第三层-着力20" class="headerlink" title="第三层, 着力20%"></a>第三层, 着力20%</h2><ul>
+<li><p>3.1 六神刑害.六神/刑害是细节滤镜</p>
+<ul>
+<li>世临青龙：主喜庆，自己信心足</li>
+<li>动临玄武：主暗昧不明，市场信息不透明</li>
+<li>卦象凶意：困→讼，先困后争，过程不顺</li>
+</ul>
+</li>
+<li><p>3.2 吉凶应期</p>
+<ul>
+<li>吉凶：近期不宜买入. 金价依旧会困顿调整一段时间.</li>
+<li>风险：动爻父母生忌神，成本助涨劫财. </li>
+</ul>
+</li>
+<li><p>3.3 计算应期：</p>
+<ul>
+<li><p>未月(农历六月)为低价窗口. 判断方法:</p>
+<ul>
+<li>如果买入, 即<strong>世爻入墓</strong>: 未到未月，墓库能量最强，世爻被锁得最死。</li>
+<li><strong>动爻值月</strong>: 动爻是<strong>未土</strong>。到了未月，动爻<strong>临月建</strong> (能量巅峰). 而动爻是仇神. 意味着成本压力大.</li>
+<li><strong>生助忌神</strong>: 动爻未土生忌神酉金. 未月土旺，生金力度最大.</li>
+</ul>
+</li>
+<li><p>戌月(农历十月)为低价窗口. 判断方法:</p>
+</li>
+<li><p><strong>变爻值月</strong>: 动爻未土 变出 <strong>戌土</strong>。到了戌月，变爻<strong>临月建</strong></p>
+<ul>
+<li><strong>父母爻旺</strong>: 未土、戌土 都是<strong>父母爻</strong>, 戌月土旺，父母爻能量强</li>
+</ul>
+</li>
+<li><p><strong>刑动土局</strong>: 未 (动爻) 与 戌 (月建) 形成 <strong>未戌相刑</strong>。(市场波动大，消息乱)</p>
+<ul>
+<li><strong>生助忌神</strong>: 土旺生金 (忌神酉金), 对仇神有助力.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>酉月 (八月): 忌神填实，月破修复. 劫财风险大，防大跌。</p>
+<ul>
+<li>农历八月, 是之前卜卦金融危机的月份! 极有可能暴跌暴涨, 没有真正的买入机会.</li>
+<li>如果入墓了, 出墓的机会是<ul>
+<li>冲墓, 丑未冲. 因而是丑月(正月)</li>
+<li>或值爻. 寅值世爻. 因而是寅月(2月)</li>
+<li>也就是要到明年农历一二月, 才能回升到当前价位以上.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a href="https://wiki.tianjiyao.com/yijing/liuyao.html">六爻占卜入门：从起卦到解卦的完整流程</a></li>
-<li><a href="https://www.6yao.ai/blog/liuyao-divination-complete-guide">六爻占卜详解：从起卦到解卦的完整指南</a></li>
-<li><a href="https://m.sohu.com/n/476359403/">教你学八字28:地支藏干，五行藏在暗中的秘密</a></li>
+<li><a href="https://www.youtube.com/@%E7%8E%84%E6%88%90%E5%85%88%E7%94%9F">玄成先生-占卦解卦系列</a></li>
 </ul>
 <hr>
 <p><em><strong>原创于 <a href="https://draapho.github.io/">DRA&amp;PHO</a></strong></em></p>

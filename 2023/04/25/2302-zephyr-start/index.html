@@ -30,7 +30,7 @@
 <meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-24T14:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-03T15:25:26.000Z">
+<meta property="article:modified_time" content="2026-03-22T00:44:11.920Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="embedded">
 <meta property="article:tag" content="zephyr">
@@ -202,7 +202,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -284,7 +284,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-08-04 01:25:26" itemprop="dateModified" datetime="2023-08-04T01:25:26+10:00">2023-08-04</time>
+        <time title="Modified: 2026-03-22 11:44:11" itemprop="dateModified" datetime="2026-03-22T11:44:11+11:00">2026-03-22</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -307,7 +307,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Zephyr Project 是一个可扩展的实时操作系统, 为资源受限的设备提供支持. 由 Linux 基金会托管.<br>因而该项目极具Linux特点: 性能强大, 学习曲线陡峭, 入门困难. 主要使用命令行格式, 基于类Unix系统测试比较充分, Window下容易遇到各种莫名的问题.<br>该项目刚出来的时候, 也关注过, 根据其指导手册, 在windows下就没有配置成功. 现在有空又试了一下, 算是在windows环境下, 成功搭建了运行环境, 并把范例跑了起来.</p>
+        <p>[TOC]</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Zephyr Project 是一个可扩展的实时操作系统, 为资源受限的设备提供支持. 由 Linux 基金会托管.<br>因而该项目极具Linux特点: 性能强大, 学习曲线陡峭, 入门困难. 主要使用命令行格式, 基于类Unix系统测试比较充分, Window下容易遇到各种莫名的问题.<br>该项目刚出来的时候, 也关注过, 根据其指导手册, 在windows下就没有配置成功. 现在有空又试了一下, 算是在windows环境下, 成功搭建了运行环境, 并把范例跑了起来.</p>
 <h1 id="1-安装-Chocolatey"><a href="#1-安装-Chocolatey" class="headerlink" title="1. 安装 Chocolatey"></a>1. 安装 Chocolatey</h1><p>首先，需要安装 Chocolatey 包管理器。请参阅 <a target="_blank" rel="noopener" href="https://chocolatey.org/install">Chocolatey 安装页面</a> 获取详细信息。</p>
 <p>使用 PowerShell 以<strong>管理员身份</strong>运行以下命令：</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> AllSigned</span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; [<span class="type">System.Net.ServicePointManager</span>]::SecurityProtocol = [<span class="type">System.Net.ServicePointManager</span>]::SecurityProtocol <span class="operator">-bor</span> <span class="number">3072</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://community.chocolatey.org/install.ps1&#x27;</span>))</span><br></pre></td></tr></table></figure>
