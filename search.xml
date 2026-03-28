@@ -26404,388 +26404,364 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </tr>
 </thead>
 <tbody><tr>
-<td>1</td>
-<td>乾为天</td>
-<td></td>
-<td>天,纯阳,创始,自强不息.道生一,一生二化天地.</td>
-</tr>
-<tr>
-<td>2</td>
-<td>坤为地</td>
-<td></td>
-<td>地,纯阴,顺承,厚德载物.天地交感,三生万物.</td>
+<td>1/2</td>
+<td>䷀ 乾为天 ䷁ 坤为地</td>
+<td>天地交感，三生万物</td>
+<td>创始，自强不息 / 顺承，厚德载物。</td>
 </tr>
 <tr>
 <td>3</td>
-<td>水雷屯</td>
-<td>水中有雷, 生命屯出</td>
-<td>初生艰难.蒙昧无知.</td>
+<td>䷂ 水雷屯</td>
+<td>水中有雷，生命屯出</td>
+<td>初生艰难。蒙昧无知。</td>
 </tr>
 <tr>
 <td>4</td>
-<td>山水蒙</td>
-<td>山下有水, 水雾蒙山</td>
-<td>童蒙待启.既开蒙昧,分别有需.</td>
+<td>䷃ 山水蒙</td>
+<td>山下有水，水雾蒙山</td>
+<td>童蒙待启。既开蒙昧，分别有需。</td>
 </tr>
 <tr>
 <td>5</td>
-<td>水天需</td>
-<td>云升于天, 待雨为需</td>
-<td>待时养德,需蓄势而动.</td>
+<td>䷄ 水天需</td>
+<td>云升于天，待雨为需</td>
+<td>待时养德，需蓄势而动。</td>
 </tr>
 <tr>
 <td>6</td>
-<td>天水讼</td>
-<td>天升水降, 志逆而讼</td>
-<td>动起争端,慎争是非.然争必聚众.</td>
+<td>䷅ 天水讼</td>
+<td>天升水降，志逆而讼</td>
+<td>动起争端，慎争是非。然争必聚众。</td>
 </tr>
 <tr>
 <td>7</td>
-<td>地水师</td>
-<td>地中坎水, 聚师据险</td>
-<td>严明以正,聚众据险.众则相依.</td>
+<td>䷆ 地水师</td>
+<td>地中坎水，聚师据险</td>
+<td>严明以正，聚众据险。众则相依。</td>
 </tr>
 <tr>
 <td>8</td>
-<td>水地比</td>
-<td>水流地润, 相比相亲</td>
-<td>相依亲和,比邻而安.分工协作,必有积聚.</td>
+<td>䷇ 水地比</td>
+<td>水流地润，相比相亲</td>
+<td>相依亲和，比邻而安。分工协作，必有积聚。</td>
 </tr>
 <tr>
 <td>9</td>
-<td>风天小畜(xù)</td>
-<td>柔风拂天, 健顺小畜</td>
-<td>小有积蓄,宜潜伏养德.物畜然后有礼.</td>
+<td>䷈ 风天小畜</td>
+<td>柔风拂天，健顺小畜</td>
+<td>小有积蓄，宜潜伏养德。物畜然后有礼。</td>
 </tr>
 <tr>
 <td>10</td>
-<td>天泽履</td>
-<td>天行云泽, 如履薄冰</td>
-<td>循规自守,谨慎前行.履践正道,天下安泰.</td>
+<td>䷉ 天泽履</td>
+<td>天行云泽，如履薄冰</td>
+<td>循规自守，谨慎前行。履践正道，天下安泰。</td>
 </tr>
 <tr>
 <td>11</td>
-<td>地天泰</td>
-<td>地天相通, 万物安泰</td>
-<td>上下通和,万物亨顺.然物极必反.</td>
+<td>䷊ 地天泰</td>
+<td>地天相通，万物安泰</td>
+<td>上下通和，万物亨顺。然物极必反。</td>
 </tr>
 <tr>
 <td>12</td>
-<td>天地否(pǐ)</td>
-<td>天地隔离, 否塞不通</td>
-<td>闭塞不交,塞滞之象.否极则思变.</td>
+<td>䷋ 天地否 (pǐ)</td>
+<td>天地隔离，否塞不通</td>
+<td>闭塞不交，塞滞之象。否极则思变。</td>
 </tr>
 <tr>
 <td>13</td>
-<td>天火同人</td>
-<td>天明火丽, 同人于野</td>
-<td>志同道合,同心协力.则无往不利.</td>
+<td>䷌ 天火同人</td>
+<td>天明火丽，同人于野</td>
+<td>志同道合，同心协力。则无往不利。</td>
 </tr>
 <tr>
 <td>14</td>
-<td>火天大有</td>
-<td>日照乾天, 万物大有</td>
-<td>丰收大有,持盈守正.宜戒骄守谦.</td>
+<td>䷍ 火天大有</td>
+<td>日照乾天，万物大有</td>
+<td>丰收大有，持盈守正。宜戒骄守谦。</td>
 </tr>
 <tr>
 <td>15</td>
-<td>地山谦</td>
-<td>地中潜山, 屈高为谦</td>
-<td>屈己下物,大而能谦,必和乐久顺.</td>
+<td>䷎ 地山谦</td>
+<td>地中潜山，屈高为谦</td>
+<td>屈己下物，大而能谦，必和乐久顺。</td>
 </tr>
 <tr>
 <td>16</td>
-<td>雷地豫</td>
-<td>迅雷出地, 豫乐兴旺</td>
-<td>和乐喜顺.顺势而为,可得众随.</td>
+<td>䷏ 雷地豫</td>
+<td>迅雷出地，豫乐兴旺</td>
+<td>和乐喜顺。顺势而为，可得众随。</td>
 </tr>
 <tr>
 <td>17</td>
-<td>泽雷随</td>
-<td>少女长男, 女悦而随</td>
-<td>顺势众随,无往不利.然久顺必塞.</td>
+<td>䷐ 泽雷随</td>
+<td>少女长男，女悦而随</td>
+<td>顺势众随，无往不利。然久顺必塞。</td>
 </tr>
 <tr>
 <td>18</td>
-<td>山风蛊</td>
-<td>山下有风, 闭止生蛊</td>
-<td>闭塞腐败,当出治蛊之才.</td>
+<td>䷑ 山风蛊</td>
+<td>山下有风，闭止生蛊</td>
+<td>闭塞腐败，当出治蛊之才。</td>
 </tr>
 <tr>
 <td>19</td>
-<td>地泽临</td>
-<td>地中孕泽, 亲临施教</td>
-<td>教化在上,亲临示教.上临则下观.</td>
+<td>䷒ 地泽临</td>
+<td>地中孕泽，亲临施教</td>
+<td>教化在上，亲临示教。上临则下观。</td>
 </tr>
 <tr>
 <td>20</td>
-<td>风地观</td>
-<td>风起于地, 观天之变</td>
-<td>观习教化,各居其位.则天下和合.</td>
+<td>䷓ 风地观</td>
+<td>风起于地，观天之变</td>
+<td>观习教化，各居其位。则天下和合。</td>
 </tr>
 <tr>
 <td>21</td>
-<td>火雷噬嗑</td>
-<td>火雷似口, 噬嗑梗四</td>
-<td>噬嗑为咬合,明断去梗.授之以饰.</td>
+<td>䷔ 火雷噬嗑</td>
+<td>火雷似口，噬嗑梗四</td>
+<td>噬嗑为咬合，明断去梗。授之以饰。</td>
 </tr>
 <tr>
 <td>22</td>
-<td>山火贲(bì)</td>
-<td>山中火烧, 炼石为贲</td>
-<td>文饰礼乐,人文天下.然死于安乐.</td>
+<td>䷕ 山火贲 (bì)</td>
+<td>山中火烧，炼石为贲</td>
+<td>文饰礼乐，人文天下。然死于安乐。</td>
 </tr>
 <tr>
 <td>23</td>
-<td>山地剥</td>
-<td>山起地陷, 山裂为剥</td>
-<td>剥落,衰退.然循环不息,一阳来复.</td>
+<td>䷖ 山地剥</td>
+<td>山起地陷，山裂为剥</td>
+<td>剥落，衰退。然循环不息，一阳来复。</td>
 </tr>
 <tr>
 <td>24</td>
-<td>地雷复</td>
-<td>地下震动, 一阳来复</td>
-<td>生机重现,复归正道.守正则无妄.</td>
+<td>䷗ 地雷复</td>
+<td>地下震动，一阳来复</td>
+<td>生机重现，复归正道。守正则无妄。</td>
 </tr>
 <tr>
 <td>25</td>
-<td>天雷无妄</td>
-<td>天雷滚滚, 诚则无妄</td>
-<td>心诚无私,守正无妄.可长积久蓄.</td>
+<td>䷘ 天雷无妄</td>
+<td>天雷滚滚，诚则无妄</td>
+<td>心诚无私，守正无妄。可长积久蓄。</td>
 </tr>
 <tr>
 <td>26</td>
-<td>山天大畜</td>
-<td>山(碗)蓄天德, 大畜养正</td>
-<td>止而畜之,蓄德养贤.蓄满思颐养.</td>
+<td>䷙ 山天大畜</td>
+<td>山蓄天德，大畜养正</td>
+<td>止而畜之，蓄德养贤。蓄满思颐养。</td>
 </tr>
 <tr>
 <td>27</td>
-<td>山雷颐</td>
-<td>山雷为口, 大快朵颐</td>
-<td>宜慎言节食,自求口实.否则大过.</td>
+<td>䷚ 山雷颐</td>
+<td>山雷为口，大快朵颐</td>
+<td>宜慎言节食，自求口实。否则大过。</td>
 </tr>
 <tr>
 <td>28</td>
-<td>泽风大过</td>
-<td>泽灭风木, 大过非常</td>
-<td>大过之象,需非常之行.必艰难困顿</td>
+<td>䷛ 泽风大过</td>
+<td>泽灭风木，大过非常</td>
+<td>大过之象，需非常之行。必艰难困顿</td>
 </tr>
 <tr>
-<td>29</td>
-<td>坎为水</td>
-<td></td>
-<td>坎陷重险,维心亨通,再见光明.</td>
-</tr>
-<tr>
-<td>30</td>
-<td>离为火</td>
-<td></td>
-<td>附丽光明,文明内慧.必有所感.</td>
+<td>29/30</td>
+<td>䷜ 坎为水 ䷝ 离为火</td>
+<td>水火相容，必有所感</td>
+<td>坎陷重险 / 附丽光明。</td>
 </tr>
 <tr>
 <td>31</td>
-<td>泽山咸</td>
-<td>少女少男, 相感为咸</td>
-<td>阴阳相感,感而互通.通则恒久.</td>
+<td>䷞ 泽山咸</td>
+<td>少女少男，相感为咸</td>
+<td>阴阳相感，感而互通。通则恒久。</td>
 </tr>
 <tr>
 <td>32</td>
-<td>雷风恒</td>
-<td>雷刚风柔, 夫妇恒久</td>
-<td>持之以恒,长久之道.然久而思退.</td>
+<td>䷟ 雷风恒</td>
+<td>雷刚风柔，夫妇恒久</td>
+<td>持之以恒，长久之道。然久而思退。</td>
 </tr>
 <tr>
 <td>33</td>
-<td>天山遁</td>
-<td>天远山高, 遁而远居</td>
-<td>远避小人,明哲保身.唯待时而动.</td>
+<td>䷠ 天山遁</td>
+<td>天远山高，遁而远居</td>
+<td>远避小人，明哲保身。唯待时而动。</td>
 </tr>
 <tr>
 <td>34</td>
-<td>雷天大壮</td>
-<td>雷震天下, 动而大壮</td>
-<td>阳盛力壮.壮而慎用,必有晋升.</td>
+<td>䷡ 雷天大壮</td>
+<td>雷震天下，动而大壮</td>
+<td>阳盛力壮。壮而慎用，必有晋升。</td>
 </tr>
 <tr>
 <td>35</td>
-<td>火地晋</td>
-<td>日出地上, 追日为晋</td>
-<td>明进升迁,如日中天.然过犹不及.</td>
+<td>䷢ 火地晋</td>
+<td>日出地上，追日为晋</td>
+<td>明进升迁，如日中天。然过犹不及。</td>
 </tr>
 <tr>
 <td>36</td>
-<td>地火明夷</td>
-<td>地掩日光, 明夷晦暗</td>
-<td>光明受损,韬光养晦.修身齐家.</td>
+<td>䷣ 地火明夷</td>
+<td>地掩日光，明夷晦暗</td>
+<td>光明受损，韬光养晦。修身齐家。</td>
 </tr>
 <tr>
 <td>37</td>
-<td>风火家人</td>
-<td>风和火顺, 和顺家人</td>
-<td>家道和正,各守其位.然家道有穷, 必乖.</td>
+<td>䷤ 风火家人</td>
+<td>风和火顺，和顺家人</td>
+<td>家道和正，各守其位。然家道有穷，必乖。</td>
 </tr>
 <tr>
 <td>38</td>
-<td>火泽睽(kuí)</td>
-<td>火上泽下, 相违为睽</td>
-<td>众心离散,乖异矛盾.志不同行,有难.</td>
+<td>䷥ 火泽睽 (kuí)</td>
+<td>火上泽下，相违为睽</td>
+<td>众心离散，乖异矛盾。志不同行，有难。</td>
 </tr>
 <tr>
 <td>39</td>
-<td>水山蹇(jiǎn)</td>
-<td>恶水穷山, 难行为蹇</td>
-<td>险阻难行,宜止而待时.时来可解.</td>
+<td>䷦ 水山蹇 (jiǎn)</td>
+<td>恶水穷山，难行为蹇</td>
+<td>险阻难行，宜止而待时。时来可解。</td>
 </tr>
 <tr>
 <td>40</td>
-<td>雷水解(xiè)</td>
-<td>春雷破雨, 冰解雪散</td>
-<td>解难出险,动以解困.解困必有所失.</td>
+<td>䷧ 雷水解 (xiè)</td>
+<td>春雷破雨，冰解雪散</td>
+<td>解难出险，动以解困。解困必有所失。</td>
 </tr>
 <tr>
 <td>41</td>
-<td>山泽损</td>
-<td>山为地增, 泽为地损</td>
-<td>损下益上,损益相对,依境而辨.</td>
+<td>䷨ 山泽损</td>
+<td>山为地增，泽为地损</td>
+<td>损下益上，损益相对，依境而辨。</td>
 </tr>
 <tr>
 <td>42</td>
-<td>风雷益</td>
-<td>风行雷厉, 破上益下</td>
-<td>损上益下,人自损,道大光.天损之,势大夬.</td>
+<td>䷩ 风雷益</td>
+<td>风行雷厉，破上益下</td>
+<td>损上益下，人自损，道大光。天损之，势大夬。</td>
 </tr>
 <tr>
 <td>43</td>
-<td>泽天夬(guài)</td>
-<td>泽决于天, 其势必夬</td>
-<td>五阳决一阴,去邪以明.决必有遇.</td>
+<td>䷪ 泽天夬 (guài)</td>
+<td>泽决于天，其势必夬</td>
+<td>五阳决一阴，去邪以明。决必有遇。</td>
 </tr>
 <tr>
 <td>44</td>
-<td>天风姤(gòu)</td>
-<td>天阳风阴, 姤遇相合</td>
-<td>一阴初来,不期而遇,宜防微渐.遇而有聚.</td>
+<td>䷫ 天风姤 (gòu)</td>
+<td>天阳风阴，姤遇相合</td>
+<td>一阴初来，不期而遇，宜防微渐。遇而有聚。</td>
 </tr>
 <tr>
 <td>45</td>
-<td>泽地萃(cuì)</td>
-<td>泽漫地润, 生灵萃聚</td>
-<td>聚众集德,人心所向.聚而上者谓之升.</td>
+<td>䷬ 泽地萃 (cuì)</td>
+<td>泽漫地润，生灵萃聚</td>
+<td>聚众集德，人心所向。聚而上者谓之升。</td>
 </tr>
 <tr>
 <td>46</td>
-<td>地风升</td>
-<td>地起微风, 巽顺而升</td>
-<td>巽顺而升,积小以高大.升极必困.</td>
+<td>䷭ 地风升</td>
+<td>地起微风，巽顺而升</td>
+<td>巽顺而升，积小以高大。升极必困。</td>
 </tr>
 <tr>
 <td>47</td>
-<td>泽水困</td>
-<td>泽中水漏, 干涸困顿</td>
-<td>困厄受阻,宜不屈守志.外困则内修,井养不穷.</td>
+<td>䷮ 泽水困</td>
+<td>泽中水漏，干涸困顿</td>
+<td>困厄受阻，宜守志。外困则内修，井养不穷。</td>
 </tr>
 <tr>
 <td>48</td>
-<td>水风井</td>
-<td>井中有水, 井道生风</td>
-<td>井养不穷,惠泽乡里.井道久则需革新.</td>
+<td>䷯ 水风井</td>
+<td>井中有水，井道生风</td>
+<td>井养不穷，惠泽乡里。井道久则需革新。</td>
 </tr>
 <tr>
 <td>49</td>
-<td>泽火革</td>
-<td>泽下有火, 水火相革</td>
-<td>志不相得,革而后立,革故鼎新.</td>
+<td>䷰ 泽火革</td>
+<td>泽下有火，水火相革</td>
+<td>志不相得，革而后立，革故鼎新。</td>
 </tr>
 <tr>
 <td>50</td>
-<td>火风鼎</td>
-<td>火生鼎内, 风煽鼎外</td>
-<td>鼎新事成,天下太平.主鼎者莫若长子.</td>
+<td>䷱ 火风鼎</td>
+<td>火生鼎内，风煽鼎外</td>
+<td>鼎新事成，天下太平。主鼎者莫若长子。</td>
 </tr>
 <tr>
-<td>51</td>
-<td>震为雷</td>
-<td></td>
-<td>惊以自省,动而有度. 久动必止.</td>
-</tr>
-<tr>
-<td>52</td>
-<td>艮为山</td>
-<td></td>
-<td>知止,静守.久止需渐动.</td>
+<td>51/52</td>
+<td>䷲ 震为雷 ䷳ 为山</td>
+<td>久动必止。久止需渐动</td>
+<td>惊以自省，动而有度 / 知止，静守。</td>
 </tr>
 <tr>
 <td>53</td>
-<td>风山渐</td>
-<td>木在山上, 由渐而长</td>
-<td>渐进有序,徐徐图之.进必有归.</td>
+<td>䷴ 风山渐</td>
+<td>木在山上，由渐而长</td>
+<td>渐进有序，徐徐图之。进必有归。</td>
 </tr>
 <tr>
 <td>54</td>
-<td>雷泽归妹</td>
-<td>长男偏娶, 少女归妹</td>
-<td>不当之合,难以久长.得归者大,曰丰.</td>
+<td>䷵ 雷泽归妹</td>
+<td>长男偏娶，少女归妹</td>
+<td>不当之合，难以久长。得归者大，曰丰。</td>
 </tr>
 <tr>
 <td>55</td>
-<td>雷火丰</td>
-<td>雷震火烈, 丰大威明</td>
-<td>盛大光明,宜守其度.盛极而穷,失居则旅.</td>
+<td>䷶ 雷火丰</td>
+<td>雷震火烈，丰大威明</td>
+<td>盛大光明，宜守其度。盛极而穷，失居则旅。</td>
 </tr>
 <tr>
 <td>56</td>
-<td>火山旅</td>
-<td>离火烧山, 别居而旅</td>
-<td>羁旅在外,居无定所.当巽顺谦卑,依境而行.</td>
+<td>䷷ 火山旅</td>
+<td>离火烧山，别居而旅</td>
+<td>羁旅在外，居无定所。当巽顺谦卑，依境而行。</td>
 </tr>
 <tr>
-<td>57</td>
-<td>巽为风</td>
-<td></td>
-<td>巽风吹拂,无孔不入,柔顺渗透,悦服万物.</td>
-</tr>
-<tr>
-<td>58</td>
-<td>兑为泽</td>
-<td></td>
-<td>和悦沟通,朋友讲习,切忌强说.悦聚而散.</td>
+<td>57/58</td>
+<td>䷸ 巽为风 ䷹ 兑为泽</td>
+<td>巽风吹拂，悦聚而散</td>
+<td>柔顺渗透 / 和悦沟通，朋友讲习</td>
 </tr>
 <tr>
 <td>59</td>
-<td>风水涣</td>
+<td>䷺ 风水涣</td>
 <td>风吹水散 涣难释险</td>
-<td>散难释险,可聚人心.心物不可全散,受以节制.</td>
+<td>散难释险，可聚人心。心物不可散，受以节制。</td>
 </tr>
 <tr>
 <td>60</td>
-<td>水泽节</td>
+<td>䷻ 水泽节</td>
 <td>水盈泽满 节以守中</td>
-<td>节制有度,节以立法,度以成事,众人信服.</td>
+<td>节制有度，节以立法，度以成事，众人信服。</td>
 </tr>
 <tr>
 <td>61</td>
-<td>风泽中孚</td>
-<td>风(鱼)游泽上 中孚有信</td>
-<td>中正诚信,谨防风波.信而有行,止动小过.</td>
+<td>䷼ 风泽中孚</td>
+<td>风游泽上 中孚有信</td>
+<td>中正诚信，谨防风波。信而有行，止动小过。</td>
 </tr>
 <tr>
 <td>62</td>
-<td>雷山小过</td>
+<td>䷽ 雷山小过</td>
 <td>雷动山止 小过宜下</td>
-<td>小有过越,宜小宜下,不可大事.过物必济.</td>
+<td>小有过越，宜小宜下，不可大事。过物必济。</td>
 </tr>
 <tr>
 <td>63</td>
-<td>水火既济</td>
+<td>䷾ 水火既济</td>
 <td>水火相交 事终既济</td>
-<td>功成名就,初吉终乱.物不可穷,继以未济.</td>
+<td>功成名就，初吉终乱。物不可穷，继以未济。</td>
 </tr>
 <tr>
 <td>64</td>
-<td>火水未济</td>
+<td>䷿ 火水未济</td>
 <td>火水相背 混沌未济</td>
-<td>混沌未开,终而复始.开天辟地,循环往复.</td>
+<td>混沌未开，终而复始。开天辟地，循环往复。</td>
 </tr>
 </tbody></table>
 <h1 id="64卦快速记忆口诀"><a href="#64卦快速记忆口诀" class="headerlink" title="64卦快速记忆口诀"></a>64卦快速记忆口诀</h1><p>乾坤屯蒙需讼师，比小畜兮履泰否，<br>同人大有谦豫随，蛊临观兮噬嗑贲，<br>剥复无妄大畜颐，大过坎离三十备。<br>咸恒遁兮及大壮，晋与明夷家人睽，<br>蹇解损益夬姤萃，升困井革鼎震继，<br>艮渐归妹丰旅巽，兑涣节兮中孚至，<br>小过既济兼未济，六十四卦成大义。</p>
@@ -26969,7 +26945,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li>可以说是完全应验.</li>
 </ul>
-<h1 id="2025年12月8日-问2026是否发生全球性金融危机"><a href="#2025年12月8日-问2026是否发生全球性金融危机" class="headerlink" title="2025年12月8日, 问2026是否发生全球性金融危机"></a>2025年12月8日, 问2026是否发生全球性金融危机</h1><ul>
+<h1 id="2025年12月8日-问2026是否发生全球性金融危机"><a href="#2025年12月8日-问2026是否发生全球性金融危机" class="headerlink" title="2025年12月8日, 问2026是否发生全球性金融危机"></a>2025年12月8日, 问2026是否发生全球性金融危机</h1><h2 id="周易解卦"><a href="#周易解卦" class="headerlink" title="周易解卦"></a>周易解卦</h2><ul>
 <li>略筮法占卜说明略. 问2026是否发生全球性金融危机<ul>
 <li>得: 上卦8坤, 下卦1乾, 动爻2</li>
 </ul>
@@ -27002,6 +26978,117 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li>2026年1月16日, 综合问卦黄金后的更新: <strong>第一季度交易市场上涨甚至新高, 5月份第一波衰退, 到时是购入黄金的最后机会. 第三季度, 倾向于9月份全球确认金融危机到来, 黄金单边上涨</strong></li>
 <li>是否应验: 静待时日.</li>
+</ul>
+<h2 id="六爻解卦-2026年3月27日补充"><a href="#六爻解卦-2026年3月27日补充" class="headerlink" title="六爻解卦(2026年3月27日补充)"></a>六爻解卦(2026年3月27日补充)</h2><ul>
+<li>装卦:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">公历：2025年 12月 8日 0时 0分</span><br><span class="line">干支：乙巳年 戊子月 辛亥日 戊子时 （旬空：寅卯)</span><br><span class="line">得「地天泰」之「地火明夷」卦</span><br><span class="line">　　　　　　　　坤宫:地天泰 (六合)　            坎宫:地火明夷 (游魂)</span><br><span class="line">螣蛇　　　　　　子孙癸酉金 ▅▅▅   ▅▅▅ 应    子孙癸酉金 ▅▅▅  ▅▅▅</span><br><span class="line">勾陈　　　　　　妻财癸亥水 ▅▅▅   ▅▅▅       妻财癸亥水 ▅▅▅  ▅▅▅</span><br><span class="line">朱雀　　　　　　兄弟癸丑土 ▅▅▅   ▅▅▅       兄弟癸丑土 ▅▅▅  ▅▅▅</span><br><span class="line">青龙　　　　　　兄弟甲辰土 ▅▅▅▅▅▅▅▅ 世    妻财己亥水 ▅▅▅▅▅▅▅▅</span><br><span class="line">玄武 父母乙巳火 官鬼甲寅木 ▅▅▅▅▅▅▅▅    ○→ 兄弟己丑土 ▅▅▅  ▅▅▅</span><br><span class="line">白虎　　　　　　妻财甲子水 ▅▅▅▅▅▅▅▅       官鬼己卯木 ▅▅▅▅▅▅▅▅</span><br></pre></td></tr></table></figure></li>
+<li>六爻解卦:<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>变量取值</th>
+<th>月建:子水</th>
+<th>日辰:亥水(旬空寅卯)</th>
+<th>变爻:丑土</th>
+<th>动爻:寅木</th>
+<th>潜在应期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用神/飞神</td>
+<td>妻财. 五爻亥水</td>
+<td>月旺</td>
+<td>比和. 日扶</td>
+<td></td>
+<td></td>
+<td>巳(冲)</td>
+</tr>
+<tr>
+<td></td>
+<td>妻财. 初爻子水</td>
+<td>月旺. 值月</td>
+<td>同地支. 值日</td>
+<td></td>
+<td></td>
+<td>午(冲)</td>
+</tr>
+<tr>
+<td>原神(生用神)</td>
+<td>子孙. 上爻酉金(应)</td>
+<td>月休</td>
+<td></td>
+<td></td>
+<td></td>
+<td>酉(值)</td>
+</tr>
+<tr>
+<td>忌神(克用神)</td>
+<td>兄弟. 三爻辰土(世)</td>
+<td>月困</td>
+<td>日泄</td>
+<td></td>
+<td></td>
+<td>辰(值)</td>
+</tr>
+<tr>
+<td></td>
+<td>兄弟. 四爻丑土</td>
+<td>月困. 子丑合</td>
+<td>日泄</td>
+<td></td>
+<td></td>
+<td>丑(值)</td>
+</tr>
+<tr>
+<td></td>
+<td>兄弟. 变爻丑土(变)</td>
+<td>月困</td>
+<td>日泄</td>
+<td></td>
+<td></td>
+<td>丑(值)</td>
+</tr>
+<tr>
+<td>仇神(用神克)</td>
+<td>父母. 无火</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>耗护神(用神生)</td>
+<td>官鬼. 二爻寅木(动)</td>
+<td>月相</td>
+<td>日生. 旬空(假空). 寅亥合</td>
+<td>克变爻, 但化出忌神</td>
+<td></td>
+<td>寅(填实), 申(逢冲), 亥(逢合)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>本卦坤宫:地天泰 (六合) , 开始都不错, 欣欣向荣的样子. 泰极而否, 有风险. 六合表示整个过程是焦灼的, 渐进式的.</li>
+<li>变卦 坎宫:地火明夷 (游魂). 结果是金融遇地火明夷之灾.</li>
+<li>占卜时为2025年底, 用神极其强盛, 忌神受困, 一切欣欣向荣. 但潜在风险在不断积累:<ul>
+<li>原神为休, 进一步维持金融繁盛的内因变弱了.</li>
+<li>2026为丙午火年, 用神为子水. 子午相冲, 且被年克. 太岁冲击用神根基. </li>
+<li>更严重的是: 用神生出的耗护神为动爻, 变为自己忌神. 是个风险不断累计的过程, 忌神最终会冲克用神.</li>
+</ul>
+</li>
+<li>应期:<ul>
+<li>耗护神: 寅(正月), 申(七月), 亥(十月), 由于地天泰六合卦, 化出忌神需要时间.</li>
+<li>重点关注持世的忌神值月. 为辰(三月).  应爻原神值月, 为酉(八月), 原神初醒可能 有个小反弹, 意味全年低点,.</li>
+<li>因而泰极而否的潜在阳历日期是: 2026年4-7月, 9月, 1月</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>断卦: <ul>
+<li>2026年第一季度是全球金融的泰之极点. 必有全球性金融危机. </li>
+<li>从4月开始, 金融危机会显现. 尤其是第二第三季度, 下跌力度较强, 中有盘整, 钝刀割肉.</li>
+<li>9月份是全年的最低点. 但反弹力度不会强. 后续会继续缓慢下跌. </li>
+</ul>
+</li>
 </ul>
 <h1 id="2025年12月10日-问未来五年-是否会发生世界大战"><a href="#2025年12月10日-问未来五年-是否会发生世界大战" class="headerlink" title="2025年12月10日, 问未来五年, 是否会发生世界大战."></a>2025年12月10日, 问未来五年, 是否会发生世界大战.</h1><ul>
 <li>略筮法: 上卦5巽, 下卦4震, 动爻6</li>
@@ -27083,18 +27170,19 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li>是否应验: 静待时日.</li>
 </ul>
-<h1 id="20251231-2026年-金价是否有机会低于200澳元一克买入"><a href="#20251231-2026年-金价是否有机会低于200澳元一克买入" class="headerlink" title="20251231: 2026年, 金价是否有机会低于200澳元一克买入?"></a>20251231: 2026年, 金价是否有机会低于200澳元一克买入?</h1><ul>
+<h1 id="20251231-2026年-金价是否有机会低于200澳元一克买入"><a href="#20251231-2026年-金价是否有机会低于200澳元一克买入" class="headerlink" title="20251231: 2026年, 金价是否有机会低于200澳元一克买入?"></a>20251231: 2026年, 金价是否有机会低于200澳元一克买入?</h1><h2 id="周易解卦-1"><a href="#周易解卦-1" class="headerlink" title="周易解卦"></a>周易解卦</h2><p>问: 2026年, 金价是否有机会低于200澳元一克买入?</p>
+<ul>
 <li>略筮法: 上卦3离, 下卦4震, 动爻1</li>
 <li>本卦: 火雷噬磕, 动爻初九, 变卦:火地晋<ul>
 <li>离卦可表金价.</li>
 </ul>
 </li>
-<li>解卦: <strong>即便有机会也很难把握. 重点是公历5月金价有阻碍, 是买入之机, 后一路上扬.</strong><ul>
+<li>解卦: <strong>有机会, 农历四月会震荡徘徊在200澳元, 跌破后即买入机会. 后为火地晋, 持续上涨</strong><ul>
 <li>本卦: 火雷噬磕.<ul>
 <li>象征阻隔中有物，需以强力破除障碍</li>
 <li>理解为价格有阻碍. 两种理解:<ul>
 <li>无法低于200澳元买入. (即便能到, 也可能转瞬即逝, 很难真正买入)</li>
-<li>金价会震荡为主,</li>
+<li><strong>金价会震荡为主, 200澳元为下跌中的支撑(跌破的阻碍)</strong></li>
 </ul>
 </li>
 </ul>
@@ -27106,13 +27194,14 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li>此象常示初期受制、价格受压、行动受限<ul>
 <li>指行动受限, 也就是即便有机会, 也难以把握.</li>
-<li>指价格初期受压, 震荡市, 但跌幅有限. </li>
+<li>指价格初期受压, 震荡市, 但跌幅有限.</li>
 </ul>
 </li>
 <li>应爻九四: 为噬磕的梗阻之物, 未光.<ul>
-<li>四爻可应四月. 有梗阻, 导致无法扬升. 破后即再无阻力.</li>
+<li>四爻可应农历四月(公历5月17日-6月14日). 有梗阻, 即徘徊在200澳元左右盘整.</li>
 </ul>
 </li>
+<li>见六五描述: 噬干肉得黄金。贞厉，无咎。突破梗阻, 下跌, 即为买入时机!</li>
 </ul>
 </li>
 <li>变卦: 火地晋. 日出地上之象，象征光明渐盛、地位晋升、资源丰沛<ul>
@@ -27123,7 +27212,110 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li>是否应验: 静待时日</li>
 </ul>
-<h3 id="20260125-2032-未来10年-世界是否会最终发生全面核战争"><a href="#20260125-2032-未来10年-世界是否会最终发生全面核战争" class="headerlink" title="20260125.2032 未来10年. 世界是否会最终发生全面核战争?"></a>20260125.2032 未来10年. 世界是否会最终发生全面核战争?</h3><ul>
+<h2 id="六爻解卦-2026年3月25日补充"><a href="#六爻解卦-2026年3月25日补充" class="headerlink" title="六爻解卦(2026年3月25日补充)"></a>六爻解卦(2026年3月25日补充)</h2><p>问: 2026年, 金价是否有机会低于200澳元一克买入?<br>排盘纳甲</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">公历：2025年 12月 31日 0时 0分</span><br><span class="line">干支：乙巳年 戊子月 甲戌日 甲子时 （旬空：申酉)</span><br><span class="line"></span><br><span class="line">               巽宫:火雷噬嗑　　　　　　　乾宫:火地晋 (游魂)</span><br><span class="line">玄武  子孙己巳火 ▅▅▅▅▅▅▅▅       子孙己巳火 ▅▅▅▅▅▅▅▅</span><br><span class="line">白虎  妻财己未土 ▅▅▅   ▅▅▅ 世     妻财己未土 ▅▅▅   ▅▅▅</span><br><span class="line">螣蛇  官鬼己酉金 ▅▅▅▅▅▅▅▅       官鬼己酉金 ▅▅▅▅▅▅▅▅</span><br><span class="line">勾陈  妻财庚辰土 ▅▅▅   ▅▅▅       兄弟乙卯木  ▅▅▅  ▅▅▅</span><br><span class="line">朱雀  兄弟庚寅木 ▅▅▅   ▅▅▅ 应    子孙乙巳火  ▅▅▅   ▅▅▅</span><br><span class="line">青龙  父母庚子水 ▅▅▅▅▅▅▅▅    ○→ 妻财乙未土 ▅▅▅   ▅▅▅</span><br></pre></td></tr></table></figure>
+
+<p>解卦:</p>
+<ul>
+<li>1.1 取用神. 测求财，以妻财爻为用神<ul>
+<li>用神：五爻 妻财己未土（持世, 空头）,  三爻 妻财庚辰土</li>
+<li>原神：上爻 子孙己巳火（利于空头的人心）</li>
+<li>忌神：二爻 兄弟庚寅木（多头）<ul>
+<li>寅木克未土: 应克世, 忌克用. 当且多头非常强势.</li>
+</ul>
+</li>
+<li>世应：世爻=自己，应爻=金价</li>
+<li>仇神:   初爻 父母子水.  生忌神之事物(利于多头的人心), 且为动爻</li>
+</ul>
+</li>
+<li>1.2 月建旺衰.子水，定用神体质等级<ul>
+<li>用神为土：月囚.</li>
+<li>原神巳火：月死</li>
+<li>忌神寅木：月相</li>
+<li>仇神子水:   月旺.</li>
+</ul>
+</li>
+<li>1.3 日辰状态. 戌土，定即时能量与空亡<ul>
+<li>用神为未土, 辰土：辰戌冲, 重点看五爻未土, 相临</li>
+<li>用神<strong>丑</strong> (土), <strong>戌</strong> (土), <strong>未</strong> (土), <strong>持势</strong>之刑, <strong>同室操戈</strong></li>
+<li>空亡：官鬼酉金空. 可理解为政策面. 全年混沌模糊.</li>
+<li>原神: 巳火. 无</li>
+<li>忌神: 寅木. 无</li>
+<li>仇神: 子水, 日克. </li>
+</ul>
+</li>
+<li>1.4 看动变. 初爻发动，是卦的变数核心<ul>
+<li>初爻: 父母子水 变 妻财未土. 土克木. 为回头克.   </li>
+<li>结果是妻财克父母, 用神克仇神.</li>
+</ul>
+</li>
+<li>1.5 初步判断. 到此位置, 整个卦的基本信息以及较为全面的判断了.<ul>
+<li>月建总结: 当月不可能低于200澳元了. 用神原神空头为囚死, 忌神仇神多头为旺相</li>
+<li>日辰总结: 日辰此处可表整个周期的细节情况. <ul>
+<li>用神三爻辰戌冲. 可表示快速, 突然. </li>
+<li>用神五爻日临. 强势有力.</li>
+<li>两个用神与日辰, 三土持势之刑, 同室操戈, 可理解为多杀多出来的空头.</li>
+<li>仇神月旺日克. 有一定的反攻能力, 导致中途盘整.</li>
+<li>三爻辰土, 为第一个低点. 随后盘整, 五爻未土为第二个低点, 持世, 为最底点.</li>
+</ul>
+</li>
+<li>动变总结: 仇神父母爻可视为多头. 这里妻财可视为空头. 即最终会空克多, 价格回调.</li>
+</ul>
+</li>
+<li>2.1 卦象空亡. 看空亡爻的情况<ul>
+<li>卦名主卦：<strong>火雷噬嗑</strong> (有阻碍, 需要努力突破). <ul>
+<li>问题, 是下跌有支撑的噬嗑??? 还是上涨有阻碍的噬嗑. </li>
+</ul>
+</li>
+<li>卦名变卦：<strong>火地晋（游魂）</strong><ul>
+<li>易经本意, 可理解为一飞冲天, 主上升. 游魂也是远游于200澳元的价格.</li>
+</ul>
+</li>
+<li>三爻用神日破. 可理解为第一个跌破200澳元的潜在机会.</li>
+</ul>
+</li>
+<li>2.2 冲合动破. <ul>
+<li>辰戌冲: 三爻用神, 已分析. </li>
+<li>子未害: 动世相害 (动为仇神, 世为用神, 本就是敌对关系, 不重要.)</li>
+</ul>
+</li>
+<li>2.3 静爻状态. 静爻被动接受生克冲合</li>
+<li>3.1 六神刑害.六神/刑害是细节滤镜<ul>
+<li>世爻未土+白虎 → 财运有波动，需防急跌急涨</li>
+</ul>
+</li>
+<li>3.2 吉凶应期<ul>
+<li>吉凶：近期没有机会, 多头非常强势. </li>
+<li>但是后续是有机会的, 主要理由. 动爻变为妻财(空头), 且回头克多头.</li>
+</ul>
+</li>
+<li>3.3 计算应期：<ul>
+<li>动爻+变爻: 父母庚子水 ○→ 妻财乙未土 <ul>
+<li>动爻值月临月: 亥子月为水, 价格高点.</li>
+<li>变爻值月: 未土月, 价格低点.</li>
+</ul>
+</li>
+<li>原神：上爻 己巳火（利于空头的人心）</li>
+<li>用神：三爻 庚辰土,  五爻 己未土（空头）,  三爻 妻财庚辰土<ul>
+<li>找原神用神的值月/临月, 为潜在空头低点.</li>
+<li>火月, 土月: 辰, 巳, 午, 未月:  农历三四五六月</li>
+<li>其中原神值月为巳, 午, 农历四五月盘整为主.</li>
+</ul>
+</li>
+<li>仇神:   初爻 父母子水.  (利于多头的人心), 且为动爻</li>
+<li>忌神：二爻 兄弟庚寅木（多头）<ul>
+<li>找仇神忌神的值月/临月, 为潜在多头高点.</li>
+<li>水月, 木月: 亥子寅卯月. 农历正, 二月, 十, 十一,月.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li> 结论: </li>
+<li><strong>农历正, 二月为高点.农历六月为低点, 可以低于200澳元买入.</strong></li>
+<li><strong>其中农历三月为次低点, 爻月相冲, 快速下跌. 四五月盘整.</strong></li>
+<li><strong>全年消息面晦涩混乱, 整个下跌有多头同室操戈之嫌</strong></li>
+</ul>
+<h1 id="20260125-2032-未来10年-世界是否会最终发生全面核战争"><a href="#20260125-2032-未来10年-世界是否会最终发生全面核战争" class="headerlink" title="20260125.2032 未来10年. 世界是否会最终发生全面核战争?"></a>20260125.2032 未来10年. 世界是否会最终发生全面核战争?</h1><ul>
 <li>略筮法: 上卦5巽, 下卦4震, 动爻4</li>
 <li>本卦:风雷益, 动爻六四, 变卦:天雷无妄</li>
 <li>解卦: <strong>会发生全面核战争. 中国往西南方向转移核心资产可避祸.</strong><ul>
@@ -27152,7 +27344,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </li>
 <li>是否应验: 希望解卦错误，不要应验！</li>
 </ul>
-<h3 id="20260203-0901-今年2026会发生-全球-金融危机吗？几月份？"><a href="#20260203-0901-今年2026会发生-全球-金融危机吗？几月份？" class="headerlink" title="20260203.0901: 今年2026会发生(全球)金融危机吗？几月份？"></a>20260203.0901: 今年2026会发生(全球)金融危机吗？几月份？</h3><ul>
+<h1 id="20260203-0901-今年2026会发生-全球-金融危机吗？几月份？"><a href="#20260203-0901-今年2026会发生-全球-金融危机吗？几月份？" class="headerlink" title="20260203.0901: 今年2026会发生(全球)金融危机吗？几月份？"></a>20260203.0901: 今年2026会发生(全球)金融危机吗？几月份？</h1><ul>
 <li>略筮法: 上卦5巽, 下卦8坤, 动爻1</li>
 <li>本卦:风地观. 动爻初六. 变卦风雷益.</li>
 <li>解卦: <strong>会发生. 阳历5月可能有一波震荡救市, 9月(农历八月)有金融危机发生</strong><ul>
@@ -27219,7 +27411,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 </ul>
@@ -27440,7 +27631,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 </ul>
@@ -27473,10 +27663,11 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 <p>几个阶段, 后续文章对应的用词:</p>
 <ul>
-<li><strong>阶段一：对“我是”的体验. 此处应该是证悟. “我是”是稳定无疑的.</strong></li>
-<li>**阶段二：“我是一切”的体验. 此处为为”无心”的体验. **</li>
-<li><strong>阶段四：临在如明镜般清晰. 此处为一心, 是基于习惯性二元对立, 对前阶段体验归摄后的认知.</strong></li>
-<li><strong>阶段五：没有反映的镜子. “无我”的证悟, 打破二元对立, 稳定到不二.</strong></li>
+<li><strong>阶段一：对“我是”的体验. 此处是证悟. “我是”是稳定无疑的, 自然而观, 不再费力.</strong></li>
+<li><strong>阶段二：“我是一切”的体验. 此处为”无心”的体验, 但认知上是客体融入主体.</strong></li>
+<li><strong>阶段三：意识到主体”我”为阻碍”无心”体验的根源</strong></li>
+<li><strong>阶段四：临在如明镜般清晰. 此处为”一心”. 虽然消融了主体”我”, 但倾向于将体验归摄为一体性.</strong></li>
+<li><strong>阶段五：没有反映的镜子. “无我”的证悟, 打破二元对立, 能所双亡, 稳定到不二.</strong></li>
 <li><strong>阶段六：临在的本质是空性. （见性, 见空性. A+ 和 A- 空性；摩诃一法究尽/无生）</strong></li>
 </ul>
 <p>Art用词说明:</p>
@@ -27491,7 +27682,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <ul>
 <li>初关, 为明心, 即阶段一”我是”的证悟.</li>
 <li>重关, 为见性, 见空性. 即阶段五”无我”的证悟后, 进入阶段六.</li>
-<li>牢关, 我不知道. 目前没有能力分析点评.</li>
+<li>牢关, 不知道. 目前没有能力分析点评.</li>
 <li>明确错误的观点: 初关, 仅为明心. 不是见性, 见性是见空性, 而非有什么体验.</li>
 <li>网络上有将巅峰体验定义为见性的倾向. 将明心见性定义为初关. 但经历过巅峰体验仅仅为阶段二. </li>
 <li>有阶段二的体验, 大概率能证悟”我是”, 即明心. 但知见上没准备好的话, 依旧会退还外求的习性.</li>
@@ -27811,7 +28002,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 </ul>
@@ -27945,7 +28135,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 </ul>
@@ -28136,7 +28325,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 </ul>
@@ -28342,7 +28530,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 </ul>
@@ -28518,7 +28705,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 </ul>
@@ -28633,7 +28819,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 </ul>
@@ -28788,7 +28973,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 </ul>
@@ -28938,7 +29122,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">明心见性(我是)之后的路</a></li>
 </ul>
@@ -29001,7 +29184,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">明心见性(我是)之后的路</a></li>
 </ul>
@@ -29078,7 +29260,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">明心见性(我是)之后的路</a></li>
 </ul>
@@ -29227,7 +29408,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">明心见性(我是)之后的路</a></li>
 </ul>
@@ -29347,7 +29527,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">明心见性(我是)之后的路</a></li>
 </ul>
@@ -29938,7 +30117,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">明心见性(我是)之后的路</a></li>
 </ul>
@@ -30769,13 +30947,16 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 <li><a href="https://draapho.github.io/2026/03/12/2615-Standing/">太极浑圆桩站桩要领</a></li>
 <li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
 <li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
 <li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
 </ul>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>整个修行路径，按照禅宗的划分，<br>粗略划分为初关，重关，末后牢关 / 明心，见性，无我三关。<br>可参考零天赐的两篇文章：</p>
 <ul>
@@ -30904,9 +31085,16 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">明心见性(我是)之后的路</a></li>
+<li><a href="https://draapho.github.io/2026/03/12/2615-Standing/">太极浑圆桩站桩要领</a></li>
+<li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
+<li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
+<li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
 </ul>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>翻译 by Soh</p>
@@ -30998,7 +31186,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 <li><a href="https://draapho.github.io/2026/02/21/2606-IamPath/">超越“体验”：自我参究/话头与“我是”证悟的详尽指南</a></li>
@@ -31006,6 +31193,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
 <li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
 <li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
 </ul>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前言为DRA&amp;PHO的补充说明, 与原文无关. 仅供参考<br>这是John Tan七阶段中的第一阶段,即”我是”的修习指南. 对应的是禅宗的初关明心.</p>
 <p>关于第一阶段”我是, 初关明心, 此博客可参考的资料如下:</p>
@@ -31269,7 +31460,212 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
 </ul>
-<h1 id="64卦高岛断易索引"><a href="#64卦高岛断易索引" class="headerlink" title="64卦高岛断易索引"></a>64卦高岛断易索引</h1><p><img src="https://draapho.github.io/images/2608/64gua.png" alt="64卦图"></p>
+<h1 id="先天64卦"><a href="#先天64卦" class="headerlink" title="先天64卦"></a>先天64卦</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>1 乾天☰</th>
+<th>2 兑泽☱</th>
+<th>3 离火☲</th>
+<th>4 震雷☳</th>
+<th>5 巽风☴</th>
+<th>6 坎水☵</th>
+<th>7 艮山☶</th>
+<th>8 坤地☷</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1 乾天☰</strong></td>
+<td>䷀ 乾为天 1.P28</td>
+<td>䷪ 泽天夬 43.P305</td>
+<td>䷍ 火天大有 14.P122</td>
+<td>䷡ 雷天大壮 34.P249</td>
+<td>䷈ 风天小畜 9.P88</td>
+<td>䷄ 水天需 5.P61</td>
+<td>䷙ 山天大畜 26.P201</td>
+<td>䷊ 地天泰 11.P101</td>
+</tr>
+<tr>
+<td><strong>2 兑泽☱</strong></td>
+<td>䷉ 天泽履 10.P95</td>
+<td>䷹ 兑为泽 58.P398</td>
+<td>䷥ 火泽睽 38.P273</td>
+<td>䷵ 雷泽归妹 54.P374</td>
+<td>䷼ 风泽中孚 61.P415</td>
+<td>䷻ 水泽节 60.P409</td>
+<td>䷨ 山泽损 41.P292</td>
+<td>䷒ 地泽临 19.P155</td>
+</tr>
+<tr>
+<td><strong>3 离火☲</strong></td>
+<td>䷌ 天火同人 13.P115</td>
+<td>䷰ 泽火革 49.P344</td>
+<td>䷝ 离为火 30.P227</td>
+<td>䷶ 雷火丰 55.P380</td>
+<td>䷤ 风火家人 37.P267</td>
+<td>䷾ 水火既济 63.P427</td>
+<td>䷕ 山火贲 22.P175</td>
+<td>䷣ 地火明夷 36.P261</td>
+</tr>
+<tr>
+<td><strong>4 震雷☳</strong></td>
+<td>䷘ 天雷无妄 25.P194</td>
+<td>䷐ 泽雷随 17.P141</td>
+<td>䷔ 火雷噬嗑 21.P169</td>
+<td>䷲ 震为雷 51.P356</td>
+<td>䷩ 风雷益 42.P298</td>
+<td>䷂ 水雷屯 3.P45</td>
+<td>䷚ 山雷颐 27.P208</td>
+<td>䷗ 地雷复 24.P188</td>
+</tr>
+<tr>
+<td><strong>5 巽风☴</strong></td>
+<td>䷫ 天风姤 44.P313</td>
+<td>䷛ 泽风大过 28.P215</td>
+<td>䷱ 火风鼎 50.P350</td>
+<td>䷟ 雷风恒 32.P239</td>
+<td>䷸ 巽为风 57.P392</td>
+<td>䷯ 水风井 48.P338</td>
+<td>䷑ 山风蛊 18.P148</td>
+<td>䷭ 地风升 46.P326</td>
+</tr>
+<tr>
+<td><strong>6 坎水☵</strong></td>
+<td>䷅ 天水讼 6.P69</td>
+<td>䷮ 泽水困 47.P332</td>
+<td>䷿ 火水未济 64.P433</td>
+<td>䷧ 雷水解 40.P286</td>
+<td>䷺ 风水涣 59.P403</td>
+<td>䷜ 坎为水 29.P221</td>
+<td>䷃ 山水蒙 4.P54</td>
+<td>䷆ 地水师 7.P75</td>
+</tr>
+<tr>
+<td><strong>7 艮山☶</strong></td>
+<td>䷠ 天山遁 33.P244</td>
+<td>䷞ 泽山咸 31.P234</td>
+<td>䷷ 火山旅 56.P386</td>
+<td>䷽ 雷山小过 62.P421</td>
+<td>䷴ 风山渐 53.P368</td>
+<td>䷦ 水山蹇 39.P280</td>
+<td>䷳ 艮为山 52.P362</td>
+<td>䷎ 地山谦 15.P128</td>
+</tr>
+<tr>
+<td><strong>8 坤地☷</strong></td>
+<td>䷋ 天地否 12.P108</td>
+<td>䷬ 泽地萃 45.P320</td>
+<td>䷢ 火地晋 35.P255</td>
+<td>䷏ 雷地豫 16.P135</td>
+<td>䷓ 风地观 20.P161</td>
+<td>䷇ 水地比 8.P82</td>
+<td>䷖ 山地剥 23.P182</td>
+<td>䷁ 坤为地 2.P36</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1 乾天☰</th>
+<th>2 兑泽☱</th>
+<th>3 离火☲</th>
+<th>4 震雷☳</th>
+<th>5 巽风☴</th>
+<th>6 坎水☵</th>
+<th>7 艮山☶</th>
+<th>8 坤地☷</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1 乾天☰</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111111.png" alt="乾为天"></td>
+<td><img src="https://draapho.github.io/images/2608/011111.png" alt="泽天夬"></td>
+<td><img src="https://draapho.github.io/images/2608/101111.png" alt="火天大有"></td>
+<td><img src="https://draapho.github.io/images/2608/001111.png" alt="雷天大壮"></td>
+<td><img src="https://draapho.github.io/images/2608/110111.png" alt="风天小畜"></td>
+<td><img src="https://draapho.github.io/images/2608/010111.png" alt="水天需"></td>
+<td><img src="https://draapho.github.io/images/2608/100111.png" alt="山天大畜"></td>
+<td><img src="https://draapho.github.io/images/2608/000111.png" alt="地天泰"></td>
+</tr>
+<tr>
+<td><strong>2 兑泽☱</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111011.png" alt="天泽履"></td>
+<td><img src="https://draapho.github.io/images/2608/011011.png" alt="兑为泽"></td>
+<td><img src="https://draapho.github.io/images/2608/101011.png" alt="火泽睽"></td>
+<td><img src="https://draapho.github.io/images/2608/001011.png" alt="雷泽归妹"></td>
+<td><img src="https://draapho.github.io/images/2608/110011.png" alt="风泽中孚"></td>
+<td><img src="https://draapho.github.io/images/2608/010011.png" alt="水泽节"></td>
+<td><img src="https://draapho.github.io/images/2608/100011.png" alt="山泽损"></td>
+<td><img src="https://draapho.github.io/images/2608/000011.png" alt="地泽临"></td>
+</tr>
+<tr>
+<td><strong>3 离火☲</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111101.png" alt="天火同人"></td>
+<td><img src="https://draapho.github.io/images/2608/011101.png" alt="泽火革"></td>
+<td><img src="https://draapho.github.io/images/2608/101101.png" alt="离为火"></td>
+<td><img src="https://draapho.github.io/images/2608/001101.png" alt="雷火丰"></td>
+<td><img src="https://draapho.github.io/images/2608/110101.png" alt="风火家人"></td>
+<td><img src="https://draapho.github.io/images/2608/010101.png" alt="水火既济"></td>
+<td><img src="https://draapho.github.io/images/2608/100101.png" alt="山火贲"></td>
+<td><img src="https://draapho.github.io/images/2608/000101.png" alt="地火明夷"></td>
+</tr>
+<tr>
+<td><strong>4 震雷☳</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111001.png" alt="天雷无妄"></td>
+<td><img src="https://draapho.github.io/images/2608/011001.png" alt="泽雷随"></td>
+<td><img src="https://draapho.github.io/images/2608/101001.png" alt="火雷噬嗑"></td>
+<td><img src="https://draapho.github.io/images/2608/001001.png" alt="震为雷"></td>
+<td><img src="https://draapho.github.io/images/2608/110001.png" alt="风雷益"></td>
+<td><img src="https://draapho.github.io/images/2608/010001.png" alt="水雷屯"></td>
+<td><img src="https://draapho.github.io/images/2608/100001.png" alt="山雷颐"></td>
+<td><img src="https://draapho.github.io/images/2608/000001.png" alt="地雷复"></td>
+</tr>
+<tr>
+<td><strong>5 巽风☴</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111110.png" alt="天风姤"></td>
+<td><img src="https://draapho.github.io/images/2608/011110.png" alt="泽风大过"></td>
+<td><img src="https://draapho.github.io/images/2608/101110.png" alt="火风鼎"></td>
+<td><img src="https://draapho.github.io/images/2608/001110.png" alt="雷风恒"></td>
+<td><img src="https://draapho.github.io/images/2608/110110.png" alt="巽为风"></td>
+<td><img src="https://draapho.github.io/images/2608/010110.png" alt="水风井"></td>
+<td><img src="https://draapho.github.io/images/2608/100110.png" alt="山风蛊"></td>
+<td><img src="https://draapho.github.io/images/2608/000110.png" alt="地风升"></td>
+</tr>
+<tr>
+<td><strong>6 坎水☵</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111010.png" alt="天水讼"></td>
+<td><img src="https://draapho.github.io/images/2608/011010.png" alt="泽水困"></td>
+<td><img src="https://draapho.github.io/images/2608/101010.png" alt="火水未济"></td>
+<td><img src="https://draapho.github.io/images/2608/001010.png" alt="雷水解"></td>
+<td><img src="https://draapho.github.io/images/2608/110010.png" alt="风水涣"></td>
+<td><img src="https://draapho.github.io/images/2608/010010.png" alt="坎为水"></td>
+<td><img src="https://draapho.github.io/images/2608/100010.png" alt="山水蒙"></td>
+<td><img src="https://draapho.github.io/images/2608/000010.png" alt="地水师"></td>
+</tr>
+<tr>
+<td><strong>7 艮山☶</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111100.png" alt="天山遁"></td>
+<td><img src="https://draapho.github.io/images/2608/011100.png" alt="泽山咸"></td>
+<td><img src="https://draapho.github.io/images/2608/101100.png" alt="火山旅"></td>
+<td><img src="https://draapho.github.io/images/2608/001100.png" alt="雷山小过"></td>
+<td><img src="https://draapho.github.io/images/2608/110100.png" alt="风山渐"></td>
+<td><img src="https://draapho.github.io/images/2608/010100.png" alt="水山蹇"></td>
+<td><img src="https://draapho.github.io/images/2608/100100.png" alt="艮为山"></td>
+<td><img src="https://draapho.github.io/images/2608/000100.png" alt="地山谦"></td>
+</tr>
+<tr>
+<td><strong>8 坤地☷</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111000.png" alt="天地否"></td>
+<td><img src="https://draapho.github.io/images/2608/011000.png" alt="泽地萃"></td>
+<td><img src="https://draapho.github.io/images/2608/101000.png" alt="火地晋"></td>
+<td><img src="https://draapho.github.io/images/2608/001000.png" alt="雷地豫"></td>
+<td><img src="https://draapho.github.io/images/2608/110000.png" alt="风地观"></td>
+<td><img src="https://draapho.github.io/images/2608/010000.png" alt="水地比"></td>
+<td><img src="https://draapho.github.io/images/2608/100000.png" alt="山地剥"></td>
+<td><img src="https://draapho.github.io/images/2608/000000.png" alt="坤为地"></td>
+</tr>
+</tbody></table>
 <h1 id="京房八宫卦"><a href="#京房八宫卦" class="headerlink" title="京房八宫卦"></a>京房八宫卦</h1><table>
 <thead>
 <tr>
@@ -31380,6 +31776,118 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td>䷆ 地水师</td>
 <td>䷴ 风山渐</td>
 <td>䷇ 水地比</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>变爻</th>
+<th>卦名</th>
+<th>乾宫</th>
+<th>兑宫</th>
+<th>离宫</th>
+<th>震宫</th>
+<th>巽宫</th>
+<th>坎宫</th>
+<th>艮宫</th>
+<th>坤宫</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基准</td>
+<td><strong>宫主</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111111.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/011011.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/101101.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/001001.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/110110.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/010010.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/100100.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/000000.png" alt="img"></td>
+</tr>
+<tr>
+<td>初爻</td>
+<td><strong>一世卦</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111110.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/011010.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/101100.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/001000.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/110111.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/010011.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/100101.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/000001.png" alt="img"></td>
+</tr>
+<tr>
+<td>+二爻</td>
+<td><strong>二世卦</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111100.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/011000.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/101110.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/001010.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/110101.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/010001.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/100111.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/000011.png" alt="img"></td>
+</tr>
+<tr>
+<td>+三爻</td>
+<td><strong>三卦</strong></td>
+<td><img src="https://draapho.github.io/images/2608/111000.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/011100.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/101010.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/001110.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/110001.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/010101.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/100011.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/000111.png" alt="img"></td>
+</tr>
+<tr>
+<td>+四爻</td>
+<td><strong>四世卦</strong></td>
+<td><img src="https://draapho.github.io/images/2608/110000.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/010100.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/100010.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/000110.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/111001.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/011101.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/101011.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/001111.png" alt="img"></td>
+</tr>
+<tr>
+<td>+五爻</td>
+<td><strong>五世卦</strong></td>
+<td><img src="https://draapho.github.io/images/2608/100000.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/000100.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/110010.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/010110.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/101001.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/001101.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/111011.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/011111.png" alt="img"></td>
+</tr>
+<tr>
+<td>-四爻</td>
+<td><strong>游魂卦</strong></td>
+<td><img src="https://draapho.github.io/images/2608/101000.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/001100.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/111010.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/011110.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/100001.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/000101.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/110011.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/010111.png" alt="img"></td>
+</tr>
+<tr>
+<td>五爻</td>
+<td><strong>归魂卦</strong></td>
+<td><img src="https://draapho.github.io/images/2608/101111.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/001011.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/111101.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/011001.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/100110.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/000010.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/110100.png" alt="img"></td>
+<td><img src="https://draapho.github.io/images/2608/010000.png" alt="img"></td>
 </tr>
 </tbody></table>
 <h1 id="五行辟卦图"><a href="#五行辟卦图" class="headerlink" title="五行辟卦图"></a>五行辟卦图</h1><p><img src="https://draapho.github.io/images/2608/wxbgt.jpg" alt="五行辟卦图"></p>
@@ -31623,7 +32131,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="left">停止、守护、积累、门槛</td>
 </tr>
 </tbody></table>
-<h1 id="十二辟卦-消息卦-常见映射"><a href="#十二辟卦-消息卦-常见映射" class="headerlink" title="十二辟卦(消息卦)常见映射"></a>十二辟卦(消息卦)常见映射</h1><table>
+<h1 id="十二辟卦-五行-天干地支映射表"><a href="#十二辟卦-五行-天干地支映射表" class="headerlink" title="十二辟卦, 五行, 天干地支映射表"></a>十二辟卦, 五行, 天干地支映射表</h1><table>
 <thead>
 <tr>
 <th align="center"><strong>辟卦</strong></th>
@@ -31673,18 +32181,18 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </tr>
 <tr>
 <td align="center"><strong>地支</strong></td>
-<td align="center"><strong>子</strong></td>
-<td align="center"><strong>丑</strong></td>
-<td align="center"><strong>寅</strong></td>
-<td align="center"><strong>卯</strong></td>
-<td align="center"><strong>辰</strong></td>
-<td align="center"><strong>巳</strong></td>
-<td align="center"><strong>午</strong></td>
-<td align="center"><strong>未</strong></td>
-<td align="center"><strong>申</strong></td>
-<td align="center"><strong>酉</strong></td>
-<td align="center"><strong>戌</strong></td>
-<td align="center"><strong>亥</strong></td>
+<td align="center"><strong>子水</strong></td>
+<td align="center"><strong>丑土</strong></td>
+<td align="center"><strong>寅木</strong></td>
+<td align="center"><strong>卯木</strong></td>
+<td align="center"><strong>辰土</strong></td>
+<td align="center"><strong>巳火</strong></td>
+<td align="center"><strong>午火</strong></td>
+<td align="center"><strong>未土</strong></td>
+<td align="center"><strong>申金</strong></td>
+<td align="center"><strong>酉金</strong></td>
+<td align="center"><strong>戌土</strong></td>
+<td align="center"><strong>亥水</strong></td>
 </tr>
 <tr>
 <td align="center"><strong>数字</strong></td>
@@ -31776,9 +32284,24 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="center">10月</td>
 <td align="center">11月</td>
 </tr>
+<tr>
+<td align="center"><strong>人体</strong></td>
+<td align="center"><strong>耳</strong>,肾,膀胱,生殖</td>
+<td align="center"><strong>肚</strong>,脾,腹,关节</td>
+<td align="center"><strong>手</strong>,胆,筋,脉</td>
+<td align="center"><strong>指</strong>,肝,神经,目</td>
+<td align="center"><strong>肩</strong>,胃,皮肤,胸</td>
+<td align="center"><strong>面</strong>,心,牙,血</td>
+<td align="center"><strong>眼</strong>,心,神,舌</td>
+<td align="center"><strong>脊</strong>,脾,肌肉,腹</td>
+<td align="center"><strong>经络</strong>,大肠,骨,肺</td>
+<td align="center"><strong>精血</strong>,肺,咽喉,皮肤</td>
+<td align="center"><strong>腿</strong>,胃,命门,关节</td>
+<td align="center"><strong>头</strong>(后),肾,髓,足</td>
+</tr>
 </tbody></table>
 <p>说明: 五行仅与十二地支有映射关联, 不能对应到辟卦. 六十四卦的五行一般参考京房易学.</p>
-<h1 id="五行常见映射"><a href="#五行常见映射" class="headerlink" title="五行常见映射"></a>五行常见映射</h1><table>
+<table>
 <thead>
 <tr>
 <th align="center">五行</th>
@@ -31873,17 +32396,17 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="center">静,藏</td>
 </tr>
 <tr>
-<td align="center">**脏腑 **</td>
-<td align="center">胆</td>
-<td align="center">肝</td>
-<td align="center">小肠</td>
-<td align="center">心</td>
-<td align="center">胃</td>
-<td align="center">脾</td>
-<td align="center">大肠</td>
-<td align="center">肺</td>
-<td align="center">膀胱</td>
-<td align="center">肾</td>
+<td align="center"><strong>人体</strong></td>
+<td align="center">头,</td>
+<td align="center">颈,喉,肝</td>
+<td align="center">肩,小肠</td>
+<td align="center">心,舌,血</td>
+<td align="center">胃,鼻,肌肉</td>
+<td align="center">脾,唇,腹</td>
+<td align="center">肋,骨,大肠</td>
+<td align="center">肺,皮肤,咽喉</td>
+<td align="center">肾(阳),膀胱,耳</td>
+<td align="center">肾(阴),足,髓</td>
 </tr>
 <tr>
 <td align="center"><strong>意象</strong></td>
@@ -31928,50 +32451,156 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <table>
 <thead>
 <tr>
-<th><strong>地支</strong></th>
-<th><strong>子</strong></th>
-<th><strong>丑</strong></th>
-<th><strong>寅</strong></th>
-<th><strong>卯</strong></th>
-<th><strong>辰</strong></th>
-<th><strong>巳</strong></th>
-<th><strong>午</strong></th>
-<th><strong>未</strong></th>
-<th><strong>申</strong></th>
-<th><strong>酉</strong></th>
-<th><strong>戌</strong></th>
-<th><strong>亥</strong></th>
+<th>地支</th>
+<th>藏干（主→次）</th>
+<th>五行组合</th>
+<th>特点</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>阴阳</strong></td>
-<td>阳</td>
-<td>阴</td>
-<td>阳</td>
-<td>阴</td>
-<td>阳</td>
-<td>阴</td>
-<td>阳</td>
-<td>阴</td>
-<td>阳</td>
-<td>阴</td>
-<td>阳</td>
-<td>阴</td>
+<td><strong>子</strong></td>
+<td>癸</td>
+<td>纯阴水</td>
+<td>专气，主智慧、隐秘</td>
 </tr>
 <tr>
-<td><strong>五行</strong></td>
-<td>水</td>
-<td>土</td>
+<td><strong>丑</strong></td>
+<td>己癸辛</td>
+<td>土+水+金</td>
+<td>金库，主收藏、湿寒</td>
+</tr>
+<tr>
+<td><strong>寅</strong></td>
+<td>甲丙戊</td>
+<td>木+火+土</td>
+<td>火长生，主生发、行动</td>
+</tr>
+<tr>
+<td><strong>卯</strong></td>
+<td>乙</td>
+<td>纯阴木</td>
+<td>专气，主柔和、细腻</td>
+</tr>
+<tr>
+<td><strong>辰</strong></td>
+<td>戊乙癸</td>
+<td>土+木+水</td>
+<td>水库，主变化、包容</td>
+</tr>
+<tr>
+<td><strong>巳</strong></td>
+<td>丙戊庚</td>
+<td>火+土+金</td>
+<td>金长生，主文明、转化</td>
+</tr>
+<tr>
+<td><strong>午</strong></td>
+<td>丁己</td>
+<td>火+土</td>
+<td>火帝旺，主热烈、显达</td>
+</tr>
+<tr>
+<td><strong>未</strong></td>
+<td>己丁乙</td>
+<td>土+火+木</td>
+<td>木库，主滋养、缓和</td>
+</tr>
+<tr>
+<td><strong>申</strong></td>
+<td>庚壬戊</td>
+<td>金+水+土</td>
+<td>水长生，主刚健、流动</td>
+</tr>
+<tr>
+<td><strong>酉</strong></td>
+<td>辛</td>
+<td>纯阴金</td>
+<td>专气，主精致、收敛</td>
+</tr>
+<tr>
+<td><strong>戌</strong></td>
+<td>戊辛丁</td>
+<td>土+金+火</td>
+<td>火库，主终结、守护</td>
+</tr>
+<tr>
+<td><strong>亥</strong></td>
+<td>壬甲</td>
+<td>水+木</td>
+<td>木长生，主潜藏、孕育</td>
+</tr>
+</tbody></table>
+<h1 id="六爻相关映射表"><a href="#六爻相关映射表" class="headerlink" title="六爻相关映射表"></a>六爻相关映射表</h1><table>
+<thead>
+<tr>
+<th>问测事项</th>
+<th>取用神（六亲）</th>
+<th>逻辑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>父母、房产、文书、交通、天气</strong></td>
+<td><strong>父母爻</strong></td>
+<td>父母为生(<strong>支撑,庇护</strong>)我之物</td>
+</tr>
+<tr>
+<td><strong>官职、疾病、工作、丈夫、盗贼</strong></td>
+<td><strong>官鬼爻</strong></td>
+<td>官鬼为克(<strong>管束,克制</strong>)我之物</td>
+</tr>
+<tr>
+<td><strong>子孙、晚辈、宠物、解忧、医治</strong></td>
+<td><strong>子孙爻</strong></td>
+<td>子孙为我生(<strong>拥有,抚养</strong>)之物</td>
+</tr>
+<tr>
+<td><strong>妻子、钱财、货物、饮食、工具</strong></td>
+<td><strong>妻财爻</strong></td>
+<td>妻财为我克(<strong>欲望,追求</strong>)之物</td>
+</tr>
+<tr>
+<td><strong>兄弟、朋友、竞争、破财</strong></td>
+<td><strong>兄弟爻</strong></td>
+<td>兄弟为比和(<strong>分享、竞争</strong>)之物</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>六神</th>
+<th>五行</th>
+<th>主要象征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>青龙</td>
 <td>木</td>
-<td>木</td>
-<td>土</td>
+<td>喜庆、婚姻、贵人、文书</td>
+</tr>
+<tr>
+<td>朱雀</td>
 <td>火</td>
-<td>火</td>
+<td>口舌、文书、信息、争吵</td>
+</tr>
+<tr>
+<td>勾陈</td>
 <td>土</td>
-<td>金</td>
-<td>金</td>
+<td>田土、迟滞、牢狱、稳定</td>
+</tr>
+<tr>
+<td>腾蛇</td>
 <td>土</td>
+<td>虚惊、怪异、缠绕、变化</td>
+</tr>
+<tr>
+<td>白虎</td>
+<td>金</td>
+<td>血光、疾病、丧事、威严</td>
+</tr>
+<tr>
+<td>玄武</td>
 <td>水</td>
+<td>暧昧、盗贼、隐私、智慧</td>
 </tr>
 </tbody></table>
 <hr>
@@ -36494,7 +37123,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 <li><a href="https://draapho.github.io/2026/02/21/2606-IamPath/">超越“体验”：自我参究/话头与“我是”证悟的详尽指南</a></li>
@@ -36502,6 +37130,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
 <li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
 <li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
 </ul>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>百练不如一站，要学功夫先站三年桩。这些充分说明了站桩的重要性。站桩不但是传统武术的基础，也是传统养生保健的重要方法，内练精气神，外练筋骨皮，真正做到由内而外，运转周天。</p>
 <p>我至少和四位师傅学过站桩，其中有一位是函授，北京的刘永文老师，其余几位老师均是面授。坚持站桩2、3年，最久一次一口气站了2个小时。</p>
@@ -36586,7 +37218,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 <li><a href="https://draapho.github.io/2026/02/21/2606-IamPath/">超越“体验”：自我参究/话头与“我是”证悟的详尽指南</a></li>
@@ -36594,6 +37225,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
 <li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
 <li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
 </ul>
 <h1 id="提问"><a href="#提问" class="headerlink" title="提问"></a>提问</h1><p>一位修行者最近联系了我，分享了他对网络上常见的“见性（Satori）”体验的看法与相关疑惑。他提到，在收集并阅读了这些分享后(参考 <a href="https://draapho.github.io/2021/04/26/2123-caseofsatori/">见性者体验收集</a>)，他认为这些体验似乎并非处于修行第四阶段的“一心”（One Mind），而更像是首次经历了“身心完全脱落”，进入了某种短暂的“无我”体验。他觉得这只是一种非常不稳定的巅峰体验，而非真正的证悟。</p>
 <p>此外，结合我对修行第五阶段（无我）的描述，他想探讨真正的“无我”证悟是否必然伴随着身心脱落和某种程度的法喜（例如“万物皆具圆满感与不可思议光明”）。虽然他注意到我曾提及自己在证悟时并没有体验到“虚空破碎、天地颠倒等等异相”，但他仍然推测，真正证悟“无我”时，毫无疑问会有异常明显的巅峰体验或大彻大悟的感觉。</p>
@@ -36753,7 +37388,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 <li><a href="https://draapho.github.io/2026/02/21/2606-IamPath/">超越“体验”：自我参究/话头与“我是”证悟的详尽指南</a></li>
@@ -36761,6 +37395,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
 <li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
 <li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
 </ul>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一位修行者最近联系了我，分享了他目前的修行状态，并提出了一些深刻的疑问。在之前的交流与解惑后，他意识到“见性”的真正定义应当是彻见空性，而非去追逐某种稍纵即逝的巅峰体验。他坦言，自己现在深刻体会到了“正见”（Right View）与“般若智慧”（Wisdom）的关键作用。他察觉到，在修行中如果仅仅停留在“体验”层面，这些体验很容易被思维和概念习惯性地抓取，进而被固化下来。</p>
 <p>基于这些感悟，他提出了几个关于禅宗阶次与无我证悟的具体问题：首先，他询问禅宗里的“见空性”或打破“重关”，是否正好对应到阶段五的“无我”（Anatta）？其次，他想知道如果到了这一步，也就是所谓的“悟后起修”，修行者此时究竟还在“修”什么？最后，他询问了我对于禅宗三关之后的“末后牢关”（无门之门）有什么具体的看法，这也引出了关于禅宗种种路线图在表达终极证悟时是否足够精确的探讨。</p>
@@ -36903,7 +37541,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
 <li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
 <li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
-<li><a href="https://draapho.github.io/2026/02/16/2603-case3/">卜卦实例3之修行相关</a></li>
 <li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
 <li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
 <li><a href="https://draapho.github.io/2026/02/21/2606-IamPath/">超越“体验”：自我参究/话头与“我是”证悟的详尽指南</a></li>
@@ -36911,6 +37548,10 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
 <li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
 <li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
 </ul>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><strong>有人写道：</strong><br>无我的问题</p>
 <p>朋友们好。我有一个问题。首先，我必须快速提供一些背景信息。</p>
@@ -40721,6 +41362,788 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
       </categories>
       <tags>
         <tag>Bagua</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本觉与修证一如</title>
+    <url>/2026/03/27/2626-OriginalEnlightenment/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
+<li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
+<li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
+<li><a href="https://draapho.github.io/2021/04/05/2110-satori2/">开悟是怎样一种体验？(新)</a></li>
+<li><a href="https://draapho.github.io/2021/11/29/2124-faith/">带着信仰行到底</a></li>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
+<li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2514-BahiyaSutta">关于婆希耶经(Bahiya Sutta)</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2515-HeartSutra">白话优化版: 不可得的圆满：鼓声、虹光与海市蜃楼如何开启《心经》</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2516-SohAwakening">体验/觉受、证悟、知见、修行与果位</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2517-iam">「我是」的四个面向</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2518-NondualContemplation">“I AM” 之后的两种非二元观照</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2519-BuddhaTaught">佛陀的启示-无我论</a></li>
+<li><a href="https://draapho.github.io/2025/12/16/2520-Udana">&lt;自说经&gt; 第一品</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2521-SelfLiberation">大手印的皇印、自行解脱：堪楚仁波切三世</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2522-NoNouns">发起动词，无需名词</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2523-RealizationExperience">从不同角度看“证悟与体验以及不二体验</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
+<li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
+<li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
+<li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
+<li><a href="https://draapho.github.io/2026/02/21/2606-IamPath/">超越“体验”：自我参究/话头与“我是”证悟的详尽指南</a></li>
+<li><a href="https://draapho.github.io/2026/03/12/2615-Standing/">太极浑圆桩站桩要领</a></li>
+<li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
+<li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
+<li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
+</ul>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作者: Soh</p>
+<p>English: <a href="https://www.awakeningtoreality.com/2021/03/original-enlightenment-vs-practice.html">Original Enlightenment vs Practice-Enlightenment</a></p>
+<p>请参阅：<a href="https://www.awakeningtoreality.com/2025/03/blog-post.html">道元禪師的佛性思想</a></p>
+<p>本觉与修证一如</p>
+<p>John Tan</p>
+<blockquote>
+<p>当道元禅师还是天台宗的僧人时，他对“本觉”的教义感到困惑不解。如果我们本来就是觉悟的，那我们怎么会迷失呢？带着这样的疑问，他前往中国寻求答案。回到日本后，他开始弘扬“修证一如”的理念。道元从“本觉”到“修证一如”这一公案中领悟了什么？</p>
+<p>那些参加了ATR聚会的人不要回答啊🤣。</p>
+</blockquote>
+<h1 id="交流回答"><a href="#交流回答" class="headerlink" title="交流回答"></a>交流回答</h1><p>Mr. RDT</p>
+<blockquote>
+<p>关于你的评论，这是我第一次看到这样的表述。</p>
+<p>虽然我思考过类似的主题和指引。我认为最重要的是，你关于无我是一种法印的指引引发了这种认知。</p>
+<p>无我之后，我开始将佛性教义视为暗示这一点。</p>
+</blockquote>
+<p>John Tan</p>
+<blockquote>
+<p>说得好。当我在无我见解后不久听到这个公案时，我也有直接的认知。我昨天告诉ATR聚会，Soh Wei Yu在我问他关于这个公案时太懒了，没有思考🤣🤣🤣。</p>
+<p>这确实类似于无我的见解。当小我/大我被看破时（证悟无我），所见仅是所见，所闻仅是所闻。当本觉被看破时，坐仅是坐，行仅是行，睡仅是睡——修证一如！</p>
+</blockquote>
+<p>Soh Wei Yu</p>
+<blockquote>
+<p>我不记得我第一次读到修证一如是什么时候，但它从早年就引起了我的共鸣……我也喜欢这个：</p>
+<p>没有佛陀意识到其存在[具有完美本性]</p>
+<p>“在他十五岁时，一个燃烧的问题成为他精神努力的核心：“如果，如经中所说，我们的本性是菩提（完美），为什么所有的佛陀都必须努力追求觉悟和完美？”他对比叡山所得到的答案感到不满，最终找到了荣西禅师，后者将临济宗禅佛教的教义从中国带到日本。荣西对道元的问题的回答是：“没有佛陀意识到其存在[即这种本性]，而猫和牛[即严重迷惑的人]却意识到它。”换句话说，佛陀，正因为他们是佛陀，不再考虑是否拥有完美的本性；只有迷惑的人才会这样想。听到这些话，道元内心产生了一种领悟，解除了他根深蒂固的疑惑。”</p>
+<p>——推荐阅读，安谷禅师的《禅训练导论》（这是一本关于坐禅和公案训练的实用文本）</p>
+</blockquote>
+<p>Soh Wei Yu</p>
+<p>我在2012年2月25日的日记中写道：</p>
+<blockquote>
+<p>我将只管打坐（“只坐”）视为觉悟和开悟的自然表达。</p>
+<p>但许多人完全误解了这一点……他们认为修证一如意味着不需要觉悟，因为修行即是觉悟。换句话说，即使是初学者在打坐时也与佛陀一样觉悟。</p>
+<p>这是完全错误的，愚人的想法。</p>
+<p>相反，要明白修证一如是觉悟的自然表达……没有觉悟，就不会发现修证一如的本质。</p>
+<p>正如我对我的朋友/老师“Thusness”所说的那样，“我过去打坐时有一个目标和方向。现在，打坐本身就是觉悟。坐仅是坐。坐仅是坐的活动，空调的嗡嗡声，呼吸。行走本身就是觉悟。修行不是为了觉悟而做的，但所有的活动本身就是觉悟/佛性的完美表达。无处可去。”</p>
+</blockquote>
+<p>我认为，除非一个人有明确直接的非二元见解，否则不可能直接体验这一点。若未能在当下这一瞬间的显现中认识到本初清净和自然本自圆成，总会有努力和尝试去“做”某事，去实现某些东西……无论是世俗的平静状态、禅定，还是出世间的觉悟或解脱……这一切都只是由于对这一瞬间的真实本性的无明。</p>
+<p>然而，非二元体验仍可分为：</p>
+<p>1）一心</p>
+<p>——最近我注意到，大多数灵性导师和大师将非二元描述为一心。也就是说，认识到没有主客体/感知者-被感知者的分离或二分，他们将一切归为唯一的心，山川河流都是我——一个不分的本质显现为万物。</p>
+<p>虽然没有分离，但观点仍然是一个固有的形而上学本质。因此是非二元但固有的。</p>
+<p>2）无心</p>
+<p>在这里，即使是“一个裸露的觉知”或“一心”或一个源头也被完全遗忘并溶解为仅仅是风景、声音、升起的念头和消逝的气味。只有自明的瞬变流动。</p>
+<p>……</p>
+<p>然而，我们必须明白，即使拥有无心的体验，也尚未实现无我。对于无心的情况，它可能仍然是一种巅峰体验。事实上，对于处于一心状态的修行者来说，偶尔进入无心的领域是一种自然的进展……但由于在见地上没有通过证悟取得突破，潜在的倾向是强烈地回归到一个源头，一个一心的状态，因此无心的体验将无法稳定持续。修行者可能会尽力保持赤裸和无概念的状态，通过在觉知中保持赤裸来维持无心的体验，但除非出现某种证悟，否则无法取得突破。</p>
+<p>特别是，突破这种固有自我观念的重要证悟是始终已经、从未有过/存在过一个自我——在看见中，总是只有被看见的，风景，形状和颜色，从未有过一个看见者！在听见中，只有可听见的声音，没有听者！只有活动，没有施为者/主体（agent）！一个缘起的过程自身在运转和知晓……其中没有自我、施为者/主体（agent）、感知者、控制者。</p>
+<p>正是这种证悟永久地打破了“见者-看见-被看见”或“一个赤裸的觉知”的观点，因为认识到从来没有一个“单一觉知”——“觉知”、“看见”、“听见”只是不断变化的感受、景象和声音的标签，就像“天气”这个词并不指向一个不变的实体，而是不断变化的雨、风、云的流动，瞬间形成和消散……</p>
+<p>然后，随着探究和洞察的深入，看到并体验到只有这个缘起的过程，所有的因缘在这一瞬间的活动中汇聚在一起，这样当吃苹果时，就像宇宙在吃苹果，宇宙在打字，宇宙在听声音……或者宇宙就是那个声音。仅此而已……就是只管打坐。在看见中只有被看见的，在坐着中只有坐着，整个宇宙都在坐着……当没有自我，没有冥想者与冥想分离时，情况不可能是其他样子。每一刻都不禁是修证一如……这甚至不是专注或任何形式的刻意努力的结果……而是对证悟、体验和见地在实时中的自然验证。</p>
+<p>提倡修证一如的禅师道元，是禅宗中少有的、清晰的瑰宝之一，他对无我和缘起有着非常深刻的体验性清晰。没有对无我和缘起的深刻证悟和体验，我们永远无法理解道元所指的是什么……他的话可能听起来隐晦、神秘或诗意，但实际上它们只是指向这一点。</p>
+<p>有人“抱怨”说，只管打坐只是暂时压制烦恼，而不是永久消除它。然而，如果一个人实现了无我，那么这就是我见的永久终结，即传统的入流。</p>
+<p><strong>John Tan</strong></p>
+<blockquote>
+<p>Soh Wei Yu, 我还不知道这是你写的。这说明 你还是有下功夫的🤣。</p>
+</blockquote>
+<p><strong>Anurag Jain</strong></p>
+<blockquote>
+<p>谢谢 Geovani Geo，我明白你的意思。我刚才想表达的是：难道本来面目当时没有显现吗😉。</p>
+</blockquote>
+<p><strong>Geovani Geo</strong></p>
+<blockquote>
+<p>我之前写成了“本来的自我”，而不是“本来面目”。已更正。</p>
+</blockquote>
+<p><strong>Geovani Geo</strong></p>
+<blockquote>
+<p>我认为一切始终都在显现，但心的妄想搅动并将泥沙混入清澈纯净的水中，让人误以为清水已经消失。</p>
+</blockquote>
+<p><strong>John Tan</strong></p>
+<blockquote>
+<p>Geovani Geo<br>如果本来面目始终在显现，那么除了无数显现的面目外，再无其他本来面目可言。每个面目既非相同也非不同，每种显现都是清净的。<br>一直以来，镜子上本无尘埃，所有的尘埃即是镜子本身；唯有当某一尘埃自称特殊且纯净时，其他所有镜子突然间都变成了尘埃。</p>
+</blockquote>
+<blockquote>
+<p>同时回应你下面的帖子，因为它们相关：<br>👇👇👇<br>将一切拿走，将其剥离至空。没有颜色，没有味道，没有感官，这样颜色、味道和感官才能显现。空于知觉，这样知觉才能安住。从所有能想象或不能想象的一切中将其清空。甚至从仍然存在的“无物”的观念中清空：无。这便是基底。那么，真的有个基底吗？如果有，那么它还不够空；若没有，我们又怎能在这里谈论？早安，孩子们……😉</p>
+</blockquote>
+<hr>
+<p><em><strong>转载摘录自网站 <a href="https://www.awakeningtoreality.com/">Awakening to Reality</a> 之 <a href="https://www.awakeningtoreality.com/2025/03/blog-post_5.html">本觉与修证一如</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>atr</category>
+      </categories>
+      <tags>
+        <tag>atr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Soh的觉悟之路</title>
+    <url>/2026/03/26/2625-SohAwakening/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
+<li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
+<li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
+<li><a href="https://draapho.github.io/2021/04/05/2110-satori2/">开悟是怎样一种体验？(新)</a></li>
+<li><a href="https://draapho.github.io/2021/11/29/2124-faith/">带着信仰行到底</a></li>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
+<li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2514-BahiyaSutta">关于婆希耶经(Bahiya Sutta)</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2515-HeartSutra">白话优化版: 不可得的圆满：鼓声、虹光与海市蜃楼如何开启《心经》</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2516-SohAwakening">体验/觉受、证悟、知见、修行与果位</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2517-iam">「我是」的四个面向</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2518-NondualContemplation">“I AM” 之后的两种非二元观照</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2519-BuddhaTaught">佛陀的启示-无我论</a></li>
+<li><a href="https://draapho.github.io/2025/12/16/2520-Udana">&lt;自说经&gt; 第一品</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2521-SelfLiberation">大手印的皇印、自行解脱：堪楚仁波切三世</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2522-NoNouns">发起动词，无需名词</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2523-RealizationExperience">从不同角度看“证悟与体验以及不二体验</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
+<li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
+<li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
+<li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
+<li><a href="https://draapho.github.io/2026/02/21/2606-IamPath/">超越“体验”：自我参究/话头与“我是”证悟的详尽指南</a></li>
+<li><a href="https://draapho.github.io/2026/03/12/2615-Standing/">太极浑圆桩站桩要领</a></li>
+<li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
+<li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
+<li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
+</ul>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作者: Soh</p>
+<p><strong>请参阅我的善知识John Tan的文章：</strong></p>
+<p><a href="https://www.awakeningtoreality.com/p/chinese-translation-of.html">Thusness “真如”/PasserBy “过路人”开悟的七个阶段 - Chinese Translation of Thusness/PasserBy’s Seven Stages of Enlightenment </a></p>
+<p>以下是我撰写的一些关于个人体悟与经历的中文文章。</p>
+<p>附注：虽然文章探讨了超越“源头”的见解，但在实际的修行旅程中，首要之举应是通过自我探寻来证悟“源头”（亦称本我），正如第一篇文章中所强调的那样，这是一切修行的基石。</p>
+<h1 id="2010年6月29日"><a href="#2010年6月29日" class="headerlink" title="2010年6月29日"></a>2010年6月29日</h1><p><strong>在2010年2月9日</strong>，我经历了一个修行上的体悟：我体悟了什么是自性、本来面目、真我。当时我正在打坐，脑海里有一个疑问——“我未生以前的本来面目是什么？”我非常想找出答案，但也清楚地知道，这并不是凭借意念或思考就能明白的。就在那一刻，突然一切意念都消失了，自性显现，心中了然明白；所悟到的极其清晰，一切疑惑也随之荡然无存。自从传法后，我在几年前便开始对自性有所体会，但那次之后，我对它再无疑惑。</p>
+<p>因为这是一个超越语言文字的真理，能用言语表达的部分非常有限（就如“如人饮水，冷暖自知”）。再加上和朋友之间多半都用英语交流，但今天我还是会尽量用我浅薄的中文来表达我的体悟。</p>
+<p>我刚才提到的“自性”，到底指的是什么？什么是“未生以前的本来面目”？</p>
+<p>如果你能够将一切意念、我执和妄想都舍弃，甚至把身心都完全放下，此刻你真的会彻底消失、不复存在吗？你的身体会变成一具尸体吗？不会。就在这时，空然无一物，剩下的便是不生不灭的自性、本来面目，也就是你自身的“存在”。它无形无相，却自无始劫以来就始终存在，不增不减，超越时空，如如不动，是本体/灵性/灵知。它的本质便是“觉”——了了分明、灵敏觉知，能照见万物，如同镜子可映照万物。一切所见所闻都因这“觉性”而自然显现。有了这个“存在”的本身，有了“觉性”作为依靠，身体才具备活力——这就是觉性的妙用。正如《达摩大师血脉论》所说：“佛是西国语，此土云觉性。觉者灵觉，应机接物，扬眉瞬目，运手动足，皆是自己灵觉之性。”如果觉照力强，便会在一举一动中都照得清清楚楚——甚至平时吃饭、走路，也会让人感觉“妙不可言”，因为那都是觉性的妙用。与之相对，一般人在日常生活中，不管做什么事，总是一边做事一边胡思乱想，很难真正理解和体会到这种“妙”。</p>
+<p>我们的“闻性”不变，一切意念与感受都在觉性之中起落，但觉性常照不受影响。通常，我们都会把自己的身心认定为“我”，若是走路或行动时，就好像“我”这个身心在周围环境里移动。但如果在走路或跑步时能持续觉照，你会发现周围的景色实际上是在你的“本性”当中来来去去，而你——无形无相、包含万物、有如虚空一般的自性——并未移动。</p>
+<p>如果你真正见证了“未生以前的本来面目”这一真理，就会完全没有疑惑，你甚至想否认都做不到。你会明白，在你的人生中，自性/觉性/存在本身是唯一不可否认的真理。一切也是自性的显相；若没有自性，你就不可能在这里阅读这篇文章。这一切都无需思考便可确信，它并不是透过思考才能得出的结论或理解的东西。比如，你看到一个人举止斯文，又戴着很深的眼镜，便用思考得出“他是个有学问的人”的结论，可你却无法百分之百确定这就是真相。而见性则完全不同：它并不依靠思考，只是在前念已过、后念不生、当下无思无念时，就能肯定这就是我们实实在在的真如本性，从而不再疑惑。</p>
+<p>在见性后的一两个月里，我有了更深的体会：进一步了解到自性就像“大空气”，既不属于“我”，也不属于“你”，一切有情无情万物都从这宇宙本体/大虚空而生。这也让我明白了“天地同根，万物同体”的涵义。虚空中充满觉性，能显现一切；同时，我也更清楚地看破了“我相”和“人相”的虚幻。原来一切都是宇宙本体的现象，连走路、咳嗽、说话，也都不是“我”或“你”在做，而是宇宙本体的自然运作。“我”是完全虚假的，如果不舍弃对“我”和“我所”的执着，就会生起各种烦恼——那正是一切烦恼的根源。修行就像“小空气”融入“大空气/大宇宙”，将“小我”舍弃，在这宇宙本体之中，自然运作，自在无碍。</p>
+<p>不过，这并不是说修行时要完全不生心——否则，日常生活和做事都无法进行。我们的念头就像云朵，而自性是开放无量、无边，如天空一般。如果能保持觉照去做事，心念也会随缘而生、随缘而灭；觉照灵敏，看到念头的起落来去就像云朵飘过天空，而天空仍然是一样地宁静、祥和，依旧清净无染（“本来无一物，何处惹尘埃”）。天空并不拒绝云朵，云朵也不会障碍天空，一切随缘而了，不留痕迹。最重要的是保持觉照，不执着于念头。如果执着于“我”和“我所”的妄想，就不得解脱；而若执着于意识的分别与染着也不得解脱。所谓“觉”，就是觉照一切而无分别与染着。所以，“觉”和“心”要分得清清楚楚。若想解脱，就需要“觉”。即使有念头，但其中也有“觉”，那就不是凡夫的“意识心”，而是“觉心”。</p>
+<p>我认为这些体悟本身并没什么了不起的，因为每个认真修行到一定阶段的人都会有他自己的体悟，而且这些体悟也并不代表就完全解脱了。“从悟起修”非常重要，我觉得我的修行之路才刚开始。其实究竟来说，也并不需要修什么，因为自性本具足、本来如是，只需“持”（保持觉照）。如果把一切都舍弃，那么剩下的就是我们本来具足、清净无染的本觉。</p>
+<h1 id="2011年1月14日"><a href="#2011年1月14日" class="headerlink" title="2011年1月14日"></a>2011年1月14日</h1><p>在我写上一篇文章的四个月后，我又有了新的体会。</p>
+<p>我悟到：原来“见相”就是“见性”，并无所谓“性相”之别。我曾经在师父的文章里读到“青青翠竹尽是法身，郁郁黄花无非般若”，这次我深切体悟到了这句话的涵义。</p>
+<p>从这里，我明白自己在2010年2月所悟到的其实只是“性体”。当时虽然也说“一切是佛性的妙用”，但在“体”和“用”之间仍然起了分别，还不知什么是“体用一如”。在那种层次里，对觉性本体的认识还是“空无所有、无形无相的能觉”，所以总想守住那个“空”，在偏向于“空”之中生起了“空”的法执。还不理解一切法本来平等，都是佛性的妙用。直到2010年10月中旬，我依照一部佛经——《Bahiya Sutta》（《婆酰迦经》）——的指示来观照，这才有了新的突破。</p>
+<p>经里记载：婆酰迦因为受到人们的恭敬与供养，心中生起了“我是不是已经成道”的念头。一位前世曾与他共修的天神知道巴希亚心中存有疑虑，便现身告诉他：他不仅没有成道，也根本还没进入成道之道。婆酰迦问：“那么现在谁已成道？”天人回答：“在舍卫城有一位开悟的圣者正在传授成道之法，他就是佛陀。”于是婆酰迦前往舍卫城见到佛陀时，恰逢佛陀在化缘，他请求佛陀为他开示，但佛陀拒绝了，表示此时不宜。婆酰迦再三请求，表示谁也无法预料他和佛陀生命中的危险。后来佛陀答应为他开示，说道：</p>
+<blockquote>
+<p>“婆酰迦，在看东西时，只有看东西；在听声音时，只有听声音；在闻、尝、触任何东西时，就只有闻、尝、触；在思想时，就只有思想。正因为在看时只有看，在听时只有听，在闻、尝、触时就只是闻、尝、触，在思想时就只是思想，所以于一切境界并没有一个‘你’。既没有‘你’，就没有一个‘你’在那里；既没有‘你’在那里，也就没有一个‘你’在这里、那里或中间。此即苦的止息。”</p>
+</blockquote>
+<p>婆酰迦听了短短一句话，当场解脱。然而，当天他就被牛撞死了。佛陀的弟子问：“婆酰迦往生到哪一道？”佛陀回答：“婆酰迦有智慧，他依据佛法修持，却不以有关佛法的问题来打扰我，婆酰迦已经彻底解脱了。”</p>
+<p>我当时依照佛陀在《婆酰迦经》给婆酰迦的开示去观照一切（那时我是在动中修），突然体悟到——当看见山河大地时，并没有一个能觉与所觉的对立，这种“能所”的分别根本不存在：能觉就是所觉！觉性并不是一个“无形无相的能觉”，觉性就是“所见所闻”。在听声音时只有声音，并没有听者；在观看景色时只有景色，并没有观者；在思想时只有思想，并没有思想者。正因为没有能所，也就没有距离。没有一个“立场”（所谓“我”对“外景”的分别）来生起分别或衡量远近。宇宙就是自性，没有任何“你”在这里或那里，也就没有任何时空限制。当看到山河大地时，就没有一种“我在身体里看着外面的景色”的感觉——因为身体也只是一个虚幻的假相。此刻身心脱落、能所双亡，完全没有内外之分；山河大地就是法身，整个宇宙就是一片大光明，无内外、无中边、无方所。“见相就是见性”，但却没有一个“能见者”和“所见之境”。虽身心脱落、能所双亡，一切平凡的生活和处世依然照旧，只是已没有一个“行者”在做，也没有一个“觉者”在看，一切都清清楚楚、了了分明，来去随缘自显。所有所见所闻都“不即不离”，当下就是佛性的妙用，念头也一样，如同海上的波浪或多或少，总归其本质还是水。并不需要“去掉波浪”去找水（这里“水”比喻一切法的法性和质地——空性、觉性）。所以修行并不在于究竟是“有念”还是“无念”，而在于对念头有没有迷惑。只要不迷惑，便不会在“动”与“静”之间产生差别。</p>
+<p>很多人以为“无我”是一种修行的成就，比如通过修行而让自己不再执着“我相”，当然这很重要，也是修行中的一大成就。但佛陀在这部经文中所讲的“无我”，并不是一种修行后才有的成就，而是一个“法印”——对一切法而言，本来就无我！本来就无能觉者/所觉的对立，本来就无见者/听者/行者！一直以来，在听声音时都只有声音，没有所谓的“我”或“闻者”。这本来就是如此，并不需要去“消灭”一个“我”，因为从头到尾就没有一个“我”可以消灭。这是需要实际体悟的，并不是通过修行或境界才能获得。如果没有真正亲证般若智，无论如何修行，也很难进入这样的自然状态。所以“无我”不是一种成就，而是法本无我、本来如此。</p>
+<p>还有许多人以为要“去掉生灭相/念头”才能达到“不生不灭”的自性。这正是我曾经也有的理解，但现在明白了：如果这些生灭法不起分别对立，当下即是不生不灭，不来不去，动静不二。也就不会再有上一篇文章里所说的“生灭法在不动的自性中来去”的分别——因为对当下这一念、一种声音来说，若不起分别、对立、执着，当下就是实相，超越过去、现在与未来。一切虽然不断演变，但在演变当中的当下却并无“动相”，没有来去之相，只有实相，非动非静。因此《楞严经》才说：</p>
+<p>“阿难！汝犹未明一切浮尘诸幻化相，当处出生、随处灭尽。幻妄称相，其性真为妙觉明体。如是乃至五阴六入，从十二处至十八界，因缘和合，虚妄有生；因缘别离，虚妄名灭；殊不能知生灭去来本如来藏，常住妙明，不动周圆，妙真如性。性真常中，求于去来、迷悟、死生，了无所得。”</p>
+<blockquote>
+<p>（更新：Soh指出，John Tan此前写道：<br>“大乘佛教中的‘常’意味着不存在生灭的因，而非所谓的‘不变与真实’。”,<br>““常”并非指有个东西保持不变，而是指没有生之因。”）</p>
+</blockquote>
+<p>而《大乘起信论》亦云：</p>
+<blockquote>
+<p>“法我见者，依二乘钝根故，如来但为说人无我。以说不究竟，见有五阴生灭之法，怖畏生死，妄取涅槃。云何对治？以五阴法自性不生，则无有灭，本来涅槃故。”</p>
+</blockquote>
+<p>因此，如果想要“去除生灭法”来达到“不生不灭”，依然是在能所的对立与法执当中。并不知道一切法都是缘起性空的幻相，并非实有，而是妙觉明体的妙用，并没有生灭与来去之相。同时也要知道，离开现象就无所谓“佛性”可言——体用不可分。空由有显，有因空立。实相与幻相并非截然二物；同样看到某个东西，迷时着相，悟时一切是实相。一切如梦幻泡影，但同时也是自性光明之显现，这两者并不矛盾。</p>
+<p>所以，所谓的“离相”和“无念”，并不是要消灭一切外在之相和念头，而是要离开能所的妄境，看破一切相的实有与执着，不生对立与分别，也不拒绝任何现象。当下所面对的一切便是实相。因此《六祖坛经》说：</p>
+<blockquote>
+<p>“惠能即会祖意，三鼓入室。祖以袈裟遮围，不令人见，为说金刚经。至‘应无所住而生其心’，惠能言下大悟，一切万法，不离自性。”</p>
+</blockquote>
+<p>若想“离开所见所闻”去找一个“佛性”，那完全是多余的。如果要悟到体用一如，就要“见色明心，闻声悟道”，既不偏空，也不执有。</p>
+<p>最后，以一首偈语来总结：</p>
+<p>**深入观行，婆酰迦经；<br>了悟经旨，直指无心。<br>无执能所，忘却身心；<br>方知见性，只需明相。<br>明相见性，见色明心；<br>真心空性，随缘显相。<br>迷时幻相，悟时真心；<br>山河大地，原是法身。<br>色声香味，尽是妙心。</p>
+<h1 id="2011年6月5日（最后更新：2011年10月16日）"><a href="#2011年6月5日（最后更新：2011年10月16日）" class="headerlink" title="2011年6月5日（最后更新：2011年10月16日）"></a>2011年6月5日（最后更新：2011年10月16日）</h1><p><strong>与佛同在</strong><br><strong>新加坡 X</strong><br>(X居士之子，21岁)</p>
+<h2 id="通序"><a href="#通序" class="headerlink" title="通序"></a>通序</h2><p>这是我写的一篇关于我对空性的体悟，文中最想阐述的便是“无我”与“空”的不可分性。常听到很多对于“空”的讨论，但若一个修行人仅仅从“悟觉体”就自以为了解空性，那便无法正确把握什么是真正的“性空”，因为那修行人依旧“归守”于一个真实体，不见五蕴万法内外皆无实有，不懂得“诸法性空”乃是“无我”的智慧延伸到一切法之上。所以若不先悟“无我”，便无法深入“性空”。</p>
+<p>在这篇文章里，除了在第二部分《魔术幻变，无中生有》中表达我近期对“缘起性空”的体悟外，在第一部分《空明不二，但非相同》中也提及了修行道路上极为重要的几点：</p>
+<ol>
+<li>体悟“觉体”、“根源”。</li>
+<li>体悟“觉”，而明白“体、根源”只是一种“习见”，破除此“习见”障碍以更进一步了悟“无我”。</li>
+<li>空/无我并不是境界或对治法，究竟的正见在于摆脱一切知见的解脱；空慧者不立一切法，诸法平等，彰显真如。</li>
+<li>体悟“无我”——原来“我”是学来的，本就没有我。</li>
+<li>觉悟正见之重要性。</li>
+<li>若缺失以上几种体悟，就无法深入理解“空性”的意义。</li>
+</ol>
+<p>这些体悟同样宝贵，也都同等重要。小乘行者证人我空，大乘行者证人法二空；但若不先悟“无我”，便不可能真正了悟“性空”。若能明白这一点，便能理解“小乘与大乘的体悟只是同一路上的自然进展”。</p>
+<p>其实，自性本来如此、本来具足，在圣不增，在凡不减。但若一个人不觉悟这本具的如来宝藏，就好比他口袋里早有一颗钻石，却因无明而忘了，只好当乞丐向别人讨钱。有钱人也能变成穷人，因为虽然本来拥有宝藏，但无法受益。同理，我们真如本性本自具足，却被无明妄见所迷，所以必须通过正见、正确的指引与正法修持才能渐次觉悟，但最终仍是“悟无所得”。也可以说，本来就是空。如果本来没有迷，也就不需要什么“悟”。佛性本来具足，无所谓迷悟。但众生在苦海生死的迷梦中，才需要觉醒。 </p>
+<h2 id="（一）空明不二，但非相同"><a href="#（一）空明不二，但非相同" class="headerlink" title="（一）空明不二，但非相同"></a>（一）空明不二，但非相同</h2><p><strong>性相一如</strong><br>一切相无非自性空明，性相一如而具空有。<br>性空不否认妙觉之用，幻法无体相却生动。<br>天地法界皆是假相假用，有如风吹水流。<br>觉光无体，假用无穷，妙法非有也非空。</p>
+<p><strong>即非相同</strong><br>空明不二，但并非相同；悟体、悟性并不相同。<br>若见本觉却不悟空性，只是见“体”而未见“性”。<br>若见觉体有不变实体，仍执外道常、我见。<br>因此，要见性须证无我，再悟诸法性空，方入道要门：在于“见、证、行”三者。</p>
+<p><strong>注解</strong><br>在修行中，具有某些体悟的人其实不少，但能明白体悟有不同层次的人并不多。比如我在去年二月，第一次体悟到“觉体”；两个月后又体会到“小我”的虚幻；到了八月，开始体会到“觉性无能所”；十月则悟到“无我”。然而，即便悟到“无我”，虽然已经超越了外道之见（如梵我/神我等），也并不意味着已经悟入“一切法空性”。“诸法无我”其实还有更深的含义，这已超越了一般小乘行者对空和无我的理解。（如我第二篇文章中提到的婆酰迦，他只证得小乘阿罗汉果，也就是“人我空”。）小乘行者只悟“我空”，大乘则悟“人法二空”。而即使体悟到“人法二空”，也只是踏上佛道的开端——因为尚未净化多生累劫于第八识中所植的种子，未达究竟佛果。虽然我去年就体悟了“无我（人我空）”，但今年六月才真正体悟“法空”。</p>
+<p><strong>注</strong>：<br>我曾看过一些外道书籍，通过这些体悟，逐渐明白外道与佛法的区别。外道也可能体悟到“觉体”，甚至破除能所分别，把一切归为“同一觉体”，可他们依然无法超越“我见、常见”，往往认为“觉性”有一个不变的实体，万物都在这个“无量无边”的本体内生起灭去，但本体“常照”不被影响。“小我”只是虚假假相，如河水注入大海。而他们称这个“超个人之体”为“梵我/神我/主”，视之为产生一切物质运动和生命现象的精神本体（印度教、基督教、犹太教、回教等宗教里都有这种“内行派”观点）。</p>
+<p>六祖慧能说：“无常者，即佛性也；有常者，即一切善恶诸法分别心也。”</p>
+<p>道元禅师则说：“草木丛林之无常，即为佛性；人物身心之无常，即为佛性；国土山河是无常，以其即佛性故。阿耨多罗三藐三菩提是无常，以其即佛性故；大般涅槃是佛性，以其即无常故。持二乘诸种小见者，经师、论师、三藏师等等，皆对六祖言论惊疑怖畏，如是则彼等即为外道之党。”</p>
+<p>佛法与外道的不同之处在于：佛法不仅让修行者消除对“小我”的执着，也能消除对“哲学上最高真理或本体——梵我/大我”的执着。一切伟大的宗教家都可能从“小我”的境域中解脱出来，发现自己本体即是整个宇宙的存在，与万物无二无别；一切现象似乎皆由他们的“自体”衍生。但他们虽然明白“我”并不存在，却仍承认宇宙本体或“最高真理”始终独立存在，依然将“内在的本体”和“外在的现象”区分为对立：认为“本体”常住不变，而“现象”则在其内生灭，落入佛所说的“半常半无常”外道见，常见我见仍未断。佛法所见的本体与现象并非两物、也不能用手背与手掌作比喻——因为现象本身就是本体，“离开现象别无本体”。本体的“实在”恰恰就在现象的“不实”中；现象无常变幻正是真理所在。唯有在这点上彻底明了，才是对“无我”的真正体悟。</p>
+<p>若说“念头万物生灭来去，唯有觉体不变不灭”，那与外道梵我观有什么两样？如果我们说“常住”，则一切万法都常住；若说“寂灭”，一切法都寂灭。所以六祖慧能、道元禅师才会说“无常即佛性，性相不二”。</p>
+<p>因此，虽体悟“觉体”并不代表就已究竟。众生执着各种知见，生种种我执、法执，执迷不悟，看不破无一法可得，也不知“一切皆归于自性”，故而无法见到本性与空性。有某些体悟或见证不代表就究竟，但我们也不能否认这些体验（那是不可能的）。正如古德所言：“要信任你的体验，但要继续精炼你的知见。”就算已经得了珍贵体悟/体验，依然还有更深的体悟可期；若能体悟“觉体”再辅以正见，则进展会更快。</p>
+<p>如果认识了“觉体”却缺乏正见，就有可能停留在外道知见，执着“觉体”为真常梵我；这样虽然在修行上或许会见到某些进展，但还无法达到彻底“转依”（破除根本无明）。</p>
+<p>佛陀所说的“佛性”或“如来藏”，其实是“法空性”的别名，系方便法门，用来度化害怕“无我”“空”的众生，或者用以教化那些相信或认为存在“真我”的外道。所以圣开师父才说：“其实‘真我’不过是一个代名词，若你真把‘真我’当真，那就错了；必须‘无我’才是‘我’，这才是真我。”但大多数人并不清楚，所以对佛性缺乏正确见解。他们只知道或体悟到“觉体”，却不明“觉性的无我/空性”，不晓得“空明不二”，因此落入外道知见。</p>
+<p>可见，想证悟佛法并不止是“要认真修”那么简单（毕竟外道也可能很认真修，但终生只停留在某一个层次，因为无正知正见）。所以，修行才需要“见、证、行”三者并进。</p>
+<ol>
+<li><strong>见</strong>：要建立正见，明白本来无我，观一切皆因缘所生，非有实体可得，破除一切相。</li>
+<li><strong>证</strong>：经由修持而亲自印证体悟。</li>
+<li><strong>行</strong>：将所见所证落实于行持，融入日常。</li>
+</ol>
+<h3 id="见"><a href="#见" class="headerlink" title="见"></a>见</h3><p>陈老师说：“有解无行，增长邪见；有行无解，增长无明。”对此我感触很深。正见在八正道里位居首位。何谓邪见？即常见、断见、我见等各种见惑。我们每一个执着都来源于“见惑”。无明导致我们妄想“有物、有我”之“存在”或“不存在”，其根本在于我们把“我”和万法都立成“实有”或“实无”。因为凡夫见“我”确有实体存在，执真常不变之“我”、身体、觉、心等为真实之体，不肯放下；若悟无我，则可化解对“我”“心”“身体”“存在”或“不存在”种种疑惑，体证确无真实之我可得，日常生活就像风过水流，不留痕迹。若有任何见（如我见、边见等），就会留痕。悟无我则能去除“能觉者、作者、主人、我、我所”等执着，再悟“缘起性空”并破除法执——一切如梦如幻。</p>
+<p>若有正见，我们才能将对“觉”的体悟，落实到“一切现象”上：原来“觉”就是所有所见、所闻，并非有个能觉者。于此我们也能看破“体、根源”只是个“习见”，并非觉之本身，也不是实际体验。何谓“习见”？即能所之见、我见。众生从小受熏习，就会觉得真有个“能觉者”在这里观外面的“所觉之境”，产生内外、能所的分别，而这本来就不存在，只是一种“习见”（从小逐渐养成的见惑习性）。我们普遍会觉得“从小到大，我还是我”，即便身体或环境改变，仍会觉得有一个不变的“我”。这种“习见”深深种入第八识，每一刻都用错误见解去攀取当下所体验的一切，因此把“觉性”误解成“不变真我”。但这并非真正的“觉”，只是习见。除了“人我见”，尚有“法我见”，认为万法有独立存在的实体。</p>
+<p>然而，“觉”作为“用”，它本因“性空”而无实有、不变之本体，所以“觉”并不是真正的“体、根源”。这就需要透过正见去破除“体/根源”这种习见障碍，从而更进一步了悟“无我”。换言之：在听时只有声音、在看时只有景色，根本没有“观者/听者/能觉者”在听或看——那个“我”与“观者”本就不实际存在，只是后天学来的观念。一旦明白此点，修行人便不会再“归、守、住”于一个真实体；也就能见到“五蕴万法，内外无一实有”。因为没有执着一个不变的本体，一切瞬息万变的现象才可自然显露“真如本性”，人也能体验到何谓“解脱”，何谓摆脱妄见执着的自由。</p>
+<p>因此唯有正见，我们才有力量去突破习见障碍、突破能所见、人我见、法我见等种种邪知邪见。如果明白“本来无我”，一切不过是因缘法的过程，就不会再见到有什么“能所”或“作者”或“能觉者”在造作、在观照，或以为所有东西都出于某个“究竟根源”，或认为有“实在的事物”。事实上，一切都只是现象过程，无来无去、缘起缘灭的假相，无所谓“作者”。若具正见，便不会把“觉”看成一个独立不变的“体”或“根源”，从而生出我执。也才能体悟：“觉性本来就是一切的因缘现象过程：声音、景色、味觉……一切都了了分明，却又虚幻无体。”</p>
+<p>究竟而言，正见就如大珠禅师所说：“见无所见，即名正见。”</p>
+<p>“空”的智慧就是看破我们的知见其实是虚妄与不实，人我都无真实我体，自然也就“不立一切法”，能凭正见解脱见惑执着，从而“法尚应舍，何况非法”。这才是佛法，不是“以一种法对治另一种法的执着”——那样永远没完没了，无法真解脱。一旦断了见惑，一切法执也不必对治即能自然解脱。一切法、境界本来就无我，皆平等。所以，当你真正体悟“本来无我”，并不是要再去找一个“更高境界”或“更高之法”去超越某些法或境界，而是悟到人法二空，舍除自身妄见执着，便能显现真如。正见之力好比一把火，把蜡烛燃尽后，自己也自灭，不留任何立场或观点，乃至“空”也一并“空”了。般若之智仅是断除法执妄见，并不立更高之法、观点：听时只有声音，看时只有景色，无我、无法，也无“无我”。故而“法王法是无法可说，只是如是”。</p>
+<p>佛陀教导“诸法无我、缘起性空”的正见与教义，能使我们彻底觉悟、体悟人法二空，从而摆脱一切知见，达到解脱；诸相皆归于性，真如得以显现。</p>
+<h3 id="证"><a href="#证" class="headerlink" title="证"></a>证</h3><p>修行并不在于压制念头——念头本身并无错；问题在于“见惑”不断，因而被念头所迷，产生我执、法执和烦恼。若不存见或执着，就不会被念头左右；念头照常可以被自然运用、无碍自由。</p>
+<p>很多人虽然从书本或师长口中对“缘起性空”的道理有所了解，但那只是一种“知识层面”的理解，远未达到真正的证悟。他们也许只悟到“觉体”，却又执着“觉体”有实体，自以为已经明白空的教义，却未曾真正体悟空性与缘起的真义；这就是还没抓住修行要点的表现。</p>
+<p>为什么“体悟无我”是体悟“缘起性空”的关键？因为如果不先悟无我，对缘起法的认识就会停留在“知识”上，而非亲证。若“我见”尚存，就无法把细微我执解放；连“觉”本身也可能被执着为“我”。这样就无法真实体悟无常法、无我法、以及缘起性空。缘由在于你还认为有某个“独立非因缘之体/根源”，好像一切从一个“永不变的根源”产生，又怎么能够体会“缘起”？</p>
+<p>当你真能体悟“无我”，不见有“我”、能觉者或作者，自然就能领悟“一切现象仅在演变之中，皆是无常法”。因为无“我”、无“作者”，也就明白一切是“因缘法”的过程，都是“一合相”。</p>
+<p>譬如颇求那比丘问佛陀：“为谁受？”佛陀答：“我从未说过有‘受者’。假若我说有受者，你应问：‘是谁在受？’可你应当问的是‘何因缘故有受？’而我会回答‘触缘故，有受；受缘爱。’”</p>
+<p>若并无一个“受者”在承受，也无“觉者”在觉知或“行者”在行动，更无“体、根源”，那一切法如何而生？都是因缘法之过程：诸法因缘生，因缘散则灭。这并非单纯知识上的理解；唯有真正体悟“无我”才能真切地体会和印证因缘法。当你见“本无我”，将自我/独我意识解放，就会自然体会到无常法与因缘法。但与此同时，仍需正见配合，因为纯粹的体验若无正确见解，一样无法把对“无我”的体悟，与“因缘法”结合，难以进一步深悟“缘起性空”。由此可见，修行体悟存在层次差别，也正是这个原因。</p>
+<p>如果我们总以为有一个“究竟根源”“能觉者”在觉知一切，一切所见所闻都从“觉体”而生，就不会觉知到一切都是“因缘法”的过程；若还存在能所之见与我见，就不可能体会到“因缘法”。</p>
+<p>一切皆因缘所显：听到声音，并非因为有个听者在听外面的声音，也不是觉如同镜子照外境（那只是一种表法，但也容易让人误解），实际上本来就无所谓“见者”或“所见”。“听到声音”只是因缘法所显现：比如狗、狗吠声、空气、耳朵等各种因缘聚合，于是便有“听到声音”；当这些因缘聚合的那一刻，整个宇宙就是那个声音，没有听者，而非某个能觉者在“照”“听”。那个因缘所生的“听到声音”，正是“觉”的本身，所以“觉”不离因缘所生法。要真正明了缘起，就要先断能所见与我见，这才能体会得到。</p>
+<p>若你仍抱持“听声音是从某个听者/究竟根源而来”的观念，怎能体悟到原来听到声音乃是因缘和合？</p>
+<p>故必须先悟“本来无我”，自然就舍了“我执”和“一切从体/根源而生”的习见。因为真正发现一切并非从某个“究竟根源”而来，而是现象的过程，你才会体悟一切都是“因缘和合而顿时所现”，无来无处、无住所、无去处。诸法因缘生、缘尽则散，全然是因缘法的过程，并无我、体、根源在其中连续。</p>
+<p>圣开师父说过：“所谓‘我见’，一是凡夫不了解色、受、想、行、识（五蕴）本是假的和合体，执著人之我体是永恒的，死了以后，来生还是我体，称为‘人我见’。再者，一般凡夫不了解万法乃是缘生缘灭，却固执诸法实有体用，这种恶见则称为‘法我见’。二者合并，便是‘我见’。”</p>
+<p>有人会问：“如果本来无我，那谁在生死轮回？”但这个问题其实问错了。因为本来无我，而佛教所言的“轮回”并不是一个不变我体的延续，只是因缘与因果现象的延续，所以不应该问“谁在轮回”，而该问“什么因缘导致轮回”。我的回答是：由于无明，执着有“我”，于是从无明之缘，生起第七识假我/中阴身，再由因果业报而有轮回。这些都是“因缘法”的过程，并非真的有某个“我”在造作、延续、经验这一切。</p>
+<p>在“纯体悟觉体”但“能所见”尚未彻底断除的修行阶段，修行者可能会看到一个“不变的觉体/能觉者”在“幕后”观看念头、万物生灭，而它本身不生不灭，好像有个不变之“体”。但是，当真正体悟“无能所”并进一步体悟“无我”时，尚且可能会觉得“还有一个不变之体在显现一切相”。因为此时见到的可能是“能觉者”与“所觉之物”合而为一，不能分开，于是又把一切法归为一个“真实体”（有人称“一心”），认为万法都归此“觉体”，依然需要一个“体”。只是不再区分能所，但还不能真正做到“无心”，本质上还是“习见”。而真正的“体悟无我”就不同：本来无能觉者，也无所谓能所合一。在听时只有声音、看时只有景色，也就不必把它们“归于一个真实体”或执一个“真体/根源”；念念不相续，并无连续不变的“实体”或“真我”。若未根除执着，这种“无心”也可能只是一时体验。事实是：一切相皆因缘生，因缘灭，不留任何痕迹；同时也印证“空、明、相”不可分割。唯有到这时才能真正体会“缘起”的精妙，不至于将缘起看作一种“方便说”而已。</p>
+<p>由此可知，先证悟“无我”极其重要，否则很难真正了解空性的真义。很多人想“跳班”，因为没有正知正见，还执着一个永恒不变的“独立实体”（比如只是见证“觉体”，或悟到“无能所”却依旧执着一个不变的“性体”）。只要“我执”不断，就无法真正体悟“空性”的真义，也无从切身体会“无常法、因缘法”。所以，“空性”的证悟从“无我”开始。</p>
+<p>所谓的“我”，只是假名假相，如同“天气”只是假名，并无真实“天气之体”可寻。想找它具体坐落何处，必然找不到——“天气”不过是云朵、风、雨、闪电等现象之流动组合，没有哪一样是恒常或独立。可见，“天气”只是假名假相。如果就如佛所说，在听时唯有声音、在看时唯有景色，并无“能觉者在看所觉之境”，那么“觉”即是“用”、即是一切所显，所以“觉”也是假名；它并无可得之本体，却不断展现，如同“天气”。正如楞伽经所言：“若以为真有一实在的如来藏，就与外道的见解毫无区别。大慧啊，为远离外道见，应当相信‘法无我’之如来藏。”觉性虽然本具、永恒不失，却不像外道所说的“不变独立体”；觉性“性空”而不可得，却又无时无处不在，遍现于“五蕴六入十八界”内外，却无“体”可得，有如“天气”。正如“风”与“吹”是一体的，“体”与“用”也是一如；“体”离不开“用”，在用之外并无别的本体，也只是一个假名而已。</p>
+<p>“悟人我空”，即体悟本来无我，了解只是“假名”；再悟“法我空”，便见万物缘起性空如梦如幻，了知其“假相”。若想体悟“诸法皆空”，首先要体悟“无人我”，然后以“缘起性空的正见”来配合所证所体验，再从“物理空相”的层面观察诸法，就会生起“二空”的智慧。所以，<strong>没有体悟无我、缺乏正见，再怎么修行也难以了悟空性的真义</strong>。这点非常重要。</p>
+<h3 id="行"><a href="#行" class="headerlink" title="行"></a>行</h3><p>依“空智”而行，不即不离。因为一切皆如幻，还有什么可取？不取则不执；无执则何须舍？既然不执，“空、假”也无需故意否认。一切法皆虚幻无体，是假相；但“空相”微妙，具足空、有，即是中道。不即不离，即是“道”。所谓“悟后起修”正是如此。其实也无所谓“一法可修”，不取不舍，敞开于法界，行者无心、不留痕迹，自然自在。倘若“我见”未断，就会有所取舍，想取自己喜欢、离自己不喜欢，或想游离一切念头或事物；这些都是由见惑引起。只要无明不断，就无法做到“不取亦不舍”。</p>
+<p>佛陀教导我们解脱“贪嗔痴”，却并非要我们逃离烦恼，而在于当下觉悟法之“不可得”，了知法性本然。大多数人一想到“放下”，就认为要远离，若想远离，则仍有“我执”——因为还有能觉者企图与所觉之物分离，如此绝不能解脱。若具正见，便无需刻意“取相”或“远离”，“一切自然即了”，因为本来就是空性、无常性。若能“照见烦恼本空”，当下“烦恼即菩提”，心念自然脱落；一切事相自生自灭，自然解脱。若照见一切如梦幻泡影，就可解脱内心种种挂碍。</p>
+<p>大约半年前（写第二篇文章不久），我又觉知到自己还有微细的“法相”在，两个星期后因不再执着法相，体悟到“一切不续不依，无体可住”。若一切法可得、有体可住，便会留下痕迹，无法做到“念念无续”。一切有为法，宛如梦幻泡影，如露亦如电，应作如是观。所有的心都不可得：过去心不可得、现在心不可得、未来心不可得。因此，不应再执着已发生或未发生之事。有人说“要回到现在”，或“活在当下”，但其实连一个“现在”也不可得，又何来“现在”可住？这便是对于法相的执着，需要舍去而不留痕迹，让一切随缘来去、自然化解。我也从中体悟到《金刚经》的这句：“是故须菩提！诸菩萨摩诃萨应如是生清净心，不应住色生心，不应住声香味触法生心，应无所住而生其心。”并对“无我”有了更深理解。不仅“我”不可得，“现在”“这里”也不可得，也没有“我”在中间串连一切过程——其心生起却不依不续。马祖道一禅师有言：“故经云：但以众法合成此身。起时唯法起，灭时唯法灭；此法起时，不言我起，灭时不言我灭。前念、后念、中念，念念不相待，念念寂灭，唤作海印三昧。”<br>这说明修行在于明了空性、无常性，时时开放于法界，放下心中执着，了了分明却无所住；然而一切都是无常，如电光石火刹那生灭，无有前际后际。一切法分散，不留痕迹，念念不相待，念念寂灭。</p>
+<p><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgizgbKu9VRfknkEyZ7cd7AFOm6vIWQ7uef3pvugk1BJOUhBojJGfo7GLlUsSYMGgCrHhK6vOYa9fmcZkrdHN19kgRD1ukD1unmzAMvnATsbsgtd2j1QBzPgWU5BGdkxk011_D7V4YG4svp2S9byKCJNYhMhJYEWgJbtSW5dcvwVfVg9S4Tr65gSUQUsrs/s285/nondualthinking.jpg"><img src="assets/nondualthinking.jpg" alt="img"></a></p>
+<h2 id="（二）魔术幻变，无中生有"><a href="#（二）魔术幻变，无中生有" class="headerlink" title="（二）魔术幻变，无中生有"></a>（二）魔术幻变，无中生有</h2><p><strong>照见空性</strong></p>
+<p>我在乌敏岛观察“念头究竟生于何处”时，体悟到一切“空相”都是心性的显现，皆是空明之展现，并无所谓“所生处”或“住所”。因缘和合显万相，即“此有故彼有”，若无这些因缘，便无所显之相；一切诸法皆是一合相，并无独立之体。空相如魔术幻化，看似清楚却无实体；色、身、香、味如同阳焰。一切幻相都源于缘起，不具任何定位实体，可说如同梦境。虽然你清清楚楚能看得到、摸得到，但若要找出其定位或实体，终究找不到——因为皆是“心”的幻现，也即“缘起性空”的显相。所谓“心”，也只是无体之用。同理，所有事物虽清晰显现，却性空无体。一切性空之万法，在无从何来的同时，却又分明展现神通妙用，仿若魔术师变幻一般。空相之微妙令人惊叹，能让人自然生大法喜；在法界寂光之中，遍照十方而显一切相，却无一法可得、可立，终究犹如一场梦。故见而无所见，悟亦无所得。</p>
+<p><strong>注解</strong></p>
+<p>2011年六月初，我在乌敏岛执行军事任务，期间观察“念头从哪里来，又从哪里去”。突然我体悟到：一切相性本空，所有念头、所见、所闻都无实体定位，皆是“缘起性空”的假相。当下我便悟到“五蕴皆空”。这种空无所得的相恰似魔术师的幻术——一切清晰可见，却终究找不到来处、去处、住处。看似真实，却无实体可得。于是也明白，原来日常生活每一刻都是神通妙用。<br>这里所谓“焰喻”，即因日光照射与风吹起尘埃，在旷野中出现宛如“有水”之假象，众生往往取执此相为实有；实际上，只是尘影被误认为水。再比如：</p>
+<ul>
+<li>在人眼中，玫瑰花是红色；</li>
+<li>在狗眼中，玫瑰花可能是黑色；</li>
+<li>在天人眼里，水看起来像琉璃；</li>
+<li>对饿鬼来说，同一处水则是火。</li>
+</ul>
+<p>各道众生由于业力不同，对同一事物会有不同感受，这些现象不过是因缘和合，并无一个固定实体可得。</p>
+<p>再举一例：看到镜中所映之物，不可能真住在镜中。若真住在镜中，为何你往右走，影像也随之变动？缘起原理如此：“此有故彼有。”没有任何独立实体可得。一切所见所闻，皆如镜中影像，不具真实“住所”或“实体”，看似在“那里”，实则无处可寻，这全是缘起性空之假相。若有人以为在镜子里真有个“东西”存在，见五蕴有体或可得之住所，便是“法我见”，属邪见。因为一切不过“因缘和合”之“一合相”，并无独立之体。悟到空性，就会领悟诸法本无生。</p>
+<p>过去我对“缘起性空”只停留在理论了解；当真正去体悟、体会后，便知截然不同。有些人以为“四大皆空”是一种消极悲观想法，或将“空”理解成“虚无缥缈的人生观”，其实与事实相距甚远。真正悟到空相之微妙，会令人赞叹与喜悦。就像密勒日巴大师所言：“噫戏，一切唯心现！三界轮回诸法，空而显现，甚奇哉！”这时身心将获自在，对修行也有更深体悟。而既然性空，当下便是“无所得”；若万事如幻如梦，皆属空性，又有什么可得呢？</p>
+<p><strong>法本无生</strong></p>
+<p>一切既如梦相，纵然看似真实，却并不可得。生老病死如同戏剧演绎，电视里放生死情节，你看得真切，但在这出戏之外并无实在的“生死”可得，既无来处也无去处。因缘显现出幻相，却无住处可寻，所以魔术幻变本无生、住、灭。若有人另外去“妄取”一个不生不灭，那也是多余，因为诸法本来寂灭，即是涅槃。</p>
+<p><strong>注解</strong></p>
+<p>我以前对“不生不灭”的理解是：“觉体不变，念头在变”。但悟无我后，就不再这么认为。<br>就像蚊香燃烧变成灰，蚊香是蚊香，灰是灰；灰中具蚊香，蚊香具灰，都是一合相法。万物都由宇宙因缘和合而显现；所以说生不变死，死不变生，生就是生，死就是死，并无一个不变之“我”在经历生死。故生即无生，死即不死。无常法本超越时间观念，无谓前际与后际，也无所谓来去生灭。<br>如今又有新的体悟：明白一切如幻化，无不是心性空明之显现，毫无实体，全属因缘显现的假相。既无来处，也无住处、去处，所以何来真实的生灭？乃至于“明相假”无生灭之外，更无他种“不生不灭之体”可言。<br>在得到此体悟前一周，恰好有位住在美国、比我年长两岁的朋友写来他修行中的心得，问我印证。他写到他对“无生”与“空性”的体悟，并引用楞伽经的一段：</p>
+<blockquote>
+<p>“大慧，云何一切菩萨摩诃萨见远离生住灭法？谓观诸法如幻如梦故；一切诸法自、他二种无故不生；以随自心现知见故；以无外法故；诸识不起，观诸因缘无积聚故；见诸三界因缘有故；不见内外一切诸法，无实体故；远离生诸法，不正见故；入一切法如幻相故。菩萨尔时名得初地无生法忍，远离心意意识、五法、体相故，得二无我如意意身，乃至得第八不动地如意意身故。”</p>
+</blockquote>
+<p>读完后，我才豁然开朗：原来经义就在此！六祖说：“经不是法，经文是肉眼可见，法须慧眼能见。”唯有亲证法义，才能对经文了然无疑；否则只会流于文字表面的似懂非懂，非眼力所能及、非思考所得。</p>
+<p><strong>实相</strong></p>
+<p>真空妙有，如魔术妙幻；缘起显相，妙用无穷。<br>一切相皆是缘起性空，一合相亦非真一合相。<br>若能如是观，即见实相；离相求真，是痴人之行。<br>见色悟性，即是般若智慧；万法归一，一归何处？<br>假相假用，即是真如。</p>
+<p><strong>注解</strong></p>
+<p>有些人以为，见万法皆假，再去寻一个超越假相之实体才算见性。其实，自性性空，凡所见相皆虚幻；若见“诸相非相”即见如来，不是说要去“假相之外”找一个“真如来”。所谓法身性空之如来就是“自性空明”，无生灭来去。并不是要在现象之外再立一个超现象/非物质的真理；若如此，即是外道知见。佛法是“悟一切现象皆缘起性空之真理”，不是“去妄求真”。</p>
+<p><strong>心生立法</strong></p>
+<p>一切万相皆是空，诸法平等本无高下，如梦幻故。<br>无明生心而立一切法，识心起分别而立法之高低。</p>
+<p><strong>无心</strong></p>
+<p>万法由心生，万法由心灭；心因痴而起，心因慧而了。<br>无心来立法，即是真无心；无心无法，又何有高下？<br>凡圣、净土皆平等；娑婆、涅槃亦是解脱。</p>
+<p><strong>注解</strong></p>
+<p>“心生立法”指什么？举例：有人觉得榴莲很香，有人觉得榴莲很臭；贪心者见到金钱会兴奋，罗汉则视金钱与石头无异。所以，心生则万法生；一切法之好坏、高低，皆因我们的习气、无明或妄见而立。若能“无心”，则见诸法平等。</p>
+<p><strong>体用平等</strong></p>
+<p>当我在第二篇文章中所言“体悟无我”之后，看东西时只余“景色”，听声音时只余“声音”，再没有一个“听者在后面听”。那个“在背后观照”的“能觉者”根本不存在，这正是多余的；本来就无我，这是一个法印（并非通过某些修行才能达到的境界）。一旦真正体悟，不被妄见所迷，就会自然而然地在一切现象中印证“觉性本体”——因为“觉”不离“用”：犹如风不离“吹”、河水不离“流”。风若无吹的作用，就不成其为风；河若不流动，也不能称其为河。觉也是一样：觉即是用，用即是觉；觉知即是所知，所知即是觉知。所谓“假青青翠竹而显露法身之体”“假郁郁黄花而表般若之用”，体用平等。</p>
+<p>假如把“觉性本体”实体化为不变独立之我体，然后把万物都当作“仅是在觉性里进进出出，不重要的幻象，只是被觉性看着，让它过去就行”，再把“觉体”视为最究竟、最特别、最高真理——这就等于人为地设定法之高低，造成“体用不平等”。</p>
+<p><strong>梦幻平等</strong></p>
+<p>现在，我又有了新的体悟：一切法都如幻化，了了分明却不可得，皆是“自性空性”的显现，都是无可得的幻相，如同魔术演变，一切皆“缘起性空”之假相，又哪来的高低？譬如，如果万物如梦，梦境与日常生活在本质上难道不平等吗？我常体验在梦中觉悟到“梦”看似真实却是心之幻相，当我醒来时发现清醒也没多大区别——梦里和现实其实都是如梦，皆是无体、心现、空相。你无法说一个是绝对真的，另一个是绝对假的，没有高低，因为都属于缘起的假相。既然一切皆空相，又何须再另立一个法去超越世间、去寻清净或涅槃？其实本来就不净不垢，不增不减。正如电视里演的佛像、魔鬼，在本性上都是平等的。</p>
+<p>《般若经》云：“诸法如梦如幻，涅槃如梦如幻。若有超胜涅槃之法，亦如梦如幻。”也就是说，如果还有一个比涅槃更超胜的法，那也依旧是如梦如幻，可见最高境界正是一切空性平等，无境界可得。</p>
+<p><strong>与佛同在。</strong></p>
+<h1 id="2012年1月20日（摘自给一位道友的邮件）"><a href="#2012年1月20日（摘自给一位道友的邮件）" class="headerlink" title="2012年1月20日（摘自给一位道友的邮件）"></a>2012年1月20日（摘自给一位道友的邮件）</h1><p>那天你提到“要放下自我意识”，我也深以为然，所以抽空在兵营里用手机写下自己的部分体会与经验，与你分享。关于“无自我意识”，我个人经验中有不同方面可去体会，倒不一定分什么高低层次，但确实有不同的面向，而这些面向都很重要。一般修行者都知道，修行要修掉我相，不要执着自我意识，比如对人要谦虚、忍让、慈悲，无论对方对我好与不好，都平等对待、不生分别，也不要觉得自己了不起，经常想到自己不如他人；也不要自私自利，要多替别人着想。遇到任何人事物，尽可能不生我相、我想；若自我意识生起就得立即觉照并当下舍弃。因为不执着于自己的想法，就能更容易包容、体谅他人，也能从他人的好坏中学到东西。这些道理要落实在生活里去修、去体会。自从修法以来，我对“我相、自我意识”的执着确实减轻很多，所以别人批评我、对我不好时，我也没觉得怎样，甚至会感恩对方的指教，或能体谅对方；因为不那样执着我相、我想，生活的压力就小了许多。这就是所谓的“无私我”。</p>
+<p>但是“自我意识”并不止于此。体悟到觉体几个月之后，我逐渐体会到“一切——包括我、你、以及万物——都没有真正的自我”，一切皆是宇宙本体的自然运作，无为无我地显现，好似并没有一个“我”在生活或做事，一切都是宇宙本体自然而然的运作。此时对“自我”的感觉已渐渐消失了。</p>
+<p>不过，这还不等于“完全没有自我意识”，因为此时在日常中依旧会存有一种微细的“内外”“能所”之分。并不是说我在排斥外境或念头，只是当看见东西、听见声音时，仿佛仍是一个“无形无相的觉者/觉体”在里头，而外境、声音好像在“外面”——或者说，一切现象都生灭于这个“觉体”之内。这仍然是能所、内外之分。因为有内外，所以也会落入陈老师所说的“守内空”。</p>
+<p>后来我进一步体会到“觉性”与“万象”并非两样——“山河大地皆是法身”。众生通常会觉得“我在这里”“我在身体里”，又或觉得“身体”里有个观者在看外面景色，于是生出能所、内外的感觉。但若见本无能所，便会领悟：最高的山、最远的事物，其实都只不过是觉性而已，并无距离，也无能所内外之别。不是“觉性在看景色”，而是“景色就是觉性”。2010年八、九月间，我也渐渐在此方向体会到：本来就无能所、内外之别。</p>
+<p>可这时依然不能说“自我意识”全部消失。因为此时可能还将一切“归为一真体”，执着“一切是一体的显现”——仿佛镜子与影像不分彼此，好像是“一体”，虽然不见能所，但深处仍有我见，觉得“一切都是实有的一体之显现”。</p>
+<p>直至2010年十月，我在观行《婆酰迦经》时才真正体悟到佛法的“诸法无我”或说“法印之无我”。这个“无我”并不是简简单单“都自然运作，好像没有我”那样。有一个公案：某和尚问洞山良价禅师：“天气冷或天气热时，该躲到哪里去呢？”禅师回答：“你为何不躲到没有寒暑的地方？”和尚再问：“哪里是没有寒暑的地方？”禅师答：“当冷起来时，就冷死你这个和尚；当热起来时，就热死你这个和尚。”洞山禅师为何如此回答？他所说的并不是“冷时穿衣，饿时吃饭，累时睡觉”的自然，也不是说有个觉体不受冷热之苦（那还是能所见）。而在于热起来，整个宇宙就是“热”，完全没有“我”“觉者”“受者”。这才是真正苦的终结。好比婆酰迦见到佛陀时，佛陀正在托钵，原先拒绝为他开示，婆酰迦再三恳请后，佛陀当场说：“婆酰迦！当看东西时，只是看，当听声音时，只是听；在闻、尝、触时，就只是闻、尝、触；在思想时，就只是思想。正因为看时只是看，听时只是听，闻、尝、触时只是闻、尝、触，思想时也只是思想，所以对于一切，并没有一个‘你’，并没有一个‘你’在那里，也就没有一个‘你’在这里或那里或中间。此即苦的止息。”婆酰迦听完当下了脱生死，证阿罗汉果。</p>
+<p>凡夫由于习见，以为有我、有不变之我体，在看任何东西时，都会把情境认作三者：“能看者，在看，所看之景”；或“能听者，在听，所听之声”。但这本身就是完全错误的！当真正体悟到无我，会发现：“本来无我！‘我’只是虚妄的妄见、习见。”原本，并没有所谓“能看、看、所看”之三者，看时只是景色，清清楚楚地显现各种色彩形象；听时只有声音（纯粹清净觉知），并没有一个“我”或“听者”。从头到尾都没有“我”，只是凡夫妄见罢了，犹如视力不良者以为天空中见到花朵。</p>
+<p>在那段期间（“觉悟法印之无我”），我也体悟到所谓“身心脱落”。这并非坐禅入定时身体消失的暂时体验（例如身心清安），而是彻底没有一个“身体”的概念！并不是痛时没有知觉，而是看破“身体”也只是个假名假相——是众生于一些生灭不已的触受中妄见、妄立为一个有形相的身体法相。如果悟“无我”，自然看破“身体”而不再妄想真有其体。也因为“无我”，连“心”也脱落，不见身心有我，从而不再有“身体”或“内外”的感觉，时时敞开于法界。这并非可出可入的某种“境界”，也不只是在静坐时才体验到。自那时至今，我都不见身体或内外、能所之知见，只余“清净觉知”：听时只有声音，看时只有景色……因悟“本来无我”，本来如此。无我并非某种境界，根本没有“进入”或“出来”的现象。由于我见被“空性之智慧”化解，不再被我见迷惑。从我的经历来看，正见与对法性的觉悟（空明不二），方能真正解脱。</p>
+<p>很多人误以为“无我”是一种修行成果，例如“修到没有我相”之执着。诚然，这点很重要，是修行上的一大进步，但佛陀在《婆酰迦经》里所说的“无我”并非一种成就，而是“法印”——对一切法而言，本自无我！本来就没有什么“能觉者/所觉对象”之对立，一直以来听声音时只有声音，不曾有一个“闻者”或“我”。它原本如此，无须“消灭一个我”，因为从来就没有一个“我”可消灭。好比有人从恶梦中醒来，不再见“梦中魔鬼”，何须期盼魔鬼“消失”？因为本来就没有！</p>
+<p>同理，“无我”并不是什么“忘我”“融入一切”或“融入大自然”的体验——那都是暂时性的体验，并非真正觉悟，也无法断除我见。法印之“无我”必须亲自体悟到法印之无我「法尔如是」，也就是说，无我是个本来如此的真理，不是通过修行“得到”或“达到”某个境界。如果没有确切体悟，无论如何修，都无法自然达到这种状态。所以，“无我”并不是成就或境界，法本无我，本来如此。</p>
+<p>“无我”也有不同方面可以体会。很多人不知道佛法所说的“法印之无我”，往往以为“无我”仅仅是“不自私”的“无私我”，只停留在修“无私我相”，并未达正见正觉。虽然说“无私我”能让人更自在、也更能利益他人，生活上更快乐，但还达不到佛法的究竟解脱，因为众生的根本无明在于“我见”未断，唯有觉悟“诸法无我”方能断除根本无明。</p>
+<p>2011年初，我又有更深体悟：意识到“诸法并无一个连续的我体”，故一切法都不依不续。我想起了《金刚经》的那句：“是故须菩提！诸菩萨摩诃萨应如是生清净心，不应住色生心，不应住声香味触法生心，应无所住而生其心。”随后又见到马祖道一禅师的一段：“故经云：但以众法合成此身。起时唯法起，灭时唯法灭；此法起时，不言我起，灭时，不言我灭。前念、后念、中念，念念不相待，念念寂灭，唤作海印三昧。”让人对“诸法无常无我”有更深刻领悟，也不再执着于那一点细微法相（如要“守住当下”“守住一个真实体”等，这些都还是法相的执着，以前自己没觉察到）。</p>
+<p>我还画了一幅图来表达这种体会（此处原文提到一幅图示，略）：</p>
+<p><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgizgbKu9VRfknkEyZ7cd7AFOm6vIWQ7uef3pvugk1BJOUhBojJGfo7GLlUsSYMGgCrHhK6vOYa9fmcZkrdHN19kgRD1ukD1unmzAMvnATsbsgtd2j1QBzPgWU5BGdkxk011_D7V4YG4svp2S9byKCJNYhMhJYEWgJbtSW5dcvwVfVg9S4Tr65gSUQUsrs/s285/nondualthinking.jpg"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgizgbKu9VRfknkEyZ7cd7AFOm6vIWQ7uef3pvugk1BJOUhBojJGfo7GLlUsSYMGgCrHhK6vOYa9fmcZkrdHN19kgRD1ukD1unmzAMvnATsbsgtd2j1QBzPgWU5BGdkxk011_D7V4YG4svp2S9byKCJNYhMhJYEWgJbtSW5dcvwVfVg9S4Tr65gSUQUsrs/w400-h109/nondualthinking.jpg" alt="img"></a></p>
+<p>2011年6月1日，我再次观察念头生灭的来处，有了更深领悟：一切念头与万象皆无来处、无去处、无住所，因缘性空、如梦如幻如魔术，无实体，如同空壳或水泡表面看似形象却无实体可得。再如同样一朵玫瑰，人看成红色，狗看成黑色，天人看成琉璃，饿鬼却看成火——六道众生因业力不同而见相不同，这些皆是缘起假合、无实体的假相；并无一朵“真玫瑰花”存在或它真正实有的“红色属性”。若真能体悟此点，会清清楚楚感知，却不执为实有，皆如空花水月，无实体。如此，人空（婆酰迦经要旨）与法空（心经要旨）皆显。</p>
+<p>我也体悟到：所有我执与法执都因妄见而生。一切执着，皆因众生妄见有个“不变”的“我”“我所”或“法”而执着。那么什么是“我见”？圣开师父说：“所谓我见者，因一般凡夫众生，不了解人的身体是色、受、想、行、识五蕴的假和合体，固执人之我体是永恒的，今生死了，来生还是我体，这种恶见叫‘人我见’。世间凡夫不了解一切法乃缘生缘灭，固执诸法有真实体用之虚不实的见解，这种恶见叫‘法我见’。合此二者，简称为‘我见’。”</p>
+<p>《五蕴观》有言：“夫生死之本莫过人法二执。迷身心总相。故执人我为实有。迷五蕴自相。故计法我为实有。”，“若 能依此身心相。谛观分明。于一切处但见五蕴。求人我相终不可得。名人空观。乘此观。行出分段生死。永处涅槃。名二乘解脱。计法我者用后观照之。知一一蕴皆从缘生。都无自性。求蕴相不可得。则五蕴皆空。名法空观。若二观双照。了人我法我。毕竟空无所有。离诸怖畏。度一切苦厄。出变易生死。名究竟解脱。”，“且计人我者。凡夫之执也。计法我者。二乘之滞也。故令修二观。方能了妄证真。岂可离也。”</p>
+<p>所谓“人我见”，就是从小到大、生生世世，都以为有一个不变之“我”。比如有人说：“我长大了，但我还是我；真我是永恒不变的。”或者觉得有个“能见、能觉”者，一直不变，却不知其实从小到大、生生世世无非是生灭不已的因缘法，并没有哪个不变之“我”。实际上，听闻觉知并无“觉者”，只是现象过程，就像水之流动之外，并无“水之体”可得；风的吹动之外，并无“风之体”可寻。虽说觉性/佛性永恒不失，起用不断，但“觉/佛性”与“现象”，“体”与“用”亦是一如，不存在一个独立不变之真实体。倘若立“佛性不变，万法在变”，则依然是一种常见/我见，与外道梵我无异。</p>
+<p>外道者虽能见证“觉体”，但因缺乏佛法正见，无法究竟。他们也提出“行无我”，但多半是“无私我”或“不自我”的概念，甚至有人能体会到“超个人”（如一切有情无情万物都是宇宙本体的自然运作），或者进入无能所之境，但依旧没有真正证得佛法“法印之无我”，因此还执一个“超个人的梵我”。在他们眼中，现象都只是生灭幻相，只有觉体才是真实不变的本体，正如佛陀所批评的“第三外道，一分常论”。他们虽然可能承认“觉体无形相”，但却坚持存在一个“不变独立之体”，与佛法的无我/空性不同。佛法认定佛性/觉性空性无我，且和现象不可分离，故称“空明不二”。</p>
+<p>六祖慧能：“无常者，即佛性；有常者，即一切善恶诸法分别心。”</p>
+<p>道元禅师：“草木丛林之无常，即为佛性；人物身心之无常，即为佛性；国土山河是无常，以其即佛性故。阿耨多罗三藐三菩提是无常，以其即佛性故。大般涅槃是佛性，以其即无常故。持二乘诸种小见者，经师、论师、三藏师等等，皆对六祖言论惊疑怖畏。如是则彼等即为外道之党。”</p>
+<p>不少人将佛性当成“真我”，却缺少佛教正见，坠入和外道相同的梵我见。佛陀在经典（如《楞伽经》）中详述：佛性/如来藏是“诸法空性”之别名，并非真的“我”，只是佛为度“惧怕无我、空”之众生，以及教化相信“真我”的外道方便所说。佛教的佛性/如来藏并非真的有我，不同于外道的梵我。圣开师父亦云：“其实‘真我’也只是一个代名词，你若真把‘真我’当‘真’的我，那就错了；必须‘无我是我’才是真我。”只是很多人不了解，遂不能对佛性建立正确见解。他们只知或体悟到“觉体”，却不懂“觉性无我、空明不二”，便落入外道见，难以断“人我见”。（有的人虽见觉体遍满一切，不属于哪一个人而是“超个人的梵我”，但仍执其为“实体”。）</p>
+<p>之所以提到这些，是因为这正是我修行过程中的亲身经历与体会。我深知，若仅仅是悟了“觉体”却无正见、或未彻底了悟正见，还不算圆满。</p>
+<p>“我”只是假名假相，好比“天气”不过是假名而已，无独立“天气之体”可得。就如“天气”是云、风、雨、闪电等现象汇集的假名，无有恒常不变的“体”。同理，“我”之于五蕴也只是个方便称呼。尽管无常五蕴显现各种因缘起用，但并非由一个“体/根源/梵我”所生，也不见有我体根源，不过是一个“因缘过程”。“佛性”与“显现”，“觉体”与“觉用”也同此理——它们都是空性无我，但觉性觉知却不断地起用，令山河大地尽显法身，同时又不可执着“法身”为实有。法身于万法内外无法可立，不存真实之体。</p>
+<p>因此，佛问阿奴逻陀：“于汝意云何，如来可以色身见否？”不也，世尊。””如来可以色外见否？””不也，世尊。””如来可以受、想、行、识见否？””不也，世尊。””阿奴逻陀，生时汝尚不能立下如来的实存，死时即立如来终存在、如来终不存在、如来终存在即不存在、如来终非存在亦非不存在？” 这也意在破除人们把人我、法我当作实有的观念。</p>
+<p>破除“人我见”后，还需破“法我见”：即便体悟到五蕴内外并无人我之体，“看时唯景色，听时唯声音；无看者、听者”，亦需了悟万法（景色、声音等）也都是缘起性空，如梦如幻，无体可得。唯如此，方是“了达二空”。</p>
+<p>因为障碍源于无明妄见，若不觉悟二空，妄见妄执仍未根除，纵然修行再用功，也难得究竟解脱。正见正是佛教特有的精髓，是八正道中的首要。唯有依佛法正知正见并实修正法，生起智慧，了达二空、破除妄见，方能彻底解放自我意识。并非容易，却也非难到不可得；关键在于“无明妄见”，若能开智慧，自然能突破。</p>
+<p>我几年前就读过这些“无我”或“空”的道理，但近来才真正觉悟、体会。光有文字知识而无亲身证悟，便失去佛陀所教的真正意义；若一味觉得“太深奥”而不学习、不修行，也不对。其实也不必看完几百卷般若经，只要明白基本观念，建立起正知正见，并依之如实修观，要开智慧并非难事。</p>
+<p>若觉悟了，就应把正见落实在生活中——正见即开了智慧，看破二空而摆脱一切妄见知见的“清净觉知”。这是一个“很自然”的东西，真要说修也不算修。我们要明白，“保持无念并觉照”虽然是修行的一种状态，但不能说“无念+觉照=已经了达二空、破除妄见”。譬如，有人妄想“有魔鬼跟踪我”，我若教他“不要想魔鬼，保持不想就好”，他也许能暂时忘记，可终究难免恐惧回流。或晚上睡觉虽暂时忘了烦恼，但醒来又回到原形——因为妄见未断，未从错觉中醒来。</p>
+<p>同理，要彻底破除我见，也不是“不要去想”就能解决，这只是在修定，不是觉悟。即使达到“完全忘我、融入一切”，若未见性，也无法破除我见。</p>
+<p>唯有真正觉悟到“本来并无魔鬼”，才会彻底解脱恐惧和烦恼；“无我”亦然，非“不要想”就能行。自2006年起，我修行中也常有“忘我”或“融入自然”等体验，但这些都只是暂时的，无法破除我见。唯有觉悟本来无我，“我”只如“魔鬼”“圣诞老人”“空中花”等妄见，根本不存在，才会从此不再被妄见迷惑；这并不是“不要想”就可办到。然而，一旦我见破除，“忘我”就会很自然地发生，不再像以前一样觉得那么特别。</p>
+<p>举个例子，多年前我跟你说过，我静静看着树时，突然“我”消失了，没有“我在身体里看外面景色”的感受，只是好像融入大自然；只有“树”、只有“景色”，清楚知觉却无内外能所。这种境界当时觉得稀奇，但其实很多人在童年、无意间也经历过“忘我”，并不一定需要修行才能体验，不算真正的觉悟或“明心见性”，只能说是一种见证（说明修行确能超越自我意识）。因为从自我到忘我落差巨大，所以觉得殊胜、特别。</p>
+<p>但自觉悟“本来无我”后，就不同了。自那时以来，我时时不见有“我”，也无须“刻意忘掉我”。不会再把“无我”当成特殊境界（原本就不是境界，而是法印，本自无我）。更不会说有什么“跳出”或“进入”无我的过程；既无需用心修或达到“无我”，也不用常常想着“无我”（因为连“空”也空了）。一切了了分明地显现，没有能所，没有人与法，却又听闻觉知，分明微妙，同时又自然平凡。“看时只见景色，并无观者”，不仅意味着无我，也不是“什么都空空的没感觉”，而是没有“能所”，景色虽如梦幻泡影，却仍清晰可现，便是“觉性觉知”。如此才是“二空显真如”。《佛性论》云：「佛性者，即是人法二空所显真如。由真如故，无能骂所骂，通达此理，离虚妄执。」且不需特别在静坐中才体验，而是每时每刻面对人事物都能如此。现在我的修行也不一样了。</p>
+<p>譬如，我过去未觉悟时，静坐往往存有各种目标：要放下、要不起念、要更专注觉照、要明心见性、要回归自性等等。如今则不同：打坐并不是为了“显现佛性”，而是“坐即佛性”。打坐只是打坐，仅此而已，空调声、身体呼吸，都是佛性——本来无我、本自清净的觉知。如果我见未断，即便知识上晓得“诸法因缘生、诸法因缘灭”，还是无法真切体会，因为心中仍执着“有个觉者在看外缘/外境”。如若悟“本来无我”，才能真实体会：一切皆因缘法。若有狗、狗吠、空气、人耳朵等因缘，在那一刻显现“听到声音”，此时整个宇宙就只有那声音，一个清净的觉知，并没有“听者”。也非“某个能觉”在照听那声音，而是宇宙因缘和合下所显“听”之现象；吃饭亦同理——是整个宇宙在吃饭。虽然这种说法不易凭思考理解，但却能亲身感受到。（类似颇求那比丘问佛陀：“为谁受？”佛陀答：“若我言有受者，你会问‘谁在受？’；但实际上应问‘何因缘故有受？’佛陀会答‘触缘故有受，受缘爱。’”）由此，在日常行住坐卧，都能像这样修行，无需再设什么“开悟”或“恢复本性”的目标，当下既是悟，也是佛性。</p>
+<p>也不必执着“去妄”或“去念”或“去三毒”而修。若已了达人法二空，连这些目标都不必执着，只有每时每刻的“实证、印证”。也就是觉知：一切念头、妄想、烦恼，皆空不可得。如果了知这点，不会把妄念当真，自然不执着，则一切念头无为无作，自行了脱，不留痕迹。如果把妄念当真实之物非得去掉，那就留下了痕迹，使念念相续。正所谓“当观一切法如梦幻泡影，显现却无实体”。因缘所生，因缘尽即了，无需造作，可自解脱三毒。若有我见，则以为“我能控制念头的生起”，或“我守着一个觉者去看念头、不受其影响”，那还是假造作，我执尚未断，故不得解脱。</p>
+<p>对一个尚未觉悟的人而言，可能也理解“修行要觉照、不要胡思乱想、不执着”等道理，但尚未了达人法二空就仍会有所差别。譬如“念念不相续”对未觉悟的人来说是“在觉照中，不让胡思乱想没完没了”，但对觉悟无我的人来说，则是“因见一切法本就没有连续之我体，不依不续，所以不会再执着任何连续体，一切自然当了”。因此，觉悟之后，“正见、正觉”会让修行更自如，也更有方向。修行既需要正见，也需要觉悟，还要能将其落实在日常里（行）。若只讲“修”不讲正见，容易落入外道式修行；若只讲“正见”而不修观行，不过是书本知识；或者虽学了些佛理、也认真修行，但若“我见”不断，仍不能解脱。故必须“见、证、行”三者具足，行解相应，方得圆满。</p>
+<p>这些并非空想，而是真实可见的。我不敢说自己的修行有多大成就，也不敢说自己修得很精进，但小小进步已使我对法更有信心。我明白佛法并非只属于大菩萨、圣者；我们凡夫也能切实感受和受用。比如，我感觉自从某些觉悟后，内心贪嗔痴逐渐淡薄，很多执着都放下，生活中烦恼轻、幸福感增强。当然，我也知道成佛之路还很遥远。</p>
+<h1 id="2013年4月25日写给我母亲，解释“Hinayana-小乘-”修法"><a href="#2013年4月25日写给我母亲，解释“Hinayana-小乘-”修法" class="headerlink" title="2013年4月25日写给我母亲，解释“Hīnayana(小乘)”修法"></a>2013年4月25日写给我母亲，解释“Hīnayana(小乘)”修法</h1><p>在我第二篇文章里提过：</p>
+<blockquote>
+<p>“许多人以为‘无我’是修到没有我相的一种境界。诚然，这的确重要，是一种修行成就；但佛陀在经中所言‘无我’并不是成就，而是‘法印’——对一切法而言，本来就无我，本来就无‘能觉者/所觉对象’的对立，无‘见者/听者/行者’。在听声音时，一直以来都只有声音，没有‘闻者’，也没有‘我’，本来就是如此，无需刻意‘消灭’一个‘我’，因为根本没什么‘我’可消灭。这是需要体悟的，不是修行或境界。如果没有真正体悟，无论如何修也达不到自如。‘无我’并非成就或境界，而是法本无我，本来如此。”</p>
+</blockquote>
+<p>小乘行者以渐修的方式定慧双修，最终得以“征悟人我空”。正如我在第二篇文章所举例，当达到那种层次后，也无需透过入定去体会“忘我”“身心脱落”，可以时时自然融入法界，没有能所内外，不依靠任何有为法的辅助。若只是暂时体验身体消失，那是入定，不是开悟。若有人在第一篇文章所描写的见地，也许可以暂时进入一种“舍身忘我”的状态，却无法持续，因为身见、我见尚未断。若真正了悟人我本空，日常生活中我相、身心相都会脱落，无需靠打坐入定就能达成。定与慧不同，却需双修。</p>
+<h1 id="2013年5月14日"><a href="#2013年5月14日" class="headerlink" title="2013年5月14日"></a>2013年5月14日</h1><p>母亲问我一个问题，我在邮件中回覆，谈到“习气、业力”、“自然无为”、以及见地的关系。</p>
+<p><strong>问：</strong><br>那天听了一首VCD里的歌，旋律优美，我只听了两遍，但接下来两三天脑海里不时浮现这首轻快的曲调。是不是因为“喜欢”而执着了？陈老师说现在的人时时用手机、电脑，让他们停也停不下来，是否会危害修行？因为这种习性会影响不染着的清净。那我是不是连手机游戏都不该玩？你们工作学习都要用电脑，如何才能不让它成为习性？你们常听音乐，不会着迷吗？我不明白。</p>
+<p>芳姨送我一本弘一大师的书，我正在读，里头讲到八关斋戒禁止唱歌跳舞看戏——说这些都障碍道心——诗词歌赋亦然。我平时喜欢看书、以前爱看电影，这些内容肯定会储存到八识田里。我们做在家人，处处外缘，想要每一念都保持庄严、不染不除，不容易。你是不是都这样修？<br>有空可否再写些偈语给我看呢？与佛同在。</p>
+<p><strong>答：</strong><br>我们的真如本性时刻展现在每一刻：佛性即“明”（灵明觉体）与“空”（性空无我）。其中，“明”指的是“心”，“空”指的是“性”。它虽灵明，却性空不可得。真如本性本自圆成，无所缺，所以也无需另外造作、修、改进。既然性本来如此，何须人造？但为什么我们从无始以来一直在生死烦恼之中？因为“无明”——不明本性与错误知见/我见，从而生起种种造作（造作=业力），使得生死烦恼不已。若真正证悟本性，便可于每一刻印证，自然无为，不再造作。</p>
+<p>什么是“有为”？什么又是“造作”？只要有所求，就是造作；有执着即是造作；有我执也是造作；任何对立也是造作；想将所见与相分离还是造作。造作会变成一种“动力”，就像轮子在转——转得越快，惯性越大，忽然要停也不容易。既然无我是法印，一切法本无我，那么“造作”本身也本无我。如果真有个“我”和“我所”，那就能一想到“我不要造作”，造作就立刻停止，可事实并非如此。造作是因缘所生的法，一旦生起，动力印刻在第八识里，便会不断浮现。那个“想要控制造作”的念头也可能是“无明/业力的习性”产生的另一个造作/我执，认为有我可以控制或压制念头，但其实并不能解脱。第八识的特性如此：只要有造作、执着，便种下印痕。为什么听到马路声不会留下印痕，而喜欢的歌却会？正是由于执着，带来动力，形成一种习性。若我们不跟随它，不再加大这股动力，它就会渐渐失去力量，念头自然平息。好比坐在草地上会压出一个痕迹（比喻第八识的记印），但当我们离开，那痕迹会慢慢复原。</p>
+<p>不过，这还没能解决“根本无明我执”——所以仍不能彻底解决造作根源的问题。根本我执来源于“造作习性”与第八识的无明种子。贪嗔痴之造作基于错误见解（能所对立）：自认为“我”能得到想要的（贪），或排斥不想要的（嗔），而不知“我”之外本无体（无明）。想要从根本上破除，就必须“见性”。用意志力强行破烦恼、我执并无用。</p>
+<p>前面谈了“造作”，再说说“无为”与“自然”。证悟本性后会体会到“自然”。不过，这里的“自然”并不是“习以为常”的意思。平时人们常说“我早就习惯了，已经自然了”，或“本来不会骑车，学会之后就顺手自然”——这不一样。真正的“自然”是指：一切所见所闻、所有行为动作，都是佛性/觉性自然之妙用，皆是缘起法，并无我在主宰。因缘之下，自然生灭，来去自由。</p>
+<p>什么是“无为”？道教/老子也讲无为，如“人法地、地法天、天法道、道法自然”等。佛教同样提倡无为，不过这里最好前面加一字，叫“为无为”。老子说：“为无为，事无事，味无味。”无为不是说我们什么都不做、像根木头；而是说我们每一个行为、每一个体验都在不立能所、不执着“我”的前提下自然而生。真正的无为是“洞悉本来无我，知道没有作者或所作，一切当下本性充分显露，毫无自我牵扯”。这才是真无为。我所说的“无心”不单是“没有分别善恶念头”，而是“无我”。（暂时的“忘我无心”不代表见性，唯有真正证悟法印之无我后，才会自然呈现“无心”。“体验”与“体悟”不同。）</p>
+<p>唯有真正“无我”，方能“全性即修，全修即性，性修不二”。举例：若念佛时，全部本性仅仅展现在这一句“阿弥陀佛”的圣号当中，无作者、无所作、无内外，整个宇宙都仅仅展现在这“一念阿弥陀佛”中。日常生活中的走路、吃饭、做事，同样可以如此，这就能动静一如。无为并非消极，而是大自由。若尚未见性，就会觉得“自然”“无为”遥不可及。很多人嚷着“我要放下，我要解脱”，却做不到。因为根本我执必须通过“悟”来破，需要启发智慧。唯有觉悟方能真正“看破、放下”。去除无明的方法并非“不要想就好”，就像有人怕房里有魔鬼，要解决办法不是叫他“别想魔鬼”，而是“把灯打开”，一看就知根本没有魔鬼，可见他的无明是没有依据的。</p>
+<p>同理，若要破除对人我、法我之执，就得亲证“般若智慧”，真正觉悟“本来无我”，如同打开灯，一下就明白了。悟到空性后，大部分我执会逐渐消退，只是初悟还会有细微之惑，唯至佛位才彻底超越。通达人法二空时，一切念头、万法皆是清净觉知，且无体虚幻，本无生住灭、无方所可得，如梦幻泡影。缘起既生，缘灭则了，所念所见所闻所行，如水中作画，虽历历分明，却不留痕迹，毕竟空明。即便暂有“造作”之现象，也能自然解放，不必刻意“放下”，也无需对抗。</p>
+<p>所以，虽我说“无为”“自然”，它更适合“悟后起修”。若一开始就喊“一切行自然” “本性具足不必修” “不要有为，一切随它生灭”，有人可能误以为那就是修行，结果反而成为“最懒惰的修行人”。解脱圣者是“念念寂灭、无为”，他若未悟，还以为自己在修“无为法”，实际上是一堆妄想不断。这种落差就在“我执”是否除去。若“我见”还在，一旦放松，又被习性牵着走。但当真正悟到“空明智，性相一如”，无为法对他就十分相合，且不必人教，他也能自然融入无为修行。有为法那种“有所造作”式的修行方法对他不再适合。</p>
+<p>若尚未证悟，一些基础修行还是很重要。譬如每天打坐，培育定慧；在家人要尽量减少不必要的外攀缘，要珍惜人身短暂且难得的修行因缘；在日常保持觉照，多修定心、观照本来面目或反闻自性。修行须脚踏实地，一步一步来，不可急于“跳级”。不过，如果像我一样参究“我是谁”以及随之而来的探究，它是一条直达觉悟之路，那么你或许能更快、更直接地觉醒。近年来已有不少人因我所分享的法要而得证悟，绝非一例两例。</p>
+<p>首先可以先体悟“觉性”（参见我第一篇文章），打坐时可参：“未生我以前的本来面目是什么？”或“念头未起时，谁在知？”不必用思考去回答，而要“反闻闻自性”，真证悟后才知道。课本答案都没用，唯有亲证“如人饮水，冷暖自知”。不断观修，终有一日忽然妄念不生，看到自性遍满一切，本觉即是“我之存在本身”，不再疑惑。接着，再继续观修以破能所见，更进一步看破人我见，可依《婆酰迦经》。此时会领悟《楞严经》里所说“吾人五阴就是佛性”(“阿难！汝犹未明一切浮尘诸幻化相当处出生、随处灭尽、幻妄称相，其性真为妙觉明体；如是乃至五阴六入，从十二处至十八界，因缘和合，虚妄有生；因缘别离，虚妄名灭；殊不能知生灭去来本如来藏常住妙明、不动周圆妙真如性；性真常中，求于去来迷悟死生，了无所得。”)，迷时为幻相、悟时为真心，性相一如。再来观修破除法我见。</p>
+<p>（更新：Soh指出，John Tan此前写道：“大乘佛教中的‘常’意味着不存在生灭的因，而非所谓的‘不变与真实’。”, ““常”并非指有个东西保持不变，而是指没有生之因。”）</p>
+<p>如果对无我的体悟已够深，则不仅仅专注于静坐，但是静坐还是重要的。此时“修”更多是在日常中去印证——无论行走、说话、看电视、做事，都要完全敞开，完全融入当下的行为，就如我说的“没有作者与所作，一切本性全然展现在此刻行为或体验中”，完全没有一个“我”。未悟时也得面对人事物，悟后也得面对人事物，区别在于：若有智慧，整个宇宙在面对，而非“我”在面对。与他人交谈时，并无“我”与“别人”，而是一整个行动，没有我相、人相、众生相、寿者相。这时也应多修慈悲喜舍，把自己了解的佛法分享给别人，这样才能福慧双修。当然，还需维持打坐，因为打坐仍是很有益处的；连佛陀悟后也日日静坐，我也尽量抽空打坐。 </p>
+<h1 id="更新："><a href="#更新：" class="headerlink" title="更新："></a>更新：</h1><p>为了更明确地说明在见到实相以后，修行和禅修依然需要持续进行，以下是一些相关的摘录。</p>
+<p><strong>John Tan多年前曾说：</strong></p>
+<blockquote>
+<p>“在这个见地（见无我）之后，务必要对‘无我’之道与修行之路了然。许多人错误地认为，由于无我，所以无需做任何事、也无需修行——但这正是用‘自我观点’来理解‘无我’，即使已经获得了见地仍然如此。</p>
+<p>并非因为没有自我，就什么都不用练习；而是因为没有自我，才显现出‘只有无明’与‘烦恼链锁’的活动。修行因此是为了对治无明以及这些带来苦恼的连串活动。虽无主体，但仍有“注意”可运用。因此，修行离不开智慧、观（毗婆舍那）、正念与定力。如果对这些修持无法娴熟，就不可能解脱。所以不要自欺欺人、给自己心理暗示，走上‘不修行’的错误道路，而白白浪费了无我这一珍贵的见地。</p>
+<p>当然，也存在一种‘被动模式’的修行方式——无抉择的觉知（choiceless awareness），但不应将之误解为默认途径。这种方式很难算得上对任何技能的‘娴熟掌握’，更遑论究竟解脱了。”</p>
+</blockquote>
+<p><strong>2013年时，John Tan提到：</strong></p>
+<blockquote>
+<p>“安般念（Anapanasati，观息法）很好。在你对无我有了洞见之后，要掌握一种方法，能在不经过繁琐思考的情况下，让你进入无我的状态。”</p>
+</blockquote>
+<p>至于“无抉择的觉知”，<strong>John Tan</strong>还补充道：</p>
+<blockquote>
+<p>“选择本身没有问题。唯一的问题在于‘选择 + 觉知’。正是那一点微细的念头——误以为有一个额外‘主体’（Soh 注：也即错误地添加或虚构出一个‘主体/施为者’）。”</p>
+</blockquote>
+<blockquote>
+<p>“真正的自由状态始终是自然的状态，也就是不再被自我/大我束缚的心境。你先要熟悉那种‘味道’：比如，通过专注呼吸的禅修练习，直到不见自我，只剩下吸气和呼气……然后你就能理解‘放下’究竟意味着什么。” </p>
+</blockquote>
+<h1 id="无我（Anatta）邮件（中文版）"><a href="#无我（Anatta）邮件（中文版）" class="headerlink" title="无我（Anatta）邮件（中文版）"></a>无我（Anatta）邮件（中文版）</h1><p><strong>Soh</strong><br>我发现这是我十年前写下的文章。</p>
+<p><strong>给</strong> <strong>XX 的回复</strong></p>
+<p><strong>XX，</strong><br>谢谢你的提醒。我在写给 YY 的内容里，主要想表达的是“正见”的重要性。因为唯有建立正见，才能突破对一切法相的妄见和妄执，所以若想真正做到“无相”，就必须依靠正见。</p>
+<p>我在写下<strong>第一篇文章（2010年6月）</strong>时，的确还存在“执着于虚空法相”的现象。不过，随着不断舍弃对法相的执着，不再刻意去肯定一个“虚空相”，渐渐地体会到：觉性会随缘而行、随物而应。由于不特意去“肯定”某种“虚空相”，日常生活中便只是保持一种“无为无作”的自然觉照和觉知。</p>
+<p>然而，直到<strong>2010年10月</strong>真正觉悟到“法印之无我”，才彻底断除了对“我体”的迷惑、妄见和妄执。<br>以前正是因为执着一个“我体”，甚至把“觉体”误认为“我体”，才会出现所谓“虚空相”或“内外、能所”等执着。这些都离不开“我见”的范畴。也就是说：</p>
+<ul>
+<li>将个人身心执为我，是一种“我见”；</li>
+<li>将如虚空的“觉”执为“我体”，也是“我见”；</li>
+<li>将一个“不分内外”的觉体当作永恒不变的“我”，同样是“我见”。</li>
+</ul>
+<p>但自从觉悟到“本来无我”之后，这种迷惑与执着便自然消失，不会再把“觉体”视为“虚空相的我体”，也不会见到有内外、能所、体用之分。觉性虽然遍满一切，却并无“我”。若觉悟到“本无我”，就不再把“觉”当成“我体”，也就不会掉入所谓“清净无染的虚空法相”，更不会去“肯定”某个我体（乃至虚空相的我体），也不会想要“守住”某个我体或法相。</p>
+<p>因为在觉悟后，看得很清楚：并没有“三者”（观者、在观、所观）。换句话说，没有一个“如虚空般的无形觉体”在“看着”某个“虚空内的景色/念头/声音”等等。<strong>当看到景色时，就只有景色的显现</strong>——而这便是觉性的觉知/佛性，再也不会刻意守住“无形如虚空的觉体”这一法相。由于无能所，连最遥远的山都只是自觉/清净觉知而已，完全没有内外或距离之分。所以山河大地尽是法身；觉性并不限于“虚空相”，觉也不是“无形相的虚空相”，而是彻底的性空、无体可得。如今在日常生活中，看东西、做事情，仅仅是自然的“知”——无我，也无“虚空法相”，很自然地就是“觉性觉知、空性了知”，不假造作。</p>
+<p>总而言之，一切法相都属于“我见/邪见”范畴，因此在我的体会里，“正见”极其重要。一旦觉悟了“二空”并破除了所有妄见妄执，就能超越一切法相。</p>
+<p><strong>给</strong> <strong>YY 的回复</strong></p>
+<p><strong>YY，</strong><br>你所说的，我大致认同。但“没有被任何东西束缚、却依然存在觉知的状态”，并不是我所说的“法印之无我”或“觉悟正见”。这里所说的“觉悟本来无我”，指的是“觉悟”并“断除错误知见与迷惑”，而不是仅仅体会到“没有被东西绑住却还有觉知”的某种体验。<br>确实，你可能觉察到原来那些“绑住你”的东西都只是自己幻想出来、本就不实在的，所以顿时感到解放，解除因“自我妄想”而生的“累”。这种体会固然重要，但这并不是我所说的“断除我见”，也不是“本无我/法印之无我”的“觉悟”。至于你说的“愿意为道场和众生牺牲”，那是一种很大的理想与愿望，这种愿力未必就代表一定是佛教所提倡——任何人都可以有这种发心，包括非佛教徒。大乘固然注重“愿力”，但有愿不等于已经是菩萨或真正懂佛法；非佛教徒一样可能有牺牲奉献的精神，却从未接触过佛教或佛法。这些做事周到、为他人着想的品质，是每个人都应该学习的；即便我父亲不懂很多佛法，但他也做事非常周到，我也常向他学习。这种人生基础固然重要，却不代表已经明白佛法或达到“理事无碍”。</p>
+<p>你提到“小乘者虽能无我相（住于觉体，理上无碍）”，但在我的理解和亲身领会里，小乘所证的无我相不只是“见到并住于觉体”。仅仅“见到觉体”并不代表完全觉悟“人我空”。就像我在<strong>第一篇文章</strong>里，虽已见证“觉体”，也体会过“没有被任何东西束缚却仍有觉知”，但后来我依《Bahiya Sutta》观行，才忽然证悟“人我空”，从而彻底断除“我见”。婆酰迦（Bahiya）因佛陀当时的一句开示当下证得阿罗汉果，所以我认为小乘的体悟核心就是“证悟人我空”。</p>
+<p>这时，连“镜子与影子”的比喻都不必使用了，因为已不存在“照者/所照”——一切就是了了分明的觉性觉知，而并不是某个“了了分明的我体”在照物。后来我对“万法缘起性空、如梦幻泡影”的真理又有更深的体悟。所谓“二空显真如”，正如佛陀在《Kalaka Sutta》（迦罗迦经）中提到的：</p>
+<p>「比丘，如来在看时，不立有一个‘所看之物’，不立一个‘不被看到的东西’，也不立‘尚未看的东西’，不立‘观者’……在听时、在触时、在思时也是如此。因此，比丘，如来对于所有可见、可闻、可触、可思的现象，都只是‘如’。我告诉你：并没有任何‘如’比这更高或更崇高。」</p>
+<p>这个“不立”，并不是“不要去想”那么简单，而是要<strong>证悟人法二空</strong>的真理，由于不再妄见，所以真如自然显现。禅宗公案里也有类似表述：</p>
+<blockquote>
+<p>雪峰说：“要会得此事，如同古镜——胡来胡现，汉来汉现。”<br>玄沙听后问：“倘若镜子破了又如何？”雪峰回答：“胡汉俱隐。”<br>玄沙说：“老和尚的脚跟还没点地呀！”<br>健代回应：“胡汉现成。”</p>
+</blockquote>
+<p>所以，就我个人经验看，“见到觉体”之后，还需进一步体悟“觉”。并了悟“体、根源”/“一体”其实只是我们的“习见”。唯有破除“体、根源”这类习见障碍，才能更进一步明白“无我”。因为如果我们一直以习见来看待“觉”，就无法突破对“觉”本身可能产生的“法相/我执”。这也就无法真正了解“觉”的真面目。圣开师父所说的“如鸿飞空空无际，似刀割水水无痕”十分重要，可是“不执着”也分不同层次；要想真正做到“一点痕迹都不留”，就得破除一切我见、我执，包括对“觉”的执着与我见。这样才能让“觉性觉知、空性了知”真正落到实处。否则哪怕把“一体、根源、镜子”都视为某种“我相/法相”，依旧是执着，还会留下痕迹。</p>
+<p>当彻底破了这种我见与我执，再将所证得的正见正觉运用于日常，就自然而然能在行住坐卧中体会到“如鸿飞空空无际，似刀割水水无痕”。</p>
+<p>我也强调过：<strong>“无我”并非是一种“清净状态”</strong>，而是“诸法本来如此”的法印，根本不是某个“状态、境界”或“清净”的东西。若体悟到“法印之无我”，那并不是要你维持住什么“清净境界”，而是在每时每刻、行住坐卧中都能体会并印证的真理。无论是待人处事、忙碌之中或静坐时，无论有没有念头，都同样是真理。听声音时，本来就只有声音的“清净觉知”，没有听者；看到景色、思想、做事时，全是缘起法——并无“觉者、观者、思想者、作者”。本来无我，无能所、无内外，而当下也都只是清净觉知。</p>
+<p>就好比“世界上没有圣诞老人”或“天空里没有花”是客观真理（只是有人会妄见天空花、或迷信圣诞老人）。如果有人还想努力“保持一个‘没有圣诞老人的清净状态’”，就说明他没明白那是真理——因为哪里会有一个“特别的清净境界”可守？“圣诞老人”和“没有圣诞老人的清净境界”都只是妄想！本来就没有“圣诞老人”，何需另设“没有圣诞老人的境界”呢？“无我”也是如此：若真证悟到这个真理，就不会在“理”和“事”上有障碍；理即事，事即理。不存在于事外另求“清净的无我之境”。万法皆空、色即是空，空即是色，色不异空，空不异色；并不是在事物之外另有“空”，也不是在人事物之外另有“佛性”。性相本一如，正如我在<strong>第二篇文章</strong>里提过：如果离开“相”或“用”，就无所谓“佛性”。所以才能真正做到理事圆融、无有障碍。如果“人法二空”之理与现实事物是两个截然不同的东西，那修来也无济于事。</p>
+<p>如今，因为我对“我和我所”的执着减少了；毕竟本来就无我，万事万物又皆空性、无常性，宛如梦幻泡影，所以对待善恶、得失都能看得淡些。面对人事物时，也较为平静欢喜，不再执着于“我”或“得失”。做任何事皆是“随缘而作，随缘了”。我自己也在不断学习，只能将我有限的经验拿来分享。所以“觉悟无我”并非要保持某种出世间境界才“不被束缚”，而是在世间的每一个当下都能解脱。这就叫“正见”没有理事的障碍，而是“理事不二”（所谓“理不离事，事不离理”）。众生在事相中迷或不迷，关键在于有没有正见。若能在行住坐卧或为人处世中，将正见落到实处，就可以如“鸿飞空空”“刀割水无痕”。</p>
+<p><strong>附言（p.s.）</strong></p>
+<p>“我想再补充一点：不仅要有‘正见’，还要<strong>亲证、证悟</strong>正见。‘无我’与‘空’作为法印，并不只是抽象观念；它们是能够‘活生生地被体验、被落实在每个当下’的真理。一旦‘见’到，就会成为自然状态，无费力也无出入。”</p>
+<h1 id="2011年，Soh-曾写信给另一位修行者："><a href="#2011年，Soh-曾写信给另一位修行者：" class="headerlink" title="2011年，Soh 曾写信给另一位修行者："></a>2011年，Soh 曾写信给另一位修行者：</h1><p>洞见不错。经验的稳定性，与洞见的展开与深化之间，确实存在可预测的关联。试想：如果在我们意识的深处，仍然有些微的二元观、实体观以及惯性不断浮现并影响我们每个当下的体验——例如在心中编造出一个不变的根源或心体，使我们反复地往后退回、并将所有经验都往某个『源头』上去归依——那么，不二体验能有多么无缝且不费力呢？</p>
+<p>举例来说，即便已看见一切都是心或觉知的显现，仍可能在细微处，习惯性地回归到某个『源头』、『觉体』或『心体』，因此并未充分领会变动与无常。不二虽已体验，但又退回到实体化的不二：总是回到某个基底，一个与万法不离不弃的『觉体』。</p>
+<p>若人顿悟到：我们所想的那个『不变的源头』、『觉体』或『心体』，其实也只是另一个念头而已——事实上，就是念头接著念头、所见接著所见、所闻接著所闻，并没有一个固有或不变的『觉体』、『心体』或『源头』。当真正明白『觉』『心』『见』『听』其实都只是『所见、所闻、无常流变本身』时，不二就会自然而然、毫不费力地显现。因为这『无常』本身运行且知觉，不再能找到任何『知者』或其他『觉知』。就像没有脱离『流动』的河，没有脱离『吹拂』的风，每个名词都暗含它的动词……同理，觉知不过是『知』的过程，与所知不分彼此。风景在『看』，音乐在『听』。由于除了这无常流变外，并没有任何不变、独立、终极的东西，所以不再退回什么源头，而是安然全然地安住于这『流变』之中。</p>
+<p>最后，请持续练习那种强烈的光明度……例如，凝视网球时，就彻底去感知那颗网球……不必去想什么源头、背景、观察者或自我。只有那颗网球，如同光般鲜明而明亮。呼吸时……就只有呼吸本身……看见风景时，就只有形色、光影——强烈而鲜活，却没有任何能观之主体。听音乐的时候……或听到鸟鸣、蝉声……就只是那声音——啾啾。某位禅师在他悟道时曾说：『当我在听钟声时，没有我，也没有钟……只有钟响。』这就是直接体验『无心』以及强烈光明度的感觉……而这正是佛陀在教导的四念处之核心意义。</p>
+<hr>
+<p><em><strong>转载摘录自网站 <a href="https://www.awakeningtoreality.com/">Awakening to Reality</a> 之 <a href="https://www.awakeningtoreality.com/p/chinese-articles.html">Soh的觉悟之路：2010~2013年的心性体悟录</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>atr</category>
+      </categories>
+      <tags>
+        <tag>atr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>觉与缘起</title>
+    <url>/2026/03/27/2627-DependentOrigination/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
+<li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
+<li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
+<li><a href="https://draapho.github.io/2021/04/05/2110-satori2/">开悟是怎样一种体验？(新)</a></li>
+<li><a href="https://draapho.github.io/2021/11/29/2124-faith/">带着信仰行到底</a></li>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
+<li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2514-BahiyaSutta">关于婆希耶经(Bahiya Sutta)</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2515-HeartSutra">白话优化版: 不可得的圆满：鼓声、虹光与海市蜃楼如何开启《心经》</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2516-SohAwakening">体验/觉受、证悟、知见、修行与果位</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2517-iam">「我是」的四个面向</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2518-NondualContemplation">“I AM” 之后的两种非二元观照</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2519-BuddhaTaught">佛陀的启示-无我论</a></li>
+<li><a href="https://draapho.github.io/2025/12/16/2520-Udana">&lt;自说经&gt; 第一品</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2521-SelfLiberation">大手印的皇印、自行解脱：堪楚仁波切三世</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2522-NoNouns">发起动词，无需名词</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2523-RealizationExperience">从不同角度看“证悟与体验以及不二体验</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
+<li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
+<li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
+<li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
+<li><a href="https://draapho.github.io/2026/02/21/2606-IamPath/">超越“体验”：自我参究/话头与“我是”证悟的详尽指南</a></li>
+<li><a href="https://draapho.github.io/2026/03/12/2615-Standing/">太极浑圆桩站桩要领</a></li>
+<li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
+<li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
+<li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
+</ul>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作者: Soh</p>
+<p><strong>请先看：</strong></p>
+<p><a href="https://www.awakeningtoreality.com/2025/04/thusness-passerby-chinese-translation.html">Thusness “真如”/PasserBy “过路人”开悟的七个阶段 - Traditional Chinese Translation of Thusness/PasserBy’s Seven Stages of Enlightenment</a></p>
+<p><strong>Please read this first (English):</strong></p>
+<p><a href="https://www.awakeningtoreality.com/2007/03/thusnesss-six-stages-of-experience.html">Thusness/PasserBy’s Seven Stages of Enlightenment</a></p>
+<h1 id="觉与缘起"><a href="#觉与缘起" class="headerlink" title="觉与缘起"></a>觉与缘起</h1><h2 id="4-MARCH-2025"><a href="#4-MARCH-2025" class="headerlink" title="4 MARCH 2025"></a>4 MARCH 2025</h2><p>John Tan: 比如说，宗喀巴：以概念分析作为直接证悟的必要前行。以及麦彭仁波切将其系统化。在这两条路径之间，存在着一个极其关键的洞见，它将两者合而为一，但这点通常没有被清楚地阐述。让我们谈谈 ATR 的偈语，当无我的洞见通过这些偈语生起时，直接所认出的是什么？</p>
+<p>Soh Wei Yu: 同时没有一个内在实有的发起主宰者，以及能-作-所/能见-见-所见的范式，并且生动的临在/光明作为纯粹的显现而存在。</p>
+<p>John Tan: 是的，同时一次性产生两种洞见。一个是否定（不是关于临在），但否定并非通过概念建构。在看清「主宰者」不存在的过程中，没有涉及任何分析或推理。因此，这里存在「否定」，但并非通过推理或分析。只是直接认清并看透概念建构，这是看透自性见（inherentness）的一部分，尽管还不够成熟。第二个则是对临在的直接现证。</p>
+<p>Soh Wei Yu: 我明白了。那么，宗喀巴与麦彭仁波切其实也指出了这一点，但在那篇论文中漏掉了？有没有关于麦彭和宗喀巴讨论这些内容的书籍或论文？那本辩证法的书？</p>
+<p>John Tan: 不是啦。所以我赞同指出否定的重要性。但「否定」并不一定要通过分析，然而它极为重要，我把它视为般若（prajñā）的一部分。这是一种对「否定」的直接洞见，并且可以延伸到例如「身」与「心」。但这不是「临在」，尽管这种洞见必须伴随着对「临在」的直接现证才算完整。话虽如此，分析仍然发挥一定作用，尤其是在成熟我们对「自性见」（inherentness）如何影响心灵的理解上，及其对因果、对象与其特征等观念的影响上。所以尽管我同意宗喀巴强调「否定」的部分，但我不同意这必须通过分析的方式，且必须是概念性的。</p>
+<p>其次，「临在」必须来自于「本初觉智」（yeshe）的智慧。我认为这部分呈现了「积极」的方面，但并非辩证法所谈论的那种方式。这种对「临在」的直接认知并非通过分析——这点没错，但是这条道并不仅仅是「安住」于无法言说或不可言说的本性中。事实上，有许多关键的方面是可以言说且必须被指出的，尽管它们在第一印象中看似矛盾。</p>
+<p>同时需要注意的是「显现」的重要作用，以及这两位上师如何定义这个词。麦彭仁波切实际上非常强调显现。但我不喜欢的是将「觉知」强调为实相（终极真理），似乎麦彭仁波切在谈某种觉知教法。以及它是如何呈现宗喀巴对世俗与空性的理解的。这里完全没有清晰度与洞见。现在想像在一个非实体论的世界中，世俗的空性已是既定前提，根本没有所谓的「实体」。那么世俗怎么可能「不重要」呢？你懂我的意思吗？</p>
+<p>对我来说也是如此，当我谈论自然临在或空性显现时，我根本不是在谈论「觉知」。这就是为什么使用「显现」这个词。我相信麦彭也明白这一点。在一个非实体论的世界里，自然临在，并没有将「显现」推断为「某物」——无论是觉知、意识、气、能量、物质、场域还是其他什么。它就只是纯粹生动、无实体的发生……其余的，则是将生动的发生抽象化为妄见显现的行为。</p>
+<p>Soh Wei Yu: 我明白了。是的。</p>
+<p>John Tan: 如果你看见「火」，那么这个「火」究竟是什么？</p>
+<p>Soh Wei Yu: 就只是燃烧、闪动的红色斑块，我们称之为火焰。火是世俗的。</p>
+<p>John Tan: 当你靠近时，会有一种「热」的感觉，一种灼烧的感受。当我们使用语言和世俗约定时，常会忽略「觉知」，好像有一个独立存在于外部的「火」一样。现在在我们过快跳到没有外部或内部的结论之前，我想让你用自己的语言，在消除「实体」见的前提下，尽你所能描述这些现象，你能做到吗？</p>
+<p>Soh Wei Yu: 我想我只会以描述的方式表达，而不把它们归结为客体固有的属性。比如，如果我看见红玫瑰，我会描述它为非常本自光明、生动的红色感知，而不将其归结为「属于固体玫瑰的红色属性」。当走近火时，只是一种逐渐增强的温暖感，从轻微舒适的暖意开始，逐渐增强为强烈且不适/痛苦的热感，等等。正是所有这些生动的发生，随后被赋予了世俗的名称如「火」，并进而实体化为客体与特征等。基本上，所有这些都不离觉知，我们也无需假设一个独立存在的觉知。每当谈论「觉知」时，它只是世俗的，就像佛陀所说，依条件而命名。无法脱离当下呈现的任何条件而单独谈论……如果是火的情况，它就只是舒适或不适的温暖感受。</p>
+<p>John Tan: 非常好。</p>
+<h2 id="Soh于2023年写道"><a href="#Soh于2023年写道" class="headerlink" title="Soh于2023年写道:"></a>Soh于2023年写道:</h2><p>CW先生/女士，您最近是否对「作为显现的识」有了新的领悟？这种体验对您而言是怎样的？</p>
+<p>六识也是假名所立下(而非实存)的，但理解这一点对于解构「识是单一且不变/本质上存在的，如同梵我，是独立于条件和各种显现的不变实体」这一观念非常重要。关键在于指出识本质存在的空性，以及缘起性。<strong>关于蕴、六识的筏喻教法，并非用于执着或实体化。</strong>参见佛陀在《中部》第38经中责备比丘萨提持有实在论的识观： <a href="https://suttacentral.net/mn38/en/bodhi">https://suttacentral.net/mn38/en/bodhi</a></p>
+<p>佛陀说：「迷误的人啊，我难道没有在许多讲道中指出，识是缘起的，因为没有条件就没有识的生起？」</p>
+<p>这似乎是达赖喇嘛的一本好书。它甚至引用了我常引用的经文。</p>
+<blockquote>
+<p>尹玲 23分钟前</p>
+<p>「因为人们容易将识及其思想、感受、情绪和观点视为个人，所以值得更仔细地审视这一观念。佛陀明确指出，识不是自我。在《大渴爱灭尽经》中，他召集比丘萨提，质问他关于他错误地认为识是自我的观点。以下是他们的对话（《中部》第38.5经）：</p>
+<p>（佛陀）：萨提，是否属实，你产生了以下有害的观点：据我理解，世尊所教的法，就是这个相同的识在轮回中运行和流转，而不是其他？<br>（萨提）：正是如此，尊者。据我理解，世尊所教的法，就是这个相同的识在轮回中运行和流转，而不是其他。<br>（佛陀）：萨提，什么是那个识？<br>（萨提）：尊者，就是那个在此处彼处说话、感受并体验善恶行为结果的东西。<br>（佛陀）：迷误的人啊，你何曾听我如此教导过法？迷误的人啊，我难道没有在许多讲道中指出，识是缘起的，因为没有条件就没有识的生起？</p>
+</blockquote>
+<blockquote>
+<p>【Dalai Lama 达赖喇嘛说：】<br>萨提的观点是，识本身存在，独立于条件。他说自我是说话的主体，表明「我」是说话行为的主宰者。他说自我感受，是认为「我」是被动的主体，体验着。「此处彼处」表示自我是一个在多次再生中保持不变的轮回者。这个识或自我从一生到另一生，创造业并体验其结果，但在此过程中没有被改变或变化。它具有一个不变的身份，在经历一个又一个事件并从一生到另一生时保持相同。简而言之，萨提将识视为一个『ātman（神我／我体）』或大我。</p>
+<p>注释解释说，萨提是本生故事的专家，在这些故事中，佛陀讲述了他以前的生活，说：『那时，我是……』」</p>
+<p>- 摘自《实现深刻见解》 比丘丹增嘉措，比丘尼图登邱卓</p>
+</blockquote>
+<p>Soh:</p>
+<blockquote>
+<p>「正如诸佛出于世俗约定而谈论『我』和『我所』；同样地，他们也出于实际原因谈论『蕴』、『界』和『处』。这些被称为『大种』的事物，完全被吸收于识中；既然它们通过理解而被消解，难道它们不是被错误地赋予实在性吗？」</p>
+<p>- 龙树：《六十颂》节选</p>
+</blockquote>
+<h1 id="中部38经：渴爱的灭尽大经"><a href="#中部38经：渴爱的灭尽大经" class="headerlink" title="中部38经：渴爱的灭尽大经"></a>中部38经：渴爱的灭尽大经</h1><p>双大品［4］<br>我听到这样：</p>
+<p>有一次，世尊住在舍卫城只树林给孤独园。<br>当时，渔夫的儿子，名叫萨提的比丘生起像这样邪恶的恶见：<br>「我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。」</p>
+<p>众多比丘听闻：<br>「听说渔夫的儿子，名叫萨提的比丘生起像这样邪恶的恶见：『我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。』」</p>
+<p>那时，那些比丘去见渔夫的儿子萨提比丘。抵达后，对渔夫的儿子萨提比丘这么说：<br>「是真的吗？萨提学友！你生起了这样邪恶的恶见：『我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。』」<br>「确实这样，学友们！我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。」</p>
+<p>那时，那些比丘想要使渔夫的儿子萨提比丘远离这邪恶的邪见，而审问、质问、追究：<br>「萨提学友！不要这么说，不要毁谤世尊，毁谤世尊不好，世尊不会这么说。萨提学友！世尊以许多法门说识是缘起的，除了经由缘以外，没有识的生成。」</p>
+<p>当被那些比丘这样审问、质问、追究时，渔夫的儿子萨提比丘仍刚毅地、取着地执着那邪恶的恶见，而说：<br>「确实这样，学友们！我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。」</p>
+<p>由于那些比丘不能使渔夫的儿子萨提比丘远离这邪恶的恶见，那时，那些比丘去见世尊。抵达后，向世尊问讯，接着在一旁坐下。在一旁坐好后，那些比丘对世尊这么说：<br>「大德！渔夫的儿子，名叫萨提的比丘生起像这样邪恶的恶见：『我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。』大德！我们听闻：『听说渔夫的儿子，名叫萨提的比丘生起像这样邪恶的恶见：「我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。」』大德！那时，我们去见渔夫的儿子萨提比丘。抵达后，对渔夫的儿子萨提比丘这么说：『是真的吗？萨提学友！你生起了这样邪恶的恶见：「我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。」』大德！当这么说时，渔夫的儿子萨提比丘对我们这么说：『确实这样，学友们！我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。』大德！<br>那时，我们想要使渔夫的儿子萨提比丘远离这邪恶的邪见，而审问、质问、追究：『萨提学友！不要这么说，不要毁谤世尊，毁谤世尊不好，世尊不会这么说。萨提学友！世尊以许多法门说识是缘起的，除了经由缘以外，没有识的生成。』大德！当被我们这样审问、质问、追究时，渔夫的儿子萨提比丘仍刚毅地、取着地执着那邪恶的恶见，而说：『确实这样，学友们！我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。』大德！由于我们不能使渔夫的儿子萨提比丘远离这邪恶的恶见，我们［来］告诉世尊这件事。」</p>
+<p>那时，世尊召唤某位比丘：<br>「来！比丘！你以我的名义召唤渔夫的儿子萨提比丘：『萨提学友！大师召唤你。』」<br>「是的，大德！」那位比丘回答世尊后，就去见渔夫的儿子萨提比丘。</p>
+<p>抵达后，对渔夫的儿子萨提比丘这么说：<br>「萨提学友！大师召唤你。」<br>「是的，学友！」渔夫的儿子萨提比丘回答那位比丘后，就去见世尊。抵达后，向世尊问讯，接着在一旁坐下。</p>
+<p>在一旁坐好后，世尊对渔夫的儿子萨提比丘这么说：<br>「是真的吗？萨提！你生起了这样邪恶的恶见：『我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。』」</p>
+<p>「确实这样，大德！我了知依世尊教导的法，就是这［同一个］识流转、轮回，而非不同的。」</p>
+<p>「萨提！那是哪个识呢？」</p>
+<p>「大德！就是这讲话者、能感受、到处经验善恶业果报的识。」</p>
+<p>「愚钝男子！你从谁了知我这样教导法？愚钝男子！我不是以许多法门说识是缘起的，除了经由缘以外，没有识的生成吗？然而，愚钝男子！你以自己错误地把握对我们诽谤，并伤害自己、产出许多非福德，因为，愚钝男子！这对你将有长久的不利与苦。」</p>
+<p>那时，世尊召唤比丘们：<br>「比丘们！你们怎么想：这位渔夫的儿子萨提比丘是否在这法、律中已变热了呢？」</p>
+<p>「这怎么可能呢？不，大德！」</p>
+<p>当这么说时，渔夫的儿子萨提比丘变得沉默、羞愧、垂肩、低头、郁闷、无言以对而坐。</p>
+<p>那时，世尊知道渔夫的儿子萨提比丘变得沉默、羞愧、垂肩、低头、郁闷、无言以对后，对渔夫的儿子萨提比丘这么说：<br>「愚钝男子！你将了知自己这邪恶的邪见，这里，我将质问比丘们。」</p>
+<p>那时，世尊召唤比丘们：<br>「比丘们！你们了知我这么教导法，如这位渔夫的儿子萨提比丘以自己错误地把握对我们诽谤，并伤害自己、产出许多非福德吗？」</p>
+<p>「不，大德！因为，世尊以许多法门说识是缘起的，除了经由缘以外，没有识的生成。」</p>
+<p>「比丘们！好！好！比丘们！好！你们这样了知我教导法，比丘们！因为，我以许多法门说识是缘起的，除了经由缘以外，没有识的生成，然而，这位渔夫的儿子萨提比丘以自己错误地把握对我们诽谤，并伤害自己、产出许多非福德，因为，对这位愚钝男子这将有长久的不利与苦。<br>比丘们！凡缘于那样的缘而生起识，就被名为那样的识：缘于眼与色而生起识，就被名为眼识；缘于耳与声音而生起识，就被名为耳识；缘于鼻与气味而生起识，就被名为鼻识；缘于舌与味道而生起识，就被名为舌识；缘于身与所触而生起识，就被名为身识；缘于意与法而生起识，就被名为意识，比丘们！犹如凡缘于那样的缘而火燃烧，就被名为那样的火：缘于柴而火燃烧，就被名为柴火；缘于木片而火燃烧，就被名为木片火；缘于草而火燃烧，就被名为草火；缘于牛粪而火燃烧，就被名为牛粪火；缘于谷壳而火燃烧，就被名为谷壳火；缘于碎屑而火燃烧，就被名为碎屑火。同样的，比丘们！凡缘于那样的缘而生起识，就被名为那样的识：缘于眼与色而生起识，就被名为眼识；缘于耳与声音而生起识，就被名为耳识；缘于鼻与气味而生起识，就被名为鼻识；缘于舌与味道而生起识，就被名为舌识；缘于身与所触而生起识，就被名为身识；缘于意与法而生起识，就被名为意识。<br>比丘们！你们看见『这是已生者。』吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！你们看见『这是那个食的生起。』吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！你们看见『以那个食的灭而已生者成为灭法。』吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！当怀疑『这是已生者吗？』时，疑惑生起吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！当怀疑『这是那个食的生起吗？』时，疑惑生起吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！当怀疑『以那个食的灭而已生者成为灭法吗？』时，疑惑生起吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！当以正确之慧如实看见『这是已生者。』时，那疑惑被舍断了吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！当以正确之慧如实看见『这是那个食的生起。』时，那疑惑被舍断了吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！当以正确之慧如实看见『以那个食的灭而已生者成为灭法。』时，那疑惑被舍断了吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！『这是已生者。』像这样，你们在这里无疑惑了吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！『这是那个食的生起。』像这样，你们在这里无疑惑了吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！『以那个食的灭而已生者成为灭法。』像这样，你们在这里无疑惑了吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！『这是已生者。』被［你们］以正确之慧如实善见了吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！『这是那个食的生起。』被［你们］以正确之慧如实善见了吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！『以那个食的灭而已生者成为灭法。』被［你们］以正确之慧如实善见了吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！这个这么清净、这么皎洁的见解，如果你们黏着、珍惜、珍藏、执着为我所，比丘们！你们是否了知我所教导为了越度而非为了握持的筏譬喻法呢？」</p>
+<p>「不，大德！」</p>
+<p>「比丘们！这个这么清净、这么皎洁的见解，如果你们不黏着、不珍惜、不珍藏、不执着为我所，比丘们！你们是否了知我所教导为了越度而非为了握持的筏譬喻法呢？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！有这四种食，为了已生成众生的存续，或为了求出生者的资助。哪四种呢？或粗或细的物质食物，第二、触，第三、意思，第四、识。<br>比丘们！这四种食，什么是其因？什么是其集？什么是其生？什么是其根源？这四种食，渴爱是因，渴爱是集，渴爱所生，渴爱是根源。<br>而，比丘们！这渴爱，什么是其因？什么是其集？什么是其生？什么是其根源？渴爱，受是因，受是集，受所生，受是根源。<br>而，比丘们！这受，什么是其因？什么是其集？什么是其生？什么是其根源？受，触是因，触是集，触所生，触是根源。<br>而，比丘们！这触，什么是其因？什么是其集？什么是其生？什么是其根源？触，六处是因，六处是集，六处所生，六处是根源。<br>而，比丘们！这六处，什么是其因？什么是其集？什么是其生？什么是其根源？六处，名色是因，名色是集，名色所生，名色是根源。<br>而，比丘们！这名色，什么是其因？什么是其集？什么是其生？什么是其根源？名色，识是因，识是集，识所生，识是根源。<br>而，比丘们！这识，什么是其因？什么是其集？什么是其生？什么是其根源？识，行是因，行是集，行所生，行是根源。<br>而，比丘们！这些行，什么是其因？什么是其集？什么是其生？什么是其根源？行，无明是因，无明是集，无明所生，无明是根源。</p>
+<p>比丘们！像这样，以无明为缘而有行；以行为缘而有识；以识为缘而有名色；以名色为缘而有六处；以六处为缘而有触；以触为缘而有受；以受为缘而有渴爱；以渴爱为缘而有取；以取为缘而有有；以有为缘而有生；以生为缘而有老、死、愁、悲、苦、忧、绝望生起，这样是这整个苦蕴的集。</p>
+<p>「『以生为缘而有老死』，这被像这样说，比丘们！以生为缘而有老死吗？或，在这里是怎样的呢？</p>
+<p>「大德！以生为缘而有老死，在这里，对我们来说是这样：『以生为缘而有老死』。」</p>
+<p>「『以有为缘而有生』，这被像这样说，比丘们！以有为缘而有生吗？或，在这里是怎样的呢？</p>
+<p>「大德！以有为缘而有生，在这里，对我们来说是这样：『以有为缘而有生』。」</p>
+<p>「『以取为缘而有有』，这被像这样说，比丘们！以取为缘而有有吗？或，在这里是怎样的呢？</p>
+<p>「大德！以取为缘而有有，在这里，对我们来说是这样：『以取为缘而有有』。」</p>
+<p>「『以渴爱为缘而有取』，这被像这样说，比丘们！以渴爱为缘而有取吗？或，在这里是怎样的呢？</p>
+<p>「大德！以渴爱为缘而有取，在这里，对我们来说是这样：『以渴爱为缘而有取』。」</p>
+<p>「『以受为缘而有渴爱』，这被像这样说，比丘们！以受为缘而有渴爱吗？或，在这里是怎样的呢？</p>
+<p>「大德！以受为缘而有渴爱，在这里，对我们来说是这样：『以受为缘而有渴爱』。」</p>
+<p>「『以触为缘而有受』，这被像这样说，比丘们！以触为缘而有受吗？或，在这里是怎样的呢？</p>
+<p>「大德！以触为缘而有受，在这里，对我们来说是这样：『以触为缘而有受』。」</p>
+<p>「『以六处为缘而有触』，这被像这样说，比丘们！以六处为缘而有触吗？或，在这里是怎样的呢？</p>
+<p>「大德！以六处为缘而有触，在这里，对我们来说是这样：『以六处为缘而有触』。」</p>
+<p>「『以名色为缘而有六处』，这被像这样说，比丘们！以名色为缘而有六处吗？或，在这里是怎样的呢？</p>
+<p>「大德！以名色为缘而有六处，在这里，对我们来说是这样：『以名色为缘而有六处』。」</p>
+<p>「『以识为缘而有名色』，这被像这样说，比丘们！以识为缘而有名色吗？或，在这里是怎样的呢？</p>
+<p>「大德！以识为缘而有名色，在这里，对我们来说是这样：『以识为缘而有名色』。」</p>
+<p>「『以行为缘而有识』，这被像这样说，比丘们！以行为缘而有识吗？或，在这里是怎样的呢？</p>
+<p>「大德！以行为缘而有识，在这里，对我们来说是这样：『以行为缘而有识』。」</p>
+<p>「『以无明为缘而有行』，这被像这样说，比丘们！以无明为缘而有行吗？或，在这里是怎样的呢？</p>
+<p>「大德！以无明为缘而有行，在这里，对我们来说是这样：『以无明为缘而有行』。」</p>
+<p>「比丘们！好！比丘们！像这样，你们也这么说，我也这么说：当这个存在了，则有那个；以这个的生起，则那个生起，即：以无明为缘而有行；以行为缘而有识；以识为缘而有名色；以名色为缘而有六处；以六处为缘而有触；以触为缘而有受；以受为缘而有渴爱；以渴爱为缘而有取；以取为缘而有有；以有为缘而有生；以生为缘而有老、死、愁、悲、苦、忧、绝望生起，这样是这整个苦蕴的集。但以无明的无余褪去与灭而行灭；以行灭而识灭；以识灭而名色灭；以名色灭而六处灭；以六处灭而触灭；以触灭而受灭；以受灭而渴爱灭；以渴爱灭而取灭；以取灭而有灭；以有灭而生灭；以生灭而老、死、愁、悲、苦、忧、绝望灭，这样是这整个苦蕴的灭。</p>
+<p>「『以生灭而老死灭』，这被像这样说，比丘们！以生灭而老死灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以生灭而老死灭，在这里，对我们来说是这样：『以生灭而老死灭』。」</p>
+<p>「『以有灭而生灭』，这被像这样说，比丘们！以有灭而生灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以有灭而生灭，在这里，对我们来说是这样：『以有灭而生灭』。」</p>
+<p>「『以取灭而有灭』，这被像这样说，比丘们！以取灭而有灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以取灭而有灭，在这里，对我们来说是这样：『以取灭而有灭』。」</p>
+<p>「『以渴爱灭而取灭』，这被像这样说，比丘们！以渴爱灭而取灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以渴爱灭而取灭，在这里，对我们来说是这样：『以渴爱灭而取灭』。」</p>
+<p>「『以受灭而渴爱灭』，这被像这样说，比丘们！以受灭而渴爱灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以受灭而渴爱灭，在这里，对我们来说是这样：『以受灭而渴爱灭』。」</p>
+<p>「『以触灭而受灭』，这被像这样说，比丘们！以触灭而受灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以触灭而受灭，在这里，对我们来说是这样：『以触灭而受灭』。」</p>
+<p>「『以六处灭而触灭』，这被像这样说，比丘们！以六处灭而触灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以六处灭而触灭，在这里，对我们来说是这样：『以六处灭而触灭』。」</p>
+<p>「『以名色灭而六处灭』，这被像这样说，比丘们！以名色灭而六处灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以名色灭而六处灭，在这里，对我们来说是这样：『以名色灭而六处灭』。」</p>
+<p>「『以识灭而名色灭』，这被像这样说，比丘们！以识灭而名色灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以识灭而名色灭，在这里，对我们来说是这样：『以识灭而名色灭』。」</p>
+<p>「『以行灭而识灭』，这被像这样说，比丘们！以行灭而识灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以行灭而识灭，在这里，对我们来说是这样：『以行灭而识灭』。」</p>
+<p>「『以无明灭而行灭』，这被像这样说，比丘们！以无明灭而行灭吗？或，在这里是怎样的呢？</p>
+<p>「大德！以无明灭而行灭，在这里，对我们来说是这样：『以无明灭而行灭』。」</p>
+<p>「比丘们！好！比丘们！像这样，你们也这么说，我也这么说：当这个不存在了，则没有那个；以这个的灭，则那个被灭，即：以无明灭而行灭；以行灭而识灭；以识灭而名色灭；以名色灭而六处灭；以六处灭而触灭；以触灭而受灭；以受灭而渴爱灭；以渴爱灭而取灭；以取灭而有灭；以有灭而生灭；以生灭而老、死、愁、悲、苦、忧、绝望灭，这样是这整个苦蕴的灭。</p>
+<p>比丘们！当这么知、这么见时，你们是否会跑回过去：『我们过去世存在吗？我们过去世不存在吗？我们过去世是什么呢？我们过去世的情形如何呢？我们过去世曾经是什么，［后来］又变成什么？』呢？」</p>
+<p>「不，大德！」</p>
+<p>「比丘们！当这么知、这么见时，你们是否会跑到未来：『我们未来世存在吗？我们未来世不存在吗？我们未来世会是什么呢？我们未来世的情形如何呢？我们未来世会是什么，［以后］又变成什么？』呢？」</p>
+<p>「不，大德！」</p>
+<p>「比丘们！当这么知、这么见时，你们现在内心对现在世是否会有疑惑：『我存在吗？我不存在吗？我是什么？我的情形如何？这众生从何而来，将往何去？』呢？」</p>
+<p>「不，大德！」</p>
+<p>「比丘们！当这么知、这么见时，你们是否会这么说：『大师被我们尊重，我们以尊重大师而这么说。』呢？」</p>
+<p>「不，大德！」</p>
+<p>「比丘们！当这么知、这么见时，你们是否会这么说：『沙门这么说，我们以沙门的名义这么说。』呢？」</p>
+<p>「不，大德！」</p>
+<p>「比丘们！当这么知、这么见时，你们是否会指定其他大师呢？」</p>
+<p>「不，大德！」</p>
+<p>「比丘们！当这么知、这么见时，你们是否会返回那些个个沙门、婆罗门的禁戒、祭典、瑞相为［梵行的］核心呢？」</p>
+<p>「不，大德！」</p>
+<p>「比丘们！你们只说自己所理解、自己所见、自己所知道的吗？」</p>
+<p>「是的，大德！」</p>
+<p>「比丘们！好！比丘们！你们被我以这直接可见的、即时的、请你来见的、能引导的、智者应该自己经验的法引导，『比丘们！这个法是直接可见的、即时的、请你来见的、能引导的、智者应该自己经验的。』当它被像这样说时，这是缘于此而说。</p>
+<p>比丘们！三者的集合而有胎的下生。这里，有父母的结合，母亲不是受胎期者，没有干达婆的现起，则没有胎的下生。这里，有父母的结合，母亲是受胎期者，没有干达婆的现起，则没有胎的下生。比丘们！当有父母的结合，母亲是受胎期者，有干达婆的现起，则有胎的下生，这样，三者的集合而有胎的下生。比丘们！那母亲以大担心之负重在子宫内怀胎九或十个月。比丘们！那母亲以大担心之负重经过九或十个月后生产，已生后，以自己的血养育，比丘们！这母乳在圣者之律中即是血。比丘们！孩童随之成长，诸根随之圆熟，他玩所有孩童的玩具，即：小锄头、针楔、翻筋斗、玩具风车、玩具量器、玩具车、小弓。比丘们！孩童随之成长，诸根随之圆熟，他具备、具足五种欲自娱：能被眼识知，令人满意的、可爱的、合意的、可爱样子的、伴随欲的、贪染的色；能被鼻识知……的气味，……能被舌识知……的味道，……能被身识知，令人满意的、可爱的、合意的、可爱样子的、伴随欲的、贪染的所触。</p>
+<p>比丘们！以眼见色后，他对可爱样子的色贪着，对不可爱样子的色排拒，住于身念未建立，少心的，不如实了知心解脱、慧解脱：那些恶不善法无余灭之处，他这么进入赞成与反对，凡任何他感受或苦或乐或不苦不乐受，他欢喜、欢迎、持续固持那个受；当他欢喜、欢迎、持续固持那个受时，则生起欢喜；凡在受上欢喜者，则是取；以其取为缘而有有；以有为缘而有生；以生为缘而有老、死、愁、悲、苦、忧、绝望生起，这样是这整个苦蕴的集。以耳听声音后，……以鼻闻气味后，……以舌尝味道后……以身触所触后，……以意识知法后，他对可爱样子的法贪着，对不可爱样子的法排拒，住于身念未建立，少心的，不如实了知心解脱、慧解脱：那些恶不善法无余灭之处，他这么进入赞成与反对，凡任何他感受或苦或乐或不苦不乐受，他欢喜、欢迎、持续固持那个受，他欢喜、欢迎、持续固持那个受；当他欢喜、欢迎、持续固持那个受时，则生起欢喜；凡在受上欢喜者，则是取；以其取为缘而有有；以有为缘而有生；以生为缘而有老、死、愁、悲、苦、忧、绝望生起，这样是这整个苦蕴的集。</p>
+<p>比丘们！这里，如来、阿罗汉、遍正觉者、明与行具足者、善逝、世间知者、被调伏人的无上调御者、人天之师、佛陀、世尊出现于世间，他以证智自作证后，为这包括天、魔、梵的世界；包括沙门、婆罗门的世代；包括诸天、人宣说，他教导开头是善、中间是善、终结是善；意义正确、辞句正确的法，他说明唯独圆满、遍清净的梵行。屋主、屋主之子或在其他族姓中出生者听闻那个法。听闻那个法后，他于如来处获得信，具备那获得的信，他像这样深虑：『居家生活是障碍，是尘垢之路；出家是露地，住在家中，这是不容易行一向圆满、一向清净的磨亮海螺之梵行，让我剃除发须、裹上袈裟衣后，从在家出家，成为非家生活。』过些时候，他舍断少量的财富聚集或舍断大量的财富聚集后；舍断少量的亲属圈或舍断大量的亲属圈后，剃除发须、裹上袈裟衣后，从在家出家，成为非家生活。</p>
+<p>当这样出家时，他进入比丘的生活规定：舍断杀生后，他是离杀生者，他住于已舍离棍棒、已舍离刀剑、有羞耻的、同情的、对一切活的生物怜愍的。舍断未给予而取后，他是离未给予而取者、给予而取者、只期待给予物者，以不盗取而自我住于清净。舍断非梵行后，他是梵行者，远离俗法而住，已离婬欲。舍断妄语后，他是离妄语者、真实语者、紧随真实者、能信赖者、应该信赖者、对世间无诈欺者。舍断离间语后，他是离离间语者：他从这里听到后，不为了对这些人离间而在那里说，或者，他从那里听到后，不为了对那些人离间而在这里说，像这样，他是分裂的调解者、和谐的散播者、乐于和合者、爱好和合者、喜欢和合者、作和合之言说者。舍断粗恶语后，他是离粗恶语者，他以柔和的言语：悦耳的、可爱的、动心的、优雅的、众人所爱的、众人可意的，像那样的言语与人说话。舍断杂秽语后，他是离杂秽语者：他是适当时机之说者、事实之说者、有益处之说者，合法之说者、合律之说者；他以适当时机说有价值、有理由、有节制、具有利益的话。他是离破坏种子类、草木类者，戒绝晚上吃食物、非时食的一日一食者，是离跳舞、歌曲、音乐、看戏者，是离花环、香料、香膏之持用与庄严、装饰状态者，是离高床、大床者，是离领受金银者，是离领受生谷者，是离领受生肉者，是离领受女子、少女者，是离领受男奴仆、女奴仆者，是离领受山羊与羊者，是离领受鸡与猪者，是离领受象、牛、马、骡马者，是离领受田与地者，是离从事差使、遣使者，是离买卖者，是离在秤重上欺瞒、伪造货币、度量欺诈者，是离贿赂、欺瞒、诈欺、不实者，是离割截、杀害、捕缚、抢夺、掠夺、暴力者。</p>
+<p>他是已知足者：以衣服保护身体、以施食保护肚子，不论出发到何处，他只拿［这些］出发，犹如鸟不论以翼飞到何处，只有翼的负荷而飞。同样的，比丘是已知足者：以衣服保护身体、以施食保护肚子，不论出发到何处，他只拿［这些］出发。已具备这圣戒蕴，他自身内感受无过失的安乐。</p>
+<p>他以眼见色后，不成为相的执取者、细相的执取者，因为当住于眼根的不防护时，贪忧、恶不善法会流入，他依其自制而行动，保护眼根，在眼根上达到自制；以耳听声音后，……（中略）以鼻闻气味后，……（中略）以舌尝味道后，……（中略）以身触所触后，……（中略）以意识法后，不成为相的执取者、细相的执取者，因为当住于意根的不防护时，贪忧、恶不善法会流入，他依其自制而行动，保护意根，在意根上达到自制，已具备这圣根自制，他自身内感受不受害的安乐。</p>
+<p>他在前进、后退时是正知于行为者；在前视、后视时是正知于行为者；在［肢体］曲伸时是正知于行为者；在［穿］衣、持钵与大衣时是正知于行为者；在饮、食、嚼、尝时是正知于行为者；在大小便动作时是正知于行为者；在行、住、坐、卧、清醒、语、默时是正知于行为者。</p>
+<p>已具备这圣戒蕴，（已具备这圣知足，）已具备这圣根自制，已具备这圣正念与正知，他亲近独居的住处：林野、树下、山岳、洞窟、山洞、墓地、森林、露地、稻草堆。他食毕，从施食处返回，坐下，盘腿后，挺直身体，建立起面前的正念后，舍断对世间的贪婪，以离贪婪心而住，使心从贪婪中清净。舍断恶意与瞋后，住于无瞋恚心、对一切活的生物怜愍，使心从恶意与瞋中清净。舍断惛沉睡眠后，住于离惛沉睡眠、有光明想、正念、正知，使心从惛沉睡眠中清净。舍断掉举后悔后，住于不掉举、自身内心寂静，使心从掉举后悔中清净。舍断疑惑后，住于脱离疑惑、在善法上无疑，使心从疑惑中清净。</p>
+<p>他舍断这些心的小杂染、慧的减弱之五盖后，从离欲、离不善法后，进入后住于有寻、有伺，离而生喜、乐的初禅。再者，比丘们！比丘以寻与伺的平息，自信，一心，进入后住于无寻、无伺，定而生喜、乐的第二禅，……（中略）……第三禅……（中略）进入后住于不苦不乐，由平静而正念遍净的第四禅。</p>
+<p>比丘们！以眼见色后，他对可爱样子的色不贪着，对不可爱样子的色不排拒，住于身念已建立，无量心的，如实了知心解脱、慧解脱：那些恶不善法无余灭之处，他这么舍断赞成与反对，凡任何他感受或苦或乐或不苦不乐受，他不欢喜、不欢迎、不持续固持那个受；当他不欢喜、不欢迎、不持续固持那个受时，则欢喜被灭；那欢喜灭者，则是取灭；以取灭而有灭；以有灭而生灭；以生灭而老、死、愁、悲、苦、忧、绝望被灭，这样是这整个苦蕴的灭。以耳听声音后，……以鼻闻气味后，……以舌尝味道后……以身触所触后，……以意识知法后，他对可爱样子的法不贪着，对不可爱样子的法不排拒，住于身念已建立，无量心的，如实了知心解脱、慧解脱：那些恶不善法无余灭之处，他这么舍断赞成与反对，凡任何他感受或苦或乐或不苦不乐受，他不欢喜、不欢迎、不持续固持那个受；当他不欢喜、不欢迎、不持续固持那个受时，则欢喜被灭；那欢喜灭者，则是取灭；以取灭而有灭；以有灭而生灭；以生灭而老、死、愁、悲、苦、忧、绝望被灭，这样是这整个苦蕴的灭。</p>
+<p>比丘们！你们要忆持这我以简要［教导的］渴爱之灭尽而解脱，还有被大渴爱网、渴爱柱子所缚的渔夫的儿子萨提比丘。」</p>
+<p>这就是世尊所说，悦意的那些比丘欢喜世尊所说。</p>
+<p>渴爱的灭尽大经第八终了。</p>
+<hr>
+<p><em><strong>转载摘录自网站 <a href="https://www.awakeningtoreality.com/">Awakening to Reality</a> 之 <a href="https://www.awakeningtoreality.com/2025/03/blog-post_4.html">觉与缘起 - Awareness and Dependent Origination</a></strong></em></p>
+]]></content>
+      <categories>
+        <category>atr</category>
+      </categories>
+      <tags>
+        <tag>atr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Thusness / PasserBy 各阶段的区别</title>
+    <url>/2026/03/27/2628-stageDiff/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li><a href="https://draapho.github.io/2021/02/13/2104-satori/">修行总领——明心见性</a></li>
+<li><a href="https://draapho.github.io/2021/02/14/2105-dao-outline/">修道之路-总纲</a></li>
+<li><a href="https://draapho.github.io/2021/03/01/2106-dao-doubt/">介绍本位方法论</a></li>
+<li><a href="https://draapho.github.io/2021/04/05/2110-satori2/">开悟是怎样一种体验？(新)</a></li>
+<li><a href="https://draapho.github.io/2021/11/29/2124-faith/">带着信仰行到底</a></li>
+<li><a href="https://draapho.github.io/2024/09/16/2401-xinming/">心得体会-明心</a></li>
+<li><a href="https://draapho.github.io/2025/08/28/2507-ClarAnswer/">克拉克的问答与自己的感想</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2512-SevenStage/">Thusness / PasserBy 的七阶段开悟之路</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2513-Anatta/">论无我、空性、摩诃（大）、平常与自然圆成</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2514-BahiyaSutta">关于婆希耶经(Bahiya Sutta)</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2515-HeartSutra">白话优化版: 不可得的圆满：鼓声、虹光与海市蜃楼如何开启《心经》</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2516-SohAwakening">体验/觉受、证悟、知见、修行与果位</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2517-iam">「我是」的四个面向</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2518-NondualContemplation">“I AM” 之后的两种非二元观照</a></li>
+<li><a href="https://draapho.github.io/2025/12/12/2519-BuddhaTaught">佛陀的启示-无我论</a></li>
+<li><a href="https://draapho.github.io/2025/12/16/2520-Udana">&lt;自说经&gt; 第一品</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2521-SelfLiberation">大手印的皇印、自行解脱：堪楚仁波切三世</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2522-NoNouns">发起动词，无需名词</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2523-RealizationExperience">从不同角度看“证悟与体验以及不二体验</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2525-resource">佛陀教法的极佳资源</a></li>
+<li><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></li>
+<li><a href="https://draapho.github.io/2025/12/29/2528-email">老师来找我</a></li>
+<li><a href="https://draapho.github.io/2026/02/19/2604-TotalExertion/">道元《一法究尽》——超越整体与部分的全体</a></li>
+<li><a href="https://draapho.github.io/2026/02/20/2605-NewPath/">初关明心(我是)之后的路</a></li>
+<li><a href="https://draapho.github.io/2026/02/21/2606-IamPath/">超越“体验”：自我参究/话头与“我是”证悟的详尽指南</a></li>
+<li><a href="https://draapho.github.io/2026/03/12/2615-Standing/">太极浑圆桩站桩要领</a></li>
+<li><a href="https://draapho.github.io/2026/03/13/2616-Jianxing/">见性、“我是”的觉醒与无我的亲证</a></li>
+<li><a href="https://draapho.github.io/2026/03/13/2617-zen/">禅宗路线图与无我证悟：打破实体化的不二知见</a></li>
+<li><a href="https://draapho.github.io/2026/03/14/2618-Misunderstanding/">不同程度的无我：无作者感、不二、无我、一法究尽以及应对误区</a></li>
+<li><a href="https://draapho.github.io/2026/03/26/2625-SohAwakening/">Soh的觉悟之路：2010~2013年的心性体悟录</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2626-OriginalEnlightenment/">本觉与修证一如</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2627-DependentOrigination/">觉与缘起</a></li>
+<li><a href="https://draapho.github.io/2026/03/27/2628-stageDiff/">Thusness / PasserBy 各阶段的区别</a></li>
+</ul>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作者: <strong>Soh</strong></p>
+<p><strong>请先看：</strong></p>
+<p><a href="https://www.awakeningtoreality.com/2024/06/thusness-passerby-traditional-chinese.html">Thusness “真如”/PasserBy “过路人”开悟的七个阶段 - Chinese Translation of Thusness/PasserBy’s Seven Stages of Enlightenment </a></p>
+<p>节选自</p>
+<ul>
+<li><a href="https://www.awakeningtoreality.com/2025/03/thusnessjohn-tan.html">区别于“真如（Thusness）/John Tan第一阶段与第二阶段”及其他阶段</a></li>
+<li><a href="https://www.awakeningtoreality.com/2025/02/john-tan.html">肯·威尔伯与John Tan（真如）的评论</a></li>
+</ul>
+<p>另见：</p>
+<ul>
+<li><p><a href="https://draapho.github.io/2025/12/19/2526-Differentiating">辨析 I AM、一心、无心与无我</a></p>
+</li>
+<li><p>“关于真如（Thusness）第四阶段与第五阶段的区别（实质性的不二与无我）”</p>
+</li>
+<li><p>无心（No Mind）与无我（anatta），聚焦于洞见</p>
+</li>
+</ul>
+<h1 id="Thusness六阶段的区别"><a href="#Thusness六阶段的区别" class="headerlink" title="Thusness六阶段的区别"></a>Thusness六阶段的区别</h1><h2 id="Thusness的对话"><a href="#Thusness的对话" class="headerlink" title="Thusness的对话"></a>Thusness的对话</h2><p>Thusness：<strong>第一阶段是对觉知本身有直接的瞥见，但仍然受到“我”（I）的习气影响。</strong></p>
+<blockquote>
+<p>说明：此处“propensity of ‘I’”指“我执/我见的习气或惯性”。<br>为保留原意，这里译为“仍然受到‘我’的习气影响”。</p>
+</blockquote>
+<p>Thusness：<strong>第二阶段是体验觉知与现象之间的关系，但仍保有那种习气。</strong></p>
+<p>有人问：“当要终结分离感（合一体验）时，‘我是/本我’与‘我是一切’之间的主要区别是什么？不二（nondual）会在‘我是/本我’阶段显现吗？”</p>
+<p>Thusness：首先是对“我是/本我（I AMness）”的体验, 以及把万物融进“I”的感觉。现在，请问一到六阶段的主要区别是什么？<br>AEN：嗯……第一阶段就像你说的那样……是中间一个点的感觉. 哈哈<br>Thusness：这样说不好……我说的所有东西都跟那六个阶段相关……而且到目前为止，都没有超出那六阶段……你会看到，我写的任何内容都是在阐述那六阶段。所以要把它们放在一起透视。<br>AEN：明白。<br>Thusness：第一、第二阶段指的是什么？<br>AEN：我是/本我（I AMness）？<br>Thusness：那什么是“我是/本我”呢？那跟与一切融为一体又如何？<br>AEN：是一种存在感、存在的感觉，超越了所有“被体验”之物？然后与万物融为一体，像是短暂地把“我是/本我”的临在与一切合为一体？<br>Thusness：这样不好……你还没真正理解它的本质。头两个阶段都是关于真我/大我（Self）的。是关于“源头”（source）……始终都在谈论主体（subject）……<br>AEN：啊，对，本来想写主体来着，结果一下子忘了……<br>Thusness：这是不二论（advaita vedanta）。<br>AEN：哈哈……明白了……<br>Thusness：都在讲回到源头。第二阶段就像不二，又回到源头。说到底一直是源头……真我/大我、背景，就算你说和所有万物融合，也依旧是那源头。明白吗？<br>AEN：嗯。<br>Thusness：那第三阶段呢？<br>AEN：试图摆脱自我去融合？<br>Thusness：问题出在哪儿？<br>AEN：不了解觉知（awareness）的本质？<br>Thusness：不对……这是“束缚”（bonds）的问题。<br>AEN：明白……<br>Thusness：那 13 年来一直在理解的就是各种束缚……为什么会回到源头？所以花了 13 年来理解“束缚”的影响……<br>这就是为什么我说大多数人低估了束缚的力量。<br>AEN：哦……<br>Thusness：第四阶段呢？镜子般的光明（mirror bright）？<br>AEN：觉知映照一切？<br>Thusness：对，但那意味着什么？本质是什么？与第二阶段有什么区别？<br>AEN：第二阶段并不清楚觉知每一刻都映照一切？<br>Thusness：不是……<br>AEN：明白。只是融合？<br>Thusness：这里强调的是“现象”（phenomenon）…… 现在的体验是“临在（Presence）”，可这时不再是“我是/本我”，不是那种“出身前我是谁”的追问。<br>Thusness：而是声音……是味道……是景色……明白吗？<br>AEN：是的。<br>Thusness：是种种显现……<br>AEN：其实第二阶段好像也是吧？融合……哈哈……<br>Thusness：不不……第二阶段是回到源头。关注点在“源头”。明白吗？<br>AEN：哦，那融合又算什么？<br>Thusness：体验看起来差不多，但强调的点不同。第一、第二阶段都与主体有关。<br>AEN：明白。顺便问一下，镜像状态（mirror）还是有背景存在，是吗？<br>Thusness：<strong>在第二阶段，是客体融入主体，并保持在主体上，这是印度教的核心。而第四阶段关注客体……只关注客体……就像第一阶段聚焦“源头”那样。第五阶段是不二于客体，背景消失。这时候是主体进入客体。懂吗？只剩现象在生起。</strong><br>AEN：那第四阶段你说只剩客体，所以没有主体了？<br>Thusness：那就是我说的和第一阶段“我是/本我”很像……只是这一次是立足于客体这边。<br>AEN：那不是和第五阶段“主体进入客体”一样吗？好像重复？第四阶段是不是还有个背景，只是这个背景容纳了一切？<br>Thusness：对，这就是为什么我说它就像“我是/本我”阶段的开始。这是进入并体认客体面的开端。“我是/本我”则是体验主体面的开始。明白吗？<br>AEN：明白了。那第四阶段与第五阶段的区别是什么？既然都在客体上？<br>Thusness：第四阶段是开始……第五阶段是彻底了……<br>Thusness：**(第四阶段)  即对客体的体悟更加圆满，专注于现象之清晰性……但对觉知的不二本性并没有彻底证悟……就是说对客体的聚焦很清晰……可依然觉得有个背景在映照……而且不再热衷回到什么源头，因为注意力已经转向对现象的清晰体认。**<br>Thusness：<strong>而第五阶段则彻底地只有现象……不再有背景。身心脱落——非常清楚地明白“觉知”就是那晴空、那山川。明白吗？</strong><br>AEN：是的。<br>Thusness：<strong>第六阶段是不局限于某处/无方所的觉知（non-local），与缘起无碍的合一……我称之为空性的层面……</strong><br>AEN：明白。<br>Thusness：那就是感受到相互依存呈现为无局限性，不受时空束缚……这是觉知的不局限性/无方所。<br>AEN：明白。<br>Thusness：<strong>所以这六个阶段涵盖了早期对主体、源头的体验……然后主体与客体不二的体验，但其实是客体融入主体……</strong><br>AEN：明白……<br>Thusness：也就是偏向印度教那种……<br>Thusness：<strong>接着第三阶段是对束缚力量的认识……第四阶段是对在现象之中呈现的临在有所突破……第五阶段是主体融入客体的不二体验……第六阶段则是不局限性/无方所……明白吗？</strong><br>AEN：明白了。<br>Thusness：大部分人若要经历“觉知”层面，都会走过这六个阶段。</p>
+<p>Thusness：<strong>第一、第二阶段都是不二体验。第三阶段是舍（dropping）。第五、第六阶段是不二之洞见。</strong></p>
+<p>AEN：顺便问一句，我并不太理解，约翰·惠勒（John Wheeler）的见地是“无人格”（impersonality）还是关于“无我”（no-self）？它们之间有何差别？<br>Thusness：John Wheeler 体认了某些“无我”层面的东西……却还没到【法印之】无我的见地，但接近了第四阶段吧。他的二元感仍然存在。他会无法融入转瞬即逝的显现（the transient）……不过他或许也体会到自己是更高生命所活（lived by a greater life）……这一生命对所有显现来说都是同一个生命……。</p>
+<p>AEN：艾克哈特·托利（Eckhart Tolle）说：“有许多常见的说法，有时连语言结构本身也能表明人们并不知道自己是谁。比如你会说‘他失去了生命 (he lost his life)’或‘我的生命 (my life)’，好像生命是你可以拥有或失去的东西。可事实是：你并没有一个‘生命’，你就是‘生命’。那唯一的生命，即遍及整个宇宙的唯一觉知，暂时呈现为一块石头或一棵草叶，一只动物或一个人，或者一颗星星或一个星系，只是为了经历它自己。<br>你能在内心深处感受到你其实早已了知这一点吗？你能感受到你就是它吗？”<br>Thusness：这个唯一的生命与你我相同。这是非常微妙的一种外推。但从体验来看确实如此。它与自发显现和无个体性（impersonality，即人格分解）密切相关。<br>AEN：明白……<br>Thusness：因此，如果一个人专注并精炼我说过的那四个面向，就算没有生起不二的洞见，依然会产生那样的体验。这就是第二阶段。明白吗？</p>
+<blockquote>
+<p>四个面向参考链接: <a href="https://draapho.github.io/2025/12/12/2517-iam">「我是」的四个面向</a></p>
+</blockquote>
+<p>AEN：嗯，应该是吧。所以第二阶段和“无个人”（impersonality）有关？<br>Thusness：再往下，就会想要深入到第三阶段。<br>AEN：明白……<br>Thusness：重读一下阶段一到三。<br>AEN：好的。<br>Thusness：<strong>第四阶段是纯粹的不二（non-dual）。虽然是不二，可还带有自性的知见（inherent view）所以修行者并未见到相对面的实相，而对“绝对”依旧觉得特别。这就是“一心（One Mind）”。</strong></p>
+<p>AEN：这是不是就是“一心（One Mind）”？</p>
+<blockquote>
+<p>“‘真理之见’之所以显得新颖，只是因为我们之前并未注意到。我们与世界的本来样貌一直如此，不存在任何需要‘获得’的东西。它就是那生命恒常的场域、觉知或本体，一切都在其中显现。这里包含了寂静与声音、活动与静止、形色与空性、知识与无明，以及所有其他对立面。你的本来状态并非是显现之内的某种境界，而是容纳与包容一切的宽广大实相之心。它就像一面明亮的镜子，千差万别的倒影升起、消失，但镜子始终如是，与倒影是否出现没有关系。<br>镜子不会被任何倒影所局限或认同，也不会执取或抗拒它们。而从倒影本身来看，它们也并无实质或独立性，离不开那面镜子。同样道理，过去、现在、未来的一切都含藏在你本性那无时间性的光明之中。奇妙的是，这本来一直如此。<br>如果你没有觉知到这一点，就需要有人来指出、让你认出，当下视角即可恢复。就这么简单。”<br>——约翰·惠勒（John Wheeler）</p>
+</blockquote>
+<p>Thusness：在第四阶段，不二体验中行者往往会执著于那个“底层基质”（substratum）。你必须明白，阶段五到七都是在对第四阶段的体验加以洞见和精进。</p>
+<p>Thusness：你会非常清楚，不二是暗含的，因为从未有任何“施为者（agent）”在那持续的现象流之外。然后你体悟到“无我”和“空性”的真正含义。并从抽离（disassociation）迈向“自行解脱”（self-liberation）。好像和不同修行者谈，让你对这七阶段更能理解，但也别把它当作绝对模式。</p>
+<p>AEN：当这个“我（me）”完全消失时，会感觉一切还在，但你不存在了，对吧……就像融入一切，却没有中心……昨天我尝试，假装自己死了……就像“我”死了，但不是失去意识，而是融入周围，觉知呈现为“形色”更强烈……可很快又有一种“我”的感觉回到头脑中。<br>Thusness：还不错，但还不够好。<br>AEN：我明白……AEN：是啊，因为那个惯性很强，会很快回来。<br>Thusness：有闪现，但还不够清晰。<br>AEN：明白……<br>Thusness：就像第一、第二阶段。<br>AEN：什么第一、第二阶段？<br>Thusness：但现在还没到第一、第二阶段那种鲜明的体验。<br>AEN：我懂了……<br>Thusness：至少你有些体验。<br>AEN：但是很难维持，除非能完全地放下……我想要多打坐……但这并不是“我是/本我（I AMness）”啊。<br>Thusness：对，但你还没有真正“舍”（dropping）……你得在生活中磨练……<br>AEN：了解……<br>Thusness：这仍然是“我是/本我（I AMness）”。去看我对 spwn07 的回复。</p>
+<p>Thusness：比如说“‘我’是这个阻碍”。那就是第三阶段。<br>AEN：明白……<br>Thusness：想象一下若你能深化这些体验，并让它们维持更久，那就是第一、第二阶段。<br>AEN：明白……<br>Thusness：至少这是进步，你就理解到我所说的意思。<br>AEN：了解……AEN：是的，我想是这样。<br>AEN：我还记得昨天你跟我提过“死亡”之类的，会不会可怕之类的……然后我试着假装自己死了，然后跟一切融为一体，其实是很安乐的，哈哈。<br>Thusness：直接去读并总结我关于“无我”的描述就好。<br>AEN：明白……好。<br>Thusness：你要学会“舍”（sheh/dropping）。这样你才能更进一步体会，然后理解更多。</p>
+<h2 id="一些肯·威尔伯的文章"><a href="#一些肯·威尔伯的文章" class="headerlink" title="一些肯·威尔伯的文章"></a>一些肯·威尔伯的文章</h2><p>以下是一些肯·威尔伯的文章，阐明并区分了“见证者（the Witness，也就是如实性的第一阶段：我是/本我）”与“不二（non-duality，也就是如实性的第四阶段）”</p>
+<p>如果你喜欢这些文字，不妨看看肯·威尔伯（Ken Wilber）的著作《A Simple Feeling of Being》和《A Brief History of Everything（万物简史）》</p>
+<h3 id="无可否认的我的意识-我是"><a href="#无可否认的我的意识-我是" class="headerlink" title="无可否认的我的意识(我是)"></a>无可否认的我的意识(我是)</h3><p>“有很多事物我可以怀疑，但我无法怀疑此刻自身的意识。我的意识就是，而且即使我试图怀疑它，也仍然是我的意识在怀疑。我可以想象自己的感官正被呈现出一个虚假的现实——例如，一个完全虚拟或数码化的世界，看上去像真的，但其实只是一系列极其逼真的图像。然而，即便如此，我也无法怀疑正在进行观看的那个意识……</p>
+<p>我当下觉知的无可否认性，我的意识之无可否认性，立刻让我获得当下存在之确定性，获得此刻当下“存在”之确定。我无法怀疑这一刻的意识和“存在”，因为它是所有知觉、所有看见、所有存在的基础……</p>
+<p>‘我是谁？’一遍又一遍、深入地问自己：‘我是谁？是什么在我之中，觉知着一切？’</p>
+<p>如果你认为自己了解灵性(Spirit)，或者你认为自己不了解，事实上在想这两个念头的，都是灵性(Spirit)本身。所以你可以怀疑意识的种种对象，但你永远无法真正、令人信服地怀疑那个怀疑者，也不可能真正怀疑整个显现背后的见证者（the Witness）。因此，安住于见证者之中，无论它认为自己是否了知上帝（God）或否，那见证——那无可否认的当下意识临在（presence）——本身就是上帝（God）、灵性(Spirit)、佛心(Buddha-mind)。确定性不在意识对象之中，而在对那些对象有所感知的纯粹自觉意识当中。你永远无法看见上帝，因为上帝是那位“看见者”，而不是任何有限的、会死的、受局限的可见之物……</p>
+<p>这种纯粹“我是/本我”（I AM）状态并不难获得，而是根本无法逃避，因为它永远都在，从未真地被怀疑过。你永远无法逃离灵性(Spirit)，因为灵性(Spirit)就是那个奔跑者。直白地说，灵性(Spirit)不是难找，而是无法避开：它就是这一刻正在看着这一页的那个觉知者。你能感受到“那个一”吗？你究竟为什么要到处寻找上帝，而上帝其实正是那个在“看”的主体呢？</p>
+<p>只需问：‘我是谁？我是谁？我是谁？’</p>
+<p>我能觉知自己的感受，所以我不等同于感受——那我是谁？我能觉知自己的念头，所以我并不等同于念头——那我是谁？就像云在天空中飘过，念头在心中飘过，感受在身体中飘过——而我并不等同于那些，因为我能见证（Witness）这一切。</p>
+<p>此外，我可以怀疑云的存在，我可以怀疑感受的存在，我可以怀疑思想对象的存在——但我不可能怀疑此刻见证者的存在，因为即便是怀疑，也仍然由那个见证者来见证。</p>
+<p>我不是自然界中的客体，不是身体里的感受，也不是心中的念头，因为我能见证这一切。我就是那个见证者——一个广阔、广大、空灵、清澈、纯净、透明的开阔性，它不偏不倚地觉知所有生起的事物，就像镜子会自然而然地映照所有对象……</p>
+<p>你已经能感受到部分大解脱，因为当你安坐于此刻的观察中时，你已体会到自己摆脱了仅仅是物体、感觉、思维那窒息般的束缚——它们都来来去去，而你正是那浩瀚、自由、空灵、开放的见证者，不受它们的折磨和痛苦所侵扰。”</p>
+<h3 id="神圣的大我-一心"><a href="#神圣的大我-一心" class="headerlink" title="神圣的大我(一心)"></a>神圣的大我(一心)</h3><p>“这实际上是……对纯粹神圣大我的（the pure divine Self）重要发现，也就是无形的见证者（the formless Witness）、根源的虚空（causal nothingness）、那广大之空性（Emptiness），整个世界都在其中生起、片刻停留，然后又消逝。而你就是“那个”。你不是身体，不是小我，不是大自然，不是念头，不是此、不是彼——你是一片广阔的空性、自由、解脱与解放。</p>
+<p>借由这个发现……你等于是走完了一半的归途。你不再把自己认同于任何有生灭的客体，而是安住于无量的意识之中。你是自由的、敞开的、空的、清明的、闪耀的、解脱的、获得自在的、浸润于超越时空的极乐空明（空乐明）之中，超越痛苦、死亡以及一切障碍。你找到了那伟大的无生（the great Unborn），那无底的深渊（Abyss），那无法被限定的一切万有之基，涵盖了万古、现在以及所有未来。</p>
+<p>但是，为什么说这只是走完了一半归途？因为当你安住于无量的意识，自发地觉察所有正在生起的事物，不久之后就会出现一个极为重大的“自由与圆满的灾变”：连“见证者”本身都会彻底消失——到那时，你就不再是“在见证天空”，而是“成为天空”；你不再是“触碰大地”，而是“成为大地”；你不再是“听见雷声”，而是“成为雷声”。你与整个宇宙（Kosmos）成为一味（One Taste）——你一口就能喝下整个太平洋，把珠穆朗玛峰托在你的掌心；超新星在你心中旋转，太阳系取代了你的头……</p>
+<p>你就是这一味（One Taste），如同一面与任意所现之物合而为一的空明镜子，一个无思无虑的广大透明境界：无限、永恒、光耀，超越解脱。而你……就是……那个……</p>
+<p>因此，最根本的笛卡尔式二元分裂——也就是主观与客观、‘在里面’与‘在外面’、‘空性的见证者’与‘被见证的万物’——最终在‘不二的一味’中被解构并克服。只有当你真正、充分地触及那个见证者时，才能超越它进入真正的“不二”，这意味着“走到一半的归途”才最终抵达全然圆满之归家——就在这无时不在的奇妙当下……</p>
+<p>那么，如何知道自己有没有真正克服笛卡尔式二元对立？其实很简单：如果你确实克服了二元对立，那么你就不会再觉得自己好像在脸的这一侧凝视着外面的世界。只剩下世界本身，而你也就是那一切；你会真切地感到自己与所有当下刹那生起的事物合而为一，不再觉得自己是在‘这边’看着‘那边’。‘里面’和‘外面’已经以一种激荡的、毫无疑问的确定性和深刻程度合二为一，好像五吨巨石迎面砸来——要说的话，那种感觉可不容易被忽视。</p>
+<p>就在那一刻（其实这就是你无时无刻都具足的本来状态），没有任何与此特定有机体的排他性认同，没有头脑被束缚在头部的错觉，使你误以为‘你’坐在头中向外观世界；也没有将注意力局限于个体身心的束缚：取而代之的，是与你所见一切现象融为一体的意识——一片广阔、开阔、透明、璀璨、无限自由又无限圆满的领域，拥抱整个宇宙（Kosmos），使每一个主观与每一个客观在这“一味”的伟大拥抱中交融无间。你不再局限于“在眼睛后面”的位置，而是成为万物；你能直接而切实地感到，你的根本身份就是那一刻又一刻生起的所有事物（就像先前你觉得自己是这个有局限、分离、生灭的血肉之躯）。内与外已成为一味。我告诉你，它就这样发生！</p>
+<p>（引自：《Boomeritis》，边栏 E：“天才笛卡尔的后现代痛击：后现代时代的整体史学”。更多内容详见《The Simple Feeling of Being》，这是一部选自肯·威尔伯各出版著作中具有启示性、神秘性和指导性段落的合集，基于他的亲身体验。）</p>
+<h3 id="不二层次（The-Nondual-Level）"><a href="#不二层次（The-Nondual-Level）" class="headerlink" title="不二层次（The Nondual Level）"></a>不二层次（The Nondual Level）</h3><p>“在前一个层次里，你是如此沉浸于无显（unmanifest）的层面，以至于你也许根本不会注意到显现界的存在。你正在发现空寂（Emptiness），因此你对形相（Form）不理睬。然而在终极或不二层次，你会把二者整合起来。你会看到空寂显现（或自我展现）为形相，也看到形相之本质即是空寂。从更具体的角度看，你所称的一切，都只是当下正在生起的诸显现，而这一切显现都在刹那刹那地如戏般从空寂中流现。如果根源的虚空（causal nothingness）就像一轮散发月光的夜晚，那么这个层次就如同一个明媚的秋日。</p>
+<p>在外面看似坚硬或固体的“那边”之物，其实只是你本然的“存在”或“真如”（Being/Isness）之透明、透亮的展现。它们并不是对神（God）的阻碍，而只是神的体现。因此它们是“空”的，意味着它们并不构成任何阻隔或障碍。它们是神性的自由表达。就如大手印（Mahamudra）传统所言：“一切唯心（All is Mind），心是空（Mind is Empty），空是自然妙用（Empty is freely-manifesting），自然妙用自自行解脱（Freely manifesting is self-liberating）。”</p>
+<p>你在根源的空寂之层次找到的自由——即圆满与空性的双重自由——在这里会被发现同样扩展到所有事物，甚至包括这个“堕落”的罪恶或轮回（samsara）之世界。因此，一切事物都得自行解脱。这是一种非同寻常的自由、或无拘无束、或完全的释放——这清澈明亮的秋日——这就是你在此阶段真正经历到的。不过，“经历”这个词其实并不准确。这种觉悟实际上是对灵性（Spirit）之“无经历本性（the nonexperiential nature）”的认知。经历有生有灭，都在时间中开始，也在时间中终结；即便是细微的经历，也会生起、又会消失。它们都奇妙、壮丽、殊胜，却仍是会来来去去。</p>
+<p>而这种不二的“状态”本身并不是另一种经历。它只是让各种经历生起又落下的开敞或显露（the opening or clearing），就像明朗的秋日天空，让云朵来来去去——但它本身并不是另一片云、另一个经历、另一个客体、或另一次显现。此处的认知其实在于，去努力“体验”解脱是完全没有结果的，想要“经历”解脱根本是徒劳——一切经历都会完全失去它们的味道，只不过是浮云而已。</p>
+<p>并不是“你”体验了“解脱”；而是说，你就是那个开敞、那个空性，在其中所有经历都会生起又消失，就像镜子里的映像；而你是那面“镜子”，是明镜心（mirror mind），而不是任何所觉察到的映像。然而，你并不是与这些映像分开、从一边看着它们；你就是此刻生起的所有事物。你可以一口吞下整个宇宙，因为它对你来说如此渺小；你可以不费吹灰之力地品尝天空。</p>
+<p>这就是为什么禅宗会说：“你无法进入大三昧（the Great Samadhi）”(Soh:这是指所谓的“大定无出入”)，因为它其实就是始终不动、始终不离的“开敞”或“显露”，在其中所有的经历——以及所有的显现——都在一刻又一刻地生起。似乎你“进入”了此种状态，但一旦你在其中，你会发现它从来没有不在，从来也没有一刻不被充分了悟——这就是“无门之门（the gateless gate）”。因此，你会深切地理解，你不曾进入过这个状态；过去的或未来的诸佛也未曾“进入”这个状态。</p>
+<p>在大圆满（Dzogchen）中，这便是对“心性（nature of mind）”的认知。三界中一切事物，都在它们生起的当下便已自行解脱。如水塘中的日光，闪耀不已。一切都是空的，一切都是光，一切都是圆满，一切都已圆满。而世界便以它寻常的样貌运转，没有任何人注意到这一切。</p>
+<h3 id="不二（The-Nondual）"><a href="#不二（The-Nondual）" class="headerlink" title="不二（The Nondual）"></a>不二（The Nondual）</h3><p><strong>问：</strong> “那么，这个‘根源无显’（causal unmanifest）就是真正的终点吗？这是否意味着时间的终结、进化的终结、历史的终结？也就是那个最终的欧米伽点（Omega point）？”</p>
+<p><strong>肯·威尔伯（KW）：</strong> “嗯，很多传统确实把这种止息状态视作最终状态，即所有发展与进化的终极终点。而这个终点也被视为圆满开悟、终极解脱、纯粹涅槃（nirvana）。</p>
+<p>但对不二（Nondual）传统而言，这并非‘终极故事（final story）’。因为在某个时刻，当你深入探究那个见证者（the Witness），并安住于见证者中时，那个‘在这里的见证者’感——本来仿佛就像一个‘我在里面’的感受——也会完全消失，你会发现见证者原来就是所见万物本身。根源的虚空让位于不二（the Nondual），无形（formless）的神秘体验让位于不二的神秘体验。“色即是空，空即是色。”</p>
+<p>从技术上讲，你已经与见证者本身也‘脱离认同’，接着又把它融入所有显现之中——换句话说，这就是从第九道次的第二、第三阶段一路走向第十道次（fulcrum-10），而后者其实并不是一个独立的道次或层面，而是超越或涵摄了所有层次、所有状态、所有境况的真实面貌或“本来如是（Suchness）”。</p>
+<p>这就是‘空（Emptiness）’的第二层、也是最深一层的涵义——它不仅仅是一个可辨别的状态，而是所有状态的真实性或“本来如是（Suchness）”。它并不是在其他状态之上的、与其他状态并立的某个特殊状态，而是任何状态（不论高低、神圣或世俗、平凡或非凡）所具有的本来实情。回想我们在图 9-1 中看到的：灵性（Spirit）既是最高层（“根源的空寂”），也是无处不在、遍及一切层的地基（“不二”）。</p>
+<p><strong>问：</strong> “空性具有两层含义吗？”</p>
+<p><strong>肯·威尔伯：</strong> “是的，这会让人十分困惑。一方面，正如我们所见，它指的是一个独立可辨的觉知状态——也就是无显定或止息（nirvikalpa Samadhi, ayn, jnana Samadhi, nirodh，以及传统意义上的涅槃）。这是根源的虚空，一个可辨的状态。</p>
+<p>另一方面，空性并不仅仅是一种在其他状态之上的特殊‘状态’，而是所有状态的真实、或本来如是、或根本所依。并不是与其他状态并立的某种‘额外状态’，而是任何状态的真实面、或本来条件，高或低、神圣或不圣、平凡或非凡，概莫能外。还记得我们在图 9-1 中同时将“灵性”视为最高层（‘根源的空寂’）以及一切层面中永远当下的‘不二’吗？”</p>
+<p><strong>问：</strong> “我们已经讨论过可辨别的‘根源状态’；现在来谈谈不二吧。”</p>
+<p><strong>肯·威尔伯：</strong> “好啊。这种‘不二本来如是’之‘体验’，类似于我们先前讨论的‘自然合一体验（nature unity experience）’，只是现在这种合一感并不只针对外在的色身（gross Form），还包括内在的细微色身（subtle Form）。用佛教术语来说，这不只是化身界（Nirmanakaya）——也就是‘对大自然的神秘体验（nature mysticism）’；也不只是报身界（Sambhogakaya）——也就是‘对本尊的神秘体验（deity mysticism）’；更不只是法身界（Dharmakaya）——也就是‘无形禅定（formless mysticism）’；而是自性身（Svabhavikakaya）——把这三者融为一体。它超越了自然禅、本尊禅和无形禅，却也将它们全部拥抱于其中。它拥抱整个意识之光谱——超越一切，又包含一切。</p>
+<p><strong>问：</strong> “这个说法有点专业化。有没有一种更直观的方式来解释不二神秘体验？”</p>
+<p><strong>肯·威尔伯：</strong> “在所有传统中，‘不二’都有这样一个特征：对‘作为任何能见者或见证者的自我’之感受完全消失。你不会再‘看着天空’，而是‘成为天空’，你甚至可以‘品味天空’。它不在外头。用禅宗的表达，你可以一口喝下太平洋，你可以‘吞没’整个宇宙，因为此刻的意识不再分裂为‘在里头’的主体和‘在外头’的客体。这就是纯粹的‘看’。觉知与它的呈现不二无别。</p>
+<p>万事万物仍旧瞬息生起——整个宇宙持续在每一刻生起——但没有一个‘人在一旁观望’，只有自发而明亮的展示，一种极度圆满的展现。纯粹的空性（the pure Emptiness）之见证者，原来就是被见证的一切形相，每一个形相都不与它分割。“不二”正是这个核心含义之一。</p>
+<p><strong>问：</strong> “你能再具体一点吗？”</p>
+<p><strong>肯·威尔伯：</strong> “嗯，你可以先‘进入见证状态（the Witness）’，也就是说，你只需安住于纯粹的觉知当中——你不是可见的任何对象：不是大自然、不是身体、不是念头，而只是纯粹的见证觉知。你会对这种见证觉知有一种‘感受’，感到一种自由、松弛、广大之感。</p>
+<p>当你安住于这种状态，‘感受’到见证者犹如一个巨大宽广的空间时，如果你转而看向一座山，也许你就会注意到：‘见证者的感觉’和‘这座山的感觉’是同一个感觉。换言之，真实世界并不会被你分配成两份——一个在外头，一个在里头。那种‘两次显现（twiceness）’正是‘二元’的意义。但真实世界只给你一次、当下的一种感觉，它是一个单数，其复数形态从来无人得见。你可以‘尝到’那座山，它和你的“自性”是同一种味道，你不会认为外头有一个山，这里头有一个自我映射它——二者之间并无隔阂。在真实的直接经验中，在你切分它之前，不曾存在任何二元。真实经验本身、现实本身就是‘不二的’。你依然是你，山依然是山，但你与山只是同一体验的两面，而这是当下唯一的现实。</p>
+<p>当你向当下经验中放松时，‘分离自我’便会松解；你不再从生活中退缩；不是你在‘经历’，而是你‘成为所有经历’；你不在‘里头’看着‘外头’——因为在里头与在外头已成一味，因此你再也不会被困在所谓‘此中’。</p>
+<p>这样一来，你就不会局限于这个身心之中。突然之间，这个身心已不复存在。突然之间，风不再吹向你，而是吹进你、穿透你；你不是在看山，你就是那座山——这座山比你的皮肤还要更亲近；你就是那一切，不再有一个‘你’。一切都在每一刻自然地显现，而你已无处可寻。‘重量’感彻底消失，因为你不再‘置身于’宇宙之中，而是‘宇宙置身于你’之中，而你是最纯粹的空性。整个宇宙就是一片透明的神圣闪耀；但这个神圣并不在别处，而正是一切当下所显的总和——自证自明，独具一味；唯此一味，没有别的。</p>
+<p><strong>问：</strong> “也就是说主客不二吗？”</p>
+<p><strong>肯·威尔伯：</strong> “你知道禅宗的公案：‘一只手鼓掌的声音是什么？’平时我们需要双手才能拍掌，这就是典型的经验结构：我们会感到自己是‘在里面’的主体，外界是‘在外面’的客体，两者相互碰撞发出动静，也就是种种经历（experience）。外在之物撞上内部之我，就像两只手掌击打在一起，产生一次经历，而平凡自我就成了‘挨打’的那个自我——总是被外界‘打’得伤痕累累。普通自我由无数挫折、创伤、伤疤组成，也就是这些主体-客体碰撞的结果。佛法称之为“苦（dukkha）”。就像克里希那穆提（Krishnamurti）说的，在主、客之间的缝隙里，就存在了人类的所有苦难。</p>
+<p>可是一旦进入不二状态，突然之间，你就发现其实只有“一只手”。骤然之间，主与客不复存在，整个外在也不再与你相撞，不会再给你带来伤痛或苦难。突然之间，你不再‘经历’什么，你就是所生起的一切，因此你当下就被释放进了无边的时空：在那一刻，你与你所见的整个宇宙是一只手、一种经验、一场绚烂的呈现、一种大圆满的显现。外面已无他物可以击打你、折磨你、夺走你——你的灵魂扩展到宇宙的边缘，以无限的欢欣拥抱一切。你是彻底的圆满，彻底的丰盈，边界都在这无限之中崩解，时间、方位俱已消融，沉浸在无限的关怀里。你以‘整体’的方式被释放，也就是‘成为’一切——万物自明地相互印证，你就是那不二的一味；这滋味无限。</p>
+<p>所以，一只手鼓掌的声音是什么？当外面再无他物可以击打你、折磨你、牵引你、拉扯你——那一只手鼓掌发出的声音是什么？当下这一味又是什么？当没什么能阻碍你时，这一只手发出的声音便是‘大爆炸’（Big Bang）的轰鸣，是超新星在太空中的爆炸声，是知更鸟的啼鸣，是晶莹澄澈的晴天里瀑布的轰响，是整个显现宇宙的声音——而你就是那个声音。</p>
+<p>这也是为什么你的本来面目（Original Face）不在‘内’。它是这光明清澈、无处不在的呈现之“纯粹空性”或“透明性”。如果宇宙此刻在生起，那你就是它；如果什么都不生起，你也是它。无论如何，你就是它。无论如何，你都不在‘里面’。那扇透明的窗子已被击碎，你的身心落空，你永远不再被囚禁在‘头脑后方’去看着宇宙——你就是宇宙。你即是一切。正因为如此，你能一口吞下宇宙，跨越世纪而一动不动。那一只手鼓掌所发出的声音，是恒星诞生和爆炸的声音，是知更鸟的啼鸣、清澈日子的瀑布之声、整个显现世界之声——而你就是这个声音。</p>
+<p>也因此，你的本来面目（Original Face）并不在这里面。它是这闪亮无碍的透明之“空”，是这一切当下显现的“自见”。如果宇宙正在生起，你就是那；如果宇宙不生起，你也是那。无论如何，你都是那。因为你不在“这里面”。那面窗早已破碎，主客之间毫无间隙，不再有二元的痕迹——世界从来只给你“一次”，就是这纯粹的当下——而你就是这当下。你就是这一味。</p>
+<p>这个状态并不是通过后天营造就能获得；不二本来便是所有经验的本质，在你对它做任何事情之前就已然如此。这个无造作状态本自先天就有——先于任何抓取、回避乃至任何努力。在你对其施加任何塑造或改造之前，真实世界就已然不二。</p>
+<p>因此，你不必做任何特别的事去让觉知或经验变得“不二”，它起初就不二，乃是一切状态的自性——超越一切用力和想象。若在此状态下有“努力”生起，那也无妨；若没有努力生起，也同样无妨；无论如何都只有当下的一味，没有所谓努力或不努力的分别。</p>
+<p>所以，这完全不是一个“难以进入的状态”，恰恰相反，它是不可能被回避的，因为它一直都在。自无量亿万年起，从未有一刻你不在觉知这一味；从未有一秒钟它没有在你本来面目前以极度冰凉透彻的空气袭来。</p>
+<p>当然，我们常常对自己说谎，不愿承认这一点，我们对自己的本来面目（the universe of One Taste、你自己的Original Face）经常不愿面对，不愿说出真相。不二传统的目标不是让我们去‘创造’这种状态（因为这是不可能的），而是要指认它，让我们没法再忽视它、对自己继续撒谎。</p>
+<p>（来源：《A Brief History of Everything》。更多内容可见《The Simple Feeling of Being》，一部肯·威尔伯精选自其出版著作、基于其亲身体验的启示性、神秘性及指导性文段合集。）</p>
+<hr>
+<p><em><strong>转载摘录自网站 <a href="https://www.awakeningtoreality.com/">Awakening to Reality</a> , 节选自</strong></em></p>
+<ul>
+<li><a href="https://www.awakeningtoreality.com/2025/03/thusnessjohn-tan.html">区别于“真如（Thusness）/John Tan第一阶段与第二阶段”及其他阶段</a></li>
+<li><a href="https://www.awakeningtoreality.com/2025/02/john-tan.html">肯·威尔伯与John Tan（真如）的评论</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>atr</category>
+      </categories>
+      <tags>
+        <tag>atr</tag>
       </tags>
   </entry>
 </search>
