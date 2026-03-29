@@ -30783,7 +30783,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/19/2622-jiegua/">六爻占卜的卜卦和解卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
-<li><a href="https://draapho.github.io/2026/03/21/2629-jiegua3/">六爻解卦AI模板</a></li>
+<li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
 <h1 id="关于八卦的卜卦"><a href="#关于八卦的卜卦" class="headerlink" title="关于八卦的卜卦"></a>关于八卦的卜卦</h1><h2 id="20260107-请问是否可以这样理解-先天八卦占卜之本-象的对立统一-象数对应关系-，后天八卦解卦之本-象对应到具体内容"><a href="#20260107-请问是否可以这样理解-先天八卦占卜之本-象的对立统一-象数对应关系-，后天八卦解卦之本-象对应到具体内容" class="headerlink" title="20260107: 请问是否可以这样理解 :先天八卦占卜之本(象的对立统一, 象数对应关系)，后天八卦解卦之本(象对应到具体内容)?"></a>20260107: 请问是否可以这样理解 :先天八卦占卜之本(象的对立统一, 象数对应关系)，后天八卦解卦之本(象对应到具体内容)?</h2><ul>
 <li><p>略筮法: 上卦2兑, 下卦3离, 动爻2</p>
@@ -31460,7 +31460,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/19/2622-jiegua/">六爻占卜的卜卦和解卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
-<li><a href="https://draapho.github.io/2026/03/21/2629-jiegua3/">六爻解卦AI模板</a></li>
+<li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
 <h1 id="先天64卦"><a href="#先天64卦" class="headerlink" title="先天64卦"></a>先天64卦</h1><ul>
 <li>表内数字为: 先天64卦数.序卦数</li>
@@ -37755,7 +37755,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/19/2622-jiegua/">六爻占卜的卜卦和解卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
-<li><a href="https://draapho.github.io/2026/03/21/2629-jiegua3/">六爻解卦AI模板</a></li>
+<li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
 <h1 id="本卦和变卦"><a href="#本卦和变卦" class="headerlink" title="本卦和变卦"></a>本卦和变卦</h1><p>本卦. 就是占卜后, 获得的卦.<br>又叫主卦, 原卦.它体现的是事物初始阶段的信息, 或目前的情况.</p>
 <p>变卦. 由本卦经过动爻, 即某个或某些爻的变动, 而得到的卦.<br>一般而言, 变卦代表着事物发展变化的最终结果, 或后续发展趋势.</p>
@@ -37917,7 +37917,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/19/2622-jiegua/">六爻占卜的卜卦和解卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
-<li><a href="https://draapho.github.io/2026/03/21/2629-jiegua3/">六爻解卦AI模板</a></li>
+<li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>《皇极经世》是北宋学者邵雍（1011-1077年）撰写的一部重要著作，以预测历史和宇宙运行为核心。书中最著名的是其时间体系和推演法则，被称为“元会运世”。这一时间体系基于邵雍的“象数”理论，融合了古代中国的《<a href="https://2743.com/baike/yijing">易经</a>》哲学、阴阳五行学说以及对天地宇宙运行的观察。</p>
 <p>邵雍把<a href="https://2743.com/baike/yijing">易经</a>六十四卦，配合古人记录时间的天干地支组成的六十甲子，推演出了<strong>元会运世时间体系</strong>。</p>
@@ -38142,7 +38142,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/19/2622-jiegua/">六爻占卜的卜卦和解卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
-<li><a href="https://draapho.github.io/2026/03/21/2629-jiegua3/">六爻解卦AI模板</a></li>
+<li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>南怀瑾关于京房八宫卦来源介绍:</p>
 <blockquote>
@@ -38703,7 +38703,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/19/2622-jiegua/">六爻占卜的卜卦和解卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
-<li><a href="https://draapho.github.io/2026/03/21/2629-jiegua3/">六爻解卦AI模板</a></li>
+<li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
 <h1 id="六爻占卜简介"><a href="#六爻占卜简介" class="headerlink" title="六爻占卜简介"></a>六爻占卜简介</h1><p>六爻占卜源远流长，其理论体系可追溯至西汉时期的易学大师<strong>京房</strong>（公元前77-前37年）。京房在《京房易传》中系统阐述了”纳甲筮法”，将天干地支、五行生克等概念融入周易卦象之中，奠定了六爻占卜的基础理论框架。</p>
 <p>《京房易传》云：”分六十四卦，配三百八十四爻，序一万一千五百二十策，定天地万物之情状。”这表明六爻体系通过卦爻的复杂组合，构建了一个能够模拟天地万物变化的象征系统。</p>
@@ -40116,7 +40116,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/19/2622-jiegua/">六爻占卜的卜卦和解卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
-<li><a href="https://draapho.github.io/2026/03/21/2629-jiegua3/">六爻解卦AI模板</a></li>
+<li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
 <h1 id="常见占卜解卦入门"><a href="#常见占卜解卦入门" class="headerlink" title="常见占卜解卦入门"></a>常见占卜解卦入门</h1><h2 id="婚姻感情"><a href="#婚姻感情" class="headerlink" title="婚姻感情"></a>婚姻感情</h2><p><strong>用神取法</strong>：</p>
 <ul>
@@ -40879,7 +40879,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/19/2622-jiegua/">六爻占卜的卜卦和解卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
-<li><a href="https://draapho.github.io/2026/03/21/2629-jiegua3/">六爻解卦AI模板</a></li>
+<li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
 <h1 id="十二消息卦"><a href="#十二消息卦" class="headerlink" title="十二消息卦"></a>十二消息卦</h1><p>在一个卦体中，凡阳爻去而阴爻来称为“消”；阴爻去而阳爻来称“息” (生长之意, 如生生不息）。</p>
 <p>“十二消息卦”即被视为由“乾”、“坤”二卦各爻的“消”“息”变化而来的。十二消息卦也称十二辟卦(也称君王卦). 学习易经,必须把十二消息卦融汇贯通. 每一个爻都要明明白白.</p>
@@ -42210,7 +42210,7 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <li><a href="https://draapho.github.io/2026/03/19/2622-jiegua/">六爻占卜的卜卦和解卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
-<li><a href="https://draapho.github.io/2026/03/21/2629-jiegua3/">六爻解卦AI模板</a></li>
+<li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
 <h1 id="AI模板"><a href="#AI模板" class="headerlink" title="AI模板"></a>AI模板</h1><p>推荐使用<a href="https://chat.qwen.ai/">千问-Qwen3.5</a>, 经过简单测试, 易经,八卦,六爻,四柱等中国传统文化的基础知识是最扎实可靠的.</p>
 <h2 id="六爻装卦"><a href="#六爻装卦" class="headerlink" title="六爻装卦"></a>六爻装卦</h2><p>参考格式:</p>
