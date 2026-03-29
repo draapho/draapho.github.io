@@ -32230,19 +32230,34 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="center"><strong>猪</strong></td>
 </tr>
 <tr>
-<td align="center"><strong>时辰</strong></td>
-<td align="center">23-01</td>
-<td align="center">01-03</td>
-<td align="center">03-05</td>
-<td align="center">05-07</td>
-<td align="center">07-09</td>
-<td align="center">09-11</td>
-<td align="center">11-13</td>
-<td align="center">13-15</td>
-<td align="center">15-17</td>
-<td align="center">17-19</td>
-<td align="center">19-21</td>
-<td align="center">21-23</td>
+<td align="center"><strong>节气</strong></td>
+<td align="center">大雪,<strong>冬至</strong></td>
+<td align="center">小寒,<strong>大寒</strong></td>
+<td align="center"><strong>立春</strong>,雨水</td>
+<td align="center">惊蛰,<strong>春分</strong></td>
+<td align="center">清明,<strong>谷雨</strong></td>
+<td align="center"><strong>立夏</strong>,小满</td>
+<td align="center">芒种,<strong>夏至</strong></td>
+<td align="center">小暑,<strong>大暑</strong></td>
+<td align="center"><strong>立秋</strong>,处暑</td>
+<td align="center">白露,<strong>秋分</strong></td>
+<td align="center">寒露,<strong>霜降</strong></td>
+<td align="center"><strong>立冬</strong>,小雪</td>
+</tr>
+<tr>
+<td align="center"><strong>方位</strong></td>
+<td align="center">北</td>
+<td align="center">北偏东</td>
+<td align="center">东偏北</td>
+<td align="center">东</td>
+<td align="center">东偏南</td>
+<td align="center">南偏东</td>
+<td align="center">南</td>
+<td align="center">南偏西</td>
+<td align="center">西偏南</td>
+<td align="center">西</td>
+<td align="center">西偏北</td>
+<td align="center">北偏西</td>
 </tr>
 <tr>
 <td align="center"><strong>农历</strong></td>
@@ -32260,21 +32275,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="center"><strong>十月</strong></td>
 </tr>
 <tr>
-<td align="center"><strong>节气</strong></td>
-<td align="center">大雪,<strong>冬至</strong></td>
-<td align="center">小寒,<strong>大寒</strong></td>
-<td align="center"><strong>立春</strong>,雨水</td>
-<td align="center">惊蛰,<strong>春分</strong></td>
-<td align="center">清明,<strong>谷雨</strong></td>
-<td align="center"><strong>立夏</strong>,小满</td>
-<td align="center">芒种,<strong>夏至</strong></td>
-<td align="center">小暑,<strong>大暑</strong></td>
-<td align="center"><strong>立秋</strong>,处暑</td>
-<td align="center">白露,<strong>秋分</strong></td>
-<td align="center">寒露,<strong>霜降</strong></td>
-<td align="center"><strong>立冬</strong>,小雪</td>
-</tr>
-<tr>
 <td align="center"><strong>阳历</strong></td>
 <td align="center">12月</td>
 <td align="center">1月</td>
@@ -32288,6 +32288,21 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 <td align="center">9月</td>
 <td align="center">10月</td>
 <td align="center">11月</td>
+</tr>
+<tr>
+<td align="center"><strong>时辰</strong></td>
+<td align="center">23-01</td>
+<td align="center">01-03</td>
+<td align="center">03-05</td>
+<td align="center">05-07</td>
+<td align="center">07-09</td>
+<td align="center">09-11</td>
+<td align="center">11-13</td>
+<td align="center">13-15</td>
+<td align="center">15-17</td>
+<td align="center">17-19</td>
+<td align="center">19-21</td>
+<td align="center">21-23</td>
 </tr>
 <tr>
 <td align="center"><strong>人体</strong></td>
@@ -32323,19 +32338,6 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><strong>八卦</strong></td>
-<td align="center"><strong>震 ☳</strong></td>
-<td align="center"><strong>巽 ☴</strong></td>
-<td align="center"><strong>离 ☲</strong></td>
-<td align="center"><strong>离 ☲</strong></td>
-<td align="center"><strong>艮 ☶</strong></td>
-<td align="center"><strong>坤 ☷</strong></td>
-<td align="center"><strong>乾 ☰</strong></td>
-<td align="center"><strong>兑 ☱</strong></td>
-<td align="center"><strong>坎 ☵</strong></td>
-<td align="center"><strong>坎 ☵</strong></td>
-</tr>
-<tr>
 <td align="center"><strong>天干</strong></td>
 <td align="center"><strong>甲</strong></td>
 <td align="center"><strong>乙</strong></td>
@@ -32363,16 +32365,16 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </tr>
 <tr>
 <td align="center"><strong>方位</strong></td>
+<td align="center">东偏北</td>
 <td align="center">东</td>
-<td align="center">东偏南</td>
 <td align="center">南</td>
-<td align="center">南偏西</td>
+<td align="center">南偏东</td>
 <td align="center">中央</td>
 <td align="center">中央</td>
-<td align="center">西偏北</td>
+<td align="center">西偏南</td>
 <td align="center">西</td>
 <td align="center">北</td>
-<td align="center">北偏东</td>
+<td align="center">北偏西</td>
 </tr>
 <tr>
 <td align="center"><strong>季节</strong></td>
