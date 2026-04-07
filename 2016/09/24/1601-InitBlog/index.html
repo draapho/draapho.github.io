@@ -30,7 +30,7 @@
 <meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2016-09-23T14:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-07T08:26:16.826Z">
+<meta property="article:modified_time" content="2026-04-07T12:41:16.668Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="windows">
 <meta property="article:tag" content="hexo">
@@ -284,7 +284,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2026-04-07 18:26:16" itemprop="dateModified" datetime="2026-04-07T18:26:16+10:00">2026-04-07</time>
+        <time title="Modified: 2026-04-07 22:41:16" itemprop="dateModified" datetime="2026-04-07T22:41:16+10:00">2026-04-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -340,7 +340,7 @@
 <li><p>安装Hexo</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
 <li><p>创建并初始化博客文件夹,这里命名为<em><strong>Blog</strong></em>, 右键点”Git Bash Here”, 或者打开cmd进入到<em><strong>Blog</strong></em>目录下</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd Blog           # 确保在Blog这文件夹下</span><br><span class="line">npm install hexo --save # 安装hexo</span><br><span class="line">hexo init         # 初始化Blog文件夹内容</span><br><span class="line">npm install       # 安装必要的依赖包</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下面是必要的插件包</span></span><br><span class="line">npm install hexo-deployer-git --save      # 使用github发布</span><br><span class="line">npm install hexo-deployer-rsync --save    # 不装, 使用 rysnc发布</span><br><span class="line">npm install hexo-deployer-openshift --save    # 不装, 使用OpenShift发布</span><br><span class="line">npm install hexo-generator-feed --save    # 不装, 生成atom.xml, 供RSS使用</span><br><span class="line">npm install hexo-generator-sitemap --save # 不装, 生成sitemap.xml, 用于提高搜索量</span><br><span class="line">npm install hexo-generator-search --save  # 用于本地搜索</span><br><span class="line">npm install hexo-generator-index-pin-top --save # 用于文章置顶</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd Blog           # 确保在Blog这文件夹下</span><br><span class="line">npm install hexo --save # 安装hexo</span><br><span class="line">hexo init         # 初始化Blog文件夹内容</span><br><span class="line">npm install       # 安装必要的依赖包</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下面是必要的插件包</span></span><br><span class="line">npm install hexo-deployer-git --save      # 使用github发布</span><br><span class="line">npm install hexo-deployer-rsync --save    # 不装, 使用 rysnc发布</span><br><span class="line">npm install hexo-deployer-openshift --save    # 不装, 使用OpenShift发布</span><br><span class="line">npm install hexo-generator-feed --save    # 不装, 生成atom.xml, 供RSS使用</span><br><span class="line">npm install hexo-generator-sitemap --save # 不装, 生成sitemap.xml, 用于提高搜索量</span><br><span class="line">npm install hexo-generator-search --save  # 用于本地搜索</span><br><span class="line">npm uninstall hexo-generator-index --save # 删除默认的</span><br><span class="line">npm install hexo-generator-index-pin-top --save # 用于文章置顶</span><br></pre></td></tr></table></figure></li>
 <li><p>本地查看效果, 输入<code>hexo s</code>成功后登录 <code>localhost:4000</code>查看效果<br>这里, 我遇到了错误, 提示是 4000 端口已经被占用.<br>最后发现是 foxitProtect.exe (福昕PDF保护进程)占用此端口, 先结束, 然后直接删除.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netstat -aon | findstr &quot;4000&quot;     # 查找占用4000端口的PID, 譬如, 结果为1234</span><br><span class="line">tasklist | findstr &quot;1234&quot;         # 查找PID=1234的进程名称, 譬如, 结果为foxitProtect.exe</span><br><span class="line">taskkill /f /t /im foxitProtect.exe   # 强制杀死此进程</span><br></pre></td></tr></table></figure></li>
 <li><p>配置 hexo 的 <code>_config.yml</code></p>
