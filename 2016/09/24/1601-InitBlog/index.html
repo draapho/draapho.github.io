@@ -30,7 +30,7 @@
 <meta property="og:description" content="如题.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2016-09-23T14:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-19T09:35:46.595Z">
+<meta property="article:modified_time" content="2026-04-07T08:26:16.826Z">
 <meta property="article:author" content="draapho">
 <meta property="article:tag" content="windows">
 <meta property="article:tag" content="hexo">
@@ -202,7 +202,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">215</span>
+          <span class="site-state-item-count">217</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -284,7 +284,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2026-02-19 20:35:46" itemprop="dateModified" datetime="2026-02-19T20:35:46+11:00">2026-02-19</time>
+        <time title="Modified: 2026-04-07 18:26:16" itemprop="dateModified" datetime="2026-04-07T18:26:16+10:00">2026-04-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -340,7 +340,7 @@
 <li><p>安装Hexo</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
 <li><p>创建并初始化博客文件夹,这里命名为<em><strong>Blog</strong></em>, 右键点”Git Bash Here”, 或者打开cmd进入到<em><strong>Blog</strong></em>目录下</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd Blog           # 确保在Blog这文件夹下</span><br><span class="line">npm install hexo --save # 安装hexo</span><br><span class="line">hexo init         # 初始化Blog文件夹内容</span><br><span class="line">npm install       # 安装必要的依赖包</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下面是必要的插件包</span></span><br><span class="line">npm install hexo-deployer-git --save      # 使用github发布</span><br><span class="line">npm install hexo-deployer-rsync --save    # 不装, 使用 rysnc发布</span><br><span class="line">npm install hexo-deployer-openshift --save    # 不装, 使用OpenShift发布</span><br><span class="line">npm install hexo-generator-feed --save    # 不装, 生成atom.xml, 供RSS使用</span><br><span class="line">npm install hexo-generator-sitemap --save # 不装, 生成sitemap.xml, 用于提高搜索量</span><br><span class="line">npm install hexo-generator-search --save  # 用于本地搜索</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd Blog           # 确保在Blog这文件夹下</span><br><span class="line">npm install hexo --save # 安装hexo</span><br><span class="line">hexo init         # 初始化Blog文件夹内容</span><br><span class="line">npm install       # 安装必要的依赖包</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下面是必要的插件包</span></span><br><span class="line">npm install hexo-deployer-git --save      # 使用github发布</span><br><span class="line">npm install hexo-deployer-rsync --save    # 不装, 使用 rysnc发布</span><br><span class="line">npm install hexo-deployer-openshift --save    # 不装, 使用OpenShift发布</span><br><span class="line">npm install hexo-generator-feed --save    # 不装, 生成atom.xml, 供RSS使用</span><br><span class="line">npm install hexo-generator-sitemap --save # 不装, 生成sitemap.xml, 用于提高搜索量</span><br><span class="line">npm install hexo-generator-search --save  # 用于本地搜索</span><br><span class="line">npm install hexo-generator-index-pin-top --save # 用于文章置顶</span><br></pre></td></tr></table></figure></li>
 <li><p>本地查看效果, 输入<code>hexo s</code>成功后登录 <code>localhost:4000</code>查看效果<br>这里, 我遇到了错误, 提示是 4000 端口已经被占用.<br>最后发现是 foxitProtect.exe (福昕PDF保护进程)占用此端口, 先结束, 然后直接删除.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netstat -aon | findstr &quot;4000&quot;     # 查找占用4000端口的PID, 譬如, 结果为1234</span><br><span class="line">tasklist | findstr &quot;1234&quot;         # 查找PID=1234的进程名称, 譬如, 结果为foxitProtect.exe</span><br><span class="line">taskkill /f /t /im foxitProtect.exe   # 强制杀死此进程</span><br></pre></td></tr></table></figure></li>
 <li><p>配置 hexo 的 <code>_config.yml</code></p>
@@ -361,12 +361,12 @@
 <blockquote>
 <p>-–<br>title: categories<br>date: 2016-09-08<br>type: “categories”<br>comments: false<br>-–</p>
 </blockquote>
+</li>
+</ul>
 <p>在<code>Blog\source</code>下, 新建文件夹tags, 然后新建文件index.md, 用于生成标签页面</p>
 <blockquote>
 <p>-–<br>title: tags<br>date: 2016-09-08<br>type: “tags”<br>comments: false<br>-–</p>
 </blockquote>
-</li>
-</ul>
 <h1 id="github端的配置"><a href="#github端的配置" class="headerlink" title="github端的配置"></a>github端的配置</h1><ul>
 <li>如果之前没有使用过github, 第一次上传应该要求输入用户名和密码. 但如果每次部署都要这样, 就显得很麻烦. github端可以使用SSH 或 GPG keys来免去这个步骤. 建议使用GPG keys.</li>
 <li>这里就不详细展开了, 具体步骤参考github, <a target="_blank" rel="noopener" href="https://help.github.com/articles/generating-a-gpg-key/">生成一个GPG key</a></li>
@@ -386,9 +386,9 @@ scripts.jade 添加如下代码<figure class="highlight plain"><table><tr><td cl
 </ul>
 <h1 id="Hexo的日常使用"><a href="#Hexo的日常使用" class="headerlink" title="Hexo的日常使用"></a>Hexo的日常使用</h1><ul>
 <li>习惯于直接在 \Blog\source_posts\ 下面直接新建文件 xxx.md<br>然后打开文件, 添加并修改如下内容:<blockquote>
-<p>title: Windows下使用github和hexo建立自己的博客<br>date: 2016-09-08<br>categories: environment<br>tags: [blog, hexo, next]</p>
+<p>-–<br>title: Windows下使用github和hexo建独立博客<br>top: 99<br>date: 2016-09-24<br>categories: windows<br>tags: [windows, hexo]<br>description: 如题.<br>-–</p>
 </blockquote>
-</li>
+其中top, 表示置顶. 值越大越靠前. 仅对需要置顶的内容添加top项.</li>
 <li>Hexo的常用指令<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean    #更换hexo主题后, 建议先执行此条命令清空</span><br><span class="line">hexo g        # g=generate, 生成public静态文件</span><br><span class="line">hexo s        # s=server, 本地发布预览效果, 默认地址是 localhost:4000</span><br><span class="line">hexo d        # d=deploy, 自动部署</span><br><span class="line">hexo d -g     # 我最常用的指令, 意思是先generate再deploy.</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
