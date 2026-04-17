@@ -310,19 +310,13 @@
 <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li><a href="https://draapho.github.io/2025/07/30/2502-yi/">初学易经</a></li>
 <li><a href="https://draapho.github.io/2025/12/08/2509-divination/">卜卦入门</a></li>
-<li><a href="https://draapho.github.io/2025/12/09/2510-case/">卜卦实例之危机预测</a></li>
 <li><a href="https://draapho.github.io/2025/12/10/2511-preface/">序卦传</a></li>
 <li><a href="https://draapho.github.io/2025/12/26/2527-yao/">卜卦进阶之爻的入门</a></li>
-<li><a href="https://draapho.github.io/2026/01/08/2601-case2/">卜卦实例2之各国运势</a></li>
 <li><a href="https://draapho.github.io/2026/02/13/2602-development/">易经的发展猜想</a></li>
 <li><a href="https://draapho.github.io/2026/03/01/2608-mapping/">八卦的常见映射</a></li>
 <li><a href="https://draapho.github.io/2026/03/16/2619-gua/">卜卦进阶之互卦综卦和错卦</a></li>
-<li><a href="https://draapho.github.io/2026/03/17/2620-xt64gua/">皇极经世和先天64卦</a></li>
 <li><a href="https://draapho.github.io/2026/03/18/2621-bagonggua/">八宫卦和六亲世应图</a></li>
 <li><a href="https://draapho.github.io/2026/03/19/2622-jiegua/">六爻占卜的卜卦和解卦</a></li>
-<li><a href="https://draapho.github.io/2026/03/20/2623-jiegua2/">六爻占卜的解卦步骤</a></li>
-<li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
-<li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
 <h1 id="先天64卦"><a href="#先天64卦" class="headerlink" title="先天64卦"></a>先天64卦</h1><ul>
 <li>表内数字为: 先天64卦数.序卦数</li>
@@ -1034,6 +1028,116 @@
 </ul>
 </li>
 </ul>
+<h1 id="孟喜卦气图表格"><a href="#孟喜卦气图表格" class="headerlink" title="孟喜卦气图表格"></a>孟喜卦气图表格</h1><p><strong>注:另一种更常见的方法是, 找形似的十二辟卦, 初爻作为参考依据. 但分配不均, 映射不统一, 较为随性!</strong></p>
+<p>孟喜从六十四卦中挑出了震、离、兑、坎四卦，分别代表春夏秋冬四季。然后把余下的60卦分给12个月。</p>
+<table>
+<thead>
+<tr>
+<th>农历月份</th>
+<th>辟卦(君)</th>
+<th>公</th>
+<th>卿</th>
+<th>大夫</th>
+<th>侯</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>十一月(子1)</strong></td>
+<td>䷗ 地雷复</td>
+<td>䷼ 风泽中孚</td>
+<td>䷚ 山雷颐</td>
+<td>䷦ 水山蹇</td>
+<td>䷿ 火水未济</td>
+</tr>
+<tr>
+<td><strong>十二月(丑2)</strong></td>
+<td>䷒ 地泽临</td>
+<td>䷭ 地风升</td>
+<td>䷥ 火泽睽</td>
+<td>䷎ 地山谦</td>
+<td>䷂ 水雷屯</td>
+</tr>
+<tr>
+<td><strong>正月(寅3)</strong></td>
+<td>䷊ 地天泰</td>
+<td>䷴ 风山渐</td>
+<td>䷩ 风雷益</td>
+<td>䷃ 山水蒙</td>
+<td>䷽ 雷山小过</td>
+</tr>
+<tr>
+<td><strong>二月(卯4)</strong></td>
+<td>䷡ 雷天大壮</td>
+<td>䷧ 雷水解</td>
+<td>䷢ 火地晋</td>
+<td>䷐ 泽雷随</td>
+<td>䷄ 水天需</td>
+</tr>
+<tr>
+<td><strong>三月(辰5)</strong></td>
+<td>䷪ 泽天夬</td>
+<td>泽火革</td>
+<td>䷑ 山风蛊</td>
+<td>䷅ 天水讼</td>
+<td>䷏ 雷地豫</td>
+</tr>
+<tr>
+<td><strong>四月(巳6)</strong></td>
+<td>䷀ 乾为天</td>
+<td>䷈ 风天小畜</td>
+<td>䷇ 水地比</td>
+<td>䷆ 地水师</td>
+<td>䷷ 火山旅</td>
+</tr>
+<tr>
+<td><strong>五月(午7)</strong></td>
+<td>䷫ 天风姤</td>
+<td>䷞ 泽山咸</td>
+<td>䷯ 水风井</td>
+<td>䷤ 风火家人</td>
+<td>䷍ 火天大有</td>
+</tr>
+<tr>
+<td><strong>六月(未8)</strong></td>
+<td>䷠ 天山遁</td>
+<td>天泽履</td>
+<td>䷺ 风水涣</td>
+<td>䷶ 雷火丰</td>
+<td>䷱ 火风鼎</td>
+</tr>
+<tr>
+<td><strong>七月(申9)</strong></td>
+<td>䷋ 天地否</td>
+<td>䷨ 山泽损</td>
+<td>䷌ 天火同人</td>
+<td>䷻ 水泽节</td>
+<td>䷟ 雷风恒</td>
+</tr>
+<tr>
+<td><strong>八月(酉10)</strong></td>
+<td>䷓ 风地观</td>
+<td>䷕ 山火贲</td>
+<td>䷙ 山天大畜</td>
+<td>䷬ 泽地萃</td>
+<td>䷸ 巽为风</td>
+</tr>
+<tr>
+<td><strong>九月(戌11)</strong></td>
+<td>䷖ 山地剥</td>
+<td>䷮ 泽水困</td>
+<td>䷣ 地火明夷</td>
+<td>䷘ 天雷无妄</td>
+<td>䷵ 雷泽归妹</td>
+</tr>
+<tr>
+<td><strong>十月(亥12)</strong></td>
+<td>䷁ 坤为地</td>
+<td>䷛ 泽风大过</td>
+<td>䷔ 火雷噬嗑</td>
+<td>䷾ 水火既济</td>
+<td>䷳ 艮为山</td>
+</tr>
+</tbody></table>
 <h1 id="十二辟卦-五行-天干地支映射表"><a href="#十二辟卦-五行-天干地支映射表" class="headerlink" title="十二辟卦, 五行, 天干地支映射表"></a>十二辟卦, 五行, 天干地支映射表</h1><table>
 <thead>
 <tr>
@@ -1252,16 +1356,16 @@
 </thead>
 <tbody><tr>
 <td align="center"><strong>天干</strong></td>
-<td align="center"><strong>甲</strong></td>
-<td align="center"><strong>乙</strong></td>
-<td align="center"><strong>丙</strong></td>
-<td align="center"><strong>丁</strong></td>
-<td align="center"><strong>戊</strong></td>
-<td align="center"><strong>己</strong></td>
-<td align="center"><strong>庚</strong></td>
-<td align="center"><strong>辛</strong></td>
-<td align="center"><strong>壬</strong></td>
-<td align="center"><strong>癸</strong></td>
+<td align="center"><strong>甲1</strong></td>
+<td align="center"><strong>乙2</strong></td>
+<td align="center"><strong>丙3</strong></td>
+<td align="center"><strong>丁4</strong></td>
+<td align="center"><strong>戊5</strong></td>
+<td align="center"><strong>己6</strong></td>
+<td align="center"><strong>庚7</strong></td>
+<td align="center"><strong>辛8</strong></td>
+<td align="center"><strong>壬9</strong></td>
+<td align="center"><strong>癸10</strong></td>
 </tr>
 <tr>
 <td align="center"><strong>地支</strong></td>
@@ -9490,6 +9594,7 @@
 <li><a href="https://draapho.github.io/2026/03/21/2624-jiayuangua/">以十二消息卦为家园卦的一种思路</a></li>
 <li><a href="https://draapho.github.io/2026/03/28/2629-jiegua3/">六爻解卦AI模板</a></li>
 </ul>
+<p><strong>请忽略此文. 家园卦的说法是现代某个作者的个人体悟感想, 不具备成为某种潜在的标准”映射”</strong></p>
 <h1 id="十二消息卦"><a href="#十二消息卦" class="headerlink" title="十二消息卦"></a>十二消息卦</h1><p>在一个卦体中，凡阳爻去而阴爻来称为“消”；阴爻去而阳爻来称“息” (生长之意, 如生生不息）。</p>
 <p>“十二消息卦”即被视为由“乾”、“坤”二卦各爻的“消”“息”变化而来的。十二消息卦也称十二辟卦(也称君王卦). 学习易经,必须把十二消息卦融汇贯通. 每一个爻都要明明白白.</p>
 <table>
@@ -9641,7 +9746,7 @@
 </li>
 </ul>
 <h1 id="十二辟卦的乾坤特性"><a href="#十二辟卦的乾坤特性" class="headerlink" title="十二辟卦的乾坤特性"></a>十二辟卦的乾坤特性</h1><p>“十二辟卦”既是全部都集中在“乾”“坤”为上下卦的“乾坤区”内，<br>也全部集中在八宫中的“乾”“坤”二宫之中。<br>它们处在乾坤二宫的第一到第六卦，也就是“乾”“坤”二宫除去“游魂卦”（晋、需）和“归魂卦”（大有、比）以外的全部的卦。<br>在乾宫的辟卦是：乾（巳）、姤（午）、遁（未）、否（申）、观（酉）、剥（戌）。他们具有相同的六亲属性：兄弟金、子孙水、妻财木、官鬼火、父母土。<br>在坤宫的辟卦是：坤（亥）、复（子）、临（丑）、泰（寅）、大壮（卯）、夬（辰）。他们相同的六亲属性是：兄弟土、子孙金、妻财水、官鬼木、父母火。</p>
-<h1 id="十二消息卦作为家园卦"><a href="#十二消息卦作为家园卦" class="headerlink" title="十二消息卦作为家园卦"></a>十二消息卦作为家园卦</h1><p>十二消息卦源于乾坤二卦, 而其它52卦则来源于十二消息卦.<br>以十二消息卦为家园出发卦变, 可获得其它52卦.</p>
+<h1 id="十二消息卦作为家园卦"><a href="#十二消息卦作为家园卦" class="headerlink" title="十二消息卦作为家园卦"></a><del>十二消息卦作为家园卦</del></h1><p>十二消息卦源于乾坤二卦, 而其它52卦则来源于十二消息卦.<br>以十二消息卦为家园出发卦变, 可获得其它52卦.</p>
 <ul>
 <li>五阴一阳的卦来自地雷复卦和山地剥卦 （6）</li>
 <li>四阴二阳的卦来自地泽临和风地观 （15）</li>
@@ -10004,7 +10109,7 @@
 <td align="left">爻无走动</td>
 </tr>
 </tbody></table>
-<h1 id="解卦思路及值年卦举例"><a href="#解卦思路及值年卦举例" class="headerlink" title="解卦思路及值年卦举例"></a>解卦思路及值年卦举例</h1><p>如果解卦，首先要知道该卦是由哪一个消息卦卦变而来。就知道该卦该爻的解法。<br><strong>找一个卦的家园卦要找爻最近的卦。</strong><br>例如五阴一阳的卦来自复卦和剥卦，地雷复，地水师，地山谦因为阳爻在下，所以来自复卦；<br>而雷地豫水地比因为阳爻在上所以来自剥（阳在九六）卦。<br>简而言之，核心规则是: 距离最近, 动爻最少的, 就是该卦的家园卦。<br>对于三阳三阴卦, 阳动阴静, 都是依据阳爻动为依据.<br><strong>变动的爻就是主爻。动两个爻才能回家的，上面的爻是主爻。</strong></p>
+<h1 id="解卦思路及值年卦举例"><a href="#解卦思路及值年卦举例" class="headerlink" title="解卦思路及值年卦举例"></a><del>解卦思路及值年卦举例</del></h1><p>如果解卦，首先要知道该卦是由哪一个消息卦卦变而来。就知道该卦该爻的解法。<br><strong>找一个卦的家园卦要找爻最近的卦。</strong><br>例如五阴一阳的卦来自复卦和剥卦，地雷复，地水师，地山谦因为阳爻在下，所以来自复卦；<br>而雷地豫水地比因为阳爻在上所以来自剥（阳在九六）卦。<br>简而言之，核心规则是: 距离最近, 动爻最少的, 就是该卦的家园卦。<br>对于三阳三阴卦, 阳动阴静, 都是依据阳爻动为依据.<br><strong>变动的爻就是主爻。动两个爻才能回家的，上面的爻是主爻。</strong></p>
 <p>以上是六十四卦和他们的家园卦，每一个卦有来源，有去处。<br>解卦的时候要知道该卦的来源。</p>
 <p>例如2024年甲辰年的值年卦是雷火丰卦。雷火丰卦来自地天泰卦。<br>解这个泰卦的九二爻走到了雷火丰的九四爻。<br>因为原九二爻是在地天泰下卦的中央位置，虽然位不当，但有权有势。执掌一方权柄。<br>但是走到雷火丰的九四爻之后，位置不正，没有权柄，且处处受监视。是主爻。<br>可看其爻辞。是要搞事情的！重点是”遇其夷主”, 很可能出走叛变.</p>
 <p><img src="https://draapho.github.io/images/2624/leihuofenggua.png" alt="解卦举例"></p>
