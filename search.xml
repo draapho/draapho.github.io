@@ -1980,15 +1980,6 @@
 <td>// 对应的六亲地支.</td>
 </tr>
 <tr>
-<td><strong>年柱</strong></td>
-<td>// 年柱地支</td>
-<td>// 留空即可</td>
-<td>// 留空即可</td>
-<td>// 留空即可</td>
-<td>// 留空即可</td>
-<td>// 留空即可</td>
-</tr>
-<tr>
 <td><strong>月建</strong></td>
 <td>// 月建地支. 如: 寅木</td>
 <td>// 分析五行地支关系</td>
@@ -11244,15 +11235,6 @@
 <td>// 对应的六亲地支.</td>
 <td>// 对应的六亲地支.</td>
 <td>// 对应的六亲地支.</td>
-</tr>
-<tr>
-<td><strong>年柱</strong></td>
-<td>// 年柱地支</td>
-<td>// 留空即可</td>
-<td>// 留空即可</td>
-<td>// 留空即可</td>
-<td>// 留空即可</td>
-<td>// 留空即可</td>
 </tr>
 <tr>
 <td><strong>月建</strong></td>
