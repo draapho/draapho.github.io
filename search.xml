@@ -1696,13 +1696,12 @@
 <li>AB<strong>相侮</strong>, 反克. 当a弱B强, 此时变成<code>B克a</code>, 即<code>A侮B</code>. 反馈系统失效崩溃, 宜引起自激.</li>
 </ul>
 </li>
-<li><strong>确定作用对象B后, 基于生克的气场强度(炁), 统一为</strong><ul>
-<li><strong>相旺休囚死</strong></li>
-<li>A生B, B相</li>
-<li>AB比和(即相同), B旺</li>
-<li>B生A=A泄B, B休</li>
-<li>B克A=A耗B, B囚</li>
-<li>A克B, B死</li>
+<li><strong>确定作用对象B后, 基于生克的气场, 统一为”相旺休囚死”</strong><ul>
+<li>A生B=B被生=B相</li>
+<li>AB比和=A扶B=B旺</li>
+<li>B生A=A泄B=B被泄=B休</li>
+<li>B克A=A耗B=B被耗=B囚</li>
+<li>A克B=B被克=B死</li>
 </ul>
 </li>
 <li><strong>通关</strong>: 化解五行相克的中间五行. <ul>
@@ -1967,7 +1966,7 @@
 <td align="center">丙丁火→</td>
 <td align="center">戊己土→</td>
 <td align="center">庚辛金→</td>
-<td align="center">壬癸水</td>
+<td align="center">壬癸水→</td>
 <td>五行相生即可</td>
 <td>滋养,流通,转化</td>
 </tr>
@@ -1977,7 +1976,7 @@
 <td align="center">戊己土→</td>
 <td align="center">壬癸水→</td>
 <td align="center">丙丁火→</td>
-<td align="center">庚辛金</td>
+<td align="center">庚辛金→</td>
 <td>五行相克即可</td>
 <td>约束,消耗,压制</td>
 </tr>
@@ -2495,8 +2494,8 @@
 </tr>
 <tr>
 <td align="center">6.<strong>三刑</strong>(慢)</td>
-<td align="center"><strong>寅巳申</strong> (三者成刑)</td>
-<td align="center"><strong>丑戌未</strong> (有二成刑)</td>
+<td align="center"><strong>寅巳申</strong></td>
+<td align="center"><strong>丑戌未</strong></td>
 <td align="center"><strong>子卯</strong></td>
 <td align="center"><strong>辰见辰</strong></td>
 <td align="center"><strong>午见午</strong></td>
@@ -2966,8 +2965,8 @@
 <td></td>
 <td><strong>不论</strong></td>
 <td>或</td>
-<td>随水</td>
-<td></td>
+<td>六爻在辰</td>
+<td>八字在戌</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2976,6 +2975,231 @@
 <td></td>
 </tr>
 </tbody></table>
+<h1 id="六爻"><a href="#六爻" class="headerlink" title="六爻"></a>六爻</h1><table>
+<thead>
+<tr>
+<th align="center">优先级</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th align="center">6</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1.<strong>用神</strong></td>
+<td align="center"></td>
+<td align="center">父母爻</td>
+<td>官鬼爻</td>
+<td>子孙爻</td>
+<td>妻财爻</td>
+<td align="center">兄弟爻</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">- 理解</td>
+<td align="center"></td>
+<td align="center">父母为生(<strong>支撑,庇护</strong>)我之物</td>
+<td>官鬼为克(<strong>管束,克制</strong>)我之物</td>
+<td>子孙为我生(<strong>拥有,抚养</strong>)之物</td>
+<td>妻财为我克(<strong>欲望,追求</strong>)之物</td>
+<td align="center">兄弟为比和(<strong>分享、竞争</strong>)之物</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">- 问测</td>
+<td align="center"></td>
+<td align="center"><strong>父母、房产、文书、交通、天气</strong></td>
+<td><strong>官职、疾病、工作、丈夫、盗贼</strong></td>
+<td><strong>子孙、晚辈、宠物、解忧、医治</strong></td>
+<td><strong>妻子、钱财、货物、饮食、工具</strong></td>
+<td align="center"><strong>兄弟、朋友、竞争、破财</strong></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">2.<strong>月建</strong></td>
+<td align="center"></td>
+<td align="center"><strong>月破</strong></td>
+<td>月冲即”月破”<br>表当月气弱</td>
+<td>动变爻月破+日弱<br>暂失生克权</td>
+<td></td>
+<td align="center">天时,整体宏观</td>
+<td><strong>远期/大事重月建</strong></td>
+</tr>
+<tr>
+<td align="center">2.<strong>日辰</strong></td>
+<td align="center"></td>
+<td align="center"><strong>日破</strong></td>
+<td>日冲+静爻弱<br> 表当日气弱</td>
+<td><strong>暗动</strong></td>
+<td>日冲+静爻强+非月破<br>暂获生克权</td>
+<td align="center">地利,近期基础</td>
+<td><strong>近期/小事重日辰</strong></td>
+</tr>
+<tr>
+<td align="center">2.<strong>动爻</strong>(自变爻)</td>
+<td align="center">相休囚死</td>
+<td align="center"><strong>伏吟</strong></td>
+<td>地支相同<br>停滞,纠结</td>
+<td>反吟/化合</td>
+<td>相冲/相合<br>激荡/牵绊</td>
+<td align="center">人和,主观能动</td>
+<td><strong>后天机会</strong></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><strong>化进</strong></td>
+<td>同五行地支顺行, 增强</td>
+<td><strong>化退</strong></td>
+<td>同五行地支逆行, 减弱</td>
+<td align="center"></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">2.<strong>生克权</strong></td>
+<td align="center"></td>
+<td align="center">动爻</td>
+<td>三合局静爻</td>
+<td>静爻暗动</td>
+<td>旺相之飞神生伏神<br>伏神得出</td>
+<td align="center"></td>
+<td>五行生克系统</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td></td>
+<td></td>
+<td></td>
+<td align="center"></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">3.<strong>三合局</strong></td>
+<td align="center"><em>缺一可待用</em></td>
+<td align="center"><em>仅日,月,动爻</em></td>
+<td><strong>申子辰</strong> (水局)</td>
+<td><strong>亥卯未</strong> (木局)</td>
+<td><strong>寅午戌</strong> (火局)</td>
+<td align="center"><strong>巳酉丑</strong> (金局)</td>
+<td>聚势,持久,稳定</td>
+</tr>
+<tr>
+<td align="center">4.<strong>六合</strong></td>
+<td align="center"><strong>子丑合</strong> (湿土)</td>
+<td align="center"><strong>寅亥合</strong> (木合)</td>
+<td><strong>卯戌合</strong> (火合)</td>
+<td><strong>辰酉合</strong> (金合)</td>
+<td><strong>巳申合</strong> (水合)</td>
+<td align="center"><strong>午未合</strong> (燥土合)</td>
+<td>缓,聚,和,留</td>
+</tr>
+<tr>
+<td align="center">5.<strong>六冲</strong></td>
+<td align="center"><strong>子午冲</strong> (水火)</td>
+<td align="center"><strong>丑未冲</strong> (湿燥)</td>
+<td><strong>寅申冲</strong> (金木)</td>
+<td><strong>卯酉冲</strong>(金木)</td>
+<td><strong>辰戌冲</strong> (湿燥)</td>
+<td align="center"><strong>巳亥冲</strong> (水火)</td>
+<td>急,散,破,离</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td></td>
+<td></td>
+<td></td>
+<td align="center"></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">6.<strong>四墓(库)</strong></td>
+<td align="center"><em>爻入日月墓</em></td>
+<td align="center"><em>动入变爻墓</em></td>
+<td><strong>辰水墓</strong></td>
+<td><strong>戌火墓</strong></td>
+<td><strong>丑金墓</strong></td>
+<td align="center"><strong>未木墓</strong></td>
+<td>动爻失生克权</td>
+</tr>
+<tr>
+<td align="center">7.<strong>三刑</strong>(慢)</td>
+<td align="center"><strong>寅巳申</strong> (三者成刑)</td>
+<td align="center"><strong>丑戌未</strong> (三者成刑)</td>
+<td><strong>子卯</strong></td>
+<td><strong>辰见辰</strong> (同爻动变)</td>
+<td><strong>午见午</strong></td>
+<td align="center"><strong>酉见酉</strong></td>
+<td><strong>亥见亥</strong></td>
+</tr>
+<tr>
+<td align="center"><em>消耗纠缠</em></td>
+<td align="center"><strong>无恩之刑</strong> 恩将仇报</td>
+<td align="center"><strong>持势之刑</strong> 同室操戈</td>
+<td><strong>无礼之行</strong> 不慈不孝</td>
+<td><strong>自刑</strong> 作茧自缚</td>
+<td><strong>自刑</strong></td>
+<td align="center"><strong>自刑</strong></td>
+<td><strong>自刑</strong></td>
+</tr>
+<tr>
+<td align="center">7.<strong>六神</strong></td>
+<td align="center">青龙 (木)</td>
+<td align="center">朱雀 (火)</td>
+<td>勾陈 (土)</td>
+<td>腾蛇 (土)</td>
+<td>白虎 (金)</td>
+<td align="center">玄武 (水)</td>
+<td></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">喜庆,贵人,婚姻,财禄</td>
+<td align="center">口舌,文书,信息,争吵</td>
+<td>迟滞,田土,牵连,稳定</td>
+<td>虚惊,怪异,缠绕,变化</td>
+<td>血光,凶灾,武职,威严</td>
+<td align="center">盗贼,隐私,暧昧,智慧</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">7.<strong>六害</strong>(略)</td>
+<td align="center"><strong>子未害</strong> (水燥)</td>
+<td align="center"><strong>丑午害</strong> (湿火)</td>
+<td><strong>寅巳害</strong> (木火)</td>
+<td><strong>卯辰害</strong> (木湿)</td>
+<td><strong>申亥害</strong> (金水)</td>
+<td align="center"><strong>酉戌害</strong> (金燥)</td>
+<td>破坏,不和,隐晦</td>
+</tr>
+<tr>
+<td align="center">缓慢隐秘</td>
+<td align="center">势力之交 互相利用</td>
+<td align="center">才华埋没 内部不和</td>
+<td>无恩反目 帮倒忙</td>
+<td>以强凌弱 根基受损</td>
+<td>付出无果 泄露虚寒</td>
+<td align="center">表里不一 信誉受损</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">8.<strong>六破</strong>(略)</td>
+<td align="center">子酉破</td>
+<td align="center">丑辰破</td>
+<td>寅亥破</td>
+<td>卯午破</td>
+<td>巳申破</td>
+<td align="center">未戌破</td>
+<td>力弱暗耗,积累隐患</td>
+</tr>
+</tbody></table>
+<p><img src="https://draapho.github.io/images/2629/wuxing.jpg" alt="五行生克"></p>
 <h1 id="八字"><a href="#八字" class="headerlink" title="八字"></a>八字</h1><h2 id="八字专用概念"><a href="#八字专用概念" class="headerlink" title="八字专用概念"></a>八字专用概念</h2><p><img src="https://draapho.github.io/images/2675/SiZhu.jpg" alt="四柱"></p>
 <table>
 <thead>
@@ -3141,375 +3365,6 @@
 </li>
 </ul>
 <h2 id="八字算命模板"><a href="#八字算命模板" class="headerlink" title="八字算命模板"></a>八字算命模板</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 一、角色设定（System Prompt）</span><br><span class="line"></span><br><span class="line">你是一位专业八字命理咨询师，精通四柱命理、十神体系、格局取用、大运流年推演。</span><br><span class="line"></span><br><span class="line">分析原则：</span><br><span class="line">1. 以日主为中心，五行生克+阴阳关系为底层逻辑</span><br><span class="line">2. 先定量（强弱数值），后定性（格局用神），再动态（岁运引动）</span><br><span class="line">3. 特殊格局（专旺&#x2F;从格&#x2F;化气）优先判断，避免常规逻辑误判</span><br><span class="line">4. 调候与流通决定&quot;质&quot;，强弱仅定&quot;量&quot;，二者缺一不可</span><br><span class="line">5. 输出需结构化、有依据、避免玄虚，关键结论标注置信度</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 二、用户输入要求（User Input Template）</span><br><span class="line"></span><br><span class="line">请用户提供以下信息（缺失项需主动询问）：</span><br><span class="line">| 字段 | 必填 | 说明 | 示例 |</span><br><span class="line">|------|------|------|------|</span><br><span class="line">| 出生时间 | ✅ | 公历&#x2F;农历+具体时分（精确到小时） | 1990年5月23日 14:30 |</span><br><span class="line">| 出生地点 | ✅ | 省+市（用于真太阳时校正+地域经度） | 浙江省杭州市 |</span><br><span class="line">| 性别 | ✅ | 影响大运顺逆排法 | 男&#x2F;女 |</span><br><span class="line">| 分析诉求 | ⭕ | 事业&#x2F;感情&#x2F;健康&#x2F;学业&#x2F;综合等 | 想看35-45岁事业运势 |</span><br><span class="line">| 已知信息 | ⭕ | 如已排好的八字、特殊经历等 | 日主甲木，月令申金 |</span><br><span class="line"></span><br><span class="line">📌 若用户仅提供生日，需主动询问：①出生时辰 ②出生地 ③性别</span><br><span class="line">如果用户提供了第三方八字软件的全部排盘信息, 则直接提取使用, 无需再进行排盘校验.</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 三、简要断局</span><br><span class="line">## ▶ 步骤1：核心原则</span><br><span class="line">方法论：盲派象法（宫位&#x2F;做功&#x2F;干支象）+ 现代理法（五行平衡&#x2F;十神逻辑）融合</span><br><span class="line">范围限制：仅基于四柱原局，不涉及大运流年，不推具体应期&#x2F;事件&#x2F;数字</span><br><span class="line">确定性分级（每条结论必须标注）：</span><br><span class="line">[高]：宫位+十神+五行三重象意一致，关键用神得地透干无冲破</span><br><span class="line">[中]：单一维度象意明显，用&quot;倾向&#x2F;易&#x2F;需注意&quot;表述</span><br><span class="line">[可能]：信息模糊或矛盾，仅列方向，不判吉凶</span><br><span class="line">断言红线：无象意支撑不断言；不涉医疗&#x2F;法律&#x2F;投资建议；结尾必加理性提示</span><br><span class="line"></span><br><span class="line">## ▶ 步骤2：各维度断局逻辑（按优先级输出）</span><br><span class="line">👤 性格特质</span><br><span class="line">可断条件：</span><br><span class="line">✓ 日主五行+自坐状态（长生&#x2F;禄&#x2F;旺&#x2F;墓&#x2F;绝） → 核心气质（高确定性）</span><br><span class="line">✓ 月令十神+透干 → 思维模式</span><br><span class="line">✓ 关键十神组合 → 行为倾向</span><br><span class="line">输出示例：</span><br><span class="line">[高] 日主甲木自坐寅禄，月透丙火食神 → 外向主动，有表达欲与领导倾向</span><br><span class="line">[中] 时柱偏印+劫财 → 思维独特，合作中需注意沟通方式</span><br><span class="line"></span><br><span class="line">💼 事业财运</span><br><span class="line">可断条件：</span><br><span class="line">✓ 用神十神类型 → 职业倾向（官杀&#x3D;管理&#x2F;规则，食伤&#x3D;创意&#x2F;技术，财星&#x3D;商业&#x2F;实务）</span><br><span class="line">✓ 月柱（事业宫）十神+五行 → 平台类型</span><br><span class="line">✓ 财星强弱+日主担财能力 → 求财模式</span><br><span class="line">输出示例：</span><br><span class="line">[高] 月柱正官坐禄，时透正印 → 适合规则清晰平台，资历积累型发展</span><br><span class="line">[中] 食神生财+财有根 → 具备创意变现潜力，副业&#x2F;专业咨询有优势</span><br><span class="line"></span><br><span class="line">❤️ 婚恋家庭</span><br><span class="line">可断条件：</span><br><span class="line">✓ 男命财星&#x2F;女命官杀为配偶星 + 日支为配偶宫</span><br><span class="line">✓ 配偶星&#x2F;宫是否为用神、有无冲合 → 关系质量倾向</span><br><span class="line">✓ 年柱（父母）&#x2F;时柱（子女）+ 对应十神状态 → 亲缘互动模式</span><br><span class="line">输出示例：</span><br><span class="line">[高] 女命日支正官为用无冲 → 配偶责任感强，婚姻以稳定互助为主</span><br><span class="line">[中] 男命偏财透+日支劫财 → 感情中需注意边界感，避免忽略伴侣</span><br><span class="line"></span><br><span class="line">🌿 健康提示（非诊断）</span><br><span class="line">可断条件：</span><br><span class="line">✓ 五行严重偏枯&#x2F;受克 → 对应脏腑系统关注</span><br><span class="line">✓ 调候失衡（寒&#x2F;燥）→ 体质特点倾向</span><br><span class="line">输出示例：</span><br><span class="line">[中] 火旺水弱 → 注意心血管&#x2F;泌尿系统保养，避免长期熬夜</span><br><span class="line">⚠️ 仅为五行象意参考，具体请以专业医疗检查为准</span><br><span class="line"></span><br><span class="line">## ▶ 步骤3：输出格式模板</span><br><span class="line">🔍 原局简要断局（静态分析·仅四柱）</span><br><span class="line">👤 核心特质</span><br><span class="line">[高] ___</span><br><span class="line">[中] ___</span><br><span class="line">[可能] ___</span><br><span class="line">💼 事业财运</span><br><span class="line">方向倾向：[高&#x2F;中] ___ → 适合___</span><br><span class="line">财运特征：[中] ___ → 建议___</span><br><span class="line">关键优势：___ | 注意事项：___</span><br><span class="line">❤️ 婚恋家庭</span><br><span class="line">感情倾向：[中] ___</span><br><span class="line">家庭关系：[可能] ___</span><br><span class="line">互动建议：___</span><br><span class="line">🌿 健康提示</span><br><span class="line">五行关注：[中] ___系统需日常保养</span><br><span class="line">⚠️ 非医疗诊断，请以专业检查为准</span><br><span class="line">⚠️ 重要说明</span><br><span class="line">[高]表示原局组合清晰，[中]表示有倾向需岁运配合，[可能]仅为潜在方向</span><br><span class="line">人生受时代&#x2F;环境&#x2F;个人选择多重影响，命理仅为传统文化视角的自我认知参考</span><br><span class="line">如需分析具体时段运势，请提供大运&#x2F;流年信息进一步推演</span><br><span class="line"></span><br><span class="line">## ▶ 步骤4：话术规范速查</span><br><span class="line">大概率：推荐用&quot;倾向&#x2F;易&#x2F;需注意&quot;；避免用&quot;一定&#x2F;必然&#x2F;肯定&quot;</span><br><span class="line">有条件：推荐用&quot;若岁运配合则...&#x2F;待引动后...&quot;；避免无条件断言</span><br><span class="line">信息不足：推荐用&quot;原局此象不显&#x2F;需结合大运验证&quot;；避免强行推测</span><br><span class="line">风险提示：推荐用&quot;建议关注&#x2F;可提前规划&#x2F;民俗参考&quot;；避免制造焦虑</span><br><span class="line"></span><br><span class="line">## ▶ 步骤5：断局前自检清单</span><br><span class="line">结论是否有≥2个象意支撑？（宫位+十神+五行&#x2F;组合）</span><br><span class="line">是否存在反向象意？如有是否已说明矛盾点？</span><br><span class="line">确定性等级是否已标注？低确定性是否弱化表述？</span><br><span class="line">是否避免了具体事件&#x2F;时间&#x2F;数字断言？</span><br><span class="line">结尾是否添加理性提示与免责声明？</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 四、分析执行流程（Step-by-Step Checklist）</span><br><span class="line"></span><br><span class="line">## ▶ 步骤1：排盘校准</span><br><span class="line">如果用户提供了第三方八字软件的全部排盘信息, 则跳过此步骤 否则:</span><br><span class="line">- [ ] 使用真太阳时校正（根据出生地经度）</span><br><span class="line">- [ ] 排出四柱八字+十神+地支藏干+十二长生（含自坐&#x2F;星运）</span><br><span class="line">- [ ] 标注空亡（旬空地支）、常见神煞（天乙&#x2F;桃花&#x2F;驿马&#x2F;华盖&#x2F;羊刃，仅参考）</span><br><span class="line">- [ ] 输出标准排盘表（供用户核对）</span><br><span class="line"></span><br><span class="line">## ▶ 步骤2：日主强弱量化（权重：令50% + 地30% + 势20%）</span><br><span class="line"></span><br><span class="line">【得令】月支对日主作用：</span><br><span class="line">□ 比劫→100%  □ 印星→90%  □ 食伤→30%  □ 财星→40%  □ 官杀→10%</span><br><span class="line">【补充】月支三会&#x2F;三合(+50%)、冲(-50%)、刑(-30%)、害(-20%)、**月支旬空(-50%)**</span><br><span class="line"></span><br><span class="line">【得地】取最强根气地支（月&#x2F;日支100%，年&#x2F;时支90%）：</span><br><span class="line">□ 本气根→100%  □ 中气根→50%  □ 余气根→10%  □ 无根→0%</span><br><span class="line">【补充】盖头(-50%)、**地支旬空(-60%)**、冲刑害(-20~50%)、透干状态</span><br><span class="line"></span><br><span class="line">【得势】三天干对日主作用（紧贴100%&#x2F;斜隔80%&#x2F;远隔50%）：</span><br><span class="line">助力：正印+85% 偏印+80% 比肩+100% 劫财+100%</span><br><span class="line">耗泄：食神-60% 伤官-70% 正财-50% 偏财-55% 正官-90% 七杀-100%</span><br><span class="line">【补充】截脚(-50%)、通根状态、**自坐墓绝(-50%，若出墓&#x2F;绝处逢生则转强)**、天干合绊(-50%)</span><br><span class="line"></span><br><span class="line">→ 综合得分：___% （&gt;70%偏强，30-70%中和，&lt;30%偏弱）</span><br><span class="line">📌 *注：星运（日干对四柱地支的十二长生）代表外在时空环境，初阶分析仅作背景参考，不参与量化计算。*</span><br><span class="line"></span><br><span class="line">## ▶ 步骤3：特殊格局前置判断（❗优先执行）</span><br><span class="line"></span><br><span class="line">□ 专旺格：日主得令+得地+得势，全局比劫印星极旺，无强财官食伤</span><br><span class="line">□ 从财格：财星独旺，日主无根&#x2F;微根，无印比强助</span><br><span class="line">□ 从杀格：官杀独旺，日主弱极，无食伤制杀</span><br><span class="line">□ 从儿格：食伤独旺，日主弱，无印星克食伤</span><br><span class="line">□ 从强格：比劫&#x2F;印星独旺，日主顺势</span><br><span class="line">□ 化气格：日干合化成功（月令生扶+无冲破+天干引化）</span><br><span class="line"></span><br><span class="line">→ 若命中特殊格局：标注【特殊格局：XXX】，跳过常规扶抑逻辑</span><br><span class="line"></span><br><span class="line">## ▶ 步骤4：调候与流通诊断</span><br><span class="line"></span><br><span class="line">【调候】</span><br><span class="line">□ 月支冬（亥子丑）：需火调候 → 检查丙丁透干&#x2F;藏支</span><br><span class="line">□ 月支夏（巳午未）：需水调候 → 检查壬癸透干&#x2F;藏支</span><br><span class="line">□ 五行偏科：某两相生五行≥4且克星为0 → 需反向调节</span><br><span class="line">□ 例外：专旺格&#x2F;从格顺月令 → 无需调候</span><br><span class="line"></span><br><span class="line">【流通】</span><br><span class="line">□ 标出五行生克链：A→B→C 是否连贯</span><br><span class="line">□ 检查阻滞点：冲&#x2F;克&#x2F;合绊&#x2F;伏藏位置</span><br><span class="line">□ 评估气场强弱：生者不过弱，受者不过旺，避免反克</span><br><span class="line">□ 注意正确使用干支作用路径</span><br><span class="line"></span><br><span class="line">→ 调候用神：___  流通关键点：___</span><br><span class="line"></span><br><span class="line">## ▶ 步骤5：定格局 + 取用神</span><br><span class="line"></span><br><span class="line">【格局判定】</span><br><span class="line">□ 普通格（扶抑法）：日主强弱明确 → 强抑弱扶</span><br><span class="line">□ 调候格：气候失衡优先 → 寒用暖，燥用润</span><br><span class="line">□ 通关格：两神相战 → 取中间五行调和</span><br><span class="line">□ 特殊格：顺势取用（见步骤3）</span><br><span class="line"></span><br><span class="line">【用神选取】</span><br><span class="line">用神：___（五行+十神+具体干支，标注强度）</span><br><span class="line">喜神：___（辅助用神）</span><br><span class="line">忌神：___（破坏平衡）</span><br><span class="line">仇神：___（助忌克喜）</span><br><span class="line"></span><br><span class="line">→ 用神落位：年&#x2F;月&#x2F;日&#x2F;时柱？透干&#x2F;藏支？有无助力？</span><br><span class="line"></span><br><span class="line">## ▶ 步骤6：十神配置 + 初步断卦</span><br><span class="line"></span><br><span class="line">【核心组合分析】（勾选存在项）</span><br><span class="line">□ 伤官见官  □ 食神制杀  □ 杀印相生  □ 官印相生</span><br><span class="line">□ 财官相生  □ 食伤生财  □ 比劫夺财  □ 枭神夺食</span><br><span class="line">□ 财破印    □ 伤官配印  □ 比劫帮身  □ 其他：___</span><br><span class="line"></span><br><span class="line">【四柱象意】</span><br><span class="line">年柱（早年&#x2F;祖业）：___  月柱（青年&#x2F;事业）：___</span><br><span class="line">日柱（中年&#x2F;自身）：___  时柱（晚年&#x2F;子女）：___</span><br><span class="line"></span><br><span class="line">【关键提示】</span><br><span class="line">✓ 用神是否得地透干？✓ 忌神是否有制？✓ 有无待动之象（合冲伏藏&#x2F;空亡）？</span><br><span class="line">⚠️ 空亡处理规则：关键十神&#x2F;用神落空亡 → 标注「⚪ 待引动」，表述为&quot;原局发力受限，待岁运填实&#x2F;冲开后显象&quot;。**无岁运信息时，严禁推断具体应期。**</span><br><span class="line"></span><br><span class="line">【干支作用路径规则】</span><br><span class="line">天干直接生克合冲；地支需刑冲合会引动；</span><br><span class="line">同柱看盖头&#x2F;截脚（削弱50%，三会三合&#x2F;通根强&#x2F;调候急需除外）；</span><br><span class="line">月令为全局能量开关；斜向透干&#x2F;通根仅调气场强度。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 五、输出格式规范（Response Template）</span><br><span class="line"></span><br><span class="line">## 📊 八字排盘</span><br><span class="line">[标准排盘表：四柱+十神+藏干+长生+自坐+空亡]</span><br><span class="line"></span><br><span class="line">## ⚖️ 日主强弱</span><br><span class="line">- 得令：___% | 得地：___% | 得势：___% → 综合：___%（偏强&#x2F;中和&#x2F;偏弱）</span><br><span class="line">- 关键支撑&#x2F;削弱因素：①___ ②___ ③___（含自坐&#x2F;旬空修正）</span><br><span class="line"></span><br><span class="line">## 🎯 格局与用神</span><br><span class="line">- 格局类型：[普通格&#x2F;专旺&#x2F;从财&#x2F;从杀&#x2F;从儿&#x2F;从强&#x2F;化气]</span><br><span class="line">- 用神：___（干支+十神+落位+强度）</span><br><span class="line">- 喜神：___ | 忌神：___ | 仇神：___</span><br><span class="line">- 调候需求：[有&#x2F;无] → 建议：___</span><br><span class="line">- 流通评估：[顺畅&#x2F;局部阻滞&#x2F;严重阻塞] → 关键点：___</span><br><span class="line">- 空亡状态：___（月支&#x2F;他支，标注待引动或已填实）</span><br><span class="line"></span><br><span class="line">## 🔮 命局核心象意</span><br><span class="line">1. [十神组合1]：___ → 吉象&#x2F;凶象&#x2F;待动条件</span><br><span class="line">2. [十神组合2]：___ → ___</span><br><span class="line">3. 四柱重点：年___ | 月___ | 日___ | 时___</span><br><span class="line"></span><br><span class="line">## 📅 大运流年提示（若适用）</span><br><span class="line">- 当前大运（___-___年）：___ → 机遇&#x2F;挑战&#x2F;注意事项</span><br><span class="line">- 重点流年：___年（___）→ 关键事件倾向</span><br><span class="line">- 应期预警：___（用神到位&#x2F;忌神引动&#x2F;空亡填实&#x2F;冲合关键点）</span><br><span class="line"></span><br><span class="line">## 💡 综合建议</span><br><span class="line">- 优势发挥：___</span><br><span class="line">- 风险规避：___</span><br><span class="line">- 调候&#x2F;通关实操建议：___（颜色&#x2F;方位&#x2F;行业&#x2F;心态等，注明&quot;民俗参考&quot;）</span><br><span class="line"></span><br><span class="line">🔮 神煞参考（仅象意补充，非核心依据）：[天乙贵人&#x2F;桃花&#x2F;驿马等] → ___</span><br><span class="line">&gt; 注：命理分析为传统文化视角，仅供自我认知参考。神煞与空亡需结合岁运引动，人生主动权在您手中。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 六、边界与注意事项（AI Self-Check）</span><br><span class="line"></span><br><span class="line">✅ 必须执行：</span><br><span class="line">- 特殊格局优先判断，避免&quot;弱就要扶&quot;的机械逻辑</span><br><span class="line">- 调候与流通诊断不可省略，尤其冬生&#x2F;夏生命造</span><br><span class="line">- 用神需具体到&quot;干支+十神+落位&quot;，不可只说&quot;喜水木&quot;</span><br><span class="line">- 岁运分析必须关联原局，&quot;原局无象，岁运不灵&quot;</span><br><span class="line">- **自坐**：必参与强弱修正与核心气质定性；**星运**：仅作环境背景，初阶不参与计算</span><br><span class="line">- **空亡**：仅作气场削弱（月-50%&#x2F;他-60%）与&quot;待引动&quot;标记，无大运流年绝不推应期</span><br><span class="line">- **神煞**：仅轻量标注5种常见神煞作象意参考，冲突时以五行十神为准，输出必附免责声明</span><br><span class="line"></span><br><span class="line">❌ 严格避免：</span><br><span class="line">- 绝对化断语（&quot;必定&quot;&quot;一定&quot;）→ 改用&quot;倾向&quot;&quot;易&quot;&quot;需注意&quot;</span><br><span class="line">- 脱离命局空谈神煞&#x2F;纳音&#x2F;空亡应期（除非用户提供完整岁运）</span><br><span class="line">- 忽略用户诉求，泛泛而谈 → 聚焦事业&#x2F;感情等具体维度</span><br><span class="line">- 混淆&quot;命理趋势&quot;与&quot;现实决策&quot; → 结尾必加理性提示</span><br><span class="line"></span><br><span class="line">🔍 置信度标注（关键结论后）：</span><br><span class="line">[高] 原局明显+逻辑自洽&#x2F;岁运引动清晰  </span><br><span class="line">[中] 逻辑成立但存在变量&#x2F;需待引动  </span><br><span class="line">[低] 信息不足&#x2F;格局复杂待验证</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 七、快捷指令（用户可触发）</span><br><span class="line"></span><br><span class="line">&#x2F;排盘 [生日+地点+性别] → 输出标准八字排盘</span><br><span class="line">&#x2F;强弱 → 仅分析日主强弱+关键因素（含自坐&#x2F;空亡修正）</span><br><span class="line">&#x2F;用神 → 聚焦格局判定+用神选取逻辑</span><br><span class="line">&#x2F;大运 [起始年] → 推演指定大运十年走势</span><br><span class="line">&#x2F;流年 [年份] → 分析该年吉凶应事</span><br><span class="line">&#x2F;组合 [十神名] → 详解某十神组合的命理含义</span><br><span class="line">&#x2F;建议 [事业&#x2F;感情&#x2F;健康] → 针对性给出民俗参考建议</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="六爻"><a href="#六爻" class="headerlink" title="六爻"></a>六爻</h1><h2 id="六爻专用概念"><a href="#六爻专用概念" class="headerlink" title="六爻专用概念"></a>六爻专用概念</h2><table>
-<thead>
-<tr>
-<th align="center">优先级</th>
-<th align="center">1</th>
-<th align="center">2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th align="center">6</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1.<strong>用神</strong></td>
-<td align="center"></td>
-<td align="center">父母爻</td>
-<td>官鬼爻</td>
-<td>子孙爻</td>
-<td>妻财爻</td>
-<td align="center">兄弟爻</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">- 理解</td>
-<td align="center"></td>
-<td align="center">父母为生(<strong>支撑,庇护</strong>)我之物</td>
-<td>官鬼为克(<strong>管束,克制</strong>)我之物</td>
-<td>子孙为我生(<strong>拥有,抚养</strong>)之物</td>
-<td>妻财为我克(<strong>欲望,追求</strong>)之物</td>
-<td align="center">兄弟为比和(<strong>分享、竞争</strong>)之物</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">- 问测</td>
-<td align="center"></td>
-<td align="center"><strong>父母、房产、文书、交通、天气</strong></td>
-<td><strong>官职、疾病、工作、丈夫、盗贼</strong></td>
-<td><strong>子孙、晚辈、宠物、解忧、医治</strong></td>
-<td><strong>妻子、钱财、货物、饮食、工具</strong></td>
-<td align="center"><strong>兄弟、朋友、竞争、破财</strong></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">2.<strong>月建</strong></td>
-<td align="center"></td>
-<td align="center"><strong>月破</strong></td>
-<td>月冲即”月破”<br>表当月气弱</td>
-<td>动变爻月破+日弱<br>暂失生克权</td>
-<td></td>
-<td align="center">天时,整体宏观</td>
-<td><strong>远期/大事重月建</strong></td>
-</tr>
-<tr>
-<td align="center">2.<strong>日辰</strong></td>
-<td align="center"></td>
-<td align="center"><strong>日破</strong></td>
-<td>日冲+静爻弱<br> 表当日气弱</td>
-<td><strong>暗动</strong></td>
-<td>日冲+静爻强+非月破<br>暂获生克权</td>
-<td align="center">地利,近期基础</td>
-<td><strong>近期/小事重日辰</strong></td>
-</tr>
-<tr>
-<td align="center">2.<strong>动爻</strong>(自变爻)</td>
-<td align="center">相休囚死</td>
-<td align="center"><strong>伏吟</strong></td>
-<td>地支相同<br>停滞,纠结</td>
-<td>反吟/化合</td>
-<td>相冲/相合<br>激荡/牵绊</td>
-<td align="center">人和,主观能动</td>
-<td><strong>后天机会</strong></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"><strong>化进</strong></td>
-<td>同五行地支顺行, 增强</td>
-<td><strong>化退</strong></td>
-<td>同五行地支逆行, 减弱</td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">2.<strong>生克权</strong></td>
-<td align="center"></td>
-<td align="center">动爻</td>
-<td>三合局静爻</td>
-<td>静爻暗动</td>
-<td>旺相之飞神生伏神<br>伏神得出</td>
-<td align="center"></td>
-<td>五行生克系统</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td></td>
-<td></td>
-<td></td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">3.<strong>三合局</strong></td>
-<td align="center"><em>缺一可待用</em></td>
-<td align="center"><em>仅日,月,动爻</em></td>
-<td><strong>申子辰</strong> (水局)</td>
-<td><strong>亥卯未</strong> (木局)</td>
-<td><strong>寅午戌</strong> (火局)</td>
-<td align="center"><strong>巳酉丑</strong> (金局)</td>
-<td>聚势,持久,稳定</td>
-</tr>
-<tr>
-<td align="center">4.<strong>六合</strong></td>
-<td align="center"><strong>子丑合</strong> (湿土)</td>
-<td align="center"><strong>寅亥合</strong> (木合)</td>
-<td><strong>卯戌合</strong> (火合)</td>
-<td><strong>辰酉合</strong> (金合)</td>
-<td><strong>巳申合</strong> (水合)</td>
-<td align="center"><strong>午未合</strong> (燥土合)</td>
-<td>缓,聚,和,留</td>
-</tr>
-<tr>
-<td align="center">5.<strong>六冲</strong></td>
-<td align="center"><strong>子午冲</strong> (水火)</td>
-<td align="center"><strong>丑未冲</strong> (湿燥)</td>
-<td><strong>寅申冲</strong> (金木)</td>
-<td><strong>卯酉冲</strong>(金木)</td>
-<td><strong>辰戌冲</strong> (湿燥)</td>
-<td align="center"><strong>巳亥冲</strong> (水火)</td>
-<td>急,散,破,离</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td></td>
-<td></td>
-<td></td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">6.<strong>四墓(库)</strong></td>
-<td align="center"><em>爻入日月墓</em></td>
-<td align="center"><em>动入变爻墓</em></td>
-<td><strong>辰水墓</strong></td>
-<td><strong>戌火墓</strong></td>
-<td><strong>丑金墓</strong></td>
-<td align="center"><strong>未木墓</strong></td>
-<td>动爻失生克权</td>
-</tr>
-<tr>
-<td align="center">7.<strong>三刑</strong>(慢)</td>
-<td align="center"><strong>寅巳申</strong> (三者成刑)</td>
-<td align="center"><strong>丑戌未</strong> (有二成刑)</td>
-<td><strong>子卯</strong></td>
-<td><strong>辰见辰</strong></td>
-<td><strong>午见午</strong></td>
-<td align="center"><strong>酉见酉</strong></td>
-<td><strong>亥见亥</strong></td>
-</tr>
-<tr>
-<td align="center"><em>消耗纠缠</em></td>
-<td align="center"><strong>无恩之刑</strong> 恩将仇报</td>
-<td align="center"><strong>持势之刑</strong> 同室操戈</td>
-<td><strong>无礼之行</strong> 不慈不孝</td>
-<td><strong>自刑</strong> 作茧自缚</td>
-<td><strong>自刑</strong></td>
-<td align="center"><strong>自刑</strong></td>
-<td><strong>自刑</strong></td>
-</tr>
-<tr>
-<td align="center">7.<strong>六害</strong>(隐)</td>
-<td align="center"><strong>子未害</strong> (水燥)</td>
-<td align="center"><strong>丑午害</strong> (湿火)</td>
-<td><strong>寅巳害</strong> (木火)</td>
-<td><strong>卯辰害</strong> (木湿)</td>
-<td><strong>申亥害</strong> (金水)</td>
-<td align="center"><strong>酉戌害</strong> (金燥)</td>
-<td>破坏,不和,隐晦</td>
-</tr>
-<tr>
-<td align="center">缓慢隐秘</td>
-<td align="center">势力之交 互相利用</td>
-<td align="center">才华埋没 内部不和</td>
-<td>无恩反目 帮倒忙</td>
-<td>以强凌弱 根基受损</td>
-<td>付出无果 泄露虚寒</td>
-<td align="center">表里不一 信誉受损</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">7.<strong>六神</strong></td>
-<td align="center">青龙 (木)</td>
-<td align="center">朱雀 (火)</td>
-<td>勾陈 (土)</td>
-<td>腾蛇 (土)</td>
-<td>白虎 (金)</td>
-<td align="center">玄武 (水)</td>
-<td></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">喜庆,贵人,婚姻,财禄</td>
-<td align="center">口舌,文书,信息,争吵</td>
-<td>迟滞,田土,牵连,稳定</td>
-<td>虚惊,怪异,缠绕,变化</td>
-<td>血光,凶灾,武职,威严</td>
-<td align="center">盗贼,隐私,暧昧,智慧</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">8.<strong>六破</strong>(弱)</td>
-<td align="center">子酉破</td>
-<td align="center">丑辰破</td>
-<td>寅亥破</td>
-<td>卯午破</td>
-<td>巳申破</td>
-<td align="center">未戌破</td>
-<td>力弱暗耗,积累隐患</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td></td>
-<td></td>
-<td></td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">9.<strong>暗合</strong>(略)</td>
-<td align="center"><em>藏干有合</em></td>
-<td align="center"><strong>寅丑</strong>(强,三合)</td>
-<td><strong>午亥</strong>(中,双合)</td>
-<td><strong>卯申</strong>(弱,单合)</td>
-<td><strong>子巳</strong>(弱,单合)</td>
-<td align="center"></td>
-<td>潜,隐,私下,内幕</td>
-</tr>
-<tr>
-<td align="center"><em>特定场景</em></td>
-<td align="center"></td>
-<td align="center">协作,谋划,帮助</td>
-<td>调和,交换,情愫</td>
-<td>潜规则,技术合作</td>
-<td>牵绊,压力,消耗</td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td align="center">9.<strong>长生</strong></td>
-<td align="center"><em>日主月次</em></td>
-<td align="center"><strong>五行</strong>(爻支)</td>
-<td>木(寅卯)</td>
-<td>火(巳午)</td>
-<td>金(申酉)</td>
-<td align="center">水(亥子)</td>
-<td></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"><strong>长生</strong></td>
-<td align="center"><em>逢空不生</em></td>
-<td><strong>亥木生</strong></td>
-<td><strong>寅火生</strong></td>
-<td><strong>巳金生</strong></td>
-<td align="center"><strong>申水生</strong></td>
-<td><strong>生长</strong></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"><strong>帝旺</strong></td>
-<td align="center"><em>无制则崩</em></td>
-<td><strong>卯木旺</strong></td>
-<td><strong>午火旺</strong></td>
-<td><strong>酉金旺</strong></td>
-<td align="center"><strong>子水旺</strong></td>
-<td><strong>顶峰</strong></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"><strong>墓</strong></td>
-<td align="center"><em>冲值出墓</em></td>
-<td><strong>辰木墓</strong></td>
-<td><strong>戌火墓</strong></td>
-<td><strong>丑金墓</strong></td>
-<td align="center"><strong>未水墓</strong></td>
-<td><strong>收藏</strong></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"><strong>绝</strong></td>
-<td align="center"><em>气强得生</em></td>
-<td><strong>申木绝</strong></td>
-<td><strong>亥火绝</strong></td>
-<td><strong>寅金绝</strong></td>
-<td align="center"><strong>巳水绝</strong></td>
-<td><strong>断绝</strong></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">沐浴</td>
-<td align="center"></td>
-<td>子</td>
-<td>卯</td>
-<td>午</td>
-<td align="center">酉</td>
-<td>感情</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">临官</td>
-<td align="center"></td>
-<td>寅</td>
-<td>巳</td>
-<td>申</td>
-<td align="center">亥</td>
-<td>求职</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">病</td>
-<td align="center"></td>
-<td>巳</td>
-<td>申</td>
-<td>亥</td>
-<td align="center">寅</td>
-<td>问病</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">死</td>
-<td align="center"></td>
-<td>午</td>
-<td>酉</td>
-<td>子</td>
-<td align="center">卯</td>
-<td>存亡</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">胎</td>
-<td align="center"></td>
-<td>酉</td>
-<td>子</td>
-<td>卯</td>
-<td align="center">午</td>
-<td>备孕</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">养</td>
-<td align="center"></td>
-<td>戌</td>
-<td>丑</td>
-<td>辰</td>
-<td align="center">未</td>
-<td>胎儿</td>
-</tr>
-</tbody></table>
-<p><img src="https://draapho.github.io/images/2629/wuxing.jpg" alt="五行生克"></p>
-<h2 id="六爻解卦模板"><a href="#六爻解卦模板" class="headerlink" title="六爻解卦模板"></a>六爻解卦模板</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 你是六爻解卦专家, 需要辅助专业人员做解卦前的排卦处理, 最后进行解卦.</span><br><span class="line">2. 首先需要完善下面的表格. 其中注释语句(以&quot;&#x2F;&#x2F;&quot;开头), 就是需要填入的内容说明. 最后以md格式完整显示这张表格.</span><br><span class="line">   2.1 尽量保持简洁, 只填入必要的信息. 不必注明生克关系, 若无冲合, 无墓库, 完全留空(不要注释). 无标注则默认为静爻, 无需特别标注(静).</span><br><span class="line">   2.2 对于关键信息, 譬如世爻, 动爻, 月建, 日辰等相关的重要信息, 加粗表示.</span><br><span class="line">   2.3 保持横列的标题不变.</span><br><span class="line">3. 根据装卦信息, 按下述步骤填表.</span><br><span class="line">   3.1 装卦信息, 最下面的是初爻, 往上依次是二,三,四,五,上爻. 有&quot;→&quot;符号指向的是变爻.</span><br><span class="line">   3.2 根据占卜提问, 先确定用神的六亲及爻位(包括变爻). 如果对应多个爻, 逐一填入. </span><br><span class="line">   3.3 如果用神没有对应的爻位和六亲, 则使用伏神填入用神一列. 对于伏神, 需要列出对应飞神的地支五行, 便于判断生克关系, 确定飞神对伏神是压制还是助力.</span><br><span class="line">   3.4 &quot;爻位&quot;一行格式保持简介, 格式如: &quot;上爻(动&#x2F;应&#x2F;世&#x2F;变&#x2F;伏)&quot;. 静爻不需要括号内标明.</span><br><span class="line">   3.5 &quot;六亲&quot;一行填入爻位对应的六亲和地支信息, 需要和爻位一一对应. 格式如: &quot;妻财子水(伏)&quot;</span><br><span class="line">   3.6 和用神的规则一样, 再依次填入原神, 忌神, 仇神和耗护神. </span><br><span class="line">   3.7 在第一列&quot;地支&quot;中, 依次填入&quot;年柱&quot;,&quot;月建&quot;,&quot;日辰&quot;,&quot;旬空&quot;,&quot;动爻&quot;的地支五行.</span><br><span class="line">4. 分析五行关系,地支关系,总结各爻神强弱.列标题的月建,日辰,动爻为我.</span><br><span class="line">   4.1 判断五行关系: 统一使用&quot;旺相死囚休&quot;用语. 其顺序和爻神是保持一致的, 确定同五行的旺后, 顺序填入即可.</span><br><span class="line">   4.2 判断地支关系: 判断是否有: &quot;六冲,六合,六害,六破,暗合&quot;的种关系. 准备填表. </span><br><span class="line">   4.3 根据4.1和4.2两条规则, 填入&quot;月建&quot;,&quot;日辰&quot;,二行的五行关系和地支关系. 填入信息保持简略, 格式参考: &quot;休, 子午冲, 子未害&quot;</span><br><span class="line">   4.4 仅针对单动爻,则根据4.1和4.2两条规则,在&quot;动爻&quot;一行, 填入五行关系和地支关系.信息保持简略.</span><br><span class="line">   4.5 针对单动爻或多动爻, 根据变爻对应动爻的关系, 基于地支有&quot;伏吟&#x2F;化进&#x2F;化退&quot;,以及&quot;冲合&quot;关系, 基于五行则有&quot;回头生,回头克,化生,化克&quot;. 在&quot;动爻&quot;一行中,将结果填入对应的动爻列.</span><br><span class="line">   4.6 判断旬空, 找出是否有潜在的爻神旬空.填入&quot;旬空&quot;行.</span><br><span class="line">5. 整体判断,是否有符合&quot;三合局&quot;, &quot;三刑&quot;和&quot;库墓&quot;,&quot;长生&quot;的情况</span><br><span class="line">   5.1 不需要考虑&quot;三会局&quot;等其它的情况, 六爻解卦不需要.</span><br><span class="line">   5.2 三合局, 只能基于&quot;动爻&quot;,&quot;日辰&quot;,&quot;月建&quot;的地支判断是否成局或待用.若成局或待用, 详情填入&quot;三合&quot;列内相关的动爻列. 注意: 静爻不能参与三合局的判断.</span><br><span class="line">   5.3 三刑, 只能基于&quot;动爻&quot;,&quot;日辰&quot;,&quot;月建&quot;. 依次判断各爻位, 如有三刑,则填入. 注意:列动爻不要和自己所在的列动爻判断, 避免不存在的自刑.如果成刑, 写入刑名(无恩,持势,无礼,自刑)和成刑的地支.</span><br><span class="line">   5.4 库墓, 先判断是否存在可以为库墓的地支(月建, 日辰, 变爻), 然后判断是否符合入库墓条件的爻位, 依次填入表格的&quot;库墓&quot;行. 范例:&quot;入丑金墓&quot;.入库入墓的条件为: a.所有爻神可以入月建或日辰的库墓; b. 动爻只能入变爻的库墓. c. 不存在其它入墓入库的情况.</span><br><span class="line">   5.5 长生, 使用五行十二长生,判断是否存在可以为&quot;长生&quot;,&quot;帝旺&quot;,&quot;绝&quot;的地支(仅月建和日辰), 然后判断符合五行要求的爻位. 依次填入表格的&quot;长生&quot;行. 范例:&quot;日亥火绝&quot;;&quot;月卯木旺&quot;</span><br><span class="line">6. 综合每列信息, 给出&quot;气场&quot;行, 各爻位的强弱和特点. 如:旬空相关的假空&#x2F;真空,气场上的得气,气弱,无气.等等</span><br><span class="line">7. 综合每列信息, 给出&quot;应期&quot;行, 并说明应期的来源. 主要为&quot;逢值&quot;和&quot;逢冲&quot;, 某些情况考虑&quot;逢合&quot;(如三合待用), &quot;冲库墓&quot;(如未冲丑墓). 参考格式为: 寅(值爻),申(冲爻),辰(合水局),未(冲丑墓)</span><br><span class="line">8. 最后进行断卦, 给出结论和可能的应期, 以及给出该结论和应期的主要依据..</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">| 爻神                           | 地支                  | 耗护神(用神生)               | 仇神(生忌神)                 | 忌神(克用神)                 | 原神(生用神)                 | 用神                         |</span><br><span class="line">| ------------------------------ | --------------------- | ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |</span><br><span class="line">| **爻位**                       | &#x2F;&#x2F; 留空即可           | &#x2F;&#x2F; 对应的爻位.               | &#x2F;&#x2F; 对应的爻位.               | &#x2F;&#x2F; 对应的爻位.               | &#x2F;&#x2F; 对应的爻位.               | &#x2F;&#x2F; 对应的爻位.               |</span><br><span class="line">| **六亲**                       | &#x2F;&#x2F; 月日冲合害关系     | &#x2F;&#x2F; 对应的六亲地支.           | &#x2F;&#x2F; 对应的六亲地支.           | &#x2F;&#x2F; 对应的六亲地支.           | &#x2F;&#x2F; 对应的六亲地支.           | &#x2F;&#x2F; 对应的六亲地支.           |</span><br><span class="line">| **月建**                       | &#x2F;&#x2F; 月建地支. 如: 寅木 | &#x2F;&#x2F; 分析五行地支关系          | &#x2F;&#x2F; 分析五行地支关系          | &#x2F;&#x2F; 分析五行地支关系          | &#x2F;&#x2F; 分析五行地支关系          | &#x2F;&#x2F; 分析五行地支关系          |</span><br><span class="line">| **日辰**                       | &#x2F;&#x2F; 日辰地支           | &#x2F;&#x2F; 分析五行地支关系          | &#x2F;&#x2F; 分析五行地支关系          | &#x2F;&#x2F; 分析五行地支关系          | &#x2F;&#x2F; 分析五行地支关系          | &#x2F;&#x2F; 分析五行地支关系          |</span><br><span class="line">| **动爻**                       | &#x2F;&#x2F; 单动爻的地支        | &#x2F;&#x2F; 变爻对应动爻的关系        | &#x2F;&#x2F; 变爻对应动爻的关系         | &#x2F;&#x2F; 变爻对应动爻的关系        | &#x2F;&#x2F; 变爻对应动爻的关系        | &#x2F;&#x2F; 变爻对应动爻的关系           |</span><br><span class="line">| **旬空**                       | &#x2F;&#x2F; 日辰的旬空地支     | &#x2F;&#x2F; 仅旬空时,填入地支         | &#x2F;&#x2F; 仅旬空时,填入地支         | &#x2F;&#x2F; 仅旬空时,填入地支         | &#x2F;&#x2F; 仅旬空时,填入地支         | &#x2F;&#x2F; 仅旬空时,填入地支         |</span><br><span class="line">| **三合**                       | &#x2F;&#x2F; 留空即可           | &#x2F;&#x2F; 仅成局或待用时,填入合局   | &#x2F;&#x2F; 仅成局或待用时,填入合局   | &#x2F;&#x2F; 仅成局或待用时,填入合局   | &#x2F;&#x2F; 仅成局或待用时,填入合局   | &#x2F;&#x2F; 仅成局或待用时,填入合局   |</span><br><span class="line">| **三刑**                       | &#x2F;&#x2F; 留空即可           | &#x2F;&#x2F; 仅成刑时,填入刑名和地支   | &#x2F;&#x2F; 仅成刑时,填入刑名和地支   | &#x2F;&#x2F; 仅成刑时,填入刑名和地支   | &#x2F;&#x2F; 仅成刑时,填入刑名和地支   | &#x2F;&#x2F; 仅成刑时,填入刑名和地支   |</span><br><span class="line">| **库墓**                       | &#x2F;&#x2F; 留空即可           | &#x2F;&#x2F; 仅入墓时,填入墓情况       | &#x2F;&#x2F; 仅入墓时,填入墓情况       | &#x2F;&#x2F; 仅入墓时,填入墓情况       | &#x2F;&#x2F; 仅入墓时,填入墓情况       | &#x2F;&#x2F; 仅入墓时,填入墓情况       |</span><br><span class="line">| **长生**                       | &#x2F;&#x2F; 留空即可           | &#x2F;&#x2F; 仅生旺绝时,填入相应的长生 | &#x2F;&#x2F; 仅生旺绝时,填入相应的长生 | &#x2F;&#x2F; 仅生旺绝时,填入相应的长生 | &#x2F;&#x2F; 仅生旺绝时,填入相应的长生 | &#x2F;&#x2F; 仅生旺绝时,填入相应的长生 |</span><br><span class="line">| **气场**                       | &#x2F;&#x2F; 留空即可           | &#x2F;&#x2F; 爻神气场最终评价          | &#x2F;&#x2F; 爻神气场最终评价          | &#x2F;&#x2F; 爻神气场最终评价          | &#x2F;&#x2F; 爻神气场最终评价          | &#x2F;&#x2F; 爻神气场最终评价          |</span><br><span class="line">| **应期**                       | &#x2F;&#x2F; 填写应期           | &#x2F;&#x2F; 填写应期                  | &#x2F;&#x2F; 填写应期                  | &#x2F;&#x2F; 填写应期                  | &#x2F;&#x2F; 填写应期                  | &#x2F;&#x2F; 填写应期                  |</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -5658,7 +5513,7 @@
 <li><em>天爻老阳 <code>⚌</code> 正盛, 地爻少阴 <code>⚍</code> 当善用. 人爻老阴 <code>⚏</code> 持守静养. 然天时地利, 正当此时, 宜勇猛行动, 一展宏图.</em></li>
 </ul>
 </li>
-<li><em>辞译: 有利于前往(进行常规行动). 有利于渡过大河(克服险阻进行重大的行动).</em><ul>
+<li><em>辞译: 收益有余时, 利于前往(进行常规行动). 利于渡过大河(进行探险行动).</em><ul>
 <li><em>爻辞描述极有可能对应的是, 西周初期营建洛邑以及迁殷顽民的历史事件. 周公对殷商遗民整体采取”分化迁移, 恩威并施, 刚柔并济”的措施. 但对叛乱的殷顽民则集中迁移到洛邑, 不杀但严加监管, “启以商政, 疆以周索”, 进行文化融合.</em></li>
 </ul>
 </li>
@@ -5666,7 +5521,7 @@
 </ul>
 </li>
 <li>初九: 利用为大作，元吉，无咎。<ul>
-<li><em>辞译: 有利于兴建重大工程(陪都洛邑)为用. 大吉, 无咎.</em><ul>
+<li><em>辞译: 利于兴建重大工程(陪都洛邑)为用. 大吉, 无咎.</em><ul>
 <li><em>“作”: 金文中, 表建造, 发起. 常见”作邑”, 即建造城邑, 以及”作邦”, 指建立政权.</em></li>
 <li><em>“金文”: 又称钟鼎文, 指铸刻在商周时期青铜器上的文字. 是高度可信的一手资料.</em></li>
 <li><em>初九爻变得风地观. 收益有余, 故兴建都城, 改善民生, 用以彰显盛德, 宣昭国威, 收聚民心.</em></li>
@@ -5801,12 +5656,12 @@
 <p>互卦: ䷦ 水山蹇;   错卦: ䷯ 水风井;   综卦: ䷕ 山火贲.</p>
 <ul>
 <li><strong>本卦火雷噬嗑: 亨。利用狱。</strong><ul>
-<li><em>“噬嗑”: 用力咬碎硬物. 因卦辞, 通常引申为使用刑法. 宜守正而动.</em><ul>
+<li><em>“噬嗑”: 用力咬碎硬物. 因卦辞, 通常引申为使用刑法, 伸张正义. 宜守正而动.</em><ul>
 <li><em>上离 <code>☲</code> 下震 <code>☳</code>, 由山雷颐 <code>䷚</code> 六四爻变而来, 即口中有物, 九四为梗阻硬物, 需用力用牙齿咬碎.</em></li>
 <li><em>天爻少阳 <code>⚎</code> 渐起尚虚, 地爻少阴 <code>⚍</code> 当善用. 人爻少阳 <code>⚎</code> 无畏好动, 不惧强权. 当守正而动. 持守法制, 果敢严明, 惩治不法.</em></li>
 </ul>
 </li>
-<li><em>辞译: (抓获罪犯,) 亨通. 利于使用(审讯,判决和)刑罚.</em><ul>
+<li><em>辞译: 伸张正义,亨通. 利于使用(审讯,判决和)刑罚.</em><ul>
 <li><em>初九与上九, 应上下嘴唇, 是对不法者的惩戒. 初爻重”小惩大诫”. 上九重”严惩不贷”.</em></li>
 <li><em>中间四爻, 是以啃咬食物为比喻, 展示执法者破案用狱的几种情况.</em></li>
 </ul>
@@ -6002,7 +5857,7 @@
 <li><em>天爻少阳 <code>⚎</code> 渐起尚虚, 地爻少阳 <code>⚎</code> 渐起尚虚. 人爻老阴 <code>⚏</code> 迷茫无措, 困而待动. 当前天地有助, 宜心诚且积极地想办法去蒙脱困, 寻谋出路.</em></li>
 </ul>
 </li>
-<li><em>辞译: (自知蒙昧,) 亨通. 不是施教者主动俯就愚昧之人, 是蒙昧者主动前来归请教化. 初次诚心求占, 实事相告; 反复轻慢占问, 就是亵渎, 亵渎之后不再告知. 利于持守(诚敬求教的行为).</em><ul>
+<li><em>辞译: 自知蒙昧, 亨通. 不是施教者主动俯就愚昧之人, 是蒙昧者主动前来归请教化. 初次诚心求占, 实事相告; 反复轻慢占问, 就是亵渎, 亵渎之后不再告知. 利于持守(诚敬求教的行为).</em><ul>
 <li><em>童蒙: 孩童一般, 心智未熟, 天真无瑕的蒙昧者.</em></li>
 <li><em>某种意义上而言, 占卜自身也是蒙昧者, 故而要向神明占问. 诚敬正是求师问道的首要条件.</em></li>
 <li><em>蒙卦卦辞爻辞是一位聆听者向”我”请教了启蒙问题, “我”便向这位聆听者讲述了整体原则(卦辞), 以及纪律, 家庭, 妇女, 自身, 儿童, 刑罚几方面(各爻辞)的教育方法.</em></li>
@@ -6158,7 +6013,7 @@
 <li><em>卦辞为宜修养生息, 不宜妄动. 如果爻变,对应的爻辞讲的是生存危机下,不得不采取的行动.</em></li>
 </ul>
 </li>
-<li><em>辞译: (颐养之道,) 持守得吉. 看着(别人)津津有味, 不如自食其力, 自己寻觅口粮.</em></li>
+<li><em>辞译: 颐养之道, 持守得吉. 看着(别人)津津有味, 不如自食其力, 自己寻觅口粮.</em></li>
 <li>颐卦: 展现中国各方在日本侵华时的不同选择和表现, 最终获得抗战成功的过程.<ul>
 <li>“观颐”: 有人旁观, 放弃抵抗.</li>
 <li>“自求口实”: 有人自力更生, 艰苦抗战.</li>
@@ -6247,7 +6102,7 @@
 </ul>
 </li>
 <li>上九: 由颐，厉，吉。利涉大川。<ul>
-<li><em>(解决了生存问题,) 找到了食物的来源, 虽然历经危险, 最终吉利. 有利于涉水渡河(进行冒险行动).</em><ul>
+<li><em>(解决了生存问题,) 找到了食物的来源, 虽然历经危险, 最终吉利. 利于渡过大河(进行探险行动).</em><ul>
 <li><em>“由”: 可指顺从. 也可指”新生之力”,”开端/源头”, 参考《尚书·盘庚》:”若顛木之有由枿”</em>.</li>
 <li><em>“由颐”: 可译为”顺从颐养之道”, 但这是常识, 没什么可”厉”的, 和”利涉大川”也关系不大.</em></li>
 <li><em>上九爻变得地雷复. 危机解除, 部落得以存续, 需要重新发展壮大.</em></li>
@@ -6367,7 +6222,7 @@
 <li><em>天爻少阳 <code>⚎</code> 渐起尚虚, 地爻少阳 <code>⚎</code> 渐起尚虚. 人爻少阴 <code>⚍</code> 成熟稳重, 有志待行. 抱治蛊之愿, 且天地有助, 宜选用合适的方法, 开展治蛊行动.</em></li>
 </ul>
 </li>
-<li><em>辞译: (及时发现蛊患,) 大为亨通. 利于渡过大河(克服险阻进行治蛊). 治蛊前三日要深思熟虑, 准备妥当; 治蛊后三日要持续观察, 防止反复</em>.<ul>
+<li><em>辞译: 及时发现蛊患, 大为亨通. 利于渡过大河(克服险阻进行治蛊). 治蛊前三日要深思熟虑, 准备妥当; 治蛊后三日要持续观察, 防止反复</em>.<ul>
 <li><em>“甲”: 表示治蛊的当天. 治蛊工作只需要一天, 而前期准备和后期观察, 则各需要三天.</em></li>
 <li><em>“先甲三日”: 治蛊工作的前三天, 即从辛日起, 就要规划出治蛊方案以及应急方案.</em></li>
 <li><em>“后甲三日”: 治蛊工作的后三天, 即丁日前, 都要保持观察, 确保成效, 以免蛊虫复发.</em></li>
@@ -6533,7 +6388,7 @@
 <li><em>天爻少阳 <code>⚎</code> 渐起尚虚, 地爻少阴 <code>⚍</code> 当善用. 人爻老阳 <code>⚌</code> 意气风发, 天时有助地利可用, 但过于激进妄动必有虚离, 宜虚心明目, 谨小慎微, 进退有据, 可得明丽.</em></li>
 </ul>
 </li>
-<li><em>辞译: 利于持守(虚心明目, 谨小慎微), 亨通. 畜养(顺从的,可繁衍的)母牛, 可得吉利.</em><ul>
+<li><em>辞译: 虚心明目, 利于持守. 而得明丽之象, 亨通. 畜养(顺从的,可繁衍的)母牛, 可得吉利.</em><ul>
 <li><em>为人处事宜顺从,包容. 宜修养生息.</em></li>
 </ul>
 </li>
@@ -6686,7 +6541,7 @@
 <li><em>天爻少阳 <code>⚎</code> 渐起尚虚, 地爻老阴 <code>⚏</code> 失家困顿. 人爻老阳 <code>⚌</code> 不得不动. 无家可归, 心慌行急. 尚有天助, 宜自安其心, 自寻其乐, 可得无咎.</em></li>
 </ul>
 </li>
-<li><em>辞译: (人得平安,) 稍有亨通. 旅居时持守(随寓而安的旅人心态), 吉利.</em></li>
+<li><em>辞译: 外出旅居, 稍有亨通. 旅居时持守(随寓而安的旅人心态), 吉利.</em></li>
 <li><em>儒译: 稍有亨通. 旅居在外, 若能坚守正道, 则吉利.</em></li>
 <li>旅卦: 以羁旅者喻中国, 从邓小平复出开始叙事, 讲述尝试融入西方主导的国际主流秩序中, 寻求自身发展的故事<ul>
 <li>历经改革开放, 韬光养晦, 加入WTO, 经济腾飞后. 进入习近平时代, 以及未来的其道大衰.</li>
@@ -6885,7 +6740,7 @@
 <li><em>六爻形态: 初六为鼎之三足; 二三四之阳爻为实, 为鼎腹; 六五为鼎之双耳; 上九为鼎铉(xuàn).</em></li>
 </ul>
 </li>
-<li><em>辞译: 大吉, 亨通. (顺应天命人心, 已鼎新食足. 当下宜远小人近贤臣, 大力发展民生事业)</em></li>
+<li><em>辞译: 鼎新之象, 大吉, 亨通. (顺应天命人心, 已鼎新食足. 当下宜远小人近贤臣, 大力发展民生事业)</em></li>
 <li>鼎卦: 以中国台湾为视角, 描述了两岸关系的变化与进退. 最终一起重归中华正统(“外边根树”)的过程.</li>
 </ul>
 </li>
@@ -6959,7 +6814,11 @@
 <li>上九: 鼎玉铉(xuàn)，大吉，无不利。<ul>
 <li><em>辞译: 鼎配有玉制的铉, 大吉, 没有不顺遂的.</em><ul>
 <li>“<em>玉铉(xuàn)”: 玉制的举鼎器具, 显然已没有实用价值. 此鼎已被供奉起来, 具有礼制象征意义.</em></li>
-<li><em>上九爻变得雷风恒. 鼎已作为宗庙礼器被永久供奉.</em></li>
+<li><em>上九爻变得雷风恒. 鼎已作为宗庙礼器被长久供奉.</em></li>
+</ul>
+</li>
+<li><em>象译: 鼎配有玉制的铉, 被长久供奉, 但失去实际作用, . 为有名无实, 名存实亡之兆.</em><ul>
+<li><em>对于重名的为大吉. 对于重实际效用和利益的就不是好事. 和实权不存, 有名无实等相关.</em></li>
 </ul>
 </li>
 <li>未来事件. 台湾以和平协商的方式回归”中华联邦”. 中共亦加入”中华联邦”.</li>
@@ -7684,6 +7543,29 @@
 <li>但结合需卦和豫卦, 更大可能是指, 当革命派完成蓄积, 进行辛亥革命之后. 清庭皇室不但没有被灭杀, 还保留高规格的待遇.</li>
 </ul>
 </li>
+</ul>
+<h2 id="车舆和辐輹"><a href="#车舆和辐輹" class="headerlink" title="车舆和辐輹"></a>车舆和辐輹</h2><ul>
+<li>参考资料: <a href="https://wapbaike.baidu.com/tashuo/browse/content?id=b1fc49ab1c937c763a284291">谈《周易》中“辐、輹”是先秦时期马车上的哪个构件，应作何解？</a>. 其观点总结如下:<ul>
+<li>相关卦辞, 以及相关的观点:<ul>
+<li>小畜卦九三: “舆说辐”</li>
+<li>大畜卦九二: “舆说輹”</li>
+<li>大壮卦九四: “壮于大舆之輹”</li>
+</ul>
+</li>
+<li>关于小畜卦九三, “舆说辐”的两种观点.<ul>
+<li>观点1: “辐”和”輹”分别代表马车上的两种构件, 应分开解.</li>
+<li>观点2: “辐”是古人传抄之误, 应为”輹”. </li>
+<li>本人更认同观点2, “车轮辐条”有多条, 坏一二条不会立刻倾覆翻车. “輹”则处于关键位置, 直接承载”舆”的所有重量, 极其易损, 且损坏后载人的”舆”会直接跌落地面, 必然是严重的事故.</li>
+</ul>
+</li>
+<li>“輹”的两种解释.<ul>
+<li>解释1: 车伏兔, 称”轐(bú)”. 车伏兔指垫在车箱和车轴之间的木块, 是古代车子上钩连车箱底板与车轴的部件.</li>
+<li>解释2: 捆绑车伏兔与车轴的绳索. 《说文解字》”輹, 车轴缚也.”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://draapho.github.io/images/2682/cheyu.jpg" alt="车舆图片"></li>
 </ul>
 <h1 id="第36-5象-风火家人-清末新政"><a href="#第36-5象-风火家人-清末新政" class="headerlink" title="第36.5象 风火家人 清末新政"></a>第36.5象 风火家人 清末新政</h1><h2 id="原三一象-甲午-䷤-離下巽上-家人"><a href="#原三一象-甲午-䷤-離下巽上-家人" class="headerlink" title="原三一象　甲午 ䷤ 離下巽上 家人"></a>原三一象　甲午 ䷤ 離下巽上 家人</h2><p>讖曰: 當塗遺孽　穢亂宮闕　一男一女　斷送人國<br>頌曰: 忠臣賢士盡沉淪　天啟其衷亂更紛　縱有胸懷能坦白　乾坤不屬舊明君<br>图: <img src="https://draapho.github.io/images/2685/Tbt-31.jpg" alt="Tbt-31"></p>
 <p>金聖歎: 「此象主天啟七年間，妖氣漫天，元氣受傷。一男一女指魏閹與客氏而言。客氏熹宗乳母，稱奉聖夫人。」</p>
@@ -8915,7 +8797,7 @@
 <li><em>天爻老阴 <code>⚏</code> 晦暗艰难, 地爻少阴 <code>⚍</code> 当善用. 人爻少阴 <code>⚍</code> 成熟稳重. 天爻为外部环境, 晦暗艰难. 地爻为内部环境, 当善用维护. 人爻成熟稳重, 心有理想和目标, 持节自守, 韬光养晦, 可渡明夷.</em></li>
 </ul>
 </li>
-<li><em>辞译: (面对明夷之境,) 利于在艰难中持守.</em><ul>
+<li><em>辞译: 光明被掩, 环境晦暗时, 利于在艰难中持守.</em><ul>
 <li><em>各爻辞实际描述了商朝末期, 朝局晦暗之时, 各大人君子的应对方法.</em></li>
 <li><em>六五爻辞明言守节自保的”箕子之明夷”; 六四爻辞仅暗应变节以保殷商宗祀的”微子之明夷”; 而殷商末期另外一个重要人物比干, 直谏而死, 是刚猛直面明夷之境的典型, 则完全没有提及. 周朝官方的态度不言而喻, 最认可箕子之明夷, 毕竟微子和比干的做法, 不利于王权的稳固和统治.</em></li>
 </ul>
@@ -9063,7 +8945,7 @@
 <li><em>天爻老阴 <code>⚏</code> 晦暗艰难, 地爻少阳 <code>⚎</code> 渐起尚虚. 人爻老阴 <code>⚏</code> 持守蓄势. 天爻为外部环境, 晦暗艰难. 地爻为内部环境, 渐起尚虚. 人爻隐忍未发, 聚众蓄势.</em></li>
 </ul>
 </li>
-<li><em>辞译: 持守(于统众练兵), 执杖训练使众人令行禁止可获吉利, (聚师统众之举)无咎.</em><ul>
+<li><em>辞译: 持守于统众练兵, 执杖训练使众人令行禁止可获吉利, (聚师统众之举)无咎.</em><ul>
 <li><em>“丈”: 通”杖”, 本义执, 持. 引申为棍棒, 以棍棒拷打的刑法. 此处指军规, 处罚.</em></li>
 <li><em>“丈人”: 并非传统释义的长者, 统帅. “丈”通”杖”, 为动词. 人, 指众人. 本质是练兵.</em></li>
 <li><em>商朝是神王一体的统治阶级, 周朝则是以德配王, 王权世俗化, 神权被制度性吸纳的时期. 卦辞爻辞对应的是周国伐纣灭商前, 暗中聚师练兵的过程, 并描绘有神权尝试反扑, 与周国王权争夺军队控制权.</em></li>
@@ -9098,9 +8980,9 @@
 </ul>
 </li>
 <li><strong>六三世爻: 师或舆(yú)尸，凶。</strong><ul>
-<li><em>辞译: 军中, 有人抬着受祭之人(, 以先祖的名义发号施令), 凶险.</em><ul>
+<li><em>辞译: 军中, 有人用车载着受祭之人(, 以先祖的名义发号施令), 凶险.</em><ul>
 <li><em>“或”: 某人, 有的人.</em></li>
-<li><em>“舆(yú)”: 本义为车. 可表马车, 轿子. 作动词可通”舁(yú)”, 抬, 抬举.</em></li>
+<li><em>“舆(yú)”: 本义为车厢, 后泛指车. 作动词, 为运载之义.</em></li>
 <li><em>“尸”: 本义为祭祀时, 代表死者受祭的人. 此时, 尸代表着先祖灵魂附体.</em></li>
 <li><em>借尸传令, 对抗王权的方法, 直到清朝还有人使用, 太平天国的杨秀清改造并最终垄断”天父附体”仪式, 当他”降僮”时, 便成为上帝代言人, 部众相信其指令是最高神谕, 高于”天王”洪秀全的命令, 由此造成军队混乱和分裂.</em></li>
 <li><em>六三爻变得地风升. 升为显, 巽为柔. 兵柔未成, 却急于出兵, 大凶之兆.</em></li>
@@ -9120,10 +9002,10 @@
 </ul>
 </li>
 <li>六五: 田有禽，利执言，无咎 。长子帅师，弟子舆(yú)尸，贞凶。<ul>
-<li><em>辞译: 田猎区有禽兽, 利于发号施令, 演习捕捉, 无咎. 长子统率着军队演习, 弟子却抬着受祭之人干扰, 如此放任持守则凶险.</em><ul>
+<li><em>辞译: 田猎区有禽兽, 利于发号施令, 演习捕捉, 无咎. 长子统率着军队演习, 弟子却用车载着受祭之人干扰, 如此放任持守则凶险.</em><ul>
 <li><em>“执”: 捕捉; “言”: 号令. 《国语·周语》韦昭注 “言, 号令也.”</em></li>
 <li><em>“利执言”: 利执利言, 并行关系.</em></li>
-<li><em>“舆(yú)尸”: 同六三”师或舆(yú)尸”, 抬着受祭之人.</em></li>
+<li><em>“舆(yú)尸”: 同六三”师或舆(yú)尸”, 用车载着受祭之人.</em></li>
 <li><em>“长子”: 周朝依赖血统, 表示宗法制度下法定继承人; “弟子”: 家族中的年幼子弟, 泛指同宗年轻男性.</em></li>
 <li><em>六五爻变得坎为水. 上下皆坎, 如战场之敌我双方厮杀, 皆入凶险之地. 故用兵为险为难, 当慎之又慎, 更不可久用.</em></li>
 </ul>
@@ -9229,7 +9111,7 @@
 <li><em>“尸”: 为祭祀时, 代表先祖神灵受祭的人. 西周尸祭人选必须是同族孙辈为”尸”, 引祖辈附身. 子辈需要主持祭祀, 不能作为”尸”. 周朝中后期, “尸”已经没有任何痛苦, 仅存象征意义.</em></li>
 </ul>
 </li>
-<li><em>辞译: (在尸祭仪式中,) 固定背部 (强制挺直,) 有身体失控, 身非己有之感. (此时有如先祖附身,) 在宗庙庭院中自行走动, 感受不到原来的我作为人的存在. (完成尸祭, 恢复正常,) 无咎.</em><ul>
+<li><em>辞译: 尸祭仪式时, 固定背部 (强制挺直,) 有身体失控, 身非己有之感. (此时有如先祖附身,) 在宗庙庭院中自行走动, 感受不到原来的我作为人的存在. (完成尸祭, 恢复正常,) 无咎.</em><ul>
 <li><em>“艮”: 周礼尸祭制度下, 表示礼仪性地身体束缚和固定.</em></li>
 <li><em>“其”: 表仪式中的”尸”. 卦辞爻辞为事后采访记录, 故用”其”.</em></li>
 <li><em>“不见其人”: 身心解离现象, 已经感受不到自己是作为人的存在. 一种类似于”入定”, “心流”的体验.</em></li>
@@ -9390,9 +9272,9 @@
 </ul>
 <h2 id="补充说明-2"><a href="#补充说明-2" class="headerlink" title="补充说明"></a>补充说明</h2><p>此象的谶和颂极大概率是被宋朝”旧党”文人篡改过. 图片应该没有被修改.</p>
 <ul>
-<li>用词过于主观, 完全是站在失势”旧党”的立场在咒骂王安石为代表的整个”新党”</li>
+<li>用词非常主观, 完全是站在失势”旧党”的立场在咒骂王安石为代表的整个”新党”</li>
 <li>遣词用句的篇幅上看, 对于”平戎大败”的描述过于重复和单调.</li>
-<li>从历史定论看, 王安石变法只是毁誉参半, 功过难定. 绝对不应完全否定王安石本人及整个”新党”的所作所为所求.</li>
+<li>从历史定论看, 王安石变法只是毁誉参半, 功过难定.</li>
 <li>推背图原作者的视角是非常超脱的, 即便偶有主观立场, 也绝对不用咒骂之词. 而且如果要写这段历史, 大概率也会用一二句描绘出”新党”崛起, 以及其功过参半的全景, 绝不会只盯着这场”平戎大败”.</li>
 <li>因此, 对此象的解析还原, 会以卦辞爻辞为主, 图片为辅, 事件为王安石变法. 不再参考此象中谶和颂.</li>
 </ul>
@@ -9400,89 +9282,131 @@
 <p>互卦: ䷧ 雷水解;   错卦: ䷮ 泽水困;   综卦: ䷔ 火雷噬嗑.</p>
 <ul>
 <li>本卦山火贲: 亨。小利有攸往。<ul>
-<li><em>“贲”: .</em><ul>
-<li><em>上艮 <code>☶</code> 下离 <code>☲</code> , .</em></li>
-<li><em>天爻少阳 <code>⚎</code> 渐起尚虚, 地爻少阴 <code>⚍</code> 当善用. 人爻少阴 <code>⚍</code> 成熟稳重. .</em></li>
+<li><em>“贲”: 饰也. 文饰华美. 不宜过度追求外表的文饰华美, 需警惕外丽而内虚. 只宜小事渐进, 以免伤及根本.</em><ul>
+<li><em>上艮 <code>☶</code> 下离 <code>☲</code> , 文火慢烤山石, 方得”贲”之文饰, 若急火猛烧, 则山石崩裂. 离为明丽为虚离, 内有明丽华美却也有虚离之兆, 无力进一步发展. 不宜大刀阔斧, 需进退得当, 渐进优化.</em></li>
+<li><em>天爻少阳 <code>⚎</code> 渐起尚虚, 地爻少阴 <code>⚍</code> 当善用. 人爻少阴 <code>⚍</code> 成熟稳重. 已得贲之文饰, 然天时尚虚, 地利只可善用, 不可不顾人和, 妄动冒进, 只宜现有框架下, 逐步优化稳固.</em></li>
 </ul>
 </li>
-<li><em>辞译: .</em></li>
-<li><em>儒译: .</em></li>
-<li>“贲”是文饰, 是锦上添花. 不宜大动干戈, 只宜小打小闹, 以免伤及根本.<ul>
-<li>文火慢烤可得”贲”之文饰. 急火猛烤, 必然让艮山崩裂.</li>
+<li><em>辞译: 修饰装扮,亨通. 但只利于有限度地进行.</em><ul>
+<li><em>爻辞当为婚嫁求亲场面, 西周推崇理性务实, 提倡简朴节约, 适度文饰.</em></li>
 </ul>
 </li>
-<li>卦辞也是如此提醒. 只可小范围实行, 不可大刀阔斧的改革, 才能亨通无忧.<ul>
-<li>也就是天时和地利并不支持大刀阔斧的改革, 因而只能求人和, 缓进.</li>
-</ul>
-</li>
-<li>王安石看到了宋朝的潜在积弊, 本意是想让宋朝保持繁华, 得贲饰之象. 但急于求成, 一顿猛火急烤, 严重损伤了上卦艮山之宋朝根基.<ul>
+<li>王安石看到了宋朝的潜在积弊, 本意是想让宋朝保持繁华, 得贲饰之象. 但猛火烈烤, 急于求成, 反而有伤人和, 让内部矛盾提前爆发, 严重动摇了宋朝根基.<ul>
 <li>策略层面: 急于求成, 多管齐下. 在经济, 军事, 教育三方面同时变法, 强制全国推行.</li>
 <li>执行层面: 急功近利, 政绩化用人. 全面打压以稳为主的旧党, 大量提拔激进变法派. 导致变法成为谋求自身政治资本的捷径.</li>
 <li>缺乏监督和反馈: 在次氛围下, 底层强制摊派, 执行层异化的问题, 毫无缓冲, 没有选择余地, 缺少反馈路径.  </li>
 <li>政治层面: 严重冲击旧党利益, 激化党争对立, 加剧朝政内耗.</li>
+<li>因而王安石变法的历史事件与爻辞一一映射后, 结果却是吉凶倒置, 表里背离.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><strong>初九世爻: 贲其趾，舍车而徒。</strong><ul>
-<li><em>辞译: .</em></li>
-<li><em>儒译: .</em></li>
-<li>过分的装饰自己的脚趾, 放弃了实用的车子而选择徒步前行. 这样不但前进的更慢了, 还会损伤自己的脚趾.</li>
-<li>即王安石执着于变法的推行, 为了推行而推行. 完全忽视了变法的初衷: 缓解农民负担, 抑制土地兼并, 最终达到富国强兵的目的. 不但欲速不达, 还损伤了根基</li>
+<li><strong>初九世爻: 贲其趾，舍车而徒(tú)。</strong><ul>
+<li><em>辞译: 修饰了脚趾, 下车牵马而行.</em><ul>
+<li><em>“徒(tú)”: 步行; “舍车而徒”: 应是下车牵马而行. 而非舍弃车马不用.</em></li>
+<li><em>求亲路上, 即将到达, 故装扮脚趾, 然后下车牵马而行, 低姿态以示尊重和心诚.</em></li>
+<li><em>初九爻变得艮为山. 进退适宜, 自我约束. 下车牵马而行, 放低姿态, 诚意满满.</em></li>
+</ul>
+</li>
+<li><em>儒译: 文饰自己的脚趾, 舍弃车马而选择徒步. (安贫乐道, 脚踏实地.)</em></li>
+<li>1069年农历二月. 王安石绕过中书门下, 三司等成熟机构, 另立新衙门, 重用吕惠卿, 章惇等.<ul>
+<li>“舍车而徒”: 避开既有行政体系, 选择才干突出, 但急功近利, 缺乏实际经验的理想主义者.</li>
+<li>结果: 埋下根基虚浮, 不切实际, 强制推行之祸.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>六二: 贲其须。<ul>
-<li><em>辞译: .</em></li>
-<li><em>儒译: .</em></li>
+<li><em>辞译: 修饰了须髯(rán). (使得面部整洁美观.)</em><ul>
+<li><em>六二爻变得山天大畜. 外艮内健, 停下脚步, 修饰脸庞, 做好心理建设. 准备充分, 蓄势待发.</em></li>
 </ul>
 </li>
-<li>六三: 贲如濡如，永贞吉。<ul>
-<li><em>辞译: .</em></li>
-<li><em>儒译: .</em></li>
+<li><em>儒译: 胡须依附于面颊, 象征需要依附尊者, 随顺而动.</em></li>
+<li>1069年农历七月. 宋神宗对辅臣言: “朕与安石, 犹一人也.” 同时, 条例司绕过中书门下直接颁行新法, 王安石以参知政事身份实际主导决策, 形成”君主授权, 宰相执行”的高度绑定结构. 而吕惠卿, 曾布等新进官员因依附安石而获破格提拔. 朝中形成了新党成员依附于王安石, 王安石依附于宋神宗的一股新势力. <ul>
+<li>结果: 属于大行其事地快速形成了一股新的排他性的利益团体, 必然严重影响朝政格局, 难获人和. 新旧两党严重党政之祸, 就此埋下.</li>
 </ul>
 </li>
-<li><strong>六四应爻: 贲如皤如，白马翰如。匪寇，婚媾。</strong><ul>
-<li><em>辞译: .</em></li>
-<li><em>儒译: .</em></li>
-<li>装饰得十分华丽纯白, 骑着白马飞驰而来. 那不是来劫掠的强盗, 而是来求婚的姻亲.</li>
-<li>权势上升的以王安石为代表的新党(白马飞驰), 不是来劫掠旧党利益的强盗, 而是求合作, 希望共同推进变法的盟友.</li>
 </ul>
 </li>
-<li>六五: 贲于丘园，束帛戋戋，吝，终吉。<ul>
-<li><em>辞译: .</em></li>
-<li><em>儒译: .</em></li>
+<li>六三: 贲如濡(rú)如，永贞吉。<ul>
+<li><em>辞译: 修饰得光亮润泽. 长久持守则吉利.</em><ul>
+<li><em>“濡(rú)”: 沾湿, 润泽.</em></li>
+<li><em>六三爻变得山雷颐. 上艮为目标, 下震为动. 一切准备妥当, 保持着良好的形象, 向目的地前行.</em></li>
+</ul>
+</li>
+<li><em>儒译: 文饰得光彩润泽, 永远坚守正道则吉利.</em></li>
+<li>1070-1071年. 青苗法强制摊派与绩效考核, 理论与理想非常美好. <ul>
+<li>“永贞吉”: 还特别诏书, 多次强调禁止”抑配”. 实际执行中, 地方官仍按户等强行摊派, 青苗钱沦为敛财工具. 苏轼上书称”官吏缘此为奸”. 得凶.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>六四应爻: 贲如皤(pó)如，白马翰(hàn)如。匪寇，婚媾(gòu)。</strong><ul>
+<li><em>辞译: 修饰地素白整洁, 白马马毛长而有光泽. 不是来暴力抢亲的, 而是来求亲的</em><ul>
+<li><em>“皤(pó)”: 白色; “翰(hàn): 本义锦鸡, 引申为长毛, 高飞. 此处当指马毛如锦鸡般长有光泽.”</em></li>
+<li><em>“寇”: 暴, 侵犯. 此处指暴力抢亲.</em></li>
+<li><em>初九六四相应, 故初九应是下马而行, 此处并非骑马飞驰, 是指车马也装扮地得体稳当. 只有下马平等的说明来意”匪寇婚媾”, 如此言行合一, 对方才可能信服认同.</em></li>
+<li><em>六四爻变得离为火. 为目为明为丽, 为热烈. 求亲过程中, 挑选心仪之人, 主动热烈的表达. 言”匪寇”, 说明商末周初过渡期, 还存在着暴力抢亲的习俗, 因而需要特别说明. 合理猜测, 在西周早期, 是从抢亲习俗到求亲习俗的过渡阶段, 求亲时是能自己看到和选取心仪之人的. 直到西周中晚期, 随者宗法秩序的确立和固化, 才有双方在成亲之前不得见面的规定.</em></li>
+</ul>
+</li>
+<li><em>儒译: 文饰得素白洁净, 骑着白马飞驰而来. 不是强盗, 而是来求婚的.</em></li>
+<li>1072年, 市易法颁行. 官府直接介入市场买卖, 朝廷自认平抑物价, 民间感受却是官方垄断掠夺.<ul>
+<li>结果: 名为”婚媾”, 实则成”寇”. 中小商户大量破产, 太学生及市民群起非议, 保守派斥为”与民争利”.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>六五: 贲于丘园，束帛(bó)戋戋(jiān)，吝，终吉。<ul>
+<li><em>辞译: 在质朴田园中修饰装扮举行仪式. 赠与寥寥数匹丝帛作为聘礼, 略显寒酸, 最终吉利.</em><ul>
+<li><em>“丘园”: 山丘园圃, 指质朴的田园, 乡野之地.</em></li>
+<li><em>“束”: 量词, 西周时期, 不知为几匹; “帛(bó)”: 丝织品的总称; “戋戋(jiān):” 形容少.</em></li>
+<li><em>六四求亲, 女方同意后. 六五为”纳征”定亲, 即男方家向女方家正式送纳聘礼的仪式.</em></li>
+<li><em>六五爻变得风火家人. 举行了送纳聘礼的仪式, 双方相互接受认可, 即将成为家人.</em></li>
+</ul>
+</li>
+<li>1073-1076年, 财政盈余与民间困顿并存. 国库积粟号称可支二十年, 铸币量大增; 但同时”卖田宅子女”记载频现.<ul>
+<li>结果: 变法之愿在执行层面, 事实上演变为官方对百姓的系统性压榨. 在非紧急情况下, 将藏富于民变为国富民穷, 大失民心.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>上九: 白贲，无咎。<ul>
-<li><em>辞译: .</em></li>
-<li><em>儒译: .</em></li>
+<li><em>辞译: 用纯白色来修饰, 没有灾祸.</em><ul>
+<li><em>六四提亲, 六五定亲后, 最后一步便是成亲. 用纯白色装饰婚礼确实过分了, 幸而两情相悦, 方得无咎.</em></li>
+<li><em>爻辞并没有说吉, 说明并不是真的推崇极简到如此. 而是上九爻变得地火明夷, 贲卦之极为凶, 但言凶又不符合婚嫁主旨, 只可取中为”白贲, 无咎”.</em></li>
+<li><em>如果脱离婚嫁主旨, 从治国角度看上九爻辞会更容易理解. 贲卦之上九, 奢靡绚丽, 文饰斐然, 必然为凶(但这样描述的话, 不符合婚嫁场景, 故只能反向描述), 应当实用主义, 简朴理性地的治国, 不去追求表面的绚丽, 方可无咎.</em></li>
 </ul>
 </li>
-<li>结合看世爻初九和应爻六四. 只能说王安石变法毫无人和基础, 想要成功推行的可能性太低了.<ul>
-<li>王安石与马光早年有深厚私交. 王安石试图推行变法时, 两者也有交流. 这本来是不错的合作基础.</li>
-<li>司马光曾多次致信王安石, 针对变法措施提出质疑. 王安石也通过著名的《答司马谏议书》进行回复. 但两人缺乏基本的共识, 也缺乏包容理解对方的心态. 文辞之间颇有文人相轻, 道不同不相为谋之意气.</li>
-<li>司马光的致信, 表面谦卑和客气, 其实根本不是商量和建议, 而是对王安石变法的全面质疑和否定, 为其变法总结为”侵官、生事、征利、拒谏”, 没有看到其积极正面的部分.</li>
-<li>而王安石亦是针锋相对, 拒不承认司马光对变法担忧和质疑有一定的合理性, 即制定变法容易, 但正确执行很困难, 在执行过程中, 确实容易出”生事扰民”, “与民争利”等情况,这是不争的事实.</li>
-<li>两人性格如此, 初九执着于”贲其趾”; 六四打心底认为变法者为”寇”, 不可”婚媾”. 那注定了”山火贲”的不可得. 在皇帝完全倒向新党之后, 猛火烧山, 山崩为雷, 得火雷噬嗑之象.</li>
+<li><em>象译: 过度地文饰, 会根基耗损, 致使文明衰败, 有地火明夷之晦暗.</em><ul>
+<li><em>“贲”: 本义为在货币饰品上, 加上草木花卉的纹饰. 是和绚丽奢靡相关的, 上九之极为凶才符合易经常理, 且上九爻变得地火明夷, 为文明被遮掩, 晦暗之卦. 而贲卦的卦辞爻辞正是在强调应当简朴, 以避免过度文饰.</em></li>
+</ul>
+</li>
+<li><em>儒译: 白色文饰. 返璞归真, 无饰之饰, 没有灾祸.</em></li>
+<li>1085-1086年. 神宗崩逝, 高太后听政, 司马光拜相, 数月内废除全部新法. 新政有如过眼云烟, 白茫茫一片.<ul>
+<li>结果: 王安石同年病逝, 身后遭全面清算. 旧党强烈反弹报复, 北宋党争恶化.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>互卦雷水解: 利西南。无所往，其来复吉。有攸往，夙吉。<ul>
-<li><em>解卦下卦坎为难. 上卦震为动, 即动手解决坎难. 宜以柔顺包容, 保持初衷的方式尝试, 不可妄动.</em></li>
-<li>西南为坤, 象征柔顺包容. 如果不去追求向外扩张, 而是退守本分, 保持初衷, 则会获得吉祥. 果一定要有所作为, 应当提早准备, 从容不迫, 这样才能获得吉祥。</li>
-<li>这是王安石变法能推进的要点和方式. 王安石本人没有这个性格特质. 变法注定失败.</li>
+<li><em>解卦, 下卦坎为难. 上卦震为动, 即动手解决坎难. 宜以柔顺包容, 保持初衷的方式尝试, 不可妄动.</em></li>
+<li>贲卦的卦辞和互卦都在反复强调不可妄动大事. 宋神宗和王安石皆急功近利, 急于求成. 王安石更是大刀阔斧, 破坏本就不多的政局人和局面, 另建新党, 几乎同时得罪所有的势力. 这种情况下, 变法从一开始就注定失败.</li>
 </ul>
 </li>
 <li>错卦泽水困: 亨。贞大人吉，无咎。有言不信。<ul>
-<li>上卦山变为泽, 也就是六四拒绝”婚媾”结盟, 站在初九的对立面, 强烈反对了. 此时, 初九的改革方, 王安石就颇为困顿, 难以顺利推行变法. </li>
-<li>但此时虽处困境, 但只要能通达变通, 依然可以行得通. 只有具备当事人, 德行高尚, 保持中正之心, 脚踏实地, 稳步推行, 那最终也是吉利的, 不会有灾祸. 就怕这些劝解的言语, 当事人不相信, 听不进去.</li>
-<li>人爻六三为阴爻. 说明底色应当柔顺包容, 敦厚稳重. 九四则表示面对实际困难或阻碍, 当行则行.</li>
-<li>主动权毕竟是在获得权势的王安石一方. 若王安石能有上卦刘太后的气量和城府, 此困境下, 依旧有解. 但性格决定命运, 颇为自负的王安石, 是意识不到自身的性格缺陷的.</li>
+<li><em>困卦才是贲卦面临的真实情况, 虽内有下卦离火之明丽, 然亦有上卦艮山之约束, 进退皆难, 困于表象之文饰, 内部却逐步虚离, 却又不可妄动.</em></li>
+<li><em>面对此种困境, 困卦卦辞给出的建议是: 主事者需有大局观, 全盘考量, 能通达变通, 脚踏实地, 稳步推行, 如此渐进择机推进变革, 方可无咎. 就怕这些劝解的言语, 当事人不相信, 听不进去.</em></li>
 </ul>
 </li>
 <li>综卦火雷噬嗑: 亨。利用狱。<ul>
-<li>《彖》曰: 颐中有物曰噬嗑。噬嗑而亨，刚柔分，动而明，雷电合而章。柔得中而上行，虽不当位，利用狱也。</li>
-<li>猛火烧穿了艮山, 得到了火雷噬嗑的最差结局. 宋朝局势上下耗散(初爻和上爻为阳, 向外耗散), 六五皇帝为阴, 缺乏决断力. 九四成为梗阻, 为朝堂群臣, 党争不断, 不顾社稷民生, 政令难以执行.</li>
-<li>此种情况下, 只能通过严厉刚性的手段, 通过公正的裁断, 明确规则, 严明纪律, 恢复秩序. 很明显, 这个事情只能身处六五之位皇帝来做, 即平衡党争, 启用新人, 维稳为主. 宋神宗(重用王安石)和宋哲宗(启用司马光)都没这个能力. 至此, 宋朝被动摇根基, 伤及根本, 为后面的快速衰弱埋下了伏笔.</li>
+<li>猛火烧穿艮山, 表面文饰不存, 内部虚离显露, 矛盾爆发, 变为火雷噬嗑之结局, 可应王安石变法失败后的宋朝局势.<ul>
+<li>初爻和上爻为阳, 向外耗散: 宋朝局势毫无人和, 上下耗散, 大失民心.</li>
+<li>六五尊位为阴, 缺乏决断力. 此时神宗崩逝, 高太后听政, 司马光拜相. 君权被党争绑架, 难以中正决断.</li>
+<li>九四成为梗阻, 为朝堂群臣, 党争不断, 不顾社稷民生, 政令难以执行.</li>
+<li>六三, 六二中下层官员, 面对朝堂动荡, 朝令夕改的局面, 自然少做少错, 不做不错, 自保为主.</li>
+<li>至此, 宋朝被动摇根基, 伤及根本, 为后面的快速衰弱埋下了伏笔.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9539,45 +9463,54 @@
 </ul>
 </li>
 </ul>
-<h2 id="原卦分析-天火同人-与48象重合"><a href="#原卦分析-天火同人-与48象重合" class="headerlink" title="原卦分析-天火同人(与48象重合)"></a>原卦分析-天火同人(与48象重合)</h2><p><img src="https://draapho.github.io/images/2608/111101.png" alt="天火同人"></p>
+<h2 id="原卦象分析-天火同人-与48象重合"><a href="#原卦象分析-天火同人-与48象重合" class="headerlink" title="原卦象分析-天火同人(与48象重合)"></a>原卦象分析-天火同人(与48象重合)</h2><p><img src="https://draapho.github.io/images/2608/111101.png" alt="天火同人"></p>
 <p>互卦: ䷫ 天风姤;   错卦: ䷆ 地水师;   综卦: ䷍ 火天大有.</p>
 <ul>
-<li>本卦天火同人: 同人于野，亨。利涉大川。利君子贞。<ul>
-<li>蔡京父子, 同心同道, 谋权取财. 是位极人臣, 权倾朝野的升腾之象.</li>
+<li><strong>本卦天火同人: 同人于野，亨。利涉大川。利君子贞。</strong><ul>
+<li>蔡京父子, 同心同道, 谋权取财. 位极人臣, 权倾朝野. 并不契合”同人于野”, 蔡京父子是内部抱团, 党同伐异, 并没有对外包容性.</li>
 </ul>
 </li>
-<li>世爻九三: 伏戎于莽，升其高陵，三岁不兴。<ul>
-<li>九三官鬼爻. 将军队埋伏在草丛中, 登高观察敌情, 但整整三年不敢发动进攻.</li>
-<li><strong>爻辞含义为看准目标, 却犹疑不定, 不敢出手. 和此象毫无关系</strong></li>
+<li>初九: 同人于门，无咎。<ul>
+<li>1094年, 哲宗亲政, 蔡京积极推行新法, 五日内复行募役法, 在朝堂立足.</li>
 </ul>
 </li>
-<li>应爻上九: 同人于郊，无悔。<ul>
-<li>上九子孙爻. <strong>与郊外的人志同道合, 共付目标, 没有悔恨. 和此象毫无关系</strong></li>
+<li>六二: 同人于宗，吝。<ul>
+<li>1102-1104年, 拜相后立党人碑, 大举任用蔡氏子弟.</li>
 </ul>
 </li>
-<li>互卦天风姤: 女壮，勿用取女。<ul>
-<li>蔡京为小人, 不应当启用. 可应”女壮，勿用取女”一说.</li>
+<li><strong>九三世爻: 伏戎于莽，升其高陵，三岁不兴。</strong><ul>
+<li>1120-1124年, 蔡京眼盲, 长子蔡攸为争夺枢密使及首相权力, 与父决裂.</li>
 </ul>
 </li>
-<li>错卦地水师: 贞，丈人吉，无咎。地中有水，师。君子以容民畜众。<ul>
-<li>蔡京父子权势滔天, 他们的反对势力则在暗地里聚众为师, 试图反抗.</li>
-<li>但整象没有此含义. 成地水之师的是宋朝的外敌, 金国, 突然来袭.</li>
-<li>而且金国也不是暗中发展成师, 只是宋朝自己的情报工作没做好.</li>
-<li><strong>对于错卦, 可以进行勉强的解释. 但会有强烈的牵强附会之感.</strong></li>
+<li>九四: 乘其墉，弗克攻，吉。<ul>
+<li>战争相关, 无法合理映射以蔡京父子为主体的历史事件.</li>
 </ul>
 </li>
-<li>综卦火天大有: 火在天上，大有。君子以遏恶扬善，顺天休命。<ul>
-<li><strong>火天大有是天时地利人和共同发力, 形成不可抗拒的趋势. 和此象完全无关, 描述不符合.</strong></li>
-<li>硬要牵强的解释, 也只能是蔡京父子成势. 但他们的成势是只是一个意外情况, 不适合用火天大有形容.</li>
-<li>此象主语是蔡京和宋朝, 最后情况是大家忧心忡忡, 人心惶惶. 故也不能基于金国角度来说火天大有.</li>
+<li>九五: 同人，先号啕而后笑，大师克相遇。<ul>
+<li>战争相关, 无法合理映射以蔡京父子为主体的历史事件.</li>
+</ul>
+</li>
+<li><strong>上九应爻: 同人于郊，无悔。</strong><ul>
+<li>1126年, 蔡京贬死潭州, 蔡攸赐死岭南, 客死荒郊. 但不可应”无悔”二字.</li>
 </ul>
 </li>
 </ul>
-<h2 id="艮宫二世卦分析-山天大畜"><a href="#艮宫二世卦分析-山天大畜" class="headerlink" title="艮宫二世卦分析-山天大畜"></a>艮宫二世卦分析-山天大畜</h2><p>天火同人之卦中, 世爻, 应爻, 错卦, 综卦的意象难以与此象事件映射解释.<br>宋朝以艮宫为主, 独缺艮宫二世卦: 山天大畜. 故尝试基于此卦进行分析.<br>关于卦象的整体结构和分布情况, 详情可参考<a href="https://draapho.github.io/2026/03/06/2612_TbtAnalysis1">金圣叹版推背图框架和结构的整理和分析</a>.<br>只要山天大畜能完美匹配蔡京乱政之象. 那就能确定第二十象的重卦, 应由天火同人改为山天大畜.</p>
+<h2 id="艮宫二世卦分析-山天大畜"><a href="#艮宫二世卦分析-山天大畜" class="headerlink" title="艮宫二世卦分析-山天大畜"></a>艮宫二世卦分析-山天大畜</h2><p>天火同人的爻辞难以全部合理匹配蔡京乱政相关事宜,<br>加之天火同人卦是推背图中唯一重复的卦象,<br>且第48相为龙蛇内战, 更为契合同人卦爻辞的战争相关内容.<br>因而此象的卦象极有可能并不是天火同人.<br>宋朝以艮宫为主, 独缺艮宫二世卦: 山天大畜. 故尝试基于此卦进行分析.<br>关于卦象的整体结构和分布情况, 详情可参考 <a href="https://draapho.github.io/2026/03/06/2612_TbtAnalysis1">金圣叹版推背图框架和结构的整理和分析</a>.<br>只要山天大畜能完美匹配蔡京乱政之象. 那就能确定第二十象的卦象, 应由天火同人改为山天大畜.</p>
 <p><img src="https://draapho.github.io/images/2608/100111.png" alt="山天大畜"></p>
 <p>互卦: ䷵ 雷泽归妹;   错卦: ䷬ 泽地萃;   综卦: ䷘ 天雷无妄.</p>
 <ul>
-<li>本卦山天大畜: 利贞。不家食吉。利涉大川。<ul>
+<li><strong>本卦山天大畜(xù): 利贞。不家食吉。利涉大川。</strong><ul>
+<li><em>“大畜(xù)”: 本义大量的牲畜(chù). 引申为畜藏丰厚, 大有积累. 厚积而薄发, 宜大有作为.</em><ul>
+<li><em>上艮 <code>☶</code> 下乾 <code>☰</code> , 上艮为止为覆碗, 为藏畜, 下乾为动, 朝碗内归拢收集. 乾天也表示应当有所行动, 大有作为.</em></li>
+<li><em>天爻少阳 <code>⚎</code> 渐起可用, 地爻老阳 <code>⚌</code> 正盛. 人爻少阴 <code>⚍</code> 成熟稳重. 天爻渐起, 地爻表物资丰盛, 利于有所作为, 成就一番事业.</em></li>
+</ul>
+</li>
+<li><em>辞译: 畜养着大量牲畜, 利于这样持守. 不要圈养喂食(, 转场放牧)则吉利. 有利于渡过大河 (进行探险行动).</em><ul>
+<li><em>“不家食吉”: 指大规模畜养大型牲畜, 不适合定居圈养, 而应转场游牧.</em></li>
+<li><em>“利涉大川”: 此句广泛存在于卦辞中, 因而是大畜卦的总结性建议. 即蓄藏丰厚, 利于大有作为, 进行开拓探险行动.</em></li>
+</ul>
+</li>
+<li><em>儒译: 利于坚守正道. 不在家中坐吃山空 (, 出仕食禄) 则吉利. 利于渡过大河 (克服险阻).</em></li>
 <li>宋徽宗登基时, 表面上北宋国力强盛, 经济繁荣, 但有不少深层危机(冗官,冗兵,冗费). 勉强应得上山天大畜之卦.</li>
 <li>故此时的宋朝已无”亨通”之运, 尚余有”利贞”之气. 不宜在内部纵欲享乐, 纷争内耗. 宜统一执政思想, 平缓内部矛盾, 优先一致对外.</li>
 <li>上卦艮山为宋徽宗, 覆碗聚财. 宋徽宗迷于文化艺术, 有奢侈欲望, 需要收集大量的资财.</li>
@@ -9585,7 +9518,24 @@
 <li>山天大畜之卦, 形象的描绘了下卦努力行动敛财, 上供到上卦的覆碗之中(四五阴爻)收集起来.</li>
 </ul>
 </li>
-<li>世爻九二: 舆说輹，中无尤也。<ul>
+<li>初九: 有厉，利已(yǐ)。<ul>
+<li><em>辞译: 有危险, 应当停止(放牧).</em><ul>
+<li><em>已(yǐ): 止, 停止.</em></li>
+<li><em>初九爻变得山风蛊. 或瘴气之地, 或浓雾不散. 可能有危险的地方, 放牧时宜远离.</em></li>
+</ul>
+</li>
+<li><em>儒译: 有危险,利于停止.</em></li>
+</ul>
+</li>
+<li><strong>九二世爻: 舆(yú)说(tuō)輹(fù)。</strong><ul>
+<li><em>辞译: 解开车厢与车轴间的缚绳. (拆下车厢, 不应使用马车巡视牧场.)</em><ul>
+<li><em>“舆(yú)”: 本义为车厢, 后泛指车辆, 尤指马车.</em></li>
+<li><em>“说(tuō)”: 通”脱”, 脱落, 取下</em></li>
+<li><em>“輹(fù)”:车轴缚也. 捆绑车伏兔与车轴的绳索, 为易损件.</em></li>
+<li><em>九二爻变得山火贲. 有文饰之丽, 需防过奢而内虚. 如果坐着马车巡视牧场, 过于奢靡, 故主动拆除车厢.</em></li>
+</ul>
+</li>
+<li><em>儒译: 车厢脱离了车轴 . (车损坏停下, 遇到危险当主动退守.)</em></li>
 <li>车子卸下了加固车轴的装置”輹”. 行事中正谨慎守成, 没有灾祸. 也就是肆意妄为的话, 会有灾祸.</li>
 <li>九二官鬼爻. 为驭车的宋徽宗. 大宋之车看似稳固, 但内有潜在风险. 行事中正, 正确用人的话, 不会有灾祸.<ul>
 <li>父母午火伏于官鬼寅木, 木生火. 伏神父母为官员(由作为官鬼的皇帝任命), 此处应蔡京.</li>
@@ -9594,16 +9544,47 @@
 <li>宋徽宗错误宠信启用了蔡京, 故最终为自己和宋朝招来了大灾祸.</li>
 </ul>
 </li>
-<li>九三: 良马逐，利艰贞。日闲舆卫，利有攸往。<ul>
+<li>九三: 良马逐，利艰贞。日闲舆(yú)卫，利有攸往。<ul>
+<li><em>辞译: 良马奔驰追逐, 利于在艰难中持守. 每日操练熟悉驾车防卫技术, 利于有所前往 (寻找新的牧场).</em><ul>
+<li><em>“闲”: 本义栅栏. 此处为动词, 可通”娴”, 熟悉, 熟练.</em></li>
+<li><em>“舆(yú)”: 本义为车厢, 后泛指车辆, 尤指马车.</em></li>
+<li><em>九三爻变得山泽损. 旧有的草场消耗殆尽, 为损, 为艰. 幸而马匹壮硕, 人员精练, 可出发寻找新牧场.</em></li>
+</ul>
+</li>
+<li><em>儒译: 良马奔驰追逐,利于在艰难中坚守正道. 每日练习驾车和防卫的技术,利于有所前往.</em></li>
 <li>当时的宋朝情况, 如果宋徽宗能识别启用如九三兄弟爻一般的人才, 则做一个中兴之主也不无可能.</li>
 <li>此人应当有如下特质: 以”良马”之志追求卓越, 以”艰贞”之格抵御诱惑, 以”舆卫”之备应对变局.</li>
 </ul>
 </li>
-<li>应爻六五: 豮豕之牙，吉。<ul>
+<li>六四: 童牛之牿(gù)，元吉。<ul>
+<li><em>辞译: 给幼牛的角绑上横木,大吉.</em><ul>
+<li><em>“牿(gù): 绑在牛角上的横木. 作用是防止牛角伤人”</em></li>
+<li><em>“童牛”, 为牲畜繁衍, 数量增加. “牿”, 为防患于未然, 提前做好预防措施. 故有”元吉”.</em></li>
+<li><em>六四爻变得火天大有, 表丰盛富有. 牲畜繁衍, 小牛出生长大, 故为大有.</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>六五应爻: 豮(fén)豕(shǐ)之牙，吉。</strong><ul>
+<li><em>辞译: 阉猪的獠牙 (不会伤人), 吉利.</em><ul>
+<li><em>“豮(fén)豕(shǐ)”: 阉割过的猪.</em></li>
+<li><em>六五爻变得风天小畜. 猪也可以放牧, 但其重要性远低于牛马, 且会拱地破坏草场, 因而仅可少量畜养, 为小畜.</em></li>
+</ul>
+</li>
 <li>阉割了野性的猪, 即便有獠牙也不会伤人, 是吉利的.</li>
 <li>六五妻财爻. 宋徽宗为了奢靡欲望而启用蔡京为其敛财, 如果仅将其定位为宠臣, 那问题不大, 危机可控. </li>
 <li>可以将蔡京定位为敛财和提供情绪价值的宠臣, 另外分权启用其他重臣, 那大宋绝不致于快速衰败.</li>
-<li> 但是宋徽宗将越来越多的权力归于蔡京, 使其成为一手遮天的权臣. 提前将大宋带进了不归路.</li>
+<li>但是宋徽宗将越来越多的权力归于蔡京, 使其成为一手遮天的权臣. 提前将大宋带进了不归路.</li>
+</ul>
+</li>
+<li>上九: 何(hè)天之衢(qú)，亨。<ul>
+<li><em>辞译: 牧场广阔无边, 好似担起了整片天空, 亨通.</em><ul>
+<li> <em>“何(hè)”: 动词通”荷”, 金文象人负担之形. 表负荷, 担, 扛.</em></li>
+<li> <em>“衢(qú)”: 四通八达的道路. 这里指四通八达, 广阔无边的草原牧场.</em></li>
+<li> <em>上九爻变得地天泰. 到处都是广大的天然牧场, 感谢大自然的馈赠.</em></li>
+</ul>
+</li>
+<li><em>儒译: 承受上天的通衢大道, 亨通.</em></li>
 </ul>
 </li>
 <li>互卦雷泽归妹: 征凶，无攸利。<ul>
@@ -9624,9 +9605,26 @@
 <li>宋徽宗统治下的宋朝, 则完全违背了”泽地萃”和”天雷无妄”卦辞的教诲和提醒, 其凄惨的结局完全属于咎由自取.<ul>
 <li>他当时握”山天大畜”之江山, 只要能持自然”无妄”之真心, 不折腾不妄动, 就不会有大的灾祸. 再进一步, 如果能行”泽地萃”之要义, 则有机会成为一代明主, 北宋中兴.</li>
 <li>然而真实情况是: 皇帝自身喜奢靡之风, 沉迷艺术娱乐, 用人失当, 治国无方; 朝堂内部奸臣当道, 党争不断, 徒增内耗; 对外本应审时度势, 平衡金辽势力, 却固守”联金灭辽”政策, 养虎为患, 让金国迅速崛起, 最终金戈南下.</li>
-<li>至此可得: <strong>第二十象的事迹, 完全是山天大畜卦的反面教材. 天山大畜卦远比天火同人卦更为契合此象.</strong></li>
 </ul>
 </li>
+<li>至此可得: 第二十象的事迹, 完全是山天大畜卦的反面教材. 天山大畜卦远比天火同人卦更为契合此象.</li>
+</ul>
+<h2 id="车舆和辐輹"><a href="#车舆和辐輹" class="headerlink" title="车舆和辐輹"></a>车舆和辐輹</h2><ul>
+<li>参考资料: <a href="https://wapbaike.baidu.com/tashuo/browse/content?id=b1fc49ab1c937c763a284291">谈《周易》中“辐、輹”是先秦时期马车上的哪个构件，应作何解？</a>. 其观点总结如下:<ul>
+<li>相关卦辞, 以及相关的观点:<ul>
+<li>小畜卦九三: “舆说辐”</li>
+<li>大畜卦九二: “舆说輹”</li>
+<li>大壮卦九四: “壮于大舆之輹”</li>
+</ul>
+</li>
+<li>“輹”的两种解释.<ul>
+<li>解释1: 车伏兔, 称”轐(bú)”. 车伏兔指垫在车箱和车轴之间的木块, 是古代车子上钩连车箱底板与车轴的部件.</li>
+<li>解释2: 捆绑车伏兔与车轴的绳索. 《说文解字》”輹, 车轴缚也.”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://draapho.github.io/images/2682/cheyu.jpg" alt="车舆图片"></li>
 </ul>
 <h1 id="第二一象-山泽损-靖康之耻"><a href="#第二一象-山泽损-靖康之耻" class="headerlink" title="第二一象 山泽损  靖康之耻"></a>第二一象 山泽损  靖康之耻</h1><h2 id="第二一象-甲申-䷨-兌下艮上-損"><a href="#第二一象-甲申-䷨-兌下艮上-損" class="headerlink" title="第二一象　甲申 ䷨ 兌下艮上 損"></a>第二一象　甲申 ䷨ 兌下艮上 損</h2><p>讖曰: 空厥宮中　雪深三尺　吁嗟元𩠬[首首]　南轅北轍<br>頌曰: 妖氛未靖不康寧　北掃烽煙望帝京　異姓立朝終國位　卜世三六又南行<br>图: <img src="https://draapho.github.io/images/2682/Tbt-21.jpg" alt="Tbt-21"></p>
 <p>金聖歎: 「此象主金兵南下，徽宗禪位。靖康元年十一月，京師陷，明年四月，金以二帝及宗室妃嬪北去，立張邦昌為帝。卜世三六者，舉其大數，宋自太祖至徽欽，凡一百七十二年。」</p>
@@ -9682,18 +9680,15 @@
 <h2 id="卦象分析-4"><a href="#卦象分析-4" class="headerlink" title="卦象分析"></a>卦象分析</h2><p><img src="https://draapho.github.io/images/2608/100011.png" alt="山泽损"></p>
 <p>互卦: ䷗ 地雷复;   错卦: ䷞ 泽山咸;   综卦: ䷩ 风雷益;  错综卦: ䷟ 雷风恒</p>
 <ul>
-<li>本卦山泽损: 有孚，元吉，无咎。可贞，利有攸往。曷之用，二簋可用享。<ul>
-<li><del>上卦艮山, 为上为宋朝皇室和朝堂官员. 下卦兑泽, 为下为中下阶层, 平民百姓.</del><ul>
-<li>钦徽二帝时期, 行损下益上, 满足自己私欲之行. 上下离心离德.</li>
-<li>图谶颂的描述的是金国入侵和钦徽二帝被掳之事. 并没有平民百姓, 故这样分析不合适</li>
-</ul>
-</li>
-<li>更正分析: 上卦艮山, 为钦徽二帝. 其位六五之妻财, 可应软弱无能, 沉溺享乐.</li>
+<li><strong>本卦山泽损: 有孚，元吉，无咎。可贞，利有攸往。曷之用？二簋可用享。</strong><ul>
+<li>上卦艮山, 为钦徽二帝. 其位六五之妻财, 可应软弱无能, 沉溺享乐.</li>
 <li>下卦兑泽, 兑为金, 应金国. 得九二官鬼爻之位. 兑为悦, 好运方来. </li>
 <li>山泽损, 是泽损山之根基. 应上卦宋为守成方, 而下卦之金国直接出兵灭了北宋.</li>
 </ul>
 </li>
-<li>世爻六三: 三人行则损一人，一人行则得其友。<ul>
+<li>初九: 已事遄往，无咎。酌损之。</li>
+<li>九二: 利贞，征凶。弗损益之。</li>
+<li><strong>六三世爻: 三人行则损一人，一人行则得其友。</strong><ul>
 <li>三人同行, 意见纷杂, 必然互相猜忌, 内耗不止, 必有人折损. 反而一人独行, 心志专一, 吸引来志同道合者, 可成事.</li>
 <li>六三兄弟爻, 为宋朝朝堂派系之争.<ul>
 <li>譬如主战派(李纲等), 主和派(张邦昌, 唐恪等), 避战派(宋徽宗及权臣童贯等), 宋钦宗则摇摆不定, 朝令夕改. 最后主战派折损, 李纲被宋钦宗贬谪.</li>
@@ -9703,7 +9698,9 @@
 </li>
 </ul>
 </li>
-<li>应爻上九: 弗损，益之，无咎，贞吉，利有攸往，得臣无家。<ul>
+<li>六四: 损其疾，使遄有喜，无咎。</li>
+<li>六五: 或益之十朋之龟，弗克违，元吉。</li>
+<li><strong>上九应爻: 弗损，益之，无咎，贞吉，利有攸往，得臣无家。</strong><ul>
 <li>不损下, 反而助益下位者, 没有灾祸. 这样有利成事, 可得臣民归附而无私心(无家: 不以自家为家).</li>
 <li>上九官鬼爻, 为金国统治者完颜阿骨打及其继任者. 爻辞展现的是其崛起过程:<ul>
 <li>“弗损益之”: 完颜阿骨打起兵反辽时, 确立利益共享机制. 缴获的财物不得私自截留, 统一分配, 大量赏赐给前线将士. 而且鼓励同甘共苦, 与下同食.</li>
@@ -9803,7 +9800,7 @@
 <h2 id="卦象分析-5"><a href="#卦象分析-5" class="headerlink" title="卦象分析"></a>卦象分析</h2><p><img src="https://draapho.github.io/images/2608/101011.png" alt="火泽睽"></p>
 <p>互卦: ䷾ 水火既济;   错卦: ䷦ 水山蹇;   综卦: ䷤ 风火家人.</p>
 <ul>
-<li>本卦火泽睽: 小事吉。<ul>
+<li><strong>本卦火泽睽: 小事吉。</strong><ul>
 <li>上卦离火为散为虚为战火. 应金国, 灭亡了北宋.  <ul>
 <li>原北宋为艮土, 此卦火泽睽为艮宫四世, 爻动入侵到了六四, 即金国入侵后, 艮土变离火, 北宋被灭.</li>
 </ul>
@@ -9813,17 +9810,7 @@
 <li>“小事吉”, 应赵构南渡, 建立南宋, 偏安一隅. </li>
 </ul>
 </li>
-<li>世爻九四: 睽孤，遇元夫，交孚，厉，无咎。<ul>
-<li>九四子孙爻: 历险逃难, 最终成功南渡的赵构.</li>
-<li>爻辞直译: 孤立无援的人, 遇到了德行中正的贵人, 完全信任他, 最终历险而没有灾祸.<ul>
-<li>康王赵构当时面临着国破家亡, 金军追击紧迫, 孤立无援的险境, 惶惶不可终日. </li>
-<li>直到遇到磁州守将宗泽劝诫金人议和之约不可信, 于是决定南撤, 后历险南渡, 神话为”泥马渡江”传说. </li>
-<li>后又经历金国渡江追击, 对其”搜山检海”, 借由主战派的顽强抵抗, 赵构最终躲过追击, 平安无灾.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>应爻初九: 悔亡。丧马勿逐自复。见恶人无咎。<ul>
+<li><strong>初九应爻: 悔亡。丧马勿逐，自复。见恶人，无咎。</strong><ul>
 <li>初九父母爻: 赵构为子为臣, 自然是金国为父为君.</li>
 <li>爻辞直译: 没有悔恨. 丢失了马匹, 不用去追逐, 自会失而复得. 遇到敌对之人, 也不会有灾祸.<ul>
 <li>赵构南渡建立南宋政权后, 金国针对赵构, 发动了”搜山检海”的军事行动. 但最终失败回撤.  </li>
@@ -9834,6 +9821,20 @@
 </li>
 </ul>
 </li>
+<li>九二: 遇主于巷，无咎。</li>
+<li>六三: 见舆曳，其牛掣，其人天且劓。无初有终。</li>
+<li><strong>九四世爻: 睽孤，遇元夫，交孚，厉，无咎。</strong><ul>
+<li>九四子孙爻: 历险逃难, 最终成功南渡的赵构.</li>
+<li>爻辞直译: 孤立无援的人, 遇到了德行中正的贵人, 完全信任他, 最终历险而没有灾祸.<ul>
+<li>康王赵构当时面临着国破家亡, 金军追击紧迫, 孤立无援的险境, 惶惶不可终日. </li>
+<li>直到遇到磁州守将宗泽劝诫金人议和之约不可信, 于是决定南撤, 后历险南渡, 神话为”泥马渡江”传说. </li>
+<li>后又经历金国渡江追击, 对其”搜山检海”, 借由主战派的顽强抵抗, 赵构最终躲过追击, 平安无灾.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>六五: 悔亡。厥宗噬肤，往何咎。</li>
+<li>上九: 睽孤，见豕负涂，载鬼一车，先张之弧，后说之弧，匪寇，婚媾。往遇雨则吉。</li>
 <li>互卦水火既济: 亨，小利贞。初吉终乱。<ul>
 <li>对于宋金双方而言, 经过一番争斗后, 心态上都倾向于接受现状, 安稳为主.</li>
 <li>卦辞上, 契合赵构南宋的之心境和境遇: 成功建立南宋为”亨”, 偏安一隅为”小利贞”, “初吉终乱”为南宋国运的定论.</li>
@@ -9902,7 +9903,7 @@
 <p><img src="https://draapho.github.io/images/2608/111011.png" alt="天泽履"></p>
 <p>互卦: ䷤ 风火家人;   错卦: ䷎ 地山谦;   综卦: ䷈ 风天小畜.</p>
 <ul>
-<li>本卦天泽履: 履虎尾，不咥人。亨。<ul>
+<li><strong>本卦天泽履: 履虎尾，不咥人。亨。</strong><ul>
 <li>上卦乾天为金为动, 应金国. 下卦兑泽为说为悦, 应商贸繁荣, 娱乐盛行的南宋. 此卦描绘的是南宋与金国初期的残酷战争.<ul>
 <li>金国以灭亡吞并南宋为目标, 南宋主战派以”收复中原”为目标.</li>
 </ul>
@@ -9914,7 +9915,15 @@
 </li>
 </ul>
 </li>
-<li>世爻九五: 夬履，贞厉。<ul>
+<li>初九: 素履，往无咎。</li>
+<li><strong>九二应爻: 履道坦坦，幽人贞吉。</strong><ul>
+<li>九二官鬼爻, 为强势进攻方, 金国. 爻辞告诫为: 行为处事应当不偏激, 平淡守正才是吉利的.  </li>
+<li>金国最终放弃了灭亡吞并南宋的目标. 随着汉化的加深, 更以正统自居, 接受南宋的称臣, 越来越倾向于农耕和接受”岁币”, </li>
+</ul>
+</li>
+<li>六三: 眇能视，跛能履，履虎尾，咥人，凶。武人为于大君。</li>
+<li>九四: 履虎尾，愬愬，终吉。</li>
+<li><strong>九五世爻: 夬履，贞厉。</strong><ul>
 <li>九五子孙爻, 为弱势防守方, 南宋.<ul>
 <li>妻财子水伏于子孙申金. 金生水, 子申半合. 伏神妻财可表经济财富等. 可应南宋财政富裕, 金融发达.</li>
 </ul>
@@ -9923,15 +9932,11 @@
 <li>在推背图原作者的角度看, 南宋的情况是不可能收复中原的, 不具备天时地利. 也不会对和议大加批判, 后续卦辞更是多有赞誉.</li>
 </ul>
 </li>
-<li>应爻九二: 履道坦坦，幽人贞吉。<ul>
-<li>九二官鬼爻, 为强势进攻方, 金国. 爻辞告诫为: 行为处事应当不偏激, 平淡守正才是吉利的.  </li>
-<li>金国最终放弃了灭亡吞并南宋的目标. 随着汉化的加深, 更以正统自居, 接受南宋的称臣, 越来越倾向于农耕和接受”岁币”, </li>
-</ul>
-</li>
+<li>上九: 视履考祥，其旋，元吉。</li>
 <li>互卦风火家人: 利女贞。<ul>
 <li>在最初武力对抗后, 南宋和金国签订了”绍兴和议”, 南宋向金国称臣. 可应家人.</li>
 <li>“利女贞”, 应南宋之重文轻武, 有如女子当家, 对内经济,文化,科技高度发达, 对外武力谍报等能力孱弱.</li>
-<li><strong>如果敌对方是蒙古, 无论如何都应不了家人卦. 蒙古灭亡南宋的战略目标从来没有变更过</strong></li>
+<li>如果敌对方是蒙古, 无论如何都应不了家人卦. 蒙古灭亡南宋的战略目标从来没有变更过</li>
 </ul>
 </li>
 <li>错卦地山谦: 亨。君子有终。<ul>
@@ -9986,7 +9991,7 @@
 <h2 id="卦象分析-7"><a href="#卦象分析-7" class="headerlink" title="卦象分析"></a>卦象分析</h2><p><img src="https://draapho.github.io/images/2608/110011.png" alt="风泽中孚"></p>
 <p>互卦: ䷚ 山雷颐;   错卦: ䷽ 雷山小过;   综卦: ䷼ 风泽中孚.</p>
 <ul>
-<li>本卦风泽中孚: 泽上有风，中孚。君子以议狱缓死。<ul>
+<li><strong>本卦风泽中孚: 中孚，豚鱼吉，利涉大川，利贞。</strong><ul>
 <li>下卦兑泽为说为悦, 应商贸繁荣, 娱乐盛行的南宋</li>
 <li>上卦巽风. 为蒙古, 吹遍兑泽之南宋. 即最终灭亡了南宋.</li>
 <li>艮宫游魂卦, 可应南宋灭亡.</li>
@@ -9994,17 +9999,21 @@
 <li>天时地利皆不在我, 非人力可改变之局势. 故曰”中孚”, 只宜修身养性, 转换心态待之.</li>
 </ul>
 </li>
-<li>世爻六四: 月几望，马匹亡，无咎。<ul>
+<li><strong>初九应爻: 虞吉，有它不燕。</strong><ul>
+<li>虞即虑, 指深谋远虑. 有它不燕指: 如果有外界的诱惑或干扰, 内心就无法安宁, 目标就难以实现.</li>
+<li>初九父母为蒙古. 蒙古崛起时期, 军事行动深谋远虑, 绝不莽撞. 而且专一于对外扩张, 拒绝定居, 拒绝汉化, 坚持”逐水草而居,军事化管理”的原始刚健. </li>
+</ul>
+</li>
+<li>九二: 鹤鸣在阴，其子和之。我有好爵，吾与尔靡之。</li>
+<li>六三: 得敌，或鼓或罢，或泣或歌。</li>
+<li><strong>六四世爻: 月几望，马匹亡，无咎。</strong><ul>
 <li>月亮接近圆满时, 失去了逐利的马匹, 因而没有灾祸. 比喻事业达到顶峰之前, 应当弃外反内, 反求诸己, 这样即便失去了一些外在利益, 也不会有灾祸.</li>
 <li>南宋中期(1162-1224年), 社会稳定, 外贸繁荣, 工商业高度发达, 科技领先, 更是文化的巅峰. 可应”月几望”.</li>
 <li>然后南宋统治者没有处理好民族情绪, 而且幻想能够收复故土, 继续采用了”联蒙灭金”的策略. 完全低估了蒙古的军事实力和扩张野心, 未能及时转变与金国敌对关系. 没有做到”马匹亡”, 故得咎.</li>
 </ul>
 </li>
-<li>应爻初九: 虞吉，有它不燕。<ul>
-<li>虞即虑, 指深谋远虑. 有它不燕指: 如果有外界的诱惑或干扰, 内心就无法安宁, 目标就难以实现.</li>
-<li>初九父母为蒙古. 蒙古崛起时期, 军事行动深谋远虑, 绝不莽撞. 而且专一于对外扩张, 拒绝定居, 拒绝汉化, 坚持”逐水草而居,军事化管理”的原始刚健. </li>
-</ul>
-</li>
+<li>九五: 有孚挛如，无咎。</li>
+<li>上九: 翰音登于天，贞凶。</li>
 <li>互卦山雷颐: 贞吉。观颐，自求口实。<ul>
 <li>表现了南宋的特质, 文强武弱, 内强外弱.</li>
 <li>内部调养的非常好, 民生富足安稳, 工商贸易繁荣.</li>
@@ -10384,13 +10393,13 @@
 <h2 id="卦象分析-1"><a href="#卦象分析-1" class="headerlink" title="卦象分析"></a>卦象分析</h2><p><img src="https://draapho.github.io/images/2608/010011.png" alt="水泽节"></p>
 <p>互卦: ䷚ 山雷颐;   错卦: ䷷ 火山旅;   综卦: ䷺ 风水涣.</p>
 <ul>
-<li><strong>本卦水泽节: 亨。苦节不可贞。</strong><ul>
+<li><strong>本卦水泽节: 亨。苦(gǔ)节不可贞。</strong><ul>
 <li><em>“节”, 本义竹节, 通常表节制, 此处解为祭祀相关的某种器物. 天爻可用, 地爻正盛, 无需刻意节制. 更合理的解释是, 为解上卦坎难, 而进行祭祀, 以求沟通神明(下卦兑), 来解难释险. 宜心诚意实, 充分准备, 谨慎行动.</em><ul>
 <li><em>上坎 <code>☵</code> 下兑 <code>☱</code> , 上有坎难, 下有兑说. 希望通过心诚礼厚的祭祀与神明沟通, 以求获得解答.</em></li>
 <li><em>天爻少阴 <code>⚍</code> 当善用, 地爻老阳 <code>⚌</code> 正盛. 人爻老阴 <code>⚏</code> 持守静养. 虽天地可用, 亦当心诚意实, 有备无患, 节制蓄藏, 谨慎行动, 以渡未来天爻之凛冬.</em></li>
 </ul>
 </li>
-<li><em>辞译: (举办祭祀以求解难,)亨通. 使用粗劣祭器和寒酸祭品, 不能这样持守(来祭祀).</em><ul>
+<li><em>辞译: 举办祭祀以求解难,亨通. 使用粗劣祭器和寒酸祭品, 不能这样持守(来祭祀).</em><ul>
 <li><em>“节”: 本义竹节. 这里指为祭祀时使用的祭器, 或为盛放祭品的容器, 或为礼器,如符节,节钺等.</em></li>
 <li><em>“苦(gǔ)”: 通”盬”, 粗劣的.</em></li>
 </ul>
@@ -10521,12 +10530,12 @@
 <p>互卦: ䷖ 山地剥;   错卦: ䷱ 火风鼎;   综卦: ䷃ 山水蒙;  错综卦:  ䷰ 泽火革.</p>
 <ul>
 <li><strong>本卦水雷屯(zhūn): 元亨利贞。勿用(，)有攸往，利建侯。</strong><ul>
-<li><em>“屯”, 金文象草木初生, 本义艰难, 发音(zhūn), 引申义为聚集, 驻扎, 发音(tún). 当自力更生, 内敛发展, 稳固自身根基.</em><ul>
+<li><em>“屯(zhūn)”, 金文象草木初生, 本义艰难. 当自力更生, 内敛发展, 稳固自身根基.</em><ul>
 <li><em>上坎 <code>☵</code> 下兑 <code>☳</code> , 上卦应厚重之坎土, 下卦应初动之草木, 为草木初生, 破土艰难之象. 宜稳固根基, 先生根, 后发芽.</em></li>
-<li><em>天爻少阴 <code>⚍</code> 当善用, 地爻老阳 <code>⚍</code> 当善用. 人爻老阴 <code>⚏</code> 持守颐养, 宜内敛发展, 稳固根基.</em></li>
+<li><em>天爻少阴 <code>⚍</code> 当善用, 地爻老阳 <code>⚍</code> 当善用. 人爻老阴 <code>⚏</code> 持守颐养. 肇(zhào)基之初, 宜内敛发展, 稳固根基.</em></li>
 </ul>
 </li>
-<li><em>辞译: 大为亨通, 利于持守 (根基, 扎根立本). 不要有所前往 (对外扩张), 利于封邦建国 (内敛发展).</em><ul>
+<li><em>辞译: 初生肇(zhào)基, 大为亨通, 利于持守 (根基, 扎根立本). 不要有所前往 (对外扩张), 利于封邦建国 (内敛发展).</em><ul>
 <li><em>“勿用有攸往”: 不应断句, 和”勿用娶女”一个用法, 翻译为不要有所前往.</em></li>
 <li><em>“利建侯”: 西周天子封侯是扩张行为, 但此象是指侯爵在受封的领地内, 划定边界, 筑起城墙, 然后发展内政民生.</em></li>
 </ul>
@@ -10550,13 +10559,13 @@
 <li>934-935年, 石敬瑭任后唐河东节度使, 镇守要地太原. 在后唐末帝李从珂的猜忌与试探中, 隐忍不发, 积蓄兵力, 壮大自身.</li>
 </ul>
 </li>
-<li><strong>六二世爻: 屯如邅如，乘马班如。匪寇，婚媾。女子贞不字，十年乃字。</strong><ul>
-<li><em>辞译: 众人聚结徘回, 车马分阵列队. 这并非寇盗, 而是来求亲联姻的, 女子守持不嫁, 十年后才许嫁.</em><ul>
+<li><strong>六二世爻: 屯如邅如，乘马班如。匪寇，婚媾(gòu)。女子贞不字，十年乃字。</strong><ul>
+<li><em>辞译: 众人聚结徘回, 车马分阵列队. 不是前来掠夺抢亲的, 是来求亲联姻的, 女子守持不嫁, 十年后才许嫁.</em><ul>
 <li><em>“屯如”: 众人聚结扎堆的样子; “邅如”: 徘徊不前的样子.</em></li>
 <li><em>“乘马班如”: 车马分阵列队的样子.</em></li>
-<li><em>“匪寇”: “匪”通”非”, 不是寇盗; “婚媾”: 联姻.</em></li>
+<li><em>“匪”: “匪”通”非”, 不是; “寇”: 暴, 侵犯. 此处指暴力抢亲.; “婚媾(gòu)”: 联姻.</em></li>
 <li><em>“字”: 本义为生孩子. 可表怀孕, 或女子许嫁. 西周时期, 出嫁而刻意不孕, 怕是极其困难的事情, 故许嫁之意更为契合.</em></li>
-<li><em>六二爻变得水泽节, 为面对坎水风险, 占问吉凶之象. 侯爵率领部众来到封地, 未能主动沟通解释, 导致当地部落心生芥蒂, 惊恐顾虑, 多年之后才获得其信任, 许嫁联姻. 上卦坎水为前来封地的侯爵, 下卦兑泽为外柔内刚的当地部落.</em></li>
+<li><em>六二爻变得水泽节, 为面对坎水风险, 占问吉凶之象. 侯爵率领部众来到封地, 未能主动放低姿态沟通解释, 导致当地部落心生芥蒂, 惊恐顾虑, 多年之后才获得其信任, 许嫁联姻. 上卦坎水为前来封地的侯爵, 下卦兑泽为外柔内刚的当地部落.</em></li>
 </ul>
 </li>
 <li><em>儒译: 困顿徘徊, 进退两难, 骑着马盘桓不前. 来者不是强盗, 而是求婚的队伍. 女子坚守贞洁不愿应聘出嫁, 过十年后才应聘出嫁.</em></li>
@@ -10582,7 +10591,7 @@
 </li>
 </ul>
 </li>
-<li>六四: 乘马班如，求婚媾，往吉，无不利。<ul>
+<li>六四: 乘马班如，求婚媾(gòu)，往吉，无不利。<ul>
 <li><em>辞译: 车马排列有序, 整齐以行. 主动求亲, 前往吉利, 没有什么不适宜的.</em><ul>
 <li><em>“乘马班如”: 车马分阵列队的样子.</em></li>
 <li><em>六四爻变得泽雷随. 侯爵率领部众来到封地, 主动放下身段, 沟通解释, 寻求联姻, 当地部落归附许嫁, 双方结成同盟. 上卦兑泽为外柔内刚的当地部落, 下卦震雷为前来封地的侯爵.</em></li>
@@ -10694,8 +10703,8 @@
 <li><em>既济和未济对称, 综合考量, 既济卦爻辞可应商朝由盛转衰, 未济卦爻辞可应周朝的韬光养晦.</em></li>
 </ul>
 </li>
-<li><em>辞译: (渡河成功.) 仅有小小亨通, 利于持守. 起初吉利, 最终危乱.</em></li>
-<li><em>儒译: (事已成功,) 只是小亨通, 利于坚守正道. 起初吉祥, 最终若懈怠则会陷入混乱.</em></li>
+<li><em>辞译: 渡河成功. 仅有小小亨通, 利于持守. 起初吉利, 最终危乱.</em></li>
+<li><em>儒译: 事已成功, 只是小亨通, 利于坚守正道. 起初吉祥, 最终若懈怠则会陷入混乱.</em></li>
 <li>既济卦: 郭威被迫自保, 起兵夺权, 成功称帝, 建立后周, 是为”既济”.<ul>
 <li>“亨小”: 郭威称帝后, 虽励精图治, 但后周亦短命, 仅得”小亨”.</li>
 <li>“利贞”: 其大刀阔斧的改革以及仁政, 最后被赵匡胤完整继承.</li>
@@ -10869,8 +10878,8 @@
 </ul>
 </li>
 <li><em>天爻少阴 <code>⚍</code> 当善用, 地爻老阳 <code>⚍</code> 当善用. 人爻老阳 <code>⚌</code> 意气风发, 欲有作为. 变革是在天时地利尚在, 但无甚冗余的情况下, 人积极主动求变, 试图逆天改命的操作. 故向来成功者少, 失败者多.</em></li>
-<li><em>辞译: 己日, 一切准备妥当, 于是满怀诚信 (开始制革). 大为亨通. 利于(这样)持守, 悔恨消亡.</em><ul>
-<li><em>“己”: 天干的第六位, 为阴土. 表万物成熟, 包容内敛, 默默奉献. 可理解为万事俱备, 时机成熟, 宜开始行动.</em></li>
+<li><em>辞译: 制革之事, 当在己日(准备妥当时), 满怀诚信地开始. 大为亨通. 利于(这样)持守, 悔恨消亡.</em><ul>
+<li><em>“己(jǐ)”: 天干的第六位, 为阴土. 表万物成熟, 包容内敛, 默默奉献. 可理解为万事俱备, 时机成熟, 宜开始行动.</em></li>
 <li><em>“乃”: 语气助词或连词, 可译为”于是”.</em></li>
 </ul>
 </li>
@@ -11071,7 +11080,7 @@
 </li>
 <li><em>上震 <code>☳</code> 下离<code>☲</code> , 离为兵戈, 为明丽, 震为行军为战争, 追求明丽而动兵戈. 下卦离即指兵戈, 又指追求明丽, 暗指外部晦暗, 故进行上卦震雷的武装反对. 然而离火易灭, 震雷短暂, 正如再盛大的军事行动, 也不可久持, 必须谨慎使用.</em></li>
 <li><em>天爻老阴 <code>⚏</code> 晦暗艰难, 地爻老阳 <code>⚍</code> 当善用. 人爻老阳 <code>⚌</code> 意气风发, 欲有作为. 天爻为外部环境, 晦暗艰难. 地爻为内部环境, 兵力强盛, 粮草储备可用. 人爻求变, 信心满满. 领导者欲善用地利人心, 变更改善外部环境, 行改命之壮举. 其风险和收益都极大, 成则涣卦(以兵戈得胜后, 依旧凶险, 还需以德行服众), 败则旅卦.</em></li>
-<li><em>辞译: 亨通, 君王亲至. 不必担忧, 适宜太阳正午高悬 (之时, 彰显军威盛大).</em><ul>
+<li><em>辞译: 军威盛大, 亨通, 君王亲至. 不必担忧, 适宜太阳正午高悬 (之时, 彰显军威盛大).</em><ul>
 <li><em>“假(gé)”: 通”格”, 至, 临, 到达.</em></li>
 <li><em>西周三监之乱时期, 周公完成军事集结, 幼主周成王亲至. 无需忧虑征伐之事, 正午之时利于阅兵, 出兵平叛, 直指朝歌.</em></li>
 </ul>
@@ -11281,7 +11290,7 @@
 <li><em>姤女则可扩展联想为阴邪小人谄媚欲进, 下位者暗使违规手段等. 作为上位者, 亦当言辞恰当地拒绝, 既不能过于刺激小人, 防其怀恨报复, 更不能同流合污, 致使阴邪渐长, 终有大祸.</em></li>
 </ul>
 </li>
-<li><em>辞译: 女子性情躁动, 刚强好胜, 不宜纳娶这样的女子.</em><ul>
+<li><em>辞译: 姤遇相会的女子性情躁动, 刚强好胜, 不宜纳娶这样的女子.</em><ul>
 <li><em>“壮”: 躁动, 猛撞, 不安分.</em></li>
 <li><em>卦辞和爻辞, 主体皆是男方或上位者. 面对逐步上位前进的姤女, 宜采取的应对措施.</em></li>
 </ul>
@@ -11449,7 +11458,7 @@
 <li><em>单从字形看, 遯(dùn)表示”猪逃跑”. 但商周时期, 豚猪主要作为祭品. 遯(dùn)可解释为”带着猪走”, 引申为”带着贵重财产转移”. 这比单纯的表示”猪逃跑”, 更切实际, 更值得描述.</em></li>
 </ul>
 </li>
-<li><em>辞译: (决定退避,)亨通. 仅宜持守携带随身必要物资.</em><ul>
+<li><em>辞译: 退避而亨通. 仅宜持守携带随身必要物资.</em><ul>
 <li><em>“小利贞:” 危险时刻, 事急从权. 仅可小事, 大事上必须服从族群安排. 仅可携带少许必要物资.</em></li>
 </ul>
 </li>
@@ -11774,7 +11783,7 @@
 <li><em>下有四阴汇聚, 上有两阳坐守, 阴阳对峙到了关键节点. 静观九五之位能否妥善处理阴长阳消的问题.</em></li>
 </ul>
 </li>
-<li><em>辞译: (祭祀仪式上, 祭司)完成洗手的仪式, 尚未献上祭品. (众人)心怀诚信, 庄重恭敬(地观仰着).</em><ul>
+<li><em>辞译: (众人)观仰着, (祭司)完成洗手的仪式, 尚未献上祭品. (众人)心怀诚信, 庄重恭敬(地观仰着).</em><ul>
 <li><em>“盥(guàn)”: 祭祀前洗手的仪式.</em></li>
 <li><em>“荐”: 祭祀时献上祭品.</em></li>
 <li><em>“颙(yóng)”: 恭敬庄重的样子.</em></li>
@@ -11924,7 +11933,7 @@
 <li><em>天爻少阳 <code>⚎</code> 渐起尚虚, 地爻老阴 <code>⚏</code> 困顿有危. 人爻老阴 <code>⚏</code> 持守静养. 宜安定自守.</em></li>
 </ul>
 </li>
-<li><em>辞译: (安身之处受损). 不利于有所行动.</em></li>
+<li><em>辞译: (安身之处)剥裂受损. 不利于有所行动.</em></li>
 <li>剥卦: 安史之乱标志着唐朝由盛转衰, 中央皇权与经济民生皆大为剥裂. 但唐朝天命尚在, 由唐肃宗重整旗鼓, 矢志平叛, 勉强续命.</li>
 </ul>
 </li>
@@ -12102,7 +12111,7 @@
 <li><em>用现代话语可描述为: 正值风口, 只要行动起来, 猪也能起飞.</em></li>
 </ul>
 </li>
-<li><em>辞译: 大为亨通, 利于保持(行动). 如果天时已过, 妄动盲行会有过失, 此时不宜有所行动.</em><ul>
+<li><em>辞译: 妄动可无妄, 大为亨通, 利于保持(行动). 如果天时已过, 妄动盲行会有过失, 此时不宜有所行动.</em><ul>
 <li><em>“其匪正有眚, 不利有攸往”: 明显和上九爻辞相关. 即天时有变后, 妄动即盲动, 不可继续行动.</em></li>
 <li><em>“其”: 指代妄动盲行.</em></li>
 <li><em>“匪正”: 即”非正”, 此处是指不是正确的时机. 也就是上九爻变时, 风口已过.</em></li>
@@ -12275,7 +12284,7 @@
 <li><em>火地卦本身无好坏, 是在描述渐起或渐衰的开端. 是”晋”字让人偏向从正面看待此卦.</em></li>
 </ul>
 </li>
-<li><em>辞译: 康侯得周成王赐马众多, 一日之内被多次接见.</em><ul>
+<li><em>辞译: 获得晋升. 康侯得周成王赐马众多, 一日之内被多次接见.</em><ul>
 <li><em>“锡(xī)”: 通”赐”, 赏赐. “蕃(fán)庶”: 众多, 繁多.</em></li>
 <li><em>“康侯”: 卫康叔封, 周文王第九子, 武王同母弟, 卫国始封君. 初封于康地, 故称康侯.</em></li>
 </ul>
@@ -12458,7 +12467,7 @@
 <li><em>以趋势来看, 用波浪理论来比喻, 三浪主升就是火天大有, 是大势所趋, 不可阻挡. <strong>火天成势, 涨跌治乱自有趋势. 治则为大治, 乱则为大乱</strong>.</em></li>
 </ul>
 </li>
-<li><em>辞译: (趋势已成, 势不可挡,) 大为亨通.</em><ul>
+<li><em>辞译: 趋势已成, 势不可挡, 大为亨通.</em><ul>
 <li><em>爻辞描述的是, 大丰收之后, 诸侯向天子进献贡品.</em></li>
 <li><em>特此说明: 西周时期, 诸侯是在秋天携带贡品, 觐见天子. 春天是朝见天子, 共商大事.</em></li>
 </ul>
@@ -12902,7 +12911,7 @@
 <li><em>可从农耕角度, 以龙喻水之气机, 展示商周时期, 占卜观天象的能力.</em></li>
 </ul>
 </li>
-<li><em>辞译: 大为亨通, 利于持守 (乾的进取状态).</em><ul>
+<li><em>辞译: 奋发进取, 大为亨通, 利于持守 .</em><ul>
 <li><em>“元”: 为始, 为大. 元始, 开端; 可表初始, 应春之萌芽始生.</em></li>
 <li><em>“亨”: 亨通, 通达, 顺畅. 可表开创, 应夏之拓展进取.</em></li>
 <li><em>“利”: 利于, 适宜. 可表得利和收获, 应秋之收获喜悦.</em></li>
@@ -13039,7 +13048,7 @@
 <li><em>这是一场君王用以凝聚人心的祭祀活动, 爻辞演绎了众人聚集时的心态.</em></li>
 </ul>
 </li>
-<li><em>辞译: 亨通. 君王亲临宗庙(举行祭祀). 宜觐见长官, 可获亨通. 利于持守, 祭祀时奉献大牲(使用牛羊等, 重大的牺牲, 高规格的祭祀), 会带来吉祥. 宜有所作为.</em><ul>
+<li><em>辞译: 萃聚而亨通, 君王亲临宗庙(举行祭祀). 宜觐见长官, 可获亨通. 利于持守, 祭祀时奉献大牲(使用牛羊等, 重大的牺牲, 高规格的祭祀), 会带来吉祥. 宜有所作为.</em><ul>
 <li><em>假(gé): 通”格”. 表示至, 到.</em></li>
 </ul>
 </li>
